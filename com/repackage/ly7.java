@@ -1,127 +1,85 @@
 package com.repackage;
 
-import android.text.SpannableString;
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
+import android.content.Context;
 import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class ly7 implements my7 {
+public abstract class ly7<T, V extends TypeAdapter.ViewHolder> extends ho<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpannableString a;
-    public String b;
-    public TbPageContext<?> c;
+    public ot7 i;
+    public boolean j;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends ClickableSpan {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ly7 a;
-
-        public b(ly7 ly7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ly7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ly7Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.c, new String[]{this.a.b});
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                super.updateDrawState(textPaint);
-                textPaint.setUnderlineText(false);
-            }
-        }
-
-        public /* synthetic */ b(ly7 ly7Var, a aVar) {
-            this(ly7Var);
-        }
-    }
-
-    public ly7(TbPageContext<?> tbPageContext, ExcContent excContent) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ly7(ot7 ot7Var, BdUniqueId bdUniqueId) {
+        this(ot7Var, bdUniqueId, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, excContent};
+            Object[] objArr = {ot7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((ot7) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (excContent == null || excContent.type.longValue() != 1 || StringUtils.isNull(excContent.text)) {
-            return;
-        }
-        this.c = tbPageContext;
-        this.a = new SpannableString(excContent.text);
-        this.a.setSpan(new b(this, null), 0, excContent.text.length(), 17);
-        this.b = excContent.link;
     }
 
-    @Override // com.repackage.my7
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ho
+    public View S(int i, View view2, ViewGroup viewGroup, T t, V v) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            TbadkCoreApplication.getInst().getSkinType();
+            wo woVar = (wo) viewGroup;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.my7
-    public CharSequence b() {
-        InterceptResult invokeV;
+    public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (CharSequence) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.j = z;
+        }
     }
 
-    @Override // com.repackage.ny7
-    public int getType() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ly7(ot7 ot7Var, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(ot7Var.getPageContext().getPageActivity(), bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ot7Var, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return invokeV.intValue;
+        this.j = false;
+        this.i = ot7Var;
     }
 }

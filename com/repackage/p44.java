@@ -1,27 +1,39 @@
 package com.repackage;
 
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class p44 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile o44 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized o44 a() {
-        InterceptResult invokeV;
-        o44 o44Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (p44.class) {
-                if (a == null) {
-                    a = new o44();
-                }
-                o44Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755459903, "Lcom/repackage/p44;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return o44Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755459903, "Lcom/repackage/p44;");
+                return;
+            }
         }
-        return (o44) invokeV.objValue;
+        SDKInitializer.initialize(AppRuntime.getAppContext());
+        SDKInitializer.setCoordType(CoordType.GCJ02);
+        SDKInitializer.setHttpsEnable(true);
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+        }
     }
 }

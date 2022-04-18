@@ -1,90 +1,82 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.enterForum.recforum.message.RecommendForumRespondedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class a66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public List<ho> b;
-    public zo c;
-    public b66 d;
-    public c66 e;
-    public d66 f;
-    public List<uo> g;
-    public rx5<BaseCardInfo> h;
+    public t56 a;
+    public boolean b;
+    public int c;
+    public b d;
+    public final HttpMessageListener e;
 
     /* loaded from: classes5.dex */
-    public class a extends rx5<BaseCardInfo> {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a66 b;
+        public final /* synthetic */ a66 a;
 
-        public a(a66 a66Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(a66 a66Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a66Var};
+                Object[] objArr = {a66Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = a66Var;
+            this.a = a66Var;
         }
 
-        @Override // com.repackage.rx5
-        public void a(View view2, BaseCardInfo baseCardInfo) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && baseCardInfo != null && (baseCardInfo instanceof h66)) {
-                ArrayList arrayList = new ArrayList();
-                String title = ((h66) baseCardInfo).getTitle();
-                for (uo uoVar : this.b.g) {
-                    if (uoVar instanceof h66) {
-                        h66 h66Var = (h66) uoVar;
-                        if (title.equals(h66Var.getTitle())) {
-                            List<g66> q = h66Var.q();
-                            arrayList.add(uoVar);
-                            arrayList.addAll(q);
-                        } else {
-                            List<g66> m = h66Var.m();
-                            arrayList.add(uoVar);
-                            arrayList.addAll(m);
-                        }
-                    }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003527 && (httpResponsedMessage instanceof RecommendForumRespondedMessage)) {
+                this.a.b = true;
+                if (httpResponsedMessage.getError() != 0) {
+                    return;
                 }
-                i66 i66Var = new i66();
-                i66Var.a = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
-                arrayList.add(i66Var);
-                if (arrayList.size() > 0) {
-                    this.b.c.setData(arrayList);
+                this.a.a = ((RecommendForumRespondedMessage) httpResponsedMessage).getRecommendForumData();
+                if (this.a.d != null) {
+                    this.a.d.a(this.a.c == 1);
                 }
             }
         }
     }
 
-    public a66(TbPageContext tbPageContext, zo zoVar) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    public a66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, zoVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,52 +86,71 @@ public class a66 {
                 return;
             }
         }
-        this.h = new a(this);
-        this.a = tbPageContext;
-        this.c = zoVar;
-        c();
-        this.c.a(this.b);
+        this.b = false;
+        this.c = 1;
+        this.e = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_FORUM_DATA);
+        f();
+        j();
     }
 
-    public final void c() {
+    public t56 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = new ArrayList();
-            b66 b66Var = new b66(this.a);
-            this.d = b66Var;
-            this.b.add(b66Var);
-            c66 c66Var = new c66(this.a, this.h);
-            this.e = c66Var;
-            this.b.add(c66Var);
-            d66 d66Var = new d66(this.a);
-            this.f = d66Var;
-            this.b.add(d66Var);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (t56) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().registerListener(this.e);
         }
     }
 
-    public void d() {
-        zo zoVar;
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (zoVar = this.c) == null) {
-            return;
-        }
-        zoVar.getListAdapter().notifyDataSetChanged();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    public void e(List<uo> list) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.g = list;
-            this.c.setData(list);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            k(1);
         }
     }
 
-    public void f(BdUniqueId bdUniqueId) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            for (ho hoVar : this.b) {
-                hoVar.X(bdUniqueId);
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            k(i);
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_FORUM_DATA, TbConfig.SERVER_ADDRESS + "c/f/forum/getRecommendForumData");
+            tbHttpMessageTask.setResponsedClass(RecommendForumRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = false;
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_RECOMMEND_FORUM_DATA);
+            httpMessage.addParam("page", i);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void l(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 }

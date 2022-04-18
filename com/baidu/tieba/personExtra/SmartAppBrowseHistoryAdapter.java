@@ -58,11 +58,11 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
                 }
             }
             this.a = view2;
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ff2);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ff3);
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setPlaceHolder(1);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ef);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921f0);
         }
 
         public void a(SmartApp smartApp) {

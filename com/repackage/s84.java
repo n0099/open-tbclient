@@ -8,10 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 /* loaded from: classes7.dex */
-public class s84 implements q84<d94> {
+public class s84 implements p84<e94> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +28,7 @@ public class s84 implements q84<d94> {
         }
     }
 
-    @Override // com.repackage.q84
+    @Override // com.repackage.p84
     public void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
@@ -49,10 +48,10 @@ public class s84 implements q84<d94> {
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ETAG.KEY_EXTENSION : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "framework" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.q84
+    @Override // com.repackage.p84
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {

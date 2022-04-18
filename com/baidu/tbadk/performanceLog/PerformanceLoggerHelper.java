@@ -20,7 +20,7 @@ import com.repackage.q85;
 import com.repackage.r85;
 import com.repackage.s85;
 import com.repackage.t85;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes3.dex */
@@ -70,7 +70,7 @@ public class PerformanceLoggerHelper {
         this.isSmallFlow = false;
         this.maxIntervalForOnce = 86400L;
         this.smallFlowInterval = 0L;
-        this.startSmallFlowTime = wt4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
+        this.startSmallFlowTime = vt4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
         BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
         this.smallFlowInterval = this.maxIntervalForOnce;
         BdBaseApplication.getInst().setSmallFlowInterval(this.smallFlowInterval);
@@ -438,12 +438,12 @@ public class PerformanceLoggerHelper {
                 if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
-                    wt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                    vt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
                 }
             } else {
                 this.startSmallFlowTime = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                wt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                vt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
             }
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);

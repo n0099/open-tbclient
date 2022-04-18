@@ -27,7 +27,7 @@ import com.repackage.at1;
 import com.repackage.ct1;
 import com.repackage.dd3;
 import com.repackage.dt1;
-import com.repackage.ng4;
+import com.repackage.mg4;
 import com.repackage.ss1;
 import com.repackage.tg1;
 import java.io.File;
@@ -388,7 +388,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         if (interceptable == null || interceptable.invokeL(65547, this, str) == null) {
             this.e = str + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
             this.f = str + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg";
-            ng4.h(new File(this.e));
+            mg4.h(new File(this.e));
         }
     }
 

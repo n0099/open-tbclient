@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fw5;
-import com.repackage.mw8;
+import com.repackage.hw5;
 import com.repackage.oi;
-import com.repackage.vv5;
-import com.repackage.wv5;
+import com.repackage.tw8;
+import com.repackage.xv5;
+import com.repackage.yv5;
 /* loaded from: classes3.dex */
 public class VoteStatusCard extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public wv5 c;
-    public vv5 d;
+    public yv5 c;
+    public xv5 d;
     public TextView e;
     public VoteStatusView f;
     public TextView g;
@@ -108,15 +108,15 @@ public class VoteStatusCard extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090325);
-            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f092407);
+            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f092408);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0902a9);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0902a8);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09240f);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092405);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09193e);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09193d);
-            this.n = findViewById(R.id.obfuscated_res_0x7f0923f4);
-            this.m = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f0923f5);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092410);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092406);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09193f);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09193e);
+            this.n = findViewById(R.id.obfuscated_res_0x7f0923f5);
+            this.m = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f0923f6);
         }
     }
 
@@ -174,11 +174,11 @@ public class VoteStatusCard extends LinearLayout {
             }
             TextView textView2 = this.i;
             if (textView2 != null) {
-                textView2.setTextColor(this.b > fw5.a ? color : color2);
+                textView2.setTextColor(this.b > hw5.a ? color : color2);
             }
             TextView textView3 = this.k;
             if (textView3 != null) {
-                if (this.b <= fw5.b) {
+                if (this.b <= hw5.b) {
                     color = color2;
                 }
                 textView3.setTextColor(color);
@@ -197,18 +197,18 @@ public class VoteStatusCard extends LinearLayout {
                 newVoteCountDownView.f(i);
             }
             int color3 = SkinManager.getColor(R.color.CAM_X0206);
-            mw8 mw8Var = new mw8(this.o, 902.0f, 224.0f);
-            mw8Var.a(color3);
-            this.n.setBackground(mw8Var);
+            tw8 tw8Var = new tw8(this.o, 902.0f, 224.0f);
+            tw8Var.a(color3);
+            this.n.setBackground(tw8Var);
         }
     }
 
-    public void setData(wv5 wv5Var) {
+    public void setData(yv5 yv5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, wv5Var) == null) {
-            this.c = wv5Var;
-            if (wv5Var != null && wv5Var.a() != null) {
-                vv5 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048581, this, yv5Var) == null) {
+            this.c = yv5Var;
+            if (yv5Var != null && yv5Var.a() != null) {
+                xv5 a2 = this.c.a();
                 this.d = a2;
                 int g = a2.g();
                 this.b = g;
@@ -217,7 +217,7 @@ public class VoteStatusCard extends LinearLayout {
                 this.h.setText(StringHelper.getDateStringMd(this.d.c() * 1000));
                 this.j.setText(StringHelper.getDateStringMdHm(this.d.h() * 1000));
                 this.l.setText(StringHelper.getDateStringMdHm(this.d.d() * 1000));
-                if (this.b == fw5.b) {
+                if (this.b == hw5.b) {
                     this.n.setVisibility(0);
                     NewVoteCountDownView.b bVar = this.q;
                     if (bVar != null) {
@@ -259,7 +259,7 @@ public class VoteStatusCard extends LinearLayout {
                 return;
             }
         }
-        this.b = fw5.b;
+        this.b = hw5.b;
         this.q = new a(this);
         d();
     }

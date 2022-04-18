@@ -36,11 +36,11 @@ public class us3 {
 
         /* renamed from: com.repackage.us3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0529a extends TypeToken<ResultData<ReservationGameResultData>> {
+        public class C0531a extends TypeToken<ResultData<ReservationGameResultData>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0529a(a aVar) {
+            public C0531a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,7 +84,7 @@ public class us3 {
             if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || TextUtils.isEmpty(str) || this.a == null) {
                 return;
             }
-            ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0529a(this).getType());
+            ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0531a(this).getType());
             if (resultData == null) {
                 this.a.onFail("result is null");
             } else if (resultData.errno == 0) {
@@ -196,7 +196,7 @@ public class us3 {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("app_id", Long.valueOf(str));
-                    m74.g().getRequest().cookieManager(a2).url(n).addUrlParam("data", jSONObject.toString()).build().executeAsync(new b(this));
+                    l74.g().getRequest().cookieManager(a2).url(n).addUrlParam("data", jSONObject.toString()).build().executeAsync(new b(this));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -212,7 +212,7 @@ public class us3 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("status", 2);
-                m74.g().getRequest().cookieManager(a2).url(c2).addUrlParam("data", jSONObject.toString()).build().executeAsync(new a(this, vs3Var));
+                l74.g().getRequest().cookieManager(a2).url(c2).addUrlParam("data", jSONObject.toString()).build().executeAsync(new a(this, vs3Var));
             } catch (JSONException e) {
                 e.printStackTrace();
             }

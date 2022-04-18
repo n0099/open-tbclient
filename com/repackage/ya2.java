@@ -127,7 +127,7 @@ public class ya2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             for (File file : l()) {
-                ng4.j(file);
+                mg4.j(file);
             }
         }
     }
@@ -157,7 +157,7 @@ public class ya2 {
                     cipher.init(2, secretKeySpec, ivParameterSpec);
                     fileOutputStream.write(cipher.doFinal(bArr2));
                     fileOutputStream.flush();
-                    ng4.L(file);
+                    mg4.L(file);
                     Pair<Boolean, File> pair = new Pair<>(Boolean.TRUE, g);
                     fileOutputStream.close();
                     fileInputStream.close();
@@ -234,9 +234,9 @@ public class ya2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (File file : ng4.C(new File(f()))) {
+            for (File file : mg4.C(new File(f()))) {
                 if (file.isDirectory()) {
-                    File[] C2 = ng4.C(file);
+                    File[] C2 = mg4.C(file);
                     int length = C2.length;
                     int i = 0;
                     while (true) {
@@ -263,11 +263,11 @@ public class ya2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, file)) == null) {
             if (file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length == 1 && listFiles[0].isDirectory()) {
-                ng4.e(listFiles[0], file);
-                ng4.L(listFiles[0]);
+                mg4.e(listFiles[0], file);
+                mg4.L(listFiles[0]);
             }
             try {
-                str = new JSONObject(ng4.E(new File(file, "swan-package.json"))).getString("name");
+                str = new JSONObject(mg4.E(new File(file, "swan-package.json"))).getString("name");
             } catch (JSONException e) {
                 e.printStackTrace();
                 str = "";
@@ -291,16 +291,16 @@ public class ya2 {
             boolean z = false;
             if (file != null && file.exists()) {
                 File file2 = new File(i());
-                ng4.l(file2);
-                if (ng4.U(file.getAbsolutePath(), file2.getAbsolutePath())) {
+                mg4.l(file2);
+                if (mg4.U(file.getAbsolutePath(), file2.getAbsolutePath())) {
                     File file3 = new File(h(m(file2)));
                     if (file3.exists()) {
-                        ng4.L(file3);
+                        mg4.L(file3);
                     }
                     file3.mkdirs();
-                    ng4.e(file2, file3);
-                    ng4.L(file2);
-                    ng4.L(file);
+                    mg4.e(file2, file3);
+                    mg4.L(file2);
+                    mg4.L(file);
                     z = true;
                 }
                 jx1.k("DebugDependencyControl", "debug扩展库解压结果: unzipSuccess=" + z);

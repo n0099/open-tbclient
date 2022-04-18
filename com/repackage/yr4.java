@@ -1,38 +1,101 @@
 package com.repackage;
 
-import android.graphics.Paint;
-import android.text.Spanned;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.feedManager.FeedRecModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Personalized.DataRes;
 /* loaded from: classes7.dex */
 public class yr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yr4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public FeedRecModel a;
+    public DataRes b;
+    public FeedRecModel.b c;
 
-    public static void a(Paint.FontMetricsInt fontMetricsInt, int i) {
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, fontMetricsInt, i) == null) || (i3 = (i2 = fontMetricsInt.descent) - fontMetricsInt.ascent) <= 0) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a implements FeedRecModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yr4 a;
+
+        public a(yr4 yr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yr4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yr4Var;
         }
-        int round = Math.round(i2 * ((i * 1.0f) / i3));
-        fontMetricsInt.descent = round;
-        fontMetricsInt.ascent = round - i;
+
+        @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.b
+        public void a(DataRes dataRes, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                this.a.b = dataRes;
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.b
+        public void onLoadError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.b = null;
+            }
+        }
     }
 
-    public static boolean b(CharSequence charSequence) {
-        InterceptResult invokeL;
+    public yr4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
-            if (charSequence instanceof Spanned) {
-                Spanned spanned = (Spanned) charSequence;
-                return ((EMTextView.a[]) spanned.getSpans(0, spanned.length(), EMTextView.a.class)).length > 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.c = new a(this);
+        FeedRecModel feedRecModel = new FeedRecModel();
+        this.a = feedRecModel;
+        feedRecModel.B(this.c);
+    }
+
+    public static yr4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (yr4.class) {
+                    if (d == null) {
+                        d = new yr4();
+                    }
+                }
+            }
+            return d;
+        }
+        return (yr4) invokeV.objValue;
+    }
+
+    public DataRes c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (DataRes) invokeV.objValue;
     }
 }

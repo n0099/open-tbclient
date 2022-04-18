@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nz6;
 import com.repackage.oi;
+import com.repackage.pz6;
 import java.util.List;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaUserInfo;
@@ -165,11 +165,11 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         }
     }
 
-    public void setData(nz6 nz6Var) {
+    public void setData(pz6 pz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nz6Var) == null) {
-            if (nz6Var != null && !ListUtils.isEmpty(nz6Var.e())) {
-                this.e = nz6Var.e();
+        if (interceptable == null || interceptable.invokeL(1048581, this, pz6Var) == null) {
+            if (pz6Var != null && !ListUtils.isEmpty(pz6Var.e())) {
+                this.e = pz6Var.e();
                 setVisibility(0);
                 d();
                 return;

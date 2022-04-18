@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fe8;
-import com.repackage.zx4;
+import com.repackage.me8;
+import com.repackage.yx4;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.b {
@@ -23,7 +23,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     public MsgRemindModel mModel;
     public MsgRemindModel.e mMsgRemindModelCallback;
     public OfficialAccountPushModel mOfficialPushModel;
-    public fe8 mView;
+    public me8 mView;
 
     /* loaded from: classes4.dex */
     public class a implements MsgRemindModel.e {
@@ -77,7 +77,7 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
                     }
                 } else if (i == 7) {
                     if (z) {
-                        zx4.d().S(z2);
+                        yx4.d().S(z2);
                     } else if (z2) {
                         this.a.mView.i().i();
                     } else {
@@ -189,9 +189,9 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            fe8 fe8Var = new fe8(this);
-            this.mView = fe8Var;
-            fe8Var.m();
+            me8 me8Var = new me8(this);
+            this.mView = me8Var;
+            me8Var.m();
             this.mModel = new MsgRemindModel(this);
         }
     }

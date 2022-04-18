@@ -25,13 +25,13 @@ public class ph3 extends mo1 {
 
         /* renamed from: com.repackage.ph3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0492a implements cf3<m53<o53.e>> {
+        public class C0494a implements cf3<m53<o53.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ lo1.b a;
             public final /* synthetic */ a b;
 
-            public C0492a(a aVar, lo1.b bVar) {
+            public C0494a(a aVar, lo1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,7 +97,7 @@ public class ph3 extends mo1 {
                 if (a0 == null) {
                     return new js1(1001, "null swan runtime");
                 }
-                a0.d0().g(i03.J(), "mapp_i_get_bduss", new C0492a(this, bVar));
+                a0.d0().g(i03.J(), "mapp_i_get_bduss", new C0494a(this, bVar));
                 return js1.f();
             }
             return (js1) invokeLL.objValue;

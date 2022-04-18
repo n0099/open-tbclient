@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz4;
-import com.repackage.fy4;
+import com.repackage.az4;
+import com.repackage.ey4;
 import com.repackage.s85;
 import com.repackage.x8;
-import com.repackage.zx4;
+import com.repackage.yx4;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
@@ -95,7 +95,7 @@ public class InitAppSettingTask extends LaunchTask {
             initSettings();
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
-            zx4.d().n();
+            yx4.d().n();
             s85.b().y(System.currentTimeMillis() - currentTimeMillis);
             x8.f().q(20);
         }
@@ -125,14 +125,14 @@ public class InitAppSettingTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            fy4 fy4Var = new fy4();
-            fy4Var.e(loadString);
-            bz4 a = bz4.a();
-            a.g(fy4Var.b() == 1);
-            a.h(fy4Var.c());
-            a.i(fy4Var.d() * 1000);
-            if (fy4Var.a() != null) {
-                a.j(fy4Var.a());
+            ey4 ey4Var = new ey4();
+            ey4Var.e(loadString);
+            az4 a = az4.a();
+            a.g(ey4Var.b() == 1);
+            a.h(ey4Var.c());
+            a.i(ey4Var.d() * 1000);
+            if (ey4Var.a() != null) {
+                a.j(ey4Var.a());
             }
         }
     }

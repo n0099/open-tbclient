@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.bl8;
+import com.repackage.br4;
 import com.repackage.c35;
-import com.repackage.cr4;
+import com.repackage.il8;
 import com.repackage.mg;
 import com.repackage.qe;
 import com.repackage.wa;
@@ -44,7 +44,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public NicknameInfo b;
     public final Context c;
     public Handler d;
-    public bl8 e;
+    public il8 e;
     public boolean f;
     public wa g;
 
@@ -211,7 +211,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         this.a = null;
         this.c = moreActivity.getPageContext().getContext();
         this.d = new Handler(Looper.getMainLooper());
-        this.e = new bl8("profileStat");
+        this.e = new il8("profileStat");
         registerListener(this.g);
     }
 
@@ -219,8 +219,8 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            cr4.f();
-            return cr4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
+            br4.f();
+            return br4.e("tb_user_profile", TbadkCoreApplication.getCurrentAccountName());
         }
         return (qe) invokeV.objValue;
     }
@@ -311,7 +311,7 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
             if (z3) {
                 setErrorString(str);
             } else {
-                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c18));
+                setErrorString(this.c.getString(R.string.obfuscated_res_0x7f0f0c17));
             }
             this.mLoadDataMode = 1;
             this.mLoadDataCallBack.c(Boolean.FALSE);
@@ -371,9 +371,9 @@ public class MoreDiscoveryModel extends BdBaseModel<MoreActivity> {
     public final void O() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.e == null) {
-            bl8 bl8Var = new bl8("profileStat");
-            this.e = bl8Var;
-            bl8Var.f();
+            il8 il8Var = new il8("profileStat");
+            this.e = il8Var;
+            il8Var.f();
         }
     }
 

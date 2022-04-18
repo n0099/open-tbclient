@@ -25,13 +25,13 @@ public class tq1 extends pq1 {
 
         /* renamed from: com.repackage.tq1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0524a implements ia3.c {
+        public class C0522a implements ia3.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ br1 a;
             public final /* synthetic */ a b;
 
-            public C0524a(a aVar, br1 br1Var) {
+            public C0522a(a aVar, br1 br1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +93,7 @@ public class tq1 extends pq1 {
                 br1 br1Var = new br1("compassChange", jSONObject, str);
                 ia3 i = ia3.i();
                 i.l(this.a.getContext());
-                i.o(new C0524a(this, br1Var));
+                i.o(new C0522a(this, br1Var));
                 jx1.i("CompassApi", "start listen compass");
                 i.p();
                 br1Var.b(this.a);

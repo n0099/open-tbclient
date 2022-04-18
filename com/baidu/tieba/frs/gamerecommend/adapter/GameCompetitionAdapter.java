@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dg;
 import com.repackage.eg;
-import com.repackage.id6;
-import com.repackage.o26;
+import com.repackage.kd6;
 import com.repackage.oi;
+import com.repackage.q26;
 /* loaded from: classes3.dex */
-public class GameCompetitionAdapter extends id6<o26, CardFrsGameCompetitionHolder> {
+public class GameCompetitionAdapter extends kd6<q26, CardFrsGameCompetitionHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String t;
@@ -62,9 +62,9 @@ public class GameCompetitionAdapter extends id6<o26, CardFrsGameCompetitionHolde
                 }
             }
             this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090530);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c49);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c48);
-            CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout = (CardFrsGameCompetitionLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c47);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c4a);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c49);
+            CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout = (CardFrsGameCompetitionLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c48);
             this.d = cardFrsGameCompetitionLayout;
             cardFrsGameCompetitionLayout.setItemSpace(oi.f(view2.getContext(), R.dimen.tbds20));
             this.d.setItemWidth(((oi.f(view2.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
@@ -189,18 +189,18 @@ public class GameCompetitionAdapter extends id6<o26, CardFrsGameCompetitionHolde
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.id6, com.repackage.ho
+    @Override // com.repackage.kd6, com.repackage.ho
     /* renamed from: o0 */
-    public View S(int i, View view2, ViewGroup viewGroup, o26 o26Var, CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, q26 q26Var, CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o26Var, cardFrsGameCompetitionHolder})) == null) {
-            if (o26Var != null && o26Var.a() != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, q26Var, cardFrsGameCompetitionHolder})) == null) {
+            if (q26Var != null && q26Var.a() != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                cardFrsGameCompetitionHolder.b.setText(o26Var.a().title);
+                cardFrsGameCompetitionHolder.b.setText(q26Var.a().title);
                 cardFrsGameCompetitionHolder.b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
                 cardFrsGameCompetitionHolder.d.setPageContext(this.k);
-                cardFrsGameCompetitionHolder.d.setData(o26Var.a().sub_nodes);
+                cardFrsGameCompetitionHolder.d.setData(q26Var.a().sub_nodes);
                 cardFrsGameCompetitionHolder.c.setMaxOverScrollDistance(cardFrsGameCompetitionHolder.d.getChildItemWidth());
                 cardFrsGameCompetitionHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0201));
                 SkinManager.setBackgroundResource(cardFrsGameCompetitionHolder.e, R.color.CAM_X0205);

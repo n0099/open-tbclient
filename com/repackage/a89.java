@@ -1,15 +1,47 @@
 package com.repackage;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.nio.charset.Charset;
 /* loaded from: classes5.dex */
-public interface a89 {
-    void a();
+public class a89 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i);
+    public static byte[] a(String str, Charset charset) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, charset)) == null) {
+            if (str == null) {
+                return null;
+            }
+            return str.getBytes(charset);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
 
-    void c();
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a(str, z79.a) : (byte[]) invokeL.objValue;
+    }
 
-    void d(String str);
+    public static String c(byte[] bArr, Charset charset) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, charset)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            return new String(bArr, charset);
+        }
+        return (String) invokeLL.objValue;
+    }
 
-    void e(String str);
-
-    void f();
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? c(bArr, z79.a) : (String) invokeL.objValue;
+    }
 }

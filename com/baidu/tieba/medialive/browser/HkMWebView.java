@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cm4;
+import com.repackage.bm4;
 import com.repackage.oi;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -164,7 +164,7 @@ public class HkMWebView extends BaseWebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                cm4.a("HkMWebView", webView);
+                bm4.a("HkMWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;

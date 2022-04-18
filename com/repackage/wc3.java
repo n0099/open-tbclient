@@ -208,8 +208,8 @@ public class wc3 {
             if (a) {
                 Log.d("SwanAppCompat", "on App upgrade");
             }
-            if (t74.b() != null && pc4.b()) {
-                t74.b().i().putString("key_online_description_fix_version", "0");
+            if (s74.b() != null && oc4.b()) {
+                s74.b().i().putString("key_online_description_fix_version", "0");
             }
             x83.a().putBoolean("swan_app_js_native_ab_update_key", true);
         }

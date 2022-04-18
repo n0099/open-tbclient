@@ -266,9 +266,9 @@ public class by1 extends g23 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, str2, file, unitedSchemeEntity, callbackHandler}) == null) {
             try {
-                Response executeSync = m74.g().getRequest().url(str).connectionTimeout(1500).build().executeSync();
+                Response executeSync = l74.g().getRequest().url(str).connectionTimeout(1500).build().executeSync();
                 if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
-                    qg4.a(executeSync.body().byteStream(), file);
+                    pg4.a(executeSync.body().byteStream(), file);
                     Intent g1 = hl2.g1(context, o());
                     g1.putExtra(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, this.c.e);
                     g1.putExtra("slavePreload", this.c.f);

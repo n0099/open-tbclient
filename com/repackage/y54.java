@@ -1,51 +1,40 @@
 package com.repackage;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDAbstractLocationListener;
-import com.baidu.location.BDLocation;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.tieba.R;
+import com.baidu.swan.map.location.model.SelectedLocationInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.j54;
+import com.repackage.t54;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y54 {
+public class y54 extends u44<tm2> implements t54.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public BaiduMap b;
-    public Marker c;
-    public BitmapDescriptor d;
-    public b e;
-    public LocationClient f;
-    public BDLocation g;
-    public boolean h;
+    public sm2 a;
+    public tm2 b;
 
     /* loaded from: classes7.dex */
-    public class a extends BDAbstractLocationListener {
+    public class a implements j54.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y54 a;
+        public final /* synthetic */ sm2 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ y54 c;
 
-        public a(y54 y54Var) {
+        public a(y54 y54Var, sm2 sm2Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y54Var};
+                Object[] objArr = {y54Var, sm2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,120 +44,143 @@ public class y54 {
                     return;
                 }
             }
-            this.a = y54Var;
+            this.c = y54Var;
+            this.a = sm2Var;
+            this.b = str;
         }
 
-        @Override // com.baidu.location.BDAbstractLocationListener
-        public void onReceiveLocation(BDLocation bDLocation) {
+        @Override // com.repackage.j54.c
+        public void onFail() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                if (bDLocation == null) {
-                    this.a.m();
-                    return;
-                }
-                this.a.b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
-                if (this.a.c != null) {
-                    this.a.c.remove();
-                    this.a.c = null;
-                }
-                MarkerOptions icon = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.a.d);
-                y54 y54Var = this.a;
-                y54Var.c = (Marker) y54Var.b.addOverlay(icon);
-                if (this.a.g == null) {
-                    this.a.b.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())));
-                    if (this.a.e != null) {
-                        this.a.e.a(bDLocation);
-                    }
-                }
-                this.a.g = bDLocation;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                jx1.o("map", "location permission fail");
+                this.a.b(this.b, 1003, "location permission fail");
+            }
+        }
+
+        @Override // com.repackage.j54.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                jx1.o("map", "location permission success");
+                this.c.g();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(BDLocation bDLocation);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755190823, "Lcom/repackage/y54;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755190823, "Lcom/repackage/y54;");
+                return;
+            }
+        }
+        boolean z = tg1.a;
     }
 
-    public y54(Context context, BaiduMap baiduMap) {
+    public y54() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, baiduMap};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.h = false;
-        this.a = context;
-        this.b = baiduMap;
     }
 
-    public BDLocation i() {
+    public static y54 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (BDLocation) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new y54() : (y54) invokeV.objValue;
     }
 
-    public final void j() {
+    @Override // com.repackage.t54.b
+    public void a(SelectedLocationInfo selectedLocationInfo) {
+        sm2 sm2Var;
+        tm2 tm2Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
-            LocationClient locationClient = new LocationClient(this.a.getApplicationContext());
-            this.f = locationClient;
-            locationClient.registerLocationListener(new a(this));
-            LocationClientOption locationClientOption = new LocationClientOption();
-            locationClientOption.setOpenGps(true);
-            locationClientOption.setCoorType(CoordType.GCJ02.name());
-            locationClientOption.setScanSpan(1000);
-            this.f.setLocOption(locationClientOption);
-            this.d = BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f080192);
-        }
-    }
-
-    public void k(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.h) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) || (sm2Var = this.a) == null || (tm2Var = this.b) == null) {
             return;
         }
-        j();
-        LocationClient locationClient = this.f;
-        if (locationClient == null || locationClient.isStarted()) {
-            return;
-        }
-        this.f.start();
-        this.h = true;
+        sm2Var.c(tm2Var.z, selectedLocationInfo.toJson());
     }
 
-    public final void m() {
-        LocationClient locationClient;
+    public final boolean e(Context context, tm2 tm2Var, sm2 sm2Var, j03 j03Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.h && (locationClient = this.f) != null && locationClient.isStarted()) {
-            this.f.stop();
-            this.h = false;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (z) {
-                l();
-            } else {
-                m();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, tm2Var, sm2Var, j03Var)) == null) {
+            jx1.i("map", "ChooseLocationAction start");
+            if (!tm2Var.isValid()) {
+                jx1.c("map", "model is invalid");
+                return false;
             }
+            String str = tm2Var.z;
+            if (TextUtils.isEmpty(str)) {
+                jx1.c("map", "cb is empty");
+                return false;
+            }
+            this.a = sm2Var;
+            this.b = tm2Var;
+            j54.b(context, new a(this, sm2Var, str));
+            jx1.i("map", "ChooseLocationAction end");
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.u44
+    /* renamed from: f */
+    public boolean b(Context context, tm2 tm2Var, sm2 sm2Var, j03 j03Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, tm2Var, sm2Var, j03Var, jSONObject)) == null) ? e(context, tm2Var, sm2Var, j03Var) : invokeLLLLL.booleanValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            t54 a3 = t54.a3(null);
+            a3.f3(this);
+            a3.h3();
+        }
+    }
+
+    @Override // com.repackage.t54.b
+    public void onCancel() {
+        tm2 tm2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            jx1.i("map", "choose location cancel");
+            sm2 sm2Var = this.a;
+            if (sm2Var == null || (tm2Var = this.b) == null) {
+                return;
+            }
+            sm2Var.b(tm2Var.z, 1002, "choose location canceled");
+        }
+    }
+
+    @Override // com.repackage.t54.b
+    public void onError() {
+        tm2 tm2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            jx1.i("map", "choose location fail");
+            sm2 sm2Var = this.a;
+            if (sm2Var == null || (tm2Var = this.b) == null) {
+                return;
+            }
+            sm2Var.b(tm2Var.z, 1007, "choose location failed");
         }
     }
 }

@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mv4;
 import com.repackage.ni;
-import com.repackage.nv4;
 import com.repackage.v75;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class LikeButtonWithHeadPortrait extends FrameLayout implements nv4 {
+public class LikeButtonWithHeadPortrait extends FrameLayout implements mv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -107,7 +107,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements nv4 {
         f(context);
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -127,7 +127,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements nv4 {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -135,7 +135,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements nv4 {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -143,14 +143,14 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements nv4 {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -162,12 +162,12 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements nv4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0890, this);
-            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090d29);
+            HeadPendantView headPendantView = (HeadPendantView) findViewById(R.id.obfuscated_res_0x7f090d2a);
             this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090425);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09238a);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091a9b);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09238b);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091a9c);
         }
     }
 

@@ -93,9 +93,9 @@ public class b extends com.kwad.sdk.core.page.recycle.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view2) {
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09118a);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09118b);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09118c);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09118b);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09118c);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09118d);
         this.g = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.b.1
             @Override // android.view.View.OnClickListener
@@ -189,7 +189,7 @@ public class b extends com.kwad.sdk.core.page.recycle.a {
                 }
                 if (detailWebRecycleView.getChildCount() > 1) {
                     View view4 = detailWebRecycleView.findViewHolderForAdapterPosition(1).itemView;
-                    b.this.b = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f091180);
+                    b.this.b = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f091181);
                     b.this.a(view4);
                 }
                 com.kwad.sdk.core.d.a.a("AdRecycleWebFragment", "onGlobalLayout");

@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tq5;
 import com.repackage.uo;
-import com.repackage.uq5;
 import com.repackage.vq5;
 import com.repackage.wq5;
+import com.repackage.xq5;
+import com.repackage.yq5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -72,31 +72,31 @@ public class SpecialConcernTabModel extends BdBaseModel {
                     boolean z = alaSpecialConcernResponse.hasMore;
                     if (ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
                         if (this.a.a == 1) {
-                            this.a.c.add(new uq5());
+                            this.a.c.add(new wq5());
                         }
                     } else {
-                        for (tq5 tq5Var : alaSpecialConcernResponse.followList) {
-                            vq5 vq5Var = new vq5();
-                            vq5Var.a = tq5Var.a;
-                            vq5Var.b = tq5Var.b;
-                            vq5Var.c = false;
-                            this.a.c.add(vq5Var);
+                        for (vq5 vq5Var : alaSpecialConcernResponse.followList) {
+                            xq5 xq5Var = new xq5();
+                            xq5Var.a = vq5Var.a;
+                            xq5Var.b = vq5Var.b;
+                            xq5Var.c = false;
+                            this.a.c.add(xq5Var);
                         }
                     }
                     if (!ListUtils.isEmpty(alaSpecialConcernResponse.recommendList)) {
-                        wq5 wq5Var = new wq5();
+                        yq5 yq5Var = new yq5();
                         if (!ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
-                            wq5Var.a = false;
+                            yq5Var.a = false;
                         } else {
-                            wq5Var.a = true;
+                            yq5Var.a = true;
                         }
-                        this.a.c.add(wq5Var);
-                        for (tq5 tq5Var2 : alaSpecialConcernResponse.recommendList) {
-                            vq5 vq5Var2 = new vq5();
-                            vq5Var2.a = tq5Var2.a;
-                            vq5Var2.b = tq5Var2.b;
-                            vq5Var2.c = true;
-                            this.a.c.add(vq5Var2);
+                        this.a.c.add(yq5Var);
+                        for (vq5 vq5Var2 : alaSpecialConcernResponse.recommendList) {
+                            xq5 xq5Var2 = new xq5();
+                            xq5Var2.a = vq5Var2.a;
+                            xq5Var2.b = vq5Var2.b;
+                            xq5Var2.c = true;
+                            this.a.c.add(xq5Var2);
                         }
                     }
                     SpecialConcernTabModel.z(this.a);

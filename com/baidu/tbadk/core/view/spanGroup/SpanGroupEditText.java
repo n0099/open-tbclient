@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.e9;
-import com.repackage.ft6;
-import com.repackage.fv4;
-import com.repackage.no4;
+import com.repackage.ev4;
+import com.repackage.ht6;
+import com.repackage.mo4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -205,7 +205,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void f(int i) {
-        fv4 C;
+        ev4 C;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (C = this.b.C(i)) == null || getText() == null) {
             return;
@@ -213,18 +213,18 @@ public class SpanGroupEditText extends AppCompatEditText {
         this.b.delete(C.f(), C.c());
     }
 
-    public void g(List<ft6> list, List<String> list2) {
+    public void g(List<ht6> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, list, list2) == null) || ListUtils.isEmpty(list)) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
-            ft6 ft6Var = list.get(i);
+            ht6 ht6Var = list.get(i);
             String str = list2.get(i);
-            if (!this.b.o(ft6Var.a())) {
+            if (!this.b.o(ht6Var.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
-                no4 b = no4.b(tbLinkSpanGroup, ft6Var);
+                mo4 b = mo4.b(tbLinkSpanGroup, ht6Var);
                 b.h = str;
                 tbLinkSpanGroup.z(b.d);
                 tbLinkSpanGroup.r();
@@ -327,7 +327,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void setOnSpanGroupChangedListener(fv4.a aVar) {
+    public void setOnSpanGroupChangedListener(ev4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) {
             this.b.T(aVar);

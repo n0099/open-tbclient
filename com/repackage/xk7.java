@@ -1,64 +1,32 @@
 package com.repackage;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u25;
-import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class xk7 extends u25 {
+public class xk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<p05> m;
-
-    /* loaded from: classes7.dex */
-    public class a implements u25.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xk7 a;
-
-        public a(xk7 xk7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xk7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xk7Var;
-        }
-
-        @Override // com.repackage.u25.a
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
-                DLauncher D = this.a.D(i);
-                if (D.getLayoutParams() == null) {
-                    D.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
-                }
-                return D;
-            }
-            return (View) invokeILL.objValue;
-        }
-    }
+    public View a;
+    public TailData b;
+    public TextView c;
+    public TextView d;
+    public Context e;
+    public String f;
 
     public xk7() {
         Interceptable interceptable = $ic;
@@ -74,68 +42,80 @@ public class xk7 extends u25 {
         }
     }
 
-    public void C(LinkedList<p05> linkedList) {
+    public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, linkedList) == null) {
-            this.m = linkedList;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            tbPageContext.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            tbPageContext.getLayoutMode().j(this.a);
+            d(this.f);
         }
     }
 
-    public final DLauncher D(int i) {
-        InterceptResult invokeI;
+    public View b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0 || i >= f()) {
-                return null;
-            }
-            return (DLauncher) this.m.get(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            this.e = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0804, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ecc);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ecb);
+            this.d = textView;
+            textView.setTag(this);
+            return this.a;
         }
-        return (DLauncher) invokeI.objValue;
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.repackage.u25
-    public void a() {
-        LinkedList<p05> linkedList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (linkedList = this.m) == null) {
-            return;
-        }
-        linkedList.clear();
-        this.m = null;
-    }
-
-    @Override // com.repackage.u25
-    public int f() {
+    public TailData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinkedList<p05> linkedList = this.m;
-            if (linkedList != null) {
-                return linkedList.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (TailData) invokeV.objValue;
     }
 
-    @Override // com.repackage.j05
-    public void onAction(i05 i05Var) {
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, i05Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
+            this.c.setTextColor(ml7.a(str));
         }
     }
 
-    @Override // com.repackage.u25
-    public void q(Context context) {
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            r(4);
-            y(2);
-            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
-            w(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            x(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
-            A(new a(this));
-            k().b(this);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c.setText(TbFaceManager.e().l(this.e, nl7.a(str), null));
+        }
+    }
+
+    public void f(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void g(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bool) == null) {
+            this.d.setVisibility(bool.booleanValue() ? 0 : 8);
+        }
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void i(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tailData) == null) {
+            this.b = tailData;
+            e(tailData.getContent());
+            d(tailData.getFontColor());
         }
     }
 }

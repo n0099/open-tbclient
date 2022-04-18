@@ -190,14 +190,14 @@ public class FrsLotteryCountDownView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d033c, (ViewGroup) this, true);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091333);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091334);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091335);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091336);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091337);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091338);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091339);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09133a);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091334);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091335);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091336);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091337);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091338);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091339);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09133a);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09133b);
         }
     }
 

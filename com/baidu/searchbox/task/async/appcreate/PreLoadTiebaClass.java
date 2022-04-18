@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.pi4;
+import com.repackage.oi4;
 import com.repackage.sc5;
 /* loaded from: classes2.dex */
 public class PreLoadTiebaClass extends LaunchTask {
@@ -43,7 +43,7 @@ public class PreLoadTiebaClass extends LaunchTask {
                 Class.forName("com.baidu.tieba.im.memorycache.ImMemoryCacheRegister");
             } catch (ClassNotFoundException unused) {
             }
-            pi4.y();
+            oi4.y();
             ItemCardHelper.i();
             sc5.b();
             oi.x(TbadkCoreApplication.getInst());

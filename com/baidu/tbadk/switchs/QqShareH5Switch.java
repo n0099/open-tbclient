@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import com.repackage.xe;
 /* loaded from: classes3.dex */
 public class QqShareH5Switch extends xe {
@@ -33,7 +33,7 @@ public class QqShareH5Switch extends xe {
     public static boolean isOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? wt4.k().l("key_qq_share_h5_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? vt4.k().l("key_qq_share_h5_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     @Override // com.repackage.xe

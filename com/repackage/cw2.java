@@ -40,10 +40,10 @@ public class cw2 {
         }
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
-                j94 j94Var = new j94();
-                j94Var.g = str;
-                j94Var.i = -1L;
-                f84.i().f(j94Var);
+                i94 i94Var = new i94();
+                i94Var.g = str;
+                i94Var.i = -1L;
+                e84.i().f(i94Var);
             }
         }
         fj2.e.d();
@@ -56,7 +56,7 @@ public class cw2 {
         if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str) || (s = fj2.s(str)) == null || (list = s.list()) == null || list.length <= 1) {
             return;
         }
-        List<j94> q = qv2.q(str);
+        List<i94> q = qv2.q(str);
         for (String str2 : list) {
             long j = -1;
             try {
@@ -67,32 +67,32 @@ public class cw2 {
                 }
             }
             if (!c(j, q)) {
-                ng4.L(fj2.t(str, str2));
+                mg4.L(fj2.t(str, str2));
                 bw2.b("delete plugin name = " + str + " ; version = " + str2);
             }
         }
-        j94 j94Var = null;
+        i94 i94Var = null;
         if (q != null) {
             if (q.size() == 1) {
-                j94Var = q.get(0);
+                i94Var = q.get(0);
             } else if (q.size() >= 2) {
-                j94Var = q.get(1);
+                i94Var = q.get(1);
             }
         }
-        if (j94Var != null) {
-            f84.i().f(j94Var);
+        if (i94Var != null) {
+            e84.i().f(i94Var);
         }
     }
 
-    public static boolean c(long j, List<j94> list) {
+    public static boolean c(long j, List<i94> list) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
             if (j >= 0 && list != null && list.size() != 0) {
                 int min = Math.min(list.size(), 2);
                 for (int i = 0; i < min; i++) {
-                    j94 j94Var = list.get(i);
-                    if (j94Var != null && (j == j94Var.i || j == yd3.c(j94Var.j))) {
+                    i94 i94Var = list.get(i);
+                    if (i94Var != null && (j == i94Var.i || j == yd3.c(i94Var.j))) {
                         return true;
                     }
                 }

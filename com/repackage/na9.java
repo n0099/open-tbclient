@@ -1,11 +1,13 @@
 package com.repackage;
+
+import java.io.IOException;
 /* loaded from: classes6.dex */
 public interface na9 {
-    void onCancel();
+    void a() throws IOException;
 
-    void onExceptionThrown(String str);
+    void b(String str) throws IOException;
 
-    void onProgressChanged(int i, double d, long j);
+    int c(byte[] bArr, int i, int i2) throws IOException;
 
-    void onTrackEnd(int i);
+    void d(va9 va9Var);
 }

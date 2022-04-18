@@ -1,23 +1,14 @@
 package com.repackage;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
-import com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer;
-import com.faceunity.gles.GeneratedTexture;
 /* loaded from: classes7.dex */
-public class va9 extends MediaBaseRenderer implements kb9 {
+public abstract class va9 implements ua9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int[] b;
-    public int c;
-    public float d;
 
     public va9() {
         Interceptable interceptable = $ic;
@@ -29,83 +20,37 @@ public class va9 extends MediaBaseRenderer implements kb9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new int[1];
-    }
-
-    @Override // com.repackage.kb9
-    public void a(eb9 eb9Var, SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, eb9Var, surfaceTexture) == null) {
-            int i = this.mSurfaceViewHeight;
-            int i2 = this.mSurfaceViewWidth;
-            float f = this.mRatio;
-            int i3 = i - ((int) (i2 * f));
-            if (f != 0.0f && f != (i * 1.0f) / i2 && i3 > 0) {
-                b();
-                GLES20.glBindFramebuffer(36160, this.c);
-                GLES20.glFramebufferTexture2D(36160, 36064, 3553, this.a, 0);
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-                GLES20.glClear(16640);
-                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, (i3 * (-1.0680001f)) / this.mSurfaceViewHeight);
-                this.mFullScreen2D.drawFrame(this.mTextureId, this.mMtx);
-                this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
-                GLES20.glBindFramebuffer(36160, 0);
-                eb9Var.h(this.mFullScreen2D, this.a, GlUtil.IDENTITY_MATRIX);
-            } else if (this.mTextureMode == 1) {
-                eb9Var.h(this.mFullScreen2D, this.mTextureId, this.mMtx);
-            } else {
-                eb9Var.h(this.mFullScreenEXT, this.mTextureId, this.mMtx);
-            }
-            eb9Var.f(surfaceTexture);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.d != this.mRatio) {
-                c();
-            }
-            if (this.a == 0) {
-                this.a = this.mFullScreen2D.createTexture2DObject();
-                int i = this.mSurfaceViewWidth;
-                GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, i, (int) (i * this.mRatio), 0, GeneratedTexture.FORMAT, 5121, null);
-                GLES20.glBindTexture(3553, 0);
-                GLES20.glGenFramebuffers(1, this.b, 0);
-                this.c = this.b[0];
-                this.d = this.mRatio;
             }
         }
     }
 
-    public final void c() {
+    @Override // com.repackage.ua9
+    public void onCancel() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == 0) {
-            return;
-        }
-        GLES20.glDeleteFramebuffers(1, this.b, 0);
-        GLES20.glDeleteTextures(1, new int[]{this.a}, 0);
-        this.a = 0;
-    }
-
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onDestroyInGlThread() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onDestroyInGlThread();
-            c();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread
-    public void onPauseInGlThread() {
+    @Override // com.repackage.ua9
+    public void onExceptionThrown(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPauseInGlThread();
-            c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    public abstract void onFinishedWriting(boolean z);
+
+    @Override // com.repackage.ua9
+    public void onProgressChanged(int i, double d, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+        }
+    }
+
+    @Override // com.repackage.ua9
+    public void onTrackEnd(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
         }
     }
 }

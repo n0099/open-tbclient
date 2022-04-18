@@ -401,11 +401,11 @@ public class ClarityUrlList extends ArrayList<c> {
                     return;
                 }
             }
-            hi0.b().getString(R.string.obfuscated_res_0x7f0f0bed);
-            hi0.b().getString(R.string.obfuscated_res_0x7f0f0beb);
             hi0.b().getString(R.string.obfuscated_res_0x7f0f0bec);
-            hi0.b().getString(R.string.obfuscated_res_0x7f0f0be9);
             hi0.b().getString(R.string.obfuscated_res_0x7f0f0bea);
+            hi0.b().getString(R.string.obfuscated_res_0x7f0f0beb);
+            hi0.b().getString(R.string.obfuscated_res_0x7f0f0be8);
+            hi0.b().getString(R.string.obfuscated_res_0x7f0f0be9);
         }
 
         public c(JSONObject jSONObject, int i) {

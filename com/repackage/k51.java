@@ -109,7 +109,7 @@ public class k51 {
             j51 operateBar = this.a.getOperateBar();
             if (j51.d(adBaseModel) && (adOperator = adBaseModel.h) != null) {
                 if (operateBar == null || !a(adBaseModel, operateBar.a)) {
-                    RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0914b6);
+                    RelativeLayout relativeLayout = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0914b7);
                     relativeLayout.removeAllViews();
                     AdOperator.TYPE type = adOperator.a;
                     AdOperator.TYPE type2 = AdOperator.TYPE.DOWNLOAD;
@@ -126,11 +126,11 @@ public class k51 {
                         mo0 mo0Var = adBaseModel.i;
                         if (mo0Var != null && mo0Var.k) {
                             View inflate = LayoutInflater.from(this.b).inflate(i, (ViewGroup) relativeLayout, true);
-                            b(inflate.findViewById(R.id.obfuscated_res_0x7f0914b5), 6.0f);
+                            b(inflate.findViewById(R.id.obfuscated_res_0x7f0914b6), 6.0f);
                             return new l51(3, inflate);
                         }
                         View inflate2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d05c6, (ViewGroup) relativeLayout, true);
-                        b(inflate2.findViewById(R.id.obfuscated_res_0x7f0914b5), 6.0f);
+                        b(inflate2.findViewById(R.id.obfuscated_res_0x7f0914b6), 6.0f);
                         return new n51(1, inflate2);
                     }
                     AdOperator.TYPE type3 = AdOperator.TYPE.CHECK;
@@ -141,7 +141,7 @@ public class k51 {
                             i2 = adBaseModel.p.b(AdOperator.TYPE.CHECK);
                         }
                         View inflate3 = LayoutInflater.from(this.b).inflate(i2, (ViewGroup) relativeLayout, true);
-                        b(inflate3.findViewById(R.id.obfuscated_res_0x7f0914b4), 6.0f);
+                        b(inflate3.findViewById(R.id.obfuscated_res_0x7f0914b5), 6.0f);
                         return new m51(2, inflate3);
                     }
                     return null;

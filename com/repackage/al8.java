@@ -1,129 +1,49 @@
 package com.repackage;
 
-import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.HttpConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public class al8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern f;
+    public static final Pattern g;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public SpannableStringBuilder e;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a extends lc5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ al8 a;
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final String b;
-        public final String c;
-        public final String d;
-        public final String e;
-        public final boolean f;
-        public final StatisticItem g;
-
-        public /* synthetic */ b(String str, String str2, String str3, String str4, String str5, a aVar) {
-            this(str, str2, str3, str4, str5);
-        }
-
-        public final StatisticItem b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                StatisticItem statisticItem = new StatisticItem(this.a);
-                if (!StringUtils.isNull(this.b)) {
-                    statisticItem = statisticItem.param("line", this.b);
-                }
-                if (!StringUtils.isNull(this.c)) {
-                    statisticItem = statisticItem.param("page", this.c);
-                }
-                if (!StringUtils.isNull(this.d)) {
-                    statisticItem = statisticItem.param("locate", this.d);
-                }
-                return !StringUtils.isNull(this.e) ? statisticItem.param("task", this.e) : statisticItem;
-            }
-            return (StatisticItem) invokeV.objValue;
-        }
-
-        public final StatisticItem c(String str, String str2, String str3, String str4, String str5) {
-            InterceptResult invokeLLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5)) == null) {
-                if (!StringUtils.isNull(str)) {
-                    this.g.param("action_type", str);
-                }
-                if (!StringUtils.isNull(str2)) {
-                    this.g.param("obj_id", str2);
-                }
-                if (!StringUtils.isNull(str3)) {
-                    this.g.param("fid", str3);
-                }
-                if (!StringUtils.isNull(str4)) {
-                    this.g.param("fname", str4);
-                }
-                if (!StringUtils.isNull(str5)) {
-                    this.g.param("tid", str5);
-                }
-                this.g.param("obj_cpid", 0).param("obj_good_id", 0).param("obj_throw_type", "BY_POST").param("client_type", "MOBILE_APP").param("user_timestamp", String.valueOf(System.currentTimeMillis())).param("os", "android").param(HttpConstants.OS_VERSION, Build.VERSION.RELEASE).param("log_ver", "1.1");
-                return this.g;
-            }
-            return (StatisticItem) invokeLLLLL.objValue;
-        }
-
-        public b d(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-                if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                    this.g.param(str, str2);
-                }
-                return this;
-            }
-            return (b) invokeLL.objValue;
-        }
-
-        public void delete(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.g.delete(str);
-            }
-        }
-
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                TiebaStatic.log(this.g);
-                if (this.f) {
-                    return;
-                }
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    BdLog.e("Invalid parameter.");
-                    return;
-                }
-                throw new IllegalArgumentException();
-            }
-        }
-
-        public b(String str, String str2, String str3, String str4, String str5) {
+        public a(al8 al8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, str4, str5};
+                Object[] objArr = {al8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -133,85 +53,243 @@ public class al8 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = str4;
-            this.e = str5;
-            this.f = !(StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5));
-            this.g = b();
+            this.a = al8Var;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                b(this.a.b);
+            }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c {
+    public class b extends lc5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public int c;
+        public final /* synthetic */ al8 a;
 
-        public c() {
+        public b(al8 al8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {al8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = al8Var;
         }
-    }
 
-    public static b a(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            b bVar = new b("ad_tpoint", "PT", str, str2, "tpoint", null);
-            bVar.c(null, null, str3, str4, str5);
-            if (!ni.isEmpty(str6)) {
-                bVar.d("obj_ref", str6);
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Matcher matcher = al8.f.matcher(this.a.d);
+                if (matcher.find()) {
+                    try {
+                        String group = matcher.group();
+                        a(group.substring(group.lastIndexOf("/") + 1));
+                        return;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                Matcher matcher2 = al8.g.matcher(this.a.d);
+                if (matcher2.find()) {
+                    try {
+                        String group2 = matcher2.group();
+                        a(group2.substring(group2.lastIndexOf("=") + 1));
+                        return;
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                b(this.a.d);
             }
-            return bVar;
-        }
-        return (b) invokeCommon.objValue;
-    }
-
-    public static b b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10})) == null) {
-            b bVar = new b(str, str2, str3, str4, str5, null);
-            bVar.c(str6, str7, str8, str9, str10);
-            return bVar;
-        }
-        return (b) invokeCommon.objValue;
-    }
-
-    @Deprecated
-    public static void c(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7}) == null) {
-            b bVar = new b("ad_tpoint", "PT", str, "c0122", "ad_plat", null);
-            bVar.c(str2, str7, str3, str4, str5);
-            bVar.d(TiebaStatic.Params.OBJ_URL, str6);
-            bVar.e();
         }
     }
 
-    @Deprecated
-    public static void d(String str, String str2) {
+    /* loaded from: classes5.dex */
+    public class c extends lc5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ al8 a;
+
+        public c(al8 al8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {al8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = al8Var;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.b != null) {
+                    this.a.b.replace("@", "").replace(" ", "");
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(TbadkCoreApplication.getInst()).createNormalConfig(mg.g(this.a.d, 0L), false, false)));
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755852828, "Lcom/repackage/al8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755852828, "Lcom/repackage/al8;");
+                return;
+            }
+        }
+        f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
+        g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    }
+
+    public al8() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || ni.isEmpty(str)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        if (str2 != null) {
-            statisticItem = statisticItem.param("obj_type", str2);
+        this.a = 0;
+        this.b = null;
+        this.d = null;
+        this.e = null;
+    }
+
+    public static boolean k(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? (i != 0 || i2 == 3 || i2 == 2) ? false : true : invokeII.booleanValue;
+    }
+
+    public SpannableStringBuilder e(SpannableString spannableString) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, spannableString)) == null) {
+            if (this.e == null) {
+                this.e = new SpannableStringBuilder();
+            }
+            this.e.append((CharSequence) spannableString);
+            return this.e;
         }
-        TiebaStatic.log(statisticItem);
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public SpannableString h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.a;
+            if (i != 0) {
+                if (i == 1) {
+                    if (!this.b.endsWith(" ")) {
+                        this.b += " ";
+                    }
+                    SpannableString spannableString = new SpannableString(this.b);
+                    spannableString.setSpan(new b(this), 0, this.b.length() - 1, 33);
+                    return spannableString;
+                } else if (i == 2) {
+                    SpannableString spannableString2 = new SpannableString(this.b + " ");
+                    fo face = TbadkCoreApplication.getInst().getFace(this.b);
+                    if (face != null) {
+                        BitmapDrawable j = face.j();
+                        j.setBounds(0, 0, face.r(), face.m());
+                        spannableString2.setSpan(new ImageSpan(j, 1), 0, this.b.length(), 33);
+                    }
+                    return spannableString2;
+                } else if (i == 4) {
+                    if (!this.b.endsWith(" ")) {
+                        this.b += " ";
+                    }
+                    SpannableString spannableString3 = new SpannableString(this.b);
+                    spannableString3.setSpan(new c(this), 0, this.b.length() - 1, 33);
+                    return spannableString3;
+                } else if (i != 5) {
+                    return null;
+                } else {
+                    if (!this.b.endsWith(" ")) {
+                        this.b += " ";
+                    }
+                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14c3);
+                    String str = string + this.b;
+                    SpannableString spannableString4 = new SpannableString(str);
+                    spannableString4.setSpan(new a(this), string.length(), str.length() - 1, 33);
+                    return spannableString4;
+                }
+            }
+            return new SpannableString(this.b);
+        }
+        return (SpannableString) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public SpannableStringBuilder j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (SpannableStringBuilder) invokeV.objValue;
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.a = i;
+        }
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yr7;
+import com.repackage.bs7;
 /* loaded from: classes3.dex */
 public class PbThreadPostView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -50,9 +50,9 @@ public class PbThreadPostView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091726);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091727);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091725);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091727);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091728);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091726);
         }
     }
 
@@ -86,9 +86,9 @@ public class PbThreadPostView extends LinearLayout {
         }
     }
 
-    public void setData(yr7 yr7Var) {
+    public void setData(bs7 bs7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yr7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bs7Var) == null) {
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }

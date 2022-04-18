@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g27;
+import com.repackage.j27;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
@@ -118,8 +118,8 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0841, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09210f);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09210e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092110);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09210f);
             TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
             this.d = topicTimelineAdapter;
             this.c.setAdapter(topicTimelineAdapter);
@@ -141,13 +141,13 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         this.d.notifyDataSetChanged();
     }
 
-    public void setData(g27 g27Var) {
+    public void setData(j27 j27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g27Var) == null) {
-            if (g27Var != null && !ListUtils.isEmpty(g27Var.b)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j27Var) == null) {
+            if (j27Var != null && !ListUtils.isEmpty(j27Var.b)) {
                 setVisibility(0);
-                this.b.setText(g27Var.a);
-                this.d.setData(g27Var.b);
+                this.b.setText(j27Var.a);
+                this.d.setData(j27Var.b);
                 this.d.notifyDataSetChanged();
                 return;
             }

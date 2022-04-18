@@ -1,6 +1,6 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,7 +10,15 @@ import org.json.JSONObject;
 public class jx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
 
     public jx4() {
         Interceptable interceptable = $ic;
@@ -28,16 +36,17 @@ public class jx4 {
 
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        jSONObject.optInt("offline");
-        jSONObject.optString("title");
-        String optString = jSONObject.optString("link");
-        this.a = optString;
-        if (TextUtils.isEmpty(optString)) {
-            return;
-        }
-        this.a = this.a.replaceFirst("webview:", "http://");
+        this.a = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
+        this.b = jSONObject.optInt("isActivateNaniApp", 1) == 1;
+        this.c = jSONObject.optInt("downloadNaniShowPosition", 3);
+        this.d = jSONObject.optInt("downloadNaniShowRate", 2);
+        this.e = jSONObject.optString("downloadNaniLinkUrl", null);
+        this.f = jSONObject.optString("downloadNaniTxt", null);
+        this.g = jSONObject.optString("showNaniTailTxt", null);
+        this.h = jSONObject.optInt("showNaniTailVideoType", 0);
+        this.i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
     }
 }

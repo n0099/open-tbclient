@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mc8;
 import com.repackage.rc5;
+import com.repackage.tc8;
 import tbclient.MoreTreasureTrove.DataReq;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveReqIdl;
 /* loaded from: classes3.dex */
@@ -50,7 +50,7 @@ public class MoreTreasureTroveReqMsg extends NetMessage {
                 builder.tab_code = this.tabCode;
                 builder.lf_user = this.lfUser;
                 builder.lf_user_taskid = this.taskId;
-                builder.app_pos = mc8.e().a();
+                builder.app_pos = tc8.e().a();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
                     rc5.c(builder, true, true, false);
                 }

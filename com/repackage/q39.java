@@ -1,55 +1,103 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Base64InputStream;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
+import com.baidu.turbonet.net.UploadDataProvider;
+import com.baidu.turbonet.net.UploadDataSink;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public abstract class q39 implements k49 {
+import java.net.ProtocolException;
+import java.nio.ByteBuffer;
+/* loaded from: classes7.dex */
+public final class q39 extends v39 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public x49 a;
-    public String b;
+    public final int d;
+    public final UploadDataProvider e;
+    public ByteBuffer f;
+    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755430918, "Lcom/repackage/q39;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755430918, "Lcom/repackage/q39;");
-                return;
-            }
-        }
-        c = r49.m();
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public q39() {
+    /* loaded from: classes7.dex */
+    public class b extends UploadDataProvider {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q39 a;
+
+        public b(q39 q39Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q39Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q39Var;
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a.d == -1) {
+                    return this.a.g ? this.a.f.limit() : this.a.f.position();
+                }
+                return this.a.d;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
+                int remaining = byteBuffer.remaining();
+                if (remaining < this.a.f.remaining()) {
+                    byteBuffer.put(this.a.f.array(), this.a.f.position(), remaining);
+                    this.a.f.position(this.a.f.position() + remaining);
+                } else {
+                    byteBuffer.put(this.a.f);
+                }
+                uploadDataSink.c(false);
+            }
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void c(UploadDataSink uploadDataSink) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
+                this.a.f.position(0);
+                uploadDataSink.a();
+            }
+        }
+
+        public /* synthetic */ b(q39 q39Var, a aVar) {
+            this(q39Var);
+        }
+    }
+
+    public q39(t39 t39Var, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t39Var, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -59,221 +107,110 @@ public abstract class q39 implements k49 {
                 return;
             }
         }
-        this.a = new x49();
-        this.b = "";
+        this.e = new b(this, null);
+        this.g = false;
+        if (t39Var == null) {
+            throw new NullPointerException("Argument connection cannot be null.");
+        }
+        if (j > 2147483647L) {
+            throw new IllegalArgumentException("Use setFixedLengthStreamingMode() or setChunkedStreamingMode() for requests larger than 2GB.");
+        }
+        if (j >= 0) {
+            int i3 = (int) j;
+            this.d = i3;
+            this.f = ByteBuffer.allocate(i3);
+            return;
+        }
+        throw new IllegalArgumentException("Content length < 0.");
     }
 
-    @Override // com.repackage.k49
-    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.v39
+    public void e() throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? i(this.b, jSONObject, z, z2) : invokeCommon.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
-    @Override // com.repackage.k49
-    public boolean b(File file, long j, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(this.b, file, j, z, z2) : invokeCommon.booleanValue;
-    }
-
-    public final HashMap<String, String> c() {
+    @Override // com.repackage.v39
+    public UploadDataProvider f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>(2);
-            hashMap.put("Content-type", "application/x-www-form-urlencoded");
-            hashMap.put(BaseContentUploader.NB, "1");
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (UploadDataProvider) invokeV.objValue;
     }
 
-    public final String d(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.repackage.v39
+    public void g() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = r49.k(z);
-            }
-            return this.b;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public final String e(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        String c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            boolean isUBCDebug = this.a.isUBCDebug();
-            if (TextUtils.isEmpty(str)) {
-                str = d(isUBCDebug);
-            }
-            if (z2) {
-                c2 = r49.h(str);
-            } else {
-                c2 = r49.c(str);
-            }
-            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
-                c2 = x59.a(c2, "debug", "1");
-            }
-            if (z) {
-                c2 = x59.a(c2, "reallog", "1");
-            }
-            return w39.o().E() ? x59.a(c2, "beta", "1") : c2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final boolean f(u49 u49Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, u49Var)) == null) {
-            if (u49Var == null) {
-                return false;
-            }
-            if (!u49Var.e()) {
-                if (c) {
-                    Log.d("UploadManager", "postByteRequest, fail: " + u49Var.d());
-                } else {
-                    t49.a().i(u49Var.d(), null);
-                }
-                if (w39.o().M()) {
-                    g(u49Var.c());
-                }
-                u49Var.a();
-                return false;
-            }
-            try {
-                int i = new JSONObject(u49Var.b()).getInt("error");
-                if (i != 0) {
-                    if (c) {
-                        Log.d("UploadManager", "server error");
-                    }
-                    if (!c) {
-                        t49.a().k(i);
-                    }
-                }
-            } catch (Exception e) {
-                if (c) {
-                    Log.d("UploadManager", "body tostring fail:" + e.getMessage());
-                } else {
-                    t49.a().j(Log.getStackTraceString(e));
-                }
-            }
-            u49Var.a();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
-    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void g(int i) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeI(1048582, this, i) != null) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        boolean z = true;
-        if (i == 403 || i == 408 || i == 499) {
-            j = 60000;
-        } else if (i < 500 || i >= 600) {
-            z = false;
-            if (z) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g = true;
+            if (this.f.position() >= this.d) {
+                this.f.flip();
                 return;
             }
-            w39.o().Z(currentTimeMillis);
+            throw new ProtocolException("Content received is less than Content-Length");
+        }
+    }
+
+    public final void l(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (this.d != -1 && this.f.position() + i > this.d) {
+                throw new ProtocolException("exceeded content-length limit of " + this.d + " bytes");
+            } else if (!this.g) {
+                if (this.d == -1 && this.f.limit() - this.f.position() <= i) {
+                    ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.f.capacity() * 2, this.f.capacity() + i));
+                    this.f.flip();
+                    allocate.put(this.f);
+                    this.f = allocate;
+                }
+            } else {
+                throw new IllegalStateException("Cannot write after being connected.");
+            }
+        }
+    }
+
+    @Override // java.io.OutputStream
+    public void write(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            c();
+            l(1);
+            this.f.put((byte) i);
+        }
+    }
+
+    @Override // java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
+            c();
+            l(i2);
+            this.f.put(bArr, i, i2);
+        }
+    }
+
+    public q39(t39 t39Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t39Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new b(this, null);
+        this.g = false;
+        if (t39Var != null) {
+            this.d = -1;
+            this.f = ByteBuffer.allocate(16384);
             return;
-        } else {
-            j = 300000;
         }
-        currentTimeMillis += j;
-        if (z) {
-        }
+        throw null;
     }
-
-    public final boolean h(String str, File file, long j, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) != null) {
-            return invokeCommon.booleanValue;
-        }
-        if (file == null || !file.exists()) {
-            return false;
-        }
-        String e = e(str, z, z2);
-        HashMap<String, String> c2 = c();
-        if (y49.m().p() && j > 0) {
-            c2.put("Content-Length", String.valueOf(j));
-        }
-        InputStream inputStream2 = null;
-        try {
-            inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
-            try {
-                try {
-                    boolean f = f(j(e, inputStream, c2));
-                    s59.b(inputStream);
-                    return f;
-                } catch (Exception e2) {
-                    e = e2;
-                    if (c) {
-                        Log.d("UploadManager", "postByteRequest, Exception: ", e);
-                    } else {
-                        t49.a().i(null, Log.getStackTraceString(e));
-                    }
-                    s59.b(inputStream);
-                    return false;
-                }
-            } catch (Throwable th) {
-                th = th;
-                inputStream2 = inputStream;
-                s59.b(inputStream2);
-                throw th;
-            }
-        } catch (Exception e3) {
-            e = e3;
-            inputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        byte[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (jSONObject != null && (a = u59.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
-                a[0] = ContentUtil.GZIP_HEAD_1;
-                a[1] = ContentUtil.GZIP_HEAD_2;
-                String e = e(str, z, z2);
-                HashMap<String, String> c2 = c();
-                if (y49.m().p()) {
-                    c2.put("Content-Length", String.valueOf(a.length));
-                }
-                try {
-                    return f(k(e, a, c2));
-                } catch (IOException e2) {
-                    if (c) {
-                        Log.d("UploadManager", "postByteRequest, Exception: ", e2);
-                    } else {
-                        t49.a().i(null, Log.getStackTraceString(e2));
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public abstract u49 j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
-
-    public abstract u49 k(String str, byte[] bArr, Map<String, String> map) throws IOException;
 }

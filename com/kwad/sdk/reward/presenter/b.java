@@ -16,6 +16,6 @@ public class b extends com.kwad.sdk.reward.g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ComplianceTextView) a(R.id.obfuscated_res_0x7f091051);
+        this.b = (ComplianceTextView) a(R.id.obfuscated_res_0x7f091052);
     }
 }

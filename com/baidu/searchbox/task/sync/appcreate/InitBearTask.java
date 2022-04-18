@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cs6;
+import com.repackage.es6;
 import com.repackage.oi;
 import com.repackage.ub5;
-import com.repackage.wt4;
+import com.repackage.vt4;
 /* loaded from: classes2.dex */
 public class InitBearTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -43,7 +43,7 @@ public class InitBearTask extends LaunchTask {
             if (UbsABTestHelper.newSplashStrategy()) {
                 return ub5.w();
             }
-            return wt4.k().l("splash_origin_ad_strategy_key", 1) != 0;
+            return vt4.k().l("splash_origin_ad_strategy_key", 1) != 0;
         }
         return invokeV.booleanValue;
     }
@@ -76,11 +76,11 @@ public class InitBearTask extends LaunchTask {
     public void initBearSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-            boolean q = ub5.q(wt4.k().l("splash_ad_strategy_key", 0));
+            boolean q = ub5.q(vt4.k().l("splash_ad_strategy_key", 0));
             SpeedStatsManager.getInstance().setIsNeedBear(q);
             SpeedStatsManager.getInstance().setIsNeedPlg(isNeedPlgSplash());
             if (q) {
-                cs6.j().n(new cs6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+                es6.j().n(new es6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitBearTask this$0;
@@ -103,7 +103,7 @@ public class InitBearTask extends LaunchTask {
                         this.this$0 = this;
                     }
 
-                    @Override // com.repackage.cs6.l
+                    @Override // com.repackage.es6.l
                     public void initComplete() {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {

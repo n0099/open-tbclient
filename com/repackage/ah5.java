@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class ah5 implements uo, dh5, ep4 {
+public class ah5 implements uo, dh5, dp4 {
     public static /* synthetic */ Interceptable $ic;
     public static SparseArray<BdUniqueId> c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class ah5 implements uo, dh5, ep4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.objValue;
     }
 
-    @Override // com.repackage.ep4
+    @Override // com.repackage.dp4
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -118,13 +118,13 @@ public class ah5 implements uo, dh5, ep4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c.get(this.b) : (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.repackage.ep4
+    @Override // com.repackage.dp4
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (a() instanceof AdvertAppInfo) {
-                return ((ep4) a()).h();
+                return ((dp4) a()).h();
             }
             return -1;
         }
@@ -145,12 +145,12 @@ public class ah5 implements uo, dh5, ep4 {
         }
     }
 
-    @Override // com.repackage.ep4
+    @Override // com.repackage.dp4
     public AdvertAppInfo o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (a() instanceof ep4) {
+            if (a() instanceof dp4) {
                 return (AdvertAppInfo) a();
             }
             return null;
@@ -158,11 +158,11 @@ public class ah5 implements uo, dh5, ep4 {
         return (AdvertAppInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.ep4
+    @Override // com.repackage.dp4
     public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (a() instanceof ep4)) {
-            ((ep4) a()).setPosition(i);
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (a() instanceof dp4)) {
+            ((dp4) a()).setPosition(i);
         }
     }
 }

@@ -235,7 +235,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.id.obfuscated_res_0x7f0914a0 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.id.obfuscated_res_0x7f0914a1 : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.crius.view.AdCriusBaseView
@@ -245,7 +245,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
             View viewByComponent = this.d.getViewByComponent(NativeConstants.COMPONENT_CLOSEAD);
             if (viewByComponent instanceof ImageView) {
                 ImageView imageView = (ImageView) viewByComponent;
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080dd2);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080dd6);
                 imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                 imageView.setOnClickListener(this);
             }
@@ -268,7 +268,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
     public void f(View view2, String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, view2, str, map) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09149b) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09149c) {
                 b("1", true);
             } else {
                 o(str, map);
@@ -296,7 +296,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
     public int j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? R.id.obfuscated_res_0x7f0914a1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? R.id.obfuscated_res_0x7f0914a2 : invokeV.intValue;
     }
 
     public final void n(@NonNull zn0 zn0Var, hk0 hk0Var) {
@@ -347,7 +347,7 @@ public class AdCriusPopView extends AdCriusBaseView<CriusData> implements View.O
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09149b) {
+        if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f09149c) {
             b("1", true);
         }
     }

@@ -14,24 +14,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import com.repackage.ad7;
+import com.repackage.dd7;
 import com.repackage.fi;
 import com.repackage.gc8;
+import com.repackage.nc8;
 import com.repackage.op;
-import com.repackage.zb8;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
-public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements ad7 {
+public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements dd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public op adFacadeData;
     public boolean autoPlay;
-    public zb8 operateData;
-    public ad7.a parallelChargeInfo;
+    public gc8 operateData;
+    public dd7.a parallelChargeInfo;
     public String tagName;
-    public gc8 tailFrame;
+    public nc8 tailFrame;
     public String threadTitle;
     public String userName;
     public String userPortrait;
@@ -85,11 +85,11 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements ad7 {
             this.video = null;
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
-        gc8 gc8Var = new gc8();
-        this.tailFrame = gc8Var;
-        gc8Var.b(optJSONObject2);
-        this.operateData = zb8.a(jSONObject.optJSONObject("operate"));
-        ad7.a aVar = new ad7.a();
+        nc8 nc8Var = new nc8();
+        this.tailFrame = nc8Var;
+        nc8Var.b(optJSONObject2);
+        this.operateData = gc8.a(jSONObject.optJSONObject("operate"));
+        dd7.a aVar = new dd7.a();
         this.parallelChargeInfo = aVar;
         aVar.a(jSONObject);
         if (TextUtils.isEmpty(this.operateData.a)) {
@@ -163,8 +163,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements ad7 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            zb8 zb8Var = this.operateData;
-            if (zb8Var != null && !TextUtils.isEmpty(zb8Var.c)) {
+            gc8 gc8Var = this.operateData;
+            if (gc8Var != null && !TextUtils.isEmpty(gc8Var.c)) {
                 return this.operateData.c;
             }
             return this.scheme;
@@ -172,11 +172,11 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements ad7 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ad7
-    public ad7.a getParallelCharge() {
+    @Override // com.repackage.dd7
+    public dd7.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.parallelChargeInfo : (ad7.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.parallelChargeInfo : (dd7.a) invokeV.objValue;
     }
 
     public boolean getWaitConfirm() {

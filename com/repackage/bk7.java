@@ -1,115 +1,42 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bk7 {
+public class bk7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e a;
-    public List<c> b;
+    public List<ak7> a;
+    public LayoutInflater b;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
+        public ImageView a;
+        public TextView b;
 
-        public a() {
+        public a(bk7 bk7Var, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-            this.b = jSONObject.optString("title");
-            this.c = jSONObject.optString("desc");
-            this.d = jSONObject.optString("link");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public long b;
-        public long c;
-        public String d;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long j = this.a;
-                return (j == 1 || j == 2) && this.b > this.c;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void b(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optInt("props_id");
-            this.b = jSONObject.optLong("end_time");
-            this.c = jSONObject.optLong("now_time");
-            this.d = jSONObject.optString("pic_url");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public ArrayList<a> b;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bk7Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -119,115 +46,17 @@ public class bk7 {
                     return;
                 }
             }
-            this.b = new ArrayList<>();
-        }
-
-        public void a(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optString(ForumSquareActivityConfig.FORUM_CLASS_NAME);
-            JSONArray optJSONArray = jSONObject.optJSONArray("menu_list");
-            if (optJSONArray == null) {
-                return;
-            }
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                a aVar = new a();
-                aVar.a(jSONObject2);
-                this.b.add(aVar);
-            }
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0913db);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0913da);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public long b;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a >= 0 && this.b >= 0 : invokeV.booleanValue;
-        }
-
-        public void b(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            jSONObject.optLong("scores_total");
-            jSONObject.optLong("scores_fetch");
-            this.a = jSONObject.optLong("scores_money");
-            this.b = jSONObject.optLong("scores_other");
-            jSONObject.optLong("update_time");
-            jSONObject.optLong("level");
-            jSONObject.optLong(Constants.EXTRA_CONFIG_LIMIT);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public b d;
-        public d e;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = new b();
-            this.e = new d();
-        }
-
-        public void a(JSONObject jSONObject) throws Exception {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            this.a = jSONObject.optString("id");
-            this.b = jSONObject.optString("name");
-            this.c = jSONObject.optString("portrait");
-            this.d.b(jSONObject.optJSONObject("pay_member_info"));
-            this.e.b(jSONObject.optJSONObject("Parr_scores"));
-        }
-    }
-
-    public bk7() {
+    public bk7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -237,25 +66,81 @@ public class bk7 {
                 return;
             }
         }
-        this.a = new e();
-        this.b = new ArrayList();
+        this.b = LayoutInflater.from(context);
     }
 
-    public void a(JSONObject jSONObject) throws Exception {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ak7 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<ak7> list = this.a;
+            if (list == null) {
+                return null;
+            }
+            return list.get(i);
+        }
+        return (ak7) invokeI.objValue;
+    }
+
+    public final void b(ak7 ak7Var, a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ak7Var, aVar) == null) || ak7Var == null) {
             return;
         }
-        this.a.a(jSONObject.optJSONObject("user"));
-        JSONArray optJSONArray = jSONObject.optJSONArray("special_List");
-        if (optJSONArray == null) {
-            return;
+        aVar.b.setText(ak7Var.b);
+        SkinManager.setViewTextColor(aVar.b, (int) R.color.CAM_X0106);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(aVar.a, ak7Var.a, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+    }
+
+    public void c(List<ak7> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
-        int length = optJSONArray.length();
-        for (int i = 0; i < length; i++) {
-            c cVar = new c();
-            cVar.a(optJSONArray.getJSONObject(i));
-            this.b.add(cVar);
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<ak7> list = this.a;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
         }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (this.a == null) {
+                return 0L;
+            }
+            return i;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d0541, (ViewGroup) null);
+                view2.setTag(new a(this, view2));
+            }
+            b(getItem(i), (a) view2.getTag());
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

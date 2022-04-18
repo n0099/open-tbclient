@@ -161,12 +161,12 @@ public class a extends d implements View.OnClickListener {
     }
 
     private void a(Context context, ViewGroup viewGroup) {
-        this.c = viewGroup.findViewById(R.id.obfuscated_res_0x7f091056);
-        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091054);
-        this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091059);
-        this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091057);
-        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091058);
-        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f091055);
+        this.c = viewGroup.findViewById(R.id.obfuscated_res_0x7f091057);
+        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091055);
+        this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09105a);
+        this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091058);
+        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091059);
+        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f091056);
         this.h = button;
         button.setOnClickListener(this);
     }

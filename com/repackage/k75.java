@@ -306,7 +306,7 @@ public class k75 {
                 }
             } else {
                 this.p = new c(this);
-                CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(this.k.getPageActivity(), this.p, this.k.getString(R.string.obfuscated_res_0x7f0f0c9d), Long.valueOf(this.f), false, 1);
+                CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(this.k.getPageActivity(), this.p, this.k.getString(R.string.obfuscated_res_0x7f0f0c9c), Long.valueOf(this.f), false, 1);
                 m75.b("c10291", "31", this.n, this.o);
             }
         }
@@ -352,13 +352,13 @@ public class k75 {
             if (alertDialog != null && alertDialog.isShowing()) {
                 this.j.dismiss();
             }
-            rr4 rr4Var = new rr4(this.k.getPageActivity());
-            rr4Var.w(String.format(Locale.CHINA, this.k.getString(R.string.obfuscated_res_0x7f0f0c95), Double.valueOf((this.f * 1.0d) / 100.0d)));
-            rr4Var.u(R.string.obfuscated_res_0x7f0f0c90);
-            rr4Var.p(String.format(Locale.CHINA, this.k.getString(R.string.obfuscated_res_0x7f0f0c91), Double.valueOf((i * 1.0d) / 100.0d)));
-            rr4Var.n(true);
-            rr4Var.i(false);
-            rr4Var.r(new TBAlertConfig.a(this.k.getString(R.string.obfuscated_res_0x7f0f0eef), TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener() { // from class: com.repackage.h75
+            qr4 qr4Var = new qr4(this.k.getPageActivity());
+            qr4Var.w(String.format(Locale.CHINA, this.k.getString(R.string.obfuscated_res_0x7f0f0c94), Double.valueOf((this.f * 1.0d) / 100.0d)));
+            qr4Var.u(R.string.obfuscated_res_0x7f0f0c8f);
+            qr4Var.p(String.format(Locale.CHINA, this.k.getString(R.string.obfuscated_res_0x7f0f0c90), Double.valueOf((i * 1.0d) / 100.0d)));
+            qr4Var.n(true);
+            qr4Var.i(false);
+            qr4Var.r(new TBAlertConfig.a(this.k.getString(R.string.obfuscated_res_0x7f0f0eee), TBAlertConfig.OperateBtnStyle.SECONDARY, new View.OnClickListener() { // from class: com.repackage.h75
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -369,7 +369,7 @@ public class k75 {
                         k75.this.m(view2);
                     }
                 }
-            }), new TBAlertConfig.a(this.k.getString(R.string.obfuscated_res_0x7f0f0c8f), TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener() { // from class: com.repackage.i75
+            }), new TBAlertConfig.a(this.k.getString(R.string.obfuscated_res_0x7f0f0c8e), TBAlertConfig.OperateBtnStyle.MAIN, new View.OnClickListener() { // from class: com.repackage.i75
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -381,7 +381,7 @@ public class k75 {
                     }
                 }
             }));
-            this.j = rr4Var.y();
+            this.j = qr4Var.y();
             d dVar = this.a;
             if (dVar != null) {
                 dVar.a(NovelResult.PAY_NOVEL_CONFIRM_DIALOG);

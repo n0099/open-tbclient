@@ -157,9 +157,9 @@ public class SwanImageMenuView extends FrameLayout implements tz2.g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
                 if (i == 0) {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081134));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081138));
                 } else {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081133));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081137));
                 }
             }
         }
@@ -197,12 +197,12 @@ public class SwanImageMenuView extends FrameLayout implements tz2.g {
                     inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d07b8, null);
                     String i2 = ((wz2) item).i();
                     if (!TextUtils.isEmpty(i2)) {
-                        ((SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f090e0e)).setImageURI(i2);
+                        ((SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f090e0f)).setImageURI(i2);
                     }
-                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914e4)).setText(item.e());
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914e5)).setText(item.e());
                 } else {
                     inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00d4, null);
-                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f07);
+                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f08);
                     textView.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f06037c));
                     textView.setText(item.e());
                 }
@@ -242,16 +242,16 @@ public class SwanImageMenuView extends FrameLayout implements tz2.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d07b7, (ViewGroup) null);
-            SwanAppRoundCornerListView swanAppRoundCornerListView = (SwanAppRoundCornerListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09126c);
+            SwanAppRoundCornerListView swanAppRoundCornerListView = (SwanAppRoundCornerListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09126d);
             this.d = swanAppRoundCornerListView;
             swanAppRoundCornerListView.setOnItemClickListener(new a(this));
             this.d.setSelector(new ColorDrawable(0));
-            ((TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091530)).setOnClickListener(new b(this));
+            ((TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091531)).setOnClickListener(new b(this));
             addView(linearLayout);
             if (qj2.M().a()) {
                 View view2 = new View(this.c);
                 this.f = view2;
-                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081135);
+                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081139);
                 this.f.setVisibility(8);
                 addView(this.f);
             }

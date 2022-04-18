@@ -6,13 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetGiftList.PresentCategoryList;
 /* loaded from: classes7.dex */
 public class ws6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public List<ap4> b;
+    public String b;
+    public ArrayList<Integer> c;
 
     public ws6() {
         Interceptable interceptable = $ic;
@@ -34,29 +37,31 @@ public class ws6 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public List<ap4> b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public void c(int i) {
+    public ArrayList<Integer> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
     }
 
-    public void d(String str) {
+    public void d(PresentCategoryList presentCategoryList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, presentCategoryList) == null) || presentCategoryList == null) {
+            return;
         }
-    }
-
-    public void e(List<ap4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.b = list;
+        this.a = presentCategoryList.category_id.intValue();
+        this.b = presentCategoryList.category_name;
+        List<Integer> list = presentCategoryList.gift_ids;
+        if (list == null || list.size() <= 0) {
+            return;
         }
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        this.c = arrayList;
+        arrayList.addAll(presentCategoryList.gift_ids);
     }
 }

@@ -106,7 +106,7 @@ public class z42 extends x42 implements s42 {
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ng4.L(this.a);
+                    mg4.L(this.a);
                 }
             }
         }
@@ -305,7 +305,7 @@ public class z42 extends x42 implements s42 {
             if (s42.a) {
                 Log.d("HybridIntercept", "init default disk cache provider, path = " + b2);
             }
-            ng4.l(b2);
+            mg4.l(b2);
             this.c = qj2.U().b(context, b2, o42.a().g());
         }
     }

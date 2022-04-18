@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.az9;
-import com.repackage.uy9;
+import com.repackage.bz9;
+import com.repackage.hz9;
 /* loaded from: classes2.dex */
 public final class DelegateUtils implements DelegateDef {
     public static /* synthetic */ Interceptable $ic;
@@ -139,10 +139,10 @@ public final class DelegateUtils implements DelegateDef {
     }
 
     @NonNull
-    public static uy9<DelegateResult> safeCallOnMainWithContentProvider(@NonNull Context context, @NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
+    public static bz9<DelegateResult> safeCallOnMainWithContentProvider(@NonNull Context context, @NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, cls, bundle)) == null) ? uy9.a(new uy9.a<DelegateResult>(context, cls, bundle) { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, cls, bundle)) == null) ? bz9.a(new bz9.a<DelegateResult>(context, cls, bundle) { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context val$context;
@@ -170,15 +170,15 @@ public final class DelegateUtils implements DelegateDef {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.uy9.a, com.repackage.iz9
-            public void call(az9<? super DelegateResult> az9Var) {
+            @Override // com.repackage.bz9.a, com.repackage.pz9
+            public void call(hz9<? super DelegateResult> hz9Var) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, az9Var) == null) {
-                    az9Var.onNext(DelegateUtils.callOnMainWithContentProvider(this.val$context, this.val$delegation, this.val$params));
-                    az9Var.onCompleted();
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, hz9Var) == null) {
+                    hz9Var.onNext(DelegateUtils.callOnMainWithContentProvider(this.val$context, this.val$delegation, this.val$params));
+                    hz9Var.onCompleted();
                 }
             }
-        }) : (uy9) invokeLLL.objValue;
+        }) : (bz9) invokeLLL.objValue;
     }
 
     public static void callOnMainWithActivity(@NonNull Activity activity, @NonNull Class<? extends ProcessDelegateBaseActivity> cls, @NonNull Class<? extends ActivityDelegation> cls2, @Nullable Bundle bundle, @NonNull DelegateListener delegateListener) {

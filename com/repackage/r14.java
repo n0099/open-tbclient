@@ -10,7 +10,11 @@ public class r14 extends ru3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public Object data;
+    public long currentSize;
+    @V8JavascriptField
+    public String[] keys;
+    @V8JavascriptField
+    public long limitSize;
 
     public r14() {
         Interceptable interceptable = $ic;

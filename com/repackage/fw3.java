@@ -41,12 +41,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d44;
+import com.repackage.c44;
 import com.repackage.qz2;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fw3 extends pz1 implements u04, qz2.a {
+public class fw3 extends pz1 implements t04, qz2.a {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean i1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,11 +57,11 @@ public class fw3 extends pz1 implements u04, qz2.a {
     public ImageView J0;
     public FrameLayout K0;
     public View L0;
-    public e34 M0;
-    public e34 N0;
-    public t04 O0;
+    public d34 M0;
+    public d34 N0;
+    public s04 O0;
     public qz2 P0;
-    public c34 Q0;
+    public b34 Q0;
     public TextView R0;
     public boolean S0;
     public m T0;
@@ -72,7 +72,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
     public OrientationEventListener Y0;
     public String Z0;
     public GameCloseGuidePopView a1;
-    public d44 b1;
+    public c44 b1;
     public boolean c1;
     public View d1;
     public boolean e1;
@@ -193,7 +193,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
                 }
                 this.b.i0.setRequestedOrientation(8);
                 this.b.Z0 = "landscapeReverse";
-                b24.a(this.a, this.b.Z0);
+                a24.a(this.a, this.b.Z0);
                 if (fw3.i1) {
                     Log.d("SwanGameFragment", "onOrientationChanged: " + this.b.Z0);
                 }
@@ -206,7 +206,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
             layoutParams.rightMargin = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070170);
             this.b.G0.setLayoutParams(layoutParams);
             zw3.e().b(0);
-            b24.a(this.a, this.b.Z0);
+            a24.a(this.a, this.b.Z0);
             if (fw3.i1) {
                 Log.d("SwanGameFragment", "onOrientationChanged: " + this.b.Z0);
             }
@@ -409,7 +409,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
     }
 
     /* loaded from: classes6.dex */
-    public class h implements d44.a {
+    public class h implements c44.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fw3 a;
@@ -432,7 +432,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
             this.a = fw3Var;
         }
 
-        @Override // com.repackage.d44.a
+        @Override // com.repackage.c44.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -441,7 +441,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
             }
         }
 
-        @Override // com.repackage.d44.a
+        @Override // com.repackage.c44.a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -450,7 +450,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
             }
         }
 
-        @Override // com.repackage.d44.a
+        @Override // com.repackage.c44.a
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -512,7 +512,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
     }
 
     /* loaded from: classes6.dex */
-    public class j implements ay3 {
+    public class j implements zx3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fw3 a;
@@ -535,7 +535,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
             this.a = fw3Var;
         }
 
-        @Override // com.repackage.ay3
+        @Override // com.repackage.zx3
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -753,8 +753,8 @@ public class fw3 extends pz1 implements u04, qz2.a {
                 return;
             }
         }
-        this.O0 = new t04();
-        this.Q0 = new c34();
+        this.O0 = new s04();
+        this.Q0 = new b34();
         this.U0 = true;
         this.Z0 = "landscape";
         this.c1 = false;
@@ -774,8 +774,8 @@ public class fw3 extends pz1 implements u04, qz2.a {
             return;
         }
         if (this.c1) {
-            p64 p64Var = this.m0;
-            if (p64Var != null && p64Var.j()) {
+            o64 o64Var = this.m0;
+            if (o64Var != null && o64Var.j()) {
                 this.m0.g(false);
             }
             this.m0 = null;
@@ -785,9 +785,9 @@ public class fw3 extends pz1 implements u04, qz2.a {
             this.n0 = new SwanAppMenuHeaderView(getContext());
         }
         if (this.m0 == null) {
-            p64 p64Var2 = new p64(activity, this.G0, 0, qj2.K(), new sf3());
-            this.m0 = p64Var2;
-            p64Var2.n(sc3.c());
+            o64 o64Var2 = new o64(activity, this.G0, 0, qj2.K(), new sf3());
+            this.m0 = o64Var2;
+            o64Var2.n(sc3.c());
             this.O0.b(this.m0);
             xh1 F = wl2.U().F();
             if (F != null) {
@@ -818,8 +818,8 @@ public class fw3 extends pz1 implements u04, qz2.a {
                 L3();
             }
             z3(view2);
-            this.N0 = new e34((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09018d));
-            this.M0 = new e34(this.K0);
+            this.N0 = new d34((FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09018d));
+            this.M0 = new d34(this.K0);
         }
     }
 
@@ -895,8 +895,8 @@ public class fw3 extends pz1 implements u04, qz2.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            String a2 = c44.a();
-            if (TextUtils.equals(a2, c44.b("date"))) {
+            String a2 = b44.a();
+            if (TextUtils.equals(a2, b44.b("date"))) {
                 if (TextUtils.equals(str, "exitButton")) {
                     q3();
                     return false;
@@ -908,7 +908,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
             if (a3 != null) {
                 this.K0.addView(a3);
                 this.e1 = true;
-                c44.c("date", a2);
+                b44.c("date", a2);
                 return true;
             }
             if (this.a1 == null) {
@@ -917,7 +917,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
                 gameCloseGuidePopView.setOnClickListener(new i(this));
             }
             this.K0.addView(this.a1);
-            c44.c("date", a2);
+            b44.c("date", a2);
             return true;
         }
         return invokeL.booleanValue;
@@ -928,9 +928,9 @@ public class fw3 extends pz1 implements u04, qz2.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.b1 == null) {
-                d44 d44Var = new d44(getContext());
-                this.b1 = d44Var;
-                d44Var.e(new h(this));
+                c44 c44Var = new c44(getContext());
+                this.b1 = c44Var;
+                c44Var.e(new h(this));
             }
             G3("pandadialog");
             this.b1.show();
@@ -1042,12 +1042,12 @@ public class fw3 extends pz1 implements u04, qz2.a {
         }
     }
 
-    @Override // com.repackage.u04
+    @Override // com.repackage.t04
     @NonNull
-    public t04 b() {
+    public s04 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.O0 : (t04) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.O0 : (s04) invokeV.objValue;
     }
 
     @Override // com.repackage.pz1
@@ -1073,10 +1073,10 @@ public class fw3 extends pz1 implements u04, qz2.a {
     @Override // com.repackage.qz2.a
     public qz2 getFloatLayer() {
         InterceptResult invokeV;
-        e34 e34Var;
+        d34 d34Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.P0 == null && (e34Var = this.N0) != null && e34Var.getRootView() != null) {
+            if (this.P0 == null && (d34Var = this.N0) != null && d34Var.getRootView() != null) {
                 this.P0 = new qz2(this, this.N0.getRootView(), 0);
             }
             return this.P0;
@@ -1174,13 +1174,13 @@ public class fw3 extends pz1 implements u04, qz2.a {
                 this.K0.removeView(gameCloseGuidePopView);
                 this.a1 = null;
             }
-            e34 e34Var = this.M0;
-            if (e34Var != null) {
-                e34Var.k();
+            d34 d34Var = this.M0;
+            if (d34Var != null) {
+                d34Var.k();
             }
-            e34 e34Var2 = this.N0;
-            if (e34Var2 != null) {
-                e34Var2.k();
+            d34 d34Var2 = this.N0;
+            if (d34Var2 != null) {
+                d34Var2.k();
             }
             DuMixGameSurfaceView duMixGameSurfaceView = this.F0;
             if (duMixGameSurfaceView == null || duMixGameSurfaceView.getV8Engine() == null) {
@@ -1193,7 +1193,7 @@ public class fw3 extends pz1 implements u04, qz2.a {
             if (!v8Engine.u0()) {
                 v8Engine.onPause();
                 v8Engine.dispatchEvent(new JSEvent("apphide"));
-                c24.a(v8Engine);
+                b24.a(v8Engine);
                 EventTarget p = v8Engine.p();
                 if (p instanceof pu3) {
                     ((pu3) p).hideKeyboard();
@@ -1212,8 +1212,8 @@ public class fw3 extends pz1 implements u04, qz2.a {
             if (orientationEventListener != null) {
                 orientationEventListener.disable();
             }
-            p64 p64Var = this.m0;
-            if (p64Var == null || !p64Var.j()) {
+            o64 o64Var = this.m0;
+            if (o64Var == null || !o64Var.j()) {
                 return;
             }
             this.m0.g(false);
@@ -1234,10 +1234,10 @@ public class fw3 extends pz1 implements u04, qz2.a {
         }
     }
 
-    public final ay3 r3() {
+    public final zx3 r3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? new j(this) : (ay3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? new j(this) : (zx3) invokeV.objValue;
     }
 
     public void resume() {
@@ -1256,10 +1256,10 @@ public class fw3 extends pz1 implements u04, qz2.a {
             this.U0 = true;
             this.F0.s();
             lu3.h().k();
-            c24.b(v8Engine);
+            b24.b(v8Engine);
             Activity activity2 = this.i0;
             if (activity2 != null && (activity2 instanceof SwanAppActivity)) {
-                v8Engine.dispatchEvent(new my3(((SwanAppActivity) activity2).getLaunchInfo()));
+                v8Engine.dispatchEvent(new ly3(((SwanAppActivity) activity2).getLaunchInfo()));
             }
             v8Engine.onResume();
             if (this.K0 != null && this.L0 != null) {
@@ -1299,13 +1299,13 @@ public class fw3 extends pz1 implements u04, qz2.a {
             }
             vt3.o().x();
             in2.j(true);
-            e34 e34Var = this.M0;
-            if (e34Var != null) {
-                e34Var.m();
+            d34 d34Var = this.M0;
+            if (d34Var != null) {
+                d34Var.m();
             }
-            e34 e34Var2 = this.N0;
-            if (e34Var2 != null) {
-                e34Var2.m();
+            d34 d34Var2 = this.N0;
+            if (d34Var2 != null) {
+                d34Var2.m();
             }
             N3();
         }
@@ -1318,10 +1318,10 @@ public class fw3 extends pz1 implements u04, qz2.a {
     }
 
     @NonNull
-    public c34 t3() {
+    public b34 t3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.Q0 : (c34) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.Q0 : (b34) invokeV.objValue;
     }
 
     public View u3() {
@@ -1339,22 +1339,22 @@ public class fw3 extends pz1 implements u04, qz2.a {
         }
     }
 
-    public e34 v3() {
+    public d34 v3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.M0 : (e34) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.M0 : (d34) invokeV.objValue;
     }
 
-    public p64 w3() {
+    public o64 w3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.m0 : (p64) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.m0 : (o64) invokeV.objValue;
     }
 
-    public e34 x3() {
+    public d34 x3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.N0 : (e34) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.N0 : (d34) invokeV.objValue;
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment
@@ -1402,13 +1402,13 @@ public class fw3 extends pz1 implements u04, qz2.a {
                 this.d1 = null;
                 zw3.e().release();
             }
-            e34 e34Var = this.M0;
-            if (e34Var != null) {
-                e34Var.l();
+            d34 d34Var = this.M0;
+            if (d34Var != null) {
+                d34Var.l();
             }
-            e34 e34Var2 = this.N0;
-            if (e34Var2 != null) {
-                e34Var2.l();
+            d34 d34Var2 = this.N0;
+            if (d34Var2 != null) {
+                d34Var2.l();
             }
             this.Q0.e();
             in2.c();
@@ -1421,12 +1421,12 @@ public class fw3 extends pz1 implements u04, qz2.a {
     public final void z3(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, view2) == null) {
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092055);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092056);
             this.G0 = findViewById;
             findViewById.post(new e(this));
-            this.H0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092057);
-            this.I0 = view2.findViewById(R.id.obfuscated_res_0x7f092058);
-            this.J0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092056);
+            this.H0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092058);
+            this.I0 = view2.findViewById(R.id.obfuscated_res_0x7f092059);
+            this.J0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092057);
             this.H0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080124));
             this.J0.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08010f));
             this.I0.setBackgroundResource(R.color.obfuscated_res_0x7f060377);

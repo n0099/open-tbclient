@@ -1,8 +1,5 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,188 +7,55 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class jl9 implements ll9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static Context sApplicationContext = null;
-    public static int sBlockThreshold = 2000;
-    public static jl9 sInstance;
+public class jl9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final a a;
+    public static long b;
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public long b;
+        public long c;
+        public long d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            new HashMap();
+            new HashMap();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755584678, "Lcom/repackage/jl9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755584678, "Lcom/repackage/jl9;");
-        }
-    }
-
-    public jl9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755584678, "Lcom/repackage/jl9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755584678, "Lcom/repackage/jl9;");
+                return;
             }
         }
-    }
-
-    public static jl9 get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            jl9 jl9Var = sInstance;
-            if (jl9Var != null) {
-                return jl9Var;
-            }
-            throw new RuntimeException("BlockCanaryContext null");
-        }
-        return (jl9) invokeV.objValue;
-    }
-
-    public static void init(Context context, jl9 jl9Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, jl9Var, i) == null) {
-            sApplicationContext = context;
-            sInstance = jl9Var;
-            sBlockThreshold = i;
-        }
-    }
-
-    public List<String> concernPackages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean deleteFilesInWhiteList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public abstract boolean displayNotification();
-
-    public boolean filterNonConcernStack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.ll9
-    public void onBlock(Context context, rl9 rl9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, rl9Var) == null) {
-        }
-    }
-
-    public int provideBlockThreshold() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? sBlockThreshold : invokeV.intValue;
-    }
-
-    public Context provideContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? sApplicationContext : (Context) invokeV.objValue;
-    }
-
-    public int provideDumpInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? provideBlockThreshold() : invokeV.intValue;
-    }
-
-    public int provideMonitorDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public String provideNetworkType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "unknown" : (String) invokeV.objValue;
-    }
-
-    public String providePath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "/blockcanary/" : (String) invokeV.objValue;
-    }
-
-    public String provideQualifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "unknown" : (String) invokeV.objValue;
-    }
-
-    public String provideUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "uid" : (String) invokeV.objValue;
-    }
-
-    public List<String> provideWhiteList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add("org.chromium");
-            return linkedList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean stopWhenDebugging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void upload(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, file) == null) {
-            throw new UnsupportedOperationException();
-        }
-    }
-
-    public boolean zip(File[] fileArr, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, fileArr, file)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
+        a = new a();
     }
 }

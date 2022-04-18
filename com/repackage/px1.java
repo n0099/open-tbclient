@@ -229,11 +229,11 @@ public class px1 extends g23 {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler) == null) {
             File b2 = qx1.b();
             if (b2.exists()) {
-                boolean L = ng4.L(b2);
+                boolean L = mg4.L(b2);
                 jx1.i("LocalDebugAction", "debug bundle delete: " + L);
             }
             if (qx1.g()) {
-                boolean L2 = ng4.L(qx1.d());
+                boolean L2 = mg4.L(qx1.d());
                 jx1.i("LocalDebugAction", "unzip folder delete: " + L2);
             }
             this.c = Executors.newFixedThreadPool(4);
@@ -289,7 +289,7 @@ public class px1 extends g23 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (f == null) {
                 f = new HashSet();
-                r74 b2 = t74.b();
+                q74 b2 = s74.b();
                 String string = b2 != null ? b2.i().getString("auth_white_list", "") : "";
                 JSONArray jSONArray = null;
                 try {
@@ -314,7 +314,7 @@ public class px1 extends g23 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            r74 b2 = t74.b();
+            q74 b2 = s74.b();
             return TextUtils.equals(b2 != null ? b2.i().getString("enable_local_debug_switch", "1") : "1", "1");
         }
         return invokeV.booleanValue;
@@ -342,7 +342,7 @@ public class px1 extends g23 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048585, this, context, unitedSchemeEntity, i) == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
-            r74 b2 = t74.b();
+            q74 b2 = s74.b();
             String string = b2 != null ? b2.i().getString("error_url", "") : "";
             if (TextUtils.isEmpty(string)) {
                 b03.g(context, "IPs are invalid ：" + i).G();
@@ -366,9 +366,9 @@ public class px1 extends g23 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048586, this, context, str, file, unitedSchemeEntity, callbackHandler) == null) {
             try {
-                Response executeSync = m74.g().getRequest().url(this.e.b(str)).connectionTimeout(3000).build().executeSync();
+                Response executeSync = l74.g().getRequest().url(this.e.b(str)).connectionTimeout(3000).build().executeSync();
                 if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
-                    boolean a2 = qg4.a(executeSync.body().byteStream(), file);
+                    boolean a2 = pg4.a(executeSync.body().byteStream(), file);
                     jx1.i("LocalDebugAction", "save debug bundle: " + a2);
                     sx1.e().f("downloadsuccess");
                     this.e.e = str;

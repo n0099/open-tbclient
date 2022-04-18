@@ -34,7 +34,7 @@ public class zk2 extends g23 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements x74 {
+    public class a implements w74 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -73,7 +73,7 @@ public class zk2 extends g23 {
             this.h = j03Var;
         }
 
-        @Override // com.repackage.x74
+        @Override // com.repackage.w74
         public void a(@Nullable Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, map) == null) || map == null) {
@@ -86,7 +86,7 @@ public class zk2 extends g23 {
             this.i.o(this.b, this.c, this.d, this.e, this.f, str, this.g, this.h);
         }
 
-        @Override // com.repackage.x74
+        @Override // com.repackage.w74
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
@@ -369,10 +369,10 @@ public class zk2 extends g23 {
                     k73Var2.l("scheme", uri);
                     c73.R(k73Var2);
                     return false;
-                } else if (xc4.e().g(!de3.G()) && TextUtils.equals(optString2, "naviTo")) {
+                } else if (wc4.e().g(!de3.G()) && TextUtils.equals(optString2, "naviTo")) {
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(optString);
-                    s74.e(arrayList, i03.J().r().N(), new a(this, optString, jSONObject, str2, uri, context, unitedSchemeEntity, callbackHandler, j03Var));
+                    r74.e(arrayList, i03.J().r().N(), new a(this, optString, jSONObject, str2, uri, context, unitedSchemeEntity, callbackHandler, j03Var));
                     return true;
                 } else {
                     return o(jSONObject, str2, uri, context, unitedSchemeEntity, optString, callbackHandler, j03Var);

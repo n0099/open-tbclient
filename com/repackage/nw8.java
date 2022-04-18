@@ -1,7 +1,11 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.tieba.video.VideoItemModel;
 /* loaded from: classes6.dex */
 public interface nw8 {
-    void a(View view2, w76 w76Var);
+    void M(int i);
+
+    VideoItemModel W();
+
+    int k();
 }

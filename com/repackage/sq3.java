@@ -281,7 +281,7 @@ public class sq3 {
             if (map != null) {
                 for (String str2 : map.keySet()) {
                     if (!TextUtils.isEmpty(map.get(str2))) {
-                        str = sg4.a(str, str2, map.get(str2));
+                        str = rg4.a(str, str2, map.get(str2));
                     }
                 }
             }

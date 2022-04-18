@@ -35,11 +35,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kn8;
 import com.repackage.m45;
 import com.repackage.oi;
 import com.repackage.p45;
-import com.repackage.xt4;
+import com.repackage.rn8;
+import com.repackage.wt4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -51,7 +51,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
     public int a;
     public Context b;
     public FragmentTabWidget c;
-    public xt4 d;
+    public wt4 d;
     public FragmentTabSwellingView e;
     public int f;
     public b g;
@@ -336,7 +336,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
                 this.n.setVisibility(0);
             } else if (i == 0) {
                 layoutParams2.addRule(10, -1);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091e45);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091e46);
                 layoutParams.bottomMargin = 0;
                 this.n.setVisibility(0);
             } else if (i == 2) {
@@ -473,8 +473,8 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
             this.b = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f2, (ViewGroup) this, true);
-            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e45);
-            this.p = findViewById(R.id.obfuscated_res_0x7f091e44);
+            this.n = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e46);
+            this.p = findViewById(R.id.obfuscated_res_0x7f091e45);
             this.f = -1;
             this.g = null;
         }
@@ -496,8 +496,8 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             }
             CustomViewPager customViewPager2 = new CustomViewPager(this.b);
             this.k = customViewPager2;
-            customViewPager2.setId(R.id.obfuscated_res_0x7f091e28);
-            kn8.c(this.k, 2);
+            customViewPager2.setId(R.id.obfuscated_res_0x7f091e29);
+            rn8.c(this.k, 2);
             f(i);
             addView(this.k);
             removeView(this.n);
@@ -521,7 +521,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             }
             CustomViewPager customViewPager2 = new CustomViewPager(this.b);
             this.k = customViewPager2;
-            customViewPager2.setId(R.id.obfuscated_res_0x7f091e28);
+            customViewPager2.setId(R.id.obfuscated_res_0x7f091e29);
             addView(this.k);
             removeView(this.n);
             addView(this.n);
@@ -626,7 +626,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             if (this.o == null) {
-                this.o = findViewById(R.id.obfuscated_res_0x7f092082);
+                this.o = findViewById(R.id.obfuscated_res_0x7f092083);
             }
             if (!z) {
                 this.o.setVisibility(8);
@@ -808,7 +808,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, pair) == null) {
             if (this.d == null) {
-                this.d = new xt4(this, R.color.common_color_10274);
+                this.d = new wt4(this, R.color.common_color_10274);
             }
             setShouldDrawIndicatorLine(false);
             setShouldDrawTopLine(false);
@@ -870,13 +870,13 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             this.h = fragmentManager;
             if (p45.e().g()) {
                 this.c = p45.e().b(this.b);
-                ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f091e27)).addView(this.c);
+                ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f091e28)).addView(this.c);
             } else {
-                FragmentTabWidget fragmentTabWidget = (FragmentTabWidget) findViewById(R.id.obfuscated_res_0x7f091e43);
+                FragmentTabWidget fragmentTabWidget = (FragmentTabWidget) findViewById(R.id.obfuscated_res_0x7f091e44);
                 this.c = fragmentTabWidget;
                 fragmentTabWidget.setVisibility(0);
             }
-            this.e = (FragmentTabSwellingView) findViewById(R.id.obfuscated_res_0x7f091e3b);
+            this.e = (FragmentTabSwellingView) findViewById(R.id.obfuscated_res_0x7f091e3c);
             this.c.setTabSelectionListener(this);
         }
     }

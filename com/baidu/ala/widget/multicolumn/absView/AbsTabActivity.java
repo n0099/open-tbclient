@@ -121,7 +121,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914ee);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914ef);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             if (!this.isSupportNight) {
@@ -130,7 +130,7 @@ public abstract class AbsTabActivity extends BaseFragmentActivity {
                 this.mNavigationBar.onCenterTextOnChangeSkin(0);
             }
             setNavigationBar(this.mNavigationBar);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e2f);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e30);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setVisibility(0);
             this.mTabHost.setup(getSupportFragmentManager());

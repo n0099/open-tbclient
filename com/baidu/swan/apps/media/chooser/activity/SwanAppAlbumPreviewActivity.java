@@ -513,7 +513,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
     private void initBottomThumbnailView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.mThumbnailView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091fd0);
+            this.mThumbnailView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091fd1);
             this.mLineView = findViewById(R.id.obfuscated_res_0x7f090258);
             a aVar = new a(this, this);
             aVar.setOrientation(0);
@@ -558,12 +558,12 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
             this.mAdapter.w(this);
             this.mViewPager.setCurrentItem(this.mIndex);
             this.mSelectView.setOnClickListener(this);
-            this.mDoneTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081150);
+            this.mDoneTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081154);
             this.mDoneTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a75));
             if (ao2.d() != 0) {
-                string = getString(R.string.obfuscated_res_0x7f0f127d) + "(" + ao2.d() + SmallTailInfo.EMOTION_SUFFIX;
+                string = getString(R.string.obfuscated_res_0x7f0f127c) + "(" + ao2.d() + SmallTailInfo.EMOTION_SUFFIX;
             } else {
-                string = getString(R.string.obfuscated_res_0x7f0f127d);
+                string = getString(R.string.obfuscated_res_0x7f0f127c);
             }
             this.mDoneTv.setText(string);
         }
@@ -610,14 +610,14 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         if (ao2.g(mediaModel)) {
             this.mSelectNumTv.setVisibility(0);
             this.mSelectNumTv.setText(getSelectNum(this.mList.get(this.mIndex)));
-            this.mSelectNumTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081151);
+            this.mSelectNumTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081155);
             return;
         }
         this.mSelectNumTv.setVisibility(8);
         if (zn2.f(zn2.d, mediaModel)) {
-            this.mSelectImg.setImageResource(R.drawable.obfuscated_res_0x7f081153);
+            this.mSelectImg.setImageResource(R.drawable.obfuscated_res_0x7f081157);
         } else {
-            this.mSelectImg.setImageResource(R.drawable.obfuscated_res_0x7f081152);
+            this.mSelectImg.setImageResource(R.drawable.obfuscated_res_0x7f081156);
         }
     }
 
@@ -737,11 +737,11 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                         this.mThumbnailAdapter.i(null);
                     }
                     this.mSelectNumTv.setVisibility(8);
-                    this.mSelectImg.setImageResource(R.drawable.obfuscated_res_0x7f081152);
+                    this.mSelectImg.setImageResource(R.drawable.obfuscated_res_0x7f081156);
                     if (ao2.d() > 0) {
-                        string = getString(R.string.obfuscated_res_0x7f0f127d) + "(" + ao2.d() + SmallTailInfo.EMOTION_SUFFIX;
+                        string = getString(R.string.obfuscated_res_0x7f0f127c) + "(" + ao2.d() + SmallTailInfo.EMOTION_SUFFIX;
                     } else {
-                        string = getString(R.string.obfuscated_res_0x7f0f127d);
+                        string = getString(R.string.obfuscated_res_0x7f0f127c);
                     }
                     this.mDoneTv.setText(string);
                     updateThumbnailView();
@@ -751,9 +751,9 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                 if (d2 == zn2.c) {
                     zn2.j(zn2.d);
                 } else if (d2 > 0 && TextUtils.equals(zn2.d, "single") && !TextUtils.equals(ao2.b(), mediaModel.getType())) {
-                    b03.f(this, R.string.obfuscated_res_0x7f0f126c).G();
-                } else if (mediaModel.getSize() > 52428800 && TextUtils.equals(mediaModel.getType(), "image")) {
                     b03.f(this, R.string.obfuscated_res_0x7f0f126b).G();
+                } else if (mediaModel.getSize() > 52428800 && TextUtils.equals(mediaModel.getType(), "image")) {
+                    b03.f(this, R.string.obfuscated_res_0x7f0f126a).G();
                 } else {
                     int d3 = ao2.d();
                     this.mThumbnailAdapter.notifyItemInserted(d3);
@@ -764,8 +764,8 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
                     this.mThumbnailView.smoothScrollToPosition(d3);
                     this.mSelectNumTv.setVisibility(0);
                     this.mSelectNumTv.setText(getSelectNum(mediaModel));
-                    this.mSelectNumTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081151);
-                    this.mDoneTv.setText(getString(R.string.obfuscated_res_0x7f0f127d) + "(" + ao2.d() + SmallTailInfo.EMOTION_SUFFIX);
+                    this.mSelectNumTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081155);
+                    this.mDoneTv.setText(getString(R.string.obfuscated_res_0x7f0f127c) + "(" + ao2.d() + SmallTailInfo.EMOTION_SUFFIX);
                     this.mDoneTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a75));
                     updateThumbnailView();
                 }
@@ -819,7 +819,7 @@ public class SwanAppAlbumPreviewActivity extends SwanAppBaseActivity implements 
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.yd4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.xd4, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {

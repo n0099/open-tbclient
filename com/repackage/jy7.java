@@ -1,90 +1,62 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class jy7 {
+public class jy7 extends PbListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ny7> a;
+    public TbPageContext<?> E;
 
-    public jy7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jy7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.E = tbPageContext;
+        b().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ff));
+        z();
+        y();
+        v();
+        G(R.dimen.tbfontsize33);
     }
 
-    public ArrayList<ny7> a() {
-        InterceptResult invokeV;
+    public void R() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.f();
+            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f0a2b));
+            b().setVisibility(0);
+        }
     }
 
-    public final boolean b(ExcContent excContent) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tbadk.core.view.PbListView
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
-            long longValue = excContent.type.longValue();
-            return longValue == 2 || longValue == 0 || longValue == 1;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
-        qy7 qy7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        loop0: while (true) {
-            qy7Var = null;
-            for (ExcContent excContent : list) {
-                if (excContent != null && excContent.type != null) {
-                    if (b(excContent)) {
-                        my7 a = py7.a(tbPageContext, excContent);
-                        if (a == null) {
-                            continue;
-                        } else if (a.a()) {
-                            if (qy7Var != null) {
-                                this.a.add(qy7Var);
-                            }
-                            this.a.add(a);
-                        } else {
-                            if (qy7Var == null) {
-                                qy7Var = new qy7();
-                            }
-                            qy7Var.c(a.b());
-                        }
-                    } else {
-                        if (qy7Var != null) {
-                            this.a.add(qy7Var);
-                        }
-                        this.a.add(py7.b(excContent));
-                    }
-                }
-            }
-            break loop0;
-        }
-        if (qy7Var != null) {
-            this.a.add(qy7Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.f();
+            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f11e8));
+            b().setVisibility(0);
         }
     }
 }

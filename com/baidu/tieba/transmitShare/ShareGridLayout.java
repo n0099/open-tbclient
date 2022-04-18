@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hr8;
 import com.repackage.oi;
+import com.repackage.or8;
 /* loaded from: classes4.dex */
-public class ShareGridLayout extends ViewGroup implements hr8 {
+public class ShareGridLayout extends ViewGroup implements or8 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class ShareGridLayout extends ViewGroup implements hr8 {
         b(context);
     }
 
-    @Override // com.repackage.hr8
+    @Override // com.repackage.or8
     public void a(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, view2) == null) {
@@ -103,7 +103,7 @@ public class ShareGridLayout extends ViewGroup implements hr8 {
         }
     }
 
-    @Override // com.repackage.hr8
+    @Override // com.repackage.or8
     @NonNull
     public View getView() {
         InterceptResult invokeV;
@@ -162,7 +162,7 @@ public class ShareGridLayout extends ViewGroup implements hr8 {
         }
     }
 
-    @Override // com.repackage.hr8
+    @Override // com.repackage.or8
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {

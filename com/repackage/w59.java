@@ -1,134 +1,76 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Base64InputStream;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class w59 {
+public class w59 extends Base64InputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755250250, "Lcom/repackage/w59;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755250250, "Lcom/repackage/w59;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w59(InputStream inputStream, int i) {
+        super(inputStream, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = r49.m();
+        this.a = false;
+        this.b = false;
     }
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int read = super.read();
+            if (!this.a && read == 117) {
+                this.a = true;
+                return 31;
+            } else if (this.b || read != 123) {
+                return read;
+            } else {
+                this.b = true;
+                return 139;
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                try {
-                    i = inputStream.read(bArr, 0, 1024);
-                } catch (IOException e) {
-                    if (a) {
-                        Log.e("StringUtil", e.toString());
-                    }
-                    i = 0;
-                }
-                if (i == -1) {
-                    break;
-                }
-                byteArrayOutputStream.write(bArr, 0, i);
-            }
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            try {
-                byteArrayOutputStream.close();
-            } catch (IOException e2) {
-                if (a) {
-                    Log.e("StringUtil", e2.toString());
-                }
-            }
-            return byteArray;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION, INVOKE, INVOKE, INVOKE, IF, SGET, MOVE_EXCEPTION] complete} */
-    public static String b(InputStream inputStream) {
-        InterceptResult invokeL;
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            try {
-                try {
-                    byte[] a2 = a(inputStream);
-                    if (a2 != null) {
-                        String str = new String(a2);
-                        if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                            str = str.substring(1);
-                        }
-                        return str;
-                    } else if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                            return null;
-                        } catch (Exception e) {
-                            e = e;
-                            if (!a) {
-                                return null;
-                            }
-                            Log.e("StringUtil", e.toString());
-                            return null;
-                        }
-                    } else {
-                        return null;
-                    }
-                } finally {
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e2) {
-                            if (a) {
-                                Log.e("StringUtil", e2.toString());
-                            }
-                        }
-                    }
-                }
-            } catch (Exception e3) {
-                if (a) {
-                    Log.e("StringUtil", " getStringFromInput exception: ", e3);
-                }
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                        return null;
-                    } catch (Exception e4) {
-                        e = e4;
-                        if (!a) {
-                            return null;
-                        }
-                        Log.e("StringUtil", e.toString());
-                        return null;
-                    }
-                }
-                return null;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
+            int read = super.read(bArr, i, i2);
+            if (!this.a && read >= 2) {
+                bArr[i] = 31;
+                bArr[i + 1] = -117;
+                this.a = true;
             }
+            return read;
         }
-        return (String) invokeL.objValue;
+        return invokeLII.intValue;
     }
 }

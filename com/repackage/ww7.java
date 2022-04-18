@@ -1,40 +1,52 @@
 package com.repackage;
 
+import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.face.data.EmotionImageData;
-import com.baidu.tieba.face.view.EmotionView;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class ww7 extends BaseAdapter {
+public class ww7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<EmotionImageData> a;
-    public b b;
-    public EmotionView.c c;
+    public FrameLayout a;
+    public LinearLayout b;
+    public EMTextView c;
+    public EMTextView d;
+    public String e;
+    public int f;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ww7 a;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ ww7 b;
 
-        public a(ww7 ww7Var) {
+        public a(ww7 ww7Var, TbPageContext tbPageContext) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ww7Var};
+                Object[] objArr = {ww7Var, tbPageContext};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,138 +56,155 @@ public class ww7 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = ww7Var;
+            this.b = ww7Var;
+            this.a = tbPageContext;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null && (view2 instanceof EmotionView)) {
-                this.a.b.f(((EmotionView) view2).getData());
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                UrlManager urlManager = UrlManager.getInstance();
+                TbPageContext<?> tbPageContext = this.a;
+                urlManager.dealOneLink(tbPageContext, new String[]{"http://tieba.baidu.com/mo/q/wise-bawu-core/recycle-station#/recycle-post?noshare=1&postId=" + this.b.e});
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_UEG_POST_CLICKED).param("obj_locate", this.b.f));
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void f(EmotionImageData emotionImageData);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public EmotionView a;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public ww7() {
+    public ww7(PbFragment pbFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbFragment};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        c(pbFragment.getPageContext());
+    }
+
+    public void b(BdTypeListView bdTypeListView, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, bdTypeListView, i) == null) || bdTypeListView == null) {
+            return;
+        }
+        bdTypeListView.x(this.a, i);
+    }
+
+    public final void c(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) && this.a == null) {
+            this.a = (FrameLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d067f, (ViewGroup) null);
+            h(tbPageContext);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            vr4 d = vr4.d(this.b);
+            d.n(R.string.J_X05);
+            d.f(R.color.CAM_X0206);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
+        }
+    }
+
+    public void e(BdTypeListView bdTypeListView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) || bdTypeListView == null) {
+            return;
+        }
+        bdTypeListView.removeHeaderView(this.a);
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a.setVisibility(i);
+        }
+    }
+
+    public final void h(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) {
+            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906d2);
+            this.c = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f092202);
+            this.d = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f09217d);
+            vr4 d = vr4.d(this.c);
+            d.v(R.color.CAM_X0109);
+            d.A(R.string.F_X01);
+            vr4 d2 = vr4.d(this.d);
+            d2.w(R.dimen.M_H_X003);
+            d2.v(R.color.CAM_X0109);
+            d2.A(R.string.F_X01);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0da3));
+            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0808eb, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
+            eMRichTextAnyIconSpan.f(oi.f(tbPageContext.getContext(), R.dimen.tbds31));
+            eMRichTextAnyIconSpan.d(oi.f(tbPageContext.getContext(), R.dimen.M_W_X002));
+            eMRichTextAnyIconSpan.b(0);
+            spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
+            this.c.setText(spannableStringBuilder);
+            SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0da2));
+            EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.icon_pure_arrow12_right_n, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
+            eMRichTextAnyIconSpan2.b(oi.f(tbPageContext.getContext(), R.dimen.tbds3));
+            spannableStringBuilder2.setSpan(eMRichTextAnyIconSpan2, spannableStringBuilder2.length() - 1, spannableStringBuilder2.length(), 33);
+            this.d.setText(spannableStringBuilder2);
+            this.b.setOnClickListener(new a(this, tbPageContext));
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ww7(AbsVideoPbFragment absVideoPbFragment, FrameLayout frameLayout) {
+        this(absVideoPbFragment.getPageContext(), frameLayout);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {absVideoPbFragment, frameLayout};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((TbPageContext) objArr2[0], (FrameLayout) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public ww7(TbPageContext<?> tbPageContext, FrameLayout frameLayout) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, frameLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public void b(List<EmotionImageData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    public void c(EmotionView.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.c = cVar;
-        }
-    }
-
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.b = bVar;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.isEmpty(this.a)) {
-                return 0;
-            }
-            return this.a.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                cVar = new c();
-                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0504, (ViewGroup) null);
-                EmotionView emotionView = (EmotionView) view3.findViewById(R.id.obfuscated_res_0x7f0908bd);
-                cVar.a = emotionView;
-                emotionView.k0();
-                cVar.a.setController(this.c);
-                cVar.a.setOnClickListener(new a(this));
-                view3.setTag(cVar);
-            } else {
-                view3 = view2;
-                cVar = (c) view2.getTag();
-            }
-            List<EmotionImageData> list = this.a;
-            if (list != null && i >= 0 && i < list.size()) {
-                cVar.a.m0(this.a.get(i));
-            }
-            return view3;
-        }
-        return (View) invokeILL.objValue;
+        this.a = frameLayout;
+        h(tbPageContext);
     }
 }

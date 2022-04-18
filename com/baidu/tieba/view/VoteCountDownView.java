@@ -112,10 +112,10 @@ public class VoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f090dfb);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091420);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090dfc);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091421);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090dfc);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091421);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090dfd);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091422);
         }
     }
 

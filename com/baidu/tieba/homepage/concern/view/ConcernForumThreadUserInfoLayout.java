@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx5;
+import com.repackage.ex5;
 /* loaded from: classes3.dex */
 public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -67,7 +67,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f == null || StringUtils.isNull(this.a.f.getForum_name())) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f.getForum_name(), cx5.g())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f.getForum_name(), ex5.g())));
             if (this.a.h != null) {
                 this.a.h.onClick(view2);
             }
@@ -100,9 +100,9 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f9, (ViewGroup) this, true);
             this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090547);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f9c);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fbd);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f96);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f9d);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fbe);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f97);
             this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0907ea);
             setGravity(16);
             d();

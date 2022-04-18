@@ -66,19 +66,19 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements d {
 
     private void b() {
         LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d047f, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09117c);
-        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091179);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09117d);
+        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09117a);
     }
 
     private void c() {
         if (!com.kwad.sdk.core.response.a.a.B(this.f) && !com.kwad.sdk.core.response.a.d.v(this.e)) {
-            TailFrameBarH5Landscape tailFrameBarH5Landscape = (TailFrameBarH5Landscape) findViewById(R.id.obfuscated_res_0x7f091168);
+            TailFrameBarH5Landscape tailFrameBarH5Landscape = (TailFrameBarH5Landscape) findViewById(R.id.obfuscated_res_0x7f091169);
             this.c = tailFrameBarH5Landscape;
             tailFrameBarH5Landscape.setModel(this.e);
             this.c.setVisibility(0);
             return;
         }
-        TailFrameBarAppLandscape tailFrameBarAppLandscape = (TailFrameBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f091152);
+        TailFrameBarAppLandscape tailFrameBarAppLandscape = (TailFrameBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f091153);
         this.b = tailFrameBarAppLandscape;
         tailFrameBarAppLandscape.setModel(this.e);
         this.b.setVisibility(0);

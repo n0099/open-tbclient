@@ -22,14 +22,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ba7;
 import com.repackage.r65;
 import com.repackage.s65;
-import com.repackage.y97;
 /* loaded from: classes3.dex */
 public class ChatAggregationFragment extends BaseFragment implements r65, NoNetworkView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y97 a;
+    public ba7 a;
     public ViewEventCenter b;
     public CustomMessageListener c;
     public CustomMessageListener d;
@@ -155,12 +155,12 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.b
     public void d(boolean z) {
-        y97 y97Var;
+        ba7 ba7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (y97Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (ba7Var = this.a) == null) {
             return;
         }
-        y97Var.X(z);
+        ba7Var.X(z);
     }
 
     @Override // com.repackage.r65
@@ -174,12 +174,12 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
     }
 
     public void m() {
-        y97 y97Var;
+        ba7 ba7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (y97Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ba7Var = this.a) == null) {
             return;
         }
-        y97Var.m0();
+        ba7Var.m0();
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -207,12 +207,12 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        y97 y97Var;
+        ba7 ba7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (y97Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (ba7Var = this.a) == null) {
             return;
         }
-        y97Var.T(getPageContext(), i);
+        ba7Var.T(getPageContext(), i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -220,12 +220,12 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
-            y97 y97Var = new y97(this);
-            this.a = y97Var;
+            ba7 ba7Var = new ba7(this);
+            this.a = ba7Var;
             if (bundle != null) {
-                y97Var.P(bundle);
+                ba7Var.P(bundle);
             } else {
-                y97Var.P(null);
+                ba7Var.P(null);
             }
             View V = this.a.V();
             this.a.T(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
@@ -244,9 +244,9 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.c);
             MessageManager.getInstance().unRegisterListener(this.d);
-            y97 y97Var = this.a;
-            if (y97Var != null) {
-                y97Var.Q();
+            ba7 ba7Var = this.a;
+            if (ba7Var != null) {
+                ba7Var.Q();
             }
         }
     }
@@ -263,9 +263,9 @@ public class ChatAggregationFragment extends BaseFragment implements r65, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPrimary();
-            y97 y97Var = this.a;
-            if (y97Var != null) {
-                y97Var.I();
+            ba7 ba7Var = this.a;
+            if (ba7Var != null) {
+                ba7Var.I();
             }
         }
     }

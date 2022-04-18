@@ -152,39 +152,39 @@ public class t93 {
         }
     }
 
-    public static b c(f94 f94Var, int i) {
+    public static b c(e94 e94Var, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, f94Var, i)) == null) {
-            jx1.k("RemoteSwanCoreControl", "doRemoteUpdate start. framework: " + f94Var);
-            if (f94Var == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, e94Var, i)) == null) {
+            jx1.k("RemoteSwanCoreControl", "doRemoteUpdate start. framework: " + e94Var);
+            if (e94Var == null) {
                 return b.b("framework is null.");
             }
-            long j = f94Var.i;
+            long j = e94Var.i;
             if (j == 0) {
-                return b.b("invalid version code : " + f94Var.j);
-            } else if (!wd3.a(new File(f94Var.a), f94Var.m)) {
+                return b.b("invalid version code : " + e94Var.j);
+            } else if (!wd3.a(new File(e94Var.a), e94Var.m)) {
                 return b.b("sign failed.");
             } else {
                 String path = h(j, i).getPath();
-                if (!ng4.U(f94Var.a, path)) {
+                if (!mg4.U(e94Var.a, path)) {
                     return b.b("unzip bundle failed.");
                 }
                 if (i == 0) {
-                    boolean B = ng4.B(f94Var.a, path);
+                    boolean B = mg4.B(e94Var.a, path);
                     if (a) {
                         Log.d("RemoteSwanCoreControl", "isZipFileMatchUnzipResult:" + B + ",path:" + path);
                     }
                     if (!B) {
                         o93.m(1, i, j);
-                        ng4.M(path);
-                        if (!ng4.U(f94Var.a, path)) {
+                        mg4.M(path);
+                        if (!mg4.U(e94Var.a, path)) {
                             return b.b("unzip bundle failed.");
                         }
                     }
                 }
                 if (a) {
-                    String b2 = pg4.b(new File(f94Var.a), false);
+                    String b2 = og4.b(new File(e94Var.a), false);
                     if (!TextUtils.isEmpty(b2)) {
                         x83.a().putString(n93.d(i), b2);
                     }
@@ -192,7 +192,7 @@ public class t93 {
                 if (ProcessUtils.isMainProcess()) {
                     o93.b(g(i), k(e(i), j));
                 }
-                l(f94Var.j, f94Var.i, i);
+                l(e94Var.j, e94Var.i, i);
                 jx1.k("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + j);
                 return b.d();
             }

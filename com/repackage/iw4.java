@@ -1,168 +1,203 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class iw4 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public pw4 b;
-    public int c;
-    public long d;
-    public long e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public String l;
-    public boolean m;
-    public String n;
-    public String o;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755604053, "Lcom/repackage/iw4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755604053, "Lcom/repackage/iw4;");
+        }
+    }
 
     public iw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = 1;
-        this.g = 0;
-        this.h = 0;
-        this.i = 0;
-        this.j = 300;
-        this.k = 1;
-        this.b = new pw4();
     }
 
-    public pw4 a() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (pw4) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a > 0 : invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g == 1 : invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h == 0 : invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.c == 1) {
-                long currentTimeMillis = System.currentTimeMillis() / 1000;
-                return this.d < currentTimeMillis && currentTimeMillis < this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            int l = vt4.k().l("pref_key_fun_ad_first_floor_min", 2);
+            int l2 = vt4.k().l("pref_key_fun_ad_first_floor_max", 3);
+            if (l < l2) {
+                a = k37.a(l, l2);
+            } else {
+                a = k37.a(l2, l);
             }
-            return false;
+            if (a < 0) {
+                a = 2;
+            }
+            return a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public boolean h() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? vt4.k().l("fun_ad_big_image_density", 6) : invokeV.intValue;
     }
 
-    public String i() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? vt4.k().l("fun_ad_big_image_floor", 5) : invokeV.intValue;
     }
 
-    public void j(JSONObject jSONObject) throws JSONException {
+    public static int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? vt4.k().l("fun_ad_big_image_size", 1) : invokeV.intValue;
+    }
+
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (a < 0) {
+                a = 2;
+            }
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            int l = vt4.k().l("pref_key_fun_ad_density", 6);
+            if (l > 0) {
+                return l;
+            }
+            return 6;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? vt4.k().l("pref_key_fun_ad_frs_density", 5) : invokeV.intValue;
+    }
+
+    public static int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? vt4.k().l("pref_key_fun_ad_frs_first_floor", 2) : invokeV.intValue;
+    }
+
+    public static int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? vt4.k().l("key_pb_comment_bear_density", 6) : invokeV.intValue;
+    }
+
+    public static int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            int l = vt4.k().l("key_pb_comment_bear_first", 4);
+            if (l <= 0) {
+                return 4;
+            }
+            return l;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? vt4.k().l("key_pb_comment_bear_maxsize", 1) : invokeV.intValue;
+    }
+
+    public static int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? vt4.k().l("key_video_middle_density", 4) : invokeV.intValue;
+    }
+
+    public static int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            int l = vt4.k().l("key_video_middle_first", 2);
+            if (l <= 0) {
+                return 2;
+            }
+            return l;
+        }
+        return invokeV.intValue;
+    }
+
+    public void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optInt("als_control", 1);
-        jSONObject.optInt("not_use_lego_patch", 0);
-        jSONObject.optInt("ad_video_not_autoplay", 1);
-        this.i = jSONObject.optInt("lp_video_not_autoplay", 0);
-        this.b.a(jSONObject);
-        JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
-        if (optJSONObject != null) {
-            this.c = optJSONObject.optInt("log_feed_switch", 0);
-            this.d = optJSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, -1L);
-            this.e = optJSONObject.optLong("end_time", -1L);
-            this.f = optJSONObject.optString("ext_info");
+        try {
+            int optInt = jSONObject.optInt("frs_bear_first_floor", 2);
+            int optInt2 = jSONObject.optInt("frs_bear_density", 5);
+            vt4.k().w("pref_key_fun_ad_frs_first_floor", optInt);
+            vt4.k().w("pref_key_fun_ad_frs_density", optInt2);
+            int optInt3 = jSONObject.optInt("index_bear_density", 6);
+            int optInt4 = jSONObject.optInt("index_bear_first_floor_max", 3);
+            int optInt5 = jSONObject.optInt("index_bear_first_floor_min", 2);
+            vt4.k().w("pref_key_fun_ad_density", optInt3);
+            vt4.k().w("pref_key_fun_ad_first_floor_max", optInt4);
+            vt4.k().w("pref_key_fun_ad_first_floor_min", optInt5);
+            int optInt6 = jSONObject.optInt("video_bear_density", 4);
+            int optInt7 = jSONObject.optInt("video_bear_first_floor", 2);
+            vt4.k().w("key_video_middle_density", optInt6);
+            vt4.k().w("key_video_middle_first", optInt7);
+            int optInt8 = jSONObject.optInt("pb_comment_bear_density", 6);
+            int optInt9 = jSONObject.optInt("pb_comment_bear_first_floor", 4);
+            int optInt10 = jSONObject.optInt("pb_comment_bear_max_size", 1);
+            vt4.k().w("key_pb_comment_bear_density", optInt8);
+            vt4.k().w("key_pb_comment_bear_first", optInt9);
+            vt4.k().w("key_pb_comment_bear_maxsize", optInt10);
+            int optInt11 = jSONObject.optInt("picpage_bear_first_floor", 5);
+            int optInt12 = jSONObject.optInt("picpage_bear_density", 6);
+            int optInt13 = jSONObject.optInt("picpage_bear_max_size", 1);
+            int optInt14 = jSONObject.optInt("picpage_bear_last_frame_switch", 0);
+            vt4.k().w("fun_ad_big_image_floor", optInt11);
+            vt4.k().w("fun_ad_big_image_density", optInt12);
+            vt4.k().w("fun_ad_big_image_size", optInt13);
+            vt4.k().w("fun_ad_big_image_switch", optInt14);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        this.g = jSONObject.optInt("ad_collect_switch", 0);
-        JSONObject optJSONObject2 = jSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_SPLASH);
-        if (optJSONObject2 != null) {
-            this.j = optJSONObject2.optInt("interval", 300);
-        }
-        this.k = jSONObject.optInt("video_page_style", 1);
-        wt4.k().w("video_page_style", this.k);
-        this.h = jSONObject.optInt("ad_download_lib", 0);
-        JSONObject optJSONObject3 = jSONObject.optJSONObject("afd_sync_config");
-        if (optJSONObject3 != null) {
-            optJSONObject3.optInt("first_floor");
-            optJSONObject3.optInt("prefetch_step");
-            optJSONObject3.optInt(ShaderParams.VALUE_TYPE_STEP);
-        }
-        JSONObject optJSONObject4 = jSONObject.optJSONObject("action_control");
-        if (optJSONObject4 != null) {
-            this.l = optJSONObject4.optString("url");
-            optJSONObject4.optString("name");
-            optJSONObject4.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-            optJSONObject4.optString("text_color_pressed");
-        }
-        this.m = jSONObject.optInt("afd_jump_pb") == 1;
-        this.n = jSONObject.optString("afd_eid");
-        JSONObject optJSONObject5 = jSONObject.optJSONObject("iadex_sniff_list_url");
-        if (optJSONObject5 != null) {
-            String optString = optJSONObject5.optString("os_type2_iadex_url");
-            this.o = optString;
-            wb5.i(optString);
-            return;
-        }
-        wb5.i(null);
     }
 }

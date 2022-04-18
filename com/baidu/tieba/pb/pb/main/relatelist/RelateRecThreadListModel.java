@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.dk8;
-import com.repackage.gm4;
+import com.repackage.fm4;
+import com.repackage.kk8;
 import com.repackage.wa;
 import tbclient.RelateRecThread.DataRes;
 /* loaded from: classes3.dex */
@@ -31,7 +31,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public RelateRecThreadRequestMessage b;
-    public gm4 c;
+    public fm4 c;
     public wa d;
 
     /* loaded from: classes3.dex */
@@ -129,8 +129,8 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dk8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            dk8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            kk8.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            kk8.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);
@@ -159,10 +159,10 @@ public class RelateRecThreadListModel extends BdBaseModel {
         return invokeCommon.booleanValue;
     }
 
-    public void F(gm4 gm4Var) {
+    public void F(fm4 fm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gm4Var) == null) {
-            this.c = gm4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fm4Var) == null) {
+            this.c = fm4Var;
         }
     }
 

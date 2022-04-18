@@ -1,19 +1,19 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.forumMember.bawu.BawuTeamInfoReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.bawu.BawuTeamReadCacheResponseMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qe;
 /* loaded from: classes7.dex */
-public class wa6 implements CustomMessageTask.CustomRunnable<Object> {
+public class wa6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public qe<byte[]> a;
 
     public wa6() {
         Interceptable interceptable = $ic;
@@ -25,27 +25,41 @@ public class wa6 implements CustomMessageTask.CustomRunnable<Object> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        b();
+    }
+
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            qe<byte[]> qeVar = this.a;
+            qe.b<byte[]> h = (qeVar == null || str == null) ? null : qeVar.h(str);
+            if (h == null || (bArr = h.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            br4.f();
+            this.a = br4.d("tb.bawu_team_info");
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    public void c(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof BawuTeamInfoReadCacheRequestMessage)) {
-                return null;
-            }
-            byte[] a = new ua6().a(((BawuTeamInfoReadCacheRequestMessage) customMessage).getCacheKey());
-            BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = new BawuTeamReadCacheResponseMessage();
-            try {
-                bawuTeamReadCacheResponseMessage.decodeInBackGround(2003005, a);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return bawuTeamReadCacheResponseMessage;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        b();
+        this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
     }
 }

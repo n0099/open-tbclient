@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mi;
-import com.repackage.vl4;
+import com.repackage.ul4;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
 public class MemberCenterFragment extends BaseFragment {
@@ -80,7 +80,7 @@ public class MemberCenterFragment extends BaseFragment {
                     }
                     if (StringUtils.isNull(str) || !str.contains(UrlSchemaHelper.JUMP_TO_THIS_PAGE)) {
                         if (!StringUtils.isNull(str) && str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                            vl4.r(this.a.getPageContext().getContext(), null, str, false, true, false, false, false);
+                            ul4.r(this.a.getPageContext().getContext(), null, str, false, true, false, false, false);
                             return true;
                         }
                         UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{str}, true);
@@ -262,13 +262,13 @@ public class MemberCenterFragment extends BaseFragment {
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ab);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.b.setTitleText(R.string.obfuscated_res_0x7f0f0aa1);
             SkinManager.setNavbarTitleColor(this.b.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
             if (this.b.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b.getBackImageView(), R.drawable.obfuscated_res_0x7f080623, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b.getBackImageView(), R.drawable.obfuscated_res_0x7f080622, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             this.b.showBottomLine(false);
         }
@@ -302,7 +302,7 @@ public class MemberCenterFragment extends BaseFragment {
         }
         quickWebView.setVisibility(8);
         this.b.setVisibility(0);
-        showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18), true);
+        showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17), true);
     }
 
     public final void I0() {
@@ -359,11 +359,11 @@ public class MemberCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03d9, (ViewGroup) null);
             this.c = inflate;
-            this.a = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ad);
-            this.b = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ab);
+            this.a = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.b = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ac);
             E0();
-            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f0913ca);
-            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f092425);
+            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f0913cb);
+            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f092426);
             F0();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             TiebaStatic.log("c10387");

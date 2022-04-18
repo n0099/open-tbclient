@@ -1,27 +1,27 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface xl7 {
-    void a(long j, long j2, long j3);
+    void a(String str);
 
-    void b(boolean z);
+    void b(String str, int i, int i2, String str2);
 
-    void c(boolean z, boolean z2);
+    void c(String str, int i, String str2);
 
-    boolean d(String str, String str2);
+    boolean d(String str);
 
-    String e(String str, String str2);
+    boolean e(String str);
 
-    void f();
+    void f(String str, int i, String str2);
 
-    void g(long j, int i);
+    void g(String str, int i, String str2);
 
-    void h(int i);
+    void h(String str, String str2);
 
-    void i(int i);
+    void i(String str, String str2);
 
-    void j();
+    void j(String str);
 
-    void k(String str, String str2);
+    void k(String str);
 
-    void l(int i);
+    void l(String str, int i, String str2);
 }

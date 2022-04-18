@@ -1,67 +1,58 @@
 package com.repackage;
 
 import android.content.Context;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.ArCoreApk;
 /* loaded from: classes7.dex */
-public class rm9 {
+public final class rm9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Context a;
+    public final /* synthetic */ ArCoreApk.a b;
+    public final /* synthetic */ om9 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755345389, "Lcom/repackage/rm9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public rm9(om9 om9Var, Context context, ArCoreApk.a aVar) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {om9Var, context, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755345389, "Lcom/repackage/rm9;");
-        }
+        this.c = om9Var;
+        this.a = context;
+        this.b = aVar;
     }
 
-    public static void a(String str, String str2) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            com.meizu.cloud.pushsdk.base.h.b().a(str, str2);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            com.meizu.cloud.pushsdk.base.h.b().d(str, str2);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            com.meizu.cloud.pushsdk.base.h.b().a(false);
-        }
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            com.meizu.cloud.pushsdk.base.h.b().b(str, str2);
-        }
-    }
-
-    public static void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
-            com.meizu.cloud.pushsdk.base.h.b().a(context);
-            com.meizu.cloud.pushsdk.base.h b = com.meizu.cloud.pushsdk.base.h.b();
-            b.a(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                aVar = this.c.d;
+                String str = this.a.getApplicationInfo().packageName;
+                om9 om9Var = this.c;
+                l = om9.l();
+                aVar.a(str, l, new com.google.ar.core.u(this));
+            } catch (RemoteException e) {
+                Log.e("ARCore-InstallService", "requestInfo threw", e);
+                this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+            }
         }
     }
 }

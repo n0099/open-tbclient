@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bg;
-import com.repackage.cn4;
+import com.repackage.bn4;
 import com.repackage.fg;
 import com.repackage.fo;
 import com.repackage.gg;
@@ -207,7 +207,7 @@ public abstract class AbstractImageLoaderProc implements jg<fo> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? cn4.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? bn4.c().g() : invokeV.booleanValue;
     }
 
     public Bitmap resizeBitmapSize(Bitmap bitmap, int i, int i2) {
@@ -438,7 +438,7 @@ public abstract class AbstractImageLoaderProc implements jg<fo> {
                         c2 = 0;
                     }
                     try {
-                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b77, new TypedValue());
+                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b7b, new TypedValue());
                         byte[] d = bg.d(openRawResource);
                         Bitmap Bytes2NineBitmap = BitmapHelper.Bytes2NineBitmap(d, rect);
                         if (!webClient3.isGif && !oi.A(d)) {

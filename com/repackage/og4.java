@@ -1,100 +1,112 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public class og4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755440683, "Lcom/repackage/og4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755440683, "Lcom/repackage/og4;");
-                return;
-            }
-        }
-        a = Arrays.asList("TAH-AN00", "TET-AN00");
-    }
-
-    public static int a(Activity activity) {
-        InterceptResult invokeL;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            double b = b(activity) * 0.5199999809265137d;
-            if (b < 1148.0d) {
-                return 1148;
-            }
-            return (int) b;
-        }
-        return invokeL.intValue;
-    }
-
-    public static double b(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (c(activity)) {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-                return displayMetrics.widthPixels;
-            }
-            return 0.0d;
-        }
-        return invokeL.doubleValue;
-    }
-
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) ? (activity == null || activity.isDestroyed() || activity.isFinishing()) ? false : true : invokeL.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String str = Build.MANUFACTURER;
-            String str2 = Build.MODEL;
-            if (TextUtils.equals("HUAWEI", str) && !TextUtils.isEmpty(str2)) {
-                for (String str3 : a) {
-                    if (str2.contains(str3)) {
-                        return true;
-                    }
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
                 }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            return false;
+            return sb.toString();
         }
-        return invokeV.booleanValue;
+        return (String) invokeLLZ.objValue;
     }
 
-    public static boolean e(Activity activity) {
-        InterceptResult invokeL;
+    public static String b(File file, boolean z) {
+        InterceptResult invokeLZ;
+        ReadableByteChannel readableByteChannel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            double d = displayMetrics.widthPixels;
-            double d2 = displayMetrics.heightPixels;
-            return (d == 0.0d || d2 == 0.0d || d2 / d >= 1.5d) ? false : true;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
+            ReadableByteChannel readableByteChannel2 = null;
+            try {
+                readableByteChannel = Channels.newChannel(new FileInputStream(file));
+            } catch (IOException unused) {
+                readableByteChannel = null;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                String c = c(z, readableByteChannel);
+                if (readableByteChannel != null && readableByteChannel.isOpen()) {
+                    mg4.d(readableByteChannel);
+                }
+                return c;
+            } catch (IOException unused2) {
+                if (readableByteChannel != null && readableByteChannel.isOpen()) {
+                    mg4.d(readableByteChannel);
+                }
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+                readableByteChannel2 = readableByteChannel;
+                if (readableByteChannel2 != null && readableByteChannel2.isOpen()) {
+                    mg4.d(readableByteChannel2);
+                }
+                throw th;
+            }
         }
-        return invokeL.booleanValue;
+        return (String) invokeLZ.objValue;
+    }
+
+    public static String c(boolean z, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeZL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(65538, null, z, readableByteChannel)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                ByteBuffer allocate = ByteBuffer.allocate(8192);
+                while (readableByteChannel.read(allocate) != -1) {
+                    allocate.flip();
+                    messageDigest.update(allocate);
+                    allocate.clear();
+                }
+                return a(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException unused) {
+                return null;
+            }
+        }
+        return (String) invokeZL.objValue;
+    }
+
+    public static String d(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return a(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException unused) {
+                return null;
+            }
+        }
+        return (String) invokeLZ.objValue;
     }
 }

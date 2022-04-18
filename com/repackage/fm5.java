@@ -68,9 +68,9 @@ public class fm5 implements gl1 {
             if (b) {
                 Log.e("DefaultSwanAppLifecycle", "onAppBackground");
             }
-            long m = wt4.k().m("smart_app_tid", 0L);
-            String q = wt4.k().q("smart_app_id", "");
-            String q2 = wt4.k().q("smart_app_name", "");
+            long m = vt4.k().m("smart_app_tid", 0L);
+            String q = vt4.k().q("smart_app_id", "");
+            String q2 = vt4.k().q("smart_app_name", "");
             if (this.a == 0 || m == 0) {
                 return;
             }
@@ -84,7 +84,7 @@ public class fm5 implements gl1 {
             y75Var.x(h());
             z75.b().j(true);
             z75.b().k(TbadkApplication.getInst().getApplicationContext(), y75Var, i());
-            wt4.k().x("smart_app_tid", 0L);
+            vt4.k().x("smart_app_tid", 0L);
         }
     }
 
@@ -117,7 +117,7 @@ public class fm5 implements gl1 {
             if (b) {
                 Log.e("DefaultSwanAppLifecycle", "onAppExit");
             }
-            if (wt4.k().h("key_ai_app_guide_display", true)) {
+            if (vt4.k().h("key_ai_app_guide_display", true)) {
                 Intent intent = new Intent(swanAppActivity, DealIntentService.class);
                 intent.putExtra(DealIntentService.KEY_CLASS, 38);
                 swanAppActivity.startService(intent);

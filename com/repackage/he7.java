@@ -1,11 +1,12 @@
 package com.repackage;
 
-import com.squareup.wire.Message;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
 public interface he7 {
-    void a(boolean z, Message message, boolean z2, long j, String str, int i);
+    zd7 a(de7 de7Var);
 
-    void b(long j, String str, String str2, int i);
+    bd7 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i);
 
-    void c(long j, String str, Message message, boolean z);
+    je7 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 }

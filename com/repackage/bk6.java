@@ -1,26 +1,35 @@
 package com.repackage;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class bk6 extends BaseAdapter {
+public class bk6 extends dk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fk6 a;
-    public boolean b;
+    public LabelDataList c;
+    public Context d;
+    public int e;
+    public final int f;
 
-    public bk6() {
+    public bk6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,165 +39,101 @@ public abstract class bk6 extends BaseAdapter {
                 return;
             }
         }
-        this.b = true;
+        this.e = 0;
+        this.d = context;
+        this.f = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070258);
     }
 
-    public final View a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            fk6 fk6Var = this.a;
-            if (fk6Var == null) {
-                return view2;
-            }
-            if (view2 == null || view2 != fk6Var.getArrowView()) {
-                view2 = this.a.getArrowView();
-                if (view2.getLayoutParams() == null) {
-                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, d()));
-                }
-            }
-            this.a.a(view2);
-            return view2;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public abstract int b();
-
-    public abstract Object c(int i);
-
-    public abstract int d();
-
-    public abstract long e(int i);
-
-    public int f(int i) {
-        InterceptResult invokeI;
-        int arrowIndex;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            fk6 fk6Var = this.a;
-            if (fk6Var == null || !fk6Var.b() || i < (arrowIndex = this.a.getArrowIndex())) {
-                return i;
-            }
-            if (i == arrowIndex) {
-                return -1;
-            }
-            return i - 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public abstract View g(int i, View view2, ViewGroup viewGroup);
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.repackage.dk6
+    public int b() {
         InterceptResult invokeV;
-        int b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (h()) {
-                if (this.b) {
-                    b = this.a.getArrowIndex();
-                } else {
-                    fk6 fk6Var = this.a;
-                    if (fk6Var != null && fk6Var.b()) {
-                        b = b();
-                    } else {
-                        return b();
-                    }
-                }
-                return b + 1;
-            }
-            return b();
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ListUtils.getCount(this.c) : invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
+    @Override // com.repackage.dk6
+    public Object c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (h()) {
-                int f = f(i);
-                if (f >= 0) {
-                    return c(f);
-                }
-                return c(i);
-            }
-            return c(i);
-        }
-        return invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? ListUtils.getItem(this.c, i) : invokeI.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    @Override // com.repackage.dk6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    @Override // com.repackage.dk6
+    public long e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            if (h()) {
-                int f = f(i);
-                if (f >= 0) {
-                    return e(f);
-                }
-                return e(i);
-            }
-            return e(i);
-        }
-        return invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        int arrowIndex;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? (h() && (arrowIndex = this.a.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0 : invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    @Override // com.repackage.dk6
+    public View g(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
+        TextView m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
-            if (getItemViewType(i) == 0) {
-                return g(f(i), view2, viewGroup);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 instanceof TextView) {
+                m = (TextView) view2;
+            } else {
+                m = m();
             }
-            return a(view2);
+            sj6 sj6Var = (sj6) ListUtils.getItem(this.c, i);
+            if (sj6Var != null) {
+                m.setText(sj6Var.b);
+            }
+            l(m, this.e == i);
+            return m;
         }
         return (View) invokeILL.objValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
+    @Override // com.repackage.dk6
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? h() ? 2 : 1 : invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            fk6 fk6Var = this.a;
-            return fk6Var != null && fk6Var.b() && b() - 1 > this.a.getArrowIndex();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i(fk6 fk6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, fk6Var) == null) {
-            this.a = fk6Var;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.e = i;
+            this.c.setSelectedIndex(i);
+            notifyDataSetChanged();
         }
     }
 
-    public abstract void j(int i);
-
-    public void k(boolean z) {
+    public void l(TextView textView, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, textView, z) == null) {
+            if (z) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
+                SkinManager.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_s);
+                return;
+            }
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
+            SkinManager.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_n);
+        }
+    }
+
+    public final TextView m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            TextView textView = new TextView(this.d);
+            textView.setTextSize(0, this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070330));
+            textView.setGravity(17);
+            textView.setHeight(d());
+            return textView;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public void n(LabelDataList labelDataList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, labelDataList) == null) {
+            this.c = labelDataList;
+            notifyDataSetChanged();
         }
     }
 }

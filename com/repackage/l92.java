@@ -38,7 +38,7 @@ public class l92 implements i92 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
             for (String str : this.a) {
-                String K = ng4.K(str);
+                String K = mg4.K(str);
                 if (!TextUtils.isEmpty(K)) {
                     arraySet.add(K);
                 }
@@ -59,7 +59,7 @@ public class l92 implements i92 {
         }
         String[] strArr = {ab2.b().getAbsolutePath(), q93.c().getAbsolutePath(), fj2.b.d(), yc3.b(), ij2.k(), gu2.b()};
         for (int i = 0; i < 6; i++) {
-            String K = ng4.K(strArr[i]);
+            String K = mg4.K(strArr[i]);
             if (!TextUtils.isEmpty(K)) {
                 arraySet.add(K);
             }

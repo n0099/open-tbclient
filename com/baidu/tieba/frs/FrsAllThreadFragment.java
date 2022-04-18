@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oe6;
 import com.repackage.p75;
-import com.repackage.rd6;
+import com.repackage.qe6;
+import com.repackage.td6;
 /* loaded from: classes3.dex */
-public class FrsAllThreadFragment extends BaseFragment implements oe6 {
+public class FrsAllThreadFragment extends BaseFragment implements qe6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -67,12 +67,12 @@ public class FrsAllThreadFragment extends BaseFragment implements oe6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             this.a = view2;
-            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b8a);
+            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b8b);
             C0();
         }
     }
 
-    @Override // com.repackage.oe6
+    @Override // com.repackage.qe6
     public void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
@@ -118,19 +118,19 @@ public class FrsAllThreadFragment extends BaseFragment implements oe6 {
         }
     }
 
-    @Override // com.repackage.oe6
+    @Override // com.repackage.qe6
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             z0();
-            rd6 rd6Var = new rd6();
-            rd6Var.a = 1;
-            rd6Var.b = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, rd6Var));
+            td6 td6Var = new td6();
+            td6Var.a = 1;
+            td6Var.b = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, td6Var));
         }
     }
 
-    @Override // com.repackage.oe6
+    @Override // com.repackage.qe6
     public void z0() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;

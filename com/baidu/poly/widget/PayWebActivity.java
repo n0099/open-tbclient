@@ -134,10 +134,10 @@ public class PayWebActivity extends Activity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe2);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe3);
             this.ivBack = imageView;
             imageView.setOnClickListener(new a(this));
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092420);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092421);
             this.webView = webView;
             webView.setVerticalScrollBarEnabled(false);
             this.webView.setHorizontalScrollBarEnabled(false);

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ky4;
+import com.repackage.jy4;
 import com.squareup.wire.Wire;
 import protobuf.SetLocation.DataRes;
 import protobuf.SetLocation.LbsInfo;
@@ -16,7 +16,7 @@ import protobuf.SetLocation.SetLocationResIdl;
 public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ky4 lbsInfo;
+    public jy4 lbsInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonalLbsInfoMessage() {
@@ -36,16 +36,16 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public ky4 getLbsInfo() {
+    public jy4 getLbsInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.lbsInfo : (ky4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.lbsInfo : (jy4) invokeV.objValue;
     }
 
-    public void setLbsInfo(ky4 ky4Var) {
+    public void setLbsInfo(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ky4Var) == null) {
-            this.lbsInfo = ky4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jy4Var) == null) {
+            this.lbsInfo = jy4Var;
         }
     }
 
@@ -75,6 +75,6 @@ public class ResponsePersonalLbsInfoMessage extends TbSocketReponsedMessage {
         } else {
             str = "";
         }
-        this.lbsInfo = new ky4(str, j, i2);
+        this.lbsInfo = new jy4(str, j, i2);
     }
 }

@@ -142,14 +142,14 @@ public class ProfessionDialogLayout extends LinearLayout {
             this.c = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0702, this);
             setOrientation(1);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e9b);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e9c);
             SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090785), (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090786), (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f090464), (int) R.color.CAM_X0302);
             setImageAttribute(tbImageView);
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080b7b);
+            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080b7f);
             TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090672);
-            SkinManager.setImageResource(tbImageView2, R.drawable.obfuscated_res_0x7f0808d5);
+            SkinManager.setImageResource(tbImageView2, R.drawable.obfuscated_res_0x7f0808d9);
             tbImageView2.setOnClickListener(new a(this));
             findViewById(R.id.obfuscated_res_0x7f090464).setOnClickListener(new b(this));
         }

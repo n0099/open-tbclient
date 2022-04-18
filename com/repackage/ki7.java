@@ -1,14 +1,14 @@
 package com.repackage;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
+import com.baidu.searchbox.live.interfaces.service.ShareService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ki7 extends fc1<ThirdPartAliRechargeService> {
+public class ki7 extends fc1<ShareService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,9 +29,9 @@ public class ki7 extends fc1<ThirdPartAliRechargeService> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fc1
     /* renamed from: a */
-    public ThirdPartAliRechargeService createService() throws ServiceNotFoundException {
+    public ShareService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new li7() : (ThirdPartAliRechargeService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new li7() : (ShareService) invokeV.objValue;
     }
 }

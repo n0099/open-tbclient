@@ -1,52 +1,29 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.tbadk.switchs.VideoCardLazyInitSwitch;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class h07 extends wy {
+public class h07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k78 z;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h07(Context context) {
-        super(context);
+    public static boolean a(TbPageContext<?> tbPageContext, uo uoVar) {
+        InterceptResult invokeLL;
+        xx5 xx5Var;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, uoVar)) == null) {
+            if (!(uoVar instanceof xx5) || (threadData = (xx5Var = (xx5) uoVar).a) == null || threadData.getVoiceRoomData() == null || StringUtils.isNull(xx5Var.a.getVoiceRoomData().room_name) || xx5Var.a.getVoiceRoomData().room_id.longValue() <= 0) {
+                return false;
             }
+            ((x45) ServiceManager.getService(x45.a.a())).a(tbPageContext, xx5Var.a.getVoiceRoomData().room_id.longValue());
+            return true;
         }
-    }
-
-    @Override // com.repackage.wy, com.repackage.j00
-    public k78 p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.k) && this.k.equals("index") && VideoCardLazyInitSwitch.getIsOn()) {
-                this.z = new j07(this.b, this.i);
-            } else {
-                this.z = new i07(this.b, this.i);
-            }
-            this.z.setStageType("2001");
-            return this.z;
-        }
-        return (k78) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

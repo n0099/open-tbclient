@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
+import com.repackage.ul4;
 import com.repackage.ul5;
-import com.repackage.vl4;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
 public class AppletsCellView extends LinearLayout implements View.OnClickListener {
@@ -70,14 +70,14 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || z) {
                 return;
             }
-            this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f53);
+            this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f57);
         }
 
         @Override // com.baidu.tbadk.widget.TbImageView.g
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f53);
+                this.a.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f57);
             }
         }
     }
@@ -160,7 +160,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             if (StringUtils.isNull(this.h.h5_url)) {
                 return;
             }
-            vl4.m(getContext(), this.h.h5_url);
+            ul4.m(getContext(), this.h.h5_url);
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", this.j).param("tid", this.k).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", this.h.name).param("obj_id", this.h.swan_app_id.longValue()).param("obj_source", this.i).param("obj_param1", this.h.is_game.intValue()));
     }
@@ -183,7 +183,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
                 this.d.setText(smartApp._abstract);
             }
             if (StringUtils.isNull(smartApp.pic, true)) {
-                this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f53);
+                this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f57);
                 return;
             }
             this.e.setEvent(new a(this));

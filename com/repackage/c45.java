@@ -87,17 +87,17 @@ public class c45 extends a45 {
         }
         this.h = 0;
         this.i = new Rect();
-        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091c03);
+        this.a = (NestedScrollView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091c04);
         this.b = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0906d2);
-        this.c = (TbImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091536);
-        this.d = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091535);
-        this.e = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091538);
-        this.g = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091537);
-        this.f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091534);
-        lu4 lu4Var = new lu4();
-        this.f.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0f69));
+        this.c = (TbImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091537);
+        this.d = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091536);
+        this.e = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091539);
+        this.g = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091538);
+        this.f = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091535);
+        ku4 ku4Var = new ku4();
+        this.f.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0f68));
         this.f.setTextSize(R.dimen.tbds42);
-        this.f.setConfig(lu4Var);
+        this.f.setConfig(ku4Var);
         this.f.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
     }

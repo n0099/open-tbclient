@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hc5;
 import com.repackage.oi;
-import com.repackage.vl4;
+import com.repackage.ul4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
@@ -88,7 +88,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
                 return;
             }
             Context context = getContext();
-            vl4.m(context, "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
+            ul4.m(context, "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
         }
     }
 

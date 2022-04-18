@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vw8;
+import com.repackage.cx8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.VideoTemplate.VideoTemplateResIdl;
@@ -16,7 +16,7 @@ import tbclient.VideoTemplate.VideoTemplateResIdl;
 public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vw8 resultData;
+    public cx8 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtHttpResMessage() {
@@ -36,10 +36,10 @@ public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
         }
     }
 
-    public vw8 getResultData() {
+    public cx8 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (vw8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (cx8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
             setErrorString(videoTemplateResIdl.error.usermsg);
         }
         if (videoTemplateResIdl.data != null) {
-            vw8 vw8Var = new vw8();
-            this.resultData = vw8Var;
-            vw8Var.g(videoTemplateResIdl.data);
+            cx8 cx8Var = new cx8();
+            this.resultData = cx8Var;
+            cx8Var.g(videoTemplateResIdl.data);
         }
     }
 }

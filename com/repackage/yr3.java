@@ -90,7 +90,7 @@ public class yr3 extends ActivityDelegation {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 hr3.n().G(this.b);
                 js3.a(this.a.optString("packageName"), "installApp", null, null, new hs3(this.b));
-                yr3.d(this.d, this.a, this.c);
+                yr3.e(this.d, this.a, this.c);
             }
         }
 
@@ -203,7 +203,7 @@ public class yr3 extends ActivityDelegation {
         this.c = new d(this);
     }
 
-    public static void d(Activity activity, @NonNull JSONObject jSONObject, @NonNull as3 as3Var) {
+    public static void e(Activity activity, @NonNull JSONObject jSONObject, @NonNull as3 as3Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, activity, jSONObject, as3Var) == null) {
             String optString = jSONObject.optString("url");
@@ -232,12 +232,12 @@ public class yr3 extends ActivityDelegation {
                     js3.a(this.a, "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(ds3Var.c()), new hs3(this.b));
                 }
             }
-            e();
+            f();
             finish();
         }
     }
 
-    public final void e() {
+    public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.c != null) {
@@ -255,7 +255,7 @@ public class yr3 extends ActivityDelegation {
             if (d) {
                 Log.d("InstallAppDelegation", "onAgentDestroy mPackageName:" + this.a);
             }
-            e();
+            f();
         }
     }
 
@@ -286,7 +286,7 @@ public class yr3 extends ActivityDelegation {
                 Log.d("InstallAppDelegation", "onSelfFinish mPackageName:" + this.a);
             }
             js3.a(this.a, "installApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(getAgent() instanceof InstallPluginDelegateActivity ? ((InstallPluginDelegateActivity) getAgent()).getErrorCode() : 31003), new hs3(this.b));
-            e();
+            f();
         }
     }
 }

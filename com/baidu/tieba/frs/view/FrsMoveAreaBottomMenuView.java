@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yc6;
+import com.repackage.ad6;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.OnClickListener {
@@ -58,9 +58,9 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0342, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090b95);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b9c);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090b9d);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090b96);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b9d);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090b9e);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
             c();
@@ -107,9 +107,9 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
                 d();
             } else if (view2 == this.b) {
                 this.e = null;
-                yc6.h().n();
+                ad6.h().n();
             } else if (view2 == this.c) {
-                if (this.a != null && this.e == null && !ListUtils.isEmpty(yc6.h().i())) {
+                if (this.a != null && this.e == null && !ListUtils.isEmpty(ad6.h().i())) {
                     FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.a);
                     this.e = frsMoveAreaChooseView;
                     frsMoveAreaChooseView.setOnClickListener(this);

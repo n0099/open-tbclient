@@ -22,10 +22,10 @@ import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.baidu.ugc.editvideo.record.processor.IEffectProcessor;
 import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
-import com.repackage.pb9;
+import com.repackage.ac9;
+import com.repackage.fc9;
 import com.repackage.pf0;
-import com.repackage.tb9;
-import com.repackage.yb9;
+import com.repackage.wb9;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +55,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
     public float mScaleY;
     public int mSurfaceViewHeight;
     public int mSurfaceViewWidth;
-    public pb9 mTextureReader;
+    public wb9 mTextureReader;
     public float mTx;
     public float mTy;
     public float[] mUpdateMatrix;
@@ -115,9 +115,9 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
     private void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            pb9 pb9Var = this.mTextureReader;
-            if (pb9Var != null) {
-                pb9Var.release();
+            wb9 wb9Var = this.mTextureReader;
+            if (wb9Var != null) {
+                wb9Var.release();
             }
             pf0 pf0Var = this.mVlogEdit;
             if (pf0Var != null) {
@@ -158,7 +158,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (yb9.e(this.mProcessorCostTimeList)) {
+            if (fc9.e(this.mProcessorCostTimeList)) {
                 return 0.0d;
             }
             long j = 0;
@@ -248,7 +248,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
             } catch (Exception e) {
                 OnMediaGLRendererStatusListener onMediaGLRendererStatusListener = this.mOnMediaGLRendererStatusListener;
                 if (onMediaGLRendererStatusListener != null) {
-                    onMediaGLRendererStatusListener.onError(1251, "onSurfaceChanged error:" + tb9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
+                    onMediaGLRendererStatusListener.onError(1251, "onSurfaceChanged error:" + ac9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
                     GlUtil.mGLErrorMsg = "";
                 }
             }
@@ -285,7 +285,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
             } catch (Exception e) {
                 OnMediaGLRendererStatusListener onMediaGLRendererStatusListener = this.mOnMediaGLRendererStatusListener;
                 if (onMediaGLRendererStatusListener != null) {
-                    onMediaGLRendererStatusListener.onError(1251, "onSurfaceCreated error:" + tb9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
+                    onMediaGLRendererStatusListener.onError(1251, "onSurfaceCreated error:" + ac9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
                     GlUtil.mGLErrorMsg = "";
                 }
             }
@@ -361,10 +361,10 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
         }
     }
 
-    public void setTextureReader(pb9 pb9Var) {
+    public void setTextureReader(wb9 wb9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, pb9Var) == null) {
-            this.mTextureReader = pb9Var;
+        if (interceptable == null || interceptable.invokeL(1048601, this, wb9Var) == null) {
+            this.mTextureReader = wb9Var;
         }
     }
 
@@ -498,7 +498,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                 int i2 = this.mUpdateTextureMode;
                 float[] fArr = this.mUpdateMatrix;
                 if (this.mOnEditStickerListener != null && !this.mOnEditStickerListener.canDoProcessor()) {
-                    if (!yb9.e(this.mIMediaRenderers)) {
+                    if (!fc9.e(this.mIMediaRenderers)) {
                         for (IMediaRenderer iMediaRenderer : this.mIMediaRenderers) {
                             iMediaRenderer.onGLLocation(this.mGLViewPortLocation);
                             iMediaRenderer.setTextureMode(this.mUpdateTextureMode);
@@ -508,7 +508,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                             iMediaRenderer.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
                         }
                     }
-                } else if (yb9.e(this.mIEffectProcessors) && yb9.e(this.mIMediaRenderers)) {
+                } else if (fc9.e(this.mIEffectProcessors) && fc9.e(this.mIMediaRenderers)) {
                     GLES20.glViewport(this.mGLViewPortLocation.x, this.mGLViewPortLocation.y, this.mGLViewPortLocation.width, this.mGLViewPortLocation.height);
                     if (i2 == 0) {
                         this.mFullScreenEXT.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
@@ -542,7 +542,7 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
                     }
                     this.mUpdateTextureId = i;
                     this.mUpdateTextureMode = i2;
-                    if (!yb9.e(this.mIMediaRenderers)) {
+                    if (!fc9.e(this.mIMediaRenderers)) {
                         for (IMediaRenderer iMediaRenderer2 : this.mIMediaRenderers) {
                             iMediaRenderer2.onGLLocation(this.mGLViewPortLocation);
                             iMediaRenderer2.setTextureMode(i2);
@@ -578,10 +578,10 @@ public class MediaGLRenderer implements GLSurfaceView.Renderer, IMediaLifeCycle,
             }
             throw new RuntimeException("update texture fail");
         } catch (Exception e) {
-            tb9.g(e);
+            ac9.g(e);
             OnMediaGLRendererStatusListener onMediaGLRendererStatusListener = this.mOnMediaGLRendererStatusListener;
             if (onMediaGLRendererStatusListener != null) {
-                onMediaGLRendererStatusListener.onError(1251, "onDrawFrame error:" + tb9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
+                onMediaGLRendererStatusListener.onError(1251, "onDrawFrame error:" + ac9.a(e.getMessage()) + GlUtil.mGLErrorMsg);
                 GlUtil.mGLErrorMsg = "";
             }
         }

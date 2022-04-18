@@ -70,7 +70,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSkinDecorator : (y53) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.yd4, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.xd4, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
@@ -120,7 +120,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
         }
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.repackage.sd4.b
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.repackage.rd4.b
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i, strArr, iArr) == null) {

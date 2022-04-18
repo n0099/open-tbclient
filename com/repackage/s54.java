@@ -1,215 +1,141 @@
 package com.repackage;
 
-import android.animation.ValueAnimator;
-import android.graphics.Bitmap;
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dn2;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class s54 {
+public class s54 extends yv1<TextureMapView, vm2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public dn2 a;
-    public Marker b;
-    public Marker c;
-    public View d;
-    public ViewGroup e;
-    public Marker f;
-    public ValueAnimator g;
+    public String i;
+    public String j;
+    public boolean k;
+    @NonNull
+    public TextureMapView l;
+    public Context m;
+    public List<r54> n;
+    public List<q54> o;
 
-    /* loaded from: classes7.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ t54 b;
-        public final /* synthetic */ b c;
-        public final /* synthetic */ s54 d;
-
-        public a(s54 s54Var, t54 t54Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s54Var, t54Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = s54Var;
-            this.b = t54Var;
-            this.c = bVar;
-            this.a = false;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                this.d.a(this.b, (LatLng) valueAnimator.getAnimatedValue());
-                if (this.a || animatedFraction <= 0.99d) {
-                    return;
-                }
-                this.a = true;
-                b bVar = this.c;
-                if (bVar != null) {
-                    bVar.onAnimationEnd();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void onAnimationEnd();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755369569, "Lcom/repackage/s54;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755369569, "Lcom/repackage/s54;");
-                return;
-            }
-        }
-        h = Boolean.TRUE;
-    }
-
-    public s54() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s54(@NonNull Context context, @NonNull vm2 vm2Var) {
+        super(context, vm2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, vm2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (zv1) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.n = new ArrayList();
+        this.o = new ArrayList();
+        this.i = vm2Var.c;
+        this.j = vm2Var.b;
+        String str = vm2Var.d;
+        this.m = context;
+        this.l = new TextureMapView(context);
+        this.k = vm2Var.r;
+    }
+
+    public static s54 K(Context context, vm2 vm2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, vm2Var)) == null) {
+            if (context == null || vm2Var == null || !vm2Var.isValid()) {
+                return null;
+            }
+            return new s54(context, vm2Var);
+        }
+        return (s54) invokeLL.objValue;
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (r54 r54Var : this.n) {
+                this.l.removeView(r54Var.e);
+            }
+            this.n.clear();
+            for (q54 q54Var : this.o) {
+                this.l.removeView(q54Var.b);
+            }
+            this.o.clear();
+            this.l.getMap().clear();
         }
     }
 
-    public void a(t54 t54Var, LatLng latLng) {
-        Marker marker;
+    public q54 G(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, t54Var, latLng) == null) || (marker = this.b) == null) {
-            return;
-        }
-        marker.setPosition(latLng);
-        cn2 cn2Var = this.a.b;
-        cn2Var.a = latLng.latitude;
-        cn2Var.b = latLng.longitude;
-        Marker marker2 = this.f;
-        if (marker2 != null) {
-            marker2.setPosition(latLng);
-        }
-        if (h.booleanValue()) {
-            Marker marker3 = this.c;
-            if (marker3 != null) {
-                marker3.setPosition(latLng);
-            }
-            ViewGroup viewGroup = this.e;
-            if (viewGroup != null) {
-                t54Var.l.removeView(viewGroup);
-                MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-                builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-                builder.position(latLng);
-                t54Var.l.addView(this.e, builder.build());
-                this.e.setAlpha(0.0f);
-            }
-        }
-    }
-
-    public void b(t54 t54Var) {
-        dn2 dn2Var;
-        dn2.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t54Var) == null) || (dn2Var = this.a) == null || (bVar = dn2Var.i) == null || !bVar.isValid()) {
-            return;
-        }
-        dn2 dn2Var2 = this.a;
-        if (dn2Var2.k == null || this.d != null || TextUtils.equals(dn2Var2.i.g, "ALWAYS")) {
-            return;
-        }
-        t54Var.l.removeView(this.e);
-        this.e.removeView(this.d);
-        View a2 = h54.a(t54Var, this.a);
-        this.d = a2;
-        this.e.addView(a2, 0);
-        this.e.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-        MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-        builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-        builder.position(this.b.getPosition());
-        Bitmap bitmap = this.b.getIcon().getBitmap();
-        builder.yOffset((int) ((bitmap.getHeight() * (1.0d - this.a.k.b)) + 0.0d));
-        t54Var.l.addView(this.e, builder.build());
-        this.e.setAlpha(0.0f);
-        Marker marker = this.f;
-        if (marker != null) {
-            marker.remove();
-        }
-        BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(this.e);
-        if (fromView == null) {
-            return;
-        }
-        Bitmap bitmap2 = fromView.getBitmap();
-        if (bitmap2.getHeight() <= 0 || bitmap2.getWidth() <= 0) {
-            return;
-        }
-        float width = ((float) (((bitmap2.getWidth() - bitmap.getWidth()) / 2.0f) + (this.a.k.a * bitmap.getWidth()))) / bitmap2.getWidth();
-        float height = ((float) (((float) ((bitmap2.getHeight() - 0.0d) - bitmap.getHeight())) + (this.a.k.b * bitmap.getHeight()))) / fromView.getBitmap().getHeight();
-        MarkerOptions markerOptions = new MarkerOptions();
-        cn2 cn2Var = this.a.b;
-        this.f = (Marker) t54Var.l.getMap().addOverlay(markerOptions.position(new LatLng(cn2Var.a, cn2Var.b)).icon(fromView).zIndex(66).anchor(width, height));
-    }
-
-    public void c(t54 t54Var, LatLng latLng, ym2 ym2Var, b bVar) {
-        Marker marker;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, t54Var, latLng, ym2Var, bVar) == null) {
-            ValueAnimator valueAnimator = this.g;
-            if ((valueAnimator == null || !valueAnimator.isRunning()) && (marker = this.b) != null) {
-                float f = 360.0f - ((float) ym2Var.B);
-                if (f >= 0.0f && f <= 360.0f) {
-                    marker.setRotate(f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            for (q54 q54Var : this.o) {
+                if (q54Var.b == view2) {
+                    return q54Var;
                 }
-                int i = ym2Var.C;
-                if (i < 0) {
-                    i = -i;
-                }
-                ValueAnimator ofObject = ValueAnimator.ofObject(new g54(), this.b.getPosition(), new LatLng(latLng.latitude, latLng.longitude));
-                this.g = ofObject;
-                ofObject.setDuration(i);
-                this.g.addUpdateListener(new a(this, t54Var, bVar));
-                this.g.start();
             }
+            return null;
         }
+        return (q54) invokeL.objValue;
+    }
+
+    @Nullable
+    public r54 H(Marker marker) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
+            for (r54 r54Var : this.n) {
+                if (marker == r54Var.b) {
+                    return r54Var;
+                }
+            }
+            return null;
+        }
+        return (r54) invokeL.objValue;
+    }
+
+    public List<r54> I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            ArrayList arrayList = new ArrayList(1);
+            for (r54 r54Var : this.n) {
+                dn2 dn2Var = r54Var.a;
+                if (dn2Var != null && TextUtils.equals(str, dn2Var.a)) {
+                    arrayList.add(r54Var);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.yv1
+    @NonNull
+    /* renamed from: J */
+    public TextureMapView v(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? this.l : (TextureMapView) invokeL.objValue;
     }
 }

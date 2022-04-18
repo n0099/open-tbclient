@@ -1,52 +1,75 @@
 package com.repackage;
 
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import java.util.List;
-import tbclient.Anti;
-import tbclient.DynamicInfo;
-import tbclient.ForumDynamic;
-import tbclient.HotUserRankEntry;
-import tbclient.PostInfoList;
-import tbclient.Profile.NicknameInfo;
-import tbclient.Profile.TAInfo;
-import tbclient.Profile.UserAgreeInfo;
-import tbclient.Profile.UserGodInfo;
-import tbclient.TbBookrack;
-import tbclient.ThreadInfo;
-import tbclient.User;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface t08 {
-    Anti GetAntiStat();
+public class t08 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
 
-    List<PostInfoList> GetPostList();
+    public t08(String str, String str2, String str3, String str4, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, str4, Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = 0L;
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = str4;
+        this.e = j;
+    }
 
-    User GetUser();
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
 
-    TbBookrack getBookrackData();
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
 
-    List<ForumDynamic> getConcernedForumList();
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
 
-    List<DynamicInfo> getDynamicInfoList();
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
 
-    int getErrorCode();
-
-    gt6 getGoodsWindowInfo();
-
-    HotUserRankEntry getHotRankEntry();
-
-    AlaLiveInfoCoreData getLiveInfo();
-
-    List<AlaLiveInfoCoreData> getLiveReplayInfo();
-
-    int getMaskType();
-
-    List<ThreadInfo> getNewestThreadList();
-
-    NicknameInfo getNicknameInfo();
-
-    TAInfo getTaInfo();
-
-    UserAgreeInfo getUserAgreeInfo();
-
-    UserGodInfo getUserGodInfo();
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.longValue;
+    }
 }

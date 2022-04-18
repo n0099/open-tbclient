@@ -22,10 +22,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dw5;
+import com.repackage.fw5;
 import com.repackage.oi;
-import com.repackage.uv5;
 import com.repackage.wv5;
+import com.repackage.yv5;
 /* loaded from: classes3.dex */
 public class NewAnounceLayout extends CardBasicLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -68,8 +68,8 @@ public class NewAnounceLayout extends CardBasicLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 new StatisticItem(TbadkCoreStatisticKey.KEY_ANNOUNCE_AREA).eventStat();
-                uv5 uv5Var = this.a.c;
-                if (uv5Var == null || uv5Var.k() == 0 || TextUtils.isEmpty(this.a.c.b()) || this.a.c.f() == 2) {
+                wv5 wv5Var = this.a.c;
+                if (wv5Var == null || wv5Var.k() == 0 || TextUtils.isEmpty(this.a.c.b()) || this.a.c.f() == 2) {
                     return;
                 }
                 PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a.e);
@@ -106,9 +106,9 @@ public class NewAnounceLayout extends CardBasicLayout {
             View findViewById = findViewById(R.id.obfuscated_res_0x7f090279);
             this.f = findViewById;
             findViewById.setOnClickListener(this.k);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0909ac);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091c43);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091c4b);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0909ad);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091c44);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091c4c);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09027b);
         }
     }
@@ -133,7 +133,7 @@ public class NewAnounceLayout extends CardBasicLayout {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.c == null) {
             return;
         }
-        if (this.a != dw5.c) {
+        if (this.a != fw5.c) {
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0205, i);
         } else {
             View view2 = this.f;
@@ -179,19 +179,19 @@ public class NewAnounceLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, wv5 wv5Var) {
+    public void setData(int i, yv5 yv5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, wv5Var) == null) {
-            super.setData(i, wv5Var);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, yv5Var) == null) {
+            super.setData(i, yv5Var);
             if (this.b != null && this.c != null && this.a >= 0) {
                 this.d = oi.q((Activity) getContext()).widthPixels - (oi.f(getContext(), R.dimen.tbds70) * 2);
-                if (this.a == dw5.b) {
+                if (this.a == fw5.b) {
                     this.d = oi.q((Activity) getContext()).widthPixels - (oi.f(getContext(), R.dimen.tbds116) * 2);
                 }
-                if (this.a == dw5.d) {
+                if (this.a == fw5.d) {
                     this.d = oi.q((Activity) getContext()).widthPixels - (oi.f(getContext(), R.dimen.tbds96) * 2);
                 }
-                if (this.a == dw5.c) {
+                if (this.a == fw5.c) {
                     this.d = oi.q((Activity) getContext()).widthPixels - (oi.f(getContext(), R.dimen.tbds86) * 2);
                     this.f.setPadding(0, 0, 0, 0);
                     this.g.setPadding(0, 0, 0, 0);

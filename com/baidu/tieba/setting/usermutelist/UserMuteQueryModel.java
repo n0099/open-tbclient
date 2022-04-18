@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dk8;
+import com.repackage.kk8;
 import com.repackage.wa;
 import java.util.ArrayList;
 import java.util.List;
@@ -127,8 +127,8 @@ public class UserMuteQueryModel extends BdBaseModel {
         this.b = aVar;
         this.a = bVar;
         registerListener(aVar);
-        dk8.f(303028, UserMuteQuerySocketResponsedMessage.class, false);
-        dk8.c(303028, CmdConfigHttp.CMD_USER_MUTE_QUERY, TbConfig.USER_MUTE_QUERY, UserMuteQueryHttpResponsedMessage.class, false, false, true, false);
+        kk8.f(303028, UserMuteQuerySocketResponsedMessage.class, false);
+        kk8.c(303028, CmdConfigHttp.CMD_USER_MUTE_QUERY, TbConfig.USER_MUTE_QUERY, UserMuteQueryHttpResponsedMessage.class, false, false, true, false);
     }
 
     public void A(long j, int i, int i2) {

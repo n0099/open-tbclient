@@ -1,26 +1,24 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class el8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public int a;
     public String b;
-    public String c;
-    public dl8 d;
-    public dl8 e;
-    public dl8 f;
+    public Bitmap c;
+    public String d;
+    public String e;
 
-    public el8(String str, String str2, boolean z) {
+    public el8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,14 +28,6 @@ public class el8 {
                 return;
             }
         }
-        this.a = false;
-        this.b = null;
-        this.c = null;
-        this.d = new dl8();
-        this.e = new dl8();
-        this.f = new dl8();
-        this.c = str;
-        this.b = str2;
-        this.a = z;
+        this.a = 0;
     }
 }

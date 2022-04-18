@@ -52,7 +52,7 @@ public class bl3 {
             try {
                 obj = context.getSystemService("mtk-perfservice");
                 if (obj != null) {
-                    l44.c(obj.getClass());
+                    k44.c(obj.getClass());
                 }
             } catch (Throwable unused) {
             }
@@ -72,7 +72,7 @@ public class bl3 {
                 try {
                     this.i = true;
                     if (this.b == null) {
-                        Method i = n44.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                        Method i = m44.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
                         this.b = i;
                         if (i != null) {
                             i.setAccessible(true);
@@ -98,7 +98,7 @@ public class bl3 {
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && c()) {
             try {
                 if (this.f == null) {
-                    Method i2 = n44.i(this.a.getClass(), "userDisable", Integer.TYPE);
+                    Method i2 = m44.i(this.a.getClass(), "userDisable", Integer.TYPE);
                     this.f = i2;
                     if (i2 != null) {
                         i2.setAccessible(true);
@@ -117,7 +117,7 @@ public class bl3 {
         if ((interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) && c()) {
             try {
                 if (this.e == null) {
-                    Method i3 = n44.i(this.a.getClass(), "userEnableTimeoutMs", Integer.TYPE, Integer.TYPE);
+                    Method i3 = m44.i(this.a.getClass(), "userEnableTimeoutMs", Integer.TYPE, Integer.TYPE);
                     this.e = i3;
                     if (i3 != null) {
                         i3.setAccessible(true);
@@ -139,7 +139,7 @@ public class bl3 {
             if (c()) {
                 try {
                     if (this.b == null) {
-                        Method i5 = n44.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                        Method i5 = m44.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
                         this.b = i5;
                         if (i5 != null) {
                             i5.setAccessible(true);
@@ -165,7 +165,7 @@ public class bl3 {
             if (c()) {
                 try {
                     if (this.c == null) {
-                        Method i = n44.i(this.a.getClass(), "userRegScn", new Class[0]);
+                        Method i = m44.i(this.a.getClass(), "userRegScn", new Class[0]);
                         this.c = i;
                         if (i != null) {
                             i.setAccessible(true);
@@ -189,7 +189,7 @@ public class bl3 {
         if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) && c()) {
             try {
                 if (this.d == null) {
-                    Method i7 = n44.i(this.a.getClass(), "userRegScnConfig", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                    Method i7 = m44.i(this.a.getClass(), "userRegScnConfig", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
                     this.d = i7;
                     if (i7 != null) {
                         i7.setAccessible(true);
@@ -208,7 +208,7 @@ public class bl3 {
         if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && c()) {
             try {
                 if (this.g == null) {
-                    Method i2 = n44.i(this.a.getClass(), "userUnreg", Integer.TYPE);
+                    Method i2 = m44.i(this.a.getClass(), "userUnreg", Integer.TYPE);
                     this.g = i2;
                     if (i2 != null) {
                         i2.setAccessible(true);
@@ -227,7 +227,7 @@ public class bl3 {
         if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && c()) {
             try {
                 if (this.h == null) {
-                    Method i2 = n44.i(this.a.getClass(), "userUnregScn", Integer.TYPE);
+                    Method i2 = m44.i(this.a.getClass(), "userUnregScn", Integer.TYPE);
                     this.h = i2;
                     if (i2 != null) {
                         i2.setAccessible(true);

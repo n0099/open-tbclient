@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t56;
-import com.repackage.wr4;
+import com.repackage.v56;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class RecommendThreadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -66,7 +66,7 @@ public class RecommendThreadView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0919fc);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0919fd);
             this.a = tbImageView;
             tbImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
@@ -74,7 +74,7 @@ public class RecommendThreadView extends LinearLayout {
             this.a.setDrawBorder(true);
             this.a.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e9));
             this.a.setBorderSurroundContent(true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0919fb);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0919fc);
             d();
         }
     }
@@ -84,22 +84,22 @@ public class RecommendThreadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.setPlaceHolder(2);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            wr4 d = wr4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0105);
         }
     }
 
-    public void setData(t56 t56Var) {
+    public void setData(v56 v56Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, t56Var) == null) || t56Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, v56Var) == null) || v56Var == null) {
             return;
         }
-        if (!TextUtils.isEmpty(t56Var.b())) {
-            this.a.K(t56Var.b(), 10, false);
+        if (!TextUtils.isEmpty(v56Var.b())) {
+            this.a.K(v56Var.b(), 10, false);
         }
-        if (!TextUtils.isEmpty(t56Var.f())) {
-            this.b.setText(t56Var.f());
+        if (!TextUtils.isEmpty(v56Var.f())) {
+            this.b.setText(v56Var.f());
         }
         d();
     }

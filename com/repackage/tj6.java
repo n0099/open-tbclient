@@ -1,70 +1,70 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import tbclient.GameForumGuideTab.GameForumSubTab;
-import tbclient.ThreadInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tj6 {
+public class tj6 extends BaseCardInfo implements uo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThreadData a;
 
-    public static List<ak6> a(List<GameForumSubTab> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755288783, "Lcom/repackage/tj6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (GameForumSubTab gameForumSubTab : list) {
-                ak6 ak6Var = new ak6();
-                if (gameForumSubTab != null) {
-                    ak6Var.a = gameForumSubTab.id.intValue();
-                    ak6Var.b = gameForumSubTab.sub_tab_name;
-                    LabelDataList labelDataList = new LabelDataList();
-                    labelDataList.parseProtu(gameForumSubTab.sub_label_list);
-                    ak6Var.c = labelDataList;
-                    arrayList.add(ak6Var);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755288783, "Lcom/repackage/tj6;");
+                return;
             }
-            return arrayList;
         }
-        return (List) invokeL.objValue;
+        b = BdUniqueId.gen();
     }
 
-    public static List<uo> b(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    public tj6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            LinkedList linkedList = new LinkedList();
-            for (int i = 0; i < list.size(); i++) {
-                rj6 rj6Var = new rj6();
-                ThreadData threadData = new ThreadData();
-                rj6Var.e(threadData);
-                threadData.parserProtobuf(list.get(i));
-                threadData.parser_title();
-                if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                    fp4 fp4Var = new fp4();
-                    fp4Var.i(threadData.getLegoCard());
-                    linkedList.add(fp4Var);
-                } else {
-                    linkedList.add(rj6Var);
-                }
-            }
-            return linkedList;
         }
-        return (List) invokeL.objValue;
+    }
+
+    public void e(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+            this.a = threadData;
+        }
+    }
+
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

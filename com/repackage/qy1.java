@@ -120,8 +120,8 @@ public class qy1 {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == 4) {
             return;
         }
-        ng4.d(this.b);
-        ng4.d(this.c);
+        mg4.d(this.b);
+        mg4.d(this.c);
         this.a = 4;
         this.d.onClose();
     }

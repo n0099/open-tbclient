@@ -59,7 +59,7 @@ public class PreLoadBaiduClass extends LaunchTask {
                 e4.printStackTrace();
             }
             try {
-                Class.forName("com.repackage.pn8");
+                Class.forName("com.repackage.wn8");
             } catch (ClassNotFoundException e5) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e5.toString());
                 e5.printStackTrace();

@@ -26,9 +26,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gz;
-import com.repackage.o07;
 import com.repackage.pg;
-import com.repackage.wr4;
+import com.repackage.r07;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class PostAnimateFloatView extends FrameLayout implements gz {
     public static /* synthetic */ Interceptable $ic;
@@ -104,7 +104,7 @@ public class PostAnimateFloatView extends FrameLayout implements gz {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                o07.f();
+                r07.f();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
@@ -364,11 +364,11 @@ public class PostAnimateFloatView extends FrameLayout implements gz {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04af, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ac7);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918a7);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c3);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ac8);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918a8);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c4);
             this.c = textView;
-            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0ea0));
+            this.f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0e9f));
             j();
             this.a.setOnClickListener(new b(this));
         }
@@ -418,7 +418,7 @@ public class PostAnimateFloatView extends FrameLayout implements gz {
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08091a, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08091e, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {
@@ -426,7 +426,7 @@ public class PostAnimateFloatView extends FrameLayout implements gz {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                wr4 d2 = wr4.d(linearLayout);
+                vr4 d2 = vr4.d(linearLayout);
                 d2.n(R.string.J_X01);
                 d2.h(R.color.CAM_X0302);
             }

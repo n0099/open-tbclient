@@ -32,16 +32,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cx8;
+import com.repackage.gj8;
 import com.repackage.oi;
-import com.repackage.rr4;
-import com.repackage.rw8;
-import com.repackage.sw8;
-import com.repackage.ur4;
-import com.repackage.vw8;
-import com.repackage.wr4;
-import com.repackage.zi8;
+import com.repackage.qr4;
+import com.repackage.tr4;
+import com.repackage.vr4;
+import com.repackage.yw8;
+import com.repackage.zw8;
 /* loaded from: classes4.dex */
-public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivity> implements sw8 {
+public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivity> implements zw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView activitive;
@@ -59,7 +59,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
     public EMTextView maxureTip;
     public AnniversaryEtModel model;
     public NavigationBar navigationBar;
-    public vw8 resultData;
+    public cx8 resultData;
     public EMTextView shareVideoBtn;
     public LinearLayout shareVideoOuder;
 
@@ -129,9 +129,9 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.curProgressNumber == 100 && !TextUtils.isEmpty(this.a.mVideoPath)) {
-                    rw8.n(this.a.getPageContext(), this.a.mVideoPath, this.a.mCoverPath, this.a.mTopicName, this.a.mTopicId);
+                    yw8.n(this.a.getPageContext(), this.a.mVideoPath, this.a.mCoverPath, this.a.mTopicName, this.a.mTopicId);
                 } else {
-                    oi.N(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f11dd));
+                    oi.N(TbadkCoreApplication.getInst(), this.a.getString(R.string.obfuscated_res_0x7f0f11dc));
                 }
             }
         }
@@ -340,24 +340,24 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091514);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091515);
             this.navigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON).setOnClickListener(new a(this));
-            this.maxureMain = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0913ad);
-            this.backImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ee9);
-            this.maxureTip = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09148d);
-            this.shareVideoBtn = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091ccf);
-            this.shareVideoOuder = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cd0);
-            this.activitive = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09148c);
-            MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.obfuscated_res_0x7f0913b6);
+            this.maxureMain = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0913ae);
+            this.backImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091eea);
+            this.maxureTip = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09148e);
+            this.shareVideoBtn = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091cd0);
+            this.shareVideoOuder = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cd1);
+            this.activitive = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09148d);
+            MaxureLayerView maxureLayerView = (MaxureLayerView) findViewById(R.id.obfuscated_res_0x7f0913b7);
             this.layerView = maxureLayerView;
             maxureLayerView.c(true);
-            this.layerView.d(zi8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.layerView.d(gj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.layerView.g(getResources().getColor(R.color.CAM_X0101));
-            this.layerView.f(zi8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), ur4.a(R.string.A_X05)));
-            this.layerView.e(zi8.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.layerView.f(gj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0611), tr4.a(R.string.A_X05)));
+            this.layerView.e(gj8.a(SkinManager.getColor(0, (int) R.color.CAM_X0101), SkinManager.RESOURCE_ALPHA_PRESS));
             this.layerView.h(UtilHelper.getDimenPixelSize(R.dimen.T_X07));
-            this.mRightArrow = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a94);
+            this.mRightArrow = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a95);
             this.activityMain = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090074);
             this.backImageView.setAutoChangeStyle(false);
             this.backImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -366,8 +366,8 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             this.backImageView.setRadiusById(R.string.J_X06);
             this.backImageView.setPlaceHolderAutoChangeSkinType(2);
             this.backImageView.setDrawBorder(false);
-            wr4.d(this.shareVideoBtn).A(R.string.F_X02);
-            this.shareVideoOuder.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080826, WebPManager.ResourceStateType.NORMAL));
+            vr4.d(this.shareVideoBtn).A(R.string.F_X02);
+            this.shareVideoOuder.setBackgroundDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080825, WebPManager.ResourceStateType.NORMAL));
             this.shareVideoBtn.setOnClickListener(new b(this));
             this.activityMain.setOnClickListener(new c(this));
             onUpdateProgress(0);
@@ -379,15 +379,15 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
     public void popupMaxureDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            TBAlertConfig.a aVar = new TBAlertConfig.a(getString(R.string.obfuscated_res_0x7f0f0e49), TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar = new TBAlertConfig.a(getString(R.string.obfuscated_res_0x7f0f0e48), TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f036e, TBAlertConfig.OperateBtnStyle.SECONDARY);
-            rr4 rr4Var = new rr4(TbadkCoreApplication.getInst().getCurrentActivity());
-            rr4Var.w(getString(R.string.obfuscated_res_0x7f0f11dc));
-            rr4Var.p(getString(R.string.obfuscated_res_0x7f0f11db));
-            rr4Var.n(true);
-            rr4Var.r(aVar2, aVar);
-            rr4Var.i(false);
-            AlertDialog y = rr4Var.y();
+            qr4 qr4Var = new qr4(TbadkCoreApplication.getInst().getCurrentActivity());
+            qr4Var.w(getString(R.string.obfuscated_res_0x7f0f11db));
+            qr4Var.p(getString(R.string.obfuscated_res_0x7f0f11da));
+            qr4Var.n(true);
+            qr4Var.r(aVar2, aVar);
+            qr4Var.i(false);
+            AlertDialog y = qr4Var.y();
             aVar.a(new f(this, y));
             aVar2.a(new g(this, y));
         }
@@ -400,7 +400,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
             super.onChangeSkinType(i);
             this.navigationBar.onChangeSkinType(getPageContext(), 0);
             if (this.navigationBar.getBackImageView() != null) {
-                this.navigationBar.getBackImageView().setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080623, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS, false));
+                this.navigationBar.getBackImageView().setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080622, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS, false));
             }
             this.mRightArrow.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_list_arrow16_right, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
         }
@@ -430,7 +430,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // com.repackage.sw8
+    @Override // com.repackage.zw8
     public void onError(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
@@ -438,7 +438,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // com.repackage.sw8
+    @Override // com.repackage.zw8
     public void onFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -461,16 +461,16 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         return invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.sw8
+    @Override // com.repackage.zw8
     public void onMuxerSucess(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, str4) == null) {
-            this.mVideoPath = rw8.m(getPageContext(), str);
+            this.mVideoPath = yw8.m(getPageContext(), str);
             this.mCoverPath = str2;
             this.mTopicName = str3;
             this.mTopicId = str4;
             this.layerView.setVisibility(8);
-            this.maxureTip.setText(getString(R.string.obfuscated_res_0x7f0f11df));
+            this.maxureTip.setText(getString(R.string.obfuscated_res_0x7f0f11de));
         }
     }
 
@@ -496,14 +496,14 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // com.repackage.sw8
-    public void onResponeSucess(vw8 vw8Var) {
+    @Override // com.repackage.zw8
+    public void onResponeSucess(cx8 cx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vw8Var) == null) {
-            this.resultData = vw8Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cx8Var) == null) {
+            this.resultData = cx8Var;
             TbImageView tbImageView = this.backImageView;
             if (tbImageView != null) {
-                tbImageView.K(vw8Var.b(), 10, false);
+                tbImageView.K(cx8Var.b(), 10, false);
             }
             if (this.mPermissionJudgePolicy == null) {
                 this.mPermissionJudgePolicy = new PermissionJudgePolicy();
@@ -517,7 +517,7 @@ public class Anniversary18thActivity extends BaseActivity<Anniversary18thActivit
         }
     }
 
-    @Override // com.repackage.sw8
+    @Override // com.repackage.zw8
     public void onUpdateProgress(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {

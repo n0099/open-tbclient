@@ -58,7 +58,7 @@ public class yd2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if (!tg1.a) {
-                    ng4.L(this.a);
+                    mg4.L(this.a);
                 }
                 yd2 yd2Var = this.b;
                 yd2Var.p("upload file: done. feedback data = " + str);
@@ -135,8 +135,8 @@ public class yd2 {
             File file2 = new File(be2.a, str);
             if (file2.exists()) {
                 File file3 = new File(q, str);
-                ng4.l(file3);
-                ng4.e(file2, file3);
+                mg4.l(file3);
+                mg4.e(file2, file3);
                 return true;
             }
             return false;
@@ -169,7 +169,7 @@ public class yd2 {
             }
             File q2 = fj2.q();
             if (q2.exists()) {
-                ng4.e(q2, q);
+                mg4.e(q2, q);
                 return false;
             }
             return false;
@@ -234,9 +234,9 @@ public class yd2 {
             }
             File file2 = new File(a2, be2.l);
             if (file2.exists()) {
-                ng4.L(file2);
+                mg4.L(file2);
             }
-            ng4.h(file2);
+            mg4.h(file2);
             g(context, str, file);
             o(file.getParentFile(), file2);
             p("cloneFilesAndMakeZip end, appKey = " + str);
@@ -256,8 +256,8 @@ public class yd2 {
             File file2 = new File(be2.a, str);
             if (file2.exists()) {
                 File file3 = new File(q, str);
-                ng4.l(file3);
-                ng4.e(file2, file3);
+                mg4.l(file3);
+                mg4.e(file2, file3);
                 return true;
             }
             return false;
@@ -272,7 +272,7 @@ public class yd2 {
         }
         File databasePath = AppRuntime.getApplication().getDatabasePath(str);
         if (databasePath.exists()) {
-            ng4.f(databasePath, new File(file, str));
+            mg4.f(databasePath, new File(file, str));
         }
     }
 
@@ -284,7 +284,7 @@ public class yd2 {
         String str3 = str + str2;
         File file3 = new File(file, str3);
         if (file3.exists()) {
-            ng4.f(file3, new File(file2, str3));
+            mg4.f(file3, new File(file2, str3));
         }
     }
 
@@ -295,8 +295,8 @@ public class yd2 {
             if (file == null) {
                 return false;
             }
-            ng4.j(file);
-            return ng4.l(file);
+            mg4.j(file);
+            return mg4.l(file);
         }
         return invokeL.booleanValue;
     }
@@ -320,9 +320,9 @@ public class yd2 {
     public final void o(File file, File file2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, file, file2) == null) {
-            boolean X = ng4.X(file.getAbsolutePath(), file2.getAbsolutePath());
+            boolean X = mg4.X(file.getAbsolutePath(), file2.getAbsolutePath());
             if (X) {
-                ng4.j(file);
+                mg4.j(file);
             }
             p("zip file status = " + X);
         }
@@ -343,7 +343,7 @@ public class yd2 {
                 return null;
             }
             File file2 = new File(file, str2);
-            if (ng4.l(file2)) {
+            if (mg4.l(file2)) {
                 return file2;
             }
             return null;

@@ -186,11 +186,11 @@ public class zn2 {
                 }
                 c2 = 65535;
             }
-            int i2 = R.string.obfuscated_res_0x7f0f1261;
+            int i2 = R.string.obfuscated_res_0x7f0f1260;
             if (c2 == 0) {
-                i2 = R.string.obfuscated_res_0x7f0f1260;
+                i2 = R.string.obfuscated_res_0x7f0f125f;
             } else if (c2 == 1) {
-                i2 = R.string.obfuscated_res_0x7f0f1262;
+                i2 = R.string.obfuscated_res_0x7f0f1261;
             }
             return context.getResources().getString(i2);
         }
@@ -293,15 +293,15 @@ public class zn2 {
             return;
         }
         Context appContext = AppRuntime.getAppContext();
-        String string = appContext.getString(R.string.obfuscated_res_0x7f0f126e, Integer.valueOf(c));
+        String string = appContext.getString(R.string.obfuscated_res_0x7f0f126d, Integer.valueOf(c));
         if (TextUtils.equals(str, "single")) {
             if (ao2.e().get(0) instanceof ImageModel) {
-                string = appContext.getString(R.string.obfuscated_res_0x7f0f126f, Integer.valueOf(c));
+                string = appContext.getString(R.string.obfuscated_res_0x7f0f126e, Integer.valueOf(c));
             } else {
-                string = appContext.getString(R.string.obfuscated_res_0x7f0f1270, Integer.valueOf(c));
+                string = appContext.getString(R.string.obfuscated_res_0x7f0f126f, Integer.valueOf(c));
             }
         } else if (TextUtils.equals(str, ShareDirectionType.BOTH)) {
-            string = appContext.getString(R.string.obfuscated_res_0x7f0f126e, Integer.valueOf(c));
+            string = appContext.getString(R.string.obfuscated_res_0x7f0f126d, Integer.valueOf(c));
         }
         b03.g(appContext, string).G();
     }

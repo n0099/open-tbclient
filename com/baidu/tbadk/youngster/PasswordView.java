@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gj8;
 import com.repackage.oi;
 import com.repackage.pg;
-import com.repackage.zi8;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -348,7 +348,7 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setStroke(oi.f(getContext(), R.dimen.tbds3), zi8.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
+            gradientDrawable.setStroke(oi.f(getContext(), R.dimen.tbds3), gj8.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
             return gradientDrawable;
         }
         return (Drawable) invokeV.objValue;
@@ -418,7 +418,7 @@ public class PasswordView extends RelativeLayout {
             this.l.add(this.g);
             this.l.add(this.h);
             this.l.add(this.i);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09165b);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09165c);
             this.j = frameLayout;
             frameLayout.setOnClickListener(new c(this));
             n();

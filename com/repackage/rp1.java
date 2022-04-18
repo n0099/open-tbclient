@@ -107,11 +107,11 @@ public class rp1 {
             String b = be3.b(this.a, this.c);
             this.a = b;
             this.a = fx1.b(b);
-            l74 l74Var = new l74(this.a, RequestBody.create(g, this.e), responseCallback);
-            l74Var.c = this.b;
-            l74Var.g = true;
+            k74 k74Var = new k74(this.a, RequestBody.create(g, this.e), responseCallback);
+            k74Var.c = this.b;
+            k74Var.g = true;
             jx1.i("CallServiceRequest", "Start request cloud ability: " + this.c.get("service"));
-            m74.g().e(l74Var);
+            l74.g().e(k74Var);
         }
     }
 
@@ -122,14 +122,14 @@ public class rp1 {
                 jx1.c("CallServiceRequest", Log.getStackTraceString(new AssertionError("Assertion failed: SwanConfigRuntime.getContext() == null")));
                 return;
             }
-            this.c.put("host_os", kg4.f());
-            this.c.put("host_os_ver", kg4.g());
+            this.c.put("host_os", jg4.f());
+            this.c.put("host_os_ver", jg4.g());
             this.c.put("host_app", dk3.getContext().c());
             this.c.put("host_app_ver", dk3.getContext().h());
             this.c.put("sdk_ver", dk3.getContext().b());
-            this.c.put("ua", sg4.b(dk3.getContext().h()));
+            this.c.put("ua", rg4.b(dk3.getContext().h()));
             this.c.put("ut", fx1.f());
-            this.c.put("network", kg4.e());
+            this.c.put("network", jg4.e());
             this.c.put("bundle_Id", i03.J().getAppId());
             this.c.put("cuid", dk3.getContext().g());
             this.c.put("uuid", dk3.getContext().e());

@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ao7;
 import com.repackage.pg;
-import com.repackage.ro7;
-import com.repackage.vn7;
-import com.repackage.xn7;
+import com.repackage.uo7;
+import com.repackage.yn7;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ import org.json.JSONArray;
 public class SingleThreadEmotionModel extends NativeManageEmotionModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ro7 a;
+    public uo7 a;
     public List<String> b;
     public final HttpMessageListener c;
 
@@ -108,7 +108,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.F();
-                List<MyEmotionGroupData> f = xn7.i().f();
+                List<MyEmotionGroupData> f = ao7.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f != null && !f.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f) {
@@ -232,10 +232,10 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         }
     }
 
-    public void G(ro7 ro7Var) {
+    public void G(uo7 uo7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ro7Var) == null) {
-            this.a = ro7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, uo7Var) == null) {
+            this.a = uo7Var;
         }
     }
 
@@ -263,7 +263,7 @@ public class SingleThreadEmotionModel extends NativeManageEmotionModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            vn7.b().a(new b(this));
+            yn7.b().a(new b(this));
             return false;
         }
         return invokeV.booleanValue;

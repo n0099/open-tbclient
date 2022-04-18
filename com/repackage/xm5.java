@@ -1,91 +1,27 @@
 package com.repackage;
 
-import android.net.Uri;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xm5 extends ShareItem {
+public class xm5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile wm5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xm5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public String l() {
+    public static synchronized wm5 a() {
         InterceptResult invokeV;
+        wm5 wm5Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.u0 : (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.t0 : (String) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.s0 : (String) invokeV.objValue;
-    }
-
-    public JSONArray o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.v0 : (JSONArray) invokeV.objValue;
-    }
-
-    public void p(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            this.n0 = true;
-            this.r = jSONObject.getString("title");
-            this.t = jSONObject.getString("linkUrl");
-            this.s = jSONObject.optString("content");
-            this.w = jSONObject.optString("imageUrl");
-            this.s0 = jSONObject.optString("mediaType");
-            String optString = StringUtils.isNull(this.w) ? jSONObject.optString("iconUrl") : this.w;
-            this.w = optString;
-            this.v = Uri.parse(optString);
-            JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
-            if (optJSONObject != null) {
-                this.o0 = optJSONObject.optString("source2");
-                this.q0 = optJSONObject.optString("source3");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
-            if (optJSONObject2 != null) {
-                this.p0 = 2;
-                this.v0 = optJSONObject2.optJSONArray("cmd_pannel");
-                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("info");
-                this.w0 = optJSONObject3;
-                if (optJSONObject3 != null) {
-                    this.t0 = optJSONObject3.optString("key");
-                    this.u0 = this.w0.optString("content");
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (xm5.class) {
+                if (a == null) {
+                    a = new wm5();
                 }
-                return;
+                wm5Var = a;
             }
-            this.p0 = "url".equals(jSONObject.optString("type")) ? 1 : 3;
+            return wm5Var;
         }
+        return (wm5) invokeV.objValue;
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class w44 extends v44<vm2> {
+public class w44 extends u44<vm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,27 +45,27 @@ public class w44 extends v44<vm2> {
         }
     }
 
-    public static w44 e() {
+    public static w44 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new w44() : (w44) invokeV.objValue;
     }
 
-    @Override // com.repackage.v44
+    @Override // com.repackage.u44
     public boolean b(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, vm2Var, sm2Var, j03Var, jSONObject)) == null) ? d(context, vm2Var, sm2Var, j03Var) : invokeLLLLL.booleanValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, vm2Var, sm2Var, j03Var, jSONObject)) == null) ? e(context, vm2Var, sm2Var, j03Var) : invokeLLLLL.booleanValue;
     }
 
-    public final boolean d(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var) {
+    public final boolean e(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vm2Var, sm2Var, j03Var)) == null) {
-            jx1.i("map", "MapCreateAction start");
-            boolean a = s44.b().a(context, vm2Var);
-            jx1.i("map", "MapCreateAction end");
-            return a;
+            jx1.i("map", "MapRemoveAction start");
+            boolean g = r44.b().g(vm2Var);
+            jx1.i("map", "MapRemoveAction end");
+            return g;
         }
         return invokeLLLL.booleanValue;
     }

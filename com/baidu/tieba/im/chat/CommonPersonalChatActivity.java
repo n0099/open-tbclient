@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x87;
+import com.repackage.a97;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -100,7 +100,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             super.onItemViewClick(view2, i, i2, j);
-            if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg = msglistModel.getMsg(i2)) != null && x87.q(msg) && content != null) {
+            if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg = msglistModel.getMsg(i2)) != null && a97.q(msg) && content != null) {
                 JSONObject jSONObject = null;
                 try {
                     try {

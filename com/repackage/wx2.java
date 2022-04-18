@@ -129,7 +129,7 @@ public class wx2 {
             }
             File file = new File(str);
             if (file.exists() && file.isDirectory()) {
-                String E = ng4.E(new File(str + File.separator + "emoji.json"));
+                String E = mg4.E(new File(str + File.separator + "emoji.json"));
                 if (TextUtils.isEmpty(E)) {
                     if (d) {
                         Log.d("EmojiInfoManager", "读取emoji配置文件失败");

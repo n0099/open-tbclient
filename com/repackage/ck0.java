@@ -106,25 +106,25 @@ public class ck0 extends zj0 {
             return;
         }
         Resources resources = hi0.b().getResources();
-        String string = resources.getString(R.string.obfuscated_res_0x7f0f0b82);
+        String string = resources.getString(R.string.obfuscated_res_0x7f0f0b81);
         switch (a.a[this.a.c.ordinal()]) {
             case 1:
-                string = TextUtils.isEmpty(this.a.p.d) ? resources.getString(R.string.obfuscated_res_0x7f0f0b82) : this.a.p.d;
+                string = TextUtils.isEmpty(this.a.p.d) ? resources.getString(R.string.obfuscated_res_0x7f0f0b81) : this.a.p.d;
                 break;
             case 2:
                 string = new DecimalFormat("#.#%").format(this.a.i);
                 break;
             case 3:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b76);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0b75);
                 break;
             case 4:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b79);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0b78);
                 break;
             case 5:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b7d);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0b7c);
                 break;
             case 6:
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0b78);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f0b77);
                 break;
         }
         hk0<?> hk0Var = this.f.get();

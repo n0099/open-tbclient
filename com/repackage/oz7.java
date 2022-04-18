@@ -1,135 +1,239 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
-import com.baidu.tieba.pb.videopb.viewholder.VideoTabPbFloatEnterForumViewHolder;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.adapter.PbReplyLoadMoreAdapter;
+import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorCommentAndPraiseAdapter;
+import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class oz7 extends ho<ss7, VideoTabPbFloatEnterForumViewHolder> {
+public class oz7 extends nz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment i;
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oz7 a;
-
-        public a(oz7 oz7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oz7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = oz7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.i instanceof VideoPbCommentFloatFragment)) {
-                VideoPbCommentFloatFragment videoPbCommentFloatFragment = (VideoPbCommentFloatFragment) this.a.i;
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                statisticItem.param("fid", videoPbCommentFloatFragment.w().getForumId());
-                statisticItem.param("tid", videoPbCommentFloatFragment.w().l1());
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("post_id", videoPbCommentFloatFragment.w().r0());
-                statisticItem.param("obj_source", 1);
-                statisticItem.param("obj_type", 16);
-                statisticItem.param("obj_locate", videoPbCommentFloatFragment.U2());
-                TiebaStatic.log(statisticItem);
-            }
-        }
-    }
+    public vv7 n;
+    public lv7 o;
+    public mv7 p;
+    public mw7 q;
+    public PbReplyLoadMoreAdapter r;
+    public wz7 s;
+    public vz7 t;
+    public nv7 u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oz7(Context context, BdUniqueId bdUniqueId, BaseFragment baseFragment) {
-        super(context, bdUniqueId);
+    public oz7(DetailInfoAndReplyFragment detailInfoAndReplyFragment, BdTypeRecyclerView bdTypeRecyclerView) {
+        super(detailInfoAndReplyFragment, bdTypeRecyclerView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, baseFragment};
+            Object[] objArr = {detailInfoAndReplyFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((DetailInfoAndReplyFragment) objArr2[0], (BdTypeRecyclerView) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = baseFragment;
+        H();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ss7 ss7Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
-        b0(i, view2, viewGroup, ss7Var, videoTabPbFloatEnterForumViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public VideoTabPbFloatEnterForumViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.nz7
+    public void A(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.a);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = oi.f(this.a, R.dimen.tbds156);
-            layoutParams.topMargin = oi.f(this.a, R.dimen.M_H_X003);
-            layoutParams.rightMargin = oi.f(this.a, R.dimen.M_W_X007);
-            layoutParams.bottomMargin = oi.f(this.a, R.dimen.M_H_X005);
-            frameLayout.addView(flowLabelLayout, layoutParams);
-            return new VideoTabPbFloatEnterForumViewHolder(this.a, frameLayout);
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.o.d0(onClickListener);
         }
-        return (VideoTabPbFloatEnterForumViewHolder) invokeL.objValue;
     }
 
-    public View b0(int i, View view2, ViewGroup viewGroup, ss7 ss7Var, VideoTabPbFloatEnterForumViewHolder videoTabPbFloatEnterForumViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.nz7
+    public void B(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ss7Var, videoTabPbFloatEnterForumViewHolder})) == null) {
-            if (ss7Var != null) {
-                videoTabPbFloatEnterForumViewHolder.setData(ss7Var.a);
-                videoTabPbFloatEnterForumViewHolder.d(new a(this));
-            }
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
-            videoTabPbFloatEnterForumViewHolder.c();
-            return view2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.p.d0(onClickListener);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.nz7
+    public void C(bs7 bs7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bs7Var) == null) {
+        }
+    }
+
+    @Override // com.repackage.nz7
+    public void D(dt7 dt7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dt7Var) == null) {
+            super.D(dt7Var);
+            this.q.Q0(dt7Var);
+        }
+    }
+
+    @Override // com.repackage.nz7
+    public void E(bs7 bs7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bs7Var) == null) {
+            this.s.p0(bs7Var);
+        }
+    }
+
+    @Override // com.repackage.nz7
+    public void F(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.s.p(str);
+        }
+    }
+
+    public final void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.s = new wz7(this.b.t(), PostData.w0);
+            this.o = new lv7(this.b.t(), hs7.c, this.b.getUniqueId());
+            this.p = new mv7(this.b.t(), is7.a);
+            this.n = new vv7(this.b.t(), ls7.L0);
+            mw7 mw7Var = new mw7(this.b.t(), PostData.x0);
+            this.q = mw7Var;
+            mw7Var.R0(this.b.t());
+            this.q.N0(this.b.t().U2());
+            this.r = new PbReplyLoadMoreAdapter(this.b.t(), PostData.D0);
+            this.t = new vz7(this.b.getContext(), vs7.b, this.b.t());
+            this.u = new nv7(this.b.t(), js7.c);
+            this.e.add(this.s);
+            this.e.add(this.t);
+            this.e.add(this.n);
+            this.e.add(this.o);
+            this.e.add(this.p);
+            this.e.add(this.q);
+            this.e.add(this.r);
+            this.e.add(this.u);
+            this.c.a(this.e);
+        }
+    }
+
+    @Override // com.repackage.nz7
+    public zv7 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (zv7) invokeV.objValue;
+    }
+
+    @Override // com.repackage.nz7
+    public uu7 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (uu7) invokeV.objValue;
+    }
+
+    @Override // com.repackage.nz7
+    public PbFirstFloorCommentAndPraiseAdapter g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (PbFirstFloorCommentAndPraiseAdapter) invokeV.objValue;
+    }
+
+    @Override // com.repackage.nz7
+    public void l() {
+        BdTypeRecyclerView bdTypeRecyclerView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (bdTypeRecyclerView = this.c) == null || bdTypeRecyclerView.getAdapter() == null) {
+            return;
+        }
+        this.c.getListAdapter().notifyDataSetChanged();
+    }
+
+    @Override // com.repackage.nz7
+    public void m() {
+        wz7 wz7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (wz7Var = this.s) == null) {
+            return;
+        }
+        wz7Var.H();
+    }
+
+    @Override // com.repackage.nz7
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.nz7
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.nz7
+    public void q(bs7 bs7Var, boolean z, String str, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{bs7Var, Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
+            this.q.t(bs7Var);
+            this.q.setFromCDN(z);
+            this.q.p(str);
+            this.q.c(z2);
+            this.q.P0(0.5f);
+        }
+    }
+
+    @Override // com.repackage.nz7
+    public void v(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, onClickListener) == null) {
+            super.v(onClickListener);
+            this.q.l(onClickListener);
+        }
+    }
+
+    @Override // com.repackage.nz7
+    public void w(TbRichTextView.y yVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, yVar) == null) {
+            super.w(yVar);
+            this.q.o(yVar);
+        }
+    }
+
+    @Override // com.repackage.nz7
+    public void x(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, onLongClickListener) == null) {
+            super.x(onLongClickListener);
+            this.q.d(onLongClickListener);
+        }
+    }
+
+    @Override // com.repackage.nz7
+    public void z(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, onClickListener) == null) {
+            super.z(onClickListener);
+            this.q.e(onClickListener);
+            this.r.d0(onClickListener);
+            this.u.e(onClickListener);
+        }
     }
 }

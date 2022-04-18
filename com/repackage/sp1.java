@@ -69,7 +69,7 @@ public class sp1 implements NetRequest.RequestInterceptor {
                 netRequestParam.addHeader("X-SWAN-HOSTSIGN", gw2.b(hw2.h(r2)));
             }
             netRequestParam.addHeader("Referer", yp1.d());
-            netRequestParam.addHeader("User-Agent", a74.b().a());
+            netRequestParam.addHeader("User-Agent", z64.b().a());
             return false;
         }
         return invokeLL.booleanValue;

@@ -31,7 +31,7 @@ public class b15 extends u05 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f080979;
+        this.d = R.drawable.obfuscated_res_0x7f08097d;
         this.g = false;
         this.h = true;
         this.n = new int[]{36};

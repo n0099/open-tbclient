@@ -34,12 +34,12 @@ public class fo1 {
 
         /* renamed from: com.repackage.fo1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0418a implements Animator.AnimatorListener {
+        public class C0419a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0418a(a aVar) {
+            public C0419a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class fo1 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 AnimatorSet animatorSet = new AnimatorSet();
                 animatorSet.play(this.b.d(this.a, 150L));
-                animatorSet.addListener(new C0418a(this));
+                animatorSet.addListener(new C0419a(this));
                 animatorSet.start();
                 this.b.a.add(animatorSet);
             }

@@ -1,104 +1,47 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
+import android.webkit.JsPromptResult;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class t36 extends oa {
+public class t36 implements o36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n36 a;
-    public HashMap<String, String> b;
-    public Gson c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t36(int i) {
-        super(i);
+    public t36() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new Gson();
     }
 
-    public String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.o36
+    public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str.contains("?")) {
-                str = str.split("[?]")[0];
+        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
+            try {
+                n36.f().h(str2);
+            } catch (Throwable unused) {
+                n36.f().e();
             }
-            String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-            HashMap<String, String> hashMap = this.b;
-            if (hashMap != null) {
-                return hashMap.get(replace);
-            }
-            return null;
         }
-        return (String) invokeL.objValue;
     }
 
-    public void b(n36 n36Var) {
+    @Override // com.repackage.o36
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n36Var) == null) {
-            this.a = n36Var;
-        }
-    }
-
-    public void c(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
-            this.b = hashMap;
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // com.repackage.qa
-    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        HttpMessage httpMessage2 = httpMessage;
-        process2(httpMessage2, httpMessageTask);
-        return httpMessage2;
-    }
-
-    /* renamed from: process  reason: avoid collision after fix types in other method */
-    public HttpMessage process2(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        InterceptResult invokeLL;
-        String json;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, httpMessage, httpMessageTask)) == null) {
-            String a = a(httpMessageTask.getUrl());
-            if (a != null && this.a != null) {
-                if (httpMessage.getExtra() instanceof NetMessage) {
-                    NetMessage netMessage = (NetMessage) httpMessage.getExtra();
-                    json = netMessage.getSocketMessage() != null ? this.c.toJson(netMessage.getSocketMessage().getData()) : "";
-                } else {
-                    json = this.c.toJson(httpMessage.getParams());
-                }
-                this.a.a(httpMessageTask.getUrl(), this.c.toJson(a), this.c.toJson(json));
-            }
-            return httpMessage;
-        }
-        return (HttpMessage) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showH5Dialog" : (String) invokeV.objValue;
     }
 }

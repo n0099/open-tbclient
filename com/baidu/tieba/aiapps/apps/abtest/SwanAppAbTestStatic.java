@@ -54,7 +54,7 @@ import com.repackage.o55;
 import com.repackage.o93;
 import com.repackage.oi;
 import com.repackage.p55;
-import com.repackage.ti4;
+import com.repackage.si4;
 import com.repackage.ug1;
 import com.repackage.vl5;
 import com.repackage.wl5;
@@ -186,7 +186,7 @@ public class SwanAppAbTestStatic {
             PopupWindow a;
             Activity b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof ti4) && (a = wl5.a((ti4) customResponsedMessage.getData())) != null && (b = x8.f().b()) != null && b.getWindow() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof si4) && (a = wl5.a((si4) customResponsedMessage.getData())) != null && (b = x8.f().b()) != null && b.getWindow() != null) {
                 try {
                     a.showAtLocation(b.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {

@@ -1,45 +1,25 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class oc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public final View b;
-    public final RelativeLayout c;
-    public final EditText d;
-    public final ImageView e;
-    public final TextView f;
-    public final BdTypeListView g;
-    public final ImageView h;
-    public int i;
+    public mc6 a;
 
-    public oc6(TbPageContext tbPageContext) {
+    public oc6(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,53 +29,23 @@ public class oc6 {
                 return;
             }
         }
-        this.i = 3;
-        this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02cf, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091c08);
-        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c0b);
-        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090d7d);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d6d);
-        this.d.setHint(R.string.obfuscated_res_0x7f0f1098);
-        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d6c);
-        this.f = textView;
-        textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f036e));
-        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091c0c);
-        a();
-        b(TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.height = oi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070309);
-            int f = oi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070305);
-            layoutParams.rightMargin = f;
-            layoutParams.leftMargin = f;
-            int immersiveStickyBarHeight = UtilHelper.getImmersiveStickyBarHeight();
-            if (immersiveStickyBarHeight > 0) {
-                layoutParams.topMargin = immersiveStickyBarHeight;
-            }
-            this.c.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.i == i) {
+        if (bdTypeListView == null) {
             return;
         }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-        SkinManager.setViewTextColor(this.f, R.color.CAM_X0302, 1);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080985, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        if (i == 2) {
-            this.d.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
-        } else {
-            this.d.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new kc6(tbPageContext, tc6.d, tbPageContext.getUniqueId()));
+        mc6 mc6Var = new mc6(tbPageContext, uc6.h, tbPageContext.getUniqueId());
+        this.a = mc6Var;
+        arrayList.add(mc6Var);
+        arrayList.add(new lc6(tbPageContext, tc6.c, tbPageContext.getUniqueId()));
+        arrayList.add(new nc6(tbPageContext, tc6.e, tbPageContext.getUniqueId()));
+        bdTypeListView.a(arrayList);
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.a.b0(onClickListener);
         }
-        SkinManager.setNavbarTitleColor(this.d, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        this.i = i;
     }
 }

@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f40;
 import com.repackage.ii0;
-import com.repackage.s49;
 import com.repackage.ub1;
+import com.repackage.z49;
 /* loaded from: classes2.dex */
 public class InitSDKWithPrivacyTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -55,7 +55,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
             if (ub1.g()) {
-                s49.a();
+                z49.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }
         }

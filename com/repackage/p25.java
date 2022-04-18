@@ -41,8 +41,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
-import com.repackage.yj8;
+import com.repackage.cr4;
+import com.repackage.fk8;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class p25 extends m05 {
@@ -64,7 +64,7 @@ public class p25 extends m05 {
     public String o;
     public n25 p;
     public ThreadData q;
-    public yj8.f r;
+    public fk8.f r;
     public boolean s;
     public int t;
     public int u;
@@ -97,12 +97,12 @@ public class p25 extends m05 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, rx4 rx4Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, qx4 qx4Var, WriteData writeData, AntiData antiData) {
             String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, rx4Var, writeData, antiData}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, qx4Var, writeData, antiData}) == null) {
                 if (this.a.n != null) {
-                    this.a.n.callback(z, postWriteCallBackData, rx4Var, writeData, antiData);
+                    this.a.n.callback(z, postWriteCallBackData, qx4Var, writeData, antiData);
                 }
                 if (z) {
                     this.a.c = null;
@@ -199,25 +199,25 @@ public class p25 extends m05 {
                     }
                     this.a.j.J();
                 } else if (i != 230277 && i != 230278 && i != 340016 && i != 1990032 && !AntiHelper.m(i, str)) {
-                    if (rx4Var == null || writeData == null || StringUtils.isNull(rx4Var.c())) {
+                    if (qx4Var == null || writeData == null || StringUtils.isNull(qx4Var.c())) {
                         if (postWriteCallBackData != null && i == 227001) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.b.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
                             return;
-                        } else if (i == 238010 || tr8.c(i)) {
+                        } else if (i == 238010 || as8.c(i)) {
                             return;
                         } else {
                             this.a.getContext().showToast(str);
                             return;
                         }
                     }
-                    writeData.setVcodeMD5(rx4Var.b());
-                    writeData.setVcodeUrl(rx4Var.c());
-                    writeData.setVcodeExtra(rx4Var.a());
+                    writeData.setVcodeMD5(qx4Var.b());
+                    writeData.setVcodeUrl(qx4Var.c());
+                    writeData.setVcodeExtra(qx4Var.a());
                     if (this.a.q != null) {
                         writeData.setBaijiahaoData(this.a.q.getBaijiahaoData());
                     }
-                    if (qd5.b(rx4Var.d())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.getContext().getPageActivity(), 12006, writeData, false, rx4Var.d())));
+                    if (qd5.b(qx4Var.d())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.getContext().getPageActivity(), 12006, writeData, false, qx4Var.d())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.getContext().getPageActivity(), writeData, 12006)));
                     }
@@ -250,24 +250,24 @@ public class p25 extends m05 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(dr4 dr4Var) {
+        public void onNavigationButtonClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_REPLY_SUB_PB));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(dr4 dr4Var) {
+        public void onPositiveButtonClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_REPLY_SUB_PB));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements yj8.f {
+    public class c implements fk8.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ p25 a;
@@ -290,7 +290,7 @@ public class p25 extends m05 {
             this.a = p25Var;
         }
 
-        @Override // com.repackage.yj8.f
+        @Override // com.repackage.fk8.f
         public void onDraftLoaded(WriteData writeData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
@@ -347,7 +347,7 @@ public class p25 extends m05 {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements dr4.e {
+    public class e implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -367,11 +367,11 @@ public class p25 extends m05 {
             }
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                dr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
             }
         }
     }
@@ -524,7 +524,7 @@ public class p25 extends m05 {
                 this.h.b0().setVoiceDuringTime(-1);
             }
             if (!this.h.Y()) {
-                getContext().showToast((int) R.string.obfuscated_res_0x7f0f1587);
+                getContext().showToast((int) R.string.obfuscated_res_0x7f0f1586);
                 return;
             }
             j25 j25Var = this.m;
@@ -577,7 +577,7 @@ public class p25 extends m05 {
             }
             writeData.setReplyId(this.d);
             writeData.setThreadId(this.e);
-            yj8.z(this.e, writeData);
+            fk8.z(this.e, writeData);
         }
     }
 
@@ -640,7 +640,7 @@ public class p25 extends m05 {
         }
     }
 
-    public void R(yj8.f fVar) {
+    public void R(fk8.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, fVar) == null) {
             this.r = fVar;
@@ -676,7 +676,7 @@ public class p25 extends m05 {
         if (!(interceptable == null || interceptable.invokeLL(1048597, this, str, str2) == null) || str == null) {
             return;
         }
-        String replace = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0f9e).replace("%s", str);
+        String replace = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0f9d).replace("%s", str);
         r25 r25Var = this.c;
         if (r25Var != null) {
             if (TextUtils.isEmpty(r25Var.b) && TextUtils.isEmpty(this.c.a)) {
@@ -809,10 +809,10 @@ public class p25 extends m05 {
     public final void i0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
-            dr4 dr4Var = new dr4(getContext().getPageActivity());
-            dr4Var.setMessage(str);
-            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0984, new e(this));
-            dr4Var.create(getContext()).show();
+            cr4 cr4Var = new cr4(getContext().getPageActivity());
+            cr4Var.setMessage(str);
+            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0984, new e(this));
+            cr4Var.create(getContext()).show();
         }
     }
 
@@ -830,7 +830,7 @@ public class p25 extends m05 {
             X(true);
             a().j();
             if (str != null && str.length() != 0) {
-                String replace = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f9e).replace("%s", str);
+                String replace = getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f9d).replace("%s", str);
                 r25 r25Var = new r25();
                 r25Var.b = replace;
                 r25Var.d = str2;
@@ -856,7 +856,7 @@ public class p25 extends m05 {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            yj8.z(this.e, null);
+            fk8.z(this.e, null);
         }
     }
 
@@ -880,7 +880,7 @@ public class p25 extends m05 {
         statisticItem.addParam(TiebaStatic.Params.FID_2, this.j.y());
         statisticItem.addParam("order_id", this.j.D());
         TiebaStatic.log(statisticItem);
-        tk4.a(tk4.f, tk4.c, this.j.D(), this.j.E(), this.j.C(), this.j.z());
+        sk4.a(sk4.f, sk4.c, this.j.D(), this.j.E(), this.j.C(), this.j.z());
     }
 
     public void s(WriteData writeData) {
@@ -995,6 +995,6 @@ public class p25 extends m05 {
         NewWriteModel newWriteModel = new NewWriteModel(tbPageContext);
         this.h = newWriteModel;
         newWriteModel.n0(this.v);
-        yj8.p(this.j.A(), new c(this));
+        fk8.p(this.j.A(), new c(this));
     }
 }

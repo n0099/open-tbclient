@@ -1,29 +1,28 @@
 package com.repackage;
 
-import android.content.Intent;
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.MtjConfig;
+import com.baidu.mobstat.StatService;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActivityPage.ActivityPageReqIdl;
-import tbclient.ActivityPage.DataReq;
+import com.repackage.gq8;
 /* loaded from: classes7.dex */
-public class st6 implements oa5<ActivityPageReqIdl> {
+public class st6 implements gq8.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final ia5 b;
 
-    public st6(String str, String str2) {
+    public st6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,50 +32,35 @@ public class st6 implements oa5<ActivityPageReqIdl> {
                 return;
             }
         }
-        this.b = new ia5(false);
-        this.a = str2;
+        String version = TbConfig.getVersion();
+        if (TextUtils.isEmpty(version)) {
+            return;
+        }
+        StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
     }
 
-    @Override // com.repackage.oa5
-    public void a(Intent intent) {
+    @Override // com.repackage.gq8.a
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
+            StatService.autoTrace(context);
         }
     }
 
-    @Override // com.repackage.oa5
-    public ia5 c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.gq8.a
+    public void b(Context context, WebView webView, WebChromeClient webChromeClient) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (ia5) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, webView, webChromeClient) == null) {
+            StatService.trackWebView(context, webView, webChromeClient);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.oa5
-    /* renamed from: d */
-    public ActivityPageReqIdl b(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.repackage.gq8.a
+    public void c(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.activity_name = this.a;
-                builder.pn = Integer.valueOf(this.b.c);
-                builder.rn = 20;
-                builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Integer.valueOf((int) oi.h(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(cn4.c().e());
-                if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    rc5.a(builder, true);
-                }
-                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
-                builder2.data = builder.build(false);
-                return builder2.build(false);
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, str, z) == null) {
+            StatService.setAppChannel(context, str, z);
         }
-        return (ActivityPageReqIdl) invokeZ.objValue;
     }
 }

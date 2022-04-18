@@ -67,7 +67,7 @@ public class ae2 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
             if (file != null && file.exists() && file2 != null) {
                 if (!file2.exists()) {
-                    ng4.l(file2);
+                    mg4.l(file2);
                 }
                 String[] list = file.list();
                 if (list != null && list.length != 0) {
@@ -78,13 +78,13 @@ public class ae2 {
                                 boolean isFile = file3.isFile();
                                 File file4 = new File(file2, str);
                                 if (file4.exists()) {
-                                    ng4.j(file4);
+                                    mg4.j(file4);
                                 }
                                 if (isFile) {
-                                    ng4.h(file4);
-                                    ng4.f(file3, file4);
+                                    mg4.h(file4);
+                                    mg4.f(file3, file4);
                                 } else if (file3.isDirectory()) {
-                                    ng4.e(file3, file4);
+                                    mg4.e(file3, file4);
                                 }
                             }
                         }
@@ -106,8 +106,8 @@ public class ae2 {
                 File file3 = new File(a93.e());
                 File[] listFiles = file.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
-                    ng4.l(file2);
-                    ng4.l(file3);
+                    mg4.l(file2);
+                    mg4.l(file3);
                     File file4 = null;
                     for (File file5 : listFiles) {
                         String name = file5.getName();
@@ -119,13 +119,13 @@ public class ae2 {
                             }
                             if (file4 != null) {
                                 if (file4.exists()) {
-                                    ng4.L(file4);
+                                    mg4.L(file4);
                                 }
                                 if (file5.isFile()) {
-                                    ng4.h(file4);
-                                    ng4.f(file5, file4);
+                                    mg4.h(file4);
+                                    mg4.f(file5, file4);
                                 } else {
-                                    ng4.e(file5, file4);
+                                    mg4.e(file5, file4);
                                 }
                             }
                         }
@@ -168,7 +168,7 @@ public class ae2 {
             }
             boolean a2 = a(new File(file, be2.k), new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, NgWebView.APP_DATABASE_PATH));
             SwanAppDbControl.f(AppRuntime.getAppContext()).p();
-            y84.a().release();
+            x84.a().release();
             qj2.g0().F();
             return a2;
         }
@@ -216,20 +216,20 @@ public class ae2 {
                     yd2.n().p("installSwanApp clone_zipFiles file not exists");
                     return false;
                 }
-                File a3 = zd2.a(ng4.G(file), a2);
+                File a3 = zd2.a(mg4.G(file), a2);
                 if (a3 != null && a3.exists()) {
                     File file2 = new File(be2.d);
                     if (file2.exists()) {
-                        ng4.L(file2);
+                        mg4.L(file2);
                     }
-                    if (!ng4.l(file2)) {
+                    if (!mg4.l(file2)) {
                         yd2.n().p("installSwanApp root cache dir create fail");
                         return false;
                     }
-                    boolean z = ng4.W(a3.getAbsolutePath(), be2.d) == null;
+                    boolean z = mg4.W(a3.getAbsolutePath(), be2.d) == null;
                     if (z) {
-                        ng4.j(file);
-                        ng4.j(a3);
+                        mg4.j(file);
+                        mg4.j(a3);
                     }
                     yd2.n().p("unzip file status = " + z);
                     File file3 = new File(be2.d);
@@ -260,7 +260,7 @@ public class ae2 {
                             boolean d = d(str);
                             boolean g = g(str, file4);
                             yd2.n().p("installSwanPkg = " + j + " ; installCore = " + e + " ; installSp = " + h + " ; installDb = " + f + " ; installAbTest = " + d + " ; installDynamicLib = " + g);
-                            return ng4.j(file3);
+                            return mg4.j(file3);
                         }
                         yd2.n().p("installSwanApp install appKey not match zip file appKey");
                         return false;

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import androidx.annotation.NonNull;
-import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b64 extends d64 {
+public class b64 extends c64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b64(@NonNull Context context) {
-        super(BaiduMap.e, context.getString(R.string.obfuscated_res_0x7f0f0cd3), "com.baidu.BaiduMap");
+        super("GaodeMap", context.getString(R.string.obfuscated_res_0x7f0f0cd3), "com.autonavi.minimap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,23 +35,26 @@ public class b64 extends d64 {
                 return;
             }
         }
-        this.c = true;
     }
 
-    @Override // com.repackage.d64
+    @Override // com.repackage.c64
     public void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLLL(1048576, this, context, latLng, latLng2, str, str2) == null) || latLng == null || latLng2 == null) {
             return;
         }
-        Intent intent = new Intent();
-        Uri.Builder buildUpon = Uri.parse("baidumap://map/direction?").buildUpon();
-        buildUpon.appendQueryParameter("origin", "name:" + str + "|latlng:" + latLng.latitude + "," + latLng.longitude);
-        buildUpon.appendQueryParameter("destination", "name:" + str2 + "|latlng:" + latLng2.latitude + "," + latLng2.longitude);
-        buildUpon.appendQueryParameter("mode", "driving");
-        buildUpon.appendQueryParameter("target", "1");
-        buildUpon.appendQueryParameter("src", context.getPackageName());
-        intent.setData(buildUpon.build());
+        Uri.Builder buildUpon = Uri.parse("androidamap://route?").buildUpon();
+        buildUpon.appendQueryParameter("sourceApplication", context.getPackageName());
+        buildUpon.appendQueryParameter("slat", String.valueOf(latLng.latitude));
+        buildUpon.appendQueryParameter("slon", String.valueOf(latLng.longitude));
+        buildUpon.appendQueryParameter("sname", str);
+        buildUpon.appendQueryParameter("dlat", String.valueOf(latLng2.latitude));
+        buildUpon.appendQueryParameter("dlon", String.valueOf(latLng2.longitude));
+        buildUpon.appendQueryParameter("dname", str2);
+        buildUpon.appendQueryParameter(BdZeusUtil.URL_KEY_MACHINE, "0");
+        buildUpon.appendQueryParameter("t", "0");
+        Intent intent = new Intent("android.intent.action.VIEW", buildUpon.build());
+        intent.setPackage("com.autonavi.minimap");
         context.startActivity(intent);
     }
 }

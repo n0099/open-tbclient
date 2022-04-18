@@ -204,12 +204,12 @@ public class wh3 extends lr2 {
     public final void C(@NonNull Request request, String str, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, request, str, callbackHandler) == null) {
-            l74 l74Var = new l74(request.url().toString(), request.body(), new b(this, str, callbackHandler, request));
-            l74Var.i = request.tag();
-            l74Var.f = true;
-            l74Var.g = true;
-            l74Var.h = true;
-            m74.g().e(l74Var);
+            k74 k74Var = new k74(request.url().toString(), request.body(), new b(this, str, callbackHandler, request));
+            k74Var.i = request.tag();
+            k74Var.f = true;
+            k74Var.g = true;
+            k74Var.h = true;
+            l74.g().e(k74Var);
             o73.a(SwanInterfaceType.FACE_CHECK);
         }
     }

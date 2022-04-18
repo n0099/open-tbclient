@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c47;
+import com.repackage.f47;
 import com.squareup.wire.Wire;
 import tbclient.TopicList.TopicListResIdl;
 /* loaded from: classes3.dex */
 public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c47 ranklistData;
+    public f47 ranklistData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketHotRanklistMessage() {
@@ -34,10 +34,10 @@ public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
         }
     }
 
-    public c47 getHotRanklistData() {
+    public f47 getHotRanklistData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ranklistData : (c47) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.ranklistData : (f47) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -62,8 +62,8 @@ public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
         if (getError() != 0) {
             return;
         }
-        c47 c47Var = new c47();
-        this.ranklistData = c47Var;
-        c47Var.b(topicListResIdl.data);
+        f47 f47Var = new f47();
+        this.ranklistData = f47Var;
+        f47Var.b(topicListResIdl.data);
     }
 }

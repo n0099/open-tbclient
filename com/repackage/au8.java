@@ -1,37 +1,34 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
+import android.provider.MediaStore;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.down.statistic.ConfigSpeedStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteOrder;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class au8 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public static final class a implements Comparator<zt8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -43,290 +40,281 @@ public class au8 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = 48000;
-            this.b = 1;
-            this.c = 16;
-            this.d = 0;
         }
 
-        public boolean a() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(zt8 zt8Var, zt8 zt8Var2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.d;
-                return i == 5 || i == 6 || i == 8 || i == 9;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, zt8Var, zt8Var2)) == null) {
+                int i = zt8Var.b() < zt8Var2.b() ? 1 : 0;
+                if (zt8Var.b() > zt8Var2.b()) {
+                    return -1;
+                }
+                return i;
             }
-            return invokeV.booleanValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i = this.d;
-                return i == 3 || i == 4 || i == 8 || i == 9;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i = this.d;
-                return i == 1 || i == 4 || i == 6 || i == 9;
-            }
-            return invokeV.booleanValue;
+            return invokeLL.intValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755844179, "Lcom/repackage/au8;")) == null) {
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00d3, code lost:
+        if (r2 != null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00d5, code lost:
+        r2.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00ec, code lost:
+        if (r2 != null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ef, code lost:
+        r15.moveToNext();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00f6, code lost:
+        if (r8.d() == null) goto L47;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0100, code lost:
+        if (r8.a() == 0) goto L46;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x010a, code lost:
+        if (c(r8.c()) == false) goto L45;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x0114, code lost:
+        if (r8.a() < 1000) goto L44;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0116, code lost:
+        r0 = r8.d();
+        r2 = r0.substring(r9, r0.lastIndexOf("/"));
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x012a, code lost:
+        if (r0.contains("/DCIM/") != false) goto L43;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x012c, code lost:
+        if (r2 == null) goto L38;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0132, code lost:
+        if (r2.equals("/sdcard") == false) goto L38;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x013e, code lost:
+        if (new java.io.File(r0).exists() == false) goto L42;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0140, code lost:
+        r1.add(r8);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x0143, code lost:
+        r5 = r21 + 1;
+        r7 = r17;
+        r9 = r18;
+        r8 = r22;
+        r6 = 0;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0173  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static List<zt8> a(Context context) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Cursor cursor2;
+        int i;
+        ContentResolver contentResolver;
+        String str;
+        int i2;
+        zt8 zt8Var;
+        Cursor cursor3;
+        ContentResolver contentResolver2;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            ArrayList arrayList = new ArrayList();
+            ContentResolver contentResolver3 = context.getContentResolver();
+            String str2 = "_id";
+            try {
+                Cursor query = contentResolver3.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_data", "duration", "mime_type", "date_modified"}, null, null, "title");
+                try {
+                    String[] strArr = {"video_id", "_data"};
+                    query.moveToFirst();
+                    int count = query.getCount();
+                    int i3 = 0;
+                    int i4 = 0;
+                    while (i4 < count) {
+                        zt8 zt8Var2 = new zt8();
+                        String string2 = query.getString(query.getColumnIndex(str2));
+                        zt8Var2.i(string2);
+                        String string3 = query.getString(query.getColumnIndex("_data"));
+                        if (string3 != null) {
+                            zt8Var2.j(string3.replace("/storage/emulated/0", "/sdcard"));
+                        }
+                        int i5 = count;
+                        zt8Var2.e(mg.e(query.getString(query.getColumnIndex("duration")), i3));
+                        zt8Var2.g(query.getString(query.getColumnIndex("mime_type")));
+                        zt8Var2.f(Long.parseLong(query.getString(query.getColumnIndex("date_modified"))));
+                        try {
+                            try {
+                                contentResolver2 = contentResolver3;
+                                i = i4;
+                                contentResolver = contentResolver3;
+                                str = str2;
+                                i2 = 0;
+                                zt8Var = zt8Var2;
+                            } catch (Exception e) {
+                                e = e;
+                                i = i4;
+                                contentResolver = contentResolver3;
+                                str = str2;
+                                i2 = 0;
+                                zt8Var = zt8Var2;
+                            }
+                            try {
+                                cursor3 = contentResolver2.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, strArr, "video_id=" + string2, null, null);
+                                if (cursor3 != null) {
+                                    try {
+                                        try {
+                                            if (cursor3.moveToFirst() && (string = cursor3.getString(cursor3.getColumnIndex("_data"))) != null) {
+                                                zt8Var.h(string.replace("/storage/emulated/0", "/sdcard"));
+                                            }
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            cursor2 = cursor3;
+                                            if (cursor2 != null) {
+                                                cursor2.close();
+                                            }
+                                            throw th;
+                                        }
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } catch (Exception e3) {
+                                e = e3;
+                                cursor3 = null;
+                                e.printStackTrace();
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            cursor2 = null;
+                        }
+                    }
+                    if (query != null) {
+                        query.close();
+                    }
+                } catch (Exception e4) {
+                    e = e4;
+                    cursor = query;
+                    try {
+                        e.printStackTrace();
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return arrayList;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th4) {
+                    th = th4;
+                    cursor = query;
+                    if (cursor != null) {
+                    }
+                    throw th;
+                }
+            } catch (Exception e5) {
+                e = e5;
+                cursor = null;
+            } catch (Throwable th5) {
+                th = th5;
+                cursor = null;
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    public static zt8 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists() && file.isFile()) {
+                zt8 zt8Var = new zt8();
+                zt8Var.j(str);
+                zt8Var.f(file.lastModified());
+                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                try {
+                    try {
+                        try {
+                            mediaMetadataRetriever.setDataSource(str);
+                            String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
+                            if (extractMetadata != null) {
+                                zt8Var.e(Integer.parseInt(extractMetadata));
+                            }
+                            zt8Var.g(mediaMetadataRetriever.extractMetadata(12));
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            mediaMetadataRetriever.release();
+                        }
+                    } catch (Throwable th) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+                return zt8Var;
+            }
+            return null;
+        }
+        return (zt8) invokeL.objValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? MimeTypes.VIDEO_MP4.equals(str) || "video/ext-mp4".equals(str) : invokeL.booleanValue;
+    }
+
+    public static void d(String str, List<zt8> list, boolean z) {
+        File[] listFiles;
+        zt8 b;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, str, list, z) == null) || list == null || StringUtils.isNull(str) || (listFiles = new File(str).listFiles()) == null || listFiles.length == 0) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755844179, "Lcom/repackage/au8;");
-        }
-    }
-
-    public static byte[] a(byte b, byte b2, byte b3, byte b4, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Boolean.valueOf(z)})) == null) ? e((short) ((f(b, b2, z) / 2) + (f(b3, b4, z) / 2)), z) : (byte[]) invokeCommon.objValue;
-    }
-
-    public static byte[] b(int i, int i2, byte[] bArr) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, bArr)) == null) {
-            BdLog.e("convertChannelCount sourceByteWidth = " + i + " outputByteWidth = " + i2);
-            if (i == i2) {
-                return bArr;
-            }
-            int length = bArr.length;
-            if (i != 1) {
-                if (i == 2 && i2 == 1) {
-                    int i3 = length / 2;
-                    byte[] bArr2 = new byte[i3];
-                    for (int i4 = 0; i4 < i3; i4++) {
-                        int i5 = i4 * 2;
-                        bArr2[i4] = (byte) (f(bArr[i5], bArr[i5 + 1], a) / 256);
-                    }
-                    return bArr2;
-                }
-            } else if (i2 == 2) {
-                byte[] bArr3 = new byte[length * 2];
-                for (int i6 = 0; i6 < length; i6++) {
-                    byte[] e = e((short) (bArr[i6] * 256), a);
-                    int i7 = i6 * 2;
-                    bArr3[i7] = e[0];
-                    bArr3[i7 + 1] = e[1];
-                }
-                return bArr3;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeIIL.objValue;
-    }
-
-    public static byte[] c(int i, int i2, int i3, byte[] bArr) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bArr})) == null) {
-            BdLog.e("convertChannelCount sourceChannelCount = " + i + " outputChannelCount = " + i2);
-            if (i == i2) {
-                return bArr;
-            }
-            if (i3 == 1 || i3 == 2) {
-                int length = bArr.length;
-                int i4 = 0;
-                if (i != 1) {
-                    if (i == 2 && i2 == 1) {
-                        int i5 = length / 2;
-                        byte[] bArr2 = new byte[i5];
-                        if (i3 == 1) {
-                            while (i4 < i5) {
-                                int i6 = i4 * 2;
-                                bArr2[i4] = (byte) (((short) (bArr[i6] + bArr[i6 + 1])) >> 1);
-                                i4 += 2;
-                            }
-                        } else if (i3 == 2) {
-                            for (int i7 = 0; i7 < i5; i7 += 2) {
-                                int i8 = i7 * 2;
-                                byte[] a2 = a(bArr[i8], bArr[i8 + 1], bArr[i8 + 2], bArr[i8 + 3], a);
-                                bArr2[i7] = a2[0];
-                                bArr2[i7 + 1] = a2[1];
-                            }
+        for (File file : listFiles) {
+            if (file != null && !StringUtils.isNull(file.getPath())) {
+                String path = file.getPath();
+                if (file.isFile()) {
+                    if (path.contains("_tiebaconverting.mp4")) {
+                        if (file.exists()) {
+                            file.delete();
                         }
-                        return bArr2;
+                    } else if (path.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION) && DefaultHlsExtractorFactory.MP4_FILE_EXTENSION.equals(path.substring(path.lastIndexOf(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION))) && (b = b(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && b.a() >= 1000 && c(b.c())) {
+                        list.add(b);
                     }
-                } else if (i2 == 2) {
-                    byte[] bArr3 = new byte[length * 2];
-                    if (i3 == 1) {
-                        while (i4 < length) {
-                            byte b = bArr[i4];
-                            int i9 = i4 * 2;
-                            bArr3[i9] = b;
-                            bArr3[i9 + 1] = b;
-                            i4++;
-                        }
-                    } else if (i3 == 2) {
-                        while (i4 < length) {
-                            byte b2 = bArr[i4];
-                            byte b3 = bArr[i4 + 1];
-                            int i10 = i4 * 2;
-                            bArr3[i10] = b2;
-                            bArr3[i10 + 1] = b3;
-                            bArr3[i10 + 2] = b2;
-                            bArr3[i10 + 3] = b3;
-                            i4 += 2;
-                        }
-                    }
-                    return bArr3;
+                } else if (file.isDirectory() && !path.contains("/.") && z) {
+                    d(path, list, z);
                 }
-                return bArr;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    @TargetApi(16)
-    public static a d(String str) {
-        InterceptResult invokeL;
-        MediaFormat mediaFormat;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            try {
-                mediaExtractor.setDataSource(str);
-                int i = 0;
-                while (true) {
-                    if (i >= mediaExtractor.getTrackCount()) {
-                        mediaFormat = null;
-                        break;
-                    }
-                    mediaFormat = mediaExtractor.getTrackFormat(i);
-                    if (mediaFormat.getString("mime").startsWith("audio/")) {
-                        mediaExtractor.selectTrack(i);
-                        break;
-                    }
-                    i++;
-                }
-                if (mediaFormat == null) {
-                    mediaExtractor.release();
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : 48000;
-                aVar.b = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-                aVar.c = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
-                mediaExtractor.release();
-                return aVar;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (a) invokeL.objValue;
-    }
-
-    public static byte[] e(short s, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Short.valueOf(s), Boolean.valueOf(z)})) == null) {
-            byte[] bArr = new byte[2];
-            if (z) {
-                bArr[1] = (byte) (s & 255);
-                bArr[0] = (byte) (((short) (s >> 8)) & 255);
-            } else {
-                bArr[0] = (byte) (s & 255);
-                bArr[1] = (byte) (((short) (s >> 8)) & 255);
-            }
-            return bArr;
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static short f(byte b, byte b2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2), Boolean.valueOf(z)})) == null) {
-            return (short) (z ? ((short) (((short) ((b & 255) | 0)) << 8)) | (b2 & 255) : (b & 255) | ((short) (((short) ((b2 & 255) | 0)) << 8)));
-        }
-        return invokeCommon.shortValue;
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-                a = true;
-            } else {
-                a = false;
             }
         }
     }
 
-    public static boolean h(a... aVarArr) {
-        InterceptResult invokeL;
-        a aVar;
+    public static void e(List<zt8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, aVarArr)) == null) {
-            if (aVarArr == null || aVarArr.length < 2 || (aVar = aVarArr[0]) == null) {
-                return false;
-            }
-            boolean z = true;
-            for (int i = 1; i < aVarArr.length; i++) {
-                if (aVar.a != aVarArr[i].a) {
-                    aVarArr[i].d++;
-                    z = false;
-                }
-                if (aVar.b != aVarArr[i].b) {
-                    aVarArr[i].d += 3;
-                    z = false;
-                }
-                if (aVar.c != aVarArr[i].c) {
-                    aVarArr[i].d += 5;
-                    z = false;
-                }
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
+            Collections.sort(list, new a());
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean i(String str, String str2, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65545, null, str, str2, i, i2)) == null) {
-            BdLog.e("resampling sampleRate = " + i + " resampleRate = " + i2);
-            if (i2 == i) {
-                return false;
-            }
-            File file = new File(str);
-            File file2 = new File(str2);
-            try {
-                FileInputStream fileInputStream = new FileInputStream(file);
-                FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                new du8(fileInputStream, fileOutputStream, i, i2, 2, 2, 1, Integer.MAX_VALUE, 0.0d, 0, true);
-                fileInputStream.close();
-                fileOutputStream.close();
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLLII.booleanValue;
     }
 }

@@ -82,7 +82,7 @@ public class q25 extends k05 {
                 this.c.a = false;
             } else if (i == 16) {
                 if (this.c.a) {
-                    this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0cf1);
+                    this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0cf0);
                 }
                 if (this.c.h(this.a.getContext(), 11025)) {
                     AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getContext().getPageActivity(), 12005, true);
@@ -105,7 +105,7 @@ public class q25 extends k05 {
                     TiebaStatic.log(statisticItem);
                 }
             } else if (i == 7) {
-                this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0cf1);
+                this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0cf0);
                 this.c.a = true;
             } else if (i == 8) {
                 if (this.c.h(this.a.getContext(), 11001)) {
@@ -201,7 +201,7 @@ public class q25 extends k05 {
                 n.j = 1;
             }
             if (!this.c) {
-                if (pm8.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), u05.class)) != null && (u05Var = (u05) runTask.getData()) != null) {
+                if (wm8.a() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), u05.class)) != null && (u05Var = (u05) runTask.getData()) != null) {
                     u05Var.j = 2;
                     a2.d(u05Var);
                 }

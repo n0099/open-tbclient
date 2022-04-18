@@ -1,36 +1,78 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.Message;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.widget.CountDownTextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ed8 {
+public class ed8 implements cd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final View b;
-    public sc8 c;
-    public AdvertAppInfo d;
-    public ad7 e;
-    public TbPageContext f;
-    public AdCard g;
-    public View.OnClickListener h;
+    public HttpMessageListener a;
+    public TbHttpMessageTask b;
+    public ArrayList<zc8> c;
 
-    public ed8(View view2, String str) {
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ed8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ed8 ed8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ed8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ed8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003062) {
+                if (httpResponsedMessage.getError() == 0) {
+                    return;
+                }
+                Message<?> orginalMessage = httpResponsedMessage.getOrginalMessage();
+                if (orginalMessage instanceof AdUploadHttpRequest) {
+                    this.a.f(((AdUploadHttpRequest) orginalMessage).getDataArray());
+                }
+            }
+        }
+    }
+
+    public ed8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,102 +82,83 @@ public class ed8 {
                 return;
             }
         }
-        this.b = view2;
-        this.a = str;
+        this.a = new a(this, CmdConfigHttp.CMD_AD_UPLOAD);
+        this.c = new ArrayList<>();
+        g();
+        MessageManager.getInstance().registerListener(this.a);
     }
 
-    public void a(boolean z) {
+    @Override // com.repackage.cd8
+    public void a(zc8 zc8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, zc8Var) == null) || zc8Var == null) {
+            return;
         }
+        hw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+        if (!(adAdSense == null || adAdSense.d())) {
+            this.b.setUrl("http://als.baidu.com/clog/clog");
+        }
+        e(zc8Var);
+        h();
     }
 
-    public final <T> T b(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.cd8
+    public void b(zc8 zc8Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (T) this.b.findViewById(i) : (T) invokeI.objValue;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zc8Var) == null) || zc8Var == null) {
+            return;
+        }
+        e(zc8Var);
     }
 
+    @Override // com.repackage.cd8
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            h();
         }
     }
 
-    public void d(gc8 gc8Var) {
+    public final void e(zc8 zc8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gc8Var) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, zc8Var) == null) || zc8Var == null) {
+            return;
         }
+        if (ListUtils.getCount(this.c) >= 20) {
+            this.c.remove(0);
+        }
+        this.c.add(zc8Var);
     }
 
-    public void e() {
+    public final void f(List<zc8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.setVisibility(0);
-            sc8 sc8Var = this.c;
-            if (sc8Var != null) {
-                sc8Var.i(303);
-                uc8.b().d(this.c);
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.getCount(list) <= 0) {
+            return;
+        }
+        for (zc8 zc8Var : list) {
+            if (zc8Var != null) {
+                e(zc8Var);
             }
         }
     }
 
-    public void f() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.setVisibility(8);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_UPLOAD, "https://als.baidu.com/clog/clog");
+            this.b = tbHttpMessageTask;
+            tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+            this.b.setIsNeedAddCommenParam(true);
+            this.b.setResponsedClass(JsonHttpResponsedMessage.class);
         }
     }
 
-    public void g(AdvertAppInfo advertAppInfo) {
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, advertAppInfo) == null) {
-            this.d = advertAppInfo;
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.i) == null || !(iLegoAdvert instanceof AdCard)) {
-                return;
-            }
-            this.g = (AdCard) iLegoAdvert;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || ListUtils.getCount(this.c) <= 0) {
+            return;
         }
-    }
-
-    public void h(uc7 uc7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, uc7Var) == null) {
-        }
-    }
-
-    public void i(ad7 ad7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ad7Var) == null) {
-            this.e = ad7Var;
-        }
-    }
-
-    public void j(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tbPageContext) == null) {
-            this.f = tbPageContext;
-        }
-    }
-
-    public void k(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
-            this.h = onClickListener;
-        }
-    }
-
-    public void l(sc8 sc8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, sc8Var) == null) {
-            this.c = sc8Var;
-        }
-    }
-
-    public void m(CountDownTextView.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-        }
+        MessageManager.getInstance().sendMessage(new AdUploadHttpRequest(this.c), this.b);
+        this.c.clear();
     }
 }

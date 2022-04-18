@@ -1,102 +1,54 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class nc4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile nc4 c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static String b = "0";
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
 
-    public nc4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755474318, "Lcom/repackage/nc4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755474318, "Lcom/repackage/nc4;");
                 return;
             }
         }
-        this.b = 0;
-        this.a = t74.b().i().getInt("max_emit_app_close_num", 1);
-    }
-
-    public static nc4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (nc4.class) {
-                    if (c == null) {
-                        c = new nc4();
-                    }
-                }
-            }
-            return c;
-        }
-        return (nc4) invokeV.objValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || c == null) {
-            return;
-        }
-        c = null;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? t74.b().i().getString("simple_control_item_version", "0") : (String) invokeV.objValue;
-    }
-
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.b++;
-            }
+        q74 b2 = s74.b();
+        if (b2 != null) {
+            b = b2.i().getString("key_h2_heart_beat_version", "0");
         }
     }
 
-    public synchronized boolean d() {
-        InterceptResult invokeV;
-        boolean z;
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                z = this.b < this.a;
-            }
-            return z;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            q74 b2 = s74.b();
+            return b2 != null ? b2.i().getInt("key_h2_heart_beat_timespan", i) : i;
         }
-        return invokeV.booleanValue;
+        return invokeI.longValue;
     }
 
-    public void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public static long b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            q74 b2 = s74.b();
+            return b2 != null ? b2.i().getInt("key_h2_heart_beat_timeout", i) : i;
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("max_emit_app_close_num")) {
-            return;
-        }
-        int optInt = optJSONObject.optInt("max_emit_app_close_num", 1);
-        t74.b().i().putString("simple_control_item_version", optString);
-        t74.b().i().putInt("max_emit_app_close_num", optInt);
+        return invokeI.longValue;
     }
 }

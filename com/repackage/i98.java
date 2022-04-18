@@ -1,94 +1,135 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.App;
-import tbclient.GoodsInfo;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class i98 {
     public static /* synthetic */ Interceptable $ic;
+    public static i98 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<String, j98> a;
 
-    @NonNull
-    public static String a(@NonNull App app) {
-        InterceptResult invokeL;
+    public i98() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, app)) == null) {
-            List<GoodsInfo> list = app.goods_info;
-            String str = "";
-            if (list == null) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            for (GoodsInfo goodsInfo : list) {
-                if (goodsInfo != null) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("ad_common");
-                        if (optJSONObject != null) {
-                            str = optJSONObject.optString("id");
-                        }
-                        return str;
-                    } catch (JSONException unused) {
+        }
+        this.a = new ConcurrentHashMap<>();
+    }
+
+    public static i98 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (i98.class) {
+                    if (b == null) {
+                        b = new i98();
                     }
                 }
             }
-            return str;
+            return b;
         }
-        return (String) invokeL.objValue;
+        return (i98) invokeV.objValue;
     }
 
-    public static int b(@NonNull App app) {
+    public ConcurrentHashMap<String, j98> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ConcurrentHashMap) invokeV.objValue;
+    }
+
+    public j98 c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, app)) == null) {
-            List<GoodsInfo> list = app.goods_info;
-            if (list == null) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            ConcurrentHashMap<String, j98> concurrentHashMap = this.a;
+            if (concurrentHashMap == null) {
+                return null;
             }
-            Iterator<GoodsInfo> it = list.iterator();
-            while (it.hasNext()) {
-                GoodsInfo next = it.next();
-                if (next != null) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(next.lego_card).optJSONObject("ad_common");
-                        if (optJSONObject != null) {
-                            return mg.e(optJSONObject.optString("pos"), -1);
-                        }
-                        return -1;
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-            return -1;
+            return concurrentHashMap.get(str);
         }
-        return invokeL.intValue;
+        return (j98) invokeL.objValue;
     }
 
-    public static void c(@NonNull App.Builder builder, int i) {
+    public void d(String str) {
+        ConcurrentHashMap<String, j98> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65538, null, builder, i) == null) || builder.goods_info == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
             return;
         }
-        for (int i2 = 0; i2 < builder.goods_info.size(); i2++) {
-            GoodsInfo goodsInfo = (GoodsInfo) gd7.d(builder.goods_info, i2);
-            if (goodsInfo != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(goodsInfo.lego_card);
-                    JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
-                    if (optJSONObject != null) {
-                        optJSONObject.put("pos", String.valueOf(mg.e(optJSONObject.optString("pos"), 0) + i));
-                        GoodsInfo.Builder builder2 = new GoodsInfo.Builder(goodsInfo);
-                        builder2.lego_card = jSONObject.toString();
-                        builder.goods_info.set(i2, builder2.build(false));
-                    }
-                } catch (JSONException unused) {
-                }
+        Iterator<String> it = concurrentHashMap.keySet().iterator();
+        while (it.hasNext()) {
+            j98 j98Var = this.a.get(it.next());
+            if (j98Var != null && str.equals(j98Var.b)) {
+                it.remove();
             }
+        }
+    }
+
+    public void e(boolean z) {
+        ConcurrentHashMap<String, j98> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (concurrentHashMap = this.a) == null) {
+            return;
+        }
+        for (String str : concurrentHashMap.keySet()) {
+            j98 j98Var = this.a.get(str);
+            if (j98Var != null) {
+                j98Var.e = z;
+            }
+        }
+    }
+
+    public void f(boolean z, String str) {
+        ConcurrentHashMap<String, j98> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
+            return;
+        }
+        for (String str2 : concurrentHashMap.keySet()) {
+            j98 j98Var = this.a.get(str2);
+            if (j98Var != null && str.equals(j98Var.b)) {
+                j98Var.e = z;
+            }
+        }
+    }
+
+    public void g(HashMap<String, j98> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
+            this.a.clear();
+            if (hashMap == null) {
+                return;
+            }
+            this.a.putAll(hashMap);
+        }
+    }
+
+    public void h(String str, HashMap<String, j98> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) {
+            if (this.a == null) {
+                this.a = new ConcurrentHashMap<>();
+            }
+            d(str);
+            this.a.putAll(hashMap);
         }
     }
 }

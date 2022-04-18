@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hi8;
 import com.repackage.oi;
+import com.repackage.oi8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class StampMissionContentView extends LinearLayout {
@@ -91,12 +91,12 @@ public class StampMissionContentView extends LinearLayout {
         }
     }
 
-    public void setData(List<hi8> list, long j, SingleStampView.a aVar) {
+    public void setData(List<oi8> list, long j, SingleStampView.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Long.valueOf(j), aVar}) == null) {
-            for (hi8 hi8Var : list) {
+            for (oi8 oi8Var : list) {
                 SingleStampView singleStampView = new SingleStampView(getContext());
-                singleStampView.setData(hi8Var, aVar);
+                singleStampView.setData(oi8Var, aVar);
                 singleStampView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2, 1.0f));
                 this.a.addView(singleStampView);
             }

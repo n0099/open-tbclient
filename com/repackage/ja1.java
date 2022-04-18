@@ -24,7 +24,7 @@ public class ja1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ae, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09187f)).setText(str);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091880)).setText(str);
             return inflate;
         }
         return (View) invokeLL.objValue;
@@ -45,8 +45,8 @@ public class ja1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ad, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09187e);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09187f);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09187f);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091880);
             if (-1 == i) {
                 imageView.setVisibility(8);
             } else {

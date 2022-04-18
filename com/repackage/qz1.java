@@ -233,7 +233,7 @@ public class qz1 extends pz1 {
             }
             Activity activity = this.a.i0;
             if (activity instanceof FragmentActivity) {
-                ee4 supportFragmentManager = ((FragmentActivity) activity).getSupportFragmentManager();
+                de4 supportFragmentManager = ((FragmentActivity) activity).getSupportFragmentManager();
                 xz1.d a3 = xz1.a3(this.a.L0);
                 a3.a(false);
                 a3.c(supportFragmentManager);
@@ -357,7 +357,7 @@ public class qz1 extends pz1 {
     }
 
     /* loaded from: classes7.dex */
-    public class i implements o64 {
+    public class i implements n64 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Activity a;
@@ -382,12 +382,12 @@ public class qz1 extends pz1 {
             this.a = activity;
         }
 
-        @Override // com.repackage.o64
-        public boolean b(View view2, q64 q64Var) {
+        @Override // com.repackage.n64
+        public boolean b(View view2, p64 p64Var) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, q64Var)) == null) {
-                int c = q64Var.c();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, p64Var)) == null) {
+                int c = p64Var.c();
                 if (c == 5) {
                     this.b.i3(this.a);
                 } else if (c == 9) {
@@ -396,9 +396,9 @@ public class qz1 extends pz1 {
                 } else if (c == 39) {
                     this.b.j3(this.a);
                 } else if (c == 46) {
-                    this.b.g3(q64Var, this.a);
+                    this.b.g3(p64Var, this.a);
                 } else if (c == 47) {
-                    this.b.h3(q64Var, this.a);
+                    this.b.h3(p64Var, this.a);
                 }
                 return true;
             }
@@ -542,12 +542,12 @@ public class qz1 extends pz1 {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
-            Map<String, String> g2 = kc4.f().g();
+            Map<String, String> g2 = jc4.f().g();
             ForbiddenInfo forbiddenInfo = this.H0;
             if (forbiddenInfo != null) {
                 String str2 = forbiddenInfo.forbiddenDetail;
                 if (str2.length() > 4) {
-                    String m = kc4.m(g2, str2.substring(str2.length() - 4));
+                    String m = jc4.m(g2, str2.substring(str2.length() - 4));
                     if (!TextUtils.isEmpty(m)) {
                         return m;
                     }
@@ -593,25 +593,25 @@ public class qz1 extends pz1 {
                     break;
             }
             if (c2 == 0) {
-                String m2 = kc4.m(g2, "net_conn_failed");
-                return TextUtils.isEmpty(m2) ? O(R.string.obfuscated_res_0x7f0f1288) : m2;
+                String m2 = jc4.m(g2, "net_conn_failed");
+                return TextUtils.isEmpty(m2) ? O(R.string.obfuscated_res_0x7f0f1287) : m2;
             } else if (c2 == 1) {
-                String m3 = kc4.m(g2, "app_open_failed");
-                return TextUtils.isEmpty(m3) ? O(R.string.obfuscated_res_0x7f0f1288) : m3;
+                String m3 = jc4.m(g2, "app_open_failed");
+                return TextUtils.isEmpty(m3) ? O(R.string.obfuscated_res_0x7f0f1287) : m3;
             } else if (c2 == 2) {
-                String m4 = kc4.m(g2, "app_need_upgrade");
-                return TextUtils.isEmpty(m4) ? O(R.string.obfuscated_res_0x7f0f1288) : m4;
+                String m4 = jc4.m(g2, "app_need_upgrade");
+                return TextUtils.isEmpty(m4) ? O(R.string.obfuscated_res_0x7f0f1287) : m4;
             } else if (c2 == 3) {
-                String m5 = kc4.m(g2, "app_page_banned");
-                return TextUtils.isEmpty(m5) ? O(R.string.obfuscated_res_0x7f0f1287) : m5;
+                String m5 = jc4.m(g2, "app_page_banned");
+                return TextUtils.isEmpty(m5) ? O(R.string.obfuscated_res_0x7f0f1286) : m5;
             } else if (c2 == 4) {
-                String m6 = kc4.m(g2, "0049");
-                return TextUtils.isEmpty(m6) ? O(R.string.obfuscated_res_0x7f0f1288) : m6;
+                String m6 = jc4.m(g2, "0049");
+                return TextUtils.isEmpty(m6) ? O(R.string.obfuscated_res_0x7f0f1287) : m6;
             } else if (c2 != 5) {
                 return "";
             } else {
-                String m7 = kc4.m(g2, "2205");
-                return TextUtils.isEmpty(m7) ? O(R.string.obfuscated_res_0x7f0f1286) : m7;
+                String m7 = jc4.m(g2, "2205");
+                return TextUtils.isEmpty(m7) ? O(R.string.obfuscated_res_0x7f0f1285) : m7;
             }
         }
         return (CharSequence) invokeL.objValue;
@@ -700,31 +700,31 @@ public class qz1 extends pz1 {
                         break;
                 }
                 if (c2 == 0) {
-                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f12e5);
+                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f12e4);
                 } else if (c2 == 1) {
-                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f128f);
+                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f128e);
                 } else if (c2 == 2) {
-                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f128d);
-                } else if (c2 == 3) {
-                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f1290);
-                } else if (c2 == 4) {
                     str3 = getContext().getString(R.string.obfuscated_res_0x7f0f128c);
+                } else if (c2 == 3) {
+                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f128f);
+                } else if (c2 == 4) {
+                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f128b);
                 } else if (c2 == 5) {
-                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f1289);
+                    str3 = getContext().getString(R.string.obfuscated_res_0x7f0f1288);
                 }
-                Map<String, String> g2 = kc4.f().g();
+                Map<String, String> g2 = jc4.f().g();
                 if (g2 != null) {
                     ForbiddenInfo forbiddenInfo = this.H0;
                     if (forbiddenInfo != null) {
                         String str4 = forbiddenInfo.forbiddenDetail;
                         if (str4.length() > 4) {
-                            String o = kc4.o(g2, str4.substring(str4.length() - 4));
+                            String o = jc4.o(g2, str4.substring(str4.length() - 4));
                             if (!TextUtils.isEmpty(o)) {
                                 return o;
                             }
                         }
                     }
-                    String o2 = kc4.o(g2, str2);
+                    String o2 = jc4.o(g2, str2);
                     if (!TextUtils.isEmpty(o2)) {
                         return o2;
                     }
@@ -739,9 +739,9 @@ public class qz1 extends pz1 {
         FragmentActivity activity;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (activity = getActivity()) != null && this.m0 == null) {
-            p64 p64Var = new p64(activity, this.l0, 19, qj2.K(), new sf3());
-            this.m0 = p64Var;
-            p64Var.o(new i(this, activity));
+            o64 o64Var = new o64(activity, this.l0, 19, qj2.K(), new sf3());
+            this.m0 = o64Var;
+            o64Var.o(new i(this, activity));
             p3();
         }
     }
@@ -839,14 +839,14 @@ public class qz1 extends pz1 {
                 case 0:
                     c73.w(this.H0, "offline");
                     o3 = o3();
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f08116b));
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f08116f));
                     textView.setVisibility(8);
                     str = o3;
                     break;
                 case 1:
                     c73.w(this.H0, "pageblock");
-                    o3 = TextUtils.isEmpty(this.H0.forbiddenInformation) ? getContext().getString(R.string.obfuscated_res_0x7f0f1290) : this.H0.forbiddenInformation;
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081168));
+                    o3 = TextUtils.isEmpty(this.H0.forbiddenInformation) ? getContext().getString(R.string.obfuscated_res_0x7f0f128f) : this.H0.forbiddenInformation;
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f08116c));
                     if (l3(this.F0, "app_page_banned")) {
                         textView.setVisibility(0);
                         textView.setText(W2(this.F0));
@@ -861,7 +861,7 @@ public class qz1 extends pz1 {
                 case 2:
                     c73.w(this.H0, "neterror");
                     o3 = Z2(this.F0, "net_conn_failed");
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f08116a));
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f08116e));
                     if (l3(this.F0, "net_conn_failed")) {
                         textView.setVisibility(0);
                         textView.setText(W2(this.F0));
@@ -874,7 +874,7 @@ public class qz1 extends pz1 {
                 case 3:
                     c73.w(this.H0, "commonerror");
                     o3 = Z2(this.F0, "app_open_failed");
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081169));
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f08116d));
                     if (l3(this.F0, "app_open_failed")) {
                         textView.setVisibility(0);
                         textView.setText(W2(this.F0));
@@ -897,7 +897,7 @@ public class qz1 extends pz1 {
                 case 5:
                     c73.w(this.H0, "lackresources");
                     String Z2 = Z2(this.F0, "0049");
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081167));
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f08116b));
                     if (l3(this.F0, "0049")) {
                         textView.setVisibility(0);
                         textView.setText(W2(this.F0));
@@ -909,7 +909,7 @@ public class qz1 extends pz1 {
                 case 6:
                     c73.w(this.H0, "outdisk");
                     String Z22 = Z2(this.F0, "2205");
-                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f081167));
+                    imageView.setImageDrawable(getContext().getDrawable(R.drawable.obfuscated_res_0x7f08116b));
                     if (de3.G()) {
                         textView.setVisibility(0);
                     } else {
@@ -930,7 +930,7 @@ public class qz1 extends pz1 {
             }
             TextView textView6 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09017f);
             if (TextUtils.isEmpty(str)) {
-                str = getContext().getString(R.string.obfuscated_res_0x7f0f128f);
+                str = getContext().getString(R.string.obfuscated_res_0x7f0f128e);
             }
             textView6.setText(str);
             Activity activity = this.i0;
@@ -953,7 +953,7 @@ public class qz1 extends pz1 {
                 textView4.setOnClickListener(new c(this, N));
             }
             z = (this.N0 == 1 || TextUtils.isEmpty(this.M0)) ? false : false;
-            if (!c3() && z && qc4.d()) {
+            if (!c3() && z && pc4.d()) {
                 textView5.setVisibility(0);
                 textView2.setVisibility(0);
                 textView4.setVisibility(8);
@@ -998,7 +998,7 @@ public class qz1 extends pz1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ArrayList<String> a2 = qc4.b().a();
+            ArrayList<String> a2 = pc4.b().a();
             return a2 != null && a2.contains(this.G0);
         }
         return invokeV.booleanValue;
@@ -1032,18 +1032,18 @@ public class qz1 extends pz1 {
         }
     }
 
-    public void g3(q64 q64Var, Activity activity) {
+    public void g3(p64 p64Var, Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, q64Var, activity) == null) {
-            qj2.K().g(activity, q64Var);
+        if (interceptable == null || interceptable.invokeLL(1048590, this, p64Var, activity) == null) {
+            qj2.K().g(activity, p64Var);
             j.a("notice", Y2(), this.H0);
         }
     }
 
-    public void h3(q64 q64Var, Activity activity) {
+    public void h3(p64 p64Var, Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, q64Var, activity) == null) {
-            qj2.K().b(activity, q64Var);
+        if (interceptable == null || interceptable.invokeLL(1048591, this, p64Var, activity) == null) {
+            qj2.K().b(activity, p64Var);
             j.a("notice", Y2(), this.H0);
         }
     }
@@ -1101,7 +1101,7 @@ public class qz1 extends pz1 {
                     textView.setOnClickListener(new g(this));
                 }
             } else {
-                textView.setText(R.string.obfuscated_res_0x7f0f1288);
+                textView.setText(R.string.obfuscated_res_0x7f0f1287);
                 textView.setOnClickListener(new h(this, gl2Var));
             }
         }
@@ -1114,20 +1114,20 @@ public class qz1 extends pz1 {
             if (TextUtils.isEmpty(str2)) {
                 return false;
             }
-            Map<String, String> g2 = kc4.f().g();
+            Map<String, String> g2 = jc4.f().g();
             ForbiddenInfo forbiddenInfo = this.H0;
             if (forbiddenInfo != null) {
                 String str3 = forbiddenInfo.forbiddenDetail;
                 if (str3.length() > 4) {
                     String substring = str3.substring(str3.length() - 4);
-                    if (!TextUtils.isEmpty(kc4.l(g2, substring))) {
-                        this.K0 = kc4.l(g2, substring);
-                        this.L0 = kc4.n(g2, substring);
+                    if (!TextUtils.isEmpty(jc4.l(g2, substring))) {
+                        this.K0 = jc4.l(g2, substring);
+                        this.L0 = jc4.n(g2, substring);
                         return !TextUtils.equals(this.K0, "0");
                     }
                 }
             }
-            String l = kc4.l(g2, str2);
+            String l = jc4.l(g2, str2);
             this.K0 = l;
             if (TextUtils.isEmpty(l)) {
                 if (TextUtils.equals(str, SwanAppErrorActivity.TYPE_PATH_FORBIDDEN)) {
@@ -1142,19 +1142,19 @@ public class qz1 extends pz1 {
                     this.K0 = "1";
                 }
             }
-            this.L0 = kc4.n(g2, str2);
+            this.L0 = jc4.n(g2, str2);
             return !TextUtils.equals(this.K0, "0");
         }
         return invokeLL.booleanValue;
     }
 
     public final void m3() {
-        p64 p64Var;
+        o64 o64Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (p64Var = this.m0) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048598, this) == null) || (o64Var = this.m0) == null) {
             return;
         }
-        p64Var.s(qj2.M().a());
+        o64Var.s(qj2.M().a());
     }
 
     public final void n3() {
@@ -1169,13 +1169,13 @@ public class qz1 extends pz1 {
         PMSAppInfo u;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f1284);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f1283);
             ForbiddenInfo forbiddenInfo = this.H0;
             if (forbiddenInfo == null) {
                 return string;
             }
             String str = forbiddenInfo.appId;
-            return (TextUtils.isEmpty(str) || (u = f84.i().u(str)) == null || TextUtils.isEmpty(u.statusDesc)) ? string : u.statusDesc;
+            return (TextUtils.isEmpty(str) || (u = e84.i().u(str)) == null || TextUtils.isEmpty(u.statusDesc)) ? string : u.statusDesc;
         }
         return (String) invokeV.objValue;
     }
@@ -1185,8 +1185,8 @@ public class qz1 extends pz1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onResume();
-            p64 p64Var = this.m0;
-            if (p64Var != null && p64Var.j()) {
+            o64 o64Var = this.m0;
+            if (o64Var != null && o64Var.j()) {
                 this.m0.C(qj2.M().a());
             }
             SwanAppActionBar swanAppActionBar = this.l0;
@@ -1197,13 +1197,13 @@ public class qz1 extends pz1 {
     }
 
     public final void p3() {
-        p64 p64Var;
+        o64 o64Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (p64Var = this.m0) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (o64Var = this.m0) == null) {
             return;
         }
-        q64 i2 = p64Var.i(46);
-        q64 i3 = this.m0.i(47);
+        p64 i2 = o64Var.i(46);
+        p64 i3 = this.m0.i(47);
         if (i2 != null && this.I0 > 0) {
             i3.o(1);
             i3.n(this.I0);

@@ -15,7 +15,7 @@ public class pv2 extends n32 {
     public String d;
     public String e;
     public long f;
-    public final z74<j94> g;
+    public final y74<i94> g;
 
     /* loaded from: classes6.dex */
     public class a extends o32<pv2> {
@@ -45,17 +45,17 @@ public class pv2 extends n32 {
         }
 
         @Override // com.repackage.o32
-        public void r(@NonNull j94 j94Var) {
+        public void r(@NonNull i94 i94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, j94Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, i94Var) == null) {
                 this.b.c.a(Boolean.TRUE);
             }
         }
 
         @Override // com.repackage.o32
-        public void u(j94 j94Var, cc3 cc3Var) {
+        public void u(i94 i94Var, cc3 cc3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j94Var, cc3Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i94Var, cc3Var) == null) {
                 this.b.c.a(Boolean.FALSE);
             }
         }
@@ -83,18 +83,18 @@ public class pv2 extends n32 {
         this.f = j;
     }
 
-    @Override // com.repackage.d84
-    public void D(c94 c94Var) {
-        j94 p;
+    @Override // com.repackage.c84
+    public void D(b94 b94Var) {
+        i94 p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c94Var) == null) {
-            super.D(c94Var);
-            if (c94Var != null) {
-                if (c94Var.a == 1010 && (p = qv2.p(this.d, this.e, this.f)) != null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, b94Var) == null) {
+            super.D(b94Var);
+            if (b94Var != null) {
+                if (b94Var.a == 1010 && (p = qv2.p(this.d, this.e, this.f)) != null) {
                     p.d = p.b();
-                    f84.i().x(p);
+                    e84.i().x(p);
                 }
-                bw2.b("fetch plugin error: " + c94Var.toString());
+                bw2.b("fetch plugin error: " + b94Var.toString());
             } else {
                 bw2.b("fetch plugin error");
             }
@@ -102,7 +102,7 @@ public class pv2 extends n32 {
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -111,7 +111,7 @@ public class pv2 extends n32 {
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -121,18 +121,18 @@ public class pv2 extends n32 {
         }
     }
 
-    @Override // com.repackage.d84
-    public void H(qd4 qd4Var) {
+    @Override // com.repackage.c84
+    public void H(pd4 pd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qd4Var) == null) {
-            super.H(qd4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, pd4Var) == null) {
+            super.H(pd4Var);
         }
     }
 
-    @Override // com.repackage.d84
-    public z74<j94> y() {
+    @Override // com.repackage.c84
+    public y74<i94> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (z74) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (y74) invokeV.objValue;
     }
 }

@@ -43,30 +43,30 @@ public class ra2 extends va2<wb2, zb2> {
             }
         }
 
-        public final ExtensionCore a() {
+        public final ExtensionCore b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (b() == null) {
+                if (c() == null) {
                     return null;
                 }
-                ExtensionCore d = b().d();
+                ExtensionCore d = c().d();
                 if (d.isAvailable()) {
                     return d;
                 }
-                b().h();
-                return b().d();
+                c().h();
+                return c().d();
             }
             return (ExtensionCore) invokeV.objValue;
         }
 
-        public final va2 b() {
+        public final va2 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? sa2.f(c()) : (va2) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? sa2.f(d()) : (va2) invokeV.objValue;
         }
 
-        public int c() {
+        public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -81,7 +81,7 @@ public class ra2 extends va2<wb2, zb2> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) {
                 Bundle bundle2 = new Bundle();
-                bundle2.putParcelable("aiapps_extension_core", a());
+                bundle2.putParcelable("aiapps_extension_core", b());
                 return bundle2;
             }
             return (Bundle) invokeL.objValue;

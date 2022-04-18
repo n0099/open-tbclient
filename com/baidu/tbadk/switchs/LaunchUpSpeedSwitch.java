@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt4;
+import com.repackage.vt4;
 /* loaded from: classes3.dex */
 public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
@@ -58,7 +58,7 @@ public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
                 if (UbsABTestHelper.isLaunchUpA()) {
                     type = 0;
                 } else {
-                    type = wt4.k().l("key_launch_up_speed", 1);
+                    type = vt4.k().l("key_launch_up_speed", 1);
                 }
             }
             return type == 1;

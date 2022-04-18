@@ -161,9 +161,9 @@ public class tz extends sy implements fz<ThreadData>, gz {
         this.m = align;
     }
 
-    public void n(qn4 qn4Var) {
+    public void n(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) {
             m(Align.ALIGN_RIGHT_TOP);
         }
     }

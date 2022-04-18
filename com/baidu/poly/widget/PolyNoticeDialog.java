@@ -85,13 +85,13 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.titleTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186d);
-            this.tipsTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186c);
-            this.tipsImageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091869);
-            this.singleBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186b);
-            this.layoutActionOfBtn = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091867);
-            this.leftActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091868);
-            this.rightActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186a);
+            this.titleTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186e);
+            this.tipsTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186d);
+            this.tipsImageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09186a);
+            this.singleBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186c);
+            this.layoutActionOfBtn = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091868);
+            this.leftActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091869);
+            this.rightActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186b);
             this.singleBtn.setOnClickListener(this);
             this.leftActionBtn.setOnClickListener(this);
             this.rightActionBtn.setOnClickListener(this);

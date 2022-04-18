@@ -101,19 +101,19 @@ public class h00 extends sy implements fz<ThreadData>, gz {
             layoutParams3.rightMargin = f2;
             layoutParams3.bottomMargin = f3;
             i(layoutParams3);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f0808ef, R.color.CAM_X0111);
+            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f0808f3, R.color.CAM_X0111);
             this.e.setPadding(f, f, f, f);
             this.e.setLayoutParams(layoutParams3);
         }
         this.f = align;
     }
 
-    public void l(qn4 qn4Var) {
+    public void l(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn4Var) == null) {
-            if (qn4Var.isSupportTop()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) {
+            if (pn4Var.isSupportTop()) {
                 k(Align.ALIGN_RIGHT_TOP);
-            } else if (qn4Var.isSupportBottom()) {
+            } else if (pn4Var.isSupportBottom()) {
                 b00 b00Var = this.d;
                 if (b00Var != null) {
                     b00Var.n(this);

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rz extends sy implements fz<mp4>, gz {
+public class rz extends sy implements fz<lp4>, gz {
     public static /* synthetic */ Interceptable $ic;
     public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
@@ -122,24 +122,24 @@ public class rz extends sy implements fz<mp4>, gz {
             layoutParams3.rightMargin = f2;
             layoutParams3.bottomMargin = f3;
             i(layoutParams3);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f0808ef, R.color.CAM_X0111);
+            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f0808f3, R.color.CAM_X0111);
             this.e.setPadding(f, f, f, f);
             this.e.setLayoutParams(layoutParams3);
         }
         this.f = align;
     }
 
-    public void m(qn4 qn4Var) {
+    public void m(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, qn4Var) == null) || qn4Var == null || qn4Var.getNegFeedBackData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, pn4Var) == null) || pn4Var == null || pn4Var.getNegFeedBackData() == null) {
             return;
         }
-        if (qn4Var.getNegFeedBackData().h() <= 0 && qn4Var.getThreadData() != null) {
-            if (!qn4Var.showCardBottomOpWeight() && !qn4Var.isFromFrs()) {
+        if (pn4Var.getNegFeedBackData().h() <= 0 && pn4Var.getThreadData() != null) {
+            if (!pn4Var.showCardBottomOpWeight() && !pn4Var.isFromFrs()) {
                 l(Align.ALIGN_RIGHT_BOTTOM);
-            } else if (qn4Var.isSupportTop()) {
-                v((!p(qn4Var) || UbsABTestHelper.showNewUI()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds50) : o(R.dimen.tbds64));
-            } else if (qn4Var.isSupportBottom()) {
+            } else if (pn4Var.isSupportTop()) {
+                v((!p(pn4Var) || UbsABTestHelper.showNewUI()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds50) : o(R.dimen.tbds64));
+            } else if (pn4Var.isSupportBottom()) {
                 b00 b00Var = this.d;
                 if (b00Var != null) {
                     b00Var.n(this);
@@ -150,7 +150,7 @@ public class rz extends sy implements fz<mp4>, gz {
         } else if (this.g) {
             k();
         } else {
-            r(qn4Var);
+            r(pn4Var);
         }
     }
 
@@ -177,32 +177,32 @@ public class rz extends sy implements fz<mp4>, gz {
         }
     }
 
-    public final boolean p(qn4 qn4Var) {
+    public final boolean p(pn4 pn4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qn4Var)) == null) ? (qn4Var instanceof dy5) && ((dy5) qn4Var).n : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pn4Var)) == null) ? (pn4Var instanceof fy5) && ((fy5) pn4Var).n : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: q */
-    public void a(mp4 mp4Var) {
+    public void a(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, mp4Var) == null) {
-            if (mp4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, lp4Var) == null) {
+            if (lp4Var == null) {
                 this.e.setVisibility(8);
                 return;
             }
-            this.e.setData(mp4Var);
+            this.e.setData(lp4Var);
             this.e.setFirstRowSingleColumn(true);
             this.e.setVisibility(0);
         }
     }
 
-    public final void r(qn4 qn4Var) {
+    public final void r(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, qn4Var) == null) {
-            if (qn4Var.showCardBottomOpWeight()) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, pn4Var) == null) {
+            if (pn4Var.showCardBottomOpWeight()) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
                 int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
@@ -228,7 +228,7 @@ public class rz extends sy implements fz<mp4>, gz {
             layoutParams2.rightMargin = f2;
             layoutParams2.topMargin = f3;
             i(layoutParams2);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f0808ef, R.color.CAM_X0111);
+            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f0808f3, R.color.CAM_X0111);
             this.e.setPadding(f, f, f, f);
             this.e.setLayoutParams(layoutParams2);
         }

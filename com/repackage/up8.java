@@ -2,8 +2,7 @@ package com.repackage;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.VideoClickTabData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,16 +13,16 @@ public class up8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final pn8 b;
+    public final wn8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public up8(MainTabActivity mainTabActivity, pn8 pn8Var) {
-        super(2921610);
+    public up8(MainTabActivity mainTabActivity, wn8 wn8Var) {
+        super(2001304);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pn8Var};
+            Object[] objArr = {mainTabActivity, wn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,25 +34,32 @@ public class up8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = pn8Var;
-        setPriority(2);
+        this.b = wn8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        pn8 pn8Var;
-        VideoClickTabData videoClickTabData;
+        wn8 wn8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921610 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof VideoClickTabData) || (pn8Var = this.b) == null || pn8Var.z() == null || (videoClickTabData = (VideoClickTabData) customResponsedMessage.getData()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer) || (wn8Var = this.b) == null || wn8Var.z() == null) {
             return;
         }
-        MainTabActivity mainTabActivity = this.a;
-        if (mainTabActivity.isResumed || mainTabActivity.reloginGotoType == 23) {
-            TbSingleton.getInstance().setFromFeedVideoClick(true);
-            this.b.z().t(true, videoClickTabData.getMiddleFragment());
-            TbSingleton.getInstance().setVideoChannelAttentionRedIcon(TbSingleton.getInstance().getVideoChannelAttentionRedIcon());
-            this.b.z().setCurrentTabByType(22);
+        int intValue = ((Integer) customResponsedMessage.getData()).intValue();
+        int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
+        boolean z = false;
+        if ((intValue == 2 || oldSkinType == 2) ? false : true) {
+            return;
+        }
+        if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
+            z = true;
+        }
+        if (z) {
+            this.b.z().f(1);
+        } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
+            this.b.z().f(2);
+        } else {
+            this.b.z().f(1);
         }
     }
 }

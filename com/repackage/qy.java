@@ -13,20 +13,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.m00;
-import com.repackage.qn4;
+import com.repackage.pn4;
 /* loaded from: classes7.dex */
-public abstract class qy<T extends qn4> implements gz, fz<T> {
+public abstract class qy<T extends pn4> implements gz, fz<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b00 a;
     public Context b;
     public Boolean c;
-    public rx5<T> d;
+    public tx5<T> d;
     public a e;
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(qn4 qn4Var);
+        void a(pn4 pn4Var);
     }
 
     public qy(Context context) {
@@ -60,10 +60,10 @@ public abstract class qy<T extends qn4> implements gz, fz<T> {
         }
     }
 
-    public rx5<T> d() {
+    public tx5<T> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (rx5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (tx5) invokeV.objValue;
     }
 
     public final ThreadCardView e(View view2, int i) {
@@ -120,10 +120,10 @@ public abstract class qy<T extends qn4> implements gz, fz<T> {
         }
     }
 
-    public void l(rx5<T> rx5Var) {
+    public void l(tx5<T> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, rx5Var) == null) {
-            this.d = rx5Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, tx5Var) == null) {
+            this.d = tx5Var;
         }
     }
 
@@ -133,7 +133,7 @@ public abstract class qy<T extends qn4> implements gz, fz<T> {
         if (!(interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) || (e = e(view2, i)) == null) {
             return;
         }
-        wr4 d = wr4.d(e);
+        vr4 d = vr4.d(e);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0205);
     }

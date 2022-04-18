@@ -1,53 +1,52 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ueg.encrypt.entity.EncryptAlgorithm;
 /* loaded from: classes6.dex */
-public class n79 {
+public final class n79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-201851580, "Lcom/repackage/n79$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-201851580, "Lcom/repackage/n79$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[EncryptAlgorithm.values().length];
-            a = iArr;
-            try {
-                iArr[EncryptAlgorithm.RSA.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-        }
-    }
-
-    public static m79 a(p79 p79Var) throws Exception {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, p79Var)) == null) {
-            if (a.a[p79Var.a().ordinal()] != 1) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return str;
             }
-            return new o79(p79Var.b());
+            char[] charArray = str.toCharArray();
+            StringBuilder sb = new StringBuilder();
+            for (char c : charArray) {
+                String binaryString = Integer.toBinaryString(c);
+                while (binaryString.length() < 8) {
+                    binaryString = "0" + binaryString;
+                }
+                sb.append(binaryString);
+            }
+            while (sb.length() % 6 != 0) {
+                sb.append("0");
+            }
+            String valueOf = String.valueOf(sb);
+            int length = valueOf.length() / 6;
+            char[] cArr = new char[length];
+            for (int i = 0; i < length; i++) {
+                int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
+                valueOf = valueOf.substring(6);
+                cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
+            }
+            StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
+            if (str.length() % 3 == 1) {
+                sb2.append("==");
+            } else if (str.length() % 3 == 2) {
+                sb2.append("=");
+            }
+            for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
+                sb2.insert(i2, "\r\n");
+            }
+            sb2.append("\r\n");
+            return String.valueOf(sb2);
         }
-        return (m79) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

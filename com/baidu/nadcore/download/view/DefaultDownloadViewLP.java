@@ -51,14 +51,14 @@ public class DefaultDownloadViewLP extends FrameLayout implements hk0<DefaultDow
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05a9, this);
             setBackgroundResource(R.color.obfuscated_res_0x7f060868);
-            this.a = (BannerDownloadView) findViewById(R.id.obfuscated_res_0x7f09134f);
+            this.a = (BannerDownloadView) findViewById(R.id.obfuscated_res_0x7f091350);
         }
     }
 
     public void b(boolean z) {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0914b2)) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0914b3)) == null) {
             return;
         }
         findViewById.setVisibility(z ? 0 : 8);
@@ -108,7 +108,7 @@ public class DefaultDownloadViewLP extends FrameLayout implements hk0<DefaultDow
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, rj0Var) == null) {
             if (rj0Var.c == AdDownloadStatus.DOWNLOADING) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0b81) + str;
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0b80) + str;
                 setProgress(rj0Var.i);
             } else {
                 setProgress(0.0f);

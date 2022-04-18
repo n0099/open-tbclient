@@ -1,20 +1,37 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.voyager.impl.VoyagerImpl;
 /* loaded from: classes5.dex */
-public interface de9 {
-    public static final ServiceReference a = new ServiceReference("voyager", StatConstants.VALUE_TYPE_UPLOAD);
+public class de9 extends fc1<ke9> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(String str, String str2, int i, ce9 ce9Var);
+    public de9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void b(List<String> list, String str, long j, JSONObject jSONObject);
-
-    void c(String str, String str2, JSONObject jSONObject);
-
-    void d(String str, String str2, ce9 ce9Var);
-
-    void e(List<String> list, String str, long j, ce9 ce9Var);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.fc1
+    /* renamed from: a */
+    public ke9 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new VoyagerImpl() : (ke9) invokeV.objValue;
+    }
 }

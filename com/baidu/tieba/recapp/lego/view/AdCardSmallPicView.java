@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc8;
-import com.repackage.gd7;
+import com.repackage.jd7;
+import com.repackage.kc8;
 /* loaded from: classes3.dex */
 public class AdCardSmallPicView extends AdSimpleCardBaseView {
     public static /* synthetic */ Interceptable $ic;
@@ -43,11 +43,11 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
     public void J(AdCard adCard) {
-        dc8 dc8Var;
+        kc8 kc8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            if (adCard != null && (dc8Var = adCard.picInfo) != null && gd7.k(dc8Var.c) >= 1) {
-                String str = (String) gd7.d(adCard.picInfo.c, 0);
+            if (adCard != null && (kc8Var = adCard.picInfo) != null && jd7.k(kc8Var.c) >= 1) {
+                String str = (String) jd7.d(adCard.picInfo.c, 0);
                 if (!TextUtils.isEmpty(str)) {
                     this.o.setVisibility(0);
                     this.v.K(str, 17, false);
@@ -65,7 +65,7 @@ public class AdCardSmallPicView extends AdSimpleCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             float dimensionPixelSize = this.i.getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.u = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ab5);
+            this.u = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ab6);
             TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0900ad);
             this.v = tbImageView;
             tbImageView.setPlaceHolder(3);

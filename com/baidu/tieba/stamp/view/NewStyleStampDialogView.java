@@ -29,12 +29,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ai8;
-import com.repackage.nq4;
+import com.repackage.bi8;
+import com.repackage.gi8;
+import com.repackage.hi8;
+import com.repackage.mq4;
 import com.repackage.pg;
-import com.repackage.uh8;
-import com.repackage.wr4;
-import com.repackage.zh8;
+import com.repackage.vr4;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -42,7 +42,7 @@ public class NewStyleStampDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public ai8 b;
+    public hi8 b;
     public View c;
     public ImageView d;
     public TextView e;
@@ -87,7 +87,7 @@ public class NewStyleStampDialogView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 NewStyleStampDialogView newStyleStampDialogView = this.a;
-                newStyleStampDialogView.r(newStyleStampDialogView.i, R.raw.obfuscated_res_0x7f11005c, false);
+                newStyleStampDialogView.r(newStyleStampDialogView.i, R.raw.obfuscated_res_0x7f110061, false);
             }
         }
     }
@@ -130,7 +130,7 @@ public class NewStyleStampDialogView extends LinearLayout {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
                     NewStyleStampDialogView newStyleStampDialogView = this.a.a;
-                    newStyleStampDialogView.r(newStyleStampDialogView.j, R.raw.obfuscated_res_0x7f11005d, true);
+                    newStyleStampDialogView.r(newStyleStampDialogView.j, R.raw.obfuscated_res_0x7f110062, true);
                 }
             }
         }
@@ -292,22 +292,22 @@ public class NewStyleStampDialogView extends LinearLayout {
         }
     }
 
-    private void setStampIconsLayout(final List<nq4.a> list) {
+    private void setStampIconsLayout(final List<mq4.a> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65549, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
         this.l.setVisibility(0);
         this.l.setStampIconsList(list);
-        this.l.setSignStampIconClickListener(new zh8() { // from class: com.repackage.di8
+        this.l.setSignStampIconClickListener(new gi8() { // from class: com.repackage.ki8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.repackage.zh8
+            @Override // com.repackage.gi8
             public final void a(Object obj) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                    NewStyleStampDialogView.this.l(list, (nq4.a) obj);
+                    NewStyleStampDialogView.this.l(list, (mq4.a) obj);
                 }
             }
         });
@@ -331,13 +331,13 @@ public class NewStyleStampDialogView extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (View) invokeV.objValue;
     }
 
-    public ai8 getmStampData() {
+    public hi8 getmStampData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (ai8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (hi8) invokeV.objValue;
     }
 
-    public nq4.a i(List<nq4.a> list) {
+    public mq4.a i(List<mq4.a> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
@@ -347,7 +347,7 @@ public class NewStyleStampDialogView extends LinearLayout {
             int size = list.size();
             int i = -1;
             for (int i2 = 0; i2 < size; i2++) {
-                nq4.a aVar = list.get(i2);
+                mq4.a aVar = list.get(i2);
                 if (aVar != null) {
                     if (aVar.f()) {
                         return aVar;
@@ -363,7 +363,7 @@ public class NewStyleStampDialogView extends LinearLayout {
             }
             return null;
         }
-        return (nq4.a) invokeL.objValue;
+        return (mq4.a) invokeL.objValue;
     }
 
     public final ObjectAnimator j(float f, float f2, long j) {
@@ -383,25 +383,25 @@ public class NewStyleStampDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             this.c = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d060c, this);
             setOrientation(1);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed2);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f3);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f1);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f2);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed3);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f1);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f4);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f2);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0921f3);
             this.i = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090274);
             this.j = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090275);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ed1);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ed2);
             this.k = tbImageView;
             tbImageView.setDefaultResource(0);
             this.k.setDefaultBgResource(0);
-            this.l = (SignStampIconsView) findViewById(R.id.obfuscated_res_0x7f091d7e);
+            this.l = (SignStampIconsView) findViewById(R.id.obfuscated_res_0x7f091d7f);
             o();
             p();
             pg.a().postDelayed(new a(this), 80L);
         }
     }
 
-    public /* synthetic */ void l(List list, nq4.a aVar) {
+    public /* synthetic */ void l(List list, mq4.a aVar) {
         this.e.setText(aVar.b());
         this.k.K(aVar.c(), 10, false);
         q();
@@ -411,23 +411,23 @@ public class NewStyleStampDialogView extends LinearLayout {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ai8 ai8Var = this.b;
-            if (ai8Var instanceof uh8) {
-                uh8 uh8Var = (uh8) ai8Var;
-                this.e.setText(uh8Var.b());
-                this.k.K(uh8Var.a(), 10, false);
-            } else if (ai8Var instanceof nq4) {
-                nq4 nq4Var = (nq4) ai8Var;
-                List<nq4.a> a2 = nq4Var.a();
-                if (nq4Var.b() == -1) {
-                    this.f.setText(getResources().getString(R.string.obfuscated_res_0x7f0f11c0));
+            hi8 hi8Var = this.b;
+            if (hi8Var instanceof bi8) {
+                bi8 bi8Var = (bi8) hi8Var;
+                this.e.setText(bi8Var.b());
+                this.k.K(bi8Var.a(), 10, false);
+            } else if (hi8Var instanceof mq4) {
+                mq4 mq4Var = (mq4) hi8Var;
+                List<mq4.a> a2 = mq4Var.a();
+                if (mq4Var.b() == -1) {
+                    this.f.setText(getResources().getString(R.string.obfuscated_res_0x7f0f11bf));
                 } else {
-                    this.f.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f11c4), Integer.valueOf(nq4Var.b())));
+                    this.f.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f11c3), Integer.valueOf(mq4Var.b())));
                 }
                 if (ListUtils.isEmpty(a2)) {
                     return;
                 }
-                nq4.a i = i(a2);
+                mq4.a i = i(a2);
                 if (i != null) {
                     this.e.setText(i.b());
                     this.k.K(i.c(), 10, false);
@@ -440,18 +440,18 @@ public class NewStyleStampDialogView extends LinearLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            wr4 d2 = wr4.d(this.e);
+            vr4 d2 = vr4.d(this.e);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0101);
-            wr4.d(this.f).v(R.color.CAM_X0103);
-            wr4 d3 = wr4.d(this.g);
+            vr4.d(this.f).v(R.color.CAM_X0103);
+            vr4 d3 = vr4.d(this.g);
             d3.l(R.dimen.L_X01);
             d3.k(R.color.CAM_X0101);
             d3.n(R.string.J_X01);
-            wr4 d4 = wr4.d(this.h);
+            vr4 d4 = vr4.d(this.h);
             d4.n(R.string.J_X01);
             d4.f(R.color.CAM_X0302);
-            WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f0809b6, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f0809ba, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -485,7 +485,7 @@ public class NewStyleStampDialogView extends LinearLayout {
             tBLottieAnimationView.setAnimation(i);
             tBLottieAnimationView.setImageAssetsFolder("lottie_stamp_dialog/");
             tBLottieAnimationView.setRepeatCount(z ? -1 : 0);
-            tBLottieAnimationView.post(new Runnable() { // from class: com.repackage.ci8
+            tBLottieAnimationView.post(new Runnable() { // from class: com.repackage.ji8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -500,10 +500,10 @@ public class NewStyleStampDialogView extends LinearLayout {
         }
     }
 
-    public final void s(List<nq4.a> list, nq4.a aVar) {
+    public final void s(List<mq4.a> list, mq4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, list, aVar) == null) {
-            for (nq4.a aVar2 : list) {
+            for (mq4.a aVar2 : list) {
                 if (aVar2 != null && !StringUtils.isNull(aVar2.b())) {
                     if (aVar2.b().equals(aVar.b())) {
                         aVar2.h(true);
@@ -515,10 +515,10 @@ public class NewStyleStampDialogView extends LinearLayout {
         }
     }
 
-    public void setStampData(ai8 ai8Var) {
+    public void setStampData(hi8 hi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, ai8Var) == null) {
-            this.b = ai8Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, hi8Var) == null) {
+            this.b = hi8Var;
             n();
         }
     }

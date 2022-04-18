@@ -1,33 +1,41 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public class m96 extends a15 {
+public class m96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String e;
 
     /* loaded from: classes6.dex */
-    public class a extends hg<fo> {
+    public class a implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ m96 b;
+        public final /* synthetic */ AtomicInteger a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ c c;
 
-        public a(m96 m96Var, b bVar) {
+        public a(m96 m96Var, AtomicInteger atomicInteger, List list, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m96Var, bVar};
+                Object[] objArr = {m96Var, atomicInteger, list, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,21 +45,26 @@ public class m96 extends a15 {
                     return;
                 }
             }
-            this.b = m96Var;
-            this.a = bVar;
+            this.a = atomicInteger;
+            this.b = list;
+            this.c = cVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hg
-        public void onLoaded(fo foVar, String str, int i) {
+        @Override // com.repackage.m96.d
+        public void a(ImageUploadResult imageUploadResult) {
+            ImageUploadResult.picInfo picinfo;
+            ImageUploadResult.PicDetailedInfo picDetailedInfo;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, foVar, str, i) == null) {
-                super.onLoaded((a) foVar, str, i);
-                if (foVar != null) {
-                    this.b.q(foVar);
-                    this.b.r(foVar);
-                    if (this.b.t()) {
-                        this.a.a(this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, imageUploadResult) == null) {
+                this.a.decrementAndGet();
+                if (imageUploadResult != null && (picinfo = imageUploadResult.picInfo) != null && (picDetailedInfo = picinfo.bigPic) != null && !TextUtils.isEmpty(picDetailedInfo.picUrl)) {
+                    this.b.add(imageUploadResult.picInfo.bigPic.picUrl);
+                }
+                if (this.a.get() == 0) {
+                    if (!ListUtils.isEmpty(this.b)) {
+                        this.c.cdnSuccess(this.b);
+                    } else {
+                        this.c.cdnFail();
                     }
                 }
             }
@@ -59,161 +72,103 @@ public class m96 extends a15 {
     }
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(m96 m96Var);
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageFileInfo a;
+        public final /* synthetic */ d b;
+
+        public b(m96 m96Var, ImageFileInfo imageFileInfo, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m96Var, imageFileInfo, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = imageFileInfo;
+            this.b = dVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String filePath = this.a.getFilePath();
+                o35 o35Var = new o35("from_user_collect");
+                if (this.a.isGif()) {
+                    this.b.a(o35Var.m(filePath, true, false));
+                    return;
+                }
+                Bitmap b = ho7.b(this.a);
+                if (b == null) {
+                    this.b.a(null);
+                    return;
+                }
+                String saveBitmapByAbsolutelyPath = FileHelper.saveBitmapByAbsolutelyPath(TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath(), "face_" + Math.abs(filePath.hashCode()), b, 60);
+                b.recycle();
+                if (TextUtils.isEmpty(saveBitmapByAbsolutelyPath)) {
+                    this.b.a(null);
+                    return;
+                }
+                ImageUploadResult m = o35Var.m(saveBitmapByAbsolutelyPath, false, false);
+                FileHelper.deleteFile(new File(saveBitmapByAbsolutelyPath));
+                this.b.a(m);
+            }
+        }
     }
 
-    public m96(u86 u86Var) {
+    /* loaded from: classes6.dex */
+    public interface c {
+        void cdnFail();
+
+        void cdnSuccess(List<String> list);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface d {
+        void a(ImageUploadResult imageUploadResult);
+    }
+
+    public m96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u86Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = u86Var.getGroupId();
-        s(1);
-        p(4);
     }
 
-    @Override // com.repackage.a15
-    public String b(int i) {
-        InterceptResult invokeI;
+    public void a(ArrayList<ImageFileInfo> arrayList, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, arrayList, cVar) == null) || ListUtils.isEmpty(arrayList)) {
+            return;
         }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.repackage.a15
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
+        AtomicInteger atomicInteger = new AtomicInteger();
+        atomicInteger.set(arrayList.size());
+        ArrayList arrayList2 = new ArrayList();
+        Iterator<ImageFileInfo> it = arrayList.iterator();
+        while (it.hasNext()) {
+            b(it.next(), new a(this, atomicInteger, arrayList2, cVar));
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.repackage.a15
-    public fo e() {
-        InterceptResult invokeV;
+    public final void b(ImageFileInfo imageFileInfo, d dVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.d() : (fo) invokeV.objValue;
-    }
-
-    @Override // com.repackage.a15
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.a15
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, dVar) == null) {
+            yn7.b().a(new b(this, imageFileInfo, dVar));
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.a15
-    public EmotionGroupType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EmotionGroupType.SINGLE_FORUM : (EmotionGroupType) invokeV.objValue;
-    }
-
-    @Override // com.repackage.a15
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.a15
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.a15
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.a15
-    public boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.a15
-    public fo n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return null;
-        }
-        return (fo) invokeL.objValue;
-    }
-
-    @Override // com.repackage.a15
-    public fo o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            return null;
-        }
-        return (fo) invokeL.objValue;
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? d() != null : invokeV.booleanValue;
-    }
-
-    public boolean u(u86 u86Var, b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, u86Var, bVar)) == null) {
-            if (u86Var instanceof SingleBarEmotionRecommendData) {
-                ig.h().m(((SingleBarEmotionRecommendData) u86Var).cover, 10, new a(this, bVar), null);
-                if (t()) {
-                    bVar.a(this);
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

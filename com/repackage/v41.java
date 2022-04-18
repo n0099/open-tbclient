@@ -189,8 +189,8 @@ public class v41 extends x41 {
             }
             this.e = v41Var;
             if (view2 != null) {
-                this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e07);
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e06);
+                this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e08);
+                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e07);
                 this.c = (LinearLayout) view2;
                 this.d = v41Var2;
             }
@@ -266,20 +266,20 @@ public class v41 extends x41 {
         }
         if (size == 1) {
             linearLayout.setOrientation(0);
-            linearLayout.addView(g(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080d76));
+            linearLayout.addView(g(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080d7a));
         } else if (size == this.h) {
             linearLayout.setOrientation(0);
-            linearLayout.addView(g(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080d74));
+            linearLayout.addView(g(list.get(0), linearLayout, R.drawable.obfuscated_res_0x7f080d78));
             linearLayout.addView(j(0));
-            linearLayout.addView(g(list.get(1), linearLayout, R.drawable.obfuscated_res_0x7f080d78));
+            linearLayout.addView(g(list.get(1), linearLayout, R.drawable.obfuscated_res_0x7f080d7c));
         } else {
             linearLayout.setOrientation(1);
             for (int i = 0; i < list.size(); i++) {
                 if (i < list.size() - 1) {
-                    linearLayout.addView(g(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080d72));
+                    linearLayout.addView(g(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080d76));
                     linearLayout.addView(j(1));
                 } else if (i == list.size() - 1) {
-                    linearLayout.addView(g(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080d76));
+                    linearLayout.addView(g(list.get(i), linearLayout, R.drawable.obfuscated_res_0x7f080d7a));
                 }
             }
         }
@@ -319,9 +319,9 @@ public class v41 extends x41 {
             this.e = context;
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05de, a().c(), false);
             this.b = viewGroup;
-            this.c = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e08);
-            this.f = this.b.findViewById(R.id.obfuscated_res_0x7f090e09);
-            this.d = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090e05);
+            this.c = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e09);
+            this.f = this.b.findViewById(R.id.obfuscated_res_0x7f090e0a);
+            this.d = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090e06);
             View i = i(this.c);
             if (i != null) {
                 this.c.addView(i);

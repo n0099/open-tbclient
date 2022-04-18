@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j56;
+import com.repackage.l56;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class UserHeadCoverView extends FrameLayout {
@@ -68,42 +68,42 @@ public class UserHeadCoverView extends FrameLayout {
         }
     }
 
-    public void setData(j56 j56Var) {
+    public void setData(l56 l56Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j56Var) == null) || j56Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l56Var) == null) || l56Var == null) {
             return;
         }
-        String str = j56Var.a;
+        String str = l56Var.a;
         if (str != null) {
-            if (!str.equals("1") && !j56Var.a.equals("2") && !j56Var.a.equals("3")) {
+            if (!str.equals("1") && !l56Var.a.equals("2") && !l56Var.a.equals("3")) {
                 this.a.setVisibility(8);
                 this.b.setVisibility(8);
             } else {
                 this.a.setVisibility(0);
                 this.b.setVisibility(0);
-                if (j56Var.a.equals("1")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810e8, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c2));
-                } else if (j56Var.a.equals("2")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810e9, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c1));
-                } else if (j56Var.a.equals("3")) {
-                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810ea, null);
-                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c0));
+                if (l56Var.a.equals("1")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810ec, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c6));
+                } else if (l56Var.a.equals("2")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810ed, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c5));
+                } else if (l56Var.a.equals("3")) {
+                    SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810ee, null);
+                    this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c4));
                 }
             }
         } else {
             this.a.setVisibility(8);
             this.b.setVisibility(8);
         }
-        if (j56Var.g) {
+        if (l56Var.g) {
             int f = oi.f(TbadkApplication.getInst(), R.dimen.tbds36);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, f);
             layoutParams.gravity = 85;
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(0);
             SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805f2, null);
-        } else if (j56Var.h) {
+        } else if (l56Var.h) {
             int f2 = oi.f(TbadkApplication.getInst(), R.dimen.tbds40);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f2, f2);
             layoutParams2.gravity = 85;

@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y47;
+import com.repackage.b57;
 /* loaded from: classes3.dex */
 public class LoadHistoryMessage extends CustomMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y47 callback;
+    public b57 callback;
 
     /* loaded from: classes3.dex */
     public static class a {
@@ -59,16 +59,16 @@ public class LoadHistoryMessage extends CustomMessage<a> {
         }
     }
 
-    public y47 getCallback() {
+    public b57 getCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.callback : (y47) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.callback : (b57) invokeV.objValue;
     }
 
-    public void setCallback(y47 y47Var) {
+    public void setCallback(b57 b57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y47Var) == null) {
-            this.callback = y47Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b57Var) == null) {
+            this.callback = b57Var;
         }
     }
 }

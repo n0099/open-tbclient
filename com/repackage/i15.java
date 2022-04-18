@@ -37,7 +37,7 @@ public class i15 extends u05 {
         }
         this.r = true;
         this.s = true;
-        this.d = R.drawable.obfuscated_res_0x7f080969;
+        this.d = R.drawable.obfuscated_res_0x7f08096d;
         this.g = false;
         this.h = true;
         this.i = false;

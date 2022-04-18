@@ -18,13 +18,13 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class qd5 {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
     public static PostWriteCallBackData a;
     @Nullable
-    public static rx4 b;
+    public static qx4 b;
     @Nullable
     public static WriteData c;
     @Nullable
@@ -80,9 +80,9 @@ public class qd5 {
                 if (postWriteCallBackData == null) {
                     return false;
                 }
-                rm8.k().h(true, postWriteCallBackData, b, c, d);
+                ym8.k().h(true, postWriteCallBackData, b, c, d);
             } else {
-                rm8.k().h(false, a, null, c, d);
+                ym8.k().h(false, a, null, c, d);
             }
             a = null;
             b = null;
@@ -93,22 +93,22 @@ public class qd5 {
         return invokeIIL.booleanValue;
     }
 
-    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable rx4 rx4Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
+    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable qx4 qx4Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, rx4Var, writeData, antiData)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, qx4Var, writeData, antiData)) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            boolean z = (currentActivity == null || writeData == null || rx4Var == null || TextUtils.isEmpty(rx4Var.c())) ? false : true;
+            boolean z = (currentActivity == null || writeData == null || qx4Var == null || TextUtils.isEmpty(qx4Var.c())) ? false : true;
             if (z) {
                 a = postWriteCallBackData;
-                b = rx4Var;
+                b = qx4Var;
                 c = writeData;
                 d = antiData;
-                writeData.setVcodeMD5(rx4Var.b());
-                writeData.setVcodeUrl(rx4Var.c());
-                writeData.setVcodeExtra(rx4Var.a());
-                if (b(rx4Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, rx4Var.d())));
+                writeData.setVcodeMD5(qx4Var.b());
+                writeData.setVcodeUrl(qx4Var.c());
+                writeData.setVcodeExtra(qx4Var.a());
+                if (b(qx4Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, qx4Var.d())));
                 } else {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
                 }

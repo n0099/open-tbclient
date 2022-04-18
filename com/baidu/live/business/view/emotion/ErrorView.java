@@ -193,9 +193,9 @@ public class ErrorView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d050c, this);
         setOrientation(1);
         setGravity(17);
-        this.b = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090914);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090912);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090913);
+        this.b = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090915);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090913);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090914);
         b();
     }
 }

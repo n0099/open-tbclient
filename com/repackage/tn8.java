@@ -2,91 +2,65 @@ package com.repackage;
 
 import android.content.Intent;
 import android.text.TextUtils;
-import androidx.fragment.app.Fragment;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Set;
 /* loaded from: classes7.dex */
 public class tn8 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static boolean b = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
 
-    public tn8(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-        MessageManager.getInstance().registerStickyMode(2921453);
-    }
-
-    public void a(Intent intent, pn8 pn8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, intent, pn8Var) == null) || intent == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755284877, "Lcom/repackage/tn8;")) == null) {
             return;
         }
-        String stringExtra = intent.getStringExtra(MainTabActivityConfig.PUSH_DES_PAGE);
-        if (!TextUtils.isEmpty(stringExtra)) {
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f04bd);
-            aq4 aq4Var = new aq4();
-            Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)").matcher(intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME));
-            int i = 1;
-            if (matcher.find()) {
-                aq4Var.c = matcher.group(1);
-            }
-            if (stringExtra.equals(string)) {
-                aq4Var.a = 1;
-            } else {
-                aq4Var.a = 2;
-                aq4Var.b = stringExtra;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921453, aq4Var));
-            if (stringExtra.equals(string)) {
-                intent.putExtra("sub_locate_type", 1);
-                i = 2;
-            } else {
-                intent.putExtra("sub_locate_type", stringExtra);
-            }
-            if (pn8Var != null && pn8Var.z() != null) {
-                pn8Var.z().setCurrentTabByType(i);
-                FragmentTabHost.b j = pn8Var.z().j(i);
-                if (j != null) {
-                    Fragment fragment = j.c;
-                    if (fragment instanceof ym4) {
-                        ((ym4) fragment).r0(intent);
-                    }
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        intent.removeExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION);
-        intent.removeExtra(MainTabActivityConfig.PUSH_DES_PAGE);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755284877, "Lcom/repackage/tn8;");
+        }
     }
 
-    public boolean b(Intent intent) {
+    public static boolean a(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) ? intent.getIntExtra(MainTabActivityConfig.PUSH_FOLLOW_UP_ACTION, 0) == 1 : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            if (!PermissionUtil.isAgreePrivacyPolicy() || intent == null) {
+                return false;
+            }
+            String action = intent.getAction();
+            Set<String> categories = intent.getCategories();
+            boolean z = !AdToMainTabActivitySwitch.getIsOn() && action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER") && PermissionUtil.isAgreePrivacyPolicy() && a;
+            a = false;
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
+            if (intent == null) {
+                return false;
+            }
+            String action = intent.getAction();
+            Set<String> categories = intent.getCategories();
+            boolean z = AdToMainTabActivitySwitch.getIsOn() && b && action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER");
+            b = false;
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

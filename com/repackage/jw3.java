@@ -183,7 +183,7 @@ public class jw3 extends id2 {
                     Log.d("SwanGameFrame", "SwanGameCoreRuntime SwanGamePreloadManager onFirstFrameFinished");
                 }
                 this.a.r = System.currentTimeMillis();
-                g14.f(this.a.Z());
+                f14.f(this.a.Z());
                 this.a.b.finishLoadingAnimator();
                 ot2.h("preload", NodeJS.STARTUP_SCRIPT_NAME);
                 int j = iw3.m().j();
@@ -193,11 +193,11 @@ public class jw3 extends id2 {
                 p.F(new UbcFlowEvent("na_first_paint"));
                 p.A();
                 long f = p.f("na_first_paint", "naStart");
-                iw3.m().i(new jy3(f));
+                iw3.m().i(new iy3(f));
                 if (jw3.s) {
                     Log.d("SwanGameFrame", "SwanGameCoreRuntime SwanGamePreloadManager 小游戏启动时长: " + f);
                 }
-                w24.A().D();
+                v24.A().D();
                 zw3.f().init();
             }
         }
@@ -294,7 +294,7 @@ public class jw3 extends id2 {
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && z) {
             c73.E();
             if (z2) {
-                g14.f(Z());
+                f14.f(Z());
                 wt3.b();
             }
         }
@@ -343,14 +343,14 @@ public class jw3 extends id2 {
     public final void h1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            w24.A().m();
+            v24.A().m();
         }
     }
 
     public final void i1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            w24.A().F();
+            v24.A().F();
         }
     }
 
@@ -375,7 +375,7 @@ public class jw3 extends id2 {
                     if (L != null) {
                         L.O().E();
                     }
-                    g14.e("back", Z());
+                    f14.e("back", Z());
                     wt3.g("0");
                     return;
                 }
@@ -392,8 +392,8 @@ public class jw3 extends id2 {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             de3.e0(new c(this));
             ExecutorUtilsExt.postOnElastic(new d(this), "SwanGameFrameRequestAd", 2);
-            y24.q();
-            x24.b();
+            x24.q();
+            w24.b();
         }
     }
 
@@ -419,8 +419,8 @@ public class jw3 extends id2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             m1();
-            a14.c().b();
-            xy3.b().e();
+            z04.c().b();
+            wy3.b().e();
             r().I(true);
             e1();
             V8Engine.setCrashKeyValue("game_title", Z() == null ? "" : Z().K());
@@ -453,13 +453,13 @@ public class jw3 extends id2 {
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             vt3.v();
             oc2.i();
-            g14.e(AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT, Z());
+            f14.e(AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT, Z());
             wl2.U().unregisterReceiver(this.b);
             wl2.b0();
-            p24.a().b();
+            o24.a().b();
             SwanInspectorEndpoint.v().q();
-            a14.c().b();
-            xy3.b().e();
+            z04.c().b();
+            wy3.b().e();
         }
     }
 

@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad7;
+import com.repackage.dd7;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class op extends BaseCardInfo implements ad7 {
+public class op extends BaseCardInfo implements dd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public pp a;
@@ -56,18 +56,18 @@ public class op extends BaseCardInfo implements ad7 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.ad7
-    public ad7.a getParallelCharge() {
+    @Override // com.repackage.dd7
+    public dd7.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ICardInfo iCardInfo = this.b;
-            if (iCardInfo == null || !(iCardInfo instanceof ad7)) {
+            if (iCardInfo == null || !(iCardInfo instanceof dd7)) {
                 return null;
             }
-            return ((ad7) iCardInfo).getParallelCharge();
+            return ((dd7) iCardInfo).getParallelCharge();
         }
-        return (ad7.a) invokeV.objValue;
+        return (dd7.a) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo

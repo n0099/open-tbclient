@@ -1,81 +1,63 @@
 package com.repackage;
 
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.R;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fu4 {
+public class fu4 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ImageView imageView, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fu4(Drawable drawable, int i) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) || imageView == null) {
-            return;
-        }
-        WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-        ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
-        if (layoutParams != null) {
-            layoutParams.width = oi.f(TbadkApplication.getInst(), R.dimen.tbds52);
-            layoutParams.height = oi.f(TbadkApplication.getInst(), R.dimen.tbds52);
-            imageView.setLayoutParams(layoutParams);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void b(ViewGroup viewGroup) {
-        ViewGroup.LayoutParams layoutParams;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) || viewGroup == null || (layoutParams = viewGroup.getLayoutParams()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            if (((ImageSpan) this).mVerticalAlignment == -100) {
+                Drawable drawable = getDrawable();
+                canvas.save();
+                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+                int i6 = fontMetricsInt.top;
+                canvas.translate(f, i4 + i6 + (((fontMetricsInt.bottom - i6) - (drawable.getBounds().bottom - drawable.getBounds().top)) / 2));
+                drawable.draw(canvas);
+                canvas.restore();
+                return;
+            }
+            super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
         }
-        layoutParams.height = oi.f(TbadkApplication.getInst(), R.dimen.tbds120);
-        viewGroup.setLayoutParams(layoutParams);
     }
 
-    public static void c(TextView textView) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, textView) == null) || textView == null) {
-            return;
-        }
-        wr4.d(textView).v(R.color.CAM_X0107);
-    }
-
-    public static void d(TextView textView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, textView) == null) || textView == null) {
-            return;
-        }
-        wr4.d(textView).z(R.dimen.tbds36);
-    }
-
-    public static void e(TextView textView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) || textView == null) {
-            return;
-        }
-        wr4 d = wr4.d(textView);
-        d.z(R.dimen.tbds36);
-        d.v(R.color.CAM_X0107);
-    }
-
-    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) || tBLottieAnimationView == null) {
-            return;
-        }
-        if (i != 1 && i != 4) {
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f11001d);
-        } else {
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f11001f);
-        }
-        tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) ? super.getSize(paint, charSequence, i, i2, fontMetricsInt) : invokeCommon.intValue;
     }
 }

@@ -114,11 +114,11 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (this.a.a.d.getText().toString().length() == 11) {
                         this.a.a.f.setEnabled(true);
-                        this.a.a.f.setText(R.string.obfuscated_res_0x7f0f1038);
+                        this.a.a.f.setText(R.string.obfuscated_res_0x7f0f1037);
                         this.a.a.a(true);
                         return;
                     }
-                    this.a.a.f.setText(R.string.obfuscated_res_0x7f0f1033);
+                    this.a.a.f.setText(R.string.obfuscated_res_0x7f0f1032);
                     this.a.a.a(false);
                 }
             }
@@ -128,7 +128,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                     TextView textView = this.a.a.f;
-                    textView.setText((j / 1000) + this.a.a.a.getString(R.string.obfuscated_res_0x7f0f1039));
+                    textView.setText((j / 1000) + this.a.a.a.getString(R.string.obfuscated_res_0x7f0f1038));
                     this.a.a.f.setEnabled(false);
                     this.a.a.a(false);
                 }
@@ -159,7 +159,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if ((this.a.o == null || this.a.o.across(1)) && this.a.d.getText().toString().length() == 11) {
                     SmsLoginView smsLoginView = this.a;
-                    smsLoginView.m = smsLoginView.f.getText().toString().equals(this.a.a.getString(R.string.obfuscated_res_0x7f0f1033));
+                    smsLoginView.m = smsLoginView.f.getText().toString().equals(this.a.a.getString(R.string.obfuscated_res_0x7f0f1032));
                     this.a.g.setVisibility(8);
                     this.a.g.setText("");
                     this.a.e.requestFocus();
@@ -239,10 +239,10 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                             if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, getDynamicPwdResult) == null) {
                                 if (this.a.a.m) {
                                     SmsLoginView.b(f.f, getDynamicPwdResult.getResultCode() + "");
-                                    this.a.a.f.setText(R.string.obfuscated_res_0x7f0f1033);
+                                    this.a.a.f.setText(R.string.obfuscated_res_0x7f0f1032);
                                 } else {
                                     SmsLoginView.b(f.i, getDynamicPwdResult.getResultCode() + "");
-                                    this.a.a.f.setText(R.string.obfuscated_res_0x7f0f1038);
+                                    this.a.a.f.setText(R.string.obfuscated_res_0x7f0f1037);
                                 }
                                 if (this.a.a.k != null) {
                                     this.a.a.k.cancel();
@@ -585,7 +585,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                 }
                 if (length == 10) {
                     if (TextUtils.isEmpty(this.a.l)) {
-                        this.a.f.setText(R.string.obfuscated_res_0x7f0f1033);
+                        this.a.f.setText(R.string.obfuscated_res_0x7f0f1032);
                         this.a.a(false);
                         this.a.g.setVisibility(8);
                         this.a.g.setText("");
@@ -596,13 +596,13 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                         if (this.a.k != null) {
                             this.a.k.cancel();
                         }
-                        this.a.f.setText(R.string.obfuscated_res_0x7f0f1033);
+                        this.a.f.setText(R.string.obfuscated_res_0x7f0f1032);
                         this.a.a(true);
                         if (SapiUtils.validateMobile(charSequence.toString())) {
                             this.a.f.setEnabled(true);
                         } else {
                             this.a.g.setVisibility(0);
-                            this.a.g.setText(R.string.obfuscated_res_0x7f0f1037);
+                            this.a.g.setText(R.string.obfuscated_res_0x7f0f1036);
                         }
                     }
                     SmsLoginView.b(f.c, (String) null);
@@ -694,7 +694,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
             if (countDownTimer != null) {
                 countDownTimer.cancel();
             }
-            this.f.setText(R.string.obfuscated_res_0x7f0f1033);
+            this.f.setText(R.string.obfuscated_res_0x7f0f1032);
             a(false);
         }
     }
@@ -818,7 +818,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                     this.h.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f0));
                     Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
                     declaredField.setAccessible(true);
-                    declaredField.set(this.e, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f081044));
+                    declaredField.set(this.e, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f081048));
                 } else {
                     this.b.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f1));
                     this.d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f9));
@@ -829,7 +829,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
                     this.h.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609ef));
                     Field declaredField2 = TextView.class.getDeclaredField("mCursorDrawableRes");
                     declaredField2.setAccessible(true);
-                    declaredField2.set(this.e, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f081043));
+                    declaredField2.set(this.e, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f081047));
                 }
             } catch (Exception unused) {
             }
@@ -864,14 +864,14 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         boolean z2 = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f09067e);
-        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f09181b);
-        this.i = this.b.findViewById(R.id.obfuscated_res_0x7f091303);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f09181c);
+        this.i = this.b.findViewById(R.id.obfuscated_res_0x7f091304);
         this.e = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f09060c);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090c98);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091934);
-        this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c87);
-        a(this.d, context.getString(R.string.obfuscated_res_0x7f0f1035));
-        a(this.e, context.getString(R.string.obfuscated_res_0x7f0f1034));
+        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090c99);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091935);
+        this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c88);
+        a(this.d, context.getString(R.string.obfuscated_res_0x7f0f1034));
+        a(this.e, context.getString(R.string.obfuscated_res_0x7f0f1033));
         this.d.addTextChangedListener(new e(this, null));
         this.e.addTextChangedListener(new c(this, null));
         this.f.setEnabled(false);

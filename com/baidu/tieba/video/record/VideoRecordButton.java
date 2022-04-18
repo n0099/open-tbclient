@@ -54,10 +54,10 @@ public class VideoRecordButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04b3, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091a0c);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091a0d);
-            this.c = findViewById(R.id.obfuscated_res_0x7f091a0e);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ff);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091a0d);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091a0e);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091a0f);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092200);
             this.c.setScaleX(0.766f);
             this.c.setScaleY(0.766f);
         }
@@ -81,7 +81,7 @@ public class VideoRecordButton extends FrameLayout {
             if (z) {
                 this.a.setVisibility(8);
             } else {
-                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080faf);
+                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb3);
             }
             this.d.setVisibility(8);
             this.e.start();
@@ -117,7 +117,7 @@ public class VideoRecordButton extends FrameLayout {
                 ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.c.getScaleX()) * 500.0f) / 0.3f);
             }
             this.a.setVisibility(0);
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fae);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb2);
             this.f.start();
         }
     }

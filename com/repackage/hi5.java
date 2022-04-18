@@ -374,23 +374,23 @@ public class hi5 extends Dialog {
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090291);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09029d);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09028c);
-            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090c16);
+            this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f090c17);
             this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f09049b);
             this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f090444);
-            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea6);
+            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea7);
             this.o.setOnClickListener(this.G);
             this.r.setOnClickListener(this.G);
             this.q = findViewById(R.id.obfuscated_res_0x7f0907fd);
             this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09082f);
-            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f090ee9);
-            this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f0915b6);
-            this.u = findViewById(R.id.obfuscated_res_0x7f090eea);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f09161f);
+            this.s = (TextView) findViewById(R.id.obfuscated_res_0x7f090eea);
+            this.t = (TextView) findViewById(R.id.obfuscated_res_0x7f0915b7);
+            this.u = findViewById(R.id.obfuscated_res_0x7f090eeb);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091620);
             this.z = findViewById(R.id.obfuscated_res_0x7f090810);
             this.A = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090499);
             this.l = this.k.getText().toString();
             this.v = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09049a);
-            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f091dce);
+            this.x = (TextView) findViewById(R.id.obfuscated_res_0x7f091dcf);
             this.y = (TextView) findViewById(R.id.obfuscated_res_0x7f090497);
             this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09049f);
             this.x.setOnClickListener(this.C);
@@ -404,7 +404,7 @@ public class hi5 extends Dialog {
             String newVersion = this.b.getNewVersion();
             String newVersionDesc = this.b.getNewVersionDesc();
             StringBuilder sb = new StringBuilder();
-            sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0c20));
+            sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0c1f));
             if (!TextUtils.isEmpty(newVersion)) {
                 sb.append(newVersion);
             }
@@ -415,18 +415,18 @@ public class hi5 extends Dialog {
             this.j.setText(newVersionDesc);
             if (this.b.forceUpdate()) {
                 this.g = true;
-                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f26));
+                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0f25));
                 this.o.setVisibility(8);
                 this.r.setVisibility(8);
             } else {
-                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f148c));
+                this.n.setText(this.a.getString(R.string.obfuscated_res_0x7f0f148b));
                 this.o.setVisibility(8);
                 this.r.setVisibility(8);
             }
             CombineDownload combineDownload = this.c;
             if (combineDownload != null && combineDownload.showCombineDownload() && !TextUtils.isEmpty(this.c.getApkMD5RSA())) {
                 this.m.setText(this.c.getAppName());
-                if (!zj8.b(this.a, this.c.getAppProc()) && !TextUtils.isEmpty(this.c.getAppUrl())) {
+                if (!gk8.b(this.a, this.c.getAppProc()) && !TextUtils.isEmpty(this.c.getAppUrl())) {
                     this.m.setVisibility(0);
                     Drawable drawable = this.a.getResources().getDrawable(R.drawable.btn_dailog_choose_s);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
@@ -486,7 +486,7 @@ public class hi5 extends Dialog {
                     return;
                 }
                 this.u.setVisibility(0);
-                this.s.setText(R.string.obfuscated_res_0x7f0f11ff);
+                this.s.setText(R.string.obfuscated_res_0x7f0f11fe);
                 SkinManager.setBackgroundResource(this.s, R.drawable.dialog_middle_item_bg_selector);
                 this.A.setVisibility(0);
                 this.F = false;

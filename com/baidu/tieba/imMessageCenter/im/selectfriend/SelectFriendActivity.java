@@ -37,19 +37,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
-import com.repackage.jy4;
+import com.repackage.b77;
+import com.repackage.cr4;
+import com.repackage.iy4;
 import com.repackage.mi;
 import com.repackage.oi;
-import com.repackage.r97;
-import com.repackage.y67;
+import com.repackage.u97;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r97 adapter;
+    public u97 adapter;
     public CustomMessageListener discoverSharelistener;
     public CustomMessageListener gameSharelistener;
     public CustomMessageListener getFriendListListener;
@@ -93,7 +93,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && TbadkCoreApplication.getInst().getIntentClass(AddressListActivityConfig.class) == null && (httpResponsedMessage instanceof ResponseFriendListMessage)) {
-                LinkedList<jy4> friendList = ((ResponseFriendListMessage) httpResponsedMessage).getFriendList();
+                LinkedList<iy4> friendList = ((ResponseFriendListMessage) httpResponsedMessage).getFriendList();
                 if (friendList == null) {
                     friendList = new LinkedList<>();
                 }
@@ -140,7 +140,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof GetContactListResponsedMessage)) {
-                List<jy4> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
+                List<iy4> contacts = ((GetContactListResponsedMessage) customResponsedMessage).getContacts();
                 if (contacts == null) {
                     contacts = new LinkedList<>();
                 }
@@ -306,7 +306,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            jy4 item;
+            iy4 item;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (item = this.a.adapter.getItem(i)) == null) {
                 return;
@@ -342,7 +342,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class e implements dr4.e {
+    public class e implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -377,20 +377,20 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
             this.f = game2GroupShareDialogView;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                long u = y67.p().u(String.valueOf(this.a), 2);
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                long u = b77.p().u(String.valueOf(this.a), 2);
                 MessageUtils.createPersonalChatMessage(u, 9, this.b.toChatMessageContent(), this.a, this.c, this.d, this.e);
                 MessageUtils.createPersonalChatMessage(u + 1, 1, this.f.getLeaveMsg(), this.a, this.c, this.d, this.e);
-                dr4Var.dismiss();
+                cr4Var.dismiss();
                 this.g.setResult(-1);
                 if (!mi.z()) {
                     SelectFriendActivity selectFriendActivity = this.g;
-                    selectFriendActivity.showToast(selectFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c4f));
+                    selectFriendActivity.showToast(selectFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c4e));
                 } else {
-                    BdToast.i(this.g.getPageContext().getPageActivity(), this.g.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1111), R.drawable.obfuscated_res_0x7f0809a7, true).q();
+                    BdToast.i(this.g.getPageContext().getPageActivity(), this.g.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1110), R.drawable.obfuscated_res_0x7f0809ab, true).q();
                 }
                 this.g.finish();
             }
@@ -398,7 +398,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements dr4.e {
+    public class f implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Game2GroupShareDialogView a;
@@ -423,18 +423,18 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
             this.a = game2GroupShareDialogView;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 ((InputMethodManager) this.b.getPageContext().getPageActivity().getSystemService("input_method")).hideSoftInputFromWindow(this.a.getWindowToken(), 2);
-                dr4Var.dismiss();
+                cr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class g implements dr4.e {
+    public class g implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -469,18 +469,18 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
             this.f = game2GroupShareDialogView;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                long u = y67.p().u(String.valueOf(this.a), 2);
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                long u = b77.p().u(String.valueOf(this.a), 2);
                 MessageUtils.createPersonalChatMessage(u, 9, this.b.toChatMessageContent(), this.a, this.c, this.d, this.e);
                 MessageUtils.createPersonalChatMessage(u + 1, 1, this.f.getLeaveMsg(), this.a, this.c, this.d, this.e);
-                dr4Var.dismiss();
+                cr4Var.dismiss();
                 this.g.setResult(-1);
                 if (!mi.z()) {
                     SelectFriendActivity selectFriendActivity = this.g;
-                    selectFriendActivity.showToast(selectFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c4f));
+                    selectFriendActivity.showToast(selectFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c4e));
                 }
                 this.g.finish();
             }
@@ -488,7 +488,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class h implements dr4.e {
+    public class h implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Game2GroupShareDialogView a;
@@ -513,11 +513,11 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
             this.a = game2GroupShareDialogView;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                dr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
                 ((InputMethodManager) this.b.getSystemService("input_method")).hideSoftInputFromWindow(this.a.getWindowToken(), 2);
             }
         }
@@ -546,14 +546,14 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     public void showConfirmShareToFriendDialog(ShareFromPBMsgData shareFromPBMsgData, long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{shareFromPBMsgData, Long.valueOf(j), str, str2, str3}) == null) {
-            dr4 dr4Var = new dr4(getPageContext().getPageActivity());
-            dr4Var.setContentViewSize(1);
+            cr4 cr4Var = new cr4(getPageContext().getPageActivity());
+            cr4Var.setContentViewSize(1);
             Game2GroupShareDialogView game2GroupShareDialogView = new Game2GroupShareDialogView(getPageContext().getPageActivity());
             game2GroupShareDialogView.setShareData(shareFromPBMsgData);
-            dr4Var.setContentView(game2GroupShareDialogView);
-            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f110f, new e(this, j, shareFromPBMsgData, str, str2, str3, game2GroupShareDialogView));
-            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new f(this, game2GroupShareDialogView));
-            dr4Var.create(getPageContext()).show();
+            cr4Var.setContentView(game2GroupShareDialogView);
+            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f110e, new e(this, j, shareFromPBMsgData, str, str2, str3, game2GroupShareDialogView));
+            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new f(this, game2GroupShareDialogView));
+            cr4Var.create(getPageContext()).show();
         }
     }
 
@@ -567,7 +567,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
                 noDataView.f(getPageContext(), i);
             }
             getLayoutMode().k(i == 1);
-            getLayoutMode().j(findViewById(R.id.obfuscated_res_0x7f091c63));
+            getLayoutMode().j(findViewById(R.id.obfuscated_res_0x7f091c64));
         }
     }
 
@@ -577,15 +577,15 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d075b);
-            this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c63);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091c62);
+            this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c64);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091c63);
             this.navigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new c(this));
-            this.navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f10ce);
-            this.listView = (BdListView) findViewById(R.id.obfuscated_res_0x7f091c61);
-            r97 r97Var = new r97(getPageContext().getPageActivity());
-            this.adapter = r97Var;
-            this.listView.setAdapter((ListAdapter) r97Var);
+            this.navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f10cd);
+            this.listView = (BdListView) findViewById(R.id.obfuscated_res_0x7f091c62);
+            u97 u97Var = new u97(getPageContext().getPageActivity());
+            this.adapter = u97Var;
+            this.listView.setAdapter((ListAdapter) u97Var);
             this.listView.setOnItemClickListener(this.itemClickListener);
             registerListener(this.getFriendListListener);
             registerListener(this.httpListener);
@@ -594,7 +594,7 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
             } else {
                 MessageManager.getInstance().sendMessage(new GetContactListRequestMessage());
             }
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, oi.f(getActivity(), R.dimen.obfuscated_res_0x7f07027d)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f10cd), null);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, oi.f(getActivity(), R.dimen.obfuscated_res_0x7f07027d)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f10cc), null);
             this.mNoDataView = a2;
             this.mRootView.addView(a2, 1);
             if (bundle != null) {
@@ -643,14 +643,14 @@ public class SelectFriendActivity extends BaseActivity<SelectFriendActivity> {
     public void showConfirmShareToFriendDialog(ShareFromGameCenterMsgData shareFromGameCenterMsgData, long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{shareFromGameCenterMsgData, Long.valueOf(j), str, str2, str3}) == null) {
-            dr4 dr4Var = new dr4(getPageContext().getPageActivity());
-            dr4Var.setContentViewSize(1);
+            cr4 cr4Var = new cr4(getPageContext().getPageActivity());
+            cr4Var.setContentViewSize(1);
             Game2GroupShareDialogView game2GroupShareDialogView = new Game2GroupShareDialogView(getPageContext().getPageActivity());
             game2GroupShareDialogView.setData(shareFromGameCenterMsgData);
-            dr4Var.setContentView(game2GroupShareDialogView);
-            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f110f, new g(this, j, shareFromGameCenterMsgData, str, str2, str3, game2GroupShareDialogView));
-            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new h(this, game2GroupShareDialogView));
-            dr4Var.create(getPageContext()).show();
+            cr4Var.setContentView(game2GroupShareDialogView);
+            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f110e, new g(this, j, shareFromGameCenterMsgData, str, str2, str3, game2GroupShareDialogView));
+            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new h(this, game2GroupShareDialogView));
+            cr4Var.create(getPageContext()).show();
         }
     }
 }

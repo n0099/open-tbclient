@@ -17,12 +17,12 @@ public class ga5 {
     public View b;
     public BdUniqueId c;
 
-    public ga5(StatsType statsType, qn4 qn4Var, View view2, BdUniqueId bdUniqueId) {
+    public ga5(StatsType statsType, pn4 pn4Var, View view2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {statsType, qn4Var, view2, bdUniqueId};
+            Object[] objArr = {statsType, pn4Var, view2, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

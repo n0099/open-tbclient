@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ah5;
-import com.repackage.ba8;
 import com.repackage.bh5;
 import com.repackage.ch5;
 import com.repackage.fh5;
 import com.repackage.gh5;
 import com.repackage.hh5;
+import com.repackage.ia8;
 import com.repackage.ih5;
 import com.repackage.jh5;
 import com.repackage.oh5;
@@ -61,8 +61,8 @@ public class FrsFeedAdStatic {
             oh5 oh5Var;
             gh5 c;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof oh5) && (c = (oh5Var = (oh5) customResponsedMessage.getData()).c()) != null && (c instanceof ba8)) {
-                ba8 ba8Var = (ba8) c;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof oh5) && (c = (oh5Var = (oh5) customResponsedMessage.getData()).c()) != null && (c instanceof ia8)) {
+                ia8 ia8Var = (ia8) c;
                 fh5 injectPlugin = c.getInjectPlugin(1);
                 if (injectPlugin == null) {
                     ih5 a = jh5.b().a(1);
@@ -71,7 +71,7 @@ public class FrsFeedAdStatic {
                     }
                     injectPlugin = a.a();
                     c.setInjectPlugin(1, injectPlugin);
-                    injectPlugin.n(new hh5(ba8Var));
+                    injectPlugin.n(new hh5(ia8Var));
                 }
                 if (injectPlugin instanceof ch5) {
                     ch5 ch5Var = (ch5) injectPlugin;
@@ -79,8 +79,8 @@ public class FrsFeedAdStatic {
                         List list = (List) oh5Var.f();
                         ah5.b(ch5Var.c());
                         for (BdUniqueId bdUniqueId : ah5.e()) {
-                            zg5 zg5Var = new zg5(ba8Var, bdUniqueId);
-                            zg5Var.Z(ba8Var.i());
+                            zg5 zg5Var = new zg5(ia8Var, bdUniqueId);
+                            zg5Var.Z(ia8Var.i());
                             list.add(zg5Var);
                         }
                     } else if (oh5Var.a() == 2) {

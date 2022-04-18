@@ -81,7 +81,7 @@ public class rl5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            long m = wt4.k().m("key_splash_timeout_config", 2000L);
+            long m = vt4.k().m("key_splash_timeout_config", 2000L);
             return SplashDealyTimeoutSwitch.isOpen() ? m > 0 ? m : 2000L : ll5.e().h() ? 1400L : 1000L;
         }
         return invokeV.longValue;

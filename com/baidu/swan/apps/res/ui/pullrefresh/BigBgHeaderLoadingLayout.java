@@ -156,13 +156,13 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091961);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09195f);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091962);
-            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091963);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091965);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091967);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091960);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091962);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091960);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091963);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091964);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091966);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091968);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091961);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
             this.k = rotateAnimation;
             rotateAnimation.setDuration(120L);

@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.repackage.kf9;
-import com.repackage.rk9;
-import com.repackage.tf9;
+import com.repackage.ag9;
+import com.repackage.rf9;
+import com.repackage.yk9;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class AdReporter {
     public static /* synthetic */ Interceptable $ic;
     public static final Reporter a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rk9 mAdIdent;
+    public final yk9 mAdIdent;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class AdReporter {
                 return;
             }
         }
-        a = tf9.a();
+        a = ag9.a();
     }
 
     public AdReporter() {
@@ -54,27 +54,27 @@ public class AdReporter {
                 return;
             }
         }
-        this.mAdIdent = new rk9();
+        this.mAdIdent = new yk9();
     }
 
-    public static void adEvent(rk9 rk9Var, Object obj, Object... objArr) {
+    public static void adEvent(yk9 yk9Var, Object obj, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, rk9Var, obj, objArr) == null) {
-            report("ad", rk9Var, obj, false, objArr);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, yk9Var, obj, objArr) == null) {
+            report("ad", yk9Var, obj, false, objArr);
         }
     }
 
-    public static void adEvent(boolean z, rk9 rk9Var, Object obj, Object... objArr) {
+    public static void adEvent(boolean z, yk9 yk9Var, Object obj, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), rk9Var, obj, objArr}) == null) {
-            report("ad", rk9Var, obj, z, objArr);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), yk9Var, obj, objArr}) == null) {
+            report("ad", yk9Var, obj, z, objArr);
         }
     }
 
-    public static void report(String str, rk9 rk9Var, Object obj, boolean z, Object... objArr) {
+    public static void report(String str, yk9 yk9Var, Object obj, boolean z, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, rk9Var, obj, Boolean.valueOf(z), objArr}) == null) {
-            report(str, rk9Var.a, rk9Var.b, rk9Var.d, rk9Var.e, rk9Var.c, obj, z, objArr);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, yk9Var, obj, Boolean.valueOf(z), objArr}) == null) {
+            report(str, yk9Var.a, yk9Var.b, yk9Var.d, yk9Var.e, yk9Var.c, obj, z, objArr);
         }
     }
 
@@ -167,17 +167,17 @@ public class AdReporter {
     public void recordLoadStart(FunAdSlot funAdSlot, Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, funAdSlot, pid) == null) {
-            int a2 = kf9.a(funAdSlot.getSid(), pid);
-            rk9 rk9Var = this.mAdIdent;
+            int a2 = rf9.a(funAdSlot.getSid(), pid);
+            yk9 yk9Var = this.mAdIdent;
             String sid = funAdSlot.getSid();
             long currentTimeMillis = System.currentTimeMillis();
             String str = pid.pid;
             String str2 = pid.type;
-            rk9Var.a = sid;
-            rk9Var.b = a2;
-            rk9Var.c = currentTimeMillis;
-            rk9Var.d = str;
-            rk9Var.e = str2;
+            yk9Var.a = sid;
+            yk9Var.b = a2;
+            yk9Var.c = currentTimeMillis;
+            yk9Var.d = str;
+            yk9Var.e = str2;
             adEvent(this.mAdIdent, "ld_start", new Object[0]);
         }
     }

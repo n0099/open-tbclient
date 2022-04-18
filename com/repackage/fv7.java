@@ -1,75 +1,108 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.PbLoadMoreItemVideoViewHolder;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class fv7 extends pu7<fs7, PbLoadMoreItemVideoViewHolder> {
+public class fv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener o;
+    public final int a;
+    public BdTypeListView b;
+    public boolean c;
+    public int d;
+    public int e;
+    public a f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fv7(cz7 cz7Var, BdUniqueId bdUniqueId) {
-        super(cz7Var, bdUniqueId);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+    }
+
+    public fv7(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cz7Var, bdUniqueId};
+            Object[] objArr = {bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((cz7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
+        this.d = -1;
+        this.e = -1;
+        this.b = bdTypeListView;
     }
 
-    @Override // com.repackage.pu7, com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        c0(i, view2, viewGroup, (fs7) obj, (PbLoadMoreItemVideoViewHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: b0 */
-    public PbLoadMoreItemVideoViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final int a(List<uo> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemVideoViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0603, viewGroup, false)) : (PbLoadMoreItemVideoViewHolder) invokeL.objValue;
-    }
-
-    public View c0(int i, View view2, ViewGroup viewGroup, fs7 fs7Var, PbLoadMoreItemVideoViewHolder pbLoadMoreItemVideoViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fs7Var, pbLoadMoreItemVideoViewHolder})) == null) {
-            super.S(i, view2, viewGroup, fs7Var, pbLoadMoreItemVideoViewHolder);
-            pbLoadMoreItemVideoViewHolder.c(this.o);
-            return view2;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, list, i)) == null) {
+            if (!ListUtils.isEmpty(list) && i != -1) {
+                int i2 = 0;
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    if ((list.get(i3) instanceof PostData) && ((PostData) list.get(i3)).getType() == PostData.x0 && (i2 = i2 + 1) == i) {
+                        return i3;
+                    }
+                }
+            }
+            return -1;
         }
-        return (View) invokeCommon.objValue;
+        return invokeLI.intValue;
     }
 
-    public void d0(View.OnClickListener onClickListener) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.o = onClickListener;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e = a(this.b.getData(), gr7.b().c());
+        }
+    }
+
+    public void c(int i, int i2) {
+        View childAt;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || this.b == null || this.c || !gr7.b().e() || gr7.b().c() == -1 || this.e < 0 || (childAt = this.b.getChildAt(i2 - 1)) == null) {
+            return;
+        }
+        if (this.d <= 0) {
+            this.d = this.b.getHeight() - this.a;
+        }
+        if (this.d <= 0) {
+            return;
+        }
+        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
+        int i3 = (i + i2) - 1;
+        if (i3 > headerViewsCount) {
+            if (i3 - 1 != headerViewsCount || childAt.getTop() <= this.d) {
+                a aVar = this.f;
+                if (aVar != null) {
+                    aVar.a();
+                }
+                this.c = true;
+            }
+        }
+    }
+
+    public void d(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.f = aVar;
         }
     }
 }

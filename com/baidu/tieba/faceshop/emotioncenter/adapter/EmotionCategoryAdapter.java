@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ho;
-import com.repackage.w96;
+import com.repackage.y96;
 /* loaded from: classes3.dex */
-public class EmotionCategoryAdapter extends ho<w96, EmotionCategoryViewHolder> {
+public class EmotionCategoryAdapter extends ho<y96, EmotionCategoryViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,9 +63,9 @@ public class EmotionCategoryAdapter extends ho<w96, EmotionCategoryViewHolder> {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.a) == null) {
                 return;
             }
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908ba);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09087a);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090889);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908bb);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09087b);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09088a);
             this.b.setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f052f));
             this.c.setVisibility(8);
             this.d.setVisibility(8);
@@ -119,9 +119,9 @@ public class EmotionCategoryAdapter extends ho<w96, EmotionCategoryViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, w96 w96Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, y96 y96Var, EmotionCategoryViewHolder emotionCategoryViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w96Var, emotionCategoryViewHolder})) == null) ? emotionCategoryViewHolder.b() : (View) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, y96Var, emotionCategoryViewHolder})) == null) ? emotionCategoryViewHolder.b() : (View) invokeCommon.objValue;
     }
 }

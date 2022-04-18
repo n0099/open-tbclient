@@ -2,21 +2,19 @@ package com.repackage;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.FrsPage.YuleActivity;
+import tbclient.FrsPage.Yule;
 /* loaded from: classes7.dex */
 public class zq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public int a;
+    public yq4 b;
 
     public zq4() {
         Interceptable interceptable = $ic;
@@ -28,53 +26,44 @@ public class zq4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = new yq4();
     }
 
-    public String a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a != 0 : invokeV.booleanValue;
     }
 
-    public String b() {
+    public yq4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (yq4) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            jSONObject.optLong("activity_id");
-            jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
-            this.a = jSONObject.optString("activity_url");
-            this.b = jSONObject.optString("activity_all_icon");
-            this.c = jSONObject.optString("activity_half_icon");
+            this.a = jSONObject.optInt("activity_show");
+            this.b.d(jSONObject.optJSONObject("yule_activity"));
         } catch (Exception e) {
-            BdLog.e(e.toString());
+            BdLog.e(e.getMessage());
         }
     }
 
-    public void e(YuleActivity yuleActivity) {
+    public void d(Yule yule) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, yuleActivity) == null) || yuleActivity == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, yule) == null) || yule == null) {
             return;
         }
-        yuleActivity.activity_id.longValue();
-        yuleActivity.activity_type.intValue();
-        this.a = yuleActivity.activity_url;
-        this.b = yuleActivity.activity_all_icon;
-        this.c = yuleActivity.activity_half_icon;
+        this.a = yule.activity_show.intValue();
+        this.b.e(yule.yule_activity);
     }
 }

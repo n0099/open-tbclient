@@ -80,12 +80,12 @@ public class FrsShareCardView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0351, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ca6);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ae9);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ca7);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090aea);
             this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f090605);
-            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090ae5);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090ae7);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090aea);
+            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090ae6);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090ae8);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090aeb);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 2);
             this.c.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));

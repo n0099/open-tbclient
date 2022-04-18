@@ -12,7 +12,7 @@ public class ky3 extends JSEvent {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ky3() {
-        super("appLoad");
+        super("appMount");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

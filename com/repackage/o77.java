@@ -1,19 +1,12 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SyncServiceConfig;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryNotifyUpdataGroupMessage;
-import com.baidu.tieba.im.message.RequestGetGroupInfoMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,17 +15,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class o77 {
     public static /* synthetic */ Interceptable $ic;
     public static o77 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ya b;
-    public CustomMessageListener c;
+    public long a;
+    public List<Long> b;
+    public final CustomMessageListener c;
 
     /* loaded from: classes6.dex */
-    public class a extends ya {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o77 a;
@@ -60,51 +54,11 @@ public class o77 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 202006 && (socketResponsedMessage instanceof PushNotifyMessage)) {
-                this.a.e((PushNotifyMessage) socketResponsedMessage);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(o77 o77Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o77Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ImMessageCenterPojo imMessageCenterPojo;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016014 || (imMessageCenterPojo = (ImMessageCenterPojo) customResponsedMessage.getData()) == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                this.a.b();
             }
-            if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                MessageManager.getInstance().dispatchResponsedMessage(new RequestGetGroupInfoMessage(Long.valueOf(mg.g(imMessageCenterPojo.getGid(), 0L))));
-            }
-            f77.l().s(mg.g(imMessageCenterPojo.getGid(), 0L), w87.c(imMessageCenterPojo.getPulled_msgId()), 0L, true);
         }
     }
 
@@ -136,95 +90,171 @@ public class o77 {
                 return;
             }
         }
-        new ArrayList();
-        this.b = new a(this, 202006);
-        this.c = new b(this, 0);
+        this.a = 0L;
+        this.b = new ArrayList();
+        this.c = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.c);
     }
 
-    public static synchronized o77 b() {
+    public static o77 e() {
         InterceptResult invokeV;
-        o77 o77Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (o77.class) {
-                if (d == null) {
-                    d = new o77();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (o77.class) {
+                    if (d == null) {
+                        d = new o77();
+                    }
                 }
-                o77Var = d;
             }
-            return o77Var;
+            return d;
         }
         return (o77) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public synchronized void a(long j, long j2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            synchronized (this) {
+                if (this.a != 0 && this.a != j) {
+                    this.b.clear();
+                    ba.c("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + "-" + this.a);
+                }
+                this.a = j;
+                for (Long l : this.b) {
+                    if (l != null && l.longValue() == j2) {
+                        return;
+                    }
+                }
+                this.b.add(Long.valueOf(j2));
+            }
+        }
     }
 
-    public void d() {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f();
+            synchronized (this) {
+                this.a = 0L;
+                this.b.clear();
+            }
         }
     }
 
-    public final void e(PushNotifyMessage pushNotifyMessage) {
+    public synchronized boolean c(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pushNotifyMessage) == null) || pushNotifyMessage == null) {
-            return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            synchronized (this) {
+                for (Long l : this.b) {
+                    if (l != null && l.longValue() == j) {
+                        return true;
+                    }
+                }
+                return false;
+            }
         }
-        if (pushNotifyMessage.getType() == 3) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SyncServiceConfig(TbadkCoreApplication.getInst())));
-        } else if (pushNotifyMessage.getType() == 4) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010001, pushNotifyMessage.getContent()));
-        } else if (y67.p().A()) {
-            String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
-            lt4.a("im", -1L, 202006, "notify", 0, null, "comment", "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
-            if (TextUtils.isEmpty(valueOf)) {
-                return;
+        return invokeJ.booleanValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public Long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b77.p().s().get(this.a) : (Long) invokeV.objValue;
+    }
+
+    public synchronized List<Long> g() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                for (Long l : this.b) {
+                    if (l != null) {
+                        arrayList.add(Long.valueOf(z87.c(l.longValue())));
+                    }
+                }
             }
-            BdLog.e("pushNotifyManager groupType = " + pushNotifyMessage.getGroupType() + " gid = " + valueOf + "msgid = " + pushNotifyMessage.getNewestMsgId());
-            if (pushNotifyMessage.getGroupType() == 0) {
-                f77.l().r(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
-                return;
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized String h() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                str = "";
+                for (Long l : this.b) {
+                    if (l != null && l.longValue() != 0) {
+                        str = (str + l.longValue()) + ",";
+                    }
+                }
             }
-            int a2 = e77.a(pushNotifyMessage.getGroupType());
-            if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().b(a2)) {
-                if (y67.p().j(String.valueOf(pushNotifyMessage.getGroupId()), a2) != null) {
-                    f77.l().r(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
-                } else {
-                    h(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), a2);
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public synchronized boolean i() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                if (this.a > 0) {
+                    z = this.b.size() > 0;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void j(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            synchronized (this) {
+                b();
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                    return;
+                }
+                try {
+                    this.a = mg.g(str, 0L);
+                    try {
+                        String[] split = str2.split(",");
+                        if (split != null && split.length > 0) {
+                            for (int i = 0; i < split.length; i++) {
+                                if (!TextUtils.isEmpty(split[i])) {
+                                    this.b.add(Long.valueOf(Long.parseLong(split[i])));
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        BdLog.e(e);
+                    }
+                } catch (Exception e2) {
+                    BdLog.e(e2);
                 }
             }
         }
     }
 
-    public final void f() {
+    public synchronized void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().registerListener(this.b);
-            MessageManager.getInstance().registerListener(2016014, this.c);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            synchronized (this) {
+                this.b.clear();
+            }
         }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public final void h(long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) || j2 <= 0) {
-            return;
-        }
-        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-        imMessageCenterPojo.setCustomGroupType(i);
-        imMessageCenterPojo.setGid(String.valueOf(j));
-        imMessageCenterPojo.setPulled_msgId(w87.a(j2 - 1));
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
     }
 }

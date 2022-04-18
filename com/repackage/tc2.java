@@ -677,13 +677,13 @@ public class tc2 {
         String y = y(appContext);
         String str = y + File.separator + "swangame/anonymous/sandbox";
         if (!TextUtils.isEmpty(str)) {
-            ng4.M(str);
+            mg4.M(str);
         }
         String str2 = y + File.separator + c + a;
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        ng4.M(str2);
+        mg4.M(str2);
     }
 
     public static void c0(JsFunction jsFunction, JsFunction jsFunction2, Object obj, JsFunction jsFunction3) {
@@ -748,8 +748,8 @@ public class tc2 {
                             fileOutputStream.write(bArr, 0, read);
                         }
                         fileOutputStream.flush();
-                        ng4.d(fileOutputStream);
-                        ng4.d(fileInputStream);
+                        mg4.d(fileOutputStream);
+                        mg4.d(fileInputStream);
                     }
                     if (file.isDirectory()) {
                         e(str + "/" + list[i], str2 + "/" + list[i]);
@@ -831,7 +831,7 @@ public class tc2 {
         for (String str : list) {
             File file = new File(str);
             if (file.exists()) {
-                ng4.j(file);
+                mg4.j(file);
             }
         }
     }
@@ -875,13 +875,13 @@ public class tc2 {
         if (interceptable == null || interceptable.invokeL(65577, null, str) == null) {
             String h = qj2.h0().h(AppRuntime.getAppContext());
             if (!TextUtils.isEmpty(h)) {
-                ng4.M(M(h, str));
-                ng4.M(M(pg4.d(h.getBytes(), false), str));
+                mg4.M(M(h, str));
+                mg4.M(M(og4.d(h.getBytes(), false), str));
             }
             String i = qj2.h0().i(AppRuntime.getAppContext());
             if (!TextUtils.isEmpty(i)) {
-                ng4.M(M(i, str));
-                ng4.M(M(pg4.d(i.replace("|", "").getBytes(), false), str));
+                mg4.M(M(i, str));
+                mg4.M(M(og4.d(i.replace("|", "").getBytes(), false), str));
             }
             Context appContext = AppRuntime.getAppContext();
             if (appContext == null) {
@@ -891,7 +891,7 @@ public class tc2 {
             if (TextUtils.isEmpty(str2)) {
                 return;
             }
-            ng4.M(str2);
+            mg4.M(str2);
         }
     }
 
@@ -972,19 +972,19 @@ public class tc2 {
                     }
                     sb.append(hexString);
                 }
-                ng4.d(fileInputStream);
+                mg4.d(fileInputStream);
             } catch (Exception e2) {
                 e = e2;
                 fileInputStream2 = fileInputStream;
                 if (tg1.a) {
                     e.printStackTrace();
                 }
-                ng4.d(fileInputStream2);
+                mg4.d(fileInputStream2);
                 return sb.toString();
             } catch (Throwable th2) {
                 th = th2;
                 fileInputStream2 = fileInputStream;
-                ng4.d(fileInputStream2);
+                mg4.d(fileInputStream2);
                 throw th;
             }
             return sb.toString();
@@ -1087,8 +1087,8 @@ public class tc2 {
                     byteArrayOutputStream.write(bArr, 0, read);
                 } else {
                     byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    ng4.d(bufferedInputStream);
-                    ng4.d(byteArrayOutputStream);
+                    mg4.d(bufferedInputStream);
+                    mg4.d(byteArrayOutputStream);
                     return byteArray;
                 }
             }
@@ -1096,14 +1096,14 @@ public class tc2 {
             e = e2;
             bufferedInputStream2 = bufferedInputStream;
             e.printStackTrace();
-            ng4.d(bufferedInputStream2);
-            ng4.d(byteArrayOutputStream);
+            mg4.d(bufferedInputStream2);
+            mg4.d(byteArrayOutputStream);
             return new byte[0];
         } catch (Throwable th2) {
             th = th2;
             bufferedInputStream2 = bufferedInputStream;
-            ng4.d(bufferedInputStream2);
-            ng4.d(byteArrayOutputStream);
+            mg4.d(bufferedInputStream2);
+            mg4.d(byteArrayOutputStream);
             throw th;
         }
     }
@@ -1280,16 +1280,16 @@ public class tc2 {
                 }
                 try {
                     long available = fileInputStream.available();
-                    ng4.d(fileInputStream);
+                    mg4.d(fileInputStream);
                     return available;
                 } catch (Exception unused2) {
                     fileInputStream2 = fileInputStream;
-                    ng4.d(fileInputStream2);
+                    mg4.d(fileInputStream2);
                     return 0L;
                 } catch (Throwable th2) {
                     th = th2;
                     fileInputStream2 = fileInputStream;
-                    ng4.d(fileInputStream2);
+                    mg4.d(fileInputStream2);
                     throw th;
                 }
             }

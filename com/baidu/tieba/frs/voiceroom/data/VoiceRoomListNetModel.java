@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.o65;
-import com.repackage.wr6;
-import com.repackage.xr6;
+import com.repackage.yr6;
+import com.repackage.zr6;
 /* loaded from: classes3.dex */
-public class VoiceRoomListNetModel extends NetAutoModel<wr6, xr6, BaseFragment> {
+public class VoiceRoomListNetModel extends NetAutoModel<yr6, zr6, BaseFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,17 +77,17 @@ public class VoiceRoomListNetModel extends NetAutoModel<wr6, xr6, BaseFragment> 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? VoiceRoomListSocketResponseMessage.class : (Class) invokeV.objValue;
     }
 
-    public void b0(wr6 wr6Var) {
+    public void b0(yr6 yr6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, wr6Var) == null) {
-            this.c = wr6Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, yr6Var) == null) {
+            this.c = yr6Var;
         }
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<xr6> getResponseDataClass() {
+    public Class<zr6> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? xr6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? zr6.class : (Class) invokeV.objValue;
     }
 }

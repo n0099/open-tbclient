@@ -19,7 +19,7 @@ public class iu3 implements hu3 {
     public HashMap<String, ju3> a;
     public HashMap<String, ArrayList<hu3>> b;
     public String c;
-    public qy3 d;
+    public py3 d;
     public final Object e;
 
     static {
@@ -99,7 +99,7 @@ public class iu3 implements hu3 {
                 Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
             }
             if (this.d == null) {
-                this.d = qy3.b();
+                this.d = py3.b();
             }
             ju3 ju3Var = new ju3(this.d, this.c, str, this);
             this.a.put(str, ju3Var);

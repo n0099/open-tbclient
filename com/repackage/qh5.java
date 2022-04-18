@@ -84,7 +84,7 @@ public class qh5 {
     public final void b(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (ug8.a(this.c.getIntent())) {
+            if (bh8.a(this.c.getIntent())) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
             }
             if (bundle != null) {
@@ -127,10 +127,10 @@ public class qh5 {
             }
             c();
             b(bundle);
-            if (!ug8.a(this.c.getIntent()) && (ug8.b(this.c.getIntent()) || this.c.isTaskRoot())) {
+            if (!bh8.a(this.c.getIntent()) && (bh8.b(this.c.getIntent()) || this.c.isTaskRoot())) {
                 a(this.c.getIntent());
             }
-            wi8.g().i(this.c.getUniqueId());
+            dj8.g().i(this.c.getUniqueId());
             rh5 rh5Var = new rh5(this.c);
             this.b = rh5Var;
             rh5Var.i(d);
@@ -140,7 +140,7 @@ public class qh5 {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            wi8.g().k(this.c.getUniqueId());
+            dj8.g().k(this.c.getUniqueId());
             d = false;
             rh5 rh5Var = this.b;
             if (rh5Var != null) {

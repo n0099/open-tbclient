@@ -60,7 +60,7 @@ public class UserDefineConfirmBottomView extends LinearLayout {
             this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090376);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090377);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090375);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092282);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092283);
             this.b.setOnClickListener(null);
         }
     }
@@ -106,7 +106,7 @@ public class UserDefineConfirmBottomView extends LinearLayout {
                 this.e.setVisibility(0);
                 return;
             }
-            this.d.setText(R.string.obfuscated_res_0x7f0f14aa);
+            this.d.setText(R.string.obfuscated_res_0x7f0f14a9);
             this.d.setGravity(17);
             this.f.setEnabled(false);
             b(false);

@@ -52,7 +52,10 @@ public class NetExperimentFetcher extends fc1<Cif> {
         public boolean netBdABTest() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? UbsABTestHelper.isBdNetABTest() : invokeV.booleanValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         public /* synthetic */ NetExperimentImpl(AnonymousClass1 anonymousClass1) {

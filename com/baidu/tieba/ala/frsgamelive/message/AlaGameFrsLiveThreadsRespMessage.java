@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.is5;
+import com.repackage.ks5;
 import com.repackage.uo;
 import java.util.ArrayList;
 import java.util.List;
@@ -62,11 +62,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        is5 is5Var = new is5();
+                        ks5 ks5Var = new ks5();
                         ThreadData threadData = new ThreadData();
                         threadData.parserJson(optJSONObject2);
-                        is5Var.a = threadData;
-                        this.liveList.add(is5Var);
+                        ks5Var.a = threadData;
+                        this.liveList.add(ks5Var);
                     }
                 }
             }
@@ -76,11 +76,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        is5 is5Var2 = new is5();
+                        ks5 ks5Var2 = new ks5();
                         ThreadData threadData2 = new ThreadData();
                         threadData2.parserJson(optJSONObject3);
-                        is5Var2.a = threadData2;
-                        this.recommandList.add(is5Var2);
+                        ks5Var2.a = threadData2;
+                        this.recommandList.add(ks5Var2);
                     }
                 }
             }

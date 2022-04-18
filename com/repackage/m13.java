@@ -79,7 +79,7 @@ public class m13 extends lr2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
                 this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "download file failed because file size exceeds limit").toString());
-                SwanAppNetworkUtils.a(m74.g().getOkHttpClient(), this.c);
+                SwanAppNetworkUtils.a(l74.g().getOkHttpClient(), this.c);
                 this.f.q(this.d);
             }
         }
@@ -111,7 +111,7 @@ public class m13 extends lr2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "progress callback fail()").toString());
-                SwanAppNetworkUtils.a(m74.g().getOkHttpClient(), this.c);
+                SwanAppNetworkUtils.a(l74.g().getOkHttpClient(), this.c);
                 this.f.q(this.d);
             }
         }
@@ -222,7 +222,7 @@ public class m13 extends lr2 {
                             file.delete();
                             file.createNewFile();
                         }
-                        if (qg4.a(byteStream, file)) {
+                        if (pg4.a(byteStream, file)) {
                             this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
                         } else {
                             this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "streamToFile fail").toString());
@@ -388,7 +388,7 @@ public class m13 extends lr2 {
                 return false;
             }
             String optString4 = a2.optString("filePath");
-            if (!TextUtils.isEmpty(optString4) && ng4.x(optString4)) {
+            if (!TextUtils.isEmpty(optString4) && mg4.x(optString4)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal path");
                 return false;
             }
@@ -410,7 +410,7 @@ public class m13 extends lr2 {
             HashMap<String, String> m = lr2.m(optJSONObject, true);
             String optString5 = a2.optString("__plugin__");
             if (!TextUtils.isEmpty(optString5)) {
-                j94 h = hw2.h(optString5);
+                i94 h = hw2.h(optString5);
                 if (m == null) {
                     m = new HashMap<>();
                 }
@@ -435,9 +435,9 @@ public class m13 extends lr2 {
             if (SwanAppNetworkUtils.i(null)) {
                 c73.A(httpUrl, 0);
             }
-            OkHttpClient.Builder i = m74.g().i();
+            OkHttpClient.Builder i = l74.g().i();
             i.addNetworkInterceptor(new cs2());
-            m74.g().w(i);
+            l74.g().w(i);
             i.addInterceptor(as2Var).addNetworkInterceptor(zr2Var).build().newCall(bs2.f(x, "downloadFile", a2.optString("__plugin__"))).enqueue(new b(this, callbackHandler, optString3, valueOf, httpUrl, l, e, optString4, z, optString2));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n(a3), 0));
             return true;
@@ -491,7 +491,7 @@ public class m13 extends lr2 {
             if (TextUtils.isEmpty(str) || (parse = Uri.parse(str)) == null) {
                 return null;
             }
-            return ng4.t(parse.getPath());
+            return mg4.t(parse.getPath());
         }
         return (String) invokeL.objValue;
     }

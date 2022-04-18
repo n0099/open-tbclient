@@ -1,46 +1,117 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.tail.tool.TailToolController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zk7 extends u05 {
+public class zk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdListView a;
+    public BaseActivity<?> b;
+    public NavigationBar c;
+    public View d;
+    public NoNetworkView e;
+    public TextView f;
+    public TextView g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zk7(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1342), 16, i);
+    public zk7(BaseActivity<?> baseActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {baseActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f080814;
-        this.e = R.drawable.obfuscated_res_0x7f080814;
-        this.f = R.drawable.icon_pure_post_more_tail64;
-        this.p = R.drawable.obfuscated_res_0x7f080959;
-        this.g = false;
-        this.h = true;
-        this.k = new TailToolController(context);
-        this.m = true;
-        this.l = 6;
-        this.n = new int[]{1};
+        this.b = baseActivity;
+        this.d = baseActivity.findViewById(R.id.obfuscated_res_0x7f091ed1);
+        this.a = (BdListView) baseActivity.findViewById(R.id.obfuscated_res_0x7f091ecd);
+        NavigationBar navigationBar = (NavigationBar) baseActivity.findViewById(R.id.obfuscated_res_0x7f091ece);
+        this.c = navigationBar;
+        navigationBar.setCenterTextTitle(baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f133b));
+        this.f = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.b.getString(R.string.obfuscated_res_0x7f0f036e), onClickListener);
+        TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, baseActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0513), onClickListener);
+        this.g = addTextButton;
+        addTextButton.setGravity(17);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f.getLayoutParams();
+        layoutParams.leftMargin = oi.f(this.b, R.dimen.obfuscated_res_0x7f0701be);
+        this.f.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.g.getLayoutParams();
+        layoutParams2.rightMargin = oi.f(this.b, R.dimen.obfuscated_res_0x7f0701be);
+        this.g.setLayoutParams(layoutParams2);
+        int f = oi.f(this.b, R.dimen.tbds27);
+        this.g.setPadding(f, 0, f, 0);
+        this.e = (NoNetworkView) baseActivity.findViewById(R.id.obfuscated_res_0x7f091eda);
+        View view2 = new View(baseActivity.getPageContext().getPageActivity());
+        view2.setLayoutParams(new AbsListView.LayoutParams(-1, (int) baseActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070266)));
+        View view3 = new View(baseActivity.getPageContext().getPageActivity());
+        view3.setLayoutParams(new AbsListView.LayoutParams(-1, (int) baseActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701f9)));
+        this.a.addFooterView(view2);
+        this.a.addHeaderView(view3);
+    }
+
+    public TextView a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (TextView) invokeV.objValue;
+    }
+
+    public TextView b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (TextView) invokeV.objValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b.getLayoutMode().k(i == 1);
+            this.b.getLayoutMode().j(this.d);
+            this.e.c(this.b.getPageContext(), i);
+            this.c.onChangeSkinType(this.b.getPageContext(), i);
+            SkinManager.setViewTextColor(this.g, (int) R.color.navbar_btn_color);
+            SkinManager.setViewTextColor(this.f, (int) R.color.navi_back_text_color);
+            SkinManager.setBackgroundResource(this.g, R.drawable.s_navbar_button_bg);
+        }
+    }
+
+    public void d(vk7 vk7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, vk7Var) == null) {
+            this.a.setAdapter((ListAdapter) vk7Var);
+        }
+    }
+
+    public void e(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f04e7));
+                return;
+            }
+            this.g.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0513));
+            this.g.setEnabled(!z2);
+        }
     }
 }

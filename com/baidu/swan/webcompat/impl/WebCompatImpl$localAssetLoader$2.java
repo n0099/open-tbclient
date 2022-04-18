@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.model.AssetUriLoader;
-import com.repackage.gi4;
+import com.repackage.fi4;
 import com.repackage.i03;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
@@ -52,7 +52,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
         String q2;
         WebViewAssetLoader.InternalStoragePathHandler m2;
         FilePathInfo l;
-        gi4 k;
+        fi4 k;
         String q3;
         String q4;
         String q5;

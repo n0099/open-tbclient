@@ -117,7 +117,7 @@ public class ub2 {
             if (c) {
                 Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
             }
-            String D = ng4.D(AppRuntime.getAppContext(), str);
+            String D = mg4.D(AppRuntime.getAppContext(), str);
             if (TextUtils.isEmpty(D)) {
                 if (c) {
                     Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");

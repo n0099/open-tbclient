@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mg;
 import com.repackage.mi;
 import com.repackage.qg;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -486,14 +486,14 @@ public class TbCDNTachometerService extends BdBaseService {
             if (!z2) {
                 synchronized (lock) {
                     if (0 == lastTachometerTime) {
-                        lastTachometerTime = wt4.k().m(LAST_GETCDNLIST_TIME, 0L);
+                        lastTachometerTime = vt4.k().m(LAST_GETCDNLIST_TIME, 0L);
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     if (0 != lastTachometerTime && currentTimeMillis - lastTachometerTime < 300000) {
                         return;
                     }
                     lastTachometerTime = currentTimeMillis;
-                    wt4.k().x(LAST_GETCDNLIST_TIME, currentTimeMillis);
+                    vt4.k().x(LAST_GETCDNLIST_TIME, currentTimeMillis);
                 }
             }
             Intent intent = new Intent(context, TbCDNTachometerService.class);

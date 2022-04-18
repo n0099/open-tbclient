@@ -1,6 +1,8 @@
 package com.repackage;
 
+import androidx.annotation.DrawableRes;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,21 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbPage.PbSortType;
 /* loaded from: classes6.dex */
-public class ls7 implements uo {
+public class ls7 extends PostData {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
-    public static final BdUniqueId i;
+    public static final BdUniqueId L0;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public BdUniqueId b;
-    public int c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public List<PbSortType> g;
+    @DrawableRes
+    public int F0;
+    public String G0;
+    public int H0;
+    public int I0;
+    public int J0;
+    public int K0;
 
     static {
         InterceptResult invokeClinit;
@@ -37,35 +36,29 @@ public class ls7 implements uo {
                 return;
             }
         }
-        h = BdUniqueId.gen();
-        i = BdUniqueId.gen();
+        L0 = BdUniqueId.gen();
     }
 
-    public ls7(BdUniqueId bdUniqueId) {
+    public ls7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = i;
-        this.c = 0;
-        this.d = false;
-        this.b = bdUniqueId;
+        this.K0 = 0;
     }
 
-    @Override // com.repackage.uo
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.uo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? L0 : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -34,8 +34,8 @@ public class TailFrameBarH5PortraitVertical extends LinearLayout {
 
     private void a(Context context) {
         LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d047e, this);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091149);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09114a);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09114a);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09114b);
     }
 
     private void b() {

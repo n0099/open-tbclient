@@ -62,16 +62,16 @@ public final class cc3 {
         return (cc3) invokeJ.objValue;
     }
 
-    public cc3 c(c94 c94Var) {
+    public cc3 c(b94 b94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c94Var)) == null) {
-            if (c94Var != null) {
-                i(c94Var.a);
-                d(c94Var.b);
-                q(c94Var.e);
-                if (!TextUtils.isEmpty(c94Var.d)) {
-                    f(c94Var.d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b94Var)) == null) {
+            if (b94Var != null) {
+                i(b94Var.a);
+                d(b94Var.b);
+                q(b94Var.e);
+                if (!TextUtils.isEmpty(b94Var.d)) {
+                    f(b94Var.d);
                 }
             }
             return this;

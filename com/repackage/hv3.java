@@ -21,7 +21,7 @@ public class hv3 {
             boolean z = false;
             if (pu3Var == null) {
                 iv3Var.errMsg = "openCustomerServiceConversation:fail";
-                v24.call(F, false, iv3Var);
+                u24.call(F, false, iv3Var);
                 return;
             }
             if (sw3.c()) {
@@ -40,7 +40,7 @@ public class hv3 {
             } else {
                 iv3Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
             }
-            v24.call(F, z, iv3Var);
+            u24.call(F, z, iv3Var);
         }
     }
 }

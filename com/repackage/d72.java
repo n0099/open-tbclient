@@ -99,11 +99,11 @@ public final class d72 implements yl2 {
 
         /* renamed from: com.repackage.d72$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0399a implements Runnable {
+        public class RunnableC0400a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0399a(a aVar) {
+            public RunnableC0400a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,7 +152,7 @@ public final class d72 implements yl2 {
                     return;
                 }
                 i03.J().z().X(15);
-                de3.e0(new RunnableC0399a(this));
+                de3.e0(new RunnableC0400a(this));
             }
         }
     }
@@ -599,7 +599,7 @@ public final class d72 implements yl2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, d72Var) == null) {
                 if (d72.A) {
-                    if4.b().e();
+                    hf4.b().e();
                     b03 f = b03.f(d72.getContext(), R.string.obfuscated_res_0x7f0f01a3);
                     f.l(1);
                     f.G();

@@ -137,7 +137,7 @@ public class g extends com.kwad.sdk.core.e.b {
             return null;
         }
         String c = c();
-        final ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09113c);
+        final ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09113d);
         Bitmap createBitmap = Bitmap.createBitmap(this.e.getWidth(), this.e.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         Bitmap bitmap = this.f.a().getBitmap();

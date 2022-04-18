@@ -1,38 +1,31 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lz4 extends TbConfig {
+public class lz4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Long a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public ItemData b;
+    public String c;
+    public int d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755511797, "Lcom/repackage/lz4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755511797, "Lcom/repackage/lz4;");
-                return;
+    public lz4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = 86400000L;
-        b = 300;
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : invokeV.intValue;
     }
 }

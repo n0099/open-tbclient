@@ -1,13 +1,7 @@
 package com.repackage;
 
-import java.util.List;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes6.dex */
 public interface ex6 {
-    void b(int i);
-
-    void loadData();
-
-    void onChangeSkinType(int i);
-
-    void setData(List<uo> list);
+    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
 }

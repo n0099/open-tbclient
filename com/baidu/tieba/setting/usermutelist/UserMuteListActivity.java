@@ -26,15 +26,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.au4;
 import com.repackage.b9;
-import com.repackage.dr4;
+import com.repackage.cr4;
 import com.repackage.mg;
 import com.repackage.mi;
 import com.repackage.ni;
-import com.repackage.qe8;
-import com.repackage.re8;
-import com.repackage.yt4;
+import com.repackage.xe8;
+import com.repackage.xt4;
+import com.repackage.ye8;
+import com.repackage.zt4;
 import java.util.ArrayList;
 import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes4.dex */
@@ -44,24 +44,24 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public String delUserId;
     public boolean isNeedRefresh;
-    public qe8 mAdapter;
+    public xe8 mAdapter;
     public UserMuteQueryModel.b mCallback;
     public b9 mCtx;
     public ArrayList<MuteUser> mData;
-    public qe8.d mHeaderClickHandler;
+    public xe8.d mHeaderClickHandler;
     public CustomMessageListener mNeedRefreshListener;
-    public qe8.e mRemoveClickHandler;
+    public xe8.e mRemoveClickHandler;
     public CustomMessageListener mRemoveItemListener;
-    public au4 mToastMute;
+    public zt4 mToastMute;
     public CustomMessageListener mUserMuteDelListener;
     public UserMuteQueryModel mUserMuteQueryModel;
-    public re8 mView;
-    public yt4 mWaitingDialog;
+    public ye8 mView;
+    public xt4 mWaitingDialog;
     public int page;
     public int rN;
 
     /* loaded from: classes4.dex */
-    public class a implements dr4.e {
+    public class a implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserMuteListActivity a;
@@ -84,11 +84,11 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             this.a = userMuteListActivity;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                dr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
             }
         }
     }
@@ -175,12 +175,12 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             this.a.mWaitingDialog.h(false);
             UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
             if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                this.a.mToastMute.c(this.a.mCtx.getResources().getString(R.string.obfuscated_res_0x7f0f146a));
+                this.a.mToastMute.c(this.a.mCtx.getResources().getString(R.string.obfuscated_res_0x7f0f1469));
                 return;
             }
             String muteMessage = userMuteDelResponseMessage.getMuteMessage();
             if (ni.isEmpty(muteMessage)) {
-                muteMessage = this.a.mCtx.getResources().getString(R.string.obfuscated_res_0x7f0f1469);
+                muteMessage = this.a.mCtx.getResources().getString(R.string.obfuscated_res_0x7f0f1468);
             }
             this.a.mToastMute.b(muteMessage);
         }
@@ -276,7 +276,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class f implements qe8.e {
+    public class f implements xe8.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserMuteListActivity a;
@@ -299,12 +299,12 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             this.a = userMuteListActivity;
         }
 
-        @Override // com.repackage.qe8.e
+        @Override // com.repackage.xe8.e
         public void a(long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) {
                 if (!mi.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 TiebaStatic.log("c10047");
@@ -319,7 +319,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class g implements qe8.d {
+    public class g implements xe8.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserMuteListActivity a;
@@ -342,7 +342,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             this.a = userMuteListActivity;
         }
 
-        @Override // com.repackage.qe8.d
+        @Override // com.repackage.xe8.d
         public void a(long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) {
@@ -430,7 +430,7 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class j implements dr4.e {
+    public class j implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserMuteAddAndDelCustomMessage a;
@@ -455,13 +455,13 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             this.a = userMuteAddAndDelCustomMessage;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 this.b.showLoadingDialog();
                 MessageManager.getInstance().sendMessage(this.a);
-                dr4Var.dismiss();
+                cr4Var.dismiss();
             }
         }
     }
@@ -522,9 +522,9 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                 return;
             }
             if (this.mWaitingDialog == null) {
-                yt4 yt4Var = new yt4(getPageContext());
-                this.mWaitingDialog = yt4Var;
-                yt4Var.e(new i(this));
+                xt4 xt4Var = new xt4(getPageContext());
+                this.mWaitingDialog = xt4Var;
+                xt4Var.e(new i(this));
             }
             this.mWaitingDialog.h(true);
         }
@@ -539,15 +539,15 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                 MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
                 return;
             }
-            dr4 dr4Var = new dr4(this.mCtx.getPageActivity());
+            cr4 cr4Var = new cr4(this.mCtx.getPageActivity());
             if (ni.isEmpty(str)) {
-                dr4Var.setMessage(this.mCtx.getResources().getString(R.string.obfuscated_res_0x7f0f0310, str2));
+                cr4Var.setMessage(this.mCtx.getResources().getString(R.string.obfuscated_res_0x7f0f0310, str2));
             } else {
-                dr4Var.setMessage(str);
+                cr4Var.setMessage(str);
             }
-            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0421, new j(this, userMuteAddAndDelCustomMessage));
-            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new a(this));
-            dr4Var.create(this.mCtx).show();
+            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0421, new j(this, userMuteAddAndDelCustomMessage));
+            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new a(this));
+            cr4Var.create(this.mCtx).show();
         }
     }
 
@@ -556,20 +556,20 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mAdapter = new qe8(this, this.mRemoveClickHandler, this.mHeaderClickHandler);
+            this.mAdapter = new xe8(this, this.mRemoveClickHandler, this.mHeaderClickHandler);
             this.mUserMuteQueryModel = new UserMuteQueryModel(this.mCallback);
-            re8 re8Var = new re8(this, this.mAdapter);
-            this.mView = re8Var;
-            re8Var.f().setAdapter((ListAdapter) this.mAdapter);
+            ye8 ye8Var = new ye8(this, this.mAdapter);
+            this.mView = ye8Var;
+            ye8Var.f().setAdapter((ListAdapter) this.mAdapter);
             this.mView.f().setOnScrollListener(new h(this));
             showLoadingDialog();
             registerListener(this.mRemoveItemListener);
             registerListener(this.mNeedRefreshListener);
             this.mUserMuteQueryModel.z(mg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
             this.mCtx = getPageContext();
-            au4 au4Var = new au4();
-            this.mToastMute = au4Var;
-            au4Var.a = 1000L;
+            zt4 zt4Var = new zt4();
+            this.mToastMute = zt4Var;
+            zt4Var.a = 1000L;
             registerListener(this.mUserMuteDelListener);
             UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001431);
             BdUniqueId bdUniqueId = MESSAGE_ID_USER_MUTE_LIST;

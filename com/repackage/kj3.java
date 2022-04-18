@@ -55,7 +55,7 @@ public class kj3 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                xc4.e().f();
+                wc4.e().f();
                 this.c.j(this.a, this.b);
             }
         }

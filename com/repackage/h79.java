@@ -1,168 +1,103 @@
 package com.repackage;
 
-import android.os.Build;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.z69;
+import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
 public final class h79 {
     public static /* synthetic */ Interceptable $ic;
-    public static String[] a;
-    public static File b;
-    public static RandomAccessFile c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LinkedHashMap<String, Long> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755695193, "Lcom/repackage/h79;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a extends l79 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
+
+        public a(h79 h79Var, com.baidu.ubs.analytics.a.l lVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h79Var, lVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755695193, "Lcom/repackage/h79;");
+            this.a = lVar;
+        }
+
+        @Override // com.repackage.l79
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                new r69().c(this.a);
+            }
+        }
+    }
+
+    public h79() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
+        this.a = new LinkedHashMap<>();
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public final void a(String str) {
+        z69 z69Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            b = file;
-            return file.exists();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            File file = new File(str);
-            b = file;
-            return file.delete();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String externalStorageState = Environment.getExternalStorageState();
-            if (Build.VERSION.SDK_INT >= 23) {
-                return b69.h().getContext().checkCallingOrSelfPermission(a[0]) == 0 && externalStorageState.equals("mounted");
+        com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+        synchronized (this.a) {
+            Long remove = this.a.remove(str);
+            if (remove == null) {
+                return;
             }
-            return externalStorageState.equals("mounted");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static synchronized boolean d(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
-            synchronized (h79.class) {
-                if (c() && f(str2, str3)) {
-                    try {
-                        b = new File(str2 + str3);
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(b, "rwd");
-                        c = randomAccessFile;
-                        randomAccessFile.seek(b.length());
-                        c.write((str + "\r\n").getBytes("UTF-8"));
-                        c.close();
-                        return true;
-                    } catch (Exception e) {
-                        k79.e(e);
-                        return false;
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static synchronized String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            synchronized (h79.class) {
-                if (c()) {
-                    if (a(str + str2)) {
-                        try {
-                            b = new File(str + str2);
-                            c = new RandomAccessFile(b, "r");
-                            StringBuffer stringBuffer = new StringBuffer();
-                            while (true) {
-                                String readLine = c.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                stringBuffer.append(new String(readLine.getBytes("ISO-8859-1"), IMAudioTransRequest.CHARSET));
-                                stringBuffer.append(",");
-                            }
-                            String stringBuffer2 = stringBuffer.toString();
-                            try {
-                                c.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                            return stringBuffer2;
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            try {
-                                c.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                    }
-                    return "";
-                }
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             try {
-                b = new File(str);
-                if (!a(str)) {
-                    b.mkdirs();
-                }
+                lVar.setStartTime(String.valueOf(remove));
+                lVar.t(str);
+                lVar.z(String.valueOf(System.currentTimeMillis()));
+                z69Var = z69.a.a;
+                lVar.setPath(z69Var.b());
+                lVar.x(i79.f().I());
             } catch (Exception e) {
-                e.printStackTrace();
+                r79.a(e.toString());
+                j79.b(e.toString());
             }
-            try {
-                File file = new File(str + str2);
-                b = file;
-                if (file.exists()) {
-                    return true;
-                }
-                return b.createNewFile();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return false;
-            }
+            k79.c(new a(this, lVar));
         }
-        return invokeLL.booleanValue;
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (this.a) {
+            this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+            String.valueOf(System.currentTimeMillis());
+        }
     }
 }

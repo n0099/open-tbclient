@@ -127,7 +127,7 @@ public class wg1 extends k03 {
                 if (response == null || response.body() == null) {
                     return null;
                 }
-                return new JSONObject(qg4.b(response.body().byteStream()));
+                return new JSONObject(pg4.b(response.body().byteStream()));
             }
             return (JSONObject) invokeLI.objValue;
         }
@@ -225,7 +225,7 @@ public class wg1 extends k03 {
     public static void b(String str, gk1.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, bVar) == null) {
-            m74.g().getRequest().url(d).cookieManager(qj2.q().a()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, str).addUrlParam("launchid", ju2.b()).build().executeAsyncOnUIBack(new b(bVar));
+            l74.g().getRequest().url(d).cookieManager(qj2.q().a()).addUrlParam(GameGuideConfigInfo.KEY_APP_KEY, str).addUrlParam("launchid", ju2.b()).build().executeAsyncOnUIBack(new b(bVar));
         }
     }
 

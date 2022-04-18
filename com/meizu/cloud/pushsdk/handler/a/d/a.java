@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
-import com.repackage.rm9;
+import com.repackage.ym9;
 /* loaded from: classes5.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<PushSwitchStatus> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
@@ -28,7 +28,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<PushSwitchStatus> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        rm9.d("AbstractMessageHandler", "start PushSwitchStatusHandler match");
+        ym9.d("AbstractMessageHandler", "start PushSwitchStatusHandler match");
         return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PUSH_STATUS.equals(i(intent));
     }
 
@@ -39,7 +39,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<PushSwitchStatus> {
         PushSwitchStatus pushSwitchStatus = (PushSwitchStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_STATUS);
         if (BasicPushStatus.SUCCESS_CODE.equals(pushSwitchStatus.getCode())) {
             String g = g(intent);
-            rm9.b("AbstractMessageHandler", "PushSwitchStatusHandler update local " + g + " switch status " + pushSwitchStatus);
+            ym9.b("AbstractMessageHandler", "PushSwitchStatusHandler update local " + g + " switch status " + pushSwitchStatus);
             com.meizu.cloud.pushsdk.util.b.a(c(), g, pushSwitchStatus.isSwitchNotificationMessage());
             com.meizu.cloud.pushsdk.util.b.b(c(), g, pushSwitchStatus.isSwitchThroughMessage());
         }

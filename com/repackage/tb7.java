@@ -1,24 +1,18 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.interest.data.RecentClientInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetTagList.DataRes;
-import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes7.dex */
 public class tb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<sb7> a;
-    public List<sb7> b;
-    public List<Integer> c;
+    public rb7 a;
+    public RecentClientInfo b;
 
     public tb7() {
         Interceptable interceptable = $ic;
@@ -34,51 +28,29 @@ public class tb7 {
         }
     }
 
-    public List<sb7> a() {
+    public rb7 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (rb7) invokeV.objValue;
     }
 
-    public List<sb7> b() {
+    public RecentClientInfo b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (RecentClientInfo) invokeV.objValue;
     }
 
-    public void c(DataRes dataRes) {
+    public void c(rb7 rb7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rb7Var) == null) {
+            this.a = rb7Var;
         }
-        if (!ListUtils.isEmpty(dataRes.sex_taglist)) {
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            d(arrayList, dataRes.sex_taglist);
-        }
-        if (ListUtils.isEmpty(dataRes.taglist)) {
-            return;
-        }
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        d(this.b, dataRes.taglist);
     }
 
-    public final void d(List<sb7> list, List<ResponseTagInfo> list2) {
+    public void d(RecentClientInfo recentClientInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) || list == null || list2 == null) {
-            return;
-        }
-        for (ResponseTagInfo responseTagInfo : list2) {
-            if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
-                sb7 sb7Var = new sb7();
-                sb7Var.a(responseTagInfo);
-                list.add(sb7Var);
-                List<Integer> list3 = this.c;
-                if (list3 != null && sb7Var.c) {
-                    list3.add(Integer.valueOf(sb7Var.a));
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, recentClientInfo) == null) {
+            this.b = recentClientInfo;
         }
     }
 }

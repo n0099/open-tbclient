@@ -2,15 +2,11 @@ package com.repackage;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,19 +14,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mp5 extends rw5<dp5> {
+public class mp5 extends tw5<wo5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public TextView j;
-    public HeadImageView k;
-    public TextView l;
+    public lp5 i;
+    public lp5 j;
+    public LinearLayout k;
+    public ViewGroup l;
     public View m;
-    public dp5 n;
-    public RelativeLayout o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mp5(TbPageContext tbPageContext, ViewGroup viewGroup) {
+    public mp5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,66 +42,67 @@ public class mp5 extends rw5<dp5> {
                 return;
             }
         }
-        this.m = k();
-        this.o = (RelativeLayout) k().findViewById(R.id.obfuscated_res_0x7f090e4c);
-        this.i = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e4a);
-        this.j = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e49);
-        HeadImageView headImageView = (HeadImageView) k().findViewById(R.id.obfuscated_res_0x7f090e48);
-        this.k = headImageView;
-        headImageView.setAutoChangeStyle(true);
-        this.k.setIsRound(true);
-        this.k.setDrawBorder(true);
-        this.k.setPlaceHolder(1);
-        this.k.setBorderWidth(oi.f(tbPageContext.getPageActivity(), R.dimen.tbds1));
-        this.k.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.l = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e4b);
-        this.o.setOnClickListener(this);
-        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.i = new lp5(tbPageContext);
+        this.j = new lp5(tbPageContext);
+        ViewGroup viewGroup2 = (ViewGroup) k();
+        this.l = viewGroup2;
+        this.k = (LinearLayout) viewGroup2.findViewById(R.id.obfuscated_res_0x7f090e4e);
+        this.m = this.l.findViewById(R.id.obfuscated_res_0x7f090e44);
+        View view2 = new View(getContext());
+        this.k.setPadding(j().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, j().getResources().getDimensionPixelSize(R.dimen.tbds44), j().getResources().getDimensionPixelSize(R.dimen.tbds12));
+        this.k.addView(this.i.h());
+        this.k.addView(view2, new LinearLayout.LayoutParams(j().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
+        this.k.addView(this.j.h());
+        m(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07f7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07f5 : invokeV.intValue;
     }
 
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
+            this.i.k(tbPageContext, i);
+            this.j.k(tbPageContext, i);
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0204);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || e() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        e().a(view2, this.n);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     /* renamed from: s */
-    public void l(dp5 dp5Var) {
+    public void l(wo5 wo5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, dp5Var) == null) || dp5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, wo5Var) == null) || wo5Var == null) {
             return;
         }
-        this.n = dp5Var;
-        String str = dp5Var.c;
-        if (StringUtils.isNull(str)) {
-            str = StringUtils.isNull(dp5Var.b) ? "" : dp5Var.b;
+        this.i.i(wo5Var.a);
+        this.j.i(wo5Var.b);
+        if (wo5Var.c) {
+            this.m.setVisibility(0);
+        } else {
+            this.m.setVisibility(8);
         }
-        this.i.setText(str);
-        this.j.setText(StringUtils.isNull(dp5Var.e) ? "" : dp5Var.e);
-        this.k.K(dp5Var.d, 10, false);
-        this.l.setText(StringUtils.isNull(dp5Var.f) ? "" : dp5Var.f);
+    }
+
+    public void t(rp5 rp5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, rp5Var) == null) {
+            this.i.l(rp5Var);
+            this.j.l(rp5Var);
+        }
     }
 }

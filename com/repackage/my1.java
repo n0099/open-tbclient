@@ -341,12 +341,12 @@ public class my1 implements Runnable {
             }
             InputStream inputStream = this.a;
             if (inputStream != null) {
-                ng4.d(inputStream);
+                mg4.d(inputStream);
                 this.a = null;
             }
             OutputStream outputStream = this.b;
             if (outputStream != null) {
-                ng4.d(outputStream);
+                mg4.d(outputStream);
                 this.b = null;
             }
             this.c = null;
@@ -434,8 +434,8 @@ public class my1 implements Runnable {
                     }
                 }
             } finally {
-                ng4.d(this.a);
-                ng4.d(this.b);
+                mg4.d(this.a);
+                mg4.d(this.b);
             }
         }
     }

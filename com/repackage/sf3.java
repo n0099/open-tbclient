@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sf3 implements k64 {
+public class sf3 implements j64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout a;
@@ -33,7 +33,7 @@ public class sf3 implements k64 {
         this.a = null;
     }
 
-    @Override // com.repackage.k64
+    @Override // com.repackage.j64
     public void a(BaseMenuView baseMenuView) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, baseMenuView) == null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {

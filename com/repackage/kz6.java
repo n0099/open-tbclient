@@ -1,12 +1,13 @@
 package com.repackage;
 
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.Resource;
+import tbclient.App;
 /* loaded from: classes6.dex */
-public class kz6 extends iy5 {
+public class kz6 extends zx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,19 +25,15 @@ public class kz6 extends iy5 {
         }
     }
 
-    public void e(Resource resource) {
+    public void g(App app) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, resource) == null) || resource == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, app) == null) || app == null) {
             return;
         }
-        this.a = resource.res_id.longValue();
-        this.b = resource.user_name;
-        this.c = resource.user_image;
-        this.d = resource.user_link;
-        this.e = resource.res_title;
-        this.f = resource.res_image;
-        this.g = resource.res_link;
-        this.h = resource.position.longValue();
-        this.i = resource.icon_text;
+        if (this.a == null) {
+            this.a = new AdvertAppInfo();
+        }
+        this.a.s(app);
+        this.position = this.a.position;
     }
 }

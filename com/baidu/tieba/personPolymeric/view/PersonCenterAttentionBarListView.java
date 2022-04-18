@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a58;
+import com.repackage.d58;
 import com.repackage.dg;
 import com.repackage.eg;
-import com.repackage.t48;
-import com.repackage.w48;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public t48 b;
+    public a58 b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -163,7 +163,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<w48> e = this.a.e(i);
+                List<d58> e = this.a.e(i);
                 if (ListUtils.isEmpty(e)) {
                     return null;
                 }
@@ -213,20 +213,20 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<w48> e(int i) {
+    public final List<d58> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            t48 t48Var = this.b;
-            if (t48Var == null || ListUtils.isEmpty(t48Var.a)) {
+            a58 a58Var = this.b;
+            if (a58Var == null || ListUtils.isEmpty(a58Var.a)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             int i2 = i * 4;
             for (int i3 = i2; i3 < i2 + 4; i3++) {
-                w48 w48Var = (w48) ListUtils.getItem(this.b.a, i3);
-                if (w48Var != null) {
-                    arrayList.add(w48Var);
+                d58 d58Var = (d58) ListUtils.getItem(this.b.a, i3);
+                if (d58Var != null) {
+                    arrayList.add(d58Var);
                 }
             }
             return arrayList;

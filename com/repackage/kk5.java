@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.du4;
+import com.repackage.cu4;
 import com.repackage.ik5;
 import java.util.List;
 /* loaded from: classes6.dex */
@@ -32,7 +32,7 @@ public class kk5 extends z8<NewFriendsActivity> {
     public ImageView d;
     public BdListView e;
     public ik5 f;
-    public eu4 g;
+    public du4 g;
     public NoDataView h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,36 +54,36 @@ public class kk5 extends z8<NewFriendsActivity> {
             }
         }
         this.a = newFriendsActivity;
-        this.b = newFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091542);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ab);
+        this.b = newFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091543);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
         this.c = navigationBar;
-        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c1d));
+        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c1c));
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d007f, this.a).findViewById(R.id.obfuscated_res_0x7f091544);
+        ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d007f, this.a).findViewById(R.id.obfuscated_res_0x7f091545);
         this.d = imageView;
-        imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809c7, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-        this.e = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f091543);
+        imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809cb, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+        this.e = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f091544);
         ik5 ik5Var = new ik5(this.a);
         this.f = ik5Var;
         this.e.setAdapter((ListAdapter) ik5Var);
         this.e.setOnItemClickListener(this.a);
         this.e.setOnItemLongClickListener(this.a);
-        eu4 eu4Var = new eu4(newFriendsActivity.getPageContext());
-        this.g = eu4Var;
-        this.e.setPullRefresh(eu4Var);
+        du4 du4Var = new du4(newFriendsActivity.getPageContext());
+        this.g = du4Var;
+        this.e.setPullRefresh(du4Var);
         BdListViewHelper.d(this.a.getActivity(), this.e, BdListViewHelper.HeadType.DEFAULT);
-        this.h = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, oi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c55), null);
+        this.h = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, oi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0c54), null);
     }
 
-    public void e(tm4 tm4Var, int i) {
+    public void e(sm4 sm4Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, tm4Var, i) == null) {
-            tm4Var.k(i == 1);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, sm4Var, i) == null) {
+            sm4Var.k(i == 1);
             this.c.onChangeSkinType(this.a.getPageContext(), i);
             this.g.H(i);
-            tm4Var.j(this.b);
+            sm4Var.j(this.b);
             this.h.f(this.a.getPageContext(), i);
-            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809c7, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809cb, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
@@ -100,15 +100,15 @@ public class kk5 extends z8<NewFriendsActivity> {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (ik5) invokeV.objValue;
     }
 
-    public void h(w57 w57Var) {
+    public void h(z57 z57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, w57Var) == null) {
-            this.f.d(w57Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, z57Var) == null) {
+            this.f.d(z57Var);
             this.f.notifyDataSetChanged();
         }
     }
 
-    public void i(List<w57> list) {
+    public void i(List<z57> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.e.setEmptyView(this.h);
@@ -117,7 +117,7 @@ public class kk5 extends z8<NewFriendsActivity> {
         }
     }
 
-    public void j(du4.g gVar) {
+    public void j(cu4.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, gVar) == null) {
             this.g.f(gVar);
@@ -138,7 +138,7 @@ public class kk5 extends z8<NewFriendsActivity> {
         }
     }
 
-    public void m(List<w57> list) {
+    public void m(List<z57> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             this.f.h(list);

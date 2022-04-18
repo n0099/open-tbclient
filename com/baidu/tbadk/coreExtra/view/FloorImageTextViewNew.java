@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kw8;
 import com.repackage.oi;
+import com.repackage.rw8;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
@@ -114,7 +114,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
             }
             if (imageUrlData != null && jSONArray != null && jSONArray.length() > 0) {
                 this.m = true;
-                kw8.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                rw8.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                 TbRichText U = TbRichTextView.U(jSONArray, false);
                 g(d(U.toString()));
                 this.j.setText(U);
@@ -146,13 +146,13 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a0, (ViewGroup) this, true);
-            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f091f54);
+            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f091f55);
             this.j = tbRichTextView;
             tbRichTextView.setVerticalScrollBarEnabled(true);
             this.j.setTextSize(AbsFloorImageTextView.i);
             this.j.setTextColor(SkinManager.getColor(R.color.white_alpha83));
             this.j.R = true;
-            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091c03);
+            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091c04);
             this.k = editorScrollView;
             editorScrollView.setPadding(0, oi.f(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.e);
             this.k.setOnTouchListener(this.c);

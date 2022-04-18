@@ -23,15 +23,15 @@ import com.repackage.b00;
 import com.repackage.m00;
 import com.repackage.ty;
 /* loaded from: classes5.dex */
-public class ea5 extends s95<rq4, ThreadCardViewHolder<rq4>> {
+public class ea5 extends s95<qq4, ThreadCardViewHolder<qq4>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FollowUserButton.a o;
     public NEGFeedBackView.b p;
-    public rx5<rq4> q;
+    public tx5<qq4> q;
 
     /* loaded from: classes5.dex */
-    public class a extends rx5<rq4> {
+    public class a extends tx5<qq4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ea5 b;
@@ -55,12 +55,12 @@ public class ea5 extends s95<rq4, ThreadCardViewHolder<rq4>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.rx5
+        @Override // com.repackage.tx5
         /* renamed from: d */
-        public void a(View view2, rq4 rq4Var) {
+        public void a(View view2, qq4 qq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, rq4Var) == null) {
-                this.b.b0(view2, rq4Var);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, qq4Var) == null) {
+                this.b.b0(view2, qq4Var);
             }
         }
     }
@@ -87,17 +87,17 @@ public class ea5 extends s95<rq4, ThreadCardViewHolder<rq4>> {
         }
 
         @Override // com.repackage.ty.b
-        public void a(qn4 qn4Var, View view2) {
+        public void a(pn4 pn4Var, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, qn4Var, view2) == null) || qn4Var == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, pn4Var, view2) == null) || pn4Var == null) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09229c) {
-                qn4Var.objType = 3;
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09227a) {
-                qn4Var.objType = 4;
+            if (view2.getId() == R.id.obfuscated_res_0x7f09229d) {
+                pn4Var.objType = 3;
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09227b) {
+                pn4Var.objType = 4;
             } else {
-                qn4Var.objType = 1;
+                pn4Var.objType = 1;
             }
         }
     }
@@ -129,14 +129,14 @@ public class ea5 extends s95<rq4, ThreadCardViewHolder<rq4>> {
         @Override // com.repackage.dp
         public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof rq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof qq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                rq4 rq4Var = (rq4) uoVar;
-                rq4Var.objType = 1;
+                qq4 qq4Var = (qq4) uoVar;
+                qq4Var.objType = 1;
                 if (this.a.q != null) {
-                    this.a.q.a(threadCardViewHolder.b(), rq4Var);
+                    this.a.q.a(threadCardViewHolder.b(), qq4Var);
                 }
-                ThreadCardUtils.jumpToPB((qn4) rq4Var, view2.getContext(), this.a.h0(), false, uy.a((zo) viewGroup, view2, i));
+                ThreadCardUtils.jumpToPB((pn4) qq4Var, view2.getContext(), this.a.h0(), false, uy.a((zo) viewGroup, view2, i));
                 threadCardViewHolder.c().o(new m00.a(1));
             }
         }
@@ -190,21 +190,21 @@ public class ea5 extends s95<rq4, ThreadCardViewHolder<rq4>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: u0 */
-    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, ThreadCardViewHolder<rq4> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<qq4> threadCardViewHolder) {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, threadCardViewHolder})) == null) {
-            if (rq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = rq4Var.s) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
+            if (qq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = qq4Var.s) == null) {
                 return null;
             }
             boolean z = true;
             threadData.statFloor = C(i) + 1;
             threadCardViewHolder.c().q(i);
             threadCardViewHolder.s(m0(1), Align.ALIGN_RIGHT_TOP, this.p);
-            threadCardViewHolder.m((m0(4) && rq4Var.showFollowBtn()) ? false : false, this.o);
+            threadCardViewHolder.m((m0(4) && qq4Var.showFollowBtn()) ? false : false, this.o);
             threadCardViewHolder.v(m0(8), Align.ALIGN_RIGHT_TOP);
-            threadCardViewHolder.g(rq4Var);
+            threadCardViewHolder.g(qq4Var);
             threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
             threadCardViewHolder.c().p(this.q);
             return threadCardViewHolder.b();

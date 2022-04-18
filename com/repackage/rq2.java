@@ -51,13 +51,13 @@ public class rq2 extends HandlerThread implements qq2 {
 
         /* renamed from: com.repackage.rq2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0505a implements Runnable {
+        public class RunnableC0508a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ tq2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0505a(a aVar, tq2 tq2Var) {
+            public RunnableC0508a(a aVar, tq2 tq2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +98,7 @@ public class rq2 extends HandlerThread implements qq2 {
 
             /* renamed from: com.repackage.rq2$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0506a implements Runnable {
+            public class RunnableC0509a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Bitmap a;
@@ -107,17 +107,17 @@ public class rq2 extends HandlerThread implements qq2 {
 
                 /* renamed from: com.repackage.rq2$a$b$a$a  reason: collision with other inner class name */
                 /* loaded from: classes7.dex */
-                public class RunnableC0507a implements Runnable {
+                public class RunnableC0510a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SwanAppActivity a;
 
-                    public RunnableC0507a(RunnableC0506a runnableC0506a, SwanAppActivity swanAppActivity) {
+                    public RunnableC0510a(RunnableC0509a runnableC0509a, SwanAppActivity swanAppActivity) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {runnableC0506a, swanAppActivity};
+                            Object[] objArr = {runnableC0509a, swanAppActivity};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -142,7 +142,7 @@ public class rq2 extends HandlerThread implements qq2 {
                     }
                 }
 
-                public RunnableC0506a(b bVar, Bitmap bitmap, SwanAppActivity swanAppActivity) {
+                public RunnableC0509a(b bVar, Bitmap bitmap, SwanAppActivity swanAppActivity) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,7 +165,7 @@ public class rq2 extends HandlerThread implements qq2 {
                 public final void a(SwanAppActivity swanAppActivity) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, swanAppActivity) == null) {
-                        de3.a0(new RunnableC0507a(this, swanAppActivity));
+                        de3.a0(new RunnableC0510a(this, swanAppActivity));
                     }
                 }
 
@@ -217,7 +217,7 @@ public class rq2 extends HandlerThread implements qq2 {
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (activity = wl2.U().getActivity()) == null || activity.isFinishing() || activity.isDestroyed() || this.a.a == null) {
                     return;
                 }
-                dd3.f().execute(new RunnableC0506a(this, ae3.p(), activity), "SwanPageMonitorRecheck");
+                dd3.f().execute(new RunnableC0509a(this, ae3.p(), activity), "SwanPageMonitorRecheck");
             }
         }
 
@@ -250,7 +250,7 @@ public class rq2 extends HandlerThread implements qq2 {
         public final void g(tq2 tq2Var) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, tq2Var) == null) && tq2Var != null && i(tq2Var.a)) {
-                de3.e0(new RunnableC0505a(this, tq2Var));
+                de3.e0(new RunnableC0508a(this, tq2Var));
             }
         }
 

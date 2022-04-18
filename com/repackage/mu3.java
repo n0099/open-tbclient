@@ -7,7 +7,7 @@ public interface mu3 extends zt3 {
 
     void d(String str) throws Exception;
 
-    void f(y64 y64Var);
+    void f(x64 x64Var);
 
     void h(MediaPlayer.OnInfoListener onInfoListener);
 

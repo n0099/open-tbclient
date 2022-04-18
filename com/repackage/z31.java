@@ -64,9 +64,9 @@ public class z31 extends Dialog {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f091acf);
-            this.c = (LoadingProgressBar) findViewById(R.id.obfuscated_res_0x7f091301);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0913f4);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091ad0);
+            this.c = (LoadingProgressBar) findViewById(R.id.obfuscated_res_0x7f091302);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0913f5);
             this.d = textView;
             textView.setText(this.e);
             setCancelable(this.g);
@@ -114,11 +114,11 @@ public class z31 extends Dialog {
         Resources resources = context.getResources();
         View view2 = this.b;
         if (view2 != null) {
-            view2.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080db4));
+            view2.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080db8));
         }
         LoadingProgressBar loadingProgressBar = this.c;
         if (loadingProgressBar != null) {
-            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080db7));
+            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080dbb));
         }
         TextView textView = this.d;
         if (textView != null) {

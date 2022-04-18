@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.dk8;
+import com.repackage.kk8;
 import com.repackage.mg;
 /* loaded from: classes3.dex */
 public class ShareReportModel extends BdBaseModel {
@@ -65,8 +65,8 @@ public class ShareReportModel extends BdBaseModel {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            dk8.h(309480, ShareReportSocketResponseMessage.class, false, false);
-            dk8.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
+            kk8.h(309480, ShareReportSocketResponseMessage.class, false, false);
+            kk8.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
         }
     }
 

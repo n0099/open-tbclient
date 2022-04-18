@@ -210,7 +210,7 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
     public void onClick(View view2) {
         iv0 iv0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0922ed && (iv0Var = this.y) != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0922ee && (iv0Var = this.y) != null) {
             iv0Var.P(8);
             this.y.N();
             this.y.G(hs0.w("layer_event_ad_finish"));
@@ -226,14 +226,14 @@ public class AdVideoTailFrameView extends AdEmbeddedTailFrameView implements Vie
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             t(false);
             setAlsHandler(new a(this));
-            this.x = findViewById(R.id.obfuscated_res_0x7f0922ed);
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ec);
-            this.s = findViewById(R.id.obfuscated_res_0x7f0922ee);
-            this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922e9);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ea);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0922eb);
-            this.s.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e17));
-            this.t.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e16));
+            this.x = findViewById(R.id.obfuscated_res_0x7f0922ee);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ed);
+            this.s = findViewById(R.id.obfuscated_res_0x7f0922ef);
+            this.t = (ImageView) findViewById(R.id.obfuscated_res_0x7f0922ea);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f0922eb);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ec);
+            this.s.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e1b));
+            this.t.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e1a));
             this.x.setOnClickListener(this);
         }
     }

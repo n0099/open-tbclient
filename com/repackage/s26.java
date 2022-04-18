@@ -3,7 +3,7 @@ package com.repackage;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ public class s26 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ScoreCardInfo a;
+    public FeatureCardHot a;
 
     static {
         InterceptResult invokeClinit;
@@ -48,16 +48,16 @@ public class s26 extends BaseCardInfo {
         }
     }
 
-    public ScoreCardInfo e() {
+    public FeatureCardHot e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ScoreCardInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (FeatureCardHot) invokeV.objValue;
     }
 
-    public void g(ScoreCardInfo scoreCardInfo) {
+    public void g(FeatureCardHot featureCardHot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scoreCardInfo) == null) {
-            this.a = scoreCardInfo;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardHot) == null) {
+            this.a = featureCardHot;
         }
     }
 

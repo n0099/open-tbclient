@@ -81,7 +81,7 @@ public class ql2 {
             }
         }
 
-        @Override // com.repackage.d84, com.repackage.a84
+        @Override // com.repackage.c84, com.repackage.z74
         public void n(String str, String str2) {
             List<UbcFlowEvent> list;
             Interceptable interceptable = $ic;
@@ -125,18 +125,18 @@ public class ql2 {
             if (1 != i) {
                 i = 0;
             }
-            kb4 kb4Var = new kb4(string, i);
+            jb4 jb4Var = new jb4(string, i);
             if (bundle.containsKey("pms_update_expect_pkg_ver")) {
-                kb4Var.q(bundle.getLong("pms_update_expect_pkg_ver"));
+                jb4Var.q(bundle.getLong("pms_update_expect_pkg_ver"));
             }
             if (a) {
-                Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Long.valueOf(kb4Var.i())));
+                Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Long.valueOf(jb4Var.i())));
             }
-            kb4Var.d("4");
+            jb4Var.d("4");
             b bVar = new b(string);
             bVar.f0(new a());
             bVar.M(3);
-            s74.c(kb4Var, bVar);
+            r74.c(jb4Var, bVar);
         }
     }
 
@@ -225,7 +225,7 @@ public class ql2 {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return e(f84.i().u(str));
+            return e(e84.i().u(str));
         }
         return invokeL.booleanValue;
     }

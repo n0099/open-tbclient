@@ -1,21 +1,21 @@
 package com.repackage;
 
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class zb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+    public ac8 a;
+    public bc8 b;
+    public LinkedList<xb8> c;
 
     public zb8() {
         Interceptable interceptable = $ic;
@@ -27,42 +27,43 @@ public class zb8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ac8();
+        this.b = new bc8();
+        this.c = new LinkedList<>();
     }
 
-    public static zb8 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            zb8 zb8Var = new zb8();
-            zb8Var.a = jSONObject.optString("brand_name");
-            zb8Var.b = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-            zb8Var.c = jSONObject.optString("button_scheme");
-            zb8Var.d = jSONObject.optString("cmd_scheme");
-            return zb8Var;
-        }
-        return (zb8) invokeL.objValue;
-    }
-
-    public JSONObject b() {
+    public ac8 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("brand_name", this.a);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.b);
-                jSONObject.put("button_scheme", this.c);
-                jSONObject.put("cmd_scheme", this.d);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ac8) invokeV.objValue;
+    }
+
+    public bc8 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (bc8) invokeV.objValue;
+    }
+
+    public List<xb8> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.c) : (List) invokeV.objValue;
+    }
+
+    public void d(xb8 xb8Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, xb8Var) == null) || xb8Var == null) {
+            return;
         }
-        return (JSONObject) invokeV.objValue;
+        this.c.add(xb8Var);
+    }
+
+    public void e(xb8 xb8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xb8Var) == null) {
+        }
     }
 }

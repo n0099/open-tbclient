@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r38 extends ho<b58, CardViewHolder<d68>> {
+public class r38 extends ho<c58, CardViewHolder<f68>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r38(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), b58.e);
+        super(tbPageContext.getPageActivity(), c58.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,20 +44,20 @@ public class r38 extends ho<b58, CardViewHolder<d68>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: Z */
-    public CardViewHolder<d68> M(ViewGroup viewGroup) {
+    public CardViewHolder<f68> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new d68(this.i)) : (CardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new f68(this.i)) : (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, b58 b58Var, CardViewHolder<d68> cardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, c58 c58Var, CardViewHolder<f68> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b58Var, cardViewHolder})) == null) {
-            cardViewHolder.c().l(b58Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c58Var, cardViewHolder})) == null) {
+            cardViewHolder.c().l(c58Var);
             cardViewHolder.c().m(this.i, TbadkCoreApplication.getInst().getSkinType());
             return cardViewHolder.b();
         }

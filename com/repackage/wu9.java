@@ -1,21 +1,25 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBNativeListener;
+import com.win.opensdk.core.Info;
 /* loaded from: classes7.dex */
-public class wu9 {
+public class wu9 implements eu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ bq9 a;
+    public final /* synthetic */ qo9 a;
 
-    public wu9(bq9 bq9Var) {
+    public wu9(qo9 qo9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bq9Var};
+            Object[] objArr = {qo9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,33 +29,42 @@ public class wu9 {
                 return;
             }
         }
-        this.a = bq9Var;
+        this.a = qo9Var;
     }
 
-    public void a(int i, int i2) {
+    @Override // com.repackage.eu9
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i == 1 && i2 == 0) {
-            bq9 bq9Var = this.a;
-            cq9 cq9Var = bq9Var.e;
-            if (cq9Var != null && !bq9Var.f && !bq9Var.k && !bq9.x) {
-                if (cq9Var != null) {
-                    cq9Var.e();
-                    return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.eu9
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            Info info = (Info) obj;
+            try {
+                this.a.c = info;
+                if (this.a.f != null) {
+                    if (info == null || info.getType() != 11) {
+                        this.a.f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.a.g()) {
+                        this.a.f.onLoaded();
+                    }
                 }
-                return;
-            }
-            bq9 bq9Var2 = this.a;
-            if (bq9Var2.e == null || bq9Var2.f || !bq9Var2.k || bq9.x) {
-                return;
-            }
-            so9 so9Var = bq9Var2.b.a;
-            if (((so9Var == null || !so9Var.f()) ? -1 : so9Var.c.getOpent()) == 1) {
-                bq9 bq9Var3 = this.a;
-                if (bq9Var3.e == null || !bq9Var3.r.isShown()) {
-                    return;
-                }
-                this.a.e.e();
+            } catch (Exception unused) {
             }
         }
+    }
+
+    @Override // com.repackage.eu9
+    public void onFail(PBError pBError) {
+        PBNativeListener pBNativeListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.a.f) == null) {
+            return;
+        }
+        pBNativeListener.onFail(pBError);
     }
 }

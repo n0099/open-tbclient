@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.je7;
-import com.repackage.ke7;
+import com.repackage.me7;
+import com.repackage.ne7;
 import com.repackage.oi;
-import com.repackage.qv4;
-import com.repackage.sd7;
-import com.repackage.sv4;
+import com.repackage.pv4;
+import com.repackage.rv4;
 import com.repackage.uo;
+import com.repackage.vd7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BannerFlowView extends FrameLayout {
@@ -31,12 +31,12 @@ public class BannerFlowView extends FrameLayout {
     public ListViewPager a;
     public View b;
     public IndicatorView c;
-    public ke7 d;
-    public je7 e;
+    public ne7 d;
+    public me7 e;
     public c f;
 
     /* loaded from: classes3.dex */
-    public class a implements sd7 {
+    public class a implements vd7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerFlowView a;
@@ -59,7 +59,7 @@ public class BannerFlowView extends FrameLayout {
             this.a = bannerFlowView;
         }
 
-        @Override // com.repackage.sd7
+        @Override // com.repackage.vd7
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.f == null) {
@@ -68,7 +68,7 @@ public class BannerFlowView extends FrameLayout {
             this.a.f.a(i);
         }
 
-        @Override // com.repackage.sd7
+        @Override // com.repackage.vd7
         public void b(float f) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) || this.a.f == null) {
@@ -127,7 +127,7 @@ public class BannerFlowView extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public interface c extends sd7 {
+    public interface c extends vd7 {
         void onPageSelected(int i);
     }
 
@@ -156,8 +156,8 @@ public class BannerFlowView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f0802cf);
-            this.c.setSelector(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806ea));
-            this.c.setDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806e9));
+            this.c.setSelector(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806e9));
+            this.c.setDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806e8));
         }
     }
 
@@ -170,8 +170,8 @@ public class BannerFlowView extends FrameLayout {
             this.c = indicatorView;
             indicatorView.setSpacing(0);
             b();
-            this.d = new ke7(context, this.a, this.c, null);
-            this.e = new je7(context, sv4.a);
+            this.d = new ne7(context, this.a, this.c, null);
+            this.e = new me7(context, rv4.a);
             this.d.m(5000L);
             this.d.l(context, this.e);
             this.d.q(new b(this));
@@ -263,13 +263,13 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(qv4.a<sv4, je7.a> aVar) {
-        je7 je7Var;
+    public void setOnItemClickListener(pv4.a<rv4, me7.a> aVar) {
+        me7 me7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || (je7Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) || (me7Var = this.e) == null) {
             return;
         }
-        je7Var.e(aVar);
+        me7Var.e(aVar);
     }
 
     public void setOnPageSelected(c cVar) {

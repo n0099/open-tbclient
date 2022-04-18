@@ -29,10 +29,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk7;
-import com.repackage.dk7;
+import com.repackage.ek7;
+import com.repackage.gk7;
 import com.repackage.ni;
-import com.repackage.vl4;
+import com.repackage.ul4;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivity> {
@@ -41,7 +41,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     public String SCENE_ID;
     public final CustomMessageListener mBuyTdouListener;
     public final CustomMessageListener mMemListener;
-    public dk7 mMemberPrivilegeView;
+    public gk7 mMemberPrivilegeView;
     public HttpMessageListener mRequestMemberPrivilegelistener;
 
     /* loaded from: classes3.dex */
@@ -82,14 +82,14 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                     int error = httpResponsedMessage.getError();
                     ResponseMemberPrivilegeMessage responseMemberPrivilegeMessage = (ResponseMemberPrivilegeMessage) httpResponsedMessage;
                     if (error != 0) {
-                        this.a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18) : responseMemberPrivilegeMessage.getErrorString());
+                        this.a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : responseMemberPrivilegeMessage.getErrorString());
                         return;
                     }
-                    bk7 bk7Var = responseMemberPrivilegeMessage.mData;
-                    if (bk7Var != null) {
-                        this.a.mMemberPrivilegeView.f().h(bk7Var);
+                    ek7 ek7Var = responseMemberPrivilegeMessage.mData;
+                    if (ek7Var != null) {
+                        this.a.mMemberPrivilegeView.f().h(ek7Var);
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     }
                 }
             }
@@ -194,7 +194,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mMemberPrivilegeView = new dk7(getPageContext().getOrignalPage());
+            this.mMemberPrivilegeView = new gk7(getPageContext().getOrignalPage());
         }
     }
 
@@ -228,10 +228,10 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            if (R.id.obfuscated_res_0x7f091210 == view2.getId()) {
+            if (R.id.obfuscated_res_0x7f091211 == view2.getId()) {
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "consume_33", "click", 1, new Object[0]);
                 sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(getPageContext().getPageActivity(), 0, TiebaStatic.DQPay.TYPE_VALUE, 3, 1, this.SCENE_ID)));
-            } else if (R.id.obfuscated_res_0x7f091a97 == view2.getId()) {
+            } else if (R.id.obfuscated_res_0x7f091a98 == view2.getId()) {
                 CurrencyJumpHelper.memberCenterBuyTBean(getPageContext().getPageActivity(), this.SCENE_ID);
             }
         }
@@ -257,15 +257,15 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || i == 0 || 1 == this.mMemberPrivilegeView.f().getItemViewType(i)) {
             return;
         }
-        String str = ((bk7.a) this.mMemberPrivilegeView.f().getItem(i)).d;
-        String str2 = ((bk7.a) this.mMemberPrivilegeView.f().getItem(i)).b;
+        String str = ((ek7.a) this.mMemberPrivilegeView.f().getItem(i)).d;
+        String str2 = ((ek7.a) this.mMemberPrivilegeView.f().getItem(i)).b;
         if (ni.isEmpty(str)) {
             return;
         }
         if (isBubbleLink(str)) {
             sendMessage(new CustomMessage(2002001, new BubbleChooseActivityConfig(getPageContext().getPageActivity())));
         } else {
-            vl4.q(getPageContext().getPageActivity(), str2, str, true, true, true);
+            ul4.q(getPageContext().getPageActivity(), str2, str, true, true, true);
         }
     }
 

@@ -244,10 +244,10 @@ public class fn3 implements dn3.b {
     }
 
     @Override // com.repackage.dn3.b
-    public hd4 a() {
+    public gd4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new li4() : (hd4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ki4() : (gd4) invokeV.objValue;
     }
 
     @Override // com.repackage.dn3.b

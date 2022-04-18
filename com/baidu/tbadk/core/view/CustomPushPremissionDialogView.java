@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nu4;
+import com.repackage.mu4;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class CustomPushPremissionDialogView extends LinearLayout {
@@ -71,7 +71,7 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             this.b = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
             this.b.setFrame(0);
-            SkinManager.setLottieAnimation(this.b, R.raw.obfuscated_res_0x7f11003c);
+            SkinManager.setLottieAnimation(this.b, R.raw.obfuscated_res_0x7f110041);
             this.b.playAnimation();
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090751);
             this.a = textView;
@@ -90,18 +90,18 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09074f);
             this.e = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0f0f));
-            nu4 nu4Var = new nu4();
-            nu4Var.r(R.color.CAM_X0105);
-            this.e.setConfig(nu4Var);
+            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0f0e));
+            mu4 mu4Var = new mu4();
+            mu4Var.r(R.color.CAM_X0105);
+            this.e.setConfig(mu4Var);
             this.e.k();
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090750);
             this.f = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.tbds34);
-            this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f0f10));
-            nu4 nu4Var2 = new nu4();
-            nu4Var2.p(R.color.CAM_X0302);
-            this.f.setConfig(nu4Var2);
+            this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f0f0f));
+            mu4 mu4Var2 = new mu4();
+            mu4Var2.p(R.color.CAM_X0302);
+            this.f.setConfig(mu4Var2);
         }
     }
 

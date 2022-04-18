@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cu4;
 import com.repackage.db5;
-import com.repackage.du4;
 import com.repackage.ma5;
 import com.repackage.oa5;
 import java.util.List;
@@ -38,16 +38,16 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
     public p95 g;
     public BdTypeRecyclerView h;
     public BdSwipeRefreshLayout i;
-    public eu4 j;
+    public du4 j;
     public ib5 k;
     public jb5<P> l;
     public BdListView.p m;
-    public v68 n;
+    public c78 n;
     public View.OnClickListener o;
     public final BdListView.p p;
     public final RecyclerView.OnScrollListener q;
     public final RecyclerView.RecyclerListener r;
-    public final du4.g s;
+    public final cu4.g s;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -208,7 +208,7 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
     }
 
     /* loaded from: classes6.dex */
-    public class e implements du4.g {
+    public class e implements cu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ mb5 a;
@@ -231,7 +231,7 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
             this.a = mb5Var;
         }
 
-        @Override // com.repackage.du4.g
+        @Override // com.repackage.cu4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -250,7 +250,7 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
         public ib5 c;
         public db5.c d;
         public List<ho> e;
-        public lm4<qn4> f;
+        public km4<pn4> f;
         public fa5 g;
         public int h;
         public int i;
@@ -329,11 +329,11 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
             return (f) invokeL.objValue;
         }
 
-        public f g(lm4<qn4> lm4Var) {
+        public f g(km4<pn4> km4Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, lm4Var)) == null) {
-                this.f = lm4Var;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, km4Var)) == null) {
+                this.f = km4Var;
                 return this;
             }
             return (f) invokeL.objValue;
@@ -365,23 +365,23 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
     }
 
     public void A() {
-        v68 v68Var;
+        c78 c78Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (v68Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (c78Var = this.n) == null) {
             return;
         }
-        v68Var.r(true);
+        c78Var.r(true);
         B(false);
     }
 
     public final void B(boolean z) {
         BdTypeRecyclerView bdTypeRecyclerView;
-        v68 v68Var;
+        c78 c78Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (bdTypeRecyclerView = this.h) == null || (v68Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (bdTypeRecyclerView = this.h) == null || (c78Var = this.n) == null) {
             return;
         }
-        v68Var.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
+        c78Var.n(bdTypeRecyclerView.getFirstVisiblePosition(), this.h.getLastVisiblePosition(), z, true);
     }
 
     public final void C(la5 la5Var) {
@@ -484,12 +484,12 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
 
     @Override // com.repackage.hb5
     public void e() {
-        v68 v68Var;
+        c78 c78Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (v68Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (c78Var = this.n) == null) {
             return;
         }
-        v68Var.h();
+        c78Var.h();
     }
 
     @Override // com.repackage.hb5
@@ -534,9 +534,9 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
     public void i(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bdUniqueId) == null) {
-            v68 v68Var = this.n;
-            if (v68Var != null) {
-                v68Var.u(bdUniqueId);
+            c78 c78Var = this.n;
+            if (c78Var != null) {
+                c78Var.u(bdUniqueId);
             }
             ua5 ua5Var = this.d;
             if (ua5Var != null) {
@@ -589,9 +589,9 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
             if (ib5Var != null) {
                 ib5Var.onChangeSkinType(i);
             }
-            eu4 eu4Var = this.j;
-            if (eu4Var != null) {
-                eu4Var.H(i);
+            du4 du4Var = this.j;
+            if (du4Var != null) {
+                du4Var.H(i);
             }
             jb5<P> jb5Var = this.l;
             if (jb5Var != null) {
@@ -634,9 +634,9 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             if (i == 1 || i == 0 || i == 2) {
-                v68 v68Var = new v68(this.f, this.h);
-                this.n = v68Var;
-                v68Var.p(i);
+                c78 c78Var = new c78(this.f, this.h);
+                this.n = c78Var;
+                c78Var.p(i);
                 this.n.u(this.e);
             }
         }
@@ -660,9 +660,9 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
                 cVar.h = this.o;
                 this.k = new nb5(this.f, this.h, cVar);
             }
-            eu4 eu4Var = new eu4(this.f);
-            this.j = eu4Var;
-            eu4Var.f(this.s);
+            du4 du4Var = new du4(this.f);
+            this.j = du4Var;
+            du4Var.f(this.s);
             this.i.setProgressView(this.j);
             ua5 ua5Var = new ua5(this.h);
             this.d = ua5Var;
@@ -727,12 +727,12 @@ public class mb5<Q extends oa5, P extends ma5> extends hb5<Q, P> {
     }
 
     public final void y() {
-        v68 v68Var;
+        c78 c78Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || (v68Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048608, this) == null) || (c78Var = this.n) == null) {
             return;
         }
-        v68Var.y();
+        c78Var.y();
         this.n.r(false);
     }
 

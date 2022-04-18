@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ad5;
-import com.repackage.bn4;
+import com.repackage.an4;
 import com.repackage.dd5;
 import com.repackage.ii5;
-import com.repackage.ls4;
+import com.repackage.ks4;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class InitLaunchSyncTask extends LaunchTask {
@@ -87,7 +87,7 @@ public class InitLaunchSyncTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        bn4 bn4Var;
+        an4 an4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
@@ -141,13 +141,13 @@ public class InitLaunchSyncTask extends LaunchTask {
                     return invokeL.booleanValue;
                 }
             });
-            if (ls4.a().a) {
-                bn4Var = new ii5();
+            if (ks4.a().a) {
+                an4Var = new ii5();
             } else {
-                bn4Var = new bn4();
+                an4Var = new an4();
             }
-            TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(bn4Var);
-            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(bn4Var);
+            TbadkCoreApplication.getInst().setCoreActivityLifecycleCallbacks(an4Var);
+            TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(an4Var);
             InputMethodManagerLeaksFixer.fixFocusedViewLeak(TbadkCoreApplication.getInst());
             cleanDirectoryNewStatIfNeed();
         }

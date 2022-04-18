@@ -127,7 +127,7 @@ public class AccountSmsLoginView extends SmsLoginView {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ((EditText) findViewById(R.id.obfuscated_res_0x7f09181b)).requestFocus();
+            ((EditText) findViewById(R.id.obfuscated_res_0x7f09181c)).requestFocus();
             new Handler().postDelayed(new b(this), 100L);
         }
     }

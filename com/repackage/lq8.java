@@ -5,34 +5,39 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.themeCenter.background.BackgroundItemView;
+import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
+import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantPerItemView;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mq8;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class lq8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<List<DressItemData>> a;
-    public TbPageContext<?> b;
-    public kq8 c;
+    public AvatarPendantActivity a;
+    public List<DressItemData> b;
+    public mq8.a c;
 
     /* loaded from: classes6.dex */
-    public class a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public BackgroundItemView b;
-        public BackgroundItemView c;
-        public BackgroundItemView d;
+    }
 
-        public a(lq8 lq8Var) {
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public AvatarPendantPerItemView a;
+
+        public b(lq8 lq8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,14 +52,18 @@ public class lq8 extends BaseAdapter {
                 }
             }
         }
+
+        public /* synthetic */ b(lq8 lq8Var, a aVar) {
+            this(lq8Var);
+        }
     }
 
-    public lq8(TbPageContext<?> tbPageContext, kq8 kq8Var) {
+    public lq8(AvatarPendantActivity avatarPendantActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, kq8Var};
+            Object[] objArr = {avatarPendantActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -64,30 +73,47 @@ public class lq8 extends BaseAdapter {
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.c = kq8Var;
+        this.a = avatarPendantActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public List<DressItemData> getItem(int i) {
+    public DressItemData getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<List<DressItemData>> list = this.a;
-            if (list == null || list.size() <= 0 || i < 0 || i >= this.a.size()) {
+            List<DressItemData> list = this.b;
+            if (list == null || list.size() <= 0 || this.b.size() <= i) {
                 return null;
             }
-            return this.a.get(i);
+            return this.b.get(i);
         }
-        return (List) invokeI.objValue;
+        return (DressItemData) invokeI.objValue;
     }
 
-    public void b(List<List<DressItemData>> list) {
+    public final void b(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            int skinType = TbadkApplication.getInst().getSkinType();
+            if (view2 != null) {
+                this.a.getLayoutMode().k(skinType == 1);
+                this.a.getLayoutMode().j(view2);
+            }
+        }
+    }
+
+    public void c(mq8.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.c = aVar;
+        }
+    }
+
+    public void d(List<DressItemData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.b = list;
         }
     }
 
@@ -95,8 +121,8 @@ public class lq8 extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<List<DressItemData>> list = this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<DressItemData> list = this.b;
             if (list != null) {
                 return list.size();
             }
@@ -109,7 +135,7 @@ public class lq8 extends BaseAdapter {
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             return 0L;
         }
         return invokeI.longValue;
@@ -118,44 +144,24 @@ public class lq8 extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        a aVar;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            List<DressItemData> item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0136, viewGroup, false);
-                aVar = new a(this);
-                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f0920b7);
-                aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09036e);
-                aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f09036f);
-                aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f090370);
-                view2.setTag(aVar);
+                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d012c, viewGroup, false);
+                bVar = new b(this, null);
+                AvatarPendantPerItemView avatarPendantPerItemView = (AvatarPendantPerItemView) view2.findViewById(R.id.obfuscated_res_0x7f0902f6);
+                bVar.a = avatarPendantPerItemView;
+                avatarPendantPerItemView.setAvatarPendantItemClickListener(this.c);
+                view2.setTag(bVar);
             }
+            DressItemData item = getItem(i);
             if (item != null) {
-                if (i == 0) {
-                    aVar.a.setVisibility(0);
-                } else {
-                    aVar.a.setVisibility(8);
-                }
-                aVar.b.e(item.get(0));
-                aVar.b.setController(this.c);
-                if (item.size() > 2) {
-                    aVar.c.e(item.get(1));
-                    aVar.d.e(item.get(2));
-                    aVar.c.setController(this.c);
-                    aVar.d.setController(this.c);
-                } else if (item.size() > 1) {
-                    aVar.c.e(item.get(1));
-                    aVar.c.setController(this.c);
-                    aVar.d.f();
-                } else {
-                    aVar.c.f();
-                    aVar.d.f();
-                }
+                bVar.a.c(item);
             }
-            this.b.getLayoutMode().j(view2);
+            b(view2);
             return view2;
         }
         return (View) invokeILL.objValue;

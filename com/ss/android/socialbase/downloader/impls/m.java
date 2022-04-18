@@ -8,7 +8,7 @@ import com.ss.android.socialbase.downloader.depend.y;
 import com.ss.android.socialbase.downloader.downloader.i;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class m extends i.a {
     public static final String a = m.class.getSimpleName();
     public final com.ss.android.socialbase.downloader.downloader.m b = new p(true);

@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gz;
 import com.repackage.oi;
-import com.repackage.uu4;
-import com.repackage.wr4;
+import com.repackage.tu4;
+import com.repackage.vr4;
 import tbclient.RecentUpdate;
 /* loaded from: classes3.dex */
 public class CardItemRecentUpdateLayout extends LinearLayout implements gz {
@@ -109,7 +109,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements gz {
                 this.a.g.setText(R.string.obfuscated_res_0x7f0f0627);
                 this.a.f.setMaxLines(Integer.MAX_VALUE);
                 this.a.f.setText(this.a.h);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new uu4(10)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new tu4(10)));
             }
         }
     }
@@ -139,17 +139,17 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements gz {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a9, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f8d);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090f8e);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f8a);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090f8c);
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090f8b);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f8e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090f8f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f8b);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090f8d);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090f8c);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(context);
             this.f = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f;
             multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05c1))));
-            wr4 d = wr4.d(this.f);
+            vr4 d = vr4.d(this.f);
             d.z(R.dimen.T_X06);
             d.w(R.dimen.M_T_X002);
             this.f.setPadding(oi.f(context, R.dimen.M_W_X005), 0, 0, oi.f(context, R.dimen.M_H_X005));
@@ -158,7 +158,7 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements gz {
             EMTextView eMTextView = new EMTextView(context);
             this.g = eMTextView;
             eMTextView.setText(R.string.obfuscated_res_0x7f0f05c1);
-            wr4.d(this.f).z(R.dimen.T_X06);
+            vr4.d(this.f).z(R.dimen.T_X06);
             this.g.setPadding(oi.f(context, R.dimen.M_W_X005), oi.f(context, R.dimen.M_H_X005), 0, oi.f(context, R.dimen.M_H_X005));
             this.g.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -172,25 +172,25 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements gz {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            wr4 d = wr4.d(this);
+            vr4 d = vr4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            wr4 d2 = wr4.d(this.a);
+            vr4 d2 = vr4.d(this.a);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            wr4 d3 = wr4.d(this.b);
+            vr4 d3 = vr4.d(this.b);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0108);
-            wr4 d4 = wr4.d(this.c);
+            vr4 d4 = vr4.d(this.c);
             d4.A(R.string.F_X01);
             d4.v(R.color.CAM_X0108);
-            wr4 d5 = wr4.d(this.f);
+            vr4 d5 = vr4.d(this.f);
             d5.A(R.string.F_X01);
             d5.v(R.color.CAM_X0105);
-            wr4 d6 = wr4.d(this.g);
+            vr4 d6 = vr4.d(this.g);
             d6.A(R.string.F_X01);
             d6.v(R.color.CAM_X0304);
-            wr4.d(this.d).f(R.color.CAM_X0111);
+            vr4.d(this.d).f(R.color.CAM_X0111);
         }
     }
 

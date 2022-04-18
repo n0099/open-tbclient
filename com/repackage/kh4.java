@@ -1,12 +1,16 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+@Service
 /* loaded from: classes6.dex */
-public abstract class kh4 implements jh4 {
+public class kh4 implements el1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,31 +28,38 @@ public abstract class kh4 implements jh4 {
         }
     }
 
-    @Override // com.repackage.jh4
-    public void onBufferingUpdate(int i) {
+    @Override // com.repackage.el1
+    public ug2 a(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, invoker, str)) == null) ? new mh4() : (ug2) invokeLL.objValue;
     }
 
-    @Override // com.repackage.jh4
-    public void onResume() {
+    @Override // com.repackage.el1
+    public ui2 b(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, invoker, str)) == null) ? new ph4(invoker, str) : (ui2) invokeLL.objValue;
     }
 
-    @Override // com.repackage.jh4
-    public void onSeekEnd() {
+    @Override // com.repackage.el1
+    public ui2 c(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, invoker, str)) == null) ? new oh4(invoker, str) : (ui2) invokeLL.objValue;
     }
 
-    @Override // com.repackage.jh4
-    public void onVideoSizeChanged(int i, int i2) {
+    @Override // com.repackage.el1
+    public tg2 d(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, invoker, str)) == null) ? new lh4() : (tg2) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.el1
+    public re2 e(ZeusPluginFactory.Invoker invoker, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, invoker, str)) == null) ? new zh4(invoker, str) : (re2) invokeLL.objValue;
     }
 }

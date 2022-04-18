@@ -107,7 +107,7 @@ public class b93 {
                 }
                 File file = pair.second;
                 if (file != null) {
-                    ng4.L(file);
+                    mg4.L(file);
                 }
             }
         }
@@ -227,10 +227,10 @@ public class b93 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? d.a : (b93) invokeV.objValue;
     }
 
-    public final lg4 f(String str) {
+    public final kg4 f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new tg4(str) : (lg4) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new sg4(str) : (kg4) invokeL.objValue;
     }
 
     public void g(@NonNull String str, Set<String> set, boolean z) {
@@ -250,7 +250,7 @@ public class b93 {
 
     @NonNull
     @AnyThread
-    public lg4 k(Context context, String str, boolean z) {
+    public kg4 k(Context context, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, context, str, z)) == null) {
@@ -271,7 +271,7 @@ public class b93 {
                 return f(str);
             }
         }
-        return (lg4) invokeLLZ.objValue;
+        return (kg4) invokeLLZ.objValue;
     }
 
     @Nullable
@@ -283,12 +283,12 @@ public class b93 {
                 str = context.getPackageName() + "_preferences";
             }
             if ("default".equals(str)) {
-                if (tg4.e(context, str).exists()) {
+                if (sg4.e(context, str).exists()) {
                     return str;
                 }
                 str = context.getPackageName() + "_preferences";
             }
-            if (tg4.e(context, str).exists()) {
+            if (sg4.e(context, str).exists()) {
                 return str;
             }
             return null;

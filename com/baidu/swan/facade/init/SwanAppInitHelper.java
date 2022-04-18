@@ -17,24 +17,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.repackage.ag4;
 import com.repackage.dd3;
 import com.repackage.hm3;
 import com.repackage.i03;
-import com.repackage.jd4;
+import com.repackage.id4;
 import com.repackage.k62;
 import com.repackage.kc3;
 import com.repackage.m32;
+import com.repackage.ob4;
 import com.repackage.ol3;
-import com.repackage.pb4;
 import com.repackage.qc3;
 import com.repackage.qj2;
+import com.repackage.r74;
 import com.repackage.rj2;
-import com.repackage.s74;
 import com.repackage.tg1;
 import com.repackage.ub1;
 import com.repackage.v82;
 import com.repackage.yb1;
+import com.repackage.zf4;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanAppInitHelper {
@@ -73,7 +73,7 @@ public class SwanAppInitHelper {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a) {
-                s74.m(new pb4(0), new m32(null), rj2.i().p(null));
+                r74.m(new ob4(0), new m32(null), rj2.i().p(null));
             }
         }
     }
@@ -168,7 +168,7 @@ public class SwanAppInitHelper {
     public static void asyncUpdateSwanAppCore() {
         boolean c;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (c = jd4.c(0))) {
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (c = id4.c(0))) {
             dd3.k(new a(c), "asyncUpdateSwanAppCore by PMS");
         }
     }
@@ -298,7 +298,7 @@ public class SwanAppInitHelper {
     public static void uploadLastData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, null) == null) {
-            ag4 b2 = ag4.b();
+            zf4 b2 = zf4.b();
             b2.h();
             b2.i();
         }

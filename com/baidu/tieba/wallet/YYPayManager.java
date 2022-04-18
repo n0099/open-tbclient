@@ -23,7 +23,7 @@ import com.repackage.a85;
 import com.repackage.c85;
 import com.repackage.g85;
 import com.repackage.h85;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
@@ -97,7 +97,7 @@ public class YYPayManager {
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
             Context applicationContext = BdBaseApplication.getInst().getApp().getApplicationContext();
             String packageName = applicationContext.getPackageName();
-            String q = wt4.k().q("version_name", "");
+            String q = vt4.k().q("version_name", "");
             Context context = TbadkCoreApplication.getInst().getContext();
             MiddleReportConfig build = new MiddleReportConfig.MiddleReportConfigBuilder().build();
             build.setAppName("百度贴吧");

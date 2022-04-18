@@ -1,86 +1,45 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.View;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.frs.accelerator.ui.AcceleratorFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uf6 {
+public class uf6 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ AcceleratorFragment a;
 
-    public static void a(long j) {
+    public uf6(AcceleratorFragment acceleratorFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65536, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_ENTER_GAME_BTN_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {acceleratorFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = acceleratorFragment;
     }
 
-    public static void b(long j) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_ENTER_GAME_BTN_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_RETRY_BTN_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65539, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_RETRY_BTN_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void e(String str, long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_SHOW);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            statisticItem.addParam("obj_source", i);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65541, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_STOP_BTN_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_ACCELERATOR_PAGE_STOP_BTN_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_id", j);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            if (this.a.c != null && this.a.c.getItemData() != null) {
+                TbSingleton.getInstance().removeAcceleratorServer(String.valueOf(this.a.c.getItemData().itemId));
+            }
+            this.a.n1();
+            this.a.getActivity().finish();
         }
     }
 }

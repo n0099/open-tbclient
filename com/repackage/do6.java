@@ -1,133 +1,106 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
 /* loaded from: classes5.dex */
-public abstract class do6 implements fo6 {
+public class do6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
 
-    public do6() {
+    public static void a(StatisticItem statisticItem, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
+            YYLiveUtil.addYyExtData(statisticItem, str);
+        }
+    }
+
+    public static void b(Context context, ik8 ik8Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, ik8Var) == null) || ik8Var == null) {
+            return;
+        }
+        TbPageContext<BaseFragmentActivity> tbPageContext = null;
+        if (context instanceof BaseActivity) {
+            tbPageContext = ((BaseActivity) context).getPageContext();
+        } else if (context instanceof BaseFragmentActivity) {
+            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
+        }
+        if (tbPageContext == null) {
+            return;
+        }
+        jk8 jk8Var = ik8Var.f;
+        if (jk8Var != null) {
+            ul5.b(jk8Var.b, jk8Var.c, "1191003700000000", jk8Var.d);
+        } else {
+            if (YYLiveUtil.isYYLiveLink(ik8Var.d)) {
+                str = ik8Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
+            } else {
+                str = ik8Var.d;
             }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        zi8.b();
+        lq6.a(tbPageContext, ik8Var.e);
     }
 
-    @Override // com.repackage.fo6, com.repackage.no6
-    @Nullable
-    @CallSuper
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
+    public static void c(ik8 ik8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, ik8Var) == null) || ik8Var == null) {
+            return;
         }
-        return (T) invokeL.objValue;
+        StatisticItem statisticItem = new StatisticItem("c13626");
+        statisticItem.param("fid", ik8Var.g);
+        statisticItem.param("obj_type", ik8Var.f == null ? 1 : 2);
+        statisticItem.param("obj_locate", ik8Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        jk8 jk8Var = ik8Var.f;
+        String str = jk8Var != null ? jk8Var.c : ik8Var.d;
+        jk8 jk8Var2 = ik8Var.f;
+        if (jk8Var2 != null) {
+            String str2 = jk8Var2.a;
+        } else {
+            String str3 = ik8Var.c;
+        }
+        statisticItem.param("obj_name", ik8Var.c);
+        statisticItem.param("obj_param1", ik8Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(ik8Var.i, 1));
     }
 
-    @Override // com.repackage.fo6
-    public void b(boolean z) {
+    public static void d(ik8 ik8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, ik8Var) == null) || ik8Var == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.fo6
-    public void e(@NonNull ThemeElement themeElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeElement) == null) {
+        StatisticItem statisticItem = new StatisticItem("c13627");
+        statisticItem.param("fid", ik8Var.g);
+        statisticItem.param("obj_type", ik8Var.f == null ? 1 : 2);
+        statisticItem.param("obj_locate", ik8Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        jk8 jk8Var = ik8Var.f;
+        String str = jk8Var != null ? jk8Var.c : ik8Var.d;
+        jk8 jk8Var2 = ik8Var.f;
+        if (jk8Var2 != null) {
+            String str2 = jk8Var2.a;
+        } else {
+            String str3 = ik8Var.c;
         }
-    }
-
-    @Override // com.repackage.fo6
-    public void f(@NonNull FrsFragment frsFragment, @NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, frsFragment, view2) == null) && this.c == null) {
-            this.a = frsFragment;
-            this.b = view2.getContext();
-            this.c = view2;
-            o();
-        }
-    }
-
-    @Override // com.repackage.no6
-    public void g(int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-        }
-    }
-
-    @Override // com.repackage.fo6
-    @NonNull
-    public ko6 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.w0().f0() : (ko6) invokeV.objValue;
-    }
-
-    @Override // com.repackage.no6
-    public void j(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.repackage.no6
-    public void k(@Nullable String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.repackage.no6
-    public void l(@NonNull LogicField logicField, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
-        }
-    }
-
-    @Override // com.repackage.fo6
-    public int n(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
-            return 8;
-        }
-        return invokeL.intValue;
-    }
-
-    public abstract void o();
-
-    @Override // com.repackage.no6
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
+        statisticItem.param("obj_name", ik8Var.c);
+        statisticItem.param("obj_param1", ik8Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(ik8Var.i, 0));
     }
 }

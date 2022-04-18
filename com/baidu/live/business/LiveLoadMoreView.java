@@ -87,10 +87,10 @@ public class LiveLoadMoreView extends LiveBaseItemView {
                 }
             }
             LayoutInflater.from(getContext()).inflate(i, this);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0912fa);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0912fb);
             this.d = lottieAnimationView;
             lottieAnimationView.loop(true);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fb);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fc);
         }
     }
 

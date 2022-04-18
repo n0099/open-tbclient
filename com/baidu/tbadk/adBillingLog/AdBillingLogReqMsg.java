@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.rc5;
-import com.repackage.vk4;
+import com.repackage.uk4;
 import tbclient.AdNewLog.AdNewLogReqIdl;
 import tbclient.AdNewLog.DataReq;
 /* loaded from: classes2.dex */
 public class AdBillingLogReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vk4 mReqData;
+    public uk4 mReqData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdBillingLogReqMsg() {
@@ -39,13 +39,13 @@ public class AdBillingLogReqMsg extends NetMessage {
     }
 
     private void fillReqData(DataReq.Builder builder) {
-        vk4 vk4Var;
+        uk4 uk4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, builder) == null) || (vk4Var = this.mReqData) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, builder) == null) || (uk4Var = this.mReqData) == null) {
             return;
         }
-        builder.token = vk4Var.d;
-        int i = vk4Var.f;
+        builder.token = uk4Var.d;
+        int i = uk4Var.f;
         if (i >= 0) {
             builder.da_locate = String.valueOf(i);
         }
@@ -53,10 +53,10 @@ public class AdBillingLogReqMsg extends NetMessage {
         if (i2 >= 0) {
             builder.da_from = Integer.valueOf(i2);
         }
-        vk4 vk4Var2 = this.mReqData;
-        builder.extra_param = vk4Var2.e;
-        builder.order_id = vk4Var2.c;
-        int i3 = vk4Var2.a;
+        uk4 uk4Var2 = this.mReqData;
+        builder.extra_param = uk4Var2.e;
+        builder.order_id = uk4Var2.c;
+        int i3 = uk4Var2.a;
         if (i3 >= 0) {
             builder.da_type = String.valueOf(i3);
         }
@@ -82,10 +82,10 @@ public class AdBillingLogReqMsg extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public void setReqData(vk4 vk4Var) {
+    public void setReqData(uk4 uk4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vk4Var) == null) {
-            this.mReqData = vk4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uk4Var) == null) {
+            this.mReqData = uk4Var;
         }
     }
 }

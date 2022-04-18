@@ -1,31 +1,14 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.CircleOptions;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.MapViewLayoutParams;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.MapPoi;
+import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.map.PolygonOptions;
-import com.baidu.mapapi.map.PolylineOptions;
-import com.baidu.mapapi.map.Stroke;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.LatLngBounds;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.R;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,13 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.repackage.dn2;
-import com.repackage.gd3;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.tachikoma.core.component.anim.AnimationProperty;
+import com.tachikoma.core.event.base.TKBaseEvent;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class n54 {
     public static /* synthetic */ Interceptable $ic;
@@ -47,120 +27,53 @@ public class n54 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements gd3.b {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dn2 a;
-        public final /* synthetic */ s54 b;
-        public final /* synthetic */ List c;
-        public final /* synthetic */ Context d;
-        public final /* synthetic */ t54 e;
-        public final /* synthetic */ List f;
-        public final /* synthetic */ List g;
-        public final /* synthetic */ AtomicInteger h;
-        public final /* synthetic */ int i;
+        public JSONObject a;
 
-        public a(dn2 dn2Var, s54 s54Var, List list, Context context, t54 t54Var, List list2, List list3, AtomicInteger atomicInteger, int i) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dn2Var, s54Var, list, context, t54Var, list2, list3, atomicInteger, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = dn2Var;
-            this.b = s54Var;
-            this.c = list;
-            this.d = context;
-            this.e = t54Var;
-            this.f = list2;
-            this.g = list3;
-            this.h = atomicInteger;
-            this.i = i;
+            this.a = new JSONObject();
         }
 
-        @Override // com.repackage.gd3.b
-        public void a(String str, Bitmap bitmap) {
+        public static a a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-                if (n54.a) {
-                    Log.d("MarkerViewCreateHelper", "url=" + str);
-                }
-                if (bitmap == null) {
-                    bitmap = n54.f();
-                }
-                Bitmap g = n54.g(bitmap, this.a);
-                cn2 cn2Var = this.a.b;
-                LatLng latLng = new LatLng(cn2Var.a, cn2Var.b);
-                MarkerOptions zIndex = new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromBitmap(g)).alpha((float) this.a.f).title(this.a.c).rotate((float) this.a.e).zIndex(88);
-                dn2.a aVar = this.a.k;
-                MarkerOptions anchor = zIndex.anchor((float) aVar.a, (float) aVar.b);
-                this.b.a = this.a;
-                this.c.add(anchor);
-                LinearLayout linearLayout = new LinearLayout(this.d);
-                linearLayout.setOrientation(1);
-                linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-                linearLayout.setGravity(17);
-                View view2 = new View(this.d);
-                view2.setLayoutParams(new ViewGroup.LayoutParams(g.getWidth(), g.getHeight()));
-                view2.setVisibility(4);
-                linearLayout.addView(view2);
-                this.b.e = linearLayout;
-                if (s54.h.booleanValue()) {
-                    dn2.b bVar = this.a.i;
-                    if (bVar != null && bVar.isValid() && TextUtils.equals(this.a.i.g, "ALWAYS")) {
-                        View a = h54.a(this.e, this.a);
-                        linearLayout.addView(a, 0);
-                        this.b.d = a;
-                    }
-                    dn2.c cVar = this.a.j;
-                    if (cVar != null && cVar.isValid()) {
-                        this.f.add(j54.a(this.e, this.b));
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a() : (a) invokeV.objValue;
+        }
+
+        public JSONObject b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (JSONObject) invokeV.objValue;
+        }
+
+        public a c(String str, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        this.a.put(str, obj);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
-                linearLayout.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-                MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
-                builder.layoutMode(MapViewLayoutParams.ELayoutMode.mapMode);
-                builder.position(latLng);
-                builder.yOffset((int) ((g.getHeight() * (1.0d - this.a.k.b)) + 0.0d));
-                this.e.l.addView(linearLayout, builder.build());
-                linearLayout.setAlpha(0.0f);
-                BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(linearLayout);
-                if (fromView == null) {
-                    return;
-                }
-                Bitmap bitmap2 = fromView.getBitmap();
-                this.g.add(new MarkerOptions().position(latLng).icon(fromView).anchor(((float) (((bitmap2.getWidth() - g.getWidth()) / 2.0f) + (this.a.k.a * g.getWidth()))) / bitmap2.getWidth(), ((float) (((float) ((bitmap2.getHeight() - 0.0d) - g.getHeight())) + (this.a.k.b * g.getHeight()))) / bitmap2.getHeight()).zIndex(66));
-                synchronized (l54.a) {
-                    this.h.getAndIncrement();
-                    this.e.n.add(this.b);
-                    int size = this.e.n.size();
-                    if (this.i == this.h.get()) {
-                        List<Overlay> addOverlays = this.e.l.getMap().addOverlays(this.f);
-                        int size2 = addOverlays.size();
-                        for (int i = 0; i < size2 && i < size; i++) {
-                            this.e.n.get(i).c = (Marker) addOverlays.get(i);
-                        }
-                        List<Overlay> addOverlays2 = this.e.l.getMap().addOverlays(this.c);
-                        int size3 = addOverlays2.size();
-                        for (int i2 = 0; i2 < size3 && i2 < size; i2++) {
-                            this.e.n.get(i2).b = (Marker) addOverlays2.get(i2);
-                        }
-                        List<Overlay> addOverlays3 = this.e.l.getMap().addOverlays(this.g);
-                        int size4 = addOverlays3.size();
-                        for (int i3 = 0; i3 < size4 && i3 < size; i3++) {
-                            this.e.n.get(i3).f = (Marker) addOverlays3.get(i3);
-                        }
-                    }
-                }
+                return this;
             }
+            return (a) invokeLL.objValue;
         }
     }
 
@@ -180,132 +93,177 @@ public class n54 {
         a = tg1.a;
     }
 
-    public static void d(@NonNull vm2 vm2Var, @NonNull t54 t54Var, p54 p54Var) {
+    public static void a(s54 s54Var, dn2 dn2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, vm2Var, t54Var, p54Var) == null) {
-            List<bn2> list = vm2Var.o;
-            if (list != null && list.size() > 0) {
-                for (bn2 bn2Var : vm2Var.o) {
-                    i54.a(t54Var, bn2Var, p54Var);
-                    jx1.i("map", "initMapView createControl id " + bn2Var.a);
+        if (interceptable == null || interceptable.invokeLL(65537, null, s54Var, dn2Var) == null) {
+            a a2 = a.a();
+            a2.c("mapId", s54Var.j);
+            a2.c("markerId", dn2Var.a);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "callouttap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, s54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
                 }
             }
-            ArrayList arrayList = new ArrayList();
-            List<fn2> list2 = vm2Var.m;
-            if (list2 != null && list2.size() > 0) {
-                for (fn2 fn2Var : vm2Var.m) {
-                    if (!fn2Var.isValid()) {
-                        jx1.c("map", "polyline is invalid");
-                    } else {
-                        ArrayList arrayList2 = new ArrayList(fn2Var.a.size());
-                        Iterator<cn2> it = fn2Var.a.iterator();
-                        while (it.hasNext()) {
-                            cn2 next = it.next();
-                            arrayList2.add(new LatLng(next.a, next.b));
-                        }
-                        if (arrayList2.size() >= 2 && !arrayList2.contains(null)) {
-                            arrayList.add(new PolylineOptions().points(arrayList2).color(fn2Var.b).width((int) fn2Var.c).dottedLine(fn2Var.d));
-                            jx1.i("map", "initMapView createPoly");
-                        } else {
-                            jx1.c("map", "polyline count can't less than 2 or your polyline points contains null");
-                        }
-                    }
-                }
-            }
-            List<en2> list3 = vm2Var.q;
-            if (list3 != null && !list3.isEmpty()) {
-                for (en2 en2Var : vm2Var.q) {
-                    if (!en2Var.isValid()) {
-                        jx1.c("map", "polygon is invalid");
-                    } else {
-                        ArrayList arrayList3 = new ArrayList(en2Var.a.size());
-                        Iterator<cn2> it2 = en2Var.a.iterator();
-                        while (it2.hasNext()) {
-                            cn2 next2 = it2.next();
-                            arrayList3.add(new LatLng(next2.a, next2.b));
-                        }
-                        if (arrayList3.size() >= 3 && !arrayList3.contains(null)) {
-                            arrayList.add(new PolygonOptions().points(arrayList3).stroke(new Stroke(en2Var.b, en2Var.c)).fillColor(en2Var.d).zIndex(en2Var.e));
-                            jx1.i("map", "initMapView createPolygons");
-                        } else {
-                            jx1.c("map", "polygons count can't less than 3 or your polygons points contains null");
-                        }
-                    }
-                }
-            }
-            List<cn2> list4 = vm2Var.p;
-            if (list4 != null && list4.size() > 0) {
-                LatLngBounds.Builder builder = new LatLngBounds.Builder();
-                for (cn2 cn2Var : vm2Var.p) {
-                    builder.include(new LatLng(cn2Var.a, cn2Var.b));
-                }
-                t54Var.l.getMap().setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
-                jx1.i("map", "initMapView includePoints");
-            }
-            List<an2> list5 = vm2Var.n;
-            if (list5 != null && list5.size() > 0) {
-                for (an2 an2Var : vm2Var.n) {
-                    if (an2Var.isValid()) {
-                        CircleOptions circleOptions = new CircleOptions();
-                        cn2 cn2Var2 = an2Var.a;
-                        arrayList.add(circleOptions.center(new LatLng(cn2Var2.a, cn2Var2.b)).stroke(new Stroke((int) an2Var.e, an2Var.b)).fillColor(an2Var.c).radius(an2Var.d));
-                        jx1.i("map", "initMapView createCircle");
-                    }
-                }
-            }
-            t54Var.l.getMap().addOverlays(arrayList);
+            qf3.d(s54Var.i, s54Var.j, "map", "callouttap", jSONObject);
         }
     }
 
-    public static void e(Context context, @NonNull vm2 vm2Var, @NonNull t54 t54Var) {
-        List<dn2> list;
+    public static void b(View view2, s54 s54Var) {
+        bn2 bn2Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65541, null, context, vm2Var, t54Var) == null) || (list = vm2Var.l) == null || list.size() == 0) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        ArrayList arrayList2 = new ArrayList();
-        ArrayList arrayList3 = new ArrayList();
-        int size = list.size();
-        AtomicInteger atomicInteger = new AtomicInteger(0);
-        Iterator<dn2> it = list.iterator();
-        while (it.hasNext()) {
-            dn2 next = it.next();
-            s54 s54Var = new s54();
-            if (next.k == null) {
-                next.k = new dn2.a();
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, s54Var) == null) {
+            q54 G = s54Var.G(view2);
+            String str = (G == null || (bn2Var = G.a) == null) ? "" : bn2Var.a;
+            a a2 = a.a();
+            a2.c("mapId", s54Var.j);
+            a2.c("controlId", str);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "controltap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, s54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-            String str = next.d;
-            if (TextUtils.isEmpty(str)) {
-                str = ImageRequestBuilder.newBuilderWithResourceId(R.drawable.obfuscated_res_0x7f080f7d).build().getSourceUri().toString();
-            }
-            gd3.e(str, new a(next, s54Var, arrayList, context, t54Var, arrayList2, arrayList3, atomicInteger, size));
-            it = it;
-            arrayList = arrayList;
+            qf3.d(s54Var.i, s54Var.j, "map", "controltap", jSONObject);
         }
     }
 
-    public static Bitmap f() {
-        InterceptResult invokeV;
+    public static void c(s54 s54Var, MapPoi mapPoi) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), R.drawable.obfuscated_res_0x7f080f7d) : (Bitmap) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(65539, null, s54Var, mapPoi) == null) {
+            LatLng position = mapPoi.getPosition();
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(position.latitude));
+            a2.c("longitude", Double.valueOf(position.longitude));
+            a2.b();
+            a a3 = a.a();
+            a3.c("mapId", s54Var.j);
+            a3.c("name", mapPoi.getName());
+            a3.c("latitude", Double.valueOf(position.latitude));
+            a3.c("longitude", Double.valueOf(position.longitude));
+            JSONObject b = a3.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "poitap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, s54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            qf3.d(s54Var.i, s54Var.j, "map", "poitap", jSONObject);
+        }
     }
 
-    @Nullable
-    public static Bitmap g(Bitmap bitmap, dn2 dn2Var) {
-        InterceptResult invokeLL;
+    public static void d(s54 s54Var, LatLng latLng) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bitmap, dn2Var)) == null) {
-            int i = dn2Var.g;
-            if (i == -1) {
-                i = bitmap.getWidth();
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, s54Var, latLng) == null) {
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(latLng.latitude));
+            a2.c("longitude", Double.valueOf(latLng.longitude));
+            JSONObject b = a2.b();
+            a a3 = a.a();
+            a3.c("mapId", s54Var.j);
+            a3.c("position", b);
+            JSONObject b2 = a3.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", TKBaseEvent.TK_CLICK_EVENT_NAME);
+                jSONObject.put("data", b2.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, s54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
             }
-            int i2 = dn2Var.h;
-            if (i2 == -1) {
-                i2 = bitmap.getHeight();
-            }
-            return i64.a(bitmap, i, i2);
+            qf3.d(s54Var.i, s54Var.j, "map", TKBaseEvent.TK_CLICK_EVENT_NAME, jSONObject);
         }
-        return (Bitmap) invokeLL.objValue;
+    }
+
+    public static void e(s54 s54Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, s54Var) == null) {
+            a a2 = a.a();
+            a2.c("mapId", s54Var.j);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "updated");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, s54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            qf3.d(s54Var.i, s54Var.j, "map", "updated", jSONObject);
+        }
+    }
+
+    public static void f(Marker marker, s54 s54Var) {
+        dn2 dn2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, marker, s54Var) == null) {
+            r54 H = s54Var.H(marker);
+            String str = (H == null || (dn2Var = H.a) == null) ? "" : dn2Var.a;
+            a a2 = a.a();
+            a2.c("mapId", s54Var.j);
+            a2.c("markerId", str);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "markertap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, s54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            qf3.d(s54Var.i, s54Var.j, "map", "markertap", jSONObject);
+        }
+    }
+
+    public static void g(s54 s54Var, MapStatus mapStatus, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65543, null, s54Var, mapStatus, i) == null) {
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(mapStatus.bound.northeast.latitude));
+            a2.c("longitude", Double.valueOf(mapStatus.bound.northeast.longitude));
+            JSONObject b = a2.b();
+            a a3 = a.a();
+            a3.c("latitude", Double.valueOf(mapStatus.bound.southwest.latitude));
+            a3.c("longitude", Double.valueOf(mapStatus.bound.southwest.longitude));
+            JSONObject b2 = a3.b();
+            a a4 = a.a();
+            a4.c("mapId", s54Var.j);
+            a4.c("northeast", b);
+            a4.c("southwest", b2);
+            a4.c(AnimationProperty.SCALE, Float.valueOf(mapStatus.zoom));
+            a4.c("reason", Integer.valueOf(i));
+            JSONObject b3 = a4.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "regionchange");
+                jSONObject.put("data", b3.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, s54Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            qf3.d(s54Var.i, s54Var.j, "map", "regionchange", jSONObject);
+        }
     }
 }

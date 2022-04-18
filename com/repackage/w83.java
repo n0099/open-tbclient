@@ -14,11 +14,11 @@ import java.io.File;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes7.dex */
-public class w83 implements lg4 {
+public class w83 implements kg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final lg4 a;
+    public final kg4 a;
 
     public w83(String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -38,7 +38,7 @@ public class w83 implements lg4 {
         this.a = b93.j().k(qj2.c(), str, z);
     }
 
-    @Override // com.repackage.lg4
+    @Override // com.repackage.kg4
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,14 +53,14 @@ public class w83 implements lg4 {
         }
     }
 
-    @Override // com.repackage.lg4
+    @Override // com.repackage.kg4
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.b() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.lg4
+    @Override // com.repackage.kg4
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class w83 implements lg4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.edit() : (SharedPreferences.Editor) invokeV.objValue;
     }
 
-    @Override // com.repackage.lg4, android.content.SharedPreferences
+    @Override // com.repackage.kg4, android.content.SharedPreferences
     @Deprecated
     public Map<String, ?> getAll() {
         InterceptResult invokeV;
@@ -109,7 +109,7 @@ public class w83 implements lg4 {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) ? this.a.getBoolean(str, z) : invokeLZ.booleanValue;
     }
 
-    @Override // com.repackage.lg4
+    @Override // com.repackage.kg4
     @NonNull
     public File getFile() {
         InterceptResult invokeV;
@@ -190,7 +190,7 @@ public class w83 implements lg4 {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048597, this, str, set)) == null) ? this.a.putStringSet(str, set) : (SharedPreferences.Editor) invokeLL.objValue;
     }
 
-    @Override // com.repackage.lg4, android.content.SharedPreferences
+    @Override // com.repackage.kg4, android.content.SharedPreferences
     @Deprecated
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
@@ -205,7 +205,7 @@ public class w83 implements lg4 {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) ? this.a.remove(str) : (SharedPreferences.Editor) invokeL.objValue;
     }
 
-    @Override // com.repackage.lg4, android.content.SharedPreferences
+    @Override // com.repackage.kg4, android.content.SharedPreferences
     @Deprecated
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;

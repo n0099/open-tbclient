@@ -25,7 +25,7 @@ import com.repackage.gd3;
 import com.repackage.gl2;
 import com.repackage.h72;
 import com.repackage.i03;
-import com.repackage.me4;
+import com.repackage.le4;
 import com.repackage.qj2;
 /* loaded from: classes2.dex */
 public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchListener {
@@ -218,9 +218,9 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
     public final void g(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.d = view2.findViewById(R.id.obfuscated_res_0x7f090d3e);
-            this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f091dda);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dde);
+            this.d = view2.findViewById(R.id.obfuscated_res_0x7f090d3f);
+            this.b = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ddb);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ddf);
             this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090420);
             this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902a6);
             gl2.a V = i03.J().r().V();
@@ -313,18 +313,18 @@ public class SwanAppMenuHeaderView extends FrameLayout implements View.OnTouchLi
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (qj2.y0().d()) {
                 this.e.setText(R.string.obfuscated_res_0x7f0f0157);
-                this.e.setBackground(me4.d(getContext(), R.drawable.obfuscated_res_0x7f081188));
-                this.e.setTextColor(me4.b(getContext(), R.color.obfuscated_res_0x7f060a8e));
+                this.e.setBackground(le4.d(getContext(), R.drawable.obfuscated_res_0x7f08118c));
+                this.e.setTextColor(le4.b(getContext(), R.color.obfuscated_res_0x7f060a8e));
             } else if (!z) {
                 this.e.setText(R.string.obfuscated_res_0x7f0f0157);
                 this.e.setTypeface(Typeface.create("sans-serif-medium", 1));
-                this.e.setBackground(me4.d(getContext(), R.drawable.obfuscated_res_0x7f08115c));
-                this.e.setTextColor(me4.c(getContext(), R.color.obfuscated_res_0x7f060a7d));
+                this.e.setBackground(le4.d(getContext(), R.drawable.obfuscated_res_0x7f081160));
+                this.e.setTextColor(le4.c(getContext(), R.color.obfuscated_res_0x7f060a7d));
             } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f1293);
+                this.e.setText(R.string.obfuscated_res_0x7f0f1292);
                 this.e.setTypeface(Typeface.create("sans-serif", 0));
-                this.e.setBackground(me4.d(getContext(), R.drawable.obfuscated_res_0x7f081163));
-                this.e.setTextColor(me4.c(getContext(), R.color.obfuscated_res_0x7f060a7e));
+                this.e.setBackground(le4.d(getContext(), R.drawable.obfuscated_res_0x7f081167));
+                this.e.setTextColor(le4.c(getContext(), R.color.obfuscated_res_0x7f060a7e));
             }
         }
     }

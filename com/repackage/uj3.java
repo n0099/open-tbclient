@@ -132,7 +132,7 @@ public class uj3 {
             if (g == null || (encrypt = RSA.encrypt(g)) == null) {
                 return null;
             }
-            byte[] bytes = pg4.a(Certificate.getSignature(qj2.c()), "", false).getBytes(StandardCharsets.UTF_8);
+            byte[] bytes = og4.a(Certificate.getSignature(qj2.c()), "", false).getBytes(StandardCharsets.UTF_8);
             LinkedList linkedList = new LinkedList();
             Bdtls$Extension.b newBuilder2 = Bdtls$Extension.newBuilder();
             newBuilder2.w(0);
@@ -160,7 +160,7 @@ public class uj3 {
                 if (dk3.getContext() != null) {
                     Bdtls$Extension.b newBuilder7 = Bdtls$Extension.newBuilder();
                     newBuilder7.w(5);
-                    newBuilder7.v(ByteString.copyFrom(kg4.f().getBytes()));
+                    newBuilder7.v(ByteString.copyFrom(jg4.f().getBytes()));
                     linkedList.offer(newBuilder7.build());
                 }
             }

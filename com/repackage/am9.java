@@ -1,111 +1,71 @@
 package com.repackage;
 
-import android.app.PendingIntent;
+import android.app.ActivityManager;
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
+import android.os.Process;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class am9 implements ArCoreApk.a {
+public class am9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile String a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ bm9 a;
 
-    public am9(bm9 bm9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bm9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755851836, "Lcom/repackage/am9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755851836, "Lcom/repackage/am9;");
                 return;
             }
         }
-        this.a = bm9Var;
+        b = new Object();
     }
 
-    public static Uri b(String str) {
-        InterceptResult invokeL;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build() : (Uri) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a != null) {
+                return a;
+            }
+            synchronized (b) {
+                if (a != null) {
+                    return a;
+                }
+                a = b(rl9.getContext().provideContext());
+                return a;
+            }
+        }
+        return (String) invokeV.objValue;
     }
 
-    public static ArCoreApk.Availability c(Context context) {
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                if (d(context) != null) {
-                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
-                }
-                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
-            } catch (UnavailableDeviceNotCompatibleException unused) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
-            }
-        }
-        return (ArCoreApk.Availability) invokeL.objValue;
-    }
-
-    public static PendingIntent d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
-                if (call == null) {
-                    return null;
-                }
-                PendingIntent pendingIntent = (PendingIntent) call.getParcelable("intent");
-                if (pendingIntent != null) {
-                    return pendingIntent;
-                }
-                String string = call.getString("exceptionType", "");
-                if (string.isEmpty()) {
-                    return null;
-                }
-                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
-                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
-                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
-                        String string2 = call.getString("exceptionText", null);
-                        if (string2 != null) {
-                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
-                        }
-                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
-                    }
-                    throw new UnavailableUserDeclinedInstallationException();
-                }
-                throw new UnavailableDeviceNotCompatibleException();
-            } catch (ReflectiveOperationException | RuntimeException e) {
-                Log.i("ARCore-SetupContentResolver", "Post-install failed", e);
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null || runningAppProcesses.isEmpty()) {
                 return null;
             }
-        }
-        return (PendingIntent) invokeL.objValue;
-    }
-
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            synchronized (this.a) {
-                bm9.c(this.a, availability);
-                bm9.f(this.a, false);
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
             }
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,6 +1,5 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,86 +10,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class st8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public String c;
-    public long d;
+    public int a;
+    public int b;
 
-    public st8() {
+    public st8(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = i2;
     }
 
-    public long a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public long b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.a = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 }

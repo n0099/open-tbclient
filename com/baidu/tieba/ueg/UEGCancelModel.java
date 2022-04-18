@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dk8;
+import com.repackage.kk8;
 import com.repackage.mi;
 import com.repackage.wa;
 /* loaded from: classes4.dex */
@@ -91,8 +91,8 @@ public class UEGCancelModel extends BdBaseModel {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
-        dk8.h(309615, UEGCancelSocketResponseMessage.class, false, false);
-        dk8.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
+        kk8.h(309615, UEGCancelSocketResponseMessage.class, false, false);
+        kk8.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
         registerListener(this.b);
     }
 

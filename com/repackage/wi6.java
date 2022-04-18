@@ -1,88 +1,107 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.forumRule.ForumRulesShowActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class wi6 {
+public class wi6 extends kd6<jy5, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ho> a;
-    public BdTypeRecyclerView b;
-    public zi6 c;
-    public yi6 d;
-    public xi6 e;
+    public boolean t;
 
-    public wi6(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* loaded from: classes7.dex */
+    public class a extends TypeAdapter.ViewHolder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public gx5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(wi6 wi6Var, gx5 gx5Var) {
+            super(gx5Var.k());
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wi6Var, gx5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gx5Var;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wi6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumRulesShowActivity, bdTypeRecyclerView};
+            Object[] objArr = {tbPageContext, bdUniqueId, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        a(forumRulesShowActivity, bdTypeRecyclerView);
+        this.t = z;
     }
 
-    public final void a(ForumRulesShowActivity forumRulesShowActivity, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: l0 */
+    public a M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, forumRulesShowActivity, bdTypeRecyclerView) == null) {
-            this.b = bdTypeRecyclerView;
-            this.c = new zi6(forumRulesShowActivity, dj6.m);
-            this.d = new yi6(forumRulesShowActivity, ej6.d);
-            this.e = new xi6(forumRulesShowActivity, cj6.f);
-            this.a.add(this.c);
-            this.a.add(this.d);
-            this.a.add(this.e);
-            bdTypeRecyclerView.a(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            gx5 gx5Var = new gx5(this.k);
+            gx5Var.v(null, TbadkCoreStatisticKey.FRS_HOT_TOPIC_ITEM_CLICK);
+            return new a(this, gx5Var);
         }
+        return (a) invokeL.objValue;
     }
 
-    public void b(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.kd6, com.repackage.ho
+    /* renamed from: m0 */
+    public View S(int i, View view2, ViewGroup viewGroup, jy5 jy5Var, a aVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jy5Var, aVar})) == null) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FRS_HOT_TOPIC_CARD_SHOW));
+            if (jy5Var != null) {
+                jy5Var.f = i + 1;
+                aVar.a.w(oi.d(this.k.getPageActivity(), 7.0f));
+                aVar.a.y(this.t);
+                aVar.a.m(this.k, TbadkCoreApplication.getInst().getSkinType());
+            }
+            aVar.a.l(jy5Var);
+            return aVar.b();
         }
-    }
-
-    public void c(List<uo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.b;
-            if (bdTypeRecyclerView != null) {
-                bdTypeRecyclerView.setData(list);
-            }
-            yi6 yi6Var = this.d;
-            if (yi6Var != null) {
-                yi6Var.d0(list);
-            }
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            zi6 zi6Var = this.c;
-            if (zi6Var != null) {
-                zi6Var.setFrom(str);
-            }
-            xi6 xi6Var = this.e;
-            if (xi6Var != null) {
-                xi6Var.setFrom(str);
-            }
-        }
+        return (View) invokeCommon.objValue;
     }
 }

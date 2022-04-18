@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.managers.setting.GlobalSetting;
 import com.repackage.oi;
+import com.repackage.ur4;
 import com.repackage.vr4;
-import com.repackage.wr4;
 /* loaded from: classes4.dex */
 public class AdInfoButton extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -184,8 +184,8 @@ public class AdInfoButton extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int[] iArr = {((Integer) valueAnimator.getAnimatedValue()).intValue()};
-                if (this.a.a.getBackground() instanceof vr4) {
-                    ((vr4) this.a.a.getBackground()).C(iArr);
+                if (this.a.a.getBackground() instanceof ur4) {
+                    ((ur4) this.a.a.getBackground()).C(iArr);
                     this.a.a.invalidate();
                 }
             }
@@ -246,23 +246,23 @@ public class AdInfoButton extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.e == AdChannel.CSJ) {
-                wr4 d = wr4.d(this.a);
+                vr4 d = vr4.d(this.a);
                 d.n(R.string.J_X05);
                 d.m(0);
                 d.f(R.color.CAM_X0614);
             } else {
-                wr4 d2 = wr4.d(this.a);
+                vr4 d2 = vr4.d(this.a);
                 d2.n(R.string.J_X05);
                 d2.m(0);
                 d2.f(R.color.CAM_X0302);
             }
             AdType adType = this.d;
             if (adType == AdType.DOWNLOAD) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0806eb, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0806ea, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             } else if (adType == AdType.INFO) {
-                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f08079e, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f08079d, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             }
-            wr4 d3 = wr4.d(this.c);
+            vr4 d3 = vr4.d(this.c);
             d3.z(R.dimen.T_X08);
             d3.v(R.color.CAM_X0101);
         }

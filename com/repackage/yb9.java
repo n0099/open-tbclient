@@ -1,94 +1,66 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes7.dex */
 public class yb9 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
+    public static String b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> boolean a(List<T> list, List<T> list2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, list2)) == null) {
-            if (e(list2) || list == null) {
-                return false;
-            }
-            return list.addAll(list2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> int b(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeL.intValue;
-    }
-
-    public static <T> T c(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-                return null;
-            }
-            return list.get(i);
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> T d(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return null;
-            }
-            return (T) c(list, list.size() - 1);
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public static <T> boolean e(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) ? b(list) <= 0 : invokeL.booleanValue;
-    }
-
-    public static <T> boolean f(Map map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) ? map == null || map.isEmpty() : invokeL.booleanValue;
-    }
-
-    public static <T> T g(List<T> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
-            if (e(list) || list == null || i < 0 || i >= list.size()) {
-                return null;
-            }
-            return list.remove(i);
-        }
-        return (T) invokeLI.objValue;
-    }
-
-    public static <T> void h(List<T> list, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65543, null, list, i, i2) == null) || e(list) || i < 0 || i2 < 0 || i > b(list) - 1 || i2 > b(list) - 1) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755147423, "Lcom/repackage/yb9;")) == null) {
             return;
         }
-        Collections.swap(list, i, i2);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755147423, "Lcom/repackage/yb9;");
+        }
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
+            }
+            try {
+                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int i = a;
+            if (i >= 0) {
+                return i;
+            }
+            try {
+                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return a;
+        }
+        return invokeL.intValue;
     }
 }

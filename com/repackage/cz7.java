@@ -1,26 +1,47 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.MessageListener;
+import android.view.View;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface cz7 {
-    PbModel.g U();
+public class cz7 extends nv4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void finish();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cz7(TbPageContext tbPageContext, mv4 mv4Var) {
+        super(tbPageContext, mv4Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, mv4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (mv4) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    TbPageContext getPageContext();
-
-    void registerListener(MessageListener<?> messageListener);
-
-    AbsVideoPbFragment t();
-
-    PbModel w();
-
-    AbsPbActivity x();
-
-    PbFragment x0();
+    @Override // com.repackage.nv4, android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            super.onClick(view2);
+            if (this.a != null) {
+                TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.a.getUserId()));
+            }
+        }
+    }
 }

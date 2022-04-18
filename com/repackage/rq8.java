@@ -1,13 +1,17 @@
 package com.repackage;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.themeCenter.background.BackgroundSetRequestMessage;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,13 +24,15 @@ public class rq8 {
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public int b;
+    public BdUniqueId c;
+    public int d;
 
-    public rq8(TbPageContext<?> tbPageContext) {
+    public rq8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,51 +42,66 @@ public class rq8 {
                 return;
             }
         }
+        this.c = null;
+        this.d = -1;
         this.a = tbPageContext;
+        this.c = bdUniqueId;
     }
 
-    public final boolean a(DressItemData dressItemData) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dressItemData)) == null) ? TbadkCoreApplication.getCurrentMemberType() == 1 && dressItemData.getFreeUserLevel() == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public void b(DressItemData dressItemData, boolean z) {
-        String string;
-        String str;
-        int i;
+    public void b(DressItemData dressItemData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData, z) == null) || dressItemData == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData) == null) || dressItemData == null || dressItemData.getPropsId() == 0) {
             return;
         }
-        boolean a = bq8.a(dressItemData);
-        if (!a) {
-            a = a(dressItemData);
+        PersonalBackgroundPreviewActivityConfig personalBackgroundPreviewActivityConfig = new PersonalBackgroundPreviewActivityConfig(this.a.getPageActivity(), dressItemData.getPropsId(), dressItemData.getInUse() ? 1 : 0);
+        personalBackgroundPreviewActivityConfig.setFrom(this.d);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalBackgroundPreviewActivityConfig));
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.d = i;
         }
-        if (a) {
-            this.b = dressItemData.getPropsId();
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
-            httpMessage.setExtra(Integer.valueOf(this.b));
-            httpMessage.addParam("bcode", String.valueOf(this.b));
-            MessageManager.getInstance().sendMessage(httpMessage);
-        } else if (dressItemData.getFreeUserLevel() == 100) {
-            if (dressItemData.getActivityFinish() == 0) {
-                bq8.b(this.a, 5, dressItemData.getActivityUrl());
+    }
+
+    public void d(int i, String str, DressItemData dressItemData, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, dressItemData, Boolean.valueOf(z)}) == null) {
+            int i2 = dressItemData.getFreeUserLevel() == 101 ? 9 : 0;
+            if (StringUtils.isNull(str)) {
+                return;
             }
-        } else {
-            if (dressItemData.getFreeUserLevel() == 101) {
-                str = this.a.getString(R.string.obfuscated_res_0x7f0f02f4);
-                i = 9;
-            } else {
-                if (dressItemData.getFreeUserLevel() > 1) {
-                    string = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f02fa), Integer.valueOf(dressItemData.getFreeUserLevel()));
-                } else {
-                    string = this.a.getString(R.string.obfuscated_res_0x7f0f02f6);
-                }
-                str = string;
-                i = 0;
+            if (i == jq8.a) {
+                int i3 = this.d;
+                iq8.d(this.a, z ? 4 : 2, str, i2, i3 == 1 ? MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY : i3 == 0 ? MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY : "", MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
+            } else if (i == jq8.b) {
+                iq8.c(this.a, z ? 4 : 2, str, i2);
             }
-            bq8.d(this.a, 5, str, i, z ? MemberPayStatistic.REFER_PAGE_POST_BUBBLE : MemberPayStatistic.REFER_PAGE_ALL_BUBBLE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
         }
+    }
+
+    public void e(DressItemData dressItemData, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, dressItemData, z) == null) || dressItemData == null) {
+            return;
+        }
+        if (!TbadkCoreApplication.isLogin()) {
+            ViewHelper.skipToLoginActivity(this.a.getPageActivity());
+            return;
+        }
+        this.b = dressItemData.getPropsId();
+        BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
+        backgroundSetRequestMessage.setFromDetail(z);
+        backgroundSetRequestMessage.setRequestUniqueId(this.c);
+        backgroundSetRequestMessage.setPropId(this.b);
+        MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921004));
     }
 }

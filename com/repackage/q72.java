@@ -14,12 +14,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class q72 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class q72 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public class q72 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -242,25 +242,25 @@ public class q72 {
                             inputStream = byteStream;
                             try {
                                 c(cVar, 1, 0);
-                                ng4.d(inputStream);
-                                ng4.d(fileOutputStream);
+                                mg4.d(inputStream);
+                                mg4.d(fileOutputStream);
                             } catch (Throwable th) {
                                 th = th;
-                                ng4.d(inputStream);
-                                ng4.d(fileOutputStream);
+                                mg4.d(inputStream);
+                                mg4.d(fileOutputStream);
                                 throw th;
                             }
                         } catch (Throwable th2) {
                             th = th2;
                             inputStream = byteStream;
-                            ng4.d(inputStream);
-                            ng4.d(fileOutputStream);
+                            mg4.d(inputStream);
+                            mg4.d(fileOutputStream);
                             throw th;
                         }
                     }
                     fileOutputStream.flush();
                     c(cVar, 0, 100);
-                    ng4.d(byteStream);
+                    mg4.d(byteStream);
                 } catch (Exception unused2) {
                     fileOutputStream = null;
                 } catch (Throwable th3) {
@@ -273,18 +273,18 @@ public class q72 {
                 th = th4;
                 fileOutputStream = null;
             }
-            ng4.d(fileOutputStream);
+            mg4.d(fileOutputStream);
         }
     }
 
     public void e(fj2.d dVar, String str, fj2.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, dVar, str, cVar) == null) {
-            l74 l74Var = new l74(dVar.a, new a(this, cVar, new File(str)));
-            l74Var.f = false;
-            l74Var.g = false;
-            l74Var.h = false;
-            m74.g().d(l74Var);
+            k74 k74Var = new k74(dVar.a, new a(this, cVar, new File(str)));
+            k74Var.f = false;
+            k74Var.g = false;
+            k74Var.h = false;
+            l74.g().d(k74Var);
         }
     }
 }

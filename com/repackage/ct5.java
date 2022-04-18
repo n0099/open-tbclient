@@ -1,261 +1,179 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.ala.AlaCmdConfigSocket;
-import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusHttpResponseMessage;
-import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusSocketResponseMessage;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ala.livecard.models.FrsPageAlaTabRequestMessage;
-import com.baidu.tieba.ala.livecard.models.FrsPageAlaTabResponseMessage;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.ala.livecard.holder.FrsPageAlaVideoHolder;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ct5 implements ne6 {
+public class ct5 extends kd6<qq4, FrsPageAlaVideoHolder> implements rx5, qi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public af6 c;
-    public ArrayList<uo> d;
-    public re6 e;
-    public wa f;
-    public HttpMessageListener g;
+    public mt5 t;
+    public String u;
+    public String v;
+    public tx5<ThreadData> w;
 
     /* loaded from: classes5.dex */
-    public class a extends wa {
+    public class a extends tx5<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ct5 a;
+        public final /* synthetic */ ct5 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ct5 ct5Var, int i, int i2) {
-            super(i, i2);
+        public a(ct5 ct5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ct5Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {ct5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ct5Var;
-        }
-
-        @Override // com.repackage.wa
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            ThreadData threadData;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage().getTag() == this.a.a) {
-                List<Long> closedIds = responsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage ? ((AlaMGetLiveStatusHttpResponseMessage) responsedMessage).getClosedIds() : null;
-                if (responsedMessage instanceof AlaMGetLiveStatusSocketResponseMessage) {
-                    closedIds = ((AlaMGetLiveStatusSocketResponseMessage) responsedMessage).getClosedIds();
-                }
-                if (ListUtils.isEmpty(this.a.d) || ListUtils.isEmpty(closedIds)) {
-                    return;
-                }
-                boolean z = false;
-                for (int size = this.a.d.size() - 1; size >= 0; size--) {
-                    if (this.a.d.get(size).getType() == ThreadData.TYPE_VIDEO_ALA_ONLIVE && (threadData = (ThreadData) this.a.d.get(size)) != null && threadData.getThreadAlaInfo() != null && closedIds.contains(Long.valueOf(threadData.getThreadAlaInfo().live_id))) {
-                        this.a.d.remove(size);
-                        z = true;
-                    }
-                }
-                if (!z || this.a.e == null) {
-                    return;
-                }
-                this.a.e.a(49, this.a.b, this.a.c, this.a.d);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ct5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ct5 ct5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ct5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ct5Var;
+            this.b = ct5Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // com.repackage.tx5
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
+            CustomMessage customMessage;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021038) {
-                if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof FrsPageAlaTabResponseMessage)) {
-                    this.a.e.a(49, this.a.b, null, null);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f0911eb) {
+                    customMessage = new CustomMessage(2921018);
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f09054b && view2.getId() != R.id.obfuscated_res_0x7f090547 && view2.getId() != R.id.obfuscated_res_0x7f09227b) {
+                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f0922fd ? new CustomMessage(2921019) : null;
+                } else {
+                    customMessage = new CustomMessage(2921016);
+                }
+                if (customMessage == null || this.b.k == null) {
                     return;
                 }
-                FrsPageAlaTabResponseMessage frsPageAlaTabResponseMessage = (FrsPageAlaTabResponseMessage) httpResponsedMessage;
-                if (frsPageAlaTabResponseMessage.errCode != 0) {
-                    if (this.a.e != null) {
-                        this.a.e.a(49, this.a.b, null, null);
-                        return;
-                    }
-                    return;
-                }
-                ArrayList<uo> arrayList = frsPageAlaTabResponseMessage.mThreadList;
-                ArrayList<uo> arrayList2 = frsPageAlaTabResponseMessage.mAltList;
-                af6 af6Var = frsPageAlaTabResponseMessage.pageInfo;
-                int i = frsPageAlaTabResponseMessage.alaLiveCount;
-                this.a.c = af6Var;
-                if (af6Var.c == 1) {
-                    this.a.d.clear();
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001606, Integer.valueOf(i)));
-                if (this.a.e != null) {
-                    if (arrayList != null && arrayList.size() > 0) {
-                        this.a.d.addAll(arrayList);
-                        this.a.e.a(49, this.a.b, af6Var, this.a.d);
-                        return;
-                    }
-                    ThreadData threadData = new ThreadData();
-                    threadData.setThreadType(51);
-                    if (this.a.d.size() == 0 || (this.a.d.size() > 0 && ((ThreadData) this.a.d.get(0)).getThreadType() != 51)) {
-                        this.a.d.add(0, threadData);
-                    }
-                    if (arrayList2 != null && arrayList2.size() > 0) {
-                        threadData.hasRecommend = true;
-                        if (arrayList2.get(0) != null) {
-                            ((ThreadData) arrayList2.get(0)).isFirstRecommend = true;
-                        }
-                        this.a.d.addAll(arrayList2);
-                    }
-                    this.a.e.a(49, this.a.b, af6Var, this.a.d);
-                }
+                customMessage.setData(threadData);
+                this.b.k.sendMessage(customMessage);
             }
         }
     }
 
-    public ct5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ct5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new ArrayList<>();
-        this.f = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2);
-        this.g = new b(this, AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
+        this.w = new a(this);
     }
 
-    public final void f() {
+    @Override // com.repackage.rx5
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BdUniqueId bdUniqueId = this.a;
-            if (bdUniqueId != null) {
-                this.g.setTag(bdUniqueId);
-                this.f.setTag(this.a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.u = str;
+        }
+    }
+
+    @Override // com.repackage.qi5
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.v = str;
+        }
+    }
+
+    @Override // com.repackage.kd6
+    public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, bdUniqueId) == null) {
+            super.n(tbPageContext, bdUniqueId);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: n0 */
+    public FrsPageAlaVideoHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            TbPageContext<?> tbPageContext = this.k;
+            if (tbPageContext == null) {
+                return null;
             }
-            MessageManager.getInstance().registerListener(this.f);
-            MessageManager.getInstance().registerListener(this.g);
+            mt5 mt5Var = new mt5(tbPageContext, this.e);
+            this.t = mt5Var;
+            mt5Var.V(this.e);
+            this.t.a(this.u);
+            this.t.n(this.w);
+            return new FrsPageAlaVideoHolder(this.t);
         }
+        return (FrsPageAlaVideoHolder) invokeL.objValue;
     }
 
-    public void g(BdUniqueId bdUniqueId) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.kd6, com.repackage.ho
+    /* renamed from: o0 */
+    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) || bdUniqueId == null) {
-            return;
-        }
-        this.a = bdUniqueId;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f);
-            MessageManager.getInstance().unRegisterListener(this.g);
-        }
-    }
-
-    @Override // com.repackage.ne6
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
-            h();
-        }
-    }
-
-    @Override // com.repackage.ne6
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, TbConfig.SERVER_ADDRESS + "c/f/frs/getFrsLiveThreads");
-            tbHttpMessageTask.setResponsedClass(FrsPageAlaTabResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            f();
-        }
-    }
-
-    @Override // com.repackage.ne6
-    public void s(int i, int i2, xe6 xe6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, xe6Var) == null) {
-            this.b = i2;
-            if (xe6Var != null && !TextUtils.isEmpty(xe6Var.a) && !TextUtils.isEmpty(xe6Var.b)) {
-                if (xe6Var.c <= 0) {
-                    xe6Var.c = 1;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, frsPageAlaVideoHolder})) == null) {
+            TiebaStatic.log("c11842");
+            CustomMessage customMessage = new CustomMessage(2921017);
+            FrsViewData frsViewData = this.j;
+            int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
+            ThreadData threadData = qq4Var.s;
+            threadData.statFloor = (i + 1) - topThreadSize;
+            customMessage.setData(threadData);
+            this.k.sendMessage(customMessage);
+            if (qq4Var != null) {
+                mt5 mt5Var = frsPageAlaVideoHolder.b;
+                if (mt5Var instanceof pi5) {
+                    mt5Var.b(this.v);
                 }
-                MessageManager.getInstance().sendMessage(new FrsPageAlaTabRequestMessage(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, xe6Var.a, xe6Var.b, xe6Var.c));
-                return;
+                frsPageAlaVideoHolder.b.a(this.u);
+                frsPageAlaVideoHolder.b.W(b0());
+                frsPageAlaVideoHolder.b.l(qq4Var.s);
+                qq4Var.s.updateShowStatus();
             }
-            this.e.a(49, this.b, null, null);
+            this.m = (zo) viewGroup;
+            return frsPageAlaVideoHolder.b();
         }
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.ne6
-    public void v(re6 re6Var) {
+    @Override // com.repackage.rx5
+    public void r(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, re6Var) == null) {
-            this.e = re6Var;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
     }
 }

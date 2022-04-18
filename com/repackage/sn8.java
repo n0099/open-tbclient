@@ -1,62 +1,219 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.PriorityQueue;
 /* loaded from: classes7.dex */
-public class sn8 extends rn8 {
+public class sn8 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static MainTabScheduleStrategy b;
+    public static boolean c;
+    public static final PriorityQueue<yn8> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WeakReference<View> b;
 
-    public sn8(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                sn8.d();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                sn8.d();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yn8 a;
+
+        public c(yn8 yn8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yn8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yn8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755314668, "Lcom/repackage/sn8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755314668, "Lcom/repackage/sn8;");
                 return;
             }
         }
-        this.b = new WeakReference<>(view2);
-        this.a = i;
+        b = MainTabScheduleStrategy.FLUSHING;
+        c = false;
+        d = new PriorityQueue<>();
     }
 
-    @Override // com.repackage.rn8
-    public void b() {
-        View view2;
+    public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.b.get()) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
+            b = mainTabScheduleStrategy;
+            if (mainTabScheduleStrategy == MainTabScheduleStrategy.UNSCHEDULE || c) {
+                return;
+            }
+            g(true);
+        }
+    }
+
+    public static void c(yn8 yn8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, yn8Var) == null) {
+            System.nanoTime();
+            yn8Var.b();
+            pg.a().postAtFrontOfQueue(new c(yn8Var));
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c = false;
+            if (d.isEmpty() || b == MainTabScheduleStrategy.UNSCHEDULE) {
+                return;
+            }
+            if (b == MainTabScheduleStrategy.FLUSHING) {
+                e();
+                return;
+            }
+            if (d.peek() != null && a >= d.peek().a) {
+                yn8 poll = d.poll();
+                if (poll == null) {
+                    return;
+                }
+                c(poll);
+            }
+            if (b == MainTabScheduleStrategy.SCHEDULE) {
+                g(false);
+            }
+        }
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            while (!d.isEmpty()) {
+                yn8 poll = d.poll();
+                if (poll != null) {
+                    poll.b();
+                    poll.c();
+                }
+            }
+        }
+    }
+
+    public static void f(yn8 yn8Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, yn8Var) == null) || yn8Var == null) {
             return;
         }
-        view2.setVisibility(0);
-    }
-
-    @Override // com.repackage.rn8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ln8.a = Math.max(ln8.a, this.a + 1);
-        }
-    }
-
-    @Override // com.repackage.rn8
-    public void d() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (view2 = this.b.get()) == null) {
+        if (b == MainTabScheduleStrategy.FLUSHING) {
+            if (!(yn8Var instanceof zn8)) {
+                yn8Var.d();
+                yn8Var.b();
+            }
+            yn8Var.c();
             return;
         }
-        view2.setVisibility(8);
+        yn8Var.d();
+        d.add(yn8Var);
+        if (b == MainTabScheduleStrategy.UNSCHEDULE || c) {
+            return;
+        }
+        g(false);
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(65543, null, z) == null) || c) {
+            return;
+        }
+        c = true;
+        if (z) {
+            pg.a().postAtFrontOfQueue(new a());
+        } else {
+            pg.a().post(new b());
+        }
     }
 }

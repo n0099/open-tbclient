@@ -99,16 +99,16 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092138);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092139);
             this.mRoundCornerLayout = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(oi.f(this, R.dimen.tbds32));
-            this.mTropicGreetings = (TextView) findViewById(R.id.obfuscated_res_0x7f092139);
-            this.mVipPic = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923d3);
-            this.mLineTropicLeft = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09125b);
-            this.mLineTropicRight = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09125c);
-            this.mSevenDayVip = (TextView) findViewById(R.id.obfuscated_res_0x7f091c98);
-            this.mSevenDayVipDec = (TextView) findViewById(R.id.obfuscated_res_0x7f091c99);
-            this.mKnow = (Button) findViewById(R.id.obfuscated_res_0x7f09213a);
+            this.mTropicGreetings = (TextView) findViewById(R.id.obfuscated_res_0x7f09213a);
+            this.mVipPic = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923d4);
+            this.mLineTropicLeft = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09125c);
+            this.mLineTropicRight = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09125d);
+            this.mSevenDayVip = (TextView) findViewById(R.id.obfuscated_res_0x7f091c99);
+            this.mSevenDayVipDec = (TextView) findViewById(R.id.obfuscated_res_0x7f091c9a);
+            this.mKnow = (Button) findViewById(R.id.obfuscated_res_0x7f09213b);
             this.mClose = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09066c);
         }
     }
@@ -126,7 +126,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f11cf));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f11ce));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -154,18 +154,18 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.mVipPic, R.drawable.obfuscated_res_0x7f080a91);
+            SkinManager.setImageResource(this.mVipPic, R.drawable.obfuscated_res_0x7f080a95);
             this.mVipPic.setSkinType(i);
-            SkinManager.setImageResource(this.mLineTropicLeft, R.drawable.obfuscated_res_0x7f080a92);
+            SkinManager.setImageResource(this.mLineTropicLeft, R.drawable.obfuscated_res_0x7f080a96);
             this.mLineTropicLeft.setSkinType(i);
-            SkinManager.setImageResource(this.mLineTropicRight, R.drawable.obfuscated_res_0x7f080a93);
+            SkinManager.setImageResource(this.mLineTropicRight, R.drawable.obfuscated_res_0x7f080a97);
             this.mLineTropicRight.setSkinType(i);
             SkinManager.setBackgroundColor(this.mRoundCornerLayout, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.mTropicGreetings, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.mSevenDayVip, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.mSevenDayVipDec, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.mKnow, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-            SkinManager.setImageResource(this.mClose, R.drawable.obfuscated_res_0x7f0808c7);
+            SkinManager.setImageResource(this.mClose, R.drawable.obfuscated_res_0x7f0808cb);
             this.mClose.setSkinType(i);
         }
     }

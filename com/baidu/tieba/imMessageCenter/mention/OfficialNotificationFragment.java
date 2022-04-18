@@ -40,20 +40,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a9;
 import com.repackage.ad5;
+import com.repackage.c87;
 import com.repackage.dd5;
 import com.repackage.dg;
 import com.repackage.ff5;
 import com.repackage.if5;
 import com.repackage.ni;
-import com.repackage.ta7;
-import com.repackage.xx4;
-import com.repackage.z77;
+import com.repackage.wa7;
+import com.repackage.wx4;
 /* loaded from: classes3.dex */
 public class OfficialNotificationFragment extends BaseFragment implements NoNetworkView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public ta7 b;
+    public wa7 b;
     public OfficialNotificationListModel c;
     public String d;
     public CustomMessageListener e;
@@ -131,7 +131,7 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                z77.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.a);
+                c87.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -390,7 +390,7 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            this.d = xx4.g0().D();
+            this.d = wx4.g0().D();
             OfficialNotificationListModel officialNotificationListModel = new OfficialNotificationListModel(this.a);
             this.c = officialNotificationListModel;
             officialNotificationListModel.setLoadDataCallBack(this.f);
@@ -438,7 +438,7 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ni.isEmpty(this.d) || this.a == null || this.c == null) {
             return;
         }
-        UserData userData = new UserData(Long.parseLong(this.d), this.a.getString(R.string.obfuscated_res_0x7f0f1319), null, 0);
+        UserData userData = new UserData(Long.parseLong(this.d), this.a.getString(R.string.obfuscated_res_0x7f0f1318), null, 0);
         L0(userData);
         this.c.setUser(userData);
     }
@@ -472,9 +472,9 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            ta7 ta7Var = this.b;
-            if (ta7Var != null) {
-                ta7Var.j();
+            wa7 wa7Var = this.b;
+            if (wa7Var != null) {
+                wa7Var.j();
             }
         }
     }
@@ -485,7 +485,7 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if ((id == R.id.obfuscated_res_0x7f090fd0 || id == R.id.obfuscated_res_0x7f09220c) && !ni.isEmpty(this.d)) {
+            if ((id == R.id.obfuscated_res_0x7f090fd1 || id == R.id.obfuscated_res_0x7f09220d) && !ni.isEmpty(this.d)) {
                 TiebaStatic.log("c12938");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RecommendDetailActivityConfig(getPageContext().getPageActivity(), null, Long.parseLong(this.d))));
             }
@@ -508,11 +508,11 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
-            ta7 ta7Var = new ta7(this.a, this, viewGroup);
-            this.b = ta7Var;
+            wa7 wa7Var = new wa7(this.a, this, viewGroup);
+            this.b = wa7Var;
             OfficialNotificationListModel officialNotificationListModel = this.c;
             if (officialNotificationListModel != null) {
-                ta7Var.f(officialNotificationListModel.getData());
+                wa7Var.f(officialNotificationListModel.getData());
                 this.c.loadFirst(null);
             }
             return this.b.i();

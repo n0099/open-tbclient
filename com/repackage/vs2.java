@@ -172,11 +172,11 @@ public class vs2 {
                 return;
             }
             this.a = be3.b(this.a, this.c);
-            l74 l74Var = new l74(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
-            l74Var.c = this.b;
-            l74Var.g = true;
+            k74 k74Var = new k74(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            k74Var.c = this.b;
+            k74Var.g = true;
             jx1.b("PayCheckRequest", "start paycheck request : " + this.e);
-            m74.g().e(l74Var);
+            l74.g().e(k74Var);
         }
     }
 
@@ -191,7 +191,7 @@ public class vs2 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String i2 = q94.i(h);
+            String i2 = p94.i(h);
             this.a = i2;
             this.a = fx1.b(i2);
         }

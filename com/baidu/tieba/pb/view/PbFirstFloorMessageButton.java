@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nu4;
 import com.repackage.oi;
-import com.repackage.ou4;
 /* loaded from: classes3.dex */
 public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ou4 o;
+    public nu4 o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorMessageButton(Context context) {
@@ -43,11 +43,11 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            ou4 ou4Var = new ou4();
-            this.o = ou4Var;
-            ou4Var.q(R.color.CAM_X0903);
+            nu4 nu4Var = new nu4();
+            this.o = nu4Var;
+            nu4Var.q(R.color.CAM_X0903);
             this.o.g(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
-            this.o.u(R.drawable.obfuscated_res_0x7f080805, TBSpecificationButtonConfig.IconType.WEBP);
+            this.o.u(R.drawable.obfuscated_res_0x7f080804, TBSpecificationButtonConfig.IconType.WEBP);
             this.o.o(TBSpecificationButtonConfig.WebpType.PURE);
             this.o.h(R.color.CAM_X0304);
             setConfig(this.o);

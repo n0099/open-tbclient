@@ -19,15 +19,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pj6;
-import com.repackage.vj8;
+import com.repackage.ck8;
+import com.repackage.rj6;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pj6 mAdapter;
+    public rj6 mAdapter;
     public View mBackLogo;
     public List<FeedForumData> mFeedForumDataList;
     public ListView mFeedForumListView;
@@ -99,8 +99,8 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof vj8)) {
-                this.a.mAdapter.f(this.a.mFeedForumDataList, (vj8) customResponsedMessage.getData());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ck8)) {
+                this.a.mAdapter.f(this.a.mFeedForumDataList, (ck8) customResponsedMessage.getData());
             }
         }
     }
@@ -142,17 +142,17 @@ public class FrsMoreFeedForumsActivity extends BaseActivity<FrsMoreFeedForumsAct
             if (intent != null) {
                 this.mFeedForumDataList = (ArrayList) intent.getSerializableExtra(FrsMoreFeedForumsConfig.KEY_FEED_DATA_LIST);
             }
-            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923ab);
+            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBackLogo = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this.mOnClickListener);
             this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f07dc));
-            this.mFeedForumListView = (ListView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f09126f);
+            this.mFeedForumListView = (ListView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091270);
             registerListener(this.mLikeUpdateListener);
-            pj6 pj6Var = new pj6(getPageContext());
-            this.mAdapter = pj6Var;
-            pj6Var.g(this.mFeedForumDataList);
+            rj6 rj6Var = new rj6(getPageContext());
+            this.mAdapter = rj6Var;
+            rj6Var.g(this.mFeedForumDataList);
             this.mFeedForumListView.addHeaderView(LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0341, (ViewGroup) null));
             this.mFeedForumListView.setAdapter((ListAdapter) this.mAdapter);
             this.mAdapter.notifyDataSetChanged();

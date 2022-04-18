@@ -31,11 +31,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i28;
-import com.repackage.j28;
+import com.repackage.g28;
 import com.repackage.ni;
+import com.repackage.p28;
+import com.repackage.q28;
 import com.repackage.ul5;
-import com.repackage.z18;
 /* loaded from: classes3.dex */
 public class PersonCenterSmartAppItemView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -43,7 +43,7 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public HeadImageView a;
     public TextView b;
     public ImageView c;
-    public z18 d;
+    public g28 d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppItemView(Context context) {
@@ -66,32 +66,32 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
         }
     }
 
-    public void a(z18 z18Var) {
+    public void a(g28 g28Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, z18Var) == null) || z18Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, g28Var) == null) || g28Var == null) {
             return;
         }
-        this.d = z18Var;
+        this.d = g28Var;
         this.c.setVisibility(8);
-        if (z18Var instanceof j28) {
-            j28 j28Var = (j28) z18Var;
-            this.a.L(j28Var.c(), 10, false, false);
-            String g = j28Var.g();
+        if (g28Var instanceof q28) {
+            q28 q28Var = (q28) g28Var;
+            this.a.L(q28Var.c(), 10, false, false);
+            String g = q28Var.g();
             if (!ni.isEmpty(g)) {
                 this.b.setText(UtilHelper.getFixedText(g, 5));
             } else {
                 this.b.setText(R.string.obfuscated_res_0x7f0f08ec);
             }
-            if (z18Var.getType() == 1) {
+            if (g28Var.getType() == 1) {
                 SkinManager.setImageResource(this.c, R.drawable.icon_personal_recommend);
                 this.c.setVisibility(0);
             } else {
                 this.c.setVisibility(8);
             }
             setOnClickListener(this);
-        } else if (z18Var instanceof i28) {
+        } else if (g28Var instanceof p28) {
             SkinManager.setImageResource(this.a, R.drawable.icon_personal_more);
-            this.b.setText(R.string.obfuscated_res_0x7f0f0acc);
+            this.b.setText(R.string.obfuscated_res_0x7f0f0acb);
             setOnClickListener(this);
         }
     }
@@ -122,23 +122,23 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            z18 z18Var = this.d;
-            if (z18Var instanceof j28) {
-                j28 j28Var = (j28) z18Var;
-                if (!ul5.b(j28Var.b(), j28Var.f(), "1191000600000000", j28Var.e())) {
-                    if (ni.isEmpty(j28Var.d())) {
+            g28 g28Var = this.d;
+            if (g28Var instanceof q28) {
+                q28 q28Var = (q28) g28Var;
+                if (!ul5.b(q28Var.b(), q28Var.f(), "1191000600000000", q28Var.e())) {
+                    if (ni.isEmpty(q28Var.d())) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{j28Var.d()});
+                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{q28Var.d()});
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_source", "personal_center");
-                statisticItem.param("obj_id", j28Var.a().longValue());
-                statisticItem.param("obj_name", j28Var.g());
-                statisticItem.param("obj_param1", j28Var.e().intValue());
+                statisticItem.param("obj_id", q28Var.a().longValue());
+                statisticItem.param("obj_name", q28Var.g());
+                statisticItem.param("obj_param1", q28Var.e().intValue());
                 TiebaStatic.log(statisticItem);
-            } else if (z18Var instanceof i28) {
+            } else if (g28Var instanceof p28) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SmartAppBrowseHistoryActivityConfig(getContext())));
                 StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_MORE_HISTORY_RECORD_CLICK);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -209,13 +209,13 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
             }
         }
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06b5, (ViewGroup) this, true);
-        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090fe5);
+        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090fe6);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setDefaultResource(R.color.CAM_X0204);
         this.a.setPlaceHolder(1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921d8);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091355);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921d9);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091356);
         c();
     }
 }

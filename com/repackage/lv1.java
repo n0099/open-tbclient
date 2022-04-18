@@ -128,7 +128,7 @@ public class lv1 extends gv1 {
                                     FileOutputStream fileOutputStream = new FileOutputStream(file);
                                     createBitmap.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream);
                                     fileOutputStream.flush();
-                                    ng4.d(fileOutputStream);
+                                    mg4.d(fileOutputStream);
                                     return true;
                                 }
                                 i4 = height - this.l;
@@ -150,7 +150,7 @@ public class lv1 extends gv1 {
                                 FileOutputStream fileOutputStream2 = new FileOutputStream(file);
                                 createBitmap2.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream2);
                                 fileOutputStream2.flush();
-                                ng4.d(fileOutputStream2);
+                                mg4.d(fileOutputStream2);
                                 return true;
                             }
                             i3 = width - this.k;
@@ -175,7 +175,7 @@ public class lv1 extends gv1 {
                                 FileOutputStream fileOutputStream22 = new FileOutputStream(file);
                                 createBitmap22.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream22);
                                 fileOutputStream22.flush();
-                                ng4.d(fileOutputStream22);
+                                mg4.d(fileOutputStream22);
                                 return true;
                             }
                             i4 = height - this.l;
@@ -197,7 +197,7 @@ public class lv1 extends gv1 {
                             FileOutputStream fileOutputStream222 = new FileOutputStream(file);
                             createBitmap222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream222);
                             fileOutputStream222.flush();
-                            ng4.d(fileOutputStream222);
+                            mg4.d(fileOutputStream222);
                             return true;
                         }
                         i2 = 0;
@@ -226,7 +226,7 @@ public class lv1 extends gv1 {
                             FileOutputStream fileOutputStream2222 = new FileOutputStream(file);
                             createBitmap2222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream2222);
                             fileOutputStream2222.flush();
-                            ng4.d(fileOutputStream2222);
+                            mg4.d(fileOutputStream2222);
                             return true;
                         }
                         i3 = width - this.k;
@@ -252,7 +252,7 @@ public class lv1 extends gv1 {
                         FileOutputStream fileOutputStream22222 = new FileOutputStream(file);
                         createBitmap22222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream22222);
                         fileOutputStream22222.flush();
-                        ng4.d(fileOutputStream22222);
+                        mg4.d(fileOutputStream22222);
                         return true;
                     }
                     i = 0;
@@ -285,7 +285,7 @@ public class lv1 extends gv1 {
                         FileOutputStream fileOutputStream222222 = new FileOutputStream(file);
                         createBitmap222222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream222222);
                         fileOutputStream222222.flush();
-                        ng4.d(fileOutputStream222222);
+                        mg4.d(fileOutputStream222222);
                         return true;
                     }
                     i2 = 0;
@@ -315,7 +315,7 @@ public class lv1 extends gv1 {
                     FileOutputStream fileOutputStream2222222 = new FileOutputStream(file);
                     createBitmap2222222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream2222222);
                     fileOutputStream2222222.flush();
-                    ng4.d(fileOutputStream2222222);
+                    mg4.d(fileOutputStream2222222);
                     return true;
                 } catch (Exception e) {
                     if (tg1.a) {

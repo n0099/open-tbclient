@@ -56,13 +56,13 @@ public class v03 {
                 fileOutputStream = new FileOutputStream(this.b);
                 try {
                     fileOutputStream.write(SwanAppConfigData.w.call2((x03<SwanAppConfigData>) this.a));
-                    ng4.d(fileOutputStream);
+                    mg4.d(fileOutputStream);
                 } catch (Exception unused) {
                     fileOutputStream2 = fileOutputStream;
-                    ng4.d(fileOutputStream2);
+                    mg4.d(fileOutputStream2);
                 } catch (Throwable th2) {
                     th = th2;
-                    ng4.d(fileOutputStream);
+                    mg4.d(fileOutputStream);
                     throw th;
                 }
             } catch (Exception unused2) {
@@ -121,7 +121,7 @@ public class v03 {
             File file = new File(str, "app.json");
             FileInputStream fileInputStream2 = null;
             if (file.exists()) {
-                String E = ng4.E(file);
+                String E = mg4.E(file);
                 File file2 = new File(str, "app_json_serialize6.kv");
                 if (a() && !z && file2.exists()) {
                     try {
@@ -135,13 +135,13 @@ public class v03 {
                         byte[] bArr = new byte[available];
                         if (available == fileInputStream.read(bArr) && (call = SwanAppConfigData.x.call(bArr)) != null) {
                             call.n = E;
-                            ng4.d(fileInputStream);
+                            mg4.d(fileInputStream);
                             return call;
                         }
-                        ng4.d(fileInputStream);
+                        mg4.d(fileInputStream);
                     } catch (Exception unused2) {
                         fileInputStream2 = fileInputStream;
-                        ng4.d(fileInputStream2);
+                        mg4.d(fileInputStream2);
                         SwanAppConfigData c = SwanAppConfigData.c(E, file.getParentFile());
                         if (a()) {
                         }
@@ -149,7 +149,7 @@ public class v03 {
                     } catch (Throwable th2) {
                         th = th2;
                         fileInputStream2 = fileInputStream;
-                        ng4.d(fileInputStream2);
+                        mg4.d(fileInputStream2);
                         throw th;
                     }
                 }

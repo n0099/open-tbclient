@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.al7;
+import com.repackage.cl7;
 import com.repackage.i05;
 import com.repackage.mg;
 import com.repackage.o05;
 import com.repackage.p05;
-import com.repackage.ui7;
-import com.repackage.xk7;
-import com.repackage.zk7;
+import com.repackage.xi7;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class PrivilegeDeskView extends CommonTabHost {
@@ -220,9 +220,9 @@ public class PrivilegeDeskView extends CommonTabHost {
         this.t = new c(this);
         this.u = new d(this);
         u(context);
-        zk7 zk7Var = new zk7(context, 1);
-        s(new ui7(context));
-        t(zk7Var);
+        cl7 cl7Var = new cl7(context, 1);
+        s(new xi7(context));
+        t(cl7Var);
         this.q = context;
     }
 
@@ -231,9 +231,9 @@ public class PrivilegeDeskView extends CommonTabHost {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setShowDelete(false);
-            xk7 xk7Var = new xk7();
-            xk7Var.C(this.m);
-            k(xk7Var);
+            al7 al7Var = new al7();
+            al7Var.C(this.m);
+            k(al7Var);
             w();
             v();
         }
@@ -304,20 +304,20 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    public final void s(ui7 ui7Var) {
+    public final void s(xi7 xi7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ui7Var) == null) {
-            DLauncher dLauncher = (DLauncher) o05.a(getContext(), ui7Var, 6);
+        if (interceptable == null || interceptable.invokeL(1048581, this, xi7Var) == null) {
+            DLauncher dLauncher = (DLauncher) o05.a(getContext(), xi7Var, 6);
             this.p = dLauncher;
             dLauncher.setOnClickListener(this.u);
             this.m.add(this.p);
         }
     }
 
-    public final void t(zk7 zk7Var) {
+    public final void t(cl7 cl7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zk7Var) == null) {
-            DLauncher dLauncher = (DLauncher) o05.a(getContext(), zk7Var, 6);
+        if (interceptable == null || interceptable.invokeL(1048582, this, cl7Var) == null) {
+            DLauncher dLauncher = (DLauncher) o05.a(getContext(), cl7Var, 6);
             this.o = dLauncher;
             dLauncher.setOnClickListener(this.t);
             this.m.add(this.o);

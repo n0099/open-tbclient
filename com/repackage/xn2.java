@@ -135,7 +135,7 @@ public class xn2 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             String x = r73.x(str);
             File file = new File(x + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg");
-            ng4.h(file);
+            mg4.h(file);
             return file;
         }
         return (File) invokeL.objValue;
@@ -147,7 +147,7 @@ public class xn2 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             String x = r73.x(str);
             File file = new File(x + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION);
-            ng4.h(file);
+            mg4.h(file);
             return file;
         }
         return (File) invokeL.objValue;

@@ -214,9 +214,9 @@ public class FrsPraiseView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0335, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b1d);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bb4);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bb5);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b1e);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bb5);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bb6);
             setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.d.setOnClickListener(new c(this));

@@ -1,24 +1,28 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.input.ReturnKeyType;
 /* loaded from: classes5.dex */
 public class cy3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t72 a;
+    public String a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public String f;
 
-    public cy3(t72 t72Var) {
+    public cy3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t72Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,49 +32,79 @@ public class cy3 {
                 return;
             }
         }
-        this.a = t72Var;
+        this.a = "";
+        this.b = Integer.MAX_VALUE;
+        this.c = false;
+        this.d = false;
     }
 
-    public final void a(String str, String str2) {
-        t72 t72Var;
+    public boolean a(qs1 qs1Var) throws JSTypeMismatchException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || (t72Var = this.a) == null || t72Var.p() == null || !this.a.p().hasEventListener(str2)) {
-            return;
-        }
-        ey3 ey3Var = new ey3();
-        ey3Var.value = str;
-        JSEvent jSEvent = new JSEvent(str2);
-        jSEvent.data = ey3Var;
-        this.a.p().dispatchEvent(jSEvent);
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qs1Var)) == null) {
+            try {
+                this.a = qs1Var.B("defaultValue");
+                this.b = qs1Var.q("maxLength");
+                this.c = qs1Var.l("multiple");
+                this.d = qs1Var.l("confirmHold");
+                String B = qs1Var.B("confirmType");
+                char c = 65535;
+                switch (B.hashCode()) {
+                    case -906336856:
+                        if (B.equals("search")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
+                        if (B.equals(ReturnKeyType.GO)) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 3089282:
+                        if (B.equals("done")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 3377907:
+                        if (B.equals("next")) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 3526536:
+                        if (B.equals(ReturnKeyType.SEND)) {
+                            c = 4;
+                            break;
+                        }
+                        break;
+                }
+                if (c == 0) {
+                    this.e = 6;
+                    this.f = "done";
+                } else if (c == 1) {
+                    this.e = 5;
+                    this.f = "next";
+                } else if (c == 2) {
+                    this.e = 3;
+                    this.f = "search";
+                } else if (c == 3) {
+                    this.e = 2;
+                    this.f = ReturnKeyType.GO;
+                } else if (c != 4) {
+                    this.e = 6;
+                    this.f = "done";
+                } else {
+                    this.e = 4;
+                    this.f = ReturnKeyType.SEND;
+                }
+                return true;
+            } catch (Exception unused) {
+                return false;
             }
-            a(str, "keyboardcomplete");
         }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardconfirm");
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            a(str, "keyboardinput");
-        }
+        return invokeL.booleanValue;
     }
 }

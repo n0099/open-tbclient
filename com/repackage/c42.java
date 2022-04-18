@@ -83,7 +83,7 @@ public class c42 {
         return (String) invokeLL.objValue;
     }
 
-    public static boolean f(List<i94> list) {
+    public static boolean f(List<h94> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
@@ -95,14 +95,14 @@ public class c42 {
         return invokeL.booleanValue;
     }
 
-    public static boolean g(i94 i94Var) {
+    public static boolean g(h94 h94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, i94Var)) == null) {
-            if (i94Var == null || TextUtils.isEmpty(i94Var.o)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, h94Var)) == null) {
+            if (h94Var == null || TextUtils.isEmpty(h94Var.o)) {
                 return false;
             }
-            return h(new File(i94Var.a), new File(fj2.e.i(i94Var.o, String.valueOf(i94Var.i)).getPath(), i94Var.p));
+            return h(new File(h94Var.a), new File(fj2.e.i(h94Var.o, String.valueOf(h94Var.i)).getPath(), h94Var.p));
         }
         return invokeL.booleanValue;
     }
@@ -129,7 +129,7 @@ public class c42 {
                     if (i != -1) {
                         U = ij2.d(j.a, file2, i).a;
                     } else {
-                        U = ng4.U(file.getAbsolutePath(), file2.getAbsolutePath());
+                        U = mg4.U(file.getAbsolutePath(), file2.getAbsolutePath());
                     }
                     if (U) {
                         if (a) {

@@ -74,13 +74,13 @@ public interface z21 {
         public int[] a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e1a} : (int[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e1e} : (int[]) invokeV.objValue;
         }
 
         @Override // com.repackage.z21
         public void b(View view2, AbsContainer absContainer) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, absContainer) == null) && ((Integer) view2.getTag()).intValue() == R.drawable.obfuscated_res_0x7f080e1a) {
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, absContainer) == null) && ((Integer) view2.getTag()).intValue() == R.drawable.obfuscated_res_0x7f080e1e) {
                 view2.setOnClickListener(new View$OnClickListenerC0561a(this, absContainer));
             }
         }
@@ -89,7 +89,7 @@ public interface z21 {
         public int[] c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e1c} : (int[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e20} : (int[]) invokeV.objValue;
         }
     }
 

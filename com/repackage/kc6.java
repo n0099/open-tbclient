@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,11 +14,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kc6 extends ho<sc6, CardViewHolder<xc6>> {
+public class kc6 extends ho<tc6, CardViewHolder<wc6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
-    public View.OnClickListener j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kc6(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -44,34 +44,22 @@ public class kc6 extends ho<sc6, CardViewHolder<xc6>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: Z */
-    public CardViewHolder<xc6> M(ViewGroup viewGroup) {
+    public CardViewHolder<wc6> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            xc6 xc6Var = new xc6(this.i);
-            xc6Var.u(this.j);
-            return new CardViewHolder<>(xc6Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new wc6(this.i)) : (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, sc6 sc6Var, CardViewHolder<xc6> cardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, tc6 tc6Var, CardViewHolder<wc6> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sc6Var, cardViewHolder})) == null) {
-            cardViewHolder.c().l(sc6Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tc6Var, cardViewHolder})) == null) {
+            cardViewHolder.c().m(this.i, TbadkCoreApplication.getInst().getSkinType());
             return cardViewHolder.b();
         }
         return (View) invokeCommon.objValue;
-    }
-
-    public void b0(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.j = onClickListener;
-        }
     }
 }

@@ -35,13 +35,13 @@ public class oz2 extends iz2 {
 
         /* renamed from: com.repackage.oz2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0488a implements View.OnClickListener {
+        public class View$OnClickListenerC0490a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0488a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0490a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -216,7 +216,7 @@ public class oz2 extends iz2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, onClickListener)) == null) {
                 this.a.a.setText(charSequence);
-                this.a.a.setOnClickListener(new View$OnClickListenerC0488a(this, onClickListener));
+                this.a.a.setOnClickListener(new View$OnClickListenerC0490a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -289,16 +289,16 @@ public class oz2 extends iz2 {
             }
             this.l = viewGroup;
             this.j = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907bc);
-            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092036);
-            this.a = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09189c);
-            this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091530);
+            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092037);
+            this.a = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09189d);
+            this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091531);
             this.d = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907aa);
             this.e = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ab);
-            this.m = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091c41);
+            this.m = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091c42);
             this.n = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090431);
             this.o = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907aa);
             this.i = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907bc);
-            this.k = viewGroup.findViewById(R.id.obfuscated_res_0x7f091577);
+            this.k = viewGroup.findViewById(R.id.obfuscated_res_0x7f091578);
         }
     }
 

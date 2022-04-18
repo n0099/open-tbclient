@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.br4;
 import com.repackage.ei;
 import com.repackage.l65;
 import com.repackage.p65;
@@ -77,8 +77,8 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends p65, M extends M
                 if (cacheKey == null || TextUtils.isEmpty(x) || bArr == null) {
                     return;
                 }
-                cr4.f();
-                qe<byte[]> e = cr4.e(x, currentAccount);
+                br4.f();
+                qe<byte[]> e = br4.e(x, currentAccount);
                 if (e == null) {
                     return;
                 }

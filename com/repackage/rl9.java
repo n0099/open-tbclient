@@ -1,283 +1,234 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.os.Build;
-import android.os.Process;
-import android.os.SystemClock;
-import android.util.Log;
+import android.os.Environment;
+import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
-import java.text.SimpleDateFormat;
+import com.repackage.vl9;
+import java.io.File;
+import java.io.FilenameFilter;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Locale;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class rl9 {
+public final class rl9 {
     public static /* synthetic */ Interceptable $ic;
-    public static String A;
-    public static int B;
-    public static final SimpleDateFormat x;
-    public static String y;
-    public static String z;
+    public static rl9 e;
+    public static ql9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
-    public String k;
-    public long l;
-    public long m;
-    public String n;
-    public String o;
-    public boolean p;
-    public String q;
-    public String r;
-    public ArrayList<String> s;
-    public StringBuilder t;
-    public StringBuilder u;
-    public StringBuilder v;
-    public StringBuilder w;
+    public vl9 a;
+    public xl9 b;
+    public wl9 c;
+    public List<sl9> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755346350, "Lcom/repackage/rl9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements vl9.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rl9 a;
+
+        public a(rl9 rl9Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755346350, "Lcom/repackage/rl9;");
-                return;
+            this.a = rl9Var;
+        }
+
+        @Override // com.repackage.vl9.b
+        public void a(long j, long j2, long j3, long j4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+                ArrayList<String> e = this.a.b.e(j, j2);
+                if (e.isEmpty()) {
+                    return;
+                }
+                yl9 b = yl9.b();
+                b.c(j, j2, j3, j4);
+                b.d(this.a.c.e());
+                b.e(e);
+                b.a();
+                if (rl9.getContext().displayNotification()) {
+                    ul9.c(b.toString());
+                }
+                if (this.a.d.size() != 0) {
+                    for (sl9 sl9Var : this.a.d) {
+                        sl9Var.onBlock(rl9.getContext().provideContext(), b);
+                    }
+                }
             }
         }
-        x = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
-        A = "";
-        B = -1;
-        B = sl9.b();
-        z = Build.MODEL;
-        A = Build.VERSION.SDK_INT + " " + Build.VERSION.RELEASE;
-        y = kl9.getContext().provideQualifier();
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements FilenameFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ".log";
+        }
+
+        @Override // java.io.FilenameFilter
+        public boolean accept(File file, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) ? str.endsWith(this.a) : invokeLL.booleanValue;
+        }
     }
 
     public rl9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = "";
-        this.d = -1;
-        this.g = "";
-        this.r = "-1";
-        this.s = new ArrayList<>();
-        this.t = new StringBuilder();
-        this.u = new StringBuilder();
-        this.v = new StringBuilder();
-        this.w = new StringBuilder();
+        this.d = new LinkedList();
+        this.b = new xl9(Looper.getMainLooper().getThread(), f.provideDumpInterval());
+        this.c = new wl9(f.provideDumpInterval());
+        l(new vl9(new a(this), getContext().provideBlockThreshold(), getContext().stopWhenDebugging()));
+        ul9.b();
     }
 
-    public static rl9 b() {
+    public static File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            rl9 rl9Var = new rl9();
-            Context provideContext = kl9.getContext().provideContext();
-            String str = rl9Var.g;
-            if (str == null || str.length() == 0) {
-                try {
-                    PackageInfo packageInfo = provideContext.getPackageManager().getPackageInfo(provideContext.getPackageName(), 0);
-                    rl9Var.h = packageInfo.versionCode;
-                    rl9Var.g = packageInfo.versionName;
-                } catch (Throwable th) {
-                    Log.e("BlockInfo", "newInstance: ", th);
+            File file = new File(h());
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static rl9 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (e == null) {
+                synchronized (rl9.class) {
+                    if (e == null) {
+                        e = new rl9();
+                    }
                 }
             }
-            rl9Var.d = B;
-            rl9Var.b = z;
-            rl9Var.c = A;
-            rl9Var.a = y;
-            rl9Var.e = kl9.getContext().provideUid();
-            rl9Var.f = tl9.a();
-            rl9Var.i = kl9.getContext().provideNetworkType();
-            rl9Var.j = String.valueOf(sl9.a());
-            rl9Var.k = String.valueOf(sl9.c());
-            if (Build.VERSION.SDK_INT >= 24) {
-                rl9Var.r = Long.toString(SystemClock.elapsedRealtime() - Process.getStartElapsedRealtime());
-            }
-            return rl9Var;
+            return e;
         }
         return (rl9) invokeV.objValue;
     }
 
-    public rl9 a() {
+    public static File[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = this.t;
-            sb.append("qua");
-            sb.append(" = ");
-            sb.append(this.a);
-            sb.append("\r\n");
-            StringBuilder sb2 = this.t;
-            sb2.append(PushManager.APP_VERSION_NAME);
-            sb2.append(" = ");
-            sb2.append(this.g);
-            sb2.append("\r\n");
-            StringBuilder sb3 = this.t;
-            sb3.append(PushManager.APP_VERSION_CODE);
-            sb3.append(" = ");
-            sb3.append(this.h);
-            sb3.append("\r\n");
-            StringBuilder sb4 = this.t;
-            sb4.append("uid");
-            sb4.append(" = ");
-            sb4.append(this.e);
-            sb4.append("\r\n");
-            StringBuilder sb5 = this.t;
-            sb5.append("network");
-            sb5.append(" = ");
-            sb5.append(this.i);
-            sb5.append("\r\n");
-            StringBuilder sb6 = this.t;
-            sb6.append("model");
-            sb6.append(" = ");
-            sb6.append(this.b);
-            sb6.append("\r\n");
-            StringBuilder sb7 = this.t;
-            sb7.append("api-level");
-            sb7.append(" = ");
-            sb7.append(this.c);
-            sb7.append("\r\n");
-            StringBuilder sb8 = this.t;
-            sb8.append("cpu-core");
-            sb8.append(" = ");
-            sb8.append(this.d);
-            sb8.append("\r\n");
-            StringBuilder sb9 = this.t;
-            sb9.append("process");
-            sb9.append(" = ");
-            sb9.append(this.f);
-            sb9.append("\r\n");
-            StringBuilder sb10 = this.t;
-            sb10.append("freeMemory");
-            sb10.append(" = ");
-            sb10.append(this.j);
-            sb10.append("\r\n");
-            StringBuilder sb11 = this.t;
-            sb11.append("totalMemory");
-            sb11.append(" = ");
-            sb11.append(this.k);
-            sb11.append("\r\n");
-            StringBuilder sb12 = this.v;
-            sb12.append("time");
-            sb12.append(" = ");
-            sb12.append(this.l);
-            sb12.append("\r\n");
-            StringBuilder sb13 = this.v;
-            sb13.append("thread-time");
-            sb13.append(" = ");
-            sb13.append(this.m);
-            sb13.append("\r\n");
-            StringBuilder sb14 = this.v;
-            sb14.append("time-start");
-            sb14.append(" = ");
-            sb14.append(this.n);
-            sb14.append("\r\n");
-            StringBuilder sb15 = this.v;
-            sb15.append("time-end");
-            sb15.append(" = ");
-            sb15.append(this.o);
-            sb15.append("\r\n");
-            StringBuilder sb16 = this.u;
-            sb16.append("cpu-busy");
-            sb16.append(" = ");
-            sb16.append(this.p);
-            sb16.append("\r\n");
-            StringBuilder sb17 = this.u;
-            sb17.append("cpu-rate");
-            sb17.append(" = ");
-            sb17.append(this.q);
-            sb17.append("\r\n");
-            ArrayList<String> arrayList = this.s;
-            if (arrayList != null && !arrayList.isEmpty()) {
-                StringBuilder sb18 = new StringBuilder();
-                Iterator<String> it = this.s.iterator();
-                while (it.hasNext()) {
-                    sb18.append(it.next());
-                    sb18.append("\r\n");
-                }
-                StringBuilder sb19 = this.w;
-                sb19.append("stack");
-                sb19.append(" = ");
-                sb19.append(sb18.toString());
-                sb19.append("\r\n");
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File c = c();
+            if (c.exists() && c.isDirectory()) {
+                return c.listFiles(new b());
             }
-            return this;
+            return null;
         }
-        return (rl9) invokeV.objValue;
+        return (File[]) invokeV.objValue;
     }
 
-    public rl9 c(long j, long j2, long j3, long j4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
-            this.l = j2 - j;
-            this.m = j4 - j3;
-            this.n = Long.toString(j);
-            this.o = Long.toString(j2);
-            return this;
-        }
-        return (rl9) invokeCommon.objValue;
-    }
-
-    public rl9 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.q = str;
-            return this;
-        }
-        return (rl9) invokeL.objValue;
-    }
-
-    public rl9 e(ArrayList<String> arrayList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
-            this.s = arrayList;
-            return this;
-        }
-        return (rl9) invokeL.objValue;
-    }
-
-    public String toString() {
+    public static ql9 getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.valueOf(this.t) + ((Object) this.v) + ((Object) this.u) + ((Object) this.w);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f : (ql9) invokeV.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String externalStorageState = Environment.getExternalStorageState();
+            String providePath = getContext() == null ? "" : getContext().providePath();
+            if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
+                return Environment.getExternalStorageDirectory().getPath() + providePath;
+            }
+            return getContext().provideContext().getFilesDir() + getContext().providePath();
         }
         return (String) invokeV.objValue;
+    }
+
+    public static void k(ql9 ql9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, ql9Var) == null) {
+            f = ql9Var;
+        }
+    }
+
+    public void b(sl9 sl9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sl9Var) == null) {
+            this.d.add(sl9Var);
+        }
+    }
+
+    public wl9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (wl9) invokeV.objValue;
+    }
+
+    public vl9 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (vl9) invokeV.objValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getContext().provideBlockThreshold() * 0.8f : invokeV.longValue;
+    }
+
+    public xl9 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (xl9) invokeV.objValue;
+    }
+
+    public final void l(vl9 vl9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vl9Var) == null) {
+            this.a = vl9Var;
+        }
     }
 }

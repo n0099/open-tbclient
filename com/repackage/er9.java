@@ -1,23 +1,24 @@
 package com.repackage;
 
-import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes5.dex */
-public final class er9 implements Runnable {
+import com.win.opensdk.PBError;
+import com.win.opensdk.core.Info;
+/* loaded from: classes6.dex */
+public class er9 implements eu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
+    public final /* synthetic */ ur9 a;
 
-    public er9(Context context) {
+    public er9(ur9 ur9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {ur9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,21 +28,42 @@ public final class er9 implements Runnable {
                 return;
             }
         }
-        this.a = context;
+        this.a = ur9Var;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.repackage.eu9
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.eu9
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            Info info = (Info) obj;
             try {
-                File file = new File(pp9.I(this.a));
-                if (file.exists() && file.isDirectory() && pp9.v(file) > 104857600) {
-                    pp9.q(file);
+                this.a.c = info;
+                if (this.a.f != null) {
+                    if (info == null || info.getType() != 61) {
+                        this.a.f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.a.e()) {
+                        this.a.f.onLoaded();
+                    }
                 }
-            } catch (Throwable th) {
-                th.printStackTrace();
+            } catch (Exception unused) {
             }
         }
+    }
+
+    @Override // com.repackage.eu9
+    public void onFail(PBError pBError) {
+        is9 is9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (is9Var = this.a.f) == null) {
+            return;
+        }
+        is9Var.onFail(pBError);
     }
 }

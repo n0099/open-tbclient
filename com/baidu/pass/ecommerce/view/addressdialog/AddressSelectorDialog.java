@@ -406,15 +406,15 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
                 window.setAttributes(attributes);
                 window.setWindowAnimations(R.style.obfuscated_res_0x7f1003d6);
             }
-            SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.obfuscated_res_0x7f091b56);
+            SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.obfuscated_res_0x7f091b57);
             this.mTabLayout = slidingTabLayout;
             slidingTabLayout.setOnTabSelectListener(this);
             this.mTabLayout.setTextSelectColor(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f0609a6));
-            AddrViewPager addrViewPager = (AddrViewPager) findViewById(R.id.obfuscated_res_0x7f091bd3);
+            AddrViewPager addrViewPager = (AddrViewPager) findViewById(R.id.obfuscated_res_0x7f091bd4);
             this.mViewPager = addrViewPager;
             this.mRealPagerNumber = 1;
             addrViewPager.setRealPagerNumber(1);
-            findViewById(R.id.obfuscated_res_0x7f091b8e).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.1
+            findViewById(R.id.obfuscated_res_0x7f091b8f).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.addressdialog.AddressSelectorDialog.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AddressSelectorDialog this$0;
@@ -447,10 +447,10 @@ public class AddressSelectorDialog extends Dialog implements NoProguard, ListPag
             });
             if (this.mIsDarkMode) {
                 Resources resources = getContext().getResources();
-                findViewById(R.id.obfuscated_res_0x7f091b55).setBackgroundResource(R.drawable.obfuscated_res_0x7f081024);
-                ((TextView) findViewById(R.id.obfuscated_res_0x7f091b57)).setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609d6));
-                findViewById(R.id.obfuscated_res_0x7f091b58).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609d4));
-                this.mTabLayout.setIndicatorColor(R.drawable.obfuscated_res_0x7f08101a);
+                findViewById(R.id.obfuscated_res_0x7f091b56).setBackgroundResource(R.drawable.obfuscated_res_0x7f081028);
+                ((TextView) findViewById(R.id.obfuscated_res_0x7f091b58)).setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0609d6));
+                findViewById(R.id.obfuscated_res_0x7f091b59).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609d4));
+                this.mTabLayout.setIndicatorColor(R.drawable.obfuscated_res_0x7f08101e);
             }
         }
     }

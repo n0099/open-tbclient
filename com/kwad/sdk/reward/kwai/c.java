@@ -37,7 +37,7 @@ public class c extends g implements b.a {
             return;
         }
         AdInfo j = d.j(this.b);
-        ViewGroup viewGroup = (ViewGroup) ((g) this).a.j.findViewById(R.id.obfuscated_res_0x7f09110a);
+        ViewGroup viewGroup = (ViewGroup) ((g) this).a.j.findViewById(R.id.obfuscated_res_0x7f09110b);
         if (viewGroup == null) {
             return;
         }

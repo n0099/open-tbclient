@@ -40,7 +40,7 @@ import com.repackage.jf5;
 import com.repackage.oi;
 import com.repackage.sd5;
 import com.repackage.ud5;
-import com.repackage.xz4;
+import com.repackage.wz4;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbContent;
@@ -95,7 +95,7 @@ public class TbRichTextItem extends OrmObject {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                view2.setTag(R.id.obfuscated_res_0x7f091e9b, Boolean.TRUE);
+                view2.setTag(R.id.obfuscated_res_0x7f091e9c, Boolean.TRUE);
                 this.i.b0(this.h);
             }
         }
@@ -135,7 +135,7 @@ public class TbRichTextItem extends OrmObject {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                view2.setTag(R.id.obfuscated_res_0x7f091e9b, Boolean.TRUE);
+                view2.setTag(R.id.obfuscated_res_0x7f091e9c, Boolean.TRUE);
                 this.i.b0(this.h);
             }
         }
@@ -500,13 +500,13 @@ public class TbRichTextItem extends OrmObject {
                     ff5Var.j(-1);
                 }
                 if (z) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080968, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08096c, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                     spannableString.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
                     spannableString.setSpan(ff5Var, 1, (str.length() + 1) - 1, 33);
                     return spannableString;
                 } else if (z2) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a98, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a9c, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan2.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                     eMRichTextAnyIconSpan2.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
                     spannableString.setSpan(eMRichTextAnyIconSpan2, str.length() - 1, str.length() + 1, 33);
@@ -607,7 +607,7 @@ public class TbRichTextItem extends OrmObject {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (this.a == 32 && this.b != null) {
-                spannableStringBuilder.append((CharSequence) TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14fe));
+                spannableStringBuilder.append((CharSequence) TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14fd));
                 CharSequence C = C(arrayList);
                 if (C != null) {
                     spannableStringBuilder.append(C);
@@ -743,11 +743,11 @@ public class TbRichTextItem extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(1048601, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        xz4 xz4Var = new xz4();
-        xz4Var.a = str;
-        xz4Var.b = 0;
-        xz4Var.c = "1";
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016493, xz4Var));
+        wz4 wz4Var = new wz4();
+        wz4Var.a = str;
+        wz4Var.b = 0;
+        wz4Var.c = "1";
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016493, wz4Var));
     }
 
     public int getType() {

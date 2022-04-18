@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fz;
 import com.repackage.oi;
-import com.repackage.qn4;
-import com.repackage.wr4;
+import com.repackage.pn4;
+import com.repackage.vr4;
 /* loaded from: classes.dex */
-public class RichTextLayout extends LinearLayout implements fz<qn4>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements fz<pn4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -136,34 +136,34 @@ public class RichTextLayout extends LinearLayout implements fz<qn4>, View.OnClic
             setClipToPadding(false);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f79);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f87);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f7a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f88);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: d */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn4Var) == null) || qn4Var == null || qn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) || pn4Var == null || pn4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = qn4Var.getThreadData();
+        ThreadData threadData = pn4Var.getThreadData();
         OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
         if (originalThreadInfo != null && this.e) {
             this.b.setVisibility(8);
-            wr4 d = wr4.d(this.c);
+            vr4 d = vr4.d(this.c);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X07);
-            if (!originalThreadInfo.m && !qn4Var.getThreadData().shouldShowBlockedState()) {
+            if (!originalThreadInfo.m && !pn4Var.getThreadData().shouldShowBlockedState()) {
                 SpannableString b2 = originalThreadInfo.b();
                 ThreadCardUtils.setAbstract(this.c, this.b, b2, threadData, this.a, this.e, this.g);
                 if (b2 != null) {
                     TiePlusEventController.p(originalThreadInfo.f());
                 }
             } else {
-                ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.d.getString(R.string.obfuscated_res_0x7f0f0ce5)), threadData, this.a, this.e, this.g);
+                ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.d.getString(R.string.obfuscated_res_0x7f0f0ce4)), threadData, this.a, this.e, this.g);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
             }
         } else {

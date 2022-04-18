@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aw6;
-import com.repackage.me6;
+import com.repackage.cw6;
+import com.repackage.oe6;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class GameVideoFragment extends BaseFragment implements me6 {
+public class GameVideoFragment extends BaseFragment implements oe6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aw6 a;
+    public cw6 a;
 
     public GameVideoFragment() {
         Interceptable interceptable = $ic;
@@ -42,14 +42,14 @@ public class GameVideoFragment extends BaseFragment implements me6 {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -83,14 +83,14 @@ public class GameVideoFragment extends BaseFragment implements me6 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void m() {
-        aw6 aw6Var;
+        cw6 cw6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aw6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cw6Var = this.a) == null) {
             return;
         }
-        aw6Var.x();
+        cw6Var.x();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -98,9 +98,9 @@ public class GameVideoFragment extends BaseFragment implements me6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            aw6 aw6Var = this.a;
-            if (aw6Var != null) {
-                aw6Var.n();
+            cw6 cw6Var = this.a;
+            if (cw6Var != null) {
+                cw6Var.n();
             }
         }
     }
@@ -112,7 +112,7 @@ public class GameVideoFragment extends BaseFragment implements me6 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5042);
             super.onCreate(bundle);
             if (this.a == null) {
-                this.a = new aw6(getPageContext(), getUniqueId());
+                this.a = new cw6(getPageContext(), getUniqueId());
             }
             this.a.s();
             SpeedStatsManager.getInstance().addStatsTimeStamp(5043);
@@ -127,8 +127,8 @@ public class GameVideoFragment extends BaseFragment implements me6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5044);
-            aw6 aw6Var = this.a;
-            if (aw6Var == null || aw6Var.r() == null) {
+            cw6 cw6Var = this.a;
+            if (cw6Var == null || cw6Var.r() == null) {
                 view2 = null;
             } else {
                 if (this.a.r().getParent() instanceof ViewGroup) {
@@ -150,9 +150,9 @@ public class GameVideoFragment extends BaseFragment implements me6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            aw6 aw6Var = this.a;
-            if (aw6Var != null) {
-                aw6Var.v();
+            cw6 cw6Var = this.a;
+            if (cw6Var != null) {
+                cw6Var.v();
             }
             TbadkCoreApplication.getInst().getPersonalizeViewData().a();
         }
@@ -163,9 +163,9 @@ public class GameVideoFragment extends BaseFragment implements me6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onLazyLoad();
-            aw6 aw6Var = this.a;
-            if (aw6Var != null) {
-                aw6Var.t();
+            cw6 cw6Var = this.a;
+            if (cw6Var != null) {
+                cw6Var.t();
             }
         }
     }
@@ -175,9 +175,9 @@ public class GameVideoFragment extends BaseFragment implements me6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            aw6 aw6Var = this.a;
-            if (aw6Var != null) {
-                aw6Var.w();
+            cw6 cw6Var = this.a;
+            if (cw6Var != null) {
+                cw6Var.w();
             }
         }
     }
@@ -190,14 +190,14 @@ public class GameVideoFragment extends BaseFragment implements me6 {
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            aw6 aw6Var = this.a;
-            if (aw6Var != null) {
-                aw6Var.y(isPrimary());
+            cw6 cw6Var = this.a;
+            if (cw6Var != null) {
+                cw6Var.y(isPrimary());
             }
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {

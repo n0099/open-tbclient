@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cq7;
 import com.repackage.uo;
-import com.repackage.zp7;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements zp7 {
+public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements cq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String callFrom;
@@ -61,7 +61,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a078" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.zp7
+    @Override // com.repackage.cq7
     public void loadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -82,7 +82,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.repackage.zp7
+    @Override // com.repackage.cq7
     public void netCallback(int i, List<uo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {

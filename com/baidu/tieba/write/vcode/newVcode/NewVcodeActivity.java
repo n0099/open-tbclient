@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i09;
-import com.repackage.j09;
-import com.repackage.k09;
 import com.repackage.mg;
-import com.repackage.rt4;
-import com.repackage.rx4;
+import com.repackage.p09;
+import com.repackage.q09;
+import com.repackage.qt4;
+import com.repackage.qx4;
+import com.repackage.r09;
 /* loaded from: classes4.dex */
 public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -29,7 +29,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     public boolean mNeedFeedBackButton;
     public NewVcodeView mNewVcodeView;
     public int mPageType;
-    public j09 mPresenter;
+    public q09 mPresenter;
     public WriteData mWriteData;
     public NewWriteModel mWriteModel;
 
@@ -72,9 +72,9 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             }
 
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, rx4 rx4Var, WriteData writeData, AntiData antiData) {
+            public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, qx4 qx4Var, WriteData writeData, AntiData antiData) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, rx4Var, writeData, antiData}) == null) || postWriteCallBackData == null || z) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, qx4Var, writeData, antiData}) == null) || postWriteCallBackData == null || z) {
                     return;
                 }
                 if (postWriteCallBackData.getErrorCode() == 220015) {
@@ -92,15 +92,15 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
                     intent2.putExtras(bundle2);
                     this.a.setResult(0, intent2);
                     this.a.finish();
-                } else if (rx4Var == null || writeData == null) {
+                } else if (qx4Var == null || writeData == null) {
                 } else {
                     this.a.mPageType = mg.e("4", 0);
                     this.a.mPresenter.d();
                     this.a.mPresenter.onDestroy();
                     this.a.mWriteData = writeData;
-                    this.a.mWriteData.setVcodeMD5(rx4Var.b());
-                    this.a.mWriteData.setVcodeUrl(rx4Var.c());
-                    this.a.mWriteData.setVcodeExtra(rx4Var.a());
+                    this.a.mWriteData.setVcodeMD5(qx4Var.b());
+                    this.a.mWriteData.setVcodeUrl(qx4Var.c());
+                    this.a.mWriteData.setVcodeExtra(qx4Var.a());
                     this.a.mWriteModel.setWriteData(this.a.mWriteData);
                     NewVcodeActivity newVcodeActivity = this.a;
                     newVcodeActivity.mPresenter = newVcodeActivity.getVcodePresenterFromType();
@@ -113,27 +113,27 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public j09 getVcodePresenterFromType() {
+    public q09 getVcodePresenterFromType() {
         InterceptResult invokeV;
-        j09 k09Var;
+        q09 r09Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             if (this.mPageType == mg.e("5", 0)) {
-                k09Var = new i09(this.mNewVcodeView, this.mWriteModel);
+                r09Var = new p09(this.mNewVcodeView, this.mWriteModel);
             } else {
-                k09Var = new k09(this.mNewVcodeView, this.mWriteModel);
+                r09Var = new r09(this.mNewVcodeView, this.mWriteModel);
             }
-            k09Var.c(this.mDragVcodePresenterCallback);
-            return k09Var;
+            r09Var.c(this.mDragVcodePresenterCallback);
+            return r09Var;
         }
-        return (j09) invokeV.objValue;
+        return (q09) invokeV.objValue;
     }
 
     private void gotoMainTab() {
         WriteData writeData;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65547, this) == null) && (writeData = this.mWriteData) != null && writeData.getType() == 3) {
-            rt4.g(getPageContext().getPageActivity(), 200, false);
+            qt4.g(getPageContext().getPageActivity(), 200, false);
         }
     }
 
@@ -195,7 +195,7 @@ public class NewVcodeActivity extends BaseActivity<NewVcodeActivity> {
             if (this.mWriteData.getWriteImagesInfo() != null) {
                 this.mWriteModel.i0(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
-            j09 vcodePresenterFromType = getVcodePresenterFromType();
+            q09 vcodePresenterFromType = getVcodePresenterFromType();
             this.mPresenter = vcodePresenterFromType;
             this.mNewVcodeView.setPresenter(vcodePresenterFromType);
             this.mPresenter.a(this.mNeedFeedBackButton);

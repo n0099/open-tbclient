@@ -26,7 +26,7 @@ public class zf0 {
             }
         }
         try {
-            z = ym8.a;
+            z = fn8.a;
         } catch (Throwable unused) {
             z = false;
         }

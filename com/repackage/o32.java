@@ -17,7 +17,7 @@ import com.repackage.n32;
 import java.io.File;
 import java.util.Set;
 /* loaded from: classes6.dex */
-public abstract class o32<T extends n32> extends w74<j94> {
+public abstract class o32<T extends n32> extends v74<i94> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -27,15 +27,15 @@ public abstract class o32<T extends n32> extends w74<j94> {
     public class a implements f32.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j94 a;
+        public final /* synthetic */ i94 a;
         public final /* synthetic */ o32 b;
 
-        public a(o32 o32Var, j94 j94Var) {
+        public a(o32 o32Var, i94 i94Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o32Var, j94Var};
+                Object[] objArr = {o32Var, i94Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,7 +46,7 @@ public abstract class o32<T extends n32> extends w74<j94> {
                 }
             }
             this.b = o32Var;
-            this.a = j94Var;
+            this.a = i94Var;
         }
 
         @Override // com.repackage.f32.c
@@ -85,15 +85,15 @@ public abstract class o32<T extends n32> extends w74<j94> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.z74
+    @Override // com.repackage.y74
     /* renamed from: l */
-    public String d(j94 j94Var) {
+    public String d(i94 i94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, j94Var)) == null) ? fj2.e.h().getAbsolutePath() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, i94Var)) == null) ? fj2.e.h().getAbsolutePath() : (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.b84
+    @Override // com.repackage.a84
     @NonNull
     public Bundle m(@NonNull Bundle bundle, Set<String> set) {
         InterceptResult invokeLL;
@@ -107,128 +107,128 @@ public abstract class o32<T extends n32> extends w74<j94> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? PMSDownloadType.PLUGIN : (PMSDownloadType) invokeV.objValue;
     }
 
-    public final void p(j94 j94Var, cc3 cc3Var) {
+    public final void p(i94 i94Var, cc3 cc3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j94Var, cc3Var) == null) {
-            u(j94Var, cc3Var);
-            f32.c().a(j94Var, o(), cc3Var);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i94Var, cc3Var) == null) {
+            u(i94Var, cc3Var);
+            f32.c().a(i94Var, o(), cc3Var);
         }
     }
 
-    public final void q(@NonNull j94 j94Var) {
+    public final void q(@NonNull i94 i94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, j94Var) == null) {
-            r(j94Var);
-            f32.c().b(j94Var, o());
+        if (interceptable == null || interceptable.invokeL(1048585, this, i94Var) == null) {
+            r(i94Var);
+            f32.c().b(i94Var, o());
         }
     }
 
-    public abstract void r(@NonNull j94 j94Var);
+    public abstract void r(@NonNull i94 i94Var);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.w74, com.repackage.z74
+    @Override // com.repackage.v74, com.repackage.y74
     /* renamed from: s */
-    public void e(j94 j94Var, c94 c94Var) {
+    public void e(i94 i94Var, b94 b94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, j94Var, c94Var) == null) {
-            super.e(j94Var, c94Var);
-            bw2.b("plugin download error: " + c94Var);
+        if (interceptable == null || interceptable.invokeLL(1048587, this, i94Var, b94Var) == null) {
+            super.e(i94Var, b94Var);
+            bw2.b("plugin download error: " + b94Var);
             cc3 cc3Var = new cc3();
             cc3Var.k(17L);
-            cc3Var.i((long) c94Var.a);
-            cc3Var.d(c94Var.b);
-            cc3Var.f(c94Var.toString());
-            p(j94Var, cc3Var);
+            cc3Var.i((long) b94Var.a);
+            cc3Var.d(b94Var.b);
+            cc3Var.f(b94Var.toString());
+            p(i94Var, cc3Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.w74, com.repackage.z74
+    @Override // com.repackage.v74, com.repackage.y74
     /* renamed from: t */
-    public void i(j94 j94Var) {
+    public void i(i94 i94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, j94Var) == null) {
-            super.i(j94Var);
-            if (j94Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, i94Var) == null) {
+            super.i(i94Var);
+            if (i94Var == null) {
                 bw2.b("download finish, plugin is null");
                 cc3 cc3Var = new cc3();
                 cc3Var.k(17L);
                 cc3Var.i(2201L);
                 cc3Var.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_NETWORK);
                 p(null, cc3Var);
-            } else if (!wd3.a(new File(j94Var.a), j94Var.m)) {
-                ng4.M(j94Var.a);
+            } else if (!wd3.a(new File(i94Var.a), i94Var.m)) {
+                mg4.M(i94Var.a);
                 bw2.b("download finish, check zip sign failure");
                 cc3 cc3Var2 = new cc3();
                 cc3Var2.k(17L);
                 cc3Var2.i(2202L);
                 cc3Var2.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_MD5);
-                p(j94Var, cc3Var2);
+                p(i94Var, cc3Var2);
             } else {
-                File t = fj2.t(j94Var.g, String.valueOf(j94Var.i));
-                ng4.l(t);
+                File t = fj2.t(i94Var.g, String.valueOf(i94Var.i));
+                mg4.l(t);
                 if (t != null && t.exists()) {
-                    boolean U = ng4.U(j94Var.a, t.getAbsolutePath());
-                    ng4.M(j94Var.a);
+                    boolean U = mg4.U(i94Var.a, t.getAbsolutePath());
+                    mg4.M(i94Var.a);
                     bw2.b("download finish, unZipSuccess = " + U);
                     if (!U) {
                         cc3 cc3Var3 = new cc3();
                         cc3Var3.k(17L);
                         cc3Var3.i(2320L);
                         cc3Var3.d("plugin unzip fail.");
-                        p(j94Var, cc3Var3);
+                        p(i94Var, cc3Var3);
                         return;
                     }
-                    j94Var.c = j94Var.b();
-                    j94Var.d = j94Var.b();
-                    f84.i().m(j94Var);
-                    q(j94Var);
+                    i94Var.c = i94Var.b();
+                    i94Var.d = i94Var.b();
+                    e84.i().m(i94Var);
+                    q(i94Var);
                     return;
                 }
-                ng4.M(j94Var.a);
-                bw2.b("download finish, create file failure, name = " + j94Var.g + " ; version = " + j94Var.i);
+                mg4.M(i94Var.a);
+                bw2.b("download finish, create file failure, name = " + i94Var.g + " ; version = " + i94Var.i);
                 cc3 cc3Var4 = new cc3();
                 cc3Var4.k(17L);
                 cc3Var4.i(2203L);
                 cc3Var4.d(ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH);
-                p(j94Var, cc3Var4);
+                p(i94Var, cc3Var4);
             }
         }
     }
 
-    public abstract void u(j94 j94Var, cc3 cc3Var);
+    public abstract void u(i94 i94Var, cc3 cc3Var);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.w74, com.repackage.z74
+    @Override // com.repackage.v74, com.repackage.y74
     /* renamed from: v */
-    public void c(j94 j94Var) {
+    public void c(i94 i94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, j94Var) == null) {
-            super.c(j94Var);
-            if (j94Var != null) {
-                bw2.b("plugin download start: bundleId = " + j94Var.g);
+        if (interceptable == null || interceptable.invokeL(1048590, this, i94Var) == null) {
+            super.c(i94Var);
+            if (i94Var != null) {
+                bw2.b("plugin download start: bundleId = " + i94Var.g);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.w74, com.repackage.z74
+    @Override // com.repackage.v74, com.repackage.y74
     /* renamed from: w */
-    public void f(j94 j94Var) {
+    public void f(i94 i94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, j94Var) == null) {
-            super.f(j94Var);
-            if (j94Var != null) {
-                bw2.b("plugin on downloading: bundleId = " + j94Var.g);
+        if (interceptable == null || interceptable.invokeL(1048591, this, i94Var) == null) {
+            super.f(i94Var);
+            if (i94Var != null) {
+                bw2.b("plugin on downloading: bundleId = " + i94Var.g);
             }
-            x(j94Var);
+            x(i94Var);
         }
     }
 
-    public final void x(j94 j94Var) {
+    public final void x(i94 i94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, j94Var) == null) {
-            f32.c().d(j94Var, new a(this, j94Var));
+        if (interceptable == null || interceptable.invokeL(1048592, this, i94Var) == null) {
+            f32.c().d(i94Var, new a(this, i94Var));
         }
     }
 }

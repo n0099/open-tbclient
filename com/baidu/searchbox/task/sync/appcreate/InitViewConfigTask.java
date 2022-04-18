@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn4;
+import com.repackage.at8;
+import com.repackage.bn4;
 import com.repackage.h35;
 import com.repackage.oi;
 import com.repackage.s85;
-import com.repackage.ts8;
 /* loaded from: classes2.dex */
 public class InitViewConfigTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -104,7 +104,7 @@ public class InitViewConfigTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewHelper.initSkinDataOnStartup(AppRuntime.getAppContext());
-            cn4.c().f();
+            bn4.c().f();
             TbConfig.initBigImageWidth(TbadkCoreApplication.getInst());
             TbConfig.initBigImageMaxUsedMemory(TbadkCoreApplication.getInst().getContext());
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
@@ -115,7 +115,7 @@ public class InitViewConfigTask extends LaunchTask {
             TbConfig.initFriendPhotoConfig(TbadkCoreApplication.getInst());
             TbadkCoreApplication.getInst().setFontSize(TbadkSettings.getInst().loadInt("font_size", 2));
             TbDimenManager.getInstance().init(AppRuntime.getApplication());
-            ts8.c();
+            at8.c();
             initCustomToastView();
         }
     }

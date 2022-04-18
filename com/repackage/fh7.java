@@ -1,14 +1,14 @@
 package com.repackage;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
+import com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fh7 extends fc1<LiveLocationService> {
+public class fh7 extends fc1<LiveLikeProxyService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,9 +29,9 @@ public class fh7 extends fc1<LiveLocationService> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fc1
     /* renamed from: a */
-    public LiveLocationService createService() throws ServiceNotFoundException {
+    public LiveLikeProxyService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new gh7() : (LiveLocationService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new gh7() : (LiveLikeProxyService) invokeV.objValue;
     }
 }

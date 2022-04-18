@@ -71,7 +71,7 @@ public class qj5 implements sj5 {
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || this.c == null) {
             return;
         }
-        if (vm4.e()) {
+        if (um4.e()) {
             String str2 = f;
             Log.e(str2, str + " pause download");
         }
@@ -91,7 +91,7 @@ public class qj5 implements sj5 {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, stopStatus) == null) || this.c == null) {
             return;
         }
-        if (vm4.e()) {
+        if (um4.e()) {
             String str2 = f;
             Log.e(str2, str + " stop download");
         }
@@ -110,7 +110,7 @@ public class qj5 implements sj5 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.c == null) {
             return;
         }
-        if (vm4.e()) {
+        if (um4.e()) {
             String str2 = f;
             Log.e(str2, str + " start downloading");
         }
@@ -129,7 +129,7 @@ public class qj5 implements sj5 {
         if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) || this.c == null) {
             return;
         }
-        if (vm4.e()) {
+        if (um4.e()) {
             String str2 = f;
             Log.e(str2, str + " downloading: " + String.valueOf(i));
         }
@@ -234,7 +234,7 @@ public class qj5 implements sj5 {
         }
         AdDownloadData b = lj5.d().b(this.c);
         this.b.b(704, this.c.mPackageName, b.getExtInfo(), b);
-        if (vm4.e()) {
+        if (um4.e()) {
             String str3 = f;
             Log.e(str3, str + " download succeed");
         }

@@ -1,152 +1,128 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
+import java.util.List;
+import tbclient.FrsTabInfo;
+import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes7.dex */
-public class uc6 extends rw5<rc6> {
+public class uc6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ImageView i;
-    public final TextView j;
-    public int k;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public List<FrsTabInfo> g;
 
-    /* loaded from: classes7.dex */
-    public class a implements dr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(uc6 uc6Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755265719, "Lcom/repackage/uc6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uc6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755265719, "Lcom/repackage/uc6;");
+                return;
             }
         }
-
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                qc6.a();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
-                dr4Var.dismiss();
-            }
-        }
+        h = BdUniqueId.gen();
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements dr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(uc6 uc6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uc6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                dr4Var.dismiss();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uc6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public uc6(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = 3;
-        this.i = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090d61);
-        this.j = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090d66);
-        this.i.setOnClickListener(this);
+        this.f = str;
     }
 
-    @Override // com.repackage.rw5
-    public int d() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02cc : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.rw5
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.k == i) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? h : (BdUniqueId) invokeV.objValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public List<FrsTabInfo> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (List) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public void s(SearchForum searchForum) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, searchForum) == null) || searchForum == null) {
             return;
         }
-        SkinManager.setBackgroundResource(this.i, R.drawable.icon_search_history_del);
-        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0110);
-        this.k = i;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.i) {
-            dr4 dr4Var = new dr4(this.b.getPageActivity());
-            dr4Var.setTitle(R.string.obfuscated_res_0x7f0f0423);
-            dr4Var.setCanceledOnTouchOutside(true);
-            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0421, new a(this));
-            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new b(this));
-            dr4Var.create(this.b);
-            dr4Var.show();
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.rw5
-    /* renamed from: s */
-    public void l(rc6 rc6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, rc6Var) == null) {
-        }
+        this.a = searchForum.forum_id.longValue();
+        this.b = searchForum.forum_name;
+        this.c = searchForum.avatar;
+        this.d = searchForum.post_num;
+        this.e = searchForum.concern_num;
+        String str = searchForum.slogan;
+        String str2 = searchForum.intro;
+        searchForum.has_concerned.intValue();
+        this.g = searchForum.tab_info;
     }
 }

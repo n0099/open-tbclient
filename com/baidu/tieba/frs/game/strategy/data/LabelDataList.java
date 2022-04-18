@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qj6;
+import com.repackage.sj6;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.ForumSubLabel;
 /* loaded from: classes3.dex */
-public class LabelDataList extends ArrayList<qj6> {
+public class LabelDataList extends ArrayList<sj6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,9 +35,9 @@ public class LabelDataList extends ArrayList<qj6> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            Iterator<qj6> it = iterator();
+            Iterator<sj6> it = iterator();
             while (it.hasNext()) {
-                qj6 next = it.next();
+                sj6 next = it.next();
                 if (next != null && next.a == i) {
                     return next.b;
                 }
@@ -51,17 +51,17 @@ public class LabelDataList extends ArrayList<qj6> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Iterator<qj6> it = iterator();
+            Iterator<sj6> it = iterator();
             while (it.hasNext()) {
-                qj6 next = it.next();
+                sj6 next = it.next();
                 if (next != null && next.c) {
                     return next.a;
                 }
             }
-            qj6 qj6Var = (qj6) ListUtils.getItem(this, 0);
-            if (qj6Var != null) {
-                qj6Var.c = true;
-                return qj6Var.a;
+            sj6 sj6Var = (sj6) ListUtils.getItem(this, 0);
+            if (sj6Var != null) {
+                sj6Var.c = true;
+                return sj6Var.a;
             }
             return 0;
         }
@@ -77,10 +77,10 @@ public class LabelDataList extends ArrayList<qj6> {
             }
             for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
-                    qj6 qj6Var = new qj6();
-                    qj6Var.a = forumSubLabel.id.intValue();
-                    qj6Var.b = forumSubLabel.sub_label_name;
-                    add(qj6Var);
+                    sj6 sj6Var = new sj6();
+                    sj6Var.a = forumSubLabel.id.intValue();
+                    sj6Var.b = forumSubLabel.sub_label_name;
+                    add(sj6Var);
                 }
             }
             if (isEmpty()) {
@@ -91,16 +91,16 @@ public class LabelDataList extends ArrayList<qj6> {
     }
 
     public void setSelectedIndex(int i) {
-        qj6 qj6Var;
+        sj6 sj6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (qj6Var = (qj6) ListUtils.getItem(this, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (sj6Var = (sj6) ListUtils.getItem(this, i)) == null) {
             return;
         }
-        qj6Var.c = true;
-        Iterator<qj6> it = iterator();
+        sj6Var.c = true;
+        Iterator<sj6> it = iterator();
         while (it.hasNext()) {
-            qj6 next = it.next();
-            if (next != null && next != qj6Var) {
+            sj6 next = it.next();
+            if (next != null && next != sj6Var) {
                 next.c = false;
             }
         }

@@ -4,12 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class fb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<i94> a;
+    public long a;
+    public JSONObject b;
 
     public fb4() {
         Interceptable interceptable = $ic;

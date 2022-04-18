@@ -72,8 +72,8 @@ public class a extends g implements c.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (FrameLayout) a(R.id.obfuscated_res_0x7f09108e);
-        this.h = (ComplianceTextView) a(R.id.obfuscated_res_0x7f091051);
+        this.b = (FrameLayout) a(R.id.obfuscated_res_0x7f09108f);
+        this.h = (ComplianceTextView) a(R.id.obfuscated_res_0x7f091052);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

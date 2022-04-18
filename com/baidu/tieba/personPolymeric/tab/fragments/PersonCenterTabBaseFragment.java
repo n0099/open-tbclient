@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g68;
+import com.repackage.n68;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g68 a;
+    public n68 a;
 
     public PersonCenterTabBaseFragment() {
         Interceptable interceptable = $ic;
@@ -47,12 +47,12 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view2) {
-        g68 g68Var;
+        n68 n68Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (g68Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (n68Var = this.a) == null) {
             return;
         }
-        g68Var.dettachView(view2);
+        n68Var.dettachView(view2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -60,9 +60,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            g68 g68Var = this.a;
-            if (g68Var != null) {
-                g68Var.onChangeSkinType();
+            n68 n68Var = this.a;
+            if (n68Var != null) {
+                n68Var.onChangeSkinType();
             }
         }
     }
@@ -72,11 +72,11 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048583, this, view2, str, z) == null) {
             if (this.a == null) {
-                g68 g68Var = new g68(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = g68Var;
-                g68Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f6a));
+                n68 n68Var = new n68(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = n68Var;
+                n68Var.e(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f69));
                 this.a.d(null);
-                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f69));
+                this.a.c(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0f68));
                 this.a.f();
                 this.a.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }

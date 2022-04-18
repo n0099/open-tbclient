@@ -7,28 +7,28 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.xw5;
 /* loaded from: classes6.dex */
-public class ok6 extends ho<s26, CardViewHolder<xw5>> {
+public class ok6 extends ho<r26, CardViewHolder<xw5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> i;
     public xw5 j;
-    public String k;
+    public tx5 k;
+    public String l;
 
     /* loaded from: classes6.dex */
-    public class a extends rx5<s26> {
+    public class a implements xw5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ok6 b;
+        public final /* synthetic */ ok6 a;
 
         public a(ok6 ok6Var) {
             Interceptable interceptable = $ic;
@@ -45,24 +45,22 @@ public class ok6 extends ho<s26, CardViewHolder<xw5>> {
                     return;
                 }
             }
-            this.b = ok6Var;
+            this.a = ok6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.rx5
-        /* renamed from: d */
-        public void a(View view2, s26 s26Var) {
+        @Override // com.repackage.xw5.a
+        public void a(View view2, BaseCardInfo baseCardInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, s26Var) == null) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 1).param("fid", this.b.k));
-                UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(view2.getContext()), new String[]{s26Var.e().score_url}, true);
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) || this.a.k == null) {
+                return;
             }
+            this.a.k.a(view2, baseCardInfo);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ok6(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), s26.b);
+        super(tbPageContext.getPageActivity(), r26.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,7 +78,7 @@ public class ok6 extends ho<s26, CardViewHolder<xw5>> {
             }
         }
         this.i = tbPageContext;
-        this.k = str;
+        this.l = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -90,7 +88,7 @@ public class ok6 extends ho<s26, CardViewHolder<xw5>> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.j = new xw5(this.i);
+            this.j = new xw5(this.i, this.l);
             return new CardViewHolder<>(this.j);
         }
         return (CardViewHolder) invokeL.objValue;
@@ -99,18 +97,25 @@ public class ok6 extends ho<s26, CardViewHolder<xw5>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, s26 s26Var, CardViewHolder<xw5> cardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, r26 r26Var, CardViewHolder<xw5> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s26Var, cardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r26Var, cardViewHolder})) == null) {
             if (cardViewHolder.c() == null) {
                 return null;
             }
-            cardViewHolder.c().l(s26Var);
-            cardViewHolder.c().n(new a(this));
+            cardViewHolder.c().l(r26Var);
             cardViewHolder.c().m(this.i, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.c().v(new a(this));
             return cardViewHolder.c().k();
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public void c0(tx5 tx5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, tx5Var) == null) {
+            this.k = tx5Var;
+        }
     }
 }

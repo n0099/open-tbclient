@@ -1,48 +1,84 @@
 package com.repackage;
 
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskHttpResMessage;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskReqMessage;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskSocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class tj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NoNetworkView a;
-    public NavigationBar b;
-    public BdListView c;
-    public View d;
-    public rj7 e;
-    public View f;
-    public TbImageView g;
-    public TextView h;
-    public MemberTaskCenterActivity i;
+    public b a;
+    public int b;
+    public int c;
+    public long d;
+    public wa e;
 
-    public tj7(MemberTaskCenterActivity memberTaskCenterActivity, View.OnClickListener onClickListener) {
+    /* loaded from: classes7.dex */
+    public class a extends wa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tj7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(tj7 tj7Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tj7Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tj7Var;
+        }
+
+        @Override // com.repackage.wa
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof FinishMemberTaskHttpResMessage;
+            if (z || (responsedMessage instanceof FinishMemberTaskSocketMessage)) {
+                if (z) {
+                    this.a.b = ((FinishMemberTaskHttpResMessage) responsedMessage).getStatus();
+                } else if (responsedMessage instanceof FinishMemberTaskSocketMessage) {
+                    this.a.b = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
+                }
+                if (this.a.a != null) {
+                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.c, this.a.d);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(int i, String str, int i2, int i3, long j);
+    }
+
+    public tj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {memberTaskCenterActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,69 +88,35 @@ public class tj7 {
                 return;
             }
         }
-        this.i = memberTaskCenterActivity;
-        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d0543);
-        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091add);
-        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0923ad);
-        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0923ab);
-        this.b = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ab3);
-        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0913dd);
-        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0544, (ViewGroup) null);
-        BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.c, BdListViewHelper.HeadType.DEFAULT);
-        TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f090150);
-        this.g = tbImageView;
-        tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09073e);
-        this.g.setOnClickListener(onClickListener);
-        rj7 rj7Var = new rj7(memberTaskCenterActivity);
-        this.e = rj7Var;
-        rj7Var.d(onClickListener);
-        this.c.addHeaderView(this.f);
-        this.c.setAdapter((ListAdapter) this.e);
+        this.a = null;
+        this.e = new a(this, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
+        kk8.h(309429, FinishMemberTaskSocketMessage.class, false, false);
+        kk8.c(309429, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public final SpannableString a(String str, String str2) {
-        InterceptResult invokeLL;
+    public void f(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            SpannableString spannableString = new SpannableString(str + str2);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, str.length(), 33);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), str.length(), spannableString.length(), 33);
-            return spannableString;
-        }
-        return (SpannableString) invokeLL.objValue;
-    }
-
-    public BdListView b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (BdListView) invokeV.objValue;
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (View) invokeV.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b.onChangeSkinType(this.i.getPageContext(), i);
-            this.a.c(this.i.getPageContext(), i);
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0205);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            this.d = j;
+            this.c = i;
+            FinishMemberTaskReqMessage finishMemberTaskReqMessage = new FinishMemberTaskReqMessage();
+            finishMemberTaskReqMessage.setTaskId(j);
+            MessageManager.getInstance().sendMessage(finishMemberTaskReqMessage);
         }
     }
 
-    public void e(String str, List<nj7> list, long j) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, list, Long.valueOf(j)}) == null) {
-            this.g.K(str, 10, false);
-            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f046a), String.valueOf(j)));
-            this.e.c(list);
-            this.e.notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.e);
+        }
+    }
+
+    public void h(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.a = bVar;
         }
     }
 }

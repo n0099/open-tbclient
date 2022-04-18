@@ -42,7 +42,7 @@ import com.ss.android.socialbase.downloader.model.a;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class g {
     public static Handler a = new Handler(Looper.getMainLooper());
 

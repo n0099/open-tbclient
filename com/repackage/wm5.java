@@ -1,94 +1,70 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class wm5 extends g23 {
+public class wm5 implements yl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wm5(g13 g13Var) {
-        super(g13Var, "/swan/publishThread");
+    public wm5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {g13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static boolean j(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.am3
+    public void a(g13 g13Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("path");
-                if (StringUtils.isNull(optString)) {
-                    String optString2 = jSONObject.optString("appid");
-                    if (StringUtils.isNull(optString2)) {
-                        return false;
-                    }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, ul5.a(optString2, "", "", 0)));
-                    return true;
-                }
-                String substring = optString.substring(39);
-                if (StringUtils.isNull(substring)) {
-                    return false;
-                }
-                JSONObject jSONObject2 = new JSONObject(ni.getUrlDecode(substring));
-                String optString3 = jSONObject2.optString("third_app_id");
-                String optString4 = jSONObject2.optString("third_app_name");
-                String optString5 = jSONObject2.optString("third_app_pic");
-                String optString6 = jSONObject2.optString("third_app_link");
-                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
-                selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
-                return true;
-            } catch (JSONException unused) {
-                return false;
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, g13Var) == null) || g13Var == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        g13Var.b(new ym5(g13Var));
+        g13Var.b(new rm5(g13Var));
+        g13Var.b(new yh3(g13Var));
+        g13Var.b(new ai3(g13Var));
+        g13Var.b(new ci3(g13Var));
+        g13Var.b(new x23(g13Var));
+        g13Var.b(new y23(g13Var));
+        g13Var.b(new y43(g13Var));
+        g13Var.b(new di3(g13Var));
+        g13Var.b(new bn1(g13Var));
+        g13Var.b(new vm5(g13Var));
     }
 
-    @Override // com.repackage.g23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.am3
+    @Nullable
+    public Map<String, Object> b(@NonNull ko1 ko1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, j03Var)) == null) {
-            j(context, unitedSchemeEntity.getParam("params"));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ko1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(ko1Var) : (Map) invokeL.objValue;
+    }
+
+    @Override // com.repackage.am3
+    @Nullable
+    public Map<String, Object> c(@NonNull ko1 ko1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ko1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(ko1Var) : (Map) invokeL.objValue;
     }
 }

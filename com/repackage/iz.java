@@ -153,12 +153,12 @@ public class iz extends xy {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: v */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, qn4Var) == null) {
-            if (qn4Var != null && qn4Var.getThreadData() != null && qn4Var.getThreadData().getItem() != null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, pn4Var) == null) {
+            if (pn4Var != null && pn4Var.getThreadData() != null && pn4Var.getThreadData().getItem() != null) {
                 this.h.setVisibility(0);
-                this.h.setData(qn4Var.getThreadData().itemData, 13, qn4Var.getThreadData().tid);
+                this.h.setData(pn4Var.getThreadData().itemData, 13, pn4Var.getThreadData().tid);
                 return;
             }
             this.h.setVisibility(8);

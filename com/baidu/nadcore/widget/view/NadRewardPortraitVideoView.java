@@ -208,6 +208,6 @@ public class NadRewardPortraitVideoView extends NadRewardVideoView {
                 return;
             }
         }
-        this.u = (PortraitVideoTailView) findViewById(R.id.obfuscated_res_0x7f0914d1);
+        this.u = (PortraitVideoTailView) findViewById(R.id.obfuscated_res_0x7f0914d2);
     }
 }

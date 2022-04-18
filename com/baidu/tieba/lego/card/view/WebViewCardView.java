@@ -312,7 +312,7 @@ public class WebViewCardView extends BaseCardView<WebViewCard> {
         CompatibleUtile.getInstance().loadUrl(this.o, webViewCard.getPageUrl());
     }
 
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.repackage.pd7
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.repackage.sd7
     public void b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null) {

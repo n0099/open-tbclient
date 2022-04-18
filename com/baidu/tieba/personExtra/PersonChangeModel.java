@@ -211,7 +211,7 @@ public class PersonChangeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (!mi.A()) {
-                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18));
+                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
                 return false;
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;

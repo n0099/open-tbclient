@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a97;
 import com.repackage.mg;
 import com.repackage.ni;
-import com.repackage.x87;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class ImMessageCenterPojo implements Serializable {
@@ -133,7 +133,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (!z) {
                 imMessageCenterPojo.setCustomGroupType(2);
             }
-            imMessageCenterPojo.setLast_content(x87.u(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+            imMessageCenterPojo.setLast_content(a97.u(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
             imMessageCenterPojo.setLast_user_name(userData.getName_show());
             imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
             imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);

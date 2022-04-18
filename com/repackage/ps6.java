@@ -1,179 +1,93 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.funad.view.FunAdButton;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.funad.adapter.FunAdEmptyHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.kwad.sdk.api.KsAppDownloadListener;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
 /* loaded from: classes6.dex */
-public class ps6 implements TTAppDownloadListener, ChannelNativeAds.GdtADStatusChangeListener, KsAppDownloadListener {
+public class ps6 extends ho<uo, FunAdEmptyHolder> implements ha8, ca8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FunAdButton a;
-    public final uk8 b;
+    public BaseFragmentActivity i;
 
-    public ps6(FunAdButton funAdButton, uk8 uk8Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ps6(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        super(baseFragmentActivity, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdButton, uk8Var};
+            Object[] objArr = {baseFragmentActivity, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = funAdButton;
-        this.b = uk8Var;
+        this.i = baseFragmentActivity;
     }
 
-    public void a(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: Z */
+    public FunAdEmptyHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            FunAdButton funAdButton = this.a;
-            if (funAdButton != null && funAdButton.getTag() == this.b) {
-                this.a.setText(i);
-            }
-            uk8 uk8Var = this.b;
-            if (uk8Var != null) {
-                uk8Var.i(TbadkApplication.getInst().getString(i));
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View view2 = new View(this.i.getPageContext().getPageActivity());
+            view2.setVisibility(8);
+            return new FunAdEmptyHolder(view2);
+        }
+        return (FunAdEmptyHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, uo uoVar, FunAdEmptyHolder funAdEmptyHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uoVar, funAdEmptyHolder})) == null) ? funAdEmptyHolder.b() : (View) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.ha8
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
         }
     }
 
-    public void b(int i) {
-        FunAdButton funAdButton;
+    @Override // com.repackage.ca8
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (funAdButton = this.a) != null && funAdButton.getTag() == this.b) {
-            this.a.setProgress(i);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.fun.ad.sdk.ChannelNativeAds.GdtADStatusChangeListener
-    public void onADStatusChanged(NativeUnifiedADData nativeUnifiedADData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nativeUnifiedADData) == null) {
-            if (!nativeUnifiedADData.isAppAd()) {
-                a(R.string.obfuscated_res_0x7f0f00b1);
-                return;
-            }
-            int appStatus = nativeUnifiedADData.getAppStatus();
-            if (appStatus == 0) {
-                a(R.string.obfuscated_res_0x7f0f00ab);
-            } else if (appStatus == 1) {
-                a(R.string.obfuscated_res_0x7f0f00af);
-            } else if (appStatus == 2) {
-                a(R.string.obfuscated_res_0x7f0f00b0);
-            } else if (appStatus == 4) {
-                b(nativeUnifiedADData.getProgress());
-            } else if (appStatus == 8) {
-                a(R.string.obfuscated_res_0x7f0f00ac);
-            } else if (appStatus != 16) {
-                a(R.string.obfuscated_res_0x7f0f00b1);
-            } else {
-                a(R.string.obfuscated_res_0x7f0f00ae);
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadActive(long j, long j2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) || j <= 0) {
-            return;
-        }
-        b((int) ((j2 * 100) / j));
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFailed(long j, long j2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ab);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFinished(long j, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ac);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadPaused(long j, long j2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) || j <= 0) {
-            return;
-        }
-        b((int) ((j2 * 100) / j));
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadStarted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onIdle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ab);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onInstalled(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ad);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onProgressUpdate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            b(i);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFailed() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ab);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFinished() {
+    @Override // com.repackage.ca8
+    public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ac);
         }
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onInstalled() {
+    @Override // com.repackage.ca8
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            a(R.string.obfuscated_res_0x7f0f00ad);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 }

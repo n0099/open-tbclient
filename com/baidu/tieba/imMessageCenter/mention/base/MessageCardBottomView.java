@@ -53,10 +53,10 @@ public class MessageCardBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d054e, (ViewGroup) this, true);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913f6);
-            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0913f8);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0913f9);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913f7);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913f7);
+            this.b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0913f9);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0913fa);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913f8);
             setClickable(true);
         }
     }
@@ -66,7 +66,7 @@ public class MessageCardBottomView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.d, (int) R.drawable.selector_comment_and_prise_item_text_color);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f0808f8, R.color.CAM_X0107, null);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f0808fc, R.color.CAM_X0107, null);
         }
     }
 

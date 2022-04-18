@@ -1,123 +1,29 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b00;
 /* loaded from: classes7.dex */
-public class yl6 extends ho<jm6, a> {
+public class yl6 extends kd6<nm6, ThreadCardViewHolder<nm6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public EMTextView a;
-        public ImageView b;
-        public int c;
-        public int d;
-
-        /* renamed from: com.repackage.yl6$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0558a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public View$OnClickListenerC0558a(a aVar, yl6 yl6Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, yl6Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c <= 0) {
-                    return;
-                }
-                lp6 lp6Var = new lp6();
-                lp6Var.e = 16;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, lp6Var));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new uu4(4, this.a.d, 2)));
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(yl6 yl6Var, View view2) {
-            super(view2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yl6Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b50);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b4f);
-            this.a.setOnClickListener(new View$OnClickListenerC0558a(this, yl6Var));
-        }
-
-        public void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                wr4.d(this.a).v(R.color.CAM_X0304);
-                wr4 d = wr4.d(this.itemView);
-                d.m(2);
-                d.n(R.string.J_X06);
-                d.f(R.color.CAM_X0205);
-                WebPManager.setPureDrawable(this.b, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0304, null);
-            }
-        }
-
-        public void g(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.c = i;
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yl6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,35 +34,50 @@ public class yl6 extends ho<jm6, a> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.k = tbPageContext;
         this.e = bdUniqueId2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
-    /* renamed from: Z */
-    public a M(ViewGroup viewGroup) {
+    /* renamed from: l0 */
+    public ThreadCardViewHolder<nm6> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0331, (ViewGroup) null)) : (a) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            b00.b bVar = new b00.b(this.k.getPageActivity(), true);
+            bVar.n(new gm6(this.k.getPageActivity()));
+            bVar.l().b(0);
+            bVar.l().c(0);
+            bVar.l().f(0);
+            bVar.l().e(0);
+            bVar.l().i(0);
+            bVar.l().h(0);
+            ThreadCardViewHolder<nm6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.m));
+            threadCardViewHolder.k(this.e);
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, jm6 jm6Var, a aVar) {
+    @Override // com.repackage.kd6, com.repackage.ho
+    /* renamed from: m0 */
+    public View S(int i, View view2, ViewGroup viewGroup, nm6 nm6Var, ThreadCardViewHolder<nm6> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jm6Var, aVar})) == null) {
-            aVar.g(jm6Var.e());
-            aVar.d = jm6Var.getPositionInFrsItemTab();
-            aVar.f();
-            return aVar.b();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nm6Var, threadCardViewHolder})) == null) {
+            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.g(nm6Var);
+            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new tu4(13)));
+            return threadCardViewHolder.b();
         }
         return (View) invokeCommon.objValue;
     }

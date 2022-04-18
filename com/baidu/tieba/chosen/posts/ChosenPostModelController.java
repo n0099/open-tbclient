@@ -34,28 +34,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.dk8;
+import com.repackage.kk8;
 import com.repackage.s65;
 import com.repackage.u65;
-import com.repackage.uy5;
-import com.repackage.vy5;
 import com.repackage.wa;
+import com.repackage.wy5;
+import com.repackage.xy5;
 import java.util.List;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes3.dex */
-public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> implements NetModel.k<uy5, vy5> {
+public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> implements NetModel.k<wy5, xy5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ChosenPostActivity a;
     public ChosenPostModel b;
     public ChosenPostCacheModel c;
     public u65 d;
-    public uy5 e;
-    public CacheModel.c<vy5> f;
+    public wy5 e;
+    public CacheModel.c<xy5> f;
     public wa g;
 
     /* loaded from: classes3.dex */
-    public class a implements CacheModel.c<vy5> {
+    public class a implements CacheModel.c<xy5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChosenPostModelController a;
@@ -79,20 +79,20 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void e(WriteCacheRespMsg<List<vy5>> writeCacheRespMsg, WriteCacheMessage<vy5> writeCacheMessage) {
+        public void e(WriteCacheRespMsg<List<xy5>> writeCacheRespMsg, WriteCacheMessage<xy5> writeCacheMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, writeCacheRespMsg, writeCacheMessage) == null) {
             }
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void g(ReadCacheRespMsg<List<vy5>> readCacheRespMsg, ReadCacheMessage<vy5> readCacheMessage) {
-            vy5 vy5Var;
+        public void g(ReadCacheRespMsg<List<xy5>> readCacheRespMsg, ReadCacheMessage<xy5> readCacheMessage) {
+            xy5 xy5Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, readCacheRespMsg, readCacheMessage) == null) {
-                List<vy5> data = readCacheRespMsg.getData();
-                if (data != null && !data.isEmpty() && (vy5Var = data.get(0)) != null) {
-                    s65 s65Var = new s65(4099, vy5Var, null, null);
+                List<xy5> data = readCacheRespMsg.getData();
+                if (data != null && !data.isEmpty() && (xy5Var = data.get(0)) != null) {
+                    s65 s65Var = new s65(4099, xy5Var, null, null);
                     s65Var.i(this.a.getUniqueId());
                     this.a.a.getEventCenter().dispatchMvcEvent(s65Var);
                 }
@@ -188,7 +188,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     public void D(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            this.e = new uy5();
+            this.e = new wy5();
             ChosenPostModel chosenPostModel = new ChosenPostModel(this.a.getPageContext(), this.e);
             this.b = chosenPostModel;
             chosenPostModel.a0(this);
@@ -238,12 +238,12 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
         return invokeL.booleanValue;
     }
 
-    public boolean G(uy5 uy5Var, vy5 vy5Var) {
+    public boolean G(wy5 wy5Var, xy5 xy5Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, uy5Var, vy5Var)) == null) {
-            this.a.getViewController().u(vy5Var);
-            if (vy5Var != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, wy5Var, xy5Var)) == null) {
+            this.a.getViewController().u(xy5Var);
+            if (xy5Var != null) {
                 this.d.g(false);
                 this.d.f(false);
                 this.a.getViewController().v(this.d);
@@ -272,7 +272,7 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, dk8.a(TbConfig.HOT_THREAD_UNLIKE, 307007));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_THREAD_UNLIKE, kk8.a(TbConfig.HOT_THREAD_UNLIKE, 307007));
             tbHttpMessageTask.setResponsedClass(UnlikeHttpResponse.class);
             messageManager.registerTask(tbHttpMessageTask);
         }
@@ -334,20 +334,20 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void m(MvcSocketResponsedMessage<vy5, ?> mvcSocketResponsedMessage, MvcSocketMessage<uy5, vy5> mvcSocketMessage, MvcNetMessage<uy5, vy5> mvcNetMessage) {
-        vy5 vy5Var;
+    public void m(MvcSocketResponsedMessage<xy5, ?> mvcSocketResponsedMessage, MvcSocketMessage<wy5, xy5> mvcSocketMessage, MvcNetMessage<wy5, xy5> mvcNetMessage) {
+        xy5 xy5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048588, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) {
             if (mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.hasError()) {
-                vy5Var = null;
+                xy5Var = null;
             } else {
-                vy5Var = mvcSocketResponsedMessage.getData();
+                xy5Var = mvcSocketResponsedMessage.getData();
                 r0 = mvcSocketMessage != null ? mvcSocketMessage.getRequestData() : null;
                 if (mvcNetMessage != null) {
                     r0 = mvcNetMessage.getRequestData();
                 }
             }
-            if (r0 == null || vy5Var == null || !G(r0, vy5Var)) {
+            if (r0 == null || xy5Var == null || !G(r0, xy5Var)) {
                 if (mvcSocketResponsedMessage != null) {
                     this.mErrorCode = mvcSocketResponsedMessage.getError();
                     this.mErrorString = mvcSocketResponsedMessage.getErrorString();
@@ -362,20 +362,20 @@ public class ChosenPostModelController extends BdBaseModel<ChosenPostActivity> i
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void r(MvcHttpResponsedMessage<vy5> mvcHttpResponsedMessage, MvcHttpMessage<uy5, vy5> mvcHttpMessage, MvcNetMessage<uy5, vy5> mvcNetMessage) {
-        vy5 vy5Var;
+    public void r(MvcHttpResponsedMessage<xy5> mvcHttpResponsedMessage, MvcHttpMessage<wy5, xy5> mvcHttpMessage, MvcNetMessage<wy5, xy5> mvcNetMessage) {
+        xy5 xy5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048589, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) {
             if (mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.hasError()) {
-                vy5Var = null;
+                xy5Var = null;
             } else {
-                vy5Var = mvcHttpResponsedMessage.getData();
+                xy5Var = mvcHttpResponsedMessage.getData();
                 r0 = mvcHttpMessage != null ? mvcHttpMessage.getRequestData() : null;
                 if (mvcNetMessage != null) {
                     r0 = mvcNetMessage.getRequestData();
                 }
             }
-            if (r0 == null || vy5Var == null || !G(r0, vy5Var)) {
+            if (r0 == null || xy5Var == null || !G(r0, xy5Var)) {
                 if (mvcHttpResponsedMessage != null) {
                     this.mErrorCode = mvcHttpResponsedMessage.getError();
                     this.mErrorString = mvcHttpResponsedMessage.getErrorString();

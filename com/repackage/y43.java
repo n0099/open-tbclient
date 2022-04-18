@@ -119,7 +119,7 @@ public class y43 extends g23 {
             String cookie = qj2.q().a().getCookie(".baidu.com");
             String l = be3.l(cookie, "BAIDUID");
             String l2 = be3.l(cookie, "H_WISE_SIDS");
-            String a3 = vg4.b(AppRuntime.getAppContext()).a();
+            String a3 = ug4.b(AppRuntime.getAppContext()).a();
             if (g23.b) {
                 Log.d("GetSysInfoAction", "cuid = " + i + ", imei = " + r + ", zid = " + a2 + ", uid = " + h + ", baiDuId = " + l + ", sid = " + l2);
             }

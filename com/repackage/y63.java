@@ -63,10 +63,10 @@ public final class y63 {
         a = tg1.a;
     }
 
-    public static void a(a84 a84Var, int i, boolean z) {
+    public static void a(z74 z74Var, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{a84Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (a84Var == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{z74Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (z74Var == null) {
                 if (a) {
                     Log.d("SwanStabilityUbc", "pms callback is null");
                     return;
@@ -76,16 +76,16 @@ public final class y63 {
             cc3 cc3Var = new cc3();
             cc3Var.k(11L);
             cc3Var.i(2331L);
-            cc3Var.f("Retry=" + z + ", Scene=" + a84Var.getClass().getName());
+            cc3Var.f("Retry=" + z + ", Scene=" + z74Var.getClass().getName());
             k73 k73Var = new k73();
             k73Var.q(c73.n(i));
             k73Var.p(cc3Var);
-            if (a84Var instanceof k32) {
-                k73Var.r(((k32) a84Var).J0());
+            if (z74Var instanceof k32) {
+                k73Var.r(((k32) z74Var).J0());
             }
             b(k73Var);
             if (a) {
-                Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + a84Var.getClass().getSimpleName());
+                Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + z74Var.getClass().getSimpleName());
             }
         }
     }

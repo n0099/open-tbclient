@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.dn4;
+import com.repackage.cn4;
 /* loaded from: classes5.dex */
 public class bj5 {
     public static /* synthetic */ Interceptable $ic;
@@ -77,7 +77,7 @@ public class bj5 {
         CookieManager cookieManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            dn4.b c = dn4.b().c(TbadkCoreApplication.getCurrentBduss());
+            cn4.b c = cn4.b().c(TbadkCoreApplication.getCurrentBduss());
             try {
                 CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
                 cookieManager = CookieManager.getInstance();
@@ -91,7 +91,7 @@ public class bj5 {
             if (c != null) {
                 cookieManager.setAcceptCookie(true);
                 cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; c3_aid=" + TbadkCoreApplication.getInst().getCuidGalaxy3() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ";");
-                String a = hn4.a(TbadkCoreApplication.getCurrentAccountInfo());
+                String a = gn4.a(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(a)) {
                     sb.append("STOKEN=");

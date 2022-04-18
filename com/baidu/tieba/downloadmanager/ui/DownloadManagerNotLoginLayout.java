@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lu4;
+import com.repackage.ku4;
 /* loaded from: classes3.dex */
 public class DownloadManagerNotLoginLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -89,11 +89,11 @@ public class DownloadManagerNotLoginLayout extends LinearLayout {
             this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090827);
             this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090828);
             this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090826);
-            lu4 lu4Var = new lu4();
+            ku4 ku4Var = new ku4();
             this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f03e1));
             this.d.setTextSize(R.dimen.T_X06);
             this.d.setTextHorizontalCenter(true);
-            this.d.setConfig(lu4Var);
+            this.d.setConfig(ku4Var);
             this.d.setOnClickListener(new a(this));
         }
     }

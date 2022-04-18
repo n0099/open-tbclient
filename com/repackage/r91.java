@@ -72,7 +72,7 @@ public class r91 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
                 this.e.f("2", str);
-                this.a.S(this.c.getString(R.string.obfuscated_res_0x7f0f15af), null);
+                this.a.S(this.c.getString(R.string.obfuscated_res_0x7f0f15ae), null);
             }
         }
 
@@ -363,14 +363,14 @@ public class r91 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, channelListView) == null) {
             View inflate = View.inflate(channelListView.getContext(), R.layout.obfuscated_res_0x7f0d0219, null);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091895)).setText(R.string.obfuscated_res_0x7f0f0d44);
             ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091894)).setText(R.string.obfuscated_res_0x7f0f0d45);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091893)).setText(R.string.obfuscated_res_0x7f0f0d46);
             PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
             this.d = popupWindow;
             popupWindow.w(false);
             this.d.B(false);
             this.d.v(new ColorDrawable(0));
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09188e)).setOnClickListener(new d(this));
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09188f)).setOnClickListener(new d(this));
             this.d.A(new e(this, channelListView));
             this.d.D(((Activity) context).getWindow().getDecorView(), 0, 0, 0);
         }

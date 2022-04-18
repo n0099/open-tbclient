@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.pb;
-import com.repackage.wv4;
+import com.repackage.vv4;
 /* loaded from: classes4.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -75,7 +75,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                wv4.a();
+                vv4.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");

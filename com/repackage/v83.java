@@ -29,7 +29,7 @@ public class v83 extends t83 {
 
     @Override // com.repackage.t83
     @SuppressLint({"BDThrowableCheck"})
-    public Bundle a(s83 s83Var) {
+    public Bundle b(s83 s83Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, s83Var)) == null) {

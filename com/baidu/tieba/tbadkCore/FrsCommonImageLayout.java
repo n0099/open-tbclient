@@ -534,7 +534,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         if (!(interceptable == null || interceptable.invokeLLI(1048589, this, tbImageView, mediaData, i) == null) || tbImageView == null) {
             return;
         }
-        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081207);
+        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08120b);
         String picUrl = mediaData.getPicUrl();
         if (mediaData.getType() == 5) {
             picUrl = null;

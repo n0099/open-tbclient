@@ -42,7 +42,7 @@ public class k43 extends UnitedSchemeBaseInterceptor {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements x74 {
+    public class a implements w74 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -73,7 +73,7 @@ public class k43 extends UnitedSchemeBaseInterceptor {
             this.d = unitedSchemeEntity;
         }
 
-        @Override // com.repackage.x74
+        @Override // com.repackage.w74
         public void a(@Nullable Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, map) == null) || map == null) {
@@ -82,7 +82,7 @@ public class k43 extends UnitedSchemeBaseInterceptor {
             this.e.e(this.b, map.get(this.a), this.c, this.d);
         }
 
-        @Override // com.repackage.x74
+        @Override // com.repackage.w74
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && k43.a) {
@@ -227,7 +227,7 @@ public class k43 extends UnitedSchemeBaseInterceptor {
                         aVar.r0(PrefetchEvent.EVENT_DATA_EXTRA_DATA, jSONObject.optString(PrefetchEvent.EVENT_DATA_EXTRA_DATA));
                     }
                     aVar.r0("srcAppPage", jSONObject.optString("srcAppPage"));
-                    JSONObject b2 = mg4.b(aVar.T(), jSONObject.optJSONObject(UBCCloudControlProcessor.UBC_KEY));
+                    JSONObject b2 = lg4.b(aVar.T(), jSONObject.optJSONObject(UBCCloudControlProcessor.UBC_KEY));
                     if (b2 != null) {
                         aVar.r0(UBCCloudControlProcessor.UBC_KEY, b2.toString());
                     }
@@ -305,7 +305,7 @@ public class k43 extends UnitedSchemeBaseInterceptor {
                 ot2.k(cc3Var);
                 return true;
             }
-            yf4.f().b(5000);
+            xf4.f().b(5000);
             String uri2 = uri.toString();
             jx1.i("SwanLaunchInterceptor", "launch scheme = " + uri2);
             String param = unitedSchemeEntity.getParam("_baiduboxapp");
@@ -318,14 +318,14 @@ public class k43 extends UnitedSchemeBaseInterceptor {
                 }
             }
             String str2 = str;
-            if (xc4.e().g(!de3.G()) && TextUtils.equals(str2, "naviTo")) {
-                if (!PMSConstants.a(t74.b())) {
+            if (wc4.e().g(!de3.G()) && TextUtils.equals(str2, "naviTo")) {
+                if (!PMSConstants.a(s74.b())) {
                     jx1.c("SwanLaunchInterceptor", "STOP :: Not Support BDTLS");
                     return false;
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(j);
-                s74.e(arrayList, i03.J().r().N(), new a(this, j, uri, param, unitedSchemeEntity));
+                r74.e(arrayList, i03.J().r().N(), new a(this, j, uri, param, unitedSchemeEntity));
             } else {
                 e(uri, j, param, unitedSchemeEntity);
             }

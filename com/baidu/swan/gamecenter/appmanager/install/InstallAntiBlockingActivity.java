@@ -97,21 +97,21 @@ public class InstallAntiBlockingActivity extends Activity {
                 this.mPackageName = intent.getStringExtra("packageName");
                 this.mUbcParams = jd3.d(intent.getStringExtra("ubc_params"));
             }
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f05);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090f07);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f06);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090f08);
             if (TextUtils.equals(this.mType, "authorize")) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014f));
                 layoutParams.gravity = 80;
                 imageView.setLayoutParams(layoutParams);
-                findViewById(R.id.obfuscated_res_0x7f090f06).setVisibility(0);
+                findViewById(R.id.obfuscated_res_0x7f090f07).setVisibility(0);
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
-                findViewById(R.id.obfuscated_res_0x7f090f03).setBackgroundResource(R.color.obfuscated_res_0x7f0603b0);
+                findViewById(R.id.obfuscated_res_0x7f090f04).setBackgroundResource(R.color.obfuscated_res_0x7f0603b0);
                 xr3.o();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014e));
                 layoutParams2.gravity = 80;
                 imageView.setLayoutParams(layoutParams2);
-                findViewById(R.id.obfuscated_res_0x7f090f06).setVisibility(8);
+                findViewById(R.id.obfuscated_res_0x7f090f07).setVisibility(8);
                 if (sd3.m()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
                 } else if (sd3.n()) {
@@ -121,7 +121,7 @@ public class InstallAntiBlockingActivity extends Activity {
                 } else {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017b);
                 }
-                findViewById(R.id.obfuscated_res_0x7f090f03).setBackgroundResource(R.color.obfuscated_res_0x7f06037f);
+                findViewById(R.id.obfuscated_res_0x7f090f04).setBackgroundResource(R.color.obfuscated_res_0x7f06037f);
                 xr3.p();
             }
             findViewById.setOnClickListener(new a(this));

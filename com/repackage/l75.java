@@ -26,7 +26,7 @@ public class l75 {
         qe<String> i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if ((TbadkCoreApplication.isLogin() || !StringUtils.isNull(str)) && TextUtils.equals(a(), str2) && (i = cr4.i("tb.novel_thread_read_record", a(), str)) != null && !StringUtils.isNull(i.get(str))) {
+            if ((TbadkCoreApplication.isLogin() || !StringUtils.isNull(str)) && TextUtils.equals(a(), str2) && (i = br4.i("tb.novel_thread_read_record", a(), str)) != null && !StringUtils.isNull(i.get(str))) {
                 return i.get(str);
             }
             return null;
@@ -38,7 +38,7 @@ public class l75 {
         qe<String> i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, str, readRecordsData) == null) {
-            if ((!TbadkCoreApplication.isLogin() && StringUtils.isNull(str)) || (i = cr4.i("tb.novel_thread_read_record", a(), str)) == null || readRecordsData == null) {
+            if ((!TbadkCoreApplication.isLogin() && StringUtils.isNull(str)) || (i = br4.i("tb.novel_thread_read_record", a(), str)) == null || readRecordsData == null) {
                 return;
             }
             i.g(str, OrmObject.jsonStrWithObject(readRecordsData));
@@ -67,7 +67,7 @@ public class l75 {
                 }
                 return null;
             } catch (Exception e) {
-                tb9.g(e);
+                ac9.g(e);
                 return str;
             }
         }

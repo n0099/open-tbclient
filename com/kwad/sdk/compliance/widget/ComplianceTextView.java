@@ -81,7 +81,7 @@ public class ComplianceTextView extends TextView {
         this.f = obtainStyledAttributes.getDimensionPixelOffset(1, Cea708Decoder.COMMAND_DF2);
         this.i = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f06074f));
         if (getBackground() == null) {
-            setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080b97));
+            setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080b9b));
         }
         getViewTreeObserver().addOnGlobalLayoutListener(this.j);
         obtainStyledAttributes.recycle();

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dk8;
+import com.repackage.kk8;
 import com.repackage.wa;
 import java.util.ArrayList;
 import java.util.List;
@@ -116,8 +116,8 @@ public class OfficialAccountPushModel extends BdBaseModel {
         this.b = aVar;
         this.a = bVar;
         registerListener(aVar);
-        dk8.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
-        dk8.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
+        kk8.f(309620, OfficialAccountPushSocketResponseMessage.class, false);
+        kk8.c(309620, CmdConfigHttp.CMD_OFFICIAL_ACCOUNT_PUSH, TbConfig.CHECK_OFFICIAL_SWITCH_URL, OfficialAccountPushHttpResponseMessage.class, true, false, true, false);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

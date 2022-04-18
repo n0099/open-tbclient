@@ -45,22 +45,22 @@ public class mi1 implements qk1 {
         public boolean c;
         public String d;
         public fo2 e;
-        public HandlerC0467b f;
+        public HandlerC0468b f;
         public a g;
 
         /* loaded from: classes6.dex */
         public class a extends rl2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public HandlerC0467b a;
+            public HandlerC0468b a;
             public final /* synthetic */ b b;
 
-            public a(b bVar, HandlerC0467b handlerC0467b) {
+            public a(b bVar, HandlerC0468b handlerC0468b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, handlerC0467b};
+                    Object[] objArr = {bVar, handlerC0468b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -71,7 +71,7 @@ public class mi1 implements qk1 {
                     }
                 }
                 this.b = bVar;
-                this.a = handlerC0467b;
+                this.a = handlerC0468b;
             }
 
             @Override // com.repackage.rl2, android.app.Application.ActivityLifecycleCallbacks
@@ -83,9 +83,9 @@ public class mi1 implements qk1 {
                             this.a.b.cancel();
                             this.a.b = null;
                         }
-                        HandlerC0467b handlerC0467b = this.a;
-                        if (handlerC0467b != null) {
-                            handlerC0467b.removeMessages(1);
+                        HandlerC0468b handlerC0468b = this.a;
+                        if (handlerC0468b != null) {
+                            handlerC0468b.removeMessages(1);
                             this.a.removeMessages(2);
                             this.a = null;
                         }
@@ -97,13 +97,13 @@ public class mi1 implements qk1 {
 
         /* renamed from: com.repackage.mi1$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class HandlerC0467b extends Handler {
+        public static class HandlerC0468b extends Handler {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public WeakReference<Context> a;
             public Dialog b;
 
-            public /* synthetic */ HandlerC0467b(Context context, a aVar) {
+            public /* synthetic */ HandlerC0468b(Context context, a aVar) {
                 this(context);
             }
 
@@ -131,13 +131,13 @@ public class mi1 implements qk1 {
                     Dialog dialog2 = new Dialog(this.a.get(), R.style.obfuscated_res_0x7f100199);
                     this.b = dialog2;
                     dialog2.setContentView(R.layout.obfuscated_res_0x7f0d07d5);
-                    this.b.findViewById(R.id.obfuscated_res_0x7f0911b3).setVisibility(qj2.M().a() ? 0 : 8);
+                    this.b.findViewById(R.id.obfuscated_res_0x7f0911b4).setVisibility(qj2.M().a() ? 0 : 8);
                     this.b.setCancelable(false);
                     this.b.show();
                 }
             }
 
-            public HandlerC0467b(Context context) {
+            public HandlerC0468b(Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public class mi1 implements qk1 {
             this.c = id3.c(bundle, "compressed", false);
             this.d = id3.g(bundle, "swanTmpPath");
             this.e = fo2Var;
-            this.f = new HandlerC0467b(context, null);
+            this.f = new HandlerC0468b(context, null);
         }
 
         public final void b(MediaModel mediaModel, int i) {
@@ -210,7 +210,7 @@ public class mi1 implements qk1 {
             if (l == null) {
                 return;
             }
-            ng4.f(new File(videoModel.getPath()), l);
+            mg4.f(new File(videoModel.getPath()), l);
             videoModel.setTempPath(l.getPath());
             videoModel.setSize(l.length());
         }
@@ -222,7 +222,7 @@ public class mi1 implements qk1 {
             }
             File file = new File(mediaModel.getPath());
             File l = hd3.l(this.d, file.getName());
-            if (l == null || !l.exists() || ng4.f(file, l) == 0) {
+            if (l == null || !l.exists() || mg4.f(file, l) == 0) {
                 return;
             }
             mediaModel.setTempPath(l.getPath());
@@ -250,9 +250,9 @@ public class mi1 implements qk1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 e();
-                HandlerC0467b handlerC0467b = this.f;
-                if (handlerC0467b != null) {
-                    handlerC0467b.sendEmptyMessage(1);
+                HandlerC0468b handlerC0468b = this.f;
+                if (handlerC0468b != null) {
+                    handlerC0468b.sendEmptyMessage(1);
                 }
                 if (this.c) {
                     Iterator<MediaModel> it = this.b.iterator();
@@ -260,7 +260,7 @@ public class mi1 implements qk1 {
                         MediaModel next = it.next();
                         if (next != null) {
                             if (next instanceof ImageModel) {
-                                if (TextUtils.equals(ng4.t(next.getPath()), NativeConstants.TYPE_GIF)) {
+                                if (TextUtils.equals(mg4.t(next.getPath()), NativeConstants.TYPE_GIF)) {
                                     d(next);
                                 } else {
                                     b(next, 20);
@@ -283,9 +283,9 @@ public class mi1 implements qk1 {
                         }
                     }
                 }
-                HandlerC0467b handlerC0467b2 = this.f;
-                if (handlerC0467b2 != null) {
-                    handlerC0467b2.sendEmptyMessage(2);
+                HandlerC0468b handlerC0468b2 = this.f;
+                if (handlerC0468b2 != null) {
+                    handlerC0468b2.sendEmptyMessage(2);
                 }
                 fo2 fo2Var = this.e;
                 if (fo2Var != null) {

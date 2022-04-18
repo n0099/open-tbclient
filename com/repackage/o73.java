@@ -58,7 +58,7 @@ public class o73 {
                 JSONObject jSONObject = new JSONObject();
                 jd3.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, i03.J().getAppId());
                 jd3.f(jSONObject, "hostName", qj2.n().a());
-                jd3.f(jSONObject, "network", kg4.e());
+                jd3.f(jSONObject, "network", jg4.e());
                 jd3.f(jSONObject, "launchid", i03.J().r().V().V());
                 if (z) {
                     jd3.f(jSONObject, "response", this.b);

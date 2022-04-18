@@ -264,7 +264,7 @@ public class qt2 {
                         Log.e("TraceDataManager", "Maybe the format of the Trace data is incorrect", e2);
                     }
                 }
-                g74 postRequest = m74.g().postRequest();
+                f74 postRequest = l74.g().postRequest();
                 postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONArray.toString()));
                 postRequest.connectionTimeout(3000);
                 int min = Math.min(this.b.length, 4);

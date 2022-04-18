@@ -1,36 +1,70 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import java.util.List;
-import org.json.JSONObject;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.menu.BaseMenuView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes6.dex */
-public interface l64 {
+public class l64 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(int i);
+    public static long a(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseMenuView)) == null) ? baseMenuView.a() ? 240L : 200L : invokeL.longValue;
     }
 
-    boolean a();
+    public static ObjectAnimator b(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, AnimationProperty.TRANSLATE_Y, 0.0f);
+            ofFloat.setDuration(a(baseMenuView));
+            ofFloat.setInterpolator(new m64(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
+    }
 
-    void b(Activity activity, q64 q64Var);
+    public static ObjectAnimator c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 0.0f);
+            ofFloat.setDuration(160L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
+    }
 
-    void c(int i, List<q64> list);
+    public static ObjectAnimator d(View view2, BaseMenuView baseMenuView) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 1.0f);
+            ofFloat.setDuration(a(baseMenuView));
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeLL.objValue;
+    }
 
-    void d(int i, List<q64> list);
-
-    void e(int i, List<q64> list);
-
-    void f(int i, List<q64> list, a aVar);
-
-    void g(Activity activity, q64 q64Var);
-
-    void h(Context context, JSONObject jSONObject);
-
-    void i(JSONObject jSONObject);
-
-    boolean j(q64 q64Var);
-
-    boolean k(boolean z, int i);
+    public static ObjectAnimator e(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, AnimationProperty.TRANSLATE_Y, baseMenuView.getHeight());
+            ofFloat.setDuration(160L);
+            ofFloat.setInterpolator(new m64(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
+    }
 }

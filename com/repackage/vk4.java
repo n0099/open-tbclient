@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,12 +9,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class vk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
+    public Activity a;
+    public String b;
+    public boolean c;
 
     public vk4() {
         Interceptable interceptable = $ic;
@@ -25,11 +23,7 @@ public class vk4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.f = -1;
     }
 }

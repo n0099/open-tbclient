@@ -1,173 +1,184 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tieba.faceshop.EmotionData;
 import com.baidu.tieba.faceshop.EmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class a96 implements e05 {
+public class a96 extends a15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public ArrayList<String> i;
 
-    public a96() {
+    public a96(EmotionGroupData emotionGroupData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {emotionGroupData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.i = new ArrayList<>();
+        this.e = emotionGroupData.getGroupId();
+        this.f = emotionGroupData.getGroupName();
+        this.g = emotionGroupData.getWidth();
+        this.h = emotionGroupData.getHeight();
+        t();
     }
 
-    @Override // com.repackage.e05
-    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+    @Override // com.repackage.a15
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) || i == 3) {
-            return;
-        }
-        try {
-            File file = new File(downloadData.getPath());
-            if (file.exists()) {
-                file.delete();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= this.i.size()) {
+                return null;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            return this.i.get(i);
         }
+        return (String) invokeI.objValue;
     }
 
-    @Override // com.repackage.e05
-    public void onFileDownloadSucceed(DownloadData downloadData) {
+    @Override // com.repackage.a15
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-            MessageManager.getInstance().runTask(2004603, (Class) null);
-            try {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i.size() : invokeV.intValue;
     }
 
-    @Override // com.repackage.e05
-    public boolean onFileDownloaded(DownloadData downloadData) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
+    @Override // com.repackage.a15
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(downloadData.getPath());
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                int g = w86.c().g(downloadData.getId(), fileInputStream);
-                EmotionGroupData j = c96.k().j(downloadData.getId());
-                if (j == null) {
-                    if (g == 0) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e2) {
-                            BdLog.detailException(e2);
-                        }
-                        return false;
-                    }
-                    j = new EmotionGroupData();
-                    j.setBytesLength((int) downloadData.getSize());
-                    j.setBytesReceived((int) downloadData.getLength());
-                    j.setDownloadUrl(downloadData.getUrl());
-                    j.setGroupId(downloadData.getId());
-                    j.setEmotionsCount(g);
-                    j.setHeight(downloadData.getHeight());
-                    j.setWidth(downloadData.getWidth());
-                    j.setDownloadTime(System.currentTimeMillis());
-                    j.setGroupDesc(downloadData.getDescription());
-                    j.setGroupName(downloadData.getName());
-                    j.setStatus(1);
-                    c96.k().e(j);
-                }
-                c96.k().f(downloadData.getStatusMsg(), j);
-                downloadData.setStatusMsg(null);
-                try {
-                    fileInputStream.close();
-                } catch (IOException e3) {
-                    BdLog.detailException(e3);
-                }
-                return true;
-            } catch (Exception e4) {
-                e = e4;
-                fileInputStream2 = fileInputStream;
-                BdLog.detailException(e);
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException e5) {
-                        BdLog.detailException(e5);
-                    }
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (IOException e6) {
-                        BdLog.detailException(e6);
-                    }
-                }
-                throw th;
-            }
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.e05
-    public void onFileUpdateProgress(DownloadData downloadData) {
+    @Override // com.repackage.a15
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        b96.f().i(downloadData);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.e05
-    public boolean onPreDownload(DownloadData downloadData) {
+    @Override // com.repackage.a15
+    public EmotionGroupType h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? EmotionGroupType.BIG_EMOTION : (EmotionGroupType) invokeV.objValue;
+    }
+
+    @Override // com.repackage.a15
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    @Override // com.repackage.a15
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.a15
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : invokeV.intValue;
+    }
+
+    @Override // com.repackage.a15
+    public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.i.contains(str) : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.a15
+    public fo n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return null;
+        }
+        return (fo) invokeL.objValue;
+    }
+
+    @Override // com.repackage.a15
+    public fo o(String str) {
+        InterceptResult invokeL;
+        String b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (u(str)) {
+                b = z86.c(str, true, false);
+            } else {
+                b = z86.b(str, false);
             }
-            EmotionGroupData j = c96.k().j(downloadData.getId());
-            if (j == null || !x86.d(downloadData.getId())) {
-                return true;
+            Bitmap f = z86.f(this.e, b);
+            if (f == null) {
+                return null;
             }
-            c96.k().f(downloadData.getStatusMsg(), j);
-            downloadData.setStatusMsg(null);
+            return new fo(f, false, str);
+        }
+        return (fo) invokeL.objValue;
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            s(2);
+            p(4);
+            Bitmap f = z86.f(this.e, "panel.png");
+            Bitmap f2 = z86.f(this.e, "panel_momo.png");
+            if (f != null) {
+                q(new fo(f, false));
+            }
+            if (f2 != null) {
+                r(new fo(f2, false));
+            }
+            this.i.clear();
+            for (EmotionData emotionData : e96.k().m(this.e)) {
+                this.i.add(emotionData.getSharpText());
+            }
+        }
+    }
+
+    public boolean u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
+                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+                String substring = replace.substring(0, replace.indexOf(","));
+                if (substring.contains("_") && !substring.contains("collect_")) {
+                    return true;
+                }
+            }
             return false;
         }
         return invokeL.booleanValue;

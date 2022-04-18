@@ -28,17 +28,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx5;
-import com.repackage.hd7;
-import com.repackage.kx5;
-import com.repackage.pd7;
-import com.repackage.sc7;
-import com.repackage.uc7;
-import com.repackage.uj8;
+import com.repackage.bk8;
+import com.repackage.ex5;
+import com.repackage.kd7;
+import com.repackage.mx5;
+import com.repackage.sd7;
+import com.repackage.vc7;
+import com.repackage.xc7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements pd7<T> {
+public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements sd7<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -51,7 +51,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public ImageView h;
     public TbPageContext i;
     public int j;
-    public sc7 k;
+    public vc7 k;
     public boolean l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -126,28 +126,28 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    @Override // com.repackage.pd7
+    @Override // com.repackage.sd7
     public void b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
         }
     }
 
-    @Override // com.repackage.pd7
+    @Override // com.repackage.sd7
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    @Override // com.repackage.pd7
+    @Override // com.repackage.sd7
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.repackage.pd7
+    @Override // com.repackage.sd7
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -166,7 +166,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c + 1 : invokeV.intValue;
     }
 
-    @Override // com.repackage.pd7
+    @Override // com.repackage.sd7
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -265,7 +265,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void m(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, t) == null) {
-            kx5.b().d(true);
+            mx5.b().d(true);
             w(t);
         }
     }
@@ -361,15 +361,15 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? 1 == TbadkCoreApplication.getInst().getSkinType() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.pd7
-    public final void setAfterClickSchemeListener(sc7 sc7Var) {
+    @Override // com.repackage.sd7
+    public final void setAfterClickSchemeListener(vc7 vc7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, sc7Var) == null) {
-            this.k = sc7Var;
+        if (interceptable == null || interceptable.invokeL(1048596, this, vc7Var) == null) {
+            this.k = vc7Var;
         }
     }
 
-    @Override // com.repackage.pd7
+    @Override // com.repackage.sd7
     public final void setBusinessType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
@@ -391,21 +391,21 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         }
     }
 
-    @Override // com.repackage.pd7
-    public void setDownloadAppCallback(uc7 uc7Var) {
+    @Override // com.repackage.sd7
+    public void setDownloadAppCallback(xc7 xc7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, uc7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, xc7Var) == null) {
         }
     }
 
-    @Override // com.repackage.pd7
+    @Override // com.repackage.sd7
     public final void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
         }
     }
 
-    @Override // com.repackage.pd7
+    @Override // com.repackage.sd7
     public final void setPosition(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
@@ -426,15 +426,15 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             }
         }
         statisticItem.param("obj_locate", getStatPosition());
-        statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, cx5.e());
-        kx5.b().a(statisticItem);
+        statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, ex5.e());
+        mx5.b().a(statisticItem);
     }
 
     public abstract void u(T t, int i);
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.lego.card.view.BaseLegoCardView<T extends com.baidu.tieba.lego.card.model.BaseLegoCardInfo> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.repackage.pd7
+    @Override // com.repackage.sd7
     public final void update(Object obj) {
         ICardInfo iCardInfo;
         ICardInfo updateCard;
@@ -462,10 +462,10 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public void w(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, t) == null) {
-            int c = uj8.c(this.i, t.getScheme());
-            sc7 sc7Var = this.k;
-            if (sc7Var != null) {
-                sc7Var.a(c, null);
+            int c = bk8.c(this.i, t.getScheme());
+            vc7 vc7Var = this.k;
+            if (vc7Var != null) {
+                vc7Var.a(c, null);
             }
         }
     }
@@ -479,7 +479,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void y(View view2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048609, this, view2, i, i2, i3) == null) {
-            if (!hd7.a(i) && !hd7.a(i2)) {
+            if (!kd7.a(i) && !kd7.a(i2)) {
                 if (s()) {
                     i = i2;
                 }
@@ -493,7 +493,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void z(TextView textView, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048610, this, textView, i, i2, i3) == null) {
-            if (!hd7.a(i) && !hd7.a(i2)) {
+            if (!kd7.a(i) && !kd7.a(i2)) {
                 if (s()) {
                     i = i2;
                 }

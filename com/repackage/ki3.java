@@ -155,12 +155,12 @@ public class ki3 {
                 nz2.a aVar = new nz2.a(context);
                 aVar.n(new rf3());
                 nz2 c = aVar.c();
-                aVar.U(R.string.obfuscated_res_0x7f0f1215);
-                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f1214));
+                aVar.U(R.string.obfuscated_res_0x7f0f1214);
+                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f1213));
                 aVar.y();
                 aVar.J(qj2.M().a());
-                aVar.O(R.string.obfuscated_res_0x7f0f1216, a2);
-                aVar.B(R.string.obfuscated_res_0x7f0f1213, a2);
+                aVar.O(R.string.obfuscated_res_0x7f0f1215, a2);
+                aVar.B(R.string.obfuscated_res_0x7f0f1212, a2);
                 aVar.a();
                 c.setCancelable(false);
                 c.show();

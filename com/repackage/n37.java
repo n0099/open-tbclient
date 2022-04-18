@@ -1,142 +1,111 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.TargetApi;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
+import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class n37 extends BaseAdapter {
+public class n37 implements m37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LayoutInflater a;
-    public int b;
-    public ItemViewHolder c;
-    public List<o37> d;
-    public final ArrayList<ItemViewHolder> e;
-    public View.OnClickListener f;
+    public m37 a;
+    public AbsHListView b;
 
-    public n37(Context context, int i, ItemViewHolder itemViewHolder) {
+    public n37(AbsHListView absHListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), itemViewHolder};
+            Object[] objArr = {absHListView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new ArrayList<>();
-        this.a = LayoutInflater.from(context);
-        this.b = i;
-        this.c = itemViewHolder;
+        this.b = absHListView;
     }
 
-    public final void a(ItemViewHolder itemViewHolder, o37 o37Var) {
+    @Override // com.repackage.m37
+    @TargetApi(11)
+    public void a(ActionMode actionMode, int i, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, itemViewHolder, o37Var) == null) || o37Var == null || itemViewHolder == null) {
-            return;
-        }
-        itemViewHolder.c(o37Var);
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || ListUtils.getCount(this.e) <= 0) {
-            return;
-        }
-        Iterator<ItemViewHolder> it = this.e.iterator();
-        while (it.hasNext()) {
-            it.next().e(i);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{actionMode, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.a.a(actionMode, i, j, z);
+            if (this.b.getCheckedItemCount() == 0) {
+                actionMode.finish();
+            }
         }
     }
 
-    public void c(List<o37> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.d = list;
-        }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f = onClickListener;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ListUtils.getCount(this.d) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a != null : invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public void c(m37 m37Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? ListUtils.getItem(this.d, i) : invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (ListUtils.getItem(this.d, i) == null) {
-                return -1L;
-            }
-            return ((o37) ListUtils.getItem(this.d, i)).hashCode();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m37Var) == null) {
+            this.a = m37Var;
         }
-        return invokeI.longValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = this.a.inflate(this.b, viewGroup, false);
-                ItemViewHolder d = this.c.d(view2);
-                d.f(this.f);
-                view2.setTag(d);
-                this.e.add(d);
-            }
-            ItemViewHolder itemViewHolder = (ItemViewHolder) view2.getTag();
-            if (ListUtils.getItem(this.d, i) != null) {
-                a(itemViewHolder, this.d.get(i));
-            }
-            return itemViewHolder.b();
-        }
-        return (View) invokeILL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menuItem)) == null) ? this.a.onActionItemClicked(actionMode, menuItem) : invokeLL.booleanValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public boolean hasStableIds() {
-        InterceptResult invokeV;
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
+            if (this.a.onCreateActionMode(actionMode, menu)) {
+                this.b.setLongClickable(false);
+                return true;
+            }
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public void onDestroyActionMode(ActionMode actionMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, actionMode) == null) {
+            this.a.onDestroyActionMode(actionMode);
+            AbsHListView absHListView = this.b;
+            absHListView.mChoiceActionMode = null;
+            absHListView.clearChoices();
+            AbsHListView absHListView2 = this.b;
+            absHListView2.mDataChanged = true;
+            absHListView2.rememberSyncState();
+            this.b.requestLayout();
+            this.b.setLongClickable(true);
+        }
+    }
+
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, actionMode, menu)) == null) ? this.a.onPrepareActionMode(actionMode, menu) : invokeLL.booleanValue;
     }
 }

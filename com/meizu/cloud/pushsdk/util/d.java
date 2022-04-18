@@ -15,7 +15,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.repackage.rm9;
+import com.repackage.ym9;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -46,7 +46,7 @@ public class d {
                 str2 = "the platformExtra parse error";
             }
         }
-        rm9.b("UxIPUtils", str2);
+        ym9.b("UxIPUtils", str2);
         return dVar;
     }
 
@@ -57,7 +57,7 @@ public class d {
                 MPushMessage mPushMessage = (MPushMessage) intent.getSerializableExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE);
                 return mPushMessage != null ? mPushMessage.getTaskId() : stringExtra;
             } catch (Exception e) {
-                rm9.b("UxIPUtils", "paese MessageV2 error " + e.getMessage());
+                ym9.b("UxIPUtils", "paese MessageV2 error " + e.getMessage());
                 return "no push platform task";
             }
         }
@@ -120,7 +120,7 @@ public class d {
 
     /* JADX WARN: Type inference failed for: r7v1, types: [com.meizu.cloud.pushsdk.c.c.b$a] */
     public static void a(Context context, boolean z, String str, Map<String, String> map) {
-        rm9.b("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
+        ym9.b("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
         if ("notification_service_message".equals(str)) {
             return;
         }
@@ -157,7 +157,7 @@ public class d {
         } else {
             str = null;
         }
-        rm9.d("UxIPUtils", "current process packageName " + str3);
+        ym9.d("UxIPUtils", "current process packageName " + str3);
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -168,10 +168,10 @@ public class d {
             intent.setAction(PushConstants.MZ_PUSH_TRACKER_SERVICE_ACTION);
             intent.putExtra(PushConstants.EXTRA_PUSH_TRACKER_JSON_DATA, jSONObject);
             context.startService(intent);
-            rm9.d("UxIPUtils", "Start tracker data in mz_tracker process " + jSONObject);
+            ym9.d("UxIPUtils", "Start tracker data in mz_tracker process " + jSONObject);
             return true;
         } catch (Exception e) {
-            rm9.b("UxIPUtils", "start RemoteService error " + e.getMessage());
+            ym9.b("UxIPUtils", "start RemoteService error " + e.getMessage());
             return false;
         }
     }

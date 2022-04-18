@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.m00;
 import com.repackage.qy;
 /* loaded from: classes6.dex */
-public abstract class j00 extends qy<qn4> implements p68 {
+public abstract class j00 extends qy<pn4> implements w68 {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public static int u;
@@ -39,9 +39,9 @@ public abstract class j00 extends qy<qn4> implements p68 {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public qn4 h;
+    public pn4 h;
     public RoundCornerFrameLayout i;
-    public k78 j;
+    public r78 j;
     public String k;
     public String l;
     public BdUniqueId m;
@@ -82,8 +82,8 @@ public abstract class j00 extends qy<qn4> implements p68 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qn4 qn4Var = this.b.h;
-                if (qn4Var != null && qn4Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
+                pn4 pn4Var = this.b.h;
+                if (pn4Var != null && pn4Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
                     this.a.width = this.b.f.getWidth();
                     this.a.height = (this.b.f.getWidth() / 16) * 9;
                 }
@@ -118,9 +118,9 @@ public abstract class j00 extends qy<qn4> implements p68 {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            qn4 qn4Var;
+            pn4 pn4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (qn4Var = this.a.h) == null || qn4Var.getThreadData() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (pn4Var = this.a.h) == null || pn4Var.getThreadData() == null) {
                 return;
             }
             Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.i);
@@ -234,26 +234,26 @@ public abstract class j00 extends qy<qn4> implements p68 {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (aVar.b() == 1) {
                     j00 j00Var = this.a;
-                    cx5.l(j00Var.g, j00Var.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ex5.l(j00Var.g, j00Var.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    k78 k78Var = this.a.j;
-                    if (k78Var != null) {
-                        k78Var.onScroll();
+                    r78 r78Var = this.a.j;
+                    if (r78Var != null) {
+                        r78Var.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    k78 k78Var2 = this.a.j;
-                    if (k78Var2 != null) {
-                        k78Var2.onVolumeUp();
+                    r78 r78Var2 = this.a.j;
+                    if (r78Var2 != null) {
+                        r78Var2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    k78 k78Var3 = this.a.j;
-                    if (k78Var3 != null) {
-                        return k78Var3.onBackPress();
+                    r78 r78Var3 = this.a.j;
+                    if (r78Var3 != null) {
+                        return r78Var3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -332,9 +332,9 @@ public abstract class j00 extends qy<qn4> implements p68 {
                 } else {
                     this.f = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01ca, (ViewGroup) null, true);
                 }
-                this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092352);
-                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab1);
-                k78 p = p();
+                this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092353);
+                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab2);
+                r78 p = p();
                 this.j = p;
                 p.setUniqueId(this.m);
                 this.j.setFrom(this.k);
@@ -345,20 +345,20 @@ public abstract class j00 extends qy<qn4> implements p68 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.j.getCurrentPosition() : invokeV.intValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            qn4 qn4Var = this.h;
-            if (qn4Var == null || qn4Var.getThreadData() == null) {
+            pn4 pn4Var = this.h;
+            if (pn4Var == null || pn4Var.getThreadData() == null) {
                 return null;
             }
             return this.h.getThreadData().getVideoUrl();
@@ -366,7 +366,7 @@ public abstract class j00 extends qy<qn4> implements p68 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -386,53 +386,53 @@ public abstract class j00 extends qy<qn4> implements p68 {
         }
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            k78 k78Var = this.j;
-            if (k78Var == null) {
+            r78 r78Var = this.j;
+            if (r78Var == null) {
                 return false;
             }
-            return k78Var.isFullScreen();
+            return r78Var.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.j.isPlaying() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j.isPlaying() : invokeV.booleanValue;
     }
 
-    public k78 o() {
+    public r78 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.j : (k78) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.j : (r78) invokeV.objValue;
     }
 
     @Override // com.repackage.gz
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        qn4 qn4Var;
+        pn4 pn4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048586, this, tbPageContext, i) == null) || (qn4Var = this.h) == null || qn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048586, this, tbPageContext, i) == null) || (pn4Var = this.h) == null || pn4Var.getThreadData() == null) {
             return;
         }
-        cx5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        ex5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.i.c(i);
         this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }
 
-    public abstract k78 p();
+    public abstract r78 p();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00b5, code lost:
@@ -452,10 +452,10 @@ public abstract class j00 extends qy<qn4> implements p68 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, qn4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, pn4Var) == null) {
             int k = oi.k(TbadkCoreApplication.getInst());
             if (k != this.n) {
                 int k2 = oi.k(TbadkCoreApplication.getInst());
@@ -466,11 +466,11 @@ public abstract class j00 extends qy<qn4> implements p68 {
                 x = i / 3;
                 this.n = k;
             }
-            this.h = qn4Var;
-            if (qn4Var == null || qn4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
+            this.h = pn4Var;
+            if (pn4Var == null || pn4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
                 return;
             }
-            this.j.setData(qn4Var.getThreadData());
+            this.j.setData(pn4Var.getThreadData());
             ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
             int i2 = layoutParams.width;
             int i3 = layoutParams.height;
@@ -545,7 +545,7 @@ public abstract class j00 extends qy<qn4> implements p68 {
         }
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -556,7 +556,7 @@ public abstract class j00 extends qy<qn4> implements p68 {
         }
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
@@ -568,9 +568,9 @@ public abstract class j00 extends qy<qn4> implements p68 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.k = str;
-            k78 k78Var = this.j;
-            if (k78Var != null) {
-                k78Var.setFrom(str);
+            r78 r78Var = this.j;
+            if (r78Var != null) {
+                r78Var.setFrom(str);
             }
         }
     }
@@ -600,19 +600,19 @@ public abstract class j00 extends qy<qn4> implements p68 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             this.l = str;
-            k78 k78Var = this.j;
-            if (k78Var != null) {
-                k78Var.setStageType(str);
+            r78 r78Var = this.j;
+            if (r78Var != null) {
+                r78Var.setStageType(str);
             }
         }
     }
 
-    public void y(f78 f78Var) {
-        k78 k78Var;
+    public void y(m78 m78Var) {
+        r78 r78Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, f78Var) == null) || (k78Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, m78Var) == null) || (r78Var = this.j) == null) {
             return;
         }
-        k78Var.setStatistic(f78Var);
+        r78Var.setStatistic(m78Var);
     }
 }

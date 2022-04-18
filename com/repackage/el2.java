@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class el2 {
     public static /* synthetic */ Interceptable $ic;
     public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, Integer> a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final el2 a;
@@ -104,7 +104,7 @@ public class el2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = t74.b().i().getInt("get_pkg_retry_switch", 0);
+            int i = s74.b().i().getInt("get_pkg_retry_switch", 0);
             jx1.i("GetPkgRetryController", "getServerRetrySwitch:" + i);
             return i == 1;
         }

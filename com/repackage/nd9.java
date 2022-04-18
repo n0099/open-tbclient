@@ -1,339 +1,110 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.md9;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.ByteArrayOutputStream;
 /* loaded from: classes6.dex */
 public class nd9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean n;
-    public static volatile nd9 o;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public File b;
+    public String a;
+    public boolean b;
     public boolean c;
-    public boolean d;
-    public long e;
-    public int f;
-    public int g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public int l;
-    public HashMap<String, md9> m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755473202, "Lcom/repackage/nd9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755473202, "Lcom/repackage/nd9;");
-                return;
-            }
-        }
-        n = AppConfig.isDebug();
-    }
-
-    public nd9() {
+    public nd9(String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        n();
+        this.a = str;
+        this.b = z;
+        this.c = z2;
     }
 
-    public static nd9 f() {
-        InterceptResult invokeV;
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (o == null) {
-                synchronized (nd9.class) {
-                    if (o == null) {
-                        o = new nd9();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return i != 5 ? -1 : 0;
+                        }
+                        return 1;
+                    }
+                    return 3;
+                }
+                return 4;
+            }
+            return 6;
+        }
+        return invokeI.intValue;
+    }
+
+    public String b(byte[] bArr) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            for (int i2 = 0; i2 < (bArr.length + 4) / 5; i2++) {
+                short[] sArr = new short[5];
+                int[] iArr = new int[8];
+                int i3 = 5;
+                for (int i4 = 0; i4 < 5; i4++) {
+                    int i5 = (i2 * 5) + i4;
+                    if (i5 < bArr.length) {
+                        sArr[i4] = (short) (bArr[i5] & 255);
+                    } else {
+                        sArr[i4] = 0;
+                        i3--;
+                    }
+                }
+                int a = a(i3);
+                iArr[0] = (byte) ((sArr[0] >> 3) & 31);
+                iArr[1] = (byte) (((sArr[0] & 7) << 2) | ((sArr[1] >> 6) & 3));
+                iArr[2] = (byte) ((sArr[1] >> 1) & 31);
+                iArr[3] = (byte) (((sArr[1] & 1) << 4) | ((sArr[2] >> 4) & 15));
+                iArr[4] = (byte) (((sArr[2] & 15) << 1) | ((sArr[3] >> 7) & 1));
+                iArr[5] = (byte) ((sArr[3] >> 2) & 31);
+                iArr[6] = (byte) (((sArr[4] >> 5) & 7) | ((sArr[3] & 3) << 3));
+                iArr[7] = (byte) (sArr[4] & 31);
+                int i6 = 0;
+                while (true) {
+                    i = 8 - a;
+                    if (i6 >= i) {
+                        break;
+                    }
+                    char charAt = this.a.charAt(iArr[i6]);
+                    if (this.c) {
+                        charAt = Character.toLowerCase(charAt);
+                    }
+                    byteArrayOutputStream.write(charAt);
+                    i6++;
+                }
+                if (this.b) {
+                    while (i < 8) {
+                        byteArrayOutputStream.write(61);
+                        i++;
                     }
                 }
             }
-            return o;
+            return new String(byteArrayOutputStream.toByteArray());
         }
-        return (nd9) invokeV.objValue;
-    }
-
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        md9 md9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.c;
-            }
-            HashMap<String, md9> hashMap = this.m;
-            if (hashMap != null && (md9Var = hashMap.get(str)) != null) {
-                return md9Var.e();
-            }
-            return this.c;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public long b(String str) {
-        InterceptResult invokeL;
-        md9 md9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.i;
-            }
-            HashMap<String, md9> hashMap = this.m;
-            if (hashMap != null && (md9Var = hashMap.get(str)) != null) {
-                return md9Var.a();
-            }
-            return this.i;
-        }
-        return invokeL.longValue;
-    }
-
-    public int c(String str) {
-        InterceptResult invokeL;
-        md9 md9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.l;
-            }
-            HashMap<String, md9> hashMap = this.m;
-            if (hashMap != null && (md9Var = hashMap.get(str)) != null) {
-                return md9Var.b();
-            }
-            return this.l;
-        }
-        return invokeL.intValue;
-    }
-
-    public long d(String str) {
-        InterceptResult invokeL;
-        md9 md9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.h;
-            }
-            HashMap<String, md9> hashMap = this.m;
-            if (hashMap != null && (md9Var = hashMap.get(str)) != null) {
-                return md9Var.d();
-            }
-            return this.h;
-        }
-        return invokeL.longValue;
-    }
-
-    public int e(String str) {
-        InterceptResult invokeL;
-        md9 md9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this.g;
-            }
-            HashMap<String, md9> hashMap = this.m;
-            if (hashMap != null && (md9Var = hashMap.get(str)) != null) {
-                return md9Var.c();
-            }
-            return this.g;
-        }
-        return invokeL.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.longValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.l : invokeV.intValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : invokeV.longValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.e : invokeV.longValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/config/");
-            this.b = file;
-            if (!file.exists()) {
-                this.b.mkdirs();
-            }
-            File file2 = new File(this.b, "voyager_config.txt");
-            this.a = file2;
-            if (file2.exists()) {
-                q();
-            } else {
-                r();
-            }
-        }
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            String f = ge9.f(this.a);
-            if (n) {
-                Log.d("VoyagerConfig", "read from local: " + f);
-            }
-            if (TextUtils.isEmpty(f)) {
-                r();
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(f);
-                this.c = jSONObject.optBoolean("en", od9.a);
-                this.d = jSONObject.optBoolean("c", od9.c);
-                this.e = jSONObject.optLong("ui", od9.e);
-                this.f = jSONObject.optInt("utc", od9.f);
-                this.i = jSONObject.optLong("et", od9.g);
-                this.k = jSONObject.optInt("mfc", od9.i);
-                this.j = jSONObject.optLong("mfs", od9.h);
-                this.l = jSONObject.optInt("an", od9.l);
-                this.g = jSONObject.optInt("stmc", od9.j);
-                this.h = jSONObject.optLong("stms", od9.k);
-                JSONObject optJSONObject = jSONObject.optJSONObject("set");
-                if (optJSONObject == null || optJSONObject.length() <= 0) {
-                    return;
-                }
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                    if (optJSONObject2 != null && optJSONObject2.length() != 0) {
-                        md9 g = new md9.b(next).g();
-                        if (optJSONObject2.optInt("en") != od9.n) {
-                            g.f(od9.a);
-                        } else {
-                            g.f(od9.b);
-                        }
-                        long optInt = optJSONObject2.optInt("et", 0);
-                        if (optInt > 0) {
-                            g.g(optInt);
-                        } else {
-                            g.g(this.i);
-                        }
-                        int optInt2 = optJSONObject2.optInt("stmc", 0);
-                        if (optInt2 > 0) {
-                            g.i(optInt2);
-                        } else {
-                            g.i(this.g);
-                        }
-                        long optLong = optJSONObject2.optLong("stms", 0L);
-                        if (optLong > 0) {
-                            g.j(optLong);
-                        } else {
-                            g.j(this.h);
-                        }
-                        if (optJSONObject2.optInt("an") != od9.m) {
-                            g.h(od9.l);
-                        } else {
-                            g.h(od9.m);
-                        }
-                        if (!g.e() || g.a() != this.i || g.c() != this.g || g.d() != this.h || g.b() != this.l) {
-                            if (this.m == null) {
-                                this.m = new HashMap<>();
-                            }
-                            this.m.put(next, g);
-                        }
-                    }
-                }
-            } catch (JSONException e) {
-                if (n) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.c = od9.a;
-            this.d = od9.c;
-            this.e = od9.e;
-            this.f = od9.f;
-            this.i = od9.g;
-            this.k = od9.i;
-            this.j = od9.h;
-            this.g = od9.j;
-            this.h = od9.k;
-            this.l = od9.l;
-        }
+        return (String) invokeL.objValue;
     }
 }

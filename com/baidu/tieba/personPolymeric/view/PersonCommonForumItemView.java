@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.d58;
 import com.repackage.ni;
-import com.repackage.w48;
 /* loaded from: classes3.dex */
 public class PersonCommonForumItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public TextView e;
     public int f;
     public Context g;
-    public w48 h;
+    public d58 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
@@ -104,11 +104,11 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090a25);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a69);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a6c);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a93);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a94);
+            this.a = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090a26);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a6a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a6d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a94);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090a95);
         }
     }
 
@@ -133,15 +133,15 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
     }
 
-    public void setData(w48 w48Var) {
+    public void setData(d58 d58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, w48Var) == null) {
-            this.h = w48Var;
-            this.a.K(w48Var.c, 10, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, d58Var) == null) {
+            this.h = d58Var;
+            this.a.K(d58Var.c, 10, false);
             TextView textView = this.b;
-            textView.setText(StringHelper.cutForumNameWithSuffix(w48Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f0643));
-            this.d.setText(StringHelper.numberUniformFormat((long) w48Var.d));
-            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0e17), StringHelper.getUserDescByGender(w48Var.e)));
+            textView.setText(StringHelper.cutForumNameWithSuffix(d58Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f0643));
+            this.d.setText(StringHelper.numberUniformFormat((long) d58Var.d));
+            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0e16), StringHelper.getUserDescByGender(d58Var.e)));
             if (getRootView() != null) {
                 getRootView().setOnClickListener(this.i);
             }

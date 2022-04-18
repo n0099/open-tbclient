@@ -57,12 +57,12 @@ public class yz extends xy {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: s */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, qn4Var) == null) || (smartAppBottomLayout = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, pn4Var) == null) || (smartAppBottomLayout = this.h) == null) {
             return;
         }
-        smartAppBottomLayout.a(qn4Var);
+        smartAppBottomLayout.a(pn4Var);
     }
 }

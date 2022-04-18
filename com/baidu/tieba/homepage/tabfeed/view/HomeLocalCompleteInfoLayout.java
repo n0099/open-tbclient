@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gz;
-import com.repackage.o07;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.r07;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class HomeLocalCompleteInfoLayout extends LinearLayout implements gz {
     public static /* synthetic */ Interceptable $ic;
@@ -60,7 +60,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements gz {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.getContext() == null) {
                 return;
             }
-            o07.g();
+            r07.g();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
@@ -127,14 +127,14 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements gz {
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                wr4 d = wr4.d(textView);
+                vr4 d = vr4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X06);
                 d.A(R.string.F_X01);
             }
             EMTextView eMTextView = this.b;
             if (eMTextView != null) {
-                wr4 d2 = wr4.d(eMTextView);
+                vr4 d2 = vr4.d(eMTextView);
                 d2.v(R.color.CAM_X0302);
                 d2.z(R.dimen.T_X08);
                 d2.A(R.string.F_X01);
@@ -146,7 +146,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements gz {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            wr4 d3 = wr4.d(this);
+            vr4 d3 = vr4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

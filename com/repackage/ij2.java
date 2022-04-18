@@ -103,7 +103,7 @@ public class ij2 {
                             return;
                         }
                     }
-                    ng4.m(file.getParentFile());
+                    mg4.m(file.getParentFile());
                     try {
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
                         try {
@@ -233,9 +233,9 @@ public class ij2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             File file = new File(qj2.c().getFilesDir(), "swan_tmp_unzip");
-            ng4.l(file);
+            mg4.l(file);
             File file2 = new File(file, System.nanoTime() + "_" + b.incrementAndGet());
-            boolean l = ng4.l(file2);
+            boolean l = mg4.l(file2);
             jx1.k("BundleDecrypt", "#createTmpUnzipDir tmpUnzipDir=" + file2 + " dirExist=" + l);
             return new Pair<>(Boolean.valueOf(l), file2);
         }
@@ -295,10 +295,10 @@ public class ij2 {
                         th = th;
                         dataInputStream = dataInputStream2;
                         file2 = null;
-                        ng4.d(dataInputStream);
+                        mg4.d(dataInputStream);
                         if (file2 != null) {
                             jx1.k(str7, str6 + file2.getAbsolutePath());
-                            ng4.L(file2);
+                            mg4.L(file2);
                         }
                         throw th;
                     }
@@ -314,7 +314,7 @@ public class ij2 {
                     try {
                         bVar.b = e.getLocalizedMessage();
                         jx1.l(str7, "解压异常", e);
-                        ng4.d(dataInputStream);
+                        mg4.d(dataInputStream);
                         if (file2 != null) {
                         }
                         if (a) {
@@ -322,7 +322,7 @@ public class ij2 {
                         return bVar;
                     } catch (Throwable th2) {
                         th = th2;
-                        ng4.d(dataInputStream);
+                        mg4.d(dataInputStream);
                         if (file2 != null) {
                         }
                         throw th;
@@ -356,7 +356,7 @@ public class ij2 {
                             file2 = null;
                             bVar.b = e.getLocalizedMessage();
                             jx1.l(str7, "解压异常", e);
-                            ng4.d(dataInputStream);
+                            mg4.d(dataInputStream);
                             if (file2 != null) {
                             }
                             if (a) {
@@ -369,11 +369,11 @@ public class ij2 {
                     }
                     DataInputStream dataInputStream5 = dataInputStream3;
                     DataInputStream dataInputStream6 = dataInputStream4;
-                    if (!ng4.l(file)) {
+                    if (!mg4.l(file)) {
                         String str8 = "解压目录创建失败 path=" + file.getAbsolutePath();
                         jx1.k("BundleDecrypt", str8);
                         bVar.b = str8;
-                        ng4.d(dataInputStream2);
+                        mg4.d(dataInputStream2);
                         return bVar;
                     }
                     Pair<Boolean, File> c2 = c();
@@ -381,7 +381,7 @@ public class ij2 {
                         String str9 = "临时目录创建失败 path=" + ((File) c2.second).getAbsolutePath();
                         jx1.k("BundleDecrypt", str9);
                         bVar.b = str9;
-                        ng4.d(dataInputStream2);
+                        mg4.d(dataInputStream2);
                         return bVar;
                     }
                     File file3 = (File) c2.second;
@@ -408,10 +408,10 @@ public class ij2 {
                                         str5 = str10;
                                         bVar.b = e.getLocalizedMessage();
                                         jx1.l(str7, "解压异常", e);
-                                        ng4.d(dataInputStream);
+                                        mg4.d(dataInputStream);
                                         if (file2 != null) {
                                             jx1.k(str7, str6 + file2.getAbsolutePath());
-                                            ng4.L(file2);
+                                            mg4.L(file2);
                                         }
                                         if (a) {
                                         }
@@ -450,8 +450,8 @@ public class ij2 {
                                                             handlerArr[i5].sendEmptyMessage(200);
                                                         }
                                                         countDownLatch.await();
-                                                        ng4.d(dataInputStream5);
-                                                        ng4.d(dataInputStream6);
+                                                        mg4.d(dataInputStream5);
+                                                        mg4.d(dataInputStream6);
                                                         throw th;
                                                     }
                                                 }
@@ -482,7 +482,7 @@ public class ij2 {
                                             str6 = str2;
                                             bVar.b = e.getLocalizedMessage();
                                             jx1.l(str7, "解压异常", e);
-                                            ng4.d(dataInputStream);
+                                            mg4.d(dataInputStream);
                                             if (file2 != null) {
                                             }
                                             if (a) {
@@ -494,7 +494,7 @@ public class ij2 {
                                             file2 = file3;
                                             str7 = str3;
                                             str6 = str2;
-                                            ng4.d(dataInputStream);
+                                            mg4.d(dataInputStream);
                                             if (file2 != null) {
                                             }
                                             throw th;
@@ -516,8 +516,8 @@ public class ij2 {
                     }
                     try {
                         countDownLatch.await();
-                        ng4.d(dataInputStream5);
-                        ng4.d(dataInputStream6);
+                        mg4.d(dataInputStream5);
+                        mg4.d(dataInputStream6);
                     } catch (Exception e11) {
                         e = e11;
                         str5 = str;
@@ -527,7 +527,7 @@ public class ij2 {
                         file2 = file3;
                         bVar.b = e.getLocalizedMessage();
                         jx1.l(str7, "解压异常", e);
-                        ng4.d(dataInputStream);
+                        mg4.d(dataInputStream);
                         if (file2 != null) {
                         }
                         if (a) {
@@ -539,16 +539,16 @@ public class ij2 {
                         str6 = str2;
                         dataInputStream = dataInputStream2;
                         file2 = file3;
-                        ng4.d(dataInputStream);
+                        mg4.d(dataInputStream);
                         if (file2 != null) {
                         }
                         throw th;
                     }
                     if (b(atomicInteger.get(), file, i, bVar)) {
-                        ng4.d(dataInputStream2);
+                        mg4.d(dataInputStream2);
                         if (file3 != null) {
                             jx1.k(str3, str2 + file3.getAbsolutePath());
-                            ng4.L(file3);
+                            mg4.L(file3);
                         }
                         return bVar;
                     }
@@ -558,10 +558,10 @@ public class ij2 {
                         String str12 = "解压后校验失败 tmpUnzipDir=" + file3;
                         jx1.k(str7, str12);
                         bVar.b = str12;
-                        ng4.d(dataInputStream2);
+                        mg4.d(dataInputStream2);
                         if (file3 != null) {
                             jx1.k(str7, str6 + file3.getAbsolutePath());
-                            ng4.L(file3);
+                            mg4.L(file3);
                         }
                         return bVar;
                     }
@@ -586,18 +586,18 @@ public class ij2 {
                         String str13 = "解压后rename失败 dstFolder=" + file;
                         jx1.k(str7, str13);
                         bVar.b = str13;
-                        ng4.d(dataInputStream2);
+                        mg4.d(dataInputStream2);
                         if (file3 != null) {
                             jx1.k(str7, str6 + file3.getAbsolutePath());
-                            ng4.L(file3);
+                            mg4.L(file3);
                         }
                         return bVar;
                     }
                     bVar.a = true;
-                    ng4.d(dataInputStream2);
+                    mg4.d(dataInputStream2);
                     if (file3 != null) {
                         jx1.k(str7, str6 + file3.getAbsolutePath());
-                        ng4.L(file3);
+                        mg4.L(file3);
                     }
                     if (a) {
                         Log.i(str7, "#decrypt dstFolder=" + file.getAbsolutePath() + str5 + ((System.nanoTime() - j) / 1000000.0d));
@@ -606,12 +606,12 @@ public class ij2 {
                 }
                 jx1.k("BundleDecrypt", "index array length <= 0");
                 bVar.b = "index array length <= 0";
-                ng4.d(dataInputStream2);
+                mg4.d(dataInputStream2);
                 return bVar;
             }
             jx1.k("BundleDecrypt", "cipher is null");
             bVar.b = "cipher is null";
-            ng4.d(dataInputStream2);
+            mg4.d(dataInputStream2);
             return bVar;
         }
         return (b) invokeLLI.objValue;
@@ -690,12 +690,12 @@ public class ij2 {
                 dataInputStream3 = dataInputStream;
                 bVar.b = e.getLocalizedMessage();
                 jx1.l("BundleDecrypt", "解压异常 dstFolder=" + file, e);
-                ng4.d(dataInputStream3);
+                mg4.d(dataInputStream3);
                 return bVar;
             } catch (Throwable th2) {
                 th = th2;
                 dataInputStream3 = dataInputStream;
-                ng4.d(dataInputStream3);
+                mg4.d(dataInputStream3);
                 throw th;
             }
             if (f != null && f.length > 0) {
@@ -714,11 +714,11 @@ public class ij2 {
                         dataInputStream3 = new DataInputStream(new ByteArrayInputStream(e3));
                         dataInputStream2 = new DataInputStream(new GZIPInputStream(dataInputStream));
                     }
-                    if (!ng4.m(file)) {
+                    if (!mg4.m(file)) {
                         String str = "解压目录创建失败 path=" + file.getAbsolutePath();
                         jx1.k("BundleDecrypt", str);
                         bVar.b = str;
-                        ng4.d(dataInputStream);
+                        mg4.d(dataInputStream);
                         return bVar;
                     }
                     AtomicInteger atomicInteger = new AtomicInteger(0);
@@ -738,8 +738,8 @@ public class ij2 {
                             }
                         } catch (Throwable th3) {
                             atomicInteger2.set(0);
-                            ng4.d(dataInputStream3);
-                            ng4.d(dataInputStream2);
+                            mg4.d(dataInputStream3);
+                            mg4.d(dataInputStream2);
                             throw th3;
                         }
                     }
@@ -747,31 +747,31 @@ public class ij2 {
                         TimeUnit.MILLISECONDS.sleep(1L);
                     }
                     atomicInteger2.set(0);
-                    ng4.d(dataInputStream3);
-                    ng4.d(dataInputStream2);
+                    mg4.d(dataInputStream3);
+                    mg4.d(dataInputStream2);
                     if (b(atomicInteger.get(), file, i, bVar)) {
-                        ng4.d(dataInputStream);
+                        mg4.d(dataInputStream);
                         return bVar;
                     } else if (!n(arrayList, file, i)) {
                         String str2 = "解压后校验失败 dstFolder=" + file;
                         jx1.k("BundleDecrypt", str2);
                         bVar.b = str2;
-                        ng4.d(dataInputStream);
+                        mg4.d(dataInputStream);
                         return bVar;
                     } else {
                         bVar.a = true;
-                        ng4.d(dataInputStream);
+                        mg4.d(dataInputStream);
                         return bVar;
                     }
                 }
                 jx1.k("BundleDecrypt", "index array length <= 0");
                 bVar.b = "index array length <= 0";
-                ng4.d(dataInputStream);
+                mg4.d(dataInputStream);
                 return bVar;
             }
             jx1.k("BundleDecrypt", "cipher is null");
             bVar.b = "cipher is null";
-            ng4.d(dataInputStream);
+            mg4.d(dataInputStream);
             return bVar;
         }
         return (b) invokeLLI.objValue;
@@ -798,18 +798,18 @@ public class ij2 {
             try {
                 fileWriter.write(String.valueOf(i));
                 fileWriter.write(44);
-                ng4.d(fileWriter);
+                mg4.d(fileWriter);
             } catch (IOException e2) {
                 e = e2;
                 fileWriter2 = fileWriter;
                 if (a) {
                     e.printStackTrace();
                 }
-                ng4.d(fileWriter2);
+                mg4.d(fileWriter2);
             } catch (Throwable th2) {
                 th = th2;
                 fileWriter2 = fileWriter;
-                ng4.d(fileWriter2);
+                mg4.d(fileWriter2);
                 throw th;
             }
         }
@@ -858,7 +858,7 @@ public class ij2 {
                         Log.e("BundleDecrypt", "bundle encryption check fail", e);
                     }
                     bufferedInputStream = bufferedInputStream2;
-                    ng4.d(bufferedInputStream);
+                    mg4.d(bufferedInputStream);
                     return cVar;
                 }
                 if (read == -1122498812) {
@@ -871,7 +871,7 @@ public class ij2 {
                     cVar.b = 2;
                     return cVar;
                 }
-                ng4.d(bufferedInputStream);
+                mg4.d(bufferedInputStream);
             }
             return cVar;
         }

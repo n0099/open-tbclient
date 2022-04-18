@@ -1,17 +1,16 @@
 package com.repackage;
 
-import android.graphics.drawable.BitmapDrawable;
-import android.text.TextUtils;
-import android.util.Pair;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.CustomViewPager;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,128 +21,200 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class xt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public FragmentTabHost b;
-    public final hg<fo> c;
+    public TbPageContext<?> a;
+    public Activity b;
+    public AlertDialog c;
+    public String d;
+    public TextView e;
+    public DialogInterface.OnCancelListener f;
+    public boolean g;
 
-    /* loaded from: classes7.dex */
-    public class a extends hg<fo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xt4 a;
-
-        public a(xt4 xt4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xt4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xt4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hg
-        public void onLoaded(fo foVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, foVar, str, i) == null) {
-                super.onLoaded((a) foVar, str, i);
-                if (this.a.b == null || foVar == null || !foVar.w()) {
-                    this.a.f();
-                    return;
-                }
-                FragmentTabWidget fragmentTabWidget = this.a.b.getFragmentTabWidget();
-                CustomViewPager fragmentViewPager = this.a.b.getFragmentViewPager();
-                ViewGroup tabWrapper = this.a.b.getTabWrapper();
-                if (fragmentTabWidget == null || fragmentViewPager == null) {
-                    return;
-                }
-                this.a.b.setNeedShowThemeStyle(false);
-                fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
-                SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
-                SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
-                layoutParams.bottomMargin = oi.f(this.a.b.getContext(), R.dimen.tbds100);
-                fragmentViewPager.setLayoutParams(layoutParams);
-                fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(foVar.p()));
-            }
-        }
-    }
-
-    public xt4(FragmentTabHost fragmentTabHost, int i) {
+    public xt4(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentTabHost, Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.d = null;
+        this.e = null;
+        this.g = true;
+        this.a = tbPageContext;
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
+            return;
+        }
+        this.b = this.a.getPageActivity();
+    }
+
+    public final xt4 a(DialogInterface.OnCancelListener onCancelListener) {
+        InterceptResult invokeL;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onCancelListener)) == null) {
+            if (this.b == null) {
+                return this;
+            }
+            AlertDialog create = new AlertDialog.Builder(this.b).create();
+            this.c = create;
+            rg.i(create, this.b);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0213, (ViewGroup) null);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09074a);
+            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
+                textView.setText(this.d);
+            }
+            AlertDialog alertDialog = this.c;
+            if (alertDialog != null && alertDialog.getWindow() != null) {
+                this.c.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.c.setCancelable(true);
+                    this.c.setCanceledOnTouchOutside(true);
+                    this.c.setOnCancelListener(onCancelListener);
+                } else {
+                    this.c.setCanceledOnTouchOutside(false);
+                    this.c.setCancelable(false);
+                }
+            }
+            return this;
+        }
+        return (xt4) invokeL.objValue;
+    }
+
+    public final xt4 b(DialogInterface.OnCancelListener onCancelListener) {
+        InterceptResult invokeL;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onCancelListener)) == null) {
+            if (this.b == null) {
+                return this;
+            }
+            AlertDialog create = new AlertDialog.Builder(this.b).create();
+            this.c = create;
+            rg.i(create, this.b);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0213, (ViewGroup) null);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09074a);
+            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
+                textView.setText(this.d);
+            }
+            AlertDialog alertDialog = this.c;
+            if (alertDialog != null && alertDialog.getWindow() != null) {
+                this.c.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.c.setOnCancelListener(onCancelListener);
+                }
+            }
+            return this;
+        }
+        return (xt4) invokeL.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AlertDialog alertDialog = this.c;
+            return alertDialog != null && alertDialog.isShowing();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void e(DialogInterface.OnCancelListener onCancelListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onCancelListener) == null) {
+            this.f = onCancelListener;
+        }
+    }
+
+    public void f(boolean z) {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alertDialog = this.c) == null) {
+            return;
+        }
+        alertDialog.setCancelable(z);
+    }
+
+    public void g(boolean z) {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (alertDialog = this.c) == null) {
+            return;
+        }
+        alertDialog.setCanceledOnTouchOutside(z);
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (z) {
+                if (this.g) {
+                    a(this.f);
+                    return;
+                } else {
+                    b(this.f);
+                    return;
+                }
+            }
+            rg.a(this.c, this.b);
+        }
+    }
+
+    public void i(int i) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (activity = this.b) == null) {
+            return;
+        }
+        this.d = activity.getString(i);
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.d = str;
+            TextView textView = this.e;
+            if (textView != null) {
+                textView.setText(str);
+            }
+        }
+    }
+
+    public xt4(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.c = new a(this);
-        this.b = fragmentTabHost;
-        this.a = i;
-    }
-
-    public final BdUniqueId c() {
-        InterceptResult invokeV;
-        b9<?> a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FragmentTabHost fragmentTabHost = this.b;
-            if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = f9.a(this.b.getContext())) == null) {
-                return null;
-            }
-            return a2.getUniqueId();
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            ig.h().m(str, 10, this.c, c());
-        }
-    }
-
-    public void e(Pair<String, String> pair) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair) == null) || pair == null) {
-            return;
-        }
-        String str = (String) pair.first;
-        String str2 = (String) pair.second;
-        if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-            d(str2);
-        } else if (!TextUtils.isEmpty(str)) {
-            d(str);
-        } else {
-            f();
-        }
-    }
-
-    public final void f() {
-        FragmentTabHost fragmentTabHost;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fragmentTabHost = this.b) == null || fragmentTabHost.getFragmentTabWidget() == null) {
-            return;
-        }
-        this.b.getFragmentTabWidget().setBackGroundDrawableResId(this.a);
-        SkinManager.setBackgroundColor(this.b.getFragmentTabWidget(), this.a);
-        SkinManager.setBackgroundColor(this.b.getTabWrapper(), this.a);
+        this.a = null;
+        this.b = null;
+        this.d = null;
+        this.e = null;
+        this.g = true;
+        this.b = activity;
     }
 }

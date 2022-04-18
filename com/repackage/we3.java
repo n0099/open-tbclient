@@ -12,7 +12,7 @@ public final class we3 {
     public static void a(@Nullable Channel channel) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65536, null, channel) == null) && channel != null && channel.isOpen()) {
-            ng4.d(channel);
+            mg4.d(channel);
         }
     }
 }

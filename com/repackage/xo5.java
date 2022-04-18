@@ -1,28 +1,113 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class xo5 extends ho<uo5, LiveTabConcernItemViewLineHolder> {
+public class xo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public kp5 j;
-    public pp5 k;
+    public yo5 a;
+    public zo5 b;
+    public dp5 c;
+    public cp5 d;
+    public ap5 e;
+    public bp5 f;
+    public List<ho> g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes7.dex */
+    public class a implements rp5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+
+        public a(xo5 xo5Var, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xo5Var, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+        }
+
+        @Override // com.repackage.rp5
+        public void a(vn5 vn5Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, vn5Var) == null) || vn5Var == null || vn5Var.getThreadData() == null) {
+                return;
+            }
+            if (vn5Var.getThreadData().getThreadAlaInfo() != null && vn5Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
+                AlaInfoData threadAlaInfo = vn5Var.getThreadData().getThreadAlaInfo();
+                TbPageContext tbPageContext = this.a;
+                YyExtData yyExtData = threadAlaInfo.mYyExtData;
+                String str = yyExtData.mSid;
+                String str2 = yyExtData.mSsid;
+                String str3 = yyExtData.mTemplateId;
+                YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + threadAlaInfo.roomId, threadAlaInfo.mYyExtData.streamInfo, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_CARD);
+                return;
+            }
+            ho5.i(this.a.getPageActivity(), vn5Var.getThreadData());
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements rp5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+
+        public b(xo5 xo5Var, TbPageContext tbPageContext) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xo5Var, tbPageContext};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+        }
+
+        @Override // com.repackage.rp5
+        public void a(vn5 vn5Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, vn5Var) == null) || vn5Var == null || vn5Var.getThreadData() == null || vn5Var.getThreadData().getThreadAlaInfo() == null || vn5Var.getThreadData().getThreadAlaInfo().mYyExtData == null) {
+                return;
+            }
+            AlaInfoData threadAlaInfo = vn5Var.getThreadData().getThreadAlaInfo();
+            TbPageContext tbPageContext = this.a;
+            YyExtData yyExtData = threadAlaInfo.mYyExtData;
+            String str = yyExtData.mSid;
+            String str2 = yyExtData.mSsid;
+            String str3 = yyExtData.mTemplateId;
+            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, str, str2, str3, "" + threadAlaInfo.roomId, YYLiveUtil.SOURCE_HOME_LIVE_TAB_FOLLOW_HEAD);
+        }
+    }
+
     public xo5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), uo5.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -32,59 +117,31 @@ public class xo5 extends ho<uo5, LiveTabConcernItemViewLineHolder> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.g = new LinkedList();
+        this.a = new yo5(tbPageContext);
+        this.b = new zo5(tbPageContext);
+        this.c = new dp5(tbPageContext);
+        this.d = new cp5(tbPageContext);
+        this.e = new ap5(tbPageContext);
+        this.f = new bp5(tbPageContext);
+        this.b.b0(new a(this, tbPageContext));
+        this.d.b0(new b(this, tbPageContext));
+        this.g.add(this.a);
+        this.g.add(this.b);
+        this.g.add(this.c);
+        this.g.add(this.d);
+        this.g.add(this.e);
+        this.g.add(this.f);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public LiveTabConcernItemViewLineHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public List<ho> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            kp5 kp5Var = new kp5(this.i, viewGroup);
-            this.j = kp5Var;
-            pp5 pp5Var = this.k;
-            if (pp5Var != null) {
-                kp5Var.t(pp5Var);
-            }
-            return new LiveTabConcernItemViewLineHolder(this.j);
-        }
-        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, uo5 uo5Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
-        InterceptResult invokeCommon;
-        kp5 kp5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uo5Var, liveTabConcernItemViewLineHolder})) == null) {
-            if (liveTabConcernItemViewLineHolder == null || (kp5Var = liveTabConcernItemViewLineHolder.a) == null) {
-                return null;
-            }
-            kp5Var.l(uo5Var);
-            return liveTabConcernItemViewLineHolder.b();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void b0(pp5 pp5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, pp5Var) == null) {
-            this.k = pp5Var;
-            kp5 kp5Var = this.j;
-            if (kp5Var != null) {
-                kp5Var.t(pp5Var);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (List) invokeV.objValue;
     }
 }

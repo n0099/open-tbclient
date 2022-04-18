@@ -1,58 +1,71 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.homepage.personalize.data.CheckInterestCommitResponseMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.personalize.data.RecPersonalizeRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Personalized.DataRes;
 /* loaded from: classes7.dex */
-public final class sz6 {
+public class sz6 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public sz6() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755303198, "Lcom/repackage/sz6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755303198, "Lcom/repackage/sz6;");
+        }
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            br4.f();
+            qe<byte[]> e = br4.e("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+            if (e != null) {
+                e.e("0", new byte[0], 0L);
             }
         }
-        b();
     }
 
-    public final void a() {
+    public static DataRes b() {
+        InterceptResult invokeV;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_INTEREST_COMMIT);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            br4.f();
+            qe<byte[]> e = br4.e("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
+            if (e != null && (bArr = e.get("0")) != null && bArr.length != 0) {
+                try {
+                    return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+                } catch (IOException e2) {
+                    BdLog.e(e2);
+                }
+            }
+            return null;
         }
+        return (DataRes) invokeV.objValue;
     }
 
-    public final void b() {
+    public static boolean c(ResponsedMessage responsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_INTEREST_COMMIT, Intrinsics.stringPlus(TbConfig.SERVER_ADDRESS, TbConfig.URL_CHECK_INTEREST_COMMIT));
-            tbHttpMessageTask.setResponsedClass(CheckInterestCommitResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_CHECK_INTEREST_COMMIT));
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, responsedMessage)) == null) ? responsedMessage != null && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RecPersonalizeRequest) && ((RecPersonalizeRequest) responsedMessage.getOrginalMessage().getExtra()).getLoadType() == 2 : invokeL.booleanValue;
     }
 }

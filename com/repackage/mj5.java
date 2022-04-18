@@ -65,7 +65,7 @@ public class mj5 {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements iz9<Long> {
+    public class b implements pz9<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdDownloadData a;
@@ -93,7 +93,7 @@ public class mj5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.iz9
+        @Override // com.repackage.pz9
         public void call(Long l) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
@@ -148,17 +148,17 @@ public class mj5 {
     public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.e == 0 || k98.e(System.currentTimeMillis(), this.f, this.e)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.e == 0 || r98.e(System.currentTimeMillis(), this.f, this.e)) ? false : true : invokeV.booleanValue;
     }
 
     public final void i(Context context, AdDownloadData adDownloadData) {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, adDownloadData) == null) {
-            if (!TextUtils.isEmpty(adDownloadData.getDeeplink()) && ga8.p(adDownloadData.getDeeplink())) {
-                i = ga8.d(context, adDownloadData.getDeeplink(), adDownloadData.adId(), adDownloadData.getExtInfo(), adDownloadData.getCmdScheme());
+            if (!TextUtils.isEmpty(adDownloadData.getDeeplink()) && na8.p(adDownloadData.getDeeplink())) {
+                i = na8.d(context, adDownloadData.getDeeplink(), adDownloadData.adId(), adDownloadData.getExtInfo(), adDownloadData.getCmdScheme());
             } else {
-                ga8.y(adDownloadData.getPkgName());
+                na8.y(adDownloadData.getPkgName());
                 i = -1;
             }
             this.c.a(i, adDownloadData.pkgName(), adDownloadData.getExtInfo());
@@ -171,7 +171,7 @@ public class mj5 {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, adDownloadData) == null) || context == null || adDownloadData == null || !this.d) {
             return;
         }
-        uy9.B(1000L, TimeUnit.MILLISECONDS).k(ez9.b()).w(new b(this, adDownloadData, context));
+        bz9.B(1000L, TimeUnit.MILLISECONDS).k(lz9.b()).w(new b(this, adDownloadData, context));
     }
 
     public void k() {

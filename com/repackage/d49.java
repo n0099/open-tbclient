@@ -1,43 +1,48 @@
 package com.repackage;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.text.TextUtils;
-import android.util.JsonWriter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
 /* loaded from: classes5.dex */
-public class d49 implements o59 {
+public class d49 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile d49 s;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public Context a;
+    public int b;
     public int c;
-    public String d;
-    public JSONObject e;
-    public long f;
+    public int d;
+    public int e;
+    public int f;
     public int g;
-    public String h;
-    public String i;
-    public boolean j;
-    public String k;
-    public String l;
-    public String m;
+    public int h;
+    public int i;
+    public int j;
+    public boolean k;
+    public int l;
+    public int m;
+    public boolean n;
+    public long o;
+    public boolean p;
+    public c49 q;
+    public e59 r;
 
-    public d49(String str) {
+    public d49() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,424 +52,551 @@ public class d49 implements o59 {
                 return;
             }
         }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.l = "0";
-        this.a = str;
-        this.b = str;
-        this.c = -1;
-        this.g = 0;
+        this.e = 614400;
+        this.f = 153600;
+        this.g = 614400;
+        this.h = 614400;
+        this.i = 100;
+        this.j = 180;
+        this.k = false;
+        this.l = 819200;
+        this.m = 60;
+        this.n = false;
+        this.o = 0L;
+        this.p = false;
+        this.q = new c49();
+        this.r = new e59();
     }
 
-    public void A(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.l = str;
-        }
-    }
-
-    public void B(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f = j;
-        }
-    }
-
-    @Override // com.repackage.o59
-    public JSONObject a() throws JSONException {
-        InterceptResult invokeV;
-        JSONObject d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", this.a);
-            jSONObject.put("timestamp", Long.toString(this.f));
-            jSONObject.put("type", "0");
-            JSONObject jSONObject2 = this.e;
-            if (jSONObject2 != null) {
-                jSONObject.put("content", jSONObject2.toString());
-            } else if (!TextUtils.isEmpty(this.d)) {
-                jSONObject.put("content", this.d);
-            }
-            if (!TextUtils.isEmpty(this.h)) {
-                jSONObject.put("abtest", this.h);
-            }
-            if (!TextUtils.isEmpty(this.i)) {
-                jSONObject.put("c", this.i);
-            }
-            if (this.j) {
-                jSONObject.put("of", "1");
-            }
-            w39 o = w39.o();
-            jSONObject.put(Constant.ID_TYPE, o.z(this.a));
-            jSONObject.put(Constant.IS_REAL, o.O(this.a) ? "1" : "0");
-            int n = o.n(this.a);
-            if (n != 0) {
-                jSONObject.put("gflow", String.valueOf(n));
-            }
-            if (!TextUtils.isEmpty(this.m) && (d = d()) != null) {
-                jSONObject.put("bizInfo", d);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // com.repackage.o59
-    public void b(JsonWriter jsonWriter) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jsonWriter) == null) {
-            jsonWriter.beginObject();
-            jsonWriter.name("id").value(this.a);
-            jsonWriter.name("timestamp").value(Long.toString(this.f));
-            jsonWriter.name("type").value("0");
-            if (this.e != null) {
-                jsonWriter.name("content").value(this.e.toString());
-            } else if (!TextUtils.isEmpty(this.d)) {
-                jsonWriter.name("content").value(this.d);
-            }
-            if (!TextUtils.isEmpty(this.h)) {
-                jsonWriter.name("abtest").value(this.h);
-            }
-            if (!TextUtils.isEmpty(this.i)) {
-                jsonWriter.name("c").value(this.i);
-            }
-            if (this.j) {
-                jsonWriter.name("of").value("1");
-            }
-            jsonWriter.name(Constant.ID_TYPE).value(w39.o().z(this.a));
-            jsonWriter.name(Constant.IS_REAL).value(w39.o().O(this.a) ? "1" : "0");
-            int n = w39.o().n(this.a);
-            if (n != 0) {
-                jsonWriter.name("gflow").value(String.valueOf(n));
-            }
-            if (!TextUtils.isEmpty(this.m) && d() != null) {
-                jsonWriter.name("bizInfo");
-                v59.a(jsonWriter, d());
-            }
-            jsonWriter.endObject();
-        }
-    }
-
-    public String c() {
+    public static d49 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.m : (String) invokeV.objValue;
-    }
-
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (TextUtils.isEmpty(this.m)) {
-                return null;
-            }
-            try {
-                return new JSONObject(this.m);
-            } catch (JSONException e) {
-                if (r49.m()) {
-                    e.printStackTrace();
-                    return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (s == null) {
+                synchronized (b49.class) {
+                    if (s == null) {
+                        s = new d49();
+                    }
                 }
-                return null;
             }
+            return s;
         }
-        return (JSONObject) invokeV.objValue;
+        return (d49) invokeV.objValue;
     }
 
-    public String e() {
+    public int A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : invokeV.intValue;
     }
 
-    public String f() {
+    public int B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : invokeV.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0042  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0052  */
-    /* JADX WARN: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int g() {
-        InterceptResult invokeV;
-        int length;
+    public int C(String str) {
+        InterceptResult invokeL;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) != null) {
-            return invokeV.intValue;
-        }
-        int length2 = TextUtils.isEmpty(this.a) ? 0 : 0 + this.a.getBytes().length;
-        JSONObject jSONObject = this.e;
-        if (jSONObject != null) {
-            try {
-                length = jSONObject.toString().getBytes("UTF-8").length;
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (!this.q.n.containsKey(str) || (num = this.q.n.get(str)) == null) {
+                return -1;
             }
-        } else {
-            if (!TextUtils.isEmpty(this.d)) {
-                length = this.d.getBytes().length;
+            return num.intValue();
+        }
+        return invokeL.intValue;
+    }
+
+    public void D(z39 z39Var, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, z39Var, context) == null) {
+            this.a = context;
+            this.b = 60000;
+            h59 a = h59.a();
+            this.c = a.b("ubc_data_expire_time", 604800000);
+            this.d = a.b("ubc_database_limit", 10000);
+            z39Var.n().y(this.q);
+            this.e = a.b("ubc_launch_upload_max_limit", 614400);
+            this.f = a.b("ubc_single_log_max_limit", 153600);
+            this.g = a.b("ubc_real_upload_max_limit", 614400);
+            this.h = a.b("ubc_non_real_upload_max_limit", 614400);
+            this.i = a.b("ubc_upload_trigger_num", 100);
+            this.j = a.b("ubc_upload_trigger_time", 180);
+            this.k = y49.i().q();
+            this.l = y49.i().g();
+            this.m = y49.i().b();
+            this.n = y49.i().i();
+            this.p = y49.i().l();
+        }
+    }
+
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            n49 i = y49.i();
+            if (i != null) {
+                return i.n();
             }
-            if (!TextUtils.isEmpty(this.h)) {
-                length2 += this.h.getBytes().length;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean F(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            HashMap<String, i49> hashMap = this.q.j;
+            if (hashMap == null || !hashMap.containsKey(str)) {
+                return false;
             }
-            return TextUtils.isEmpty(this.m) ? length2 + this.m.getBytes().length : length2;
+            return this.q.j.get(str).a();
         }
-        length2 += length;
-        if (!TextUtils.isEmpty(this.h)) {
+        return invokeL.booleanValue;
+    }
+
+    public boolean G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.q.a.b : invokeV.booleanValue;
+    }
+
+    public boolean H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.q.a.d : invokeV.booleanValue;
+    }
+
+    public boolean I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.booleanValue;
+    }
+
+    public boolean J(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            HashMap<String, i49> hashMap = this.q.j;
+            if (hashMap == null || !hashMap.containsKey(str)) {
+                return false;
+            }
+            return this.q.j.get(str).b();
         }
-        if (TextUtils.isEmpty(this.m)) {
+        return invokeL.booleanValue;
+    }
+
+    public boolean K(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            Context context = this.a;
+            return context == null || L(context) || !c(str);
         }
+        return invokeL.booleanValue;
     }
 
-    public String h() {
-        InterceptResult invokeV;
+    public boolean L(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public JSONObject m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.e : (JSONObject) invokeV.objValue;
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.l : (String) invokeV.objValue;
-    }
-
-    public long p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f : invokeV.longValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.j : invokeV.booleanValue;
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.m = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
+            return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
         }
+        return invokeL.booleanValue;
     }
 
-    public void s(String str) {
+    public boolean M() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.i = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.n : invokeV.booleanValue;
     }
 
-    public void t(String str) {
+    public boolean N() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || TextUtils.isEmpty(str)) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.p : invokeV.booleanValue;
+    }
+
+    public boolean O(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.q.c.contains(str) : invokeL.booleanValue;
+    }
+
+    public void P(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || i < 604800000) {
             return;
         }
-        this.d = str;
+        this.c = i;
+        h59.a().d("ubc_data_expire_time", i);
     }
 
-    public void u(boolean z) {
+    public void Q(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.j = z;
-        }
-    }
-
-    public void v() {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (str = this.a) != null && str.equals(this.b) && w39.o().a(this.a)) {
-            this.h = r49.i().h();
-        }
-    }
-
-    public void w(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.k = str;
-        }
-    }
-
-    public void y(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || i < 10000) {
             return;
         }
-        this.e = jSONObject;
+        this.d = i;
+        h59.a().d("ubc_database_limit", i);
     }
 
-    public void z(int i) {
+    public void R(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            this.g = i;
+        if (!(interceptable == null || interceptable.invokeI(1048593, this, i) == null) || i < 153600) {
+            return;
         }
+        this.e = i;
+        h59.a().d("ubc_launch_upload_max_limit", i);
     }
 
-    public d49(String str, String str2, int i) {
+    public void S(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || i < 153600) {
+            return;
         }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.l = "0";
-        this.a = str;
-        this.b = str;
-        this.c = -1;
-        this.d = str2;
+        this.h = i;
+        h59.a().d("ubc_non_real_upload_max_limit", i);
+    }
+
+    public void T(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i) == null) || i < 153600) {
+            return;
+        }
         this.g = i;
-        if ((i & 2) == 0) {
-            this.f = System.currentTimeMillis();
+        h59.a().d("ubc_real_upload_max_limit", i);
+    }
+
+    public void U(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i) == null) || i < 30720) {
+            return;
+        }
+        this.f = i;
+        h59.a().d("ubc_single_log_max_limit", i);
+    }
+
+    public void V(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i) == null) || i < 1) {
+            return;
+        }
+        this.b = i * 60000;
+    }
+
+    public void W(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048598, this, i) == null) || i <= 0) {
+            return;
+        }
+        this.i = i;
+        h59.a().d("ubc_upload_trigger_num", i);
+    }
+
+    public void X(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048599, this, i) == null) || i <= 0) {
+            return;
+        }
+        this.j = i;
+        h59.a().d("ubc_upload_trigger_time", i);
+    }
+
+    public void Y(List<g49> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
+            for (g49 g49Var : list) {
+                String c = g49Var.c();
+                if (!TextUtils.isEmpty(c)) {
+                    if (!g49Var.s()) {
+                        this.q.b.add(c);
+                        this.q.f.remove(c);
+                    } else {
+                        this.q.b.remove(c);
+                        this.q.f.add(c);
+                    }
+                    if (g49Var.o()) {
+                        this.q.c.add(c);
+                        this.q.d.remove(c);
+                    } else {
+                        this.q.c.remove(c);
+                        this.q.d.add(c);
+                    }
+                    if (g49Var.k()) {
+                        this.q.e.add(c);
+                    } else {
+                        this.q.e.remove(c);
+                    }
+                    if (g49Var.n()) {
+                        this.q.g.add(c);
+                    } else {
+                        this.q.g.remove(c);
+                    }
+                    int g = g49Var.g();
+                    if (g >= 1 && g <= 100) {
+                        this.q.h.put(c, Integer.valueOf(g));
+                    } else {
+                        this.q.h.remove(c);
+                    }
+                    String a = g49Var.a();
+                    if (!TextUtils.isEmpty(a)) {
+                        this.q.i.put(c, a);
+                    } else {
+                        this.q.i.remove(c);
+                    }
+                    int d = g49Var.d();
+                    int e = g49Var.e();
+                    if (d != 0 && e != 0) {
+                        this.q.j.put(c, new i49(c, e, d));
+                    }
+                    if (g49Var.m()) {
+                        this.q.k.add(c);
+                    } else {
+                        this.q.k.remove(c);
+                    }
+                    if (g49Var.p()) {
+                        this.q.l.add(c);
+                    } else {
+                        this.q.l.remove(c);
+                    }
+                    int b = g49Var.b();
+                    if (g49Var.r()) {
+                        this.q.m.put(c, Integer.valueOf(b));
+                    } else {
+                        this.q.m.remove(c);
+                    }
+                    if (g49Var.t()) {
+                        this.q.n.remove(c);
+                    } else {
+                        this.q.n.put(c, Integer.valueOf(g49Var.i()));
+                    }
+                    int f = g49Var.f();
+                    if (f != 2) {
+                        this.q.o.put(c, Integer.valueOf(f));
+                    } else {
+                        this.q.o.remove(c);
+                    }
+                }
+            }
         }
     }
 
-    public d49(String str, JSONObject jSONObject, int i) {
+    public void Z(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject, Integer.valueOf(i)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeJ(1048601, this, j) == null) || this.o >= j) {
+            return;
         }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.l = "0";
-        this.a = str;
-        this.b = str;
-        this.c = -1;
-        this.e = jSONObject;
-        this.g = i;
-        if ((i & 2) == 0) {
-            this.f = System.currentTimeMillis();
-        }
+        this.o = j;
     }
 
-    public d49(String str, String str2, int i, String str3, int i2) {
+    public boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.l = "0";
-        this.a = str2;
-        this.b = str;
-        this.c = i;
-        this.d = str3;
-        this.g = i2;
-        if ((i2 & 2) == 0) {
-            this.f = System.currentTimeMillis();
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) ? this.q.e.contains(str) : invokeL.booleanValue;
     }
 
-    public d49(String str, String str2, int i, String str3, long j, int i2) {
+    public int b(String str) {
+        InterceptResult invokeL;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
+            if (!this.q.o.containsKey(str) || (num = this.q.o.get(str)) == null) {
+                return 2;
             }
+            return num.intValue();
         }
-        this.d = "";
-        this.j = false;
-        this.k = "";
-        this.l = "0";
-        this.a = str2;
-        this.b = str;
-        this.c = i;
-        this.d = str3;
-        this.g = i2;
-        if ((i2 & 2) == 0) {
-            if (j > 0) {
-                this.f = j;
+        return invokeL.intValue;
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) ? this.q.g.contains(str) : invokeL.booleanValue;
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) ? C(str) == 0 : invokeL.booleanValue;
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
+            if (this.r.isUBCDebug() || this.q.c.contains(str)) {
+                return true;
+            }
+            return this.q.a.b;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) ? this.q.l.contains(str) : invokeL.booleanValue;
+    }
+
+    public boolean g(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048608, this, str, i)) == null) {
+            if (this.q.b.contains(str)) {
+                return false;
+            }
+            if ((i & 16) != 0 || (i & 32) != 0) {
+                return this.q.f.contains(str);
+            } else if (this.q.f.contains(str)) {
+                return true;
             } else {
-                this.f = System.currentTimeMillis();
+                return this.q.a.a;
             }
         }
+        return invokeLI.booleanValue;
+    }
+
+    public boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
+            if (!E() && this.r.isUBCSample() && y(str) > 0) {
+                if (new Random().nextInt(100) >= y(str)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) {
+            if (this.q.b.contains(str)) {
+                return false;
+            }
+            if (this.q.f.contains(str)) {
+                return true;
+            }
+            return this.q.a.d;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) ? this.q.i.containsKey(str) ? this.q.i.get(str) : "" : (String) invokeL.objValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.q.a.c : invokeV.intValue;
+    }
+
+    public int n(String str) {
+        InterceptResult invokeL;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, str)) == null) {
+            if (!this.q.m.containsKey(str) || (num = this.q.m.get(str)) == null) {
+                return 0;
+            }
+            return num.intValue();
+        }
+        return invokeL.intValue;
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.g : invokeV.intValue;
+    }
+
+    public int s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public int t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public HashSet<String> u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.q.d : (HashSet) invokeV.objValue;
+    }
+
+    public long v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.o : invokeV.longValue;
+    }
+
+    public int w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.m : invokeV.intValue;
+    }
+
+    public int x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.l : invokeV.intValue;
+    }
+
+    public int y(String str) {
+        InterceptResult invokeL;
+        Integer num;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || !this.q.h.containsKey(str) || (num = this.q.h.get(str)) == null) {
+                return 0;
+            }
+            return num.intValue();
+        }
+        return invokeL.intValue;
+    }
+
+    public String z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, str)) == null) ? !TextUtils.isEmpty(str) ? (this.q.k.contains(str) || TextUtils.equals(str, "1876") || TextUtils.equals(str, "2980")) ? "1" : "0" : "0" : (String) invokeL.objValue;
     }
 }

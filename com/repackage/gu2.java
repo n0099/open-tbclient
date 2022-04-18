@@ -112,7 +112,7 @@ public class gu2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, jSONObject) == null) {
             if (a) {
-                if4.b().f();
+                hf4.b().f();
             }
             if (iw2.E() && (a0 = j03.a0()) != null && (t = be3.t(be3.o(a0.V().W()))) != null && TextUtils.equals(t.get("_SwanStartupPerf_"), "1")) {
                 ArrayList arrayList = new ArrayList(list);
@@ -125,7 +125,7 @@ public class gu2 {
                 }
                 File file = new File(b, "swan_perf");
                 if (file.exists() || file.mkdirs()) {
-                    ng4.N(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
+                    mg4.N(jSONObject2.toString(), new File(file, String.format(Locale.getDefault(), "perf_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
                 }
             }
         }
@@ -135,11 +135,11 @@ public class gu2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
             File file = new File(b, "swan_stability");
-            if (!ng4.m(file)) {
+            if (!mg4.m(file)) {
                 jx1.k("StartupPerf", "创建目录失败 path" + file);
                 return;
             }
-            ng4.N(str, new File(file, String.format(Locale.getDefault(), "stability_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
+            mg4.N(str, new File(file, String.format(Locale.getDefault(), "stability_%s.json", Long.valueOf(System.currentTimeMillis() / 1000))));
         }
     }
 }

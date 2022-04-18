@@ -2,16 +2,19 @@ package com.repackage;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.ActivityInfo;
+import tbclient.AppCode;
 /* loaded from: classes7.dex */
 public class yn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     public yn4() {
         Interceptable interceptable = $ic;
@@ -27,39 +30,33 @@ public class yn4 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            jSONObject.optLong("activity_id");
-            jSONObject.optString("main_title");
-            jSONObject.optString("sub_title");
-            jSONObject.optInt("back_pic_width");
-            jSONObject.optInt("back_pic_height");
-            jSONObject.optString("back_pic");
-            jSONObject.optString("subpage_link");
+            jSONObject.optString("game_icon");
+            this.a = jSONObject.optString("post_url");
+            jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
         } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            BdLog.e(e.toString());
         }
     }
 
-    public void b(ActivityInfo activityInfo) {
+    public void c(AppCode appCode) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activityInfo) == null) || activityInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, appCode) == null) || appCode == null) {
             return;
         }
-        try {
-            activityInfo.activity_id.longValue();
-            String str = activityInfo.main_title;
-            String str2 = activityInfo.sub_title;
-            activityInfo.back_pic_width.intValue();
-            activityInfo.back_pic_height.intValue();
-            String str3 = activityInfo.back_pic;
-            String str4 = activityInfo.subpage_link;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        String str = appCode.game_icon;
+        this.a = appCode.post_url;
+        String str2 = appCode.button_text;
     }
 }

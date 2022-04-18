@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.ln4;
+import com.repackage.br4;
+import com.repackage.kn4;
 import com.repackage.qe;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ln4> bigdayInfos;
+    public ArrayList<kn4> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoSocketResMessage() {
@@ -48,8 +48,8 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            cr4.f();
-            qe<byte[]> d = cr4.d("tb.bigday_datas");
+            br4.f();
+            qe<byte[]> d = br4.d("tb.bigday_datas");
             d.remove("tb.bigday_datas");
             d.g("tb.bigday_datas", bArr);
         }
@@ -75,10 +75,10 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
         this.bigdayInfos = new ArrayList<>();
         for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
             if (bigdayInfo != null) {
-                ln4 ln4Var = new ln4();
-                ln4Var.b(bigdayInfo);
-                if (ln4Var.a()) {
-                    this.bigdayInfos.add(ln4Var);
+                kn4 kn4Var = new kn4();
+                kn4Var.b(bigdayInfo);
+                if (kn4Var.a()) {
+                    this.bigdayInfos.add(kn4Var);
                 }
             }
         }

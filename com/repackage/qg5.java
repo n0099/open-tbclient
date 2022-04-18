@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class qg5 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -33,7 +33,7 @@ public class qg5 {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            wt4.k().D("key_youngster_verify");
+            vt4.k().D("key_youngster_verify");
         }
     }
 
@@ -81,7 +81,7 @@ public class qg5 {
             if (StringUtils.isNull(str)) {
                 return false;
             }
-            String q = wt4.k().q("key_youngster_verify", "");
+            String q = vt4.k().q("key_youngster_verify", "");
             if (StringUtils.isNull(q)) {
                 a();
                 return false;
@@ -101,6 +101,6 @@ public class qg5 {
         if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || StringUtils.isNull(str) || (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) == null) {
             return;
         }
-        wt4.k().y("key_youngster_verify", b(new og5(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
+        vt4.k().y("key_youngster_verify", b(new og5(currentAccountInfo.getID(), currentAccountInfo.getPortrait(), str)));
     }
 }

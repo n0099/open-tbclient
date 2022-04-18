@@ -255,65 +255,79 @@ public class SpeedStatsManager extends AbstractSpeedStats {
         }
     }
 
+    public void setAdFailCount(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.mAdSpeedStats.setAdFailCount(i);
+        }
+    }
+
+    public void setAdLoadResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.mAdSpeedStats.setAdLoadResult(i);
+        }
+    }
+
     public void setAdSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
             this.mAdSpeedStats.setAdSource(str);
         }
     }
 
     public void setIsNeedBear(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             this.mAdSpeedStats.setIsNeedBear(z);
         }
     }
 
     public void setIsNeedPlg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             this.mAdSpeedStats.setIsNeedPlg(z);
         }
     }
 
     public void setIsSwitchOn(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
             this.mZygoteSpeedStats.setIsSwitchOn(z);
         }
     }
 
     public void setIsTimeout(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
             this.mAdSpeedStats.setIsTimeout(z);
         }
     }
 
     public void setMainProcessFlag(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
             this.mIsMainProcess = z;
         }
     }
 
     public void setStageStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
             this.mStageStatus = i;
         }
     }
 
     public void setStatsFlag(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
             this.mIsInStatsPeriod = z;
         }
     }
 
     public void setTaskRunTime(String str, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048608, this, str, j) == null) && this.mIsMainProcess) {
+        if ((interceptable == null || interceptable.invokeLJ(1048610, this, str, j) == null) && this.mIsMainProcess) {
             if (str != null && str.startsWith(SpeedStatsMainTable.APP_CREATE_FLAG)) {
                 this.mAppCreateSpeedStats.addStatsDuration(str, j);
             } else if (str != null && str.startsWith(SpeedStatsMainTable.AD_FLAG)) {

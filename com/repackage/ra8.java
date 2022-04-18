@@ -1,79 +1,80 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.adapter.CardAdvertAppEmptyHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ra8 {
+public class ra8 extends ho<zx5, CardAdvertAppEmptyHolder> implements ha8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> i;
 
-    public static int a(int i, qa8 qa8Var) {
-        InterceptResult invokeIL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ra8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, qa8Var)) == null) {
-            if (i <= 0) {
-                return qa8Var.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (qa8Var.c()) {
-                return i + qa8Var.b();
-            }
-            return i + qa8Var.b() + 1;
         }
-        return invokeIL.intValue;
+        this.i = tbPageContext;
     }
 
-    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull qa8 qa8Var, int i2, @Nullable T t, @Nullable sa8 sa8Var, @Nullable ta8 ta8Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: Z */
+    public CardAdvertAppEmptyHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View view2 = new View(this.i.getPageActivity());
+            view2.setVisibility(8);
+            return new CardAdvertAppEmptyHolder(view2);
+        }
+        return (CardAdvertAppEmptyHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, zx5 zx5Var, CardAdvertAppEmptyHolder cardAdvertAppEmptyHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), qa8Var, Integer.valueOf(i2), t, sa8Var, ta8Var})) == null) {
-            if (qa8Var.a() != -1 && qa8Var.b() != -1) {
-                int a = a(i2, qa8Var);
-                if (sa8Var != null && t != null) {
-                    if (i <= i2) {
-                        if (ta8Var != 0) {
-                            ta8Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    int i3 = i + 1;
-                    if (i3 < a) {
-                        if (ta8Var != 0) {
-                            ta8Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    int i4 = i > a ? i3 : a;
-                    int k = gd7.k(list);
-                    if (i4 >= k && (sa8Var.b() || i4 > k)) {
-                        if (ta8Var != 0) {
-                            ta8Var.d(i, i4, k, sa8Var, t);
-                        }
-                        return false;
-                    }
-                    sa8Var.a(i4);
-                    if (sa8Var.b()) {
-                        if (ta8Var != 0) {
-                            ta8Var.e(i, i4, gd7.d(list, i4), sa8Var, t);
-                            return true;
-                        }
-                        return true;
-                    }
-                    gd7.b(list, t, i4);
-                    if (ta8Var != 0) {
-                        ta8Var.c(i, i4, sa8Var, t);
-                        return true;
-                    }
-                    return true;
-                } else if (ta8Var != 0) {
-                    ta8Var.a(i, a);
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zx5Var, cardAdvertAppEmptyHolder})) == null) {
+            AdvertAppInfo e = zx5Var.e();
+            if (e != null) {
+                un4.e(e.j, zx5Var.position, e.c == -1001);
             }
-            return false;
+            return cardAdvertAppEmptyHolder.b();
         }
-        return invokeCommon.booleanValue;
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.ha8
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
     }
 }

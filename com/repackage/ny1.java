@@ -28,7 +28,7 @@ public class ny1 implements ky1.c {
     public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
     public final ky1.b a;
-    public dw9 b;
+    public kw9 b;
     public InspectorNativeClient c;
     public r72 d;
     public LinkedBlockingQueue<String> e;
@@ -97,7 +97,7 @@ public class ny1 implements ky1.c {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends dw9 {
+    public class b extends kw9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ny1 a;
@@ -143,12 +143,12 @@ public class ny1 implements ky1.c {
 
         /* renamed from: com.repackage.ny1$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0481b implements Runnable {
+        public class RunnableC0483b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0481b(b bVar) {
+            public RunnableC0483b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,7 +206,7 @@ public class ny1 implements ky1.c {
                     i03 J = i03.J();
                     SwanAppActivity x = J.x();
                     if (J.D() && x != null) {
-                        x.runOnUiThread(new RunnableC0481b(this));
+                        x.runOnUiThread(new RunnableC0483b(this));
                     }
                 }
             } catch (JSONException e) {
@@ -267,7 +267,7 @@ public class ny1 implements ky1.c {
             }
         }
 
-        @Override // com.repackage.dw9
+        @Override // com.repackage.kw9
         public void onClose(int i, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
@@ -275,7 +275,7 @@ public class ny1 implements ky1.c {
             }
         }
 
-        @Override // com.repackage.dw9
+        @Override // com.repackage.kw9
         public void onError(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
@@ -283,7 +283,7 @@ public class ny1 implements ky1.c {
             }
         }
 
-        @Override // com.repackage.dw9
+        @Override // com.repackage.kw9
         public void onMessage(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -292,10 +292,10 @@ public class ny1 implements ky1.c {
             }
         }
 
-        @Override // com.repackage.dw9
-        public void onOpen(xw9 xw9Var) {
+        @Override // com.repackage.kw9
+        public void onOpen(ex9 ex9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, xw9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, ex9Var) == null) {
                 jx1.i("V8InspectorClient", "V8 inspector opened");
                 f22 W = d72.U().W();
                 if (W instanceof j22) {
@@ -364,12 +364,12 @@ public class ny1 implements ky1.c {
 
     @Override // com.repackage.ky1.c
     public void stop() {
-        dw9 dw9Var;
+        kw9 kw9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (dw9Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (kw9Var = this.b) == null) {
             return;
         }
-        dw9Var.close();
+        kw9Var.close();
         this.b = null;
     }
 }

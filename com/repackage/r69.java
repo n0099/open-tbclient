@@ -1,18 +1,17 @@
 package com.repackage;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.p69;
-import com.repackage.s69;
-import java.lang.ref.WeakReference;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class r69 implements p69.a {
+public final class r69 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public q69 a;
 
     public r69() {
         Interceptable interceptable = $ic;
@@ -24,41 +23,29 @@ public final class r69 implements p69.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new q69();
     }
 
-    @Override // com.repackage.p69.a
-    public final void a(Activity activity) {
-        s69 s69Var;
+    public final List<com.baidu.ubs.analytics.a.l> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            s69Var = s69.a.a;
-            s69Var.c(new WeakReference<>(activity));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (List) invokeV.objValue;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.b(i);
         }
     }
 
-    @Override // com.repackage.p69.a
-    public final void b() {
+    public final void c(com.baidu.ubs.analytics.a.l lVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.p69.a
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.p69.a
-    public final void onActivityDestroyed(Activity activity) {
-        s69 s69Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            s69Var = s69.a.a;
-            s69Var.d(activity);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
+            this.a.c(lVar);
         }
     }
 }

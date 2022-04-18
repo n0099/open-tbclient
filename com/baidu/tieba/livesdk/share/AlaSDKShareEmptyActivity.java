@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.di;
 import com.repackage.mg;
 import com.repackage.oi;
-import com.repackage.te7;
+import com.repackage.we7;
 /* loaded from: classes3.dex */
 public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -43,7 +43,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public String mLinkUrl;
     public String mLiveExtInfo;
     public String mLiveId;
-    public te7 mSelectBarController;
+    public we7 mSelectBarController;
     public ShareItem mShareItem;
     public String mTitle;
     public long mVoiceRoomId;
@@ -223,10 +223,10 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
 
     /* JADX INFO: Access modifiers changed from: private */
     public void shareInBar() {
-        te7 te7Var;
+        we7 we7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (te7Var = this.mSelectBarController) != null) {
-            if (ListUtils.isEmpty(te7Var.b())) {
+        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (we7Var = this.mSelectBarController) != null) {
+            if (ListUtils.isEmpty(we7Var.b())) {
                 this.mSelectBarController.c();
             }
             this.mSelectBarController.e(mg.g(this.mLiveId, 0L), this.mYyAnchorBdUid, this.mShareItem);
@@ -247,19 +247,19 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         shareDialogConfig.setOnDismissListener(new a(this));
         if (TextUtils.isEmpty(this.mLiveId) && TextUtils.isEmpty(this.mYyAnchorBdUid)) {
             if (this.mVoiceRoomId > 0) {
-                shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f1118, R.drawable.obfuscated_res_0x7f08098b, new c(this));
+                shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f1117, R.drawable.obfuscated_res_0x7f08098f, new c(this));
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VOICE_ROOM_SHARE_PANEL);
                 statisticItem.addParam("room_id", this.mVoiceRoomId);
                 statisticItem.addParam("obj_type", this.mVoiceRoomShareType);
                 statisticItem.eventStat();
             }
         } else {
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0241, R.drawable.obfuscated_res_0x7f0808da, new b(this));
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0241, R.drawable.obfuscated_res_0x7f0808de, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        te7 te7Var = this.mSelectBarController;
-        if (te7Var != null) {
-            te7Var.c();
+        we7 we7Var = this.mSelectBarController;
+        if (we7Var != null) {
+            we7Var.c();
         }
     }
 
@@ -281,7 +281,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.mSelectBarController = new te7(getPageContext());
+            this.mSelectBarController = new we7(getPageContext());
             if (bundle != null) {
                 this.mTitle = bundle.getString("title");
                 this.mContent = bundle.getString("content");
@@ -327,9 +327,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            te7 te7Var = this.mSelectBarController;
-            if (te7Var != null) {
-                te7Var.d();
+            we7 we7Var = this.mSelectBarController;
+            if (we7Var != null) {
+                we7Var.d();
             }
         }
     }

@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br5;
+import com.repackage.dr5;
 /* loaded from: classes3.dex */
 public class SpecialLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public br5 a;
+    public dr5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SpecialLiveDoubleViewHolder(br5 br5Var) {
-        super(br5Var.k());
+    public SpecialLiveDoubleViewHolder(dr5 dr5Var) {
+        super(dr5Var.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {br5Var};
+            Object[] objArr = {dr5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class SpecialLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = br5Var;
+        this.a = dr5Var;
     }
 }

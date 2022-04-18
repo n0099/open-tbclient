@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.kr5;
-import com.repackage.lr5;
-import com.repackage.tn5;
+import com.repackage.mr5;
+import com.repackage.nr5;
 import com.repackage.uo;
+import com.repackage.vn5;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -178,41 +178,41 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
             if (this.o) {
-                kr5 kr5Var = new kr5();
-                tn5 tn5Var = new tn5();
-                tn5Var.e = this.i;
-                tn5Var.b = this.e;
-                tn5Var.c = this.d;
-                tn5Var.d = list.get(i);
-                kr5Var.a = tn5Var;
+                mr5 mr5Var = new mr5();
+                vn5 vn5Var = new vn5();
+                vn5Var.e = this.i;
+                vn5Var.b = this.e;
+                vn5Var.c = this.d;
+                vn5Var.d = list.get(i);
+                mr5Var.a = vn5Var;
                 int i2 = i + 1;
                 if (i2 < size) {
-                    tn5 tn5Var2 = new tn5();
-                    tn5Var2.e = this.i;
-                    tn5Var2.b = this.e;
-                    tn5Var2.c = this.d;
-                    tn5Var2.d = list.get(i2);
-                    kr5Var.b = tn5Var2;
+                    vn5 vn5Var2 = new vn5();
+                    vn5Var2.e = this.i;
+                    vn5Var2.b = this.e;
+                    vn5Var2.c = this.d;
+                    vn5Var2.d = list.get(i2);
+                    mr5Var.b = vn5Var2;
                 }
-                this.n.add(kr5Var);
+                this.n.add(mr5Var);
             } else {
-                lr5 lr5Var = new lr5();
-                tn5 tn5Var3 = new tn5();
-                tn5Var3.e = this.i;
-                tn5Var3.b = this.e;
-                tn5Var3.c = this.d;
-                tn5Var3.d = list.get(i);
-                lr5Var.a = tn5Var3;
+                nr5 nr5Var = new nr5();
+                vn5 vn5Var3 = new vn5();
+                vn5Var3.e = this.i;
+                vn5Var3.b = this.e;
+                vn5Var3.c = this.d;
+                vn5Var3.d = list.get(i);
+                nr5Var.a = vn5Var3;
                 int i3 = i + 1;
                 if (i3 < size) {
-                    tn5 tn5Var4 = new tn5();
-                    tn5Var4.e = this.i;
-                    tn5Var4.b = this.e;
-                    tn5Var4.c = this.d;
-                    tn5Var4.d = list.get(i3);
-                    lr5Var.b = tn5Var4;
+                    vn5 vn5Var4 = new vn5();
+                    vn5Var4.e = this.i;
+                    vn5Var4.b = this.e;
+                    vn5Var4.c = this.d;
+                    vn5Var4.d = list.get(i3);
+                    nr5Var.b = vn5Var4;
                 }
-                this.n.add(lr5Var);
+                this.n.add(nr5Var);
             }
         }
     }

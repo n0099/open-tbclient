@@ -139,7 +139,7 @@ public final class r93 {
             }
             String h = h(i);
             String path = l(aVar.d(), i).getPath();
-            if (!ng4.V(h, path)) {
+            if (!mg4.V(h, path)) {
                 Exception exc = new Exception("PresetSwanCoreControl doPresetUpdate: failed by unzip file path = " + h);
                 jx1.k("PresetSwanCoreControl", "doPresetUpdate unzip failed assetExists: " + uc3.a(AppRuntime.getAppContext(), h) + ";" + exc);
                 boolean a2 = a(path);
@@ -159,7 +159,7 @@ public final class r93 {
             }
             v(false, i);
             if (a) {
-                String b2 = pg4.b(new File(h(i)), false);
+                String b2 = og4.b(new File(h(i)), false);
                 if (TextUtils.isEmpty(b2)) {
                     return null;
                 }
@@ -303,14 +303,14 @@ public final class r93 {
                 a k = k(i);
                 String h = h(i);
                 String path = l(k.d(), i).getPath();
-                boolean z = ng4.z(h, path);
+                boolean z = mg4.z(h, path);
                 if (a) {
                     Log.d("PresetSwanCoreControl", "isZipAssetMatchUnzipResult:" + z + ",path:" + path);
                 }
                 if (!z) {
                     o93.m(0, i, k.d());
-                    ng4.M(path);
-                    ng4.V(h, path);
+                    mg4.M(path);
+                    mg4.V(h, path);
                 }
             }
         }
@@ -346,7 +346,7 @@ public final class r93 {
             if (a) {
                 Log.d("PresetSwanCoreControl", "readPresetConfig start.");
             }
-            String D = ng4.D(AppRuntime.getAppContext(), e(i));
+            String D = mg4.D(AppRuntime.getAppContext(), e(i));
             if (TextUtils.isEmpty(D)) {
                 return null;
             }

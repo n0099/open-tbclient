@@ -1,78 +1,76 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m38 extends ho<f58, CardViewHolder<i68>> {
+public class m38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public View.OnClickListener j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m38(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public static void a(View view2, pn4 pn4Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeLLI(65536, null, view2, pn4Var, i) == null) || view2 == null || pn4Var == null || pn4Var.getThreadData() == null || StringUtils.isNull(pn4Var.getThreadData().getTid())) {
+            return;
         }
-        this.i = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public CardViewHolder<i68> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new i68(this.i)) : (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, f58 f58Var, CardViewHolder<i68> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f58Var, cardViewHolder})) == null) {
-            if (f58Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
-                return null;
-            }
-            cardViewHolder.c().l(f58Var);
-            if (cardViewHolder.c().k() != null) {
-                cardViewHolder.c().k().setOnClickListener(this.j);
-            }
-            return cardViewHolder.c().k();
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_CLICK);
+        statisticItem.param("obj_source", 3);
+        ThreadData threadData = pn4Var.getThreadData();
+        if (threadData.isBJHArticleThreadType()) {
+            statisticItem.param("obj_type", 1);
+        } else if (threadData.isBJHVideoThreadType()) {
+            statisticItem.param("obj_type", 2);
+        } else if (threadData.isBJHNormalThreadType()) {
+            statisticItem.param("obj_type", 3);
+        } else if (threadData.isBJHVideoDynamicThreadType()) {
+            statisticItem.param("obj_type", 4);
+        } else if (threadData.threadType == 0) {
+            statisticItem.param("obj_type", 5);
+        } else if (threadData.isVideoThreadType()) {
+            statisticItem.param("obj_type", 6);
         }
-        return (View) invokeCommon.objValue;
+        if (pn4Var.getThreadData().getAuthor() != null) {
+            statisticItem.param("uid", pn4Var.getThreadData().getAuthor().getUserId());
+        }
+        if (threadData.getBaijiahaoData() != null) {
+            statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
+        } else {
+            statisticItem.param("obj_id", threadData.getTid());
+        }
+        statisticItem.param("obj_locate", i);
+        TiebaStatic.log(statisticItem);
     }
 
-    public void b0(View.OnClickListener onClickListener) {
+    public static void b(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.j = onClickListener;
+        if (interceptable == null || interceptable.invokeL(65537, null, pn4Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_DYNAMIC_CARD_SHOW);
+            ThreadData threadData = pn4Var.getThreadData();
+            if (threadData.isBJHArticleThreadType()) {
+                statisticItem.param("obj_type", 1);
+            } else if (threadData.isBJHVideoThreadType()) {
+                statisticItem.param("obj_type", 2);
+            } else if (threadData.isBJHNormalThreadType()) {
+                statisticItem.param("obj_type", 3);
+            } else if (threadData.isBJHVideoDynamicThreadType()) {
+                statisticItem.param("obj_type", 4);
+            } else if (threadData.threadType == 0) {
+                statisticItem.param("obj_type", 5);
+            } else if (threadData.isVideoThreadType()) {
+                statisticItem.param("obj_type", 6);
+            }
+            if (threadData.getBaijiahaoData() != null) {
+                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
+            } else {
+                statisticItem.param("obj_id", threadData.getTid());
+            }
+            statisticItem.param("uid", threadData.getAuthor().getUserId());
+            TiebaStatic.log(statisticItem);
         }
     }
 }

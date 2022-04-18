@@ -54,9 +54,9 @@ public class PersonaltalkSettingViewBlackManView extends LinearLayout {
             if (i == 1) {
                 string = getResources().getString(R.string.obfuscated_res_0x7f0f0819);
             } else if (i != 2) {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f131e);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f131d);
             } else {
-                string = getResources().getString(R.string.obfuscated_res_0x7f0f1158);
+                string = getResources().getString(R.string.obfuscated_res_0x7f0f1157);
             }
             this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f08ca, string));
         }

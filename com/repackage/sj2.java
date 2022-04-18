@@ -12,7 +12,7 @@ import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes7.dex */
-public class sj2 implements tc4 {
+public class sj2 implements sc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,14 +30,14 @@ public class sj2 implements tc4 {
         }
     }
 
-    @Override // com.repackage.tc4
+    @Override // com.repackage.sc4
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? sd2.e() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.tc4
+    @Override // com.repackage.sc4
     public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
@@ -45,7 +45,7 @@ public class sj2 implements tc4 {
         }
     }
 
-    @Override // com.repackage.tc4
+    @Override // com.repackage.sc4
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

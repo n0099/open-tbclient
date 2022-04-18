@@ -22,19 +22,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.al7;
-import com.repackage.fl7;
-import com.repackage.gl7;
+import com.repackage.dl7;
 import com.repackage.i05;
+import com.repackage.il7;
+import com.repackage.jl7;
 import com.repackage.v05;
 /* loaded from: classes3.dex */
 public class TailToolController extends NoPressedLinearLayout implements v05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public gl7 b;
-    public fl7 c;
-    public al7 d;
+    public jl7 b;
+    public il7 c;
+    public dl7 d;
     public Context e;
     public EditorTools f;
     public CustomMessageListener g;
@@ -223,11 +223,11 @@ public class TailToolController extends NoPressedLinearLayout implements v05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             this.e = context;
-            this.b = new gl7((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0805, (ViewGroup) this, true));
-            this.c = new fl7(context);
-            al7 al7Var = new al7(context, this.c, this.i);
-            this.d = al7Var;
-            this.b.a(al7Var);
+            this.b = new jl7((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0805, (ViewGroup) this, true));
+            this.c = new il7(context);
+            dl7 dl7Var = new dl7(context, this.c, this.i);
+            this.d = dl7Var;
+            this.b.a(dl7Var);
         }
     }
 

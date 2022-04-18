@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ad5;
 import com.repackage.dd5;
-import com.repackage.g67;
 import com.repackage.ic5;
+import com.repackage.j67;
 /* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
@@ -57,7 +57,7 @@ public class Static {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     if (this.a.getData() instanceof String) {
-                        g67.a((String) this.a.getData());
+                        j67.a((String) this.a.getData());
                         return null;
                     }
                     return null;

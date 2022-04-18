@@ -17,11 +17,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ad5;
-import com.repackage.d67;
+import com.repackage.b77;
 import com.repackage.dd5;
+import com.repackage.g67;
 import com.repackage.ic5;
 import com.repackage.oi;
-import com.repackage.y67;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -144,7 +144,7 @@ public class ValidateModel {
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d67.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(g67.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
             }
         }, ic5Var);
     }
@@ -152,7 +152,7 @@ public class ValidateModel {
     public static ValidateItemData getByNoticeid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? convertToValidateItemData(d67.f().d(str)) : (ValidateItemData) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? convertToValidateItemData(g67.f().d(str)) : (ValidateItemData) invokeL.objValue;
     }
 
     public static void markShown(List<ValidateItemData> list) {
@@ -198,7 +198,7 @@ public class ValidateModel {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                    d67.f().n(this.val$list);
+                    g67.f().n(this.val$list);
                     return null;
                 }
                 return (Void) invokeL.objValue;
@@ -233,7 +233,7 @@ public class ValidateModel {
                 public Integer doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Integer.valueOf(d67.f().e("apply_join_group")) : (Integer) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Integer.valueOf(g67.f().e("apply_join_group")) : (Integer) invokeV.objValue;
                 }
             }, ic5Var);
         }
@@ -272,7 +272,7 @@ public class ValidateModel {
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d67.f().c(0L, this.val$count, this.val$offset, "apply_join_group") : (LinkedList) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? g67.f().c(0L, this.val$count, this.val$offset, "apply_join_group") : (LinkedList) invokeV.objValue;
                 }
             }, ic5Var);
         }
@@ -282,7 +282,7 @@ public class ValidateModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, validateItemData, str) == null) {
             if (!BdBaseApplication.getInst().isDebugMode() || oi.B()) {
-                ImMessageCenterPojo j = y67.p().j(str, 1);
+                ImMessageCenterPojo j = b77.p().j(str, 1);
                 validateItemData.setGroupName(j != null ? j.getGroup_name() : "");
             }
         }
@@ -322,7 +322,7 @@ public class ValidateModel {
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d67.f().j(this.val$data)) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(g67.f().j(this.val$data)) : (Boolean) invokeV.objValue;
             }
         }, ic5Var);
     }

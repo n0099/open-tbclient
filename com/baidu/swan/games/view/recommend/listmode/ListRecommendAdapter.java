@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y34;
+import com.repackage.x34;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
@@ -22,7 +22,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public transient /* synthetic */ FieldHolder $fh;
     public LayoutInflater a;
     public a b;
-    public y34 c;
+    public x34 c;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -82,10 +82,10 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         }
     }
 
-    public void g(y34 y34Var) {
+    public void g(x34 x34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, y34Var) == null) {
-            this.c = y34Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, x34Var) == null) {
+            this.c = x34Var;
             notifyDataSetChanged();
         }
     }
@@ -96,8 +96,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         List<RecommendItemModel> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            y34 y34Var = this.c;
-            if (y34Var == null || (list = y34Var.b) == null) {
+            x34 x34Var = this.c;
+            if (x34Var == null || (list = x34Var.b) == null) {
                 return 0;
             }
             return list.size();

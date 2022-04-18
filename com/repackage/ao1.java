@@ -118,7 +118,7 @@ public final class ao1 extends g23 {
                 SwanAppAllianceLoginHelper.d.a(wn1.d(), wn1.a());
                 return false;
             } else if (optJSONObject != null) {
-                Map<String, String> c = sg4.c(CookieManager.getInstance().getCookie(".baidu.com"));
+                Map<String, String> c = rg4.c(CookieManager.getInstance().getCookie(".baidu.com"));
                 Intrinsics.checkNotNullExpressionValue(c, "SwanAppUrlUtils.parseCookie(cookieString)");
                 String str = c.get("OPENBDUSS");
                 if (!(str == null || StringsKt__StringsJVMKt.isBlank(str))) {

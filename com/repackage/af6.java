@@ -1,18 +1,16 @@
 package com.repackage;
 
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class af6 extends xe6 {
+public class af6 implements r37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int e;
-    public String f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public MetaData a;
 
     public af6() {
         Interceptable interceptable = $ic;
@@ -27,7 +25,10 @@ public class af6 extends xe6 {
                 return;
             }
         }
-        this.g = true;
-        this.i = true;
+        MetaData metaData = new MetaData();
+        this.a = metaData;
+        if (metaData.getGodUserData() == null) {
+            this.a.setGodUserData(new GodUserData());
+        }
     }
 }

@@ -62,10 +62,10 @@ public class vg5 implements gc1<y45> {
         }
 
         @Override // com.repackage.y45
-        public void b(int i, qp4 qp4Var, long j) {
+        public void b(int i, pp4 pp4Var, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), qp4Var, Long.valueOf(j)}) == null) {
-                this.b.A(i, qp4Var, j);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), pp4Var, Long.valueOf(j)}) == null) {
+                this.b.A(i, pp4Var, j);
             }
         }
 
@@ -78,22 +78,22 @@ public class vg5 implements gc1<y45> {
         }
 
         @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
-        public void netLoadMoreCallback(int i, @Nullable w37 w37Var) {
+        public void netLoadMoreCallback(int i, @Nullable z37 z37Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, w37Var) == null) || this.c == null) {
+            if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, z37Var) == null) || this.c == null) {
                 return;
             }
-            if (w37Var != null) {
+            if (z37Var != null) {
                 ArrayList arrayList = new ArrayList();
-                for (vx5 vx5Var : w37Var.a) {
-                    if (vx5Var instanceof vx5) {
-                        ThreadData threadData = vx5Var.getThreadData();
+                for (xx5 xx5Var : z37Var.a) {
+                    if (xx5Var instanceof xx5) {
+                        ThreadData threadData = xx5Var.getThreadData();
                         if (!TextUtils.equals(threadData.getTid(), "0")) {
                             arrayList.add(threadData);
                         }
                     }
                 }
-                this.c.b(arrayList, w37Var.i());
+                this.c.b(arrayList, z37Var.i());
             }
             this.c.a();
         }

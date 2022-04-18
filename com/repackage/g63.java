@@ -173,7 +173,7 @@ public class g63 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-                PMSAppInfo u = f84.i().u(i03.J().getAppId());
+                PMSAppInfo u = e84.i().u(i03.J().getAppId());
                 if (u == null) {
                     return 0.0f;
                 }

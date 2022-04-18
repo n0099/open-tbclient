@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q92 implements r92, i92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public class q92 implements r92, i92 {
     public volatile i92[] c;
     public p92 d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class q92 implements r92, i92 {
         jx1.k("RecoveryPolicy", "deleteFiles start");
         Iterator<String> it = arraySet.iterator();
         while (it.hasNext()) {
-            ng4.k(it.next());
+            mg4.k(it.next());
         }
         jx1.k("RecoveryPolicy", "deleteFiles end");
     }

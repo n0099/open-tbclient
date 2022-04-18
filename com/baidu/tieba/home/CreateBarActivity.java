@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.rx4;
+import com.repackage.qx4;
 /* loaded from: classes3.dex */
 public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -348,14 +348,14 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        rx4 rx4Var = new rx4();
-                        rx4Var.e(postNetData);
-                        if (rx4Var.c() != null && rx4Var.c().length() > 0) {
-                            this.c.mVcode_md5 = rx4Var.b();
+                        qx4 qx4Var = new qx4();
+                        qx4Var.e(postNetData);
+                        if (qx4Var.c() != null && qx4Var.c().length() > 0) {
+                            this.c.mVcode_md5 = qx4Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(rx4Var.c());
+                            NetWork netWork2 = new NetWork(qx4Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -473,19 +473,19 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             this.mOnClickListener = new a(this);
             this.mTextWatcher = new b(this);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0457));
             this.mContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
-            this.mCreateButtonText = (TextView) findViewById(R.id.obfuscated_res_0x7f091f07);
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0920b6)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            this.mErrorView = (TextView) findViewById(R.id.obfuscated_res_0x7f090906);
-            this.mTextInfo = (TextView) findViewById(R.id.obfuscated_res_0x7f090eef);
+            this.mCreateButtonText = (TextView) findViewById(R.id.obfuscated_res_0x7f091f08);
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0920b7)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            this.mErrorView = (TextView) findViewById(R.id.obfuscated_res_0x7f090907);
+            this.mTextInfo = (TextView) findViewById(R.id.obfuscated_res_0x7f090ef0);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090722);
             this.mCreate = relativeLayout;
             relativeLayout.setOnClickListener(this.mOnClickListener);
-            this.mTextInfo2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090ef0);
+            this.mTextInfo2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090ef1);
             EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09085c);
             this.mEditName = editText;
             editText.addTextChangedListener(this.mTextWatcher);
@@ -493,23 +493,23 @@ public class CreateBarActivity extends BaseActivity<CreateBarActivity> {
             this.mEditVcode = editText2;
             editText2.addTextChangedListener(this.mTextWatcher);
             if (this.mBarNameIsValid) {
-                this.mTextInfo2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c63));
+                this.mTextInfo2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c62));
                 this.mEditName.setText(this.mBarName);
             } else {
                 this.mTextInfo2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f02df));
             }
             this.mCreatebar = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090722);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e6b);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090e6c);
             this.mImageButton = frameLayout;
             frameLayout.setOnClickListener(this.mOnClickListener);
-            this.mImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e67);
+            this.mImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e68);
             this.mCreate.setEnabled(false);
-            this.mProgress = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09191c);
-            this.mProgressImage = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091925);
+            this.mProgress = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09191d);
+            this.mProgressImage = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091926);
             if (this.mBarNameIsValid) {
                 this.mEditVcode.requestFocus();
             }
-            findViewById(R.id.obfuscated_res_0x7f091ce5).setOnTouchListener(new c(this));
+            findViewById(R.id.obfuscated_res_0x7f091ce6).setOnTouchListener(new c(this));
         }
     }
 

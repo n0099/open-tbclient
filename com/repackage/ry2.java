@@ -116,7 +116,7 @@ public class ry2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             SwanCoreVersion M = wl2.U().M();
-            String i = q94.i(qj2.o().L());
+            String i = p94.i(qj2.o().L());
             HashMap hashMap = new HashMap(4);
             hashMap.put("appkey", i03.J().getAppId());
             hashMap.put("swan_core_ver", o93.i(M, i03.J().l()));
@@ -130,12 +130,12 @@ public class ry2 {
     public static void c(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
-            l74 l74Var = new l74(b(), new a(bVar));
-            if (m74.g().c()) {
-                l74Var.f = true;
+            k74 k74Var = new k74(b(), new a(bVar));
+            if (l74.g().c()) {
+                k74Var.f = true;
             }
-            l74Var.g = true;
-            m74.g().d(l74Var);
+            k74Var.g = true;
+            l74.g().d(k74Var);
         }
     }
 }

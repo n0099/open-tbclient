@@ -1,15 +1,55 @@
 package com.repackage;
 
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import java.text.DecimalFormat;
 /* loaded from: classes7.dex */
-public interface u6a extends r6a {
+public class u6a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a();
+    public static String a(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == ((double) j)) {
+                return String.valueOf(j);
+            }
+            return new DecimalFormat("#.##").format(d);
+        }
+        return (String) invokeCommon.objValue;
     }
 
-    void setCallback(a aVar);
+    public static String b(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            long j = (long) d;
+            if (d == ((double) j)) {
+                return String.valueOf(j);
+            }
+            return new DecimalFormat("#.#").format(d);
+        }
+        return (String) invokeCommon.objValue;
+    }
 
-    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
+    public static double c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0.0d;
+            }
+            try {
+                return Double.valueOf(str).doubleValue();
+            } catch (Throwable unused) {
+                RLog.error("StringUtils", "safeParseDouble " + str, new Object[0]);
+                return 0.0d;
+            }
+        }
+        return invokeL.doubleValue;
+    }
 }

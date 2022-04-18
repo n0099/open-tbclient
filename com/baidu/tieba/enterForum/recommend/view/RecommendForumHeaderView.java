@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j66;
-import com.repackage.lz5;
+import com.repackage.l66;
+import com.repackage.nz5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class RecommendForumHeaderView extends LinearLayout implements View.OnClickListener {
@@ -32,7 +32,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     public int a;
     public TbPageContext<?> b;
     public ForumTestView c;
-    public lz5 d;
+    public nz5 d;
     public boolean e;
     public CustomMessageListener f;
     public CustomMessageListener g;
@@ -142,12 +142,12 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     }
 
     public void d() {
-        lz5 lz5Var;
+        nz5 nz5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (lz5Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nz5Var = this.d) == null) {
             return;
         }
-        lz5Var.I();
+        nz5Var.I();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -162,7 +162,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setOrientation(1);
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0712, (ViewGroup) this, true);
-            ForumTestView forumTestView = (ForumTestView) findViewById(R.id.obfuscated_res_0x7f0919f2);
+            ForumTestView forumTestView = (ForumTestView) findViewById(R.id.obfuscated_res_0x7f0919f3);
             this.c = forumTestView;
             forumTestView.setOnClickListener(this);
             f();
@@ -185,15 +185,15 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     public final void g() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.d == null) {
-            lz5 lz5Var = new lz5(this.b, this.c);
-            this.d = lz5Var;
-            lz5Var.g0(R.drawable.obfuscated_res_0x7f0802f1);
+            nz5 nz5Var = new nz5(this.b, this.c);
+            this.d = nz5Var;
+            nz5Var.g0(R.drawable.obfuscated_res_0x7f0802f1);
             this.d.O(32);
             this.d.h0(true);
             this.d.N(3000);
             this.d.k0(0);
             this.d.M(this);
-            this.d.m0(getContext().getString(R.string.obfuscated_res_0x7f0f0f60), "key_recommend_tab_click_to_test_tip");
+            this.d.m0(getContext().getString(R.string.obfuscated_res_0x7f0f0f5f), "key_recommend_tab_click_to_test_tip");
         }
     }
 
@@ -222,7 +222,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         }
     }
 
-    public void setData(List<j66> list) {
+    public void setData(List<l66> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             if (ListUtils.isEmpty(list)) {

@@ -670,12 +670,12 @@ public class AdEnhanceButtonView extends FrameLayout implements s51<View> {
             if (!TextUtils.isEmpty(xn0Var.c)) {
                 this.e.g(xn0Var.c);
             } else {
-                this.e.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080da8));
+                this.e.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dac));
             }
             if (!TextUtils.isEmpty(xn0Var.b)) {
                 this.d.setText(xn0Var.b);
             } else {
-                this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b59));
+                this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b58));
             }
             this.d.setTextColor(eh0.e("", R.color.obfuscated_res_0x7f060868));
             this.c.setOnClickListener(new h(this, xn0Var));

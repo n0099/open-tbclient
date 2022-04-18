@@ -18,10 +18,10 @@ public class hd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public List<wx5> b;
+    public List<yx5> b;
 
     /* loaded from: classes6.dex */
-    public class a implements Comparator<wx5> {
+    public class a implements Comparator<yx5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,10 +44,10 @@ public class hd5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
-        public int compare(wx5 wx5Var, wx5 wx5Var2) {
+        public int compare(yx5 yx5Var, yx5 yx5Var2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, wx5Var, wx5Var2)) == null) ? wx5Var.sort() - wx5Var2.sort() : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, yx5Var, yx5Var2)) == null) ? yx5Var.sort() - yx5Var2.sort() : invokeLL.intValue;
         }
     }
 
@@ -67,7 +67,7 @@ public class hd5 {
         this.b = new LinkedList();
     }
 
-    public List<wx5> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+    public List<yx5> a(List<PbLinkData> list, List<PbGoodsData> list2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {

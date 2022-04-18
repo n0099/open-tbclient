@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ak5 implements ti8 {
+public class ak5 implements aj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,7 +53,7 @@ public class ak5 implements ti8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ak5) invokeV.objValue;
     }
 
-    @Override // com.repackage.ti8
+    @Override // com.repackage.aj8
     public void a(long j, String str, String str2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2)}) == null) {
@@ -67,7 +67,7 @@ public class ak5 implements ti8 {
         }
     }
 
-    @Override // com.repackage.ti8
+    @Override // com.repackage.aj8
     public void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
@@ -79,7 +79,7 @@ public class ak5 implements ti8 {
         }
     }
 
-    @Override // com.repackage.ti8
+    @Override // com.repackage.aj8
     public void c(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
@@ -91,7 +91,7 @@ public class ak5 implements ti8 {
         }
     }
 
-    @Override // com.repackage.ti8
+    @Override // com.repackage.aj8
     public void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
@@ -103,7 +103,7 @@ public class ak5 implements ti8 {
         }
     }
 
-    @Override // com.repackage.ti8
+    @Override // com.repackage.aj8
     public void e(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
@@ -116,7 +116,7 @@ public class ak5 implements ti8 {
         }
     }
 
-    @Override // com.repackage.ti8
+    @Override // com.repackage.aj8
     public void f(long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), str, str2}) == null) {

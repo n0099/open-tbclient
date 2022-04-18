@@ -1,24 +1,25 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe;
 /* loaded from: classes6.dex */
-public class lu7 {
+public class lu7 extends Thread {
     public static /* synthetic */ Interceptable $ic;
-    public static lu7 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qe<byte[]> a;
-    public qe<byte[]> b;
+    public final String a;
+    public final String b;
+    public final String c;
 
-    public lu7() {
+    public lu7(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,106 +29,21 @@ public class lu7 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        c();
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
     }
 
-    public static synchronized lu7 b() {
-        InterceptResult invokeV;
-        lu7 lu7Var;
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (lu7.class) {
-                if (c == null) {
-                    c = new lu7();
-                }
-                lu7Var = c;
-            }
-            return lu7Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.run();
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/clientcall");
+            netWork.addPostData("tid", this.a);
+            netWork.addPostData("phonenum", this.b);
+            netWork.addPostData("optype", this.c);
+            netWork.postNetData();
         }
-        return (lu7) invokeV.objValue;
-    }
-
-    public byte[] a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        qe.b<byte[]> h;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (z) {
-                qe<byte[]> qeVar = this.a;
-                if (qeVar != null && str != null) {
-                    h = qeVar.h(str);
-                }
-                h = null;
-            } else {
-                qe<byte[]> qeVar2 = this.b;
-                if (qeVar2 != null && str != null) {
-                    h = qeVar2.h(str);
-                }
-                h = null;
-            }
-            if (h == null || (bArr = h.b) == null) {
-                return null;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeLZ.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                cr4.f();
-                this.a = cr4.d("tb.pb_mark");
-            }
-            if (this.b == null) {
-                cr4.f();
-                this.b = cr4.d("tb.pb_normal");
-            }
-        }
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            if (z) {
-                qe<byte[]> qeVar = this.a;
-                if (qeVar == null || str == null) {
-                    return;
-                }
-                qeVar.i(str, new byte[0], 0L);
-                return;
-            }
-            qe<byte[]> qeVar2 = this.b;
-            if (qeVar2 == null || str == null) {
-                return;
-            }
-            qeVar2.i(str, new byte[0], 0L);
-        }
-    }
-
-    public void e(String str, boolean z, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Boolean.valueOf(z), bArr}) == null) || str == null) {
-            return;
-        }
-        c();
-        if (z) {
-            this.a.e(str, bArr, 604800000L);
-        } else {
-            this.b.e(str, bArr, 86400000L);
-        }
-    }
-
-    public void f(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) || bArr == null || str == null) {
-            return;
-        }
-        c();
-        this.a.e(str, bArr, 2592000000L);
     }
 }

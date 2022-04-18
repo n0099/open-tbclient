@@ -28,11 +28,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gn;
-import com.repackage.gz5;
 import com.repackage.hn;
-import com.repackage.ns8;
-import com.repackage.nt8;
+import com.repackage.iz5;
 import com.repackage.oi;
+import com.repackage.us8;
+import com.repackage.ut8;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class LocalVideoActivityStatic {
@@ -59,14 +59,14 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<gz5> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<iz5> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || !(customMessage.getData() instanceof ns8)) {
+                if (customMessage == null || !(customMessage.getData() instanceof us8)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921466, new nt8((ns8) customMessage.getData()));
+                return new CustomResponsedMessage<>(2921466, new ut8((us8) customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }

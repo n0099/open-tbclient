@@ -90,19 +90,19 @@ public class y32 extends j32 {
         this.D = bVar;
     }
 
-    @Override // com.repackage.j32, com.repackage.d84
-    public void D(c94 c94Var) {
+    @Override // com.repackage.j32, com.repackage.c84
+    public void D(b94 b94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c94Var) == null) {
-            super.D(c94Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, b94Var) == null) {
+            super.D(b94Var);
             cc3 cc3Var = new cc3();
             cc3Var.k(10L);
-            cc3Var.c(c94Var);
+            cc3Var.c(b94Var);
             K0(-1, cc3Var);
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

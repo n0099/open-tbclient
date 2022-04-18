@@ -1,12 +1,13 @@
 package com.repackage;
-
-import android.util.JsonWriter;
-import java.io.IOException;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface o59 {
-    JSONObject a() throws JSONException;
+    l59 a();
 
-    void b(JsonWriter jsonWriter) throws IOException;
+    n59 b();
+
+    n49 c();
+
+    r49 d();
+
+    m59 e();
 }

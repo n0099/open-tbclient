@@ -12,33 +12,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d17;
 import com.repackage.eb5;
-import com.repackage.h17;
-import com.repackage.jq4;
-import com.repackage.lm4;
-import com.repackage.me6;
-import com.repackage.o07;
+import com.repackage.g17;
+import com.repackage.iq4;
+import com.repackage.k17;
+import com.repackage.km4;
+import com.repackage.no4;
 import com.repackage.o95;
-import com.repackage.oo4;
-import com.repackage.qn4;
-import com.repackage.s07;
-import com.repackage.st6;
-import com.repackage.t07;
-import com.repackage.tt6;
+import com.repackage.oe6;
+import com.repackage.pn4;
+import com.repackage.r07;
+import com.repackage.ut6;
+import com.repackage.v07;
+import com.repackage.vt6;
+import com.repackage.w07;
 import com.repackage.y75;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class ActivityPageFragment extends BaseTemplateFragment implements me6 {
+public class ActivityPageFragment extends BaseTemplateFragment implements oe6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int d;
     public String e;
     public String f;
-    public lm4<qn4> g;
+    public km4<pn4> g;
 
     /* loaded from: classes3.dex */
-    public class a implements lm4<qn4> {
+    public class a implements km4<pn4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ActivityPageFragment a;
@@ -62,23 +62,23 @@ public class ActivityPageFragment extends BaseTemplateFragment implements me6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.lm4
+        @Override // com.repackage.km4
         /* renamed from: b */
-        public void c(View view2, qn4 qn4Var, int i, long j) {
+        public void c(View view2, pn4 pn4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, qn4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                o07.p(qn4Var, this.a.e);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, pn4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                r07.p(pn4Var, this.a.e);
                 eb5.b("----曝光统计----position = " + i);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.lm4
+        @Override // com.repackage.km4
         /* renamed from: d */
-        public void a(View view2, qn4 qn4Var, int i, long j) {
+        public void a(View view2, pn4 pn4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, qn4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                o07.j(view2, qn4Var, this.a.e);
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, pn4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                r07.j(view2, pn4Var, this.a.e);
                 eb5.b("----点击统计----position = " + i);
             }
         }
@@ -103,14 +103,14 @@ public class ActivityPageFragment extends BaseTemplateFragment implements me6 {
         this.g = new a(this);
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -124,16 +124,16 @@ public class ActivityPageFragment extends BaseTemplateFragment implements me6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new t07(getPageContext(), jq4.e));
-            arrayList.add(new s07(getPageContext(), oo4.b));
-            arrayList.add(new d17(getPageContext()));
-            arrayList.add(new h17(getPageContext()));
+            arrayList.add(new w07(getPageContext(), iq4.e));
+            arrayList.add(new v07(getPageContext(), no4.b));
+            arrayList.add(new g17(getPageContext()));
+            arrayList.add(new k17(getPageContext()));
             o95.c cVar = new o95.c();
             cVar.m(309655);
             cVar.i(CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST);
             cVar.j(TbConfig.URL_TAB_ACTIVITY_TAB);
-            cVar.k(new st6(this.e, this.f));
-            cVar.l(new tt6());
+            cVar.k(new ut6(this.e, this.f));
+            cVar.l(new vt6());
             cVar.d(this.g);
             cVar.c(new ActivityPageHeaderView(getActivity(), this.e, this.f));
             cVar.b(arrayList);
@@ -169,7 +169,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements me6 {
         return (y75) invokeV.objValue;
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -177,7 +177,7 @@ public class ActivityPageFragment extends BaseTemplateFragment implements me6 {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

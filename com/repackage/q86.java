@@ -2,51 +2,39 @@ package com.repackage;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.external.sticker.data.QmStickerItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.zip.ZipException;
-/* loaded from: classes6.dex */
-public class q86 implements p86 {
+/* loaded from: classes7.dex */
+public class q86 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String g;
+    public static volatile q86 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public vz5 a;
-    public HashMap<String, String> b;
-    public List<DownloadData> c;
-    public b d;
-    public QmStickerItem e;
-    public e05 f;
+    public HashMap<String, String> a;
+    public DownloadData b;
 
-    /* loaded from: classes6.dex */
-    public class a implements e05 {
+    /* loaded from: classes7.dex */
+    public class a implements d05 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q86 a;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ q86 c;
 
-        public a(q86 q86Var) {
+        public a(q86 q86Var, b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q86Var};
+                Object[] objArr = {q86Var, bVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,10 +44,12 @@ public class q86 implements p86 {
                     return;
                 }
             }
-            this.a = q86Var;
+            this.c = q86Var;
+            this.a = bVar;
+            this.b = str;
         }
 
-        @Override // com.repackage.e05
+        @Override // com.repackage.d05
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
@@ -67,60 +57,32 @@ public class q86 implements p86 {
                 if (file.exists()) {
                     file.delete();
                 }
-                this.a.l(downloadData);
-                if (this.a.d == null || this.a.e == null || this.a.e.fileUrl == null || !this.a.e.fileUrl.equals(downloadData.getUrl())) {
-                    return;
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
                 }
-                this.a.d.a(str);
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a(str);
+                }
             }
         }
 
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0089 */
-        @Override // com.repackage.e05
+        @Override // com.repackage.d05
         public void onFileDownloadSucceed(DownloadData downloadData) {
-            File file;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath()) || StringUtils.isNull(q86.g)) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath())) {
                 return;
             }
-            this.a.l(downloadData);
-            if (this.a.d == null || this.a.e == null || this.a.e.fileUrl == null || !this.a.e.fileUrl.equals(downloadData.getUrl()) || !downloadData.getPath().endsWith(".zip")) {
-                return;
+            if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                this.c.b = null;
             }
-            String substring = downloadData.getPath().substring(q86.g.length() + 1, downloadData.getPath().lastIndexOf("."));
-            String str = q86.g + "/" + substring;
-            try {
-                try {
-                    et4.c(new File(downloadData.getPath()), str);
-                    this.a.b.put(substring, str);
-                    this.a.e.localPath = str;
-                    this.a.d.c(this.a.e);
-                    String path = downloadData.getPath();
-                    file = new File(path);
-                    downloadData = path;
-                } catch (ZipException e) {
-                    this.a.d.a("解压失败，请点击重试");
-                    FileHelper.deleteFileOrDir(new File(str));
-                    BdLog.e(e);
-                    String path2 = downloadData.getPath();
-                    file = new File(path2);
-                    downloadData = path2;
-                } catch (IOException e2) {
-                    this.a.d.a("解压失败，请点击重试");
-                    FileHelper.deleteFileOrDir(new File(str));
-                    BdLog.e(e2);
-                    String path3 = downloadData.getPath();
-                    file = new File(path3);
-                    downloadData = path3;
-                }
-                FileHelper.deleteFileOrDir(file);
-            } catch (Throwable th) {
-                FileHelper.deleteFileOrDir(new File(downloadData.getPath()));
-                throw th;
+            if (this.a != null) {
+                this.c.a.put(downloadData.getPath().substring(vs8.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                this.a.c(this.b, downloadData.getPath());
             }
         }
 
-        @Override // com.repackage.e05
+        @Override // com.repackage.d05
         public boolean onFileDownloaded(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -130,7 +92,7 @@ public class q86 implements p86 {
             return invokeL.booleanValue;
         }
 
-        @Override // com.repackage.e05
+        @Override // com.repackage.d05
         public void onFileUpdateProgress(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
@@ -138,15 +100,17 @@ public class q86 implements p86 {
                 if (file.exists()) {
                     file.delete();
                 }
-                this.a.l(downloadData);
-                if (this.a.d == null || this.a.e == null || this.a.e.fileUrl == null || !this.a.e.fileUrl.equals(downloadData.getUrl())) {
-                    return;
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
                 }
-                this.a.d.b();
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.b();
+                }
             }
         }
 
-        @Override // com.repackage.e05
+        @Override // com.repackage.d05
         public boolean onPreDownload(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -157,235 +121,120 @@ public class q86 implements p86 {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(String str);
 
         void b();
 
-        void c(QmStickerItem qmStickerItem);
+        void c(String str, String str2);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755426206, "Lcom/repackage/q86;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755426206, "Lcom/repackage/q86;");
-                return;
-            }
-        }
-        g = FileHelper.CreateFileIfNotFound(".stickers") != null ? FileHelper.CreateFileIfNotFound(".stickers").getAbsolutePath() : "";
-    }
-
-    public q86(vz5 vz5Var) {
+    public q86() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vz5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.e = new QmStickerItem();
-        this.f = new a(this);
-        this.a = vz5Var;
-        j();
     }
 
-    @Override // com.repackage.p86
-    public String a(String str) {
+    public static q86 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
+                synchronized (q86.class) {
+                    if (c == null) {
+                        c = new q86();
+                    }
+                }
+            }
+            return c;
+        }
+        return (q86) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b == null) {
+            return;
+        }
+        e05.k().h(this.b.getUrl(), true);
+    }
+
+    public void e() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            File file = new File(vs8.a);
+            if (file.exists()) {
+                for (File file2 : file.listFiles()) {
+                    if (file2.isFile()) {
+                        this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    }
+                }
+            }
+        }
+    }
+
+    public void f(String str, String str2, b bVar) {
+        String nameMd5FromUrl;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, bVar) == null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
+            return;
+        }
+        DownloadData downloadData = this.b;
+        if (downloadData != null) {
+            if (str2.equals(downloadData.getUrl())) {
+                return;
+            }
+            e05.k().h(this.b.getUrl(), true);
+        }
+        File file = new File(vs8.a);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        DownloadData downloadData2 = new DownloadData();
+        downloadData2.setType(17);
+        downloadData2.setId(str);
+        downloadData2.setUrl(str2);
+        downloadData2.setPath(vs8.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData2.setCallback(new a(this, bVar, str2));
+        this.b = downloadData2;
+        e05.k().l(downloadData2);
+    }
+
+    public String g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
             if (nameMd5FromUrl == null) {
                 return null;
             }
-            if (this.b == null) {
-                this.b = new HashMap<>();
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
                 e();
+                if (this.a.size() > 0) {
+                    return this.a.get(nameMd5FromUrl);
+                }
+                return null;
             }
-            return this.b.get(nameMd5FromUrl);
+            return hashMap.get(nameMd5FromUrl);
         }
         return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.p86
-    public boolean b(QmStickerItem qmStickerItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qmStickerItem)) == null) {
-            m(qmStickerItem);
-            if (qmStickerItem == null) {
-                reset();
-                return true;
-            } else if (!StringUtils.isNull(qmStickerItem.localPath)) {
-                vz5 vz5Var = this.a;
-                if (vz5Var != null) {
-                    return vz5Var.b(qmStickerItem);
-                }
-                return true;
-            } else {
-                reset();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.p86
-    public void c(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    @Override // com.repackage.p86
-    public void d(QmStickerItem qmStickerItem) {
-        QmStickerItem qmStickerItem2;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qmStickerItem) == null) {
-            m(qmStickerItem);
-            if (qmStickerItem == null) {
-                return;
-            }
-            if (!TextUtils.isEmpty(qmStickerItem.fileUrl) && !StringUtils.isNull(g)) {
-                String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(qmStickerItem.fileUrl);
-                if (nameMd5FromUrl == null) {
-                    return;
-                }
-                File file = new File(g);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append(".");
-                String str2 = qmStickerItem.fileUrl;
-                sb.append(str2.substring(str2.lastIndexOf(".") + 1));
-                String sb2 = sb.toString();
-                if (this.c == null) {
-                    this.c = new ArrayList();
-                }
-                if (k(qmStickerItem.fileUrl)) {
-                    return;
-                }
-                DownloadData downloadData = new DownloadData();
-                downloadData.setType(10);
-                downloadData.setUrl(qmStickerItem.fileUrl);
-                downloadData.setPath(g + "/" + nameMd5FromUrl + sb2);
-                downloadData.setCallback(this.f);
-                this.c.add(downloadData);
-                f05.k().l(downloadData);
-                return;
-            }
-            b(null);
-            if (this.d == null || (qmStickerItem2 = this.e) == null || (str = qmStickerItem2.fileUrl) == null || !str.equals(qmStickerItem.fileUrl)) {
-                return;
-            }
-            this.d.b();
-        }
-    }
-
-    @Override // com.repackage.p86
-    public void e() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || StringUtils.isNull(g)) {
-            return;
-        }
-        HashMap<String, String> hashMap = this.b;
-        if (hashMap == null) {
-            this.b = new HashMap<>();
-        } else {
-            hashMap.clear();
-        }
-        File file = new File(g);
-        if (file.exists()) {
-            for (File file2 : file.listFiles()) {
-                if (file2.isDirectory()) {
-                    this.b.put(file2.getName(), file2.getAbsolutePath());
-                }
-            }
-        }
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.c) && str != null) {
-                for (DownloadData downloadData : this.c) {
-                    if (downloadData != null && str.equals(downloadData.getUrl())) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void l(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, downloadData) == null) || ListUtils.isEmpty(this.c) || downloadData == null) {
-            return;
-        }
-        int i = -1;
-        int i2 = 0;
-        while (true) {
-            if (i2 < this.c.size()) {
-                if (this.c.get(i2) != null && this.c.get(i2).getUrl() != null && this.c.get(i2).getUrl().equals(downloadData.getUrl())) {
-                    i = i2;
-                    break;
-                }
-                i2++;
-            } else {
-                break;
-            }
-        }
-        this.c.remove(i);
-    }
-
-    public void m(QmStickerItem qmStickerItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qmStickerItem) == null) {
-            if (qmStickerItem == null) {
-                this.e = new QmStickerItem();
-            } else {
-                this.e = qmStickerItem;
-            }
-        }
-    }
-
-    @Override // com.repackage.p86
-    public void reset() {
-        vz5 vz5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (vz5Var = this.a) == null) {
-            return;
-        }
-        vz5Var.b(null);
     }
 }

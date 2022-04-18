@@ -1,87 +1,97 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.ss.android.download.api.constant.BaseConstants;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kl6 extends m45 {
+public class kl6 extends zs4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public xs4 c;
+    public String d;
 
-    public kl6(int i, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kl6(xs4 xs4Var, String str) {
+        super(xs4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
+            Object[] objArr = {xs4Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((xs4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        n45 n45Var = this.a;
-        n45Var.e = i;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) n45Var.a;
-        specialFrsWebFragment.u1(i);
-        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
-            if (str.contains("&ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            } else if (str.contains("?ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
+        this.c = xs4Var;
+        this.d = str;
+    }
+
+    @at4(isAsync = false, value = "downloadGame")
+    private void downloadGame(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("packageName");
+        String optString2 = jSONObject.optString(TTDownloadField.TT_DOWNLOAD_URL);
+        String optString3 = jSONObject.optString("imageUrl");
+        if (StringUtils.isNull(optString)) {
+            return;
+        }
+        if (!mi.z()) {
+            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0c17);
+            return;
+        }
+        if (StringUtils.isNull(optString2)) {
+            g(optString);
+        } else {
+            ib8.n().E(optString, optString2, optString, 0, ib8.o(optString).intValue(), null, true, false, true, optString3, null, null);
+        }
+        TiebaStatic.log(new StatisticItem("c12775").param("fid", StringUtils.isNull(this.d) ? "" : this.d));
+    }
+
+    @Override // com.repackage.zs4
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_DOWNLOAD_GAME" : (String) invokeV.objValue;
+    }
+
+    public final void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(BaseConstants.MARKET_PREFIX + str));
+            try {
+                if (!(this.c.getContext() instanceof Activity)) {
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                this.c.getContext().startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                BdLog.e(e.getMessage());
             }
         }
-        specialFrsWebFragment.J0(str);
-    }
-
-    @Override // com.repackage.m45
-    public n45 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n45 n45Var = new n45();
-            n45Var.a = new SpecialFrsWebFragment();
-            n45Var.e = 101;
-            n45Var.i = n45.l;
-            return n45Var;
-        }
-        return (n45) invokeV.objValue;
-    }
-
-    @Override // com.repackage.m45
-    public TbFragmentTabIndicator c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
-        }
-        return (TbFragmentTabIndicator) invokeL.objValue;
-    }
-
-    @Override // com.repackage.m45
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

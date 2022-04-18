@@ -297,12 +297,12 @@ public class pn1 extends ln1 {
                                 k(callbackHandler, str, 1001, "uploadFile:fail");
                                 return;
                             }
-                            l74 l74Var = new l74(build.url().toString(), build.body(), new b(this, callbackHandler, str, optString4));
-                            l74Var.c = t;
-                            l74Var.f = true;
-                            l74Var.g = false;
-                            l74Var.h = true;
-                            m74.g().f(l74Var);
+                            k74 k74Var = new k74(build.url().toString(), build.body(), new b(this, callbackHandler, str, optString4));
+                            k74Var.c = t;
+                            k74Var.f = true;
+                            k74Var.g = false;
+                            k74Var.h = true;
+                            l74.g().f(k74Var);
                             return;
                         } catch (Exception e) {
                             if (ln1.c) {

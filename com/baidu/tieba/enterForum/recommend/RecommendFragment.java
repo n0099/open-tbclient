@@ -18,20 +18,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d56;
-import com.repackage.du4;
-import com.repackage.e66;
+import com.repackage.b66;
+import com.repackage.cu4;
+import com.repackage.dj8;
+import com.repackage.f56;
+import com.repackage.g66;
 import com.repackage.mi;
-import com.repackage.wi8;
-import com.repackage.z56;
 /* loaded from: classes3.dex */
-public class RecommendFragment extends BaseFragment implements du4.g, z56 {
+public class RecommendFragment extends BaseFragment implements cu4.g, b66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecommendModel a;
     public RecommendView b;
     public boolean c;
-    public d56 d;
+    public f56 d;
 
     public RecommendFragment() {
         Interceptable interceptable = $ic;
@@ -54,23 +54,23 @@ public class RecommendFragment extends BaseFragment implements du4.g, z56 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a025" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.z56
-    public void l(int i, e66 e66Var) {
+    @Override // com.repackage.b66
+    public void l(int i, g66 g66Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, e66Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, g66Var) == null) {
             this.b.h();
             this.b.u();
-            if (i == 0 && e66Var != null) {
+            if (i == 0 && g66Var != null) {
                 this.b.i();
                 this.b.q();
-                this.b.setData(e66Var);
+                this.b.setData(g66Var);
                 return;
             }
             this.b.s(false);
         }
     }
 
-    @Override // com.repackage.z56
+    @Override // com.repackage.b66
     public void loadData() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && mi.z()) {
@@ -121,7 +121,7 @@ public class RecommendFragment extends BaseFragment implements du4.g, z56 {
             if (this.b.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.b.getParent()).removeView(this.b);
             }
-            wi8.g().i(getUniqueId());
+            dj8.g().i(getUniqueId());
             return this.b;
         }
         return (View) invokeLLL.objValue;
@@ -134,7 +134,7 @@ public class RecommendFragment extends BaseFragment implements du4.g, z56 {
             this.d = null;
             this.b.n();
             this.a.onDestroy();
-            wi8.g().k(getUniqueId());
+            dj8.g().k(getUniqueId());
             super.onDestroyView();
         }
     }
@@ -150,7 +150,7 @@ public class RecommendFragment extends BaseFragment implements du4.g, z56 {
         this.c = true;
     }
 
-    @Override // com.repackage.du4.g
+    @Override // com.repackage.cu4.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
@@ -158,7 +158,7 @@ public class RecommendFragment extends BaseFragment implements du4.g, z56 {
             if (recommendModel != null) {
                 recommendModel.B();
             }
-            wi8.g().j(getUniqueId());
+            dj8.g().j(getUniqueId());
         }
     }
 
@@ -177,7 +177,7 @@ public class RecommendFragment extends BaseFragment implements du4.g, z56 {
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921386));
-            wi8.g().h(getUniqueId(), false);
+            dj8.g().h(getUniqueId(), false);
         }
     }
 }

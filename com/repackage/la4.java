@@ -1,90 +1,177 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.pms.constants.ErrorConstant;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.repackage.bb4;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class la4 implements Runnable {
+public class la4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final kd4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ga4 a;
-    public AtomicBoolean b;
-    public fa4 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755535822, "Lcom/repackage/la4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static <T> boolean a(y74<T> y74Var, T t, String str, String str2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, y74Var, t, str, str2)) == null) {
+            if (t == null || y74Var == null) {
+                return false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755535822, "Lcom/repackage/la4;");
-                return;
+            if (TextUtils.isEmpty(str)) {
+                k(t, PackageTable.MD5, y74Var);
+                return false;
+            } else if (TextUtils.isEmpty(str2)) {
+                k(t, TTDownloadField.TT_DOWNLOAD_URL, y74Var);
+                return false;
+            } else {
+                return true;
             }
         }
-        d = kd4.e();
+        return invokeLLLL.booleanValue;
     }
 
-    public la4(AtomicBoolean atomicBoolean, ga4 ga4Var, fa4 fa4Var) {
+    public static <T> boolean b(T t, y74<T> y74Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {atomicBoolean, ga4Var, fa4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, y74Var)) == null) {
+            if (y74Var == null || t == null) {
+                return false;
+            }
+            if (t instanceof f94) {
+                f94 f94Var = (f94) t;
+                return a(y74Var, t, f94Var.l, f94Var.n);
+            } else if (t instanceof bb4.a) {
+                g94 g94Var = ((bb4.a) t).d;
+                return a(y74Var, t, g94Var.l, g94Var.n);
+            } else {
+                return false;
             }
         }
-        this.b = atomicBoolean;
-        this.a = ga4Var;
-        this.c = fa4Var;
+        return invokeLL.booleanValue;
     }
 
-    public final <T> void a(ka4<T> ka4Var) {
+    public static ja4<c94> c(c94 c94Var, c84 c84Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ka4Var) == null) {
-            this.a.a(ka4Var);
-            try {
-                try {
-                    ka4Var.run();
-                } catch (Exception e) {
-                    d.g("PMSTaskExecutor", "#runTask 包下载任务出错", e);
-                }
-            } finally {
-                this.a.b(ka4Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, c94Var, c84Var)) == null) {
+            if (c84Var != null && b(c94Var, c84Var.s())) {
+                return new ja4<>(new ia4(c94Var), c94Var, new ga4(c84Var.s()));
             }
+            return null;
         }
+        return (ja4) invokeLL.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static ja4<e94> d(e94 e94Var, c84 c84Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.b.get()) {
-                Runnable a = this.c.a(true);
-                if (!(a instanceof ka4)) {
-                    return;
-                }
-                try {
-                    a((ka4) a);
-                } catch (Throwable th) {
-                    d.g("PMSTaskExecutor", "#run 包下载任务出错", th);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, e94Var, c84Var)) == null) {
+            if (c84Var != null && b(e94Var, c84Var.t())) {
+                return new ja4<>(new ia4(e94Var), e94Var, new ga4(c84Var.t()));
+            }
+            return null;
+        }
+        return (ja4) invokeLL.objValue;
+    }
+
+    public static List<ja4<i94>> e(List<i94> list, c84 c84Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, c84Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (c84Var != null && list != null && list.size() > 0) {
+                for (i94 i94Var : list) {
+                    if (b(i94Var, c84Var.r())) {
+                        arrayList.add(new ja4(new ia4(i94Var), i94Var, new ga4(c84Var.r())));
+                    }
                 }
             }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static List<ja4<bb4.a>> f(List<bb4.a> list, c84 c84Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, list, c84Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (c84Var != null && list != null && list.size() > 0) {
+                for (bb4.a aVar : list) {
+                    g94 g94Var = aVar.d;
+                    if (g94Var != null && b(aVar, c84Var.w())) {
+                        arrayList.add(new ja4(new ia4(g94Var), aVar, new ga4(c84Var.w())));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static ja4<g94> g(g94 g94Var, c84 c84Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, g94Var, c84Var)) == null) {
+            if (c84Var != null && b(g94Var, c84Var.v())) {
+                return new ja4<>(new ia4(g94Var), g94Var, new ga4(c84Var.v()));
+            }
+            return null;
+        }
+        return (ja4) invokeLL.objValue;
+    }
+
+    public static List<ja4<h94>> h(List<h94> list, c84 c84Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, list, c84Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (c84Var != null && list != null && list.size() > 0) {
+                for (h94 h94Var : list) {
+                    if (b(h94Var, c84Var.B())) {
+                        arrayList.add(new ja4(new ia4(h94Var), h94Var, new ga4(c84Var.B())));
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static ja4<i94> i(i94 i94Var, c84 c84Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, i94Var, c84Var)) == null) {
+            if (c84Var != null && b(i94Var, c84Var.y())) {
+                return new ja4<>(new ia4(i94Var), i94Var, new ga4(c84Var.y()));
+            }
+            return null;
+        }
+        return (ja4) invokeLL.objValue;
+    }
+
+    public static ja4<j94> j(j94 j94Var, c84 c84Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, j94Var, c84Var)) == null) {
+            if (c84Var != null && b(j94Var, c84Var.A())) {
+                return new ja4<>(new ia4(j94Var), j94Var, new ga4(c84Var.A()));
+            }
+            return null;
+        }
+        return (ja4) invokeLL.objValue;
+    }
+
+    public static <T> void k(T t, String str, y74<T> y74Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, t, str, y74Var) == null) {
+            y74Var.e(t, new b94(ErrorConstant.Code.DOWNLOAD_ERROR_NETWROK_CHANGE, "download : param error:" + str));
         }
     }
 }

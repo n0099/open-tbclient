@@ -47,7 +47,7 @@ public class n92 extends ProviderDelegation {
         }
     }
 
-    public static int a(int i) {
+    public static int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {

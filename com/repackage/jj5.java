@@ -35,28 +35,28 @@ public class jj5 {
     public void a(int i, @Nullable String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
-            boolean q = ga8.q(i);
+            boolean q = na8.q(i);
             boolean z = i == 1000;
-            sc8 sc8Var = new sc8();
+            zc8 zc8Var = new zc8();
             if (q) {
-                sc8Var.c(z ? "APP" : "URL");
+                zc8Var.c(z ? "APP" : "URL");
                 if (!z) {
-                    sc8Var.l(i);
+                    zc8Var.l(i);
                 }
             } else {
-                sc8Var.c("DOWNLOAD_BUTTON");
+                zc8Var.c("DOWNLOAD_BUTTON");
             }
-            sc8Var.i(q ? 706 : 2);
-            sc8Var.h(q ? "DEEPLINK" : "DOWNLOAD_PAGE");
+            zc8Var.i(q ? 706 : 2);
+            zc8Var.h(q ? "DEEPLINK" : "DOWNLOAD_PAGE");
             if (!TextUtils.isEmpty(str)) {
                 DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
                 downloadStaticsData.setApk_name(str);
-                sc8Var.t(downloadStaticsData);
+                zc8Var.t(downloadStaticsData);
             }
             if (!TextUtils.isEmpty(str2)) {
-                sc8Var.v(str2);
+                zc8Var.v(str2);
             }
-            uc8.b().d(sc8Var);
+            bd8.b().d(zc8Var);
         }
     }
 
@@ -70,33 +70,33 @@ public class jj5 {
     public void c(String str, int i, @Nullable String str2, String str3, String str4, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), str2, str3, str4, Long.valueOf(j)}) == null) {
-            sc8 sc8Var = new sc8();
-            sc8Var.i(i);
+            zc8 zc8Var = new zc8();
+            zc8Var.i(i);
             if (TextUtils.isEmpty(str)) {
                 str = "DOWNLOAD_PAGE";
             }
-            sc8Var.h(str);
-            sc8Var.c("DOWNLOAD_BUTTON");
+            zc8Var.h(str);
+            zc8Var.c("DOWNLOAD_BUTTON");
             if (!TextUtils.isEmpty(str2)) {
                 DownloadStaticsData downloadStaticsData = new DownloadStaticsData();
                 downloadStaticsData.setApk_name(str2);
-                sc8Var.t(downloadStaticsData);
+                zc8Var.t(downloadStaticsData);
             }
             if (!TextUtils.isEmpty(str3)) {
-                sc8Var.v(str3);
+                zc8Var.v(str3);
             }
-            sc8Var.k(str2);
-            sc8Var.q(str4);
+            zc8Var.k(str2);
+            zc8Var.q(str4);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("ad_download_content_length", j);
-                sc8Var.s(jSONObject.toString());
+                zc8Var.s(jSONObject.toString());
             } catch (JSONException e) {
-                if (vm4.e()) {
+                if (um4.e()) {
                     throw new IllegalArgumentException(e);
                 }
             }
-            uc8.b().d(sc8Var);
+            bd8.b().d(zc8Var);
         }
     }
 }

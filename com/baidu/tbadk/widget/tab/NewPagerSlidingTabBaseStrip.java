@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.kf5;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
@@ -959,7 +959,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             tabTextView.setHasRedDot(z);
             tabTextView.setText(str);
             if (this.i0 != 0) {
-                wr4.d(tabTextView).y(this.i0);
+                vr4.d(tabTextView).y(this.i0);
             }
             tabTextView.setGravity(17);
             tabTextView.setTextSize(0, this.I);
@@ -1089,7 +1089,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         this.I = 17;
         this.J = 17;
         this.T = 0;
-        this.U = R.drawable.obfuscated_res_0x7f080e5d;
+        this.U = R.drawable.obfuscated_res_0x7f080e61;
         this.V = false;
         this.W = false;
         this.i0 = 0;

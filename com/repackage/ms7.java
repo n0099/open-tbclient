@@ -1,131 +1,114 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ms7 implements uo {
+public class ms7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public ThreadData d;
-    public AntiData e;
+    public Bitmap a;
+    public String b;
+    public String c;
+    public PostData d;
+    public int e;
+    public af5 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755488640, "Lcom/repackage/ms7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755488640, "Lcom/repackage/ms7;");
-                return;
-            }
-        }
-        f = BdUniqueId.gen();
-    }
-
-    public ms7(ThreadData threadData, AntiData antiData) {
+    public ms7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData, antiData};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
-        this.d = threadData;
-        this.e = antiData;
     }
 
-    public int a() {
+    public af5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ThreadData threadData = this.d;
-            if (threadData != null) {
-                return threadData.getAgreeType();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (af5) invokeV.objValue;
     }
 
-    public AntiData b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (AntiData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public ThreadData e() {
+    public PostData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (ThreadData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (PostData) invokeV.objValue;
     }
 
-    public boolean f() {
+    public Bitmap d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ThreadData threadData = this.d;
-            return threadData != null && threadData.getHasAgree() == 1;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (Bitmap) invokeV.objValue;
     }
 
-    public boolean g() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? f : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public boolean i() {
-        InterceptResult invokeV;
+    public void g(af5 af5Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeL(1048582, this, af5Var) == null) {
+            this.f = af5Var;
         }
     }
 
-    public void k(boolean z) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void i(PostData postData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, postData) == null) {
+            this.d = postData;
+        }
+    }
+
+    public void j(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) {
+            this.a = bitmap;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.e = i;
         }
     }
 }

@@ -29,9 +29,9 @@ public class wm3 implements ml1 {
     }
 
     @Override // com.repackage.ml1
-    public xf4 m() {
+    public wf4 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new vm3() : (xf4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new vm3() : (wf4) invokeV.objValue;
     }
 }

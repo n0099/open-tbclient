@@ -1,88 +1,242 @@
 package com.repackage;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.gamesubpb.view.GameSubCommentView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cu4;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class uk6 extends ho<al6, GameSubCommentView.GameSubCommentViewHolder> {
+public class uk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public a j;
+    public TbPageContext a;
+    public lk6 b;
+    public View c;
+    public FrameLayout d;
+    public NavigationBar e;
+    public BdTypeListView f;
+    public NoNetworkView g;
+    public PbListView h;
+    public du4 i;
+    public String j;
+    public String k;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void a(al6 al6Var);
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uk6 a;
 
-        void b(al6 al6Var);
+        public a(uk6 uk6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uk6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uk6Var;
+        }
 
-        void c(al6 al6Var);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.g();
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uk6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public uk6(TbPageContext tbPageContext, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        this.a = tbPageContext;
+        this.j = str;
+        this.k = str2;
+        h();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public GameSubCommentView.GameSubCommentViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            GameSubCommentView gameSubCommentView = new GameSubCommentView(this.i);
-            gameSubCommentView.d(this.j);
-            return new GameSubCommentView.GameSubCommentViewHolder(gameSubCommentView);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f.z();
         }
-        return (GameSubCommentView.GameSubCommentViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, al6 al6Var, GameSubCommentView.GameSubCommentViewHolder gameSubCommentViewHolder) {
-        InterceptResult invokeCommon;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, al6Var, gameSubCommentViewHolder})) == null) {
-            if (al6Var != null) {
-                gameSubCommentViewHolder.c(al6Var);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f != null && mi.z()) {
+            this.f.F();
+        }
+    }
+
+    public FrameLayout d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (FrameLayout) invokeV.objValue;
+    }
+
+    public NavigationBar e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (NavigationBar) invokeV.objValue;
+    }
+
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (View) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
+            customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.a.getUniqueId()));
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0317, (ViewGroup) null);
+            this.c = inflate;
+            this.g = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.d = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090c53);
+            BdTypeListView bdTypeListView = (BdTypeListView) this.c.findViewById(R.id.obfuscated_res_0x7f090c54);
+            this.f = bdTypeListView;
+            bdTypeListView.setDivider(null);
+            du4 du4Var = new du4(this.a);
+            this.i = du4Var;
+            du4Var.a0(this.a.getUniqueId());
+            this.f.setPullRefresh(this.i);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            this.e = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.e.showBottomLine();
+            PbListView pbListView = new PbListView(this.a.getPageActivity());
+            this.h = pbListView;
+            pbListView.a();
+            this.b = new lk6(this.a, this.f, this.j, this.k);
+            i(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            NoNetworkView noNetworkView = this.g;
+            if (noNetworkView != null) {
+                noNetworkView.c(this.a, i);
             }
-            return gameSubCommentViewHolder.b();
+            NavigationBar navigationBar = this.e;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a, i);
+            }
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public void b0(a aVar) {
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.j = aVar;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
+    }
+
+    public void k(List<uo> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, list, z) == null) {
+            if (z) {
+                o();
+            } else {
+                p();
+            }
+            this.b.c(list);
+        }
+    }
+
+    public void l(cu4.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, gVar) == null) {
+            this.i.f(gVar);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.f.setNextPage(null);
+        }
+    }
+
+    public void n(BdListView.p pVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, pVar) == null) {
+            this.f.setOnSrollToBottomListener(pVar);
+        }
+    }
+
+    public final void o() {
+        PbListView pbListView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (pbListView = this.h) == null) {
+            return;
+        }
+        if (pbListView.b().getParent() == null) {
+            this.f.setNextPage(this.h);
+        }
+        this.h.O();
+        this.h.Q();
+    }
+
+    public final void p() {
+        PbListView pbListView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (pbListView = this.h) == null) {
+            return;
+        }
+        if (pbListView.b().getParent() == null) {
+            this.f.setNextPage(this.h);
+        }
+        this.h.C(this.a.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+        this.h.f();
     }
 }

@@ -2,16 +2,19 @@ package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yw3;
-import java.io.File;
+import okhttp3.Callback;
+import okhttp3.Request;
+@Singleton
 @Service
 /* loaded from: classes6.dex */
-public class nx3 implements rh1 {
+public class nx3 implements wh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,24 +32,18 @@ public class nx3 implements rh1 {
         }
     }
 
-    @Override // com.repackage.rh1
-    public File a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? yw3.d.h(str, str2) : (File) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.rh1
-    public File b() {
+    @Override // com.repackage.wh1
+    public HttpManager a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? yw3.d() : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? py3.b() : (HttpManager) invokeV.objValue;
     }
 
-    @Override // com.repackage.rh1
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.wh1
+    public void call(HttpManager httpManager, Request request, Callback callback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? yw3.d.g().getPath() : (String) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpManager, request, callback) == null) && httpManager != null && (httpManager instanceof py3)) {
+            ((py3) httpManager).call(request, callback);
+        }
     }
 }

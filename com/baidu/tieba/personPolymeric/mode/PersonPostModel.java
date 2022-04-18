@@ -37,12 +37,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a58;
 import com.repackage.b9;
+import com.repackage.g58;
+import com.repackage.h58;
 import com.repackage.oi;
 import com.repackage.uo;
 import com.repackage.ya;
-import com.repackage.z48;
 import com.squareup.wire.Wire;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -70,7 +70,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public z48 mCardNullPolymericData;
+    public g58 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -972,15 +972,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new a58());
+            this.postList.add(new h58());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            z48 z48Var = new z48();
-            this.mCardNullPolymericData = z48Var;
-            this.postList.add(z48Var);
+            g58 g58Var = new g58();
+            this.mCardNullPolymericData = g58Var;
+            this.postList.add(g58Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {

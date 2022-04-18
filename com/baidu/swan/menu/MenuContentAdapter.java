@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.og4;
-import com.repackage.q64;
+import com.repackage.ng4;
+import com.repackage.p64;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<q64> a;
-    public List<q64> b;
+    public List<p64> a;
+    public List<p64> b;
     public int c;
     public Context d;
 
@@ -52,8 +52,8 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f0909ab);
-            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091c49);
+            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f0909ac);
+            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091c4a);
         }
     }
 
@@ -137,10 +137,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         return (a) invokeLI.objValue;
     }
 
-    public void g(List<List<q64>> list, boolean z, int i) {
+    public void g(List<List<p64>> list, boolean z, int i) {
         int max;
-        List<q64> list2;
-        List<q64> list3;
+        List<p64> list2;
+        List<p64> list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.a.clear();
@@ -161,10 +161,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                 max = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
             }
             float f = d(z) ? 5.5f : 5.0f;
-            if (og4.d()) {
+            if (ng4.d()) {
                 Context context = this.d;
-                if ((context instanceof Activity) && og4.e((Activity) context)) {
-                    max = og4.a((Activity) this.d);
+                if ((context instanceof Activity) && ng4.e((Activity) context)) {
+                    max = ng4.a((Activity) this.d);
                 }
             }
             this.c = (int) (max / f);

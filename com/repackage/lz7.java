@@ -1,82 +1,228 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
+import android.graphics.Rect;
+import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.MutableLiveData;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumAndTopicViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class lz7 extends ho<ss7, VideoPbEnterForumAndTopicViewHolder> {
+public class lz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public bs7 a;
+    public bs7 b;
+    public boolean c;
+    public MutableLiveData<ThreadData> d;
+    public Rect e;
+    public boolean f;
+    public String g;
+    public LinkedList<bs7> h;
+    public MutableLiveData<ThreadData> i;
+    public MutableLiveData<ThreadData> j;
+    public MutableLiveData<Boolean> k;
+    public MutableLiveData<Boolean> l;
+    public MutableLiveData<Boolean> m;
+    public MutableLiveData<Integer> n;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lz7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public lz7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = new MutableLiveData<>();
+        this.h = new LinkedList<>();
+        this.i = new MutableLiveData<>();
+        this.j = new MutableLiveData<>();
+        this.k = new MutableLiveData<>();
+        this.l = new MutableLiveData<>();
+        new MutableLiveData();
+        this.m = new MutableLiveData<>();
+        this.n = new MutableLiveData<>();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ss7 ss7Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
-        a0(i, view2, viewGroup, ss7Var, videoPbEnterForumAndTopicViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public VideoPbEnterForumAndTopicViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public MutableLiveData<Integer> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.a);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = oi.f(this.a, R.dimen.M_W_X007);
-            layoutParams.topMargin = oi.f(this.a, R.dimen.M_W_X004);
-            layoutParams.rightMargin = oi.f(this.a, R.dimen.M_W_X007);
-            layoutParams.bottomMargin = oi.f(this.a, R.dimen.M_W_X004);
-            frameLayout.addView(flowLabelLayout, layoutParams);
-            return new VideoPbEnterForumAndTopicViewHolder(this.a, frameLayout);
-        }
-        return (VideoPbEnterForumAndTopicViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.n : (MutableLiveData) invokeV.objValue;
     }
 
-    public View a0(int i, View view2, ViewGroup viewGroup, ss7 ss7Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
-        InterceptResult invokeCommon;
+    public bs7 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ss7Var, videoPbEnterForumAndTopicViewHolder})) == null) {
-            if (ss7Var != null) {
-                videoPbEnterForumAndTopicViewHolder.setData(ss7Var.a);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (bs7) invokeV.objValue;
+    }
+
+    public bs7 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (bs7) invokeV.objValue;
+    }
+
+    public MutableLiveData<Boolean> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (MutableLiveData) invokeV.objValue;
+    }
+
+    public MutableLiveData<Boolean> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l : (MutableLiveData) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public MutableLiveData<ThreadData> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : (MutableLiveData) invokeV.objValue;
+    }
+
+    public Rect h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (Rect) invokeV.objValue;
+    }
+
+    public MutableLiveData<ThreadData> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.i : (MutableLiveData) invokeV.objValue;
+    }
+
+    public MutableLiveData<ThreadData> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : (MutableLiveData) invokeV.objValue;
+    }
+
+    public LinkedList<bs7> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h : (LinkedList) invokeV.objValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public MutableLiveData<Boolean> n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.m : (MutableLiveData) invokeV.objValue;
+    }
+
+    public void o(bs7 bs7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, bs7Var) == null) {
+            this.b = bs7Var;
+            if (bs7Var != null) {
+                this.d.setValue(bs7Var.O());
+                if (ListUtils.isEmpty(bs7Var.f())) {
+                    return;
+                }
+                w(bs7Var.f().get(0));
             }
-            videoPbEnterForumAndTopicViewHolder.c();
-            return view2;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void p(bs7 bs7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, bs7Var) == null) {
+            this.a = bs7Var;
+            o(bs7Var);
+            this.i.setValue(null);
+            this.d.setValue(bs7Var.O());
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.k.setValue(Boolean.valueOf(z));
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.m.setValue(Boolean.valueOf(z));
+        }
+    }
+
+    public void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.l.postValue(Boolean.valueOf(z));
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void w(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, threadData) == null) {
+            this.j.setValue(threadData);
+        }
+    }
+
+    public void x(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, rect) == null) {
+            this.e = rect;
+        }
+    }
+
+    public void y(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, threadData) == null) {
+            this.i.setValue(threadData);
+        }
     }
 }

@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jm7;
-import com.repackage.wt4;
+import com.repackage.mm7;
+import com.repackage.vt4;
 /* loaded from: classes3.dex */
 public class CollectUpdateReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -39,8 +39,8 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && ACTION_NAME.equals(intent.getAction())) {
-            jm7.b().g();
-            if (wt4.k().h("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            mm7.b().g();
+            if (vt4.k().h("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 try {
                     Intent intent2 = new Intent(context, DealIntentService.class);
                     intent2.putExtra(DealIntentService.KEY_CLASS, 33);

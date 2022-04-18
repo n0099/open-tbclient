@@ -20,7 +20,7 @@ public class e00 extends xy {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout h;
     public BjhArticleLayout i;
-    public qn4 j;
+    public pn4 j;
     public int k;
 
     /* loaded from: classes5.dex */
@@ -110,13 +110,13 @@ public class e00 extends xy {
     }
 
     @Override // com.repackage.qy
-    public void l(rx5<qn4> rx5Var) {
+    public void l(tx5<pn4> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rx5Var) == null) {
-            super.l(rx5Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tx5Var) == null) {
+            super.l(tx5Var);
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.setSubClickListener(rx5Var);
+                bjhArticleLayout.setSubClickListener(tx5Var);
             }
         }
     }
@@ -138,13 +138,13 @@ public class e00 extends xy {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: t */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qn4Var) == null) {
-            this.j = qn4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, pn4Var) == null) {
+            this.j = pn4Var;
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.a(qn4Var);
+                bjhArticleLayout.a(pn4Var);
             }
         }
     }

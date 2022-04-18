@@ -1,41 +1,99 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.User;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ThreadInfo;
 import tbclient.VoiceRoom;
+import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
 /* loaded from: classes7.dex */
-public class zr6 {
+public class zr6 implements p65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public List<ThreadInfo> a;
 
-    public static List<vr6> a(List<VoiceRoom> list) {
-        InterceptResult invokeL;
+    public zr6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+    }
+
+    @NonNull
+    public List<VoiceRoomWrapper> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (VoiceRoom voiceRoom : list) {
-                if (voiceRoom != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    vr6 vr6Var = new vr6();
-                    vr6Var.a = voiceRoom.room_name;
-                    vr6Var.c = String.valueOf(voiceRoom.talker_num);
-                    vr6Var.d = String.valueOf(voiceRoom.joined_num);
-                    vr6Var.e = voiceRoom.room_id.longValue();
-                    for (User user : voiceRoom.talker) {
-                        if (user != null) {
-                            arrayList2.add(user.portrait);
-                        }
+            for (ThreadInfo threadInfo : this.a) {
+                VoiceRoom voiceRoom = threadInfo.voice_room;
+                if (voiceRoom != null && b(voiceRoom)) {
+                    String str = threadInfo.fname;
+                    if (str == null) {
+                        str = "";
                     }
-                    vr6Var.b = arrayList2;
-                    arrayList.add(vr6Var);
+                    arrayList.add(new VoiceRoomWrapper(voiceRoom, str));
                 }
             }
             return arrayList;
         }
-        return (List) invokeL.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean b(@NonNull VoiceRoom voiceRoom) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceRoom)) == null) {
+            Long l = voiceRoom.room_id;
+            return (l == null || l.longValue() == 0 || TextUtils.isEmpty(voiceRoom.room_name)) ? false : true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.p65
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("voice_room_list");
+                if (optJSONArray != null) {
+                    this.a = DataExt.toEntityList(optJSONArray.toString(), ThreadInfo.class);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.repackage.p65
+    public void initByProtobuf(Message message) {
+        List<ThreadInfo> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof VoiceRoomListPageResIdl) && (list = ((VoiceRoomListPageResIdl) message).data.voice_room_list) != null) {
+            this.a = list;
+        }
     }
 }

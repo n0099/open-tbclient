@@ -1,76 +1,93 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.widget.MediaController;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.play.OnStatusChangedListener;
+import com.baidu.tieba.play.TbVideoViewContainer;
+import com.baidu.tieba.play.cyberPlayer.TbVideoViewSet;
 /* loaded from: classes7.dex */
-public class y68 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
-    public boolean d;
+public interface y68 extends MediaController.MediaPlayerControl {
+    void a(long j, long j2, long j3);
 
-    public y68() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.b = 0;
-        this.c = false;
-        this.d = true;
-    }
+    void b(TbVideoViewSet.b bVar);
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
+    void changeRenderViewMode(int i);
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
+    int getCurrentPositionSync();
 
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
-    }
+    z68 getMediaProgressObserver();
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
-    }
+    String getOriginUrl();
 
-    public void e(int i, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.a = i;
-            this.b = i2;
-            this.c = z;
-        }
-    }
+    int getPcdnState();
 
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.d = z;
-        }
-    }
+    x68 getPlayer();
+
+    int getPlayerHeight();
+
+    int getPlayerWidth();
+
+    int getVideoHeight();
+
+    OnStatusChangedListener.VideoStatus getVideoStatus();
+
+    int getVideoWidth();
+
+    void j();
+
+    void k();
+
+    boolean l();
+
+    void m();
+
+    boolean n();
+
+    void o();
+
+    void p(TbVideoViewSet.b bVar);
+
+    void q();
+
+    void setCanShowPause(boolean z);
+
+    void setContinuePlayEnable(boolean z);
+
+    void setIsVolume0(boolean z);
+
+    void setLocateSource(String str);
+
+    void setLooping(boolean z);
+
+    void setNoBussinessStats();
+
+    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
+
+    void setOperableVideoContainer(r78 r78Var);
+
+    void setPlayMode(String str);
+
+    void setStageType(String str);
+
+    void setThreadDataForStatistic(ThreadData threadData);
+
+    void setTryUseViewInSet(boolean z);
+
+    void setVideoModel(k78 k78Var);
+
+    void setVideoPath(String str);
+
+    void setVideoPath(String str, String str2);
+
+    void setVideoScalingMode(int i);
+
+    void setVideoStatData(m78 m78Var);
+
+    void setVideoStatusChangeListener(OnStatusChangedListener onStatusChangedListener);
+
+    void setVolume(float f, float f2);
+
+    void stop();
+
+    void stopPlayback();
 }

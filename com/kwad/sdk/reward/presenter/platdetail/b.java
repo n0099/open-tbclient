@@ -67,6 +67,6 @@ public class b extends g implements d {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (DetailVideoView) a(R.id.obfuscated_res_0x7f091170);
+        this.b = (DetailVideoView) a(R.id.obfuscated_res_0x7f091171);
     }
 }

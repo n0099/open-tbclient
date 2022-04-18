@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c3a;
-import com.repackage.lz9;
+import com.repackage.j3a;
+import com.repackage.sz9;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
@@ -63,7 +63,7 @@ public final class GenericScheduledExecutorServiceFactory {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            lz9<? extends ScheduledExecutorService> a = c3a.a();
+            sz9<? extends ScheduledExecutorService> a = j3a.a();
             if (a == null) {
                 return createDefault();
             }

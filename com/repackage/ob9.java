@@ -1,188 +1,126 @@
 package com.repackage;
 
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.faceunity.encoder.MediaMuxerWrapper;
+import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class ob9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public final MediaMuxer a;
     public int b;
     public int c;
     public boolean d;
-    public b e;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ob9 a;
-
-        public a(ob9 ob9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ob9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ob9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755445333, "Lcom/repackage/ob9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755445333, "Lcom/repackage/ob9;");
-        }
-    }
-
-    public ob9() {
+    public ob9(String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = 2;
+        this.c = 0;
+        this.d = false;
+        this.a = new MediaMuxer(str, 0);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public synchronized int a(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        int addTrack;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.c;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = this.b;
-            return i2 != 0 ? i2 : this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
             synchronized (this) {
-                if (i == this.c) {
-                    return;
+                if (this.d) {
+                    throw new IllegalStateException("muxer already started");
                 }
-                if ((this.b == 0 || i != this.b) && (this.b != 0 || i != this.a)) {
-                    this.c = i;
-                    if (i != 0 && !this.d) {
-                        this.d = true;
-                        g();
-                    }
+                addTrack = this.a.addTrack(mediaFormat);
+                ac9.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+            }
+            return addTrack;
+        }
+        return invokeL.intValue;
+    }
+
+    public synchronized void b(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, byteBuffer, bufferInfo) == null) {
+            synchronized (this) {
+                if (this.c > 0) {
+                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
                 }
-                this.c = 0;
             }
         }
     }
 
-    public void c(b bVar) {
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                ac9.k(MediaMuxerWrapper.TAG, "start:");
+                int i = this.c + 1;
+                this.c = i;
+                if (this.b > 0 && i == this.b) {
+                    this.a.start();
+                    this.d = true;
+                    notifyAll();
+                    ac9.k(MediaMuxerWrapper.TAG, "MediaMuxer started:");
+                }
+                z = this.d;
+            }
+            return z;
         }
+        return invokeV.booleanValue;
     }
 
-    public final synchronized void e() {
+    public synchronized void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                if (this.c != this.a) {
-                    this.b = this.c;
+                ac9.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.c);
+                int i = this.c + (-1);
+                this.c = i;
+                if (this.b > 0 && i <= 0) {
+                    if (this.d) {
+                        this.a.stop();
+                    }
+                    this.a.release();
+                    this.d = false;
+                    ac9.k(MediaMuxerWrapper.TAG, "MediaMuxer stopped:");
                 }
-                this.c = 0;
             }
         }
     }
 
-    public final synchronized void f() {
+    public synchronized boolean e() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                if (this.b != 0) {
-                    this.a = this.b;
-                }
-                this.b = 0;
+                z = this.d;
             }
+            return z;
         }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ThreadPool.b().e(new a(this));
-        }
-    }
-
-    public final synchronized void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this) {
-                this.d = false;
-            }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048583, this) != null) {
-            return;
-        }
-        while (true) {
-            e();
-            int i = this.b;
-            if (i == 0) {
-                h();
-                return;
-            }
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.a(i);
-            }
-            f();
-        }
+        return invokeV.booleanValue;
     }
 }

@@ -85,10 +85,10 @@ public class t91 {
                 String string2 = this.a.getString(PolyActivity.TRADE_TYPE);
                 l91.g("onWindowFocusChanged panelType=" + string + ", tradeType=" + string2);
                 if (TextUtils.equals(string, "NONE") && TextUtils.equals(string2, PolyActivity.DIRECT_PAY_TRADE_TYPE)) {
-                    this.c.S(h91.c(p91.a().getString(R.string.obfuscated_res_0x7f0f0d47) + message), str);
+                    this.c.S(h91.c(p91.a().getString(R.string.obfuscated_res_0x7f0f0d46) + message), str);
                 } else {
                     ChannelListView channelListView = this.c;
-                    channelListView.S(p91.a().getString(R.string.obfuscated_res_0x7f0f0d47) + message, str);
+                    channelListView.S(p91.a().getString(R.string.obfuscated_res_0x7f0f0d46) + message, str);
                 }
                 z81 z81Var = new z81("1");
                 z81Var.b(new SdkException("launchpayment error --> " + str, th).getStackMessage());
@@ -365,11 +365,11 @@ public class t91 {
         public void onOptionClick(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                if (i == R.id.obfuscated_res_0x7f091868) {
+                if (i == R.id.obfuscated_res_0x7f091869) {
                     u81.h().f();
                     this.a.b0(6, "支付结果查询失败，请重试", "0");
                     this.c.d.dismiss();
-                } else if (i == R.id.obfuscated_res_0x7f09186a) {
+                } else if (i == R.id.obfuscated_res_0x7f09186b) {
                     c91.e(new z81("111"));
                     this.c.d.setRightBtnEnable(false);
                     this.c.d.startLoadingAnim();
@@ -537,7 +537,7 @@ public class t91 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048580, this, v71Var, bundle, payChannelEntity, channelListView, str) == null) {
             if (payChannelEntity != null && payChannelEntity.isNeedAgreementGuide() && payChannelEntity.isAlreadySigned()) {
-                ja1.e(channelListView.getContext(), R.drawable.obfuscated_res_0x7f080639, "小额免密扣款中");
+                ja1.e(channelListView.getContext(), R.drawable.obfuscated_res_0x7f080638, "小额免密扣款中");
             }
             b81.j().v(v71Var, bundle, new a(this, bundle, payChannelEntity, channelListView, str), payChannelEntity, str);
         }

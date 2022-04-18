@@ -118,8 +118,8 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06eb, (ViewGroup) this, true);
-            this.a = (ListView) findViewById(R.id.obfuscated_res_0x7f091873);
-            ProgressButton progressButton = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091877);
+            this.a = (ListView) findViewById(R.id.obfuscated_res_0x7f091874);
+            ProgressButton progressButton = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f091878);
             this.b = progressButton;
             progressButton.setText("下一步");
             this.b.setOnClickListener(this);
@@ -156,7 +156,7 @@ public class DigitalBankPayView extends FrameLayout implements View.OnClickListe
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091877) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091878) {
             this.b.setEnable(false);
             b bVar = this.e;
             if (bVar != null) {

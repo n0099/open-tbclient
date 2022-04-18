@@ -100,9 +100,9 @@ public class NpsPluginCenterActivity extends BaseActivity {
             if (getIntent() != null) {
                 this.mFromType = getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e5a));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e59));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
@@ -110,7 +110,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     private void initScrollContent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091bfa);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091bfb);
             this.whiteList.add("com.baidu.searchbox.bjhlivenps");
             this.whiteList.add("com.baidu.live.media.business");
             this.whiteList.add(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME);

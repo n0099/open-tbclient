@@ -1,45 +1,46 @@
 package com.repackage;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.NavTabInfo;
+import tbclient.FrsTabInfo;
 /* loaded from: classes7.dex */
 public class tj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<FrsTabInfo> a;
+    public List<FrsTabInfo> b;
+    public List<FrsTabInfo> c;
 
-    public static boolean a(String str, Boolean bool) {
-        InterceptResult invokeLL;
+    public tj8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, bool)) == null) {
-            if (SwitchManager.getInstance().findType("voice") != 0 || ((str != null && b(str)) || bool == null)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return bool.booleanValue();
         }
-        return invokeLL.booleanValue;
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = new ArrayList();
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public void a(NavTabInfo navTabInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.obfuscated_res_0x7f030014);
-            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0643);
-            int length = stringArray.length;
-            for (int i = 0; i < length; i++) {
-                if (stringArray[i].equals(str)) {
-                    return true;
-                }
-                if (str.equals(stringArray[i] + string)) {
-                    return true;
-                }
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, navTabInfo) == null) || navTabInfo == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.a = new ArrayList(navTabInfo.tab);
+        this.b = new ArrayList(navTabInfo.menu);
+        this.c = new ArrayList(navTabInfo.head);
     }
 }

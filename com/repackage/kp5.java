@@ -2,7 +2,8 @@ package com.repackage;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,17 +15,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kp5 extends rw5<uo5> {
+public class kp5 extends tw5<wq5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jp5 i;
-    public jp5 j;
-    public LinearLayout k;
-    public ViewGroup l;
-    public View m;
+    public TextView i;
+    public ImageView j;
+    public View k;
+    public View l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kp5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+    public kp5(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -42,35 +42,28 @@ public class kp5 extends rw5<uo5> {
                 return;
             }
         }
-        this.i = new jp5(tbPageContext);
-        this.j = new jp5(tbPageContext);
-        ViewGroup viewGroup2 = (ViewGroup) k();
-        this.l = viewGroup2;
-        this.k = (LinearLayout) viewGroup2.findViewById(R.id.obfuscated_res_0x7f090e4d);
-        this.m = this.l.findViewById(R.id.obfuscated_res_0x7f090e43);
-        View view2 = new View(getContext());
-        this.k.setPadding(j().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, j().getResources().getDimensionPixelSize(R.dimen.tbds44), j().getResources().getDimensionPixelSize(R.dimen.tbds12));
-        this.k.addView(this.i.h());
-        this.k.addView(view2, new LinearLayout.LayoutParams(j().getResources().getDimensionPixelSize(R.dimen.tbds12), -1));
-        this.k.addView(this.j.h());
-        m(this.b, TbadkCoreApplication.getInst().getSkinType());
+        this.k = k();
+        this.i = (TextView) k().findViewById(R.id.obfuscated_res_0x7f09218b);
+        this.j = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090fcd);
+        this.l = k().findViewById(R.id.obfuscated_res_0x7f090e42);
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07f5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07f4 : invokeV.intValue;
     }
 
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
-            this.i.k(tbPageContext, i);
-            this.j.k(tbPageContext, i);
-            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.k, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
+            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_08);
+            SkinManager.setBackgroundResource(this.l, R.color.CAM_X0204);
         }
     }
 
@@ -82,27 +75,18 @@ public class kp5 extends rw5<uo5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     /* renamed from: s */
-    public void l(uo5 uo5Var) {
+    public void l(wq5 wq5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, uo5Var) == null) || uo5Var == null) {
-            return;
-        }
-        this.i.i(uo5Var.a);
-        this.j.i(uo5Var.b);
-        if (uo5Var.c) {
-            this.m.setVisibility(0);
-        } else {
-            this.m.setVisibility(8);
-        }
-    }
-
-    public void t(pp5 pp5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, pp5Var) == null) {
-            this.i.l(pp5Var);
-            this.j.l(pp5Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, wq5Var) == null) {
+            if (wq5Var.a == 1) {
+                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a0a));
+                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
+                return;
+            }
+            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a09));
+            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_06);
         }
     }
 }

@@ -1,53 +1,113 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.ala.data.AlaLiveInfoData;
+import com.baidu.ala.data.AlaUserInfoData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.services.vod.VodClient;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class du5 extends au5 {
+public class du5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755754899, "Lcom/repackage/du5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755754899, "Lcom/repackage/du5;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
+    public AlaUserInfoData a;
+    public ju5 b;
+    public ru5 c;
+    public List<AlaLiveInfoData> d;
+    public List<qu5> e;
+    public boolean f;
+    public final bu5 g;
+    public su5 h;
 
     public du5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f = false;
+        this.a = new AlaUserInfoData();
+        this.b = new ju5();
+        this.c = new ru5();
+        this.g = new bu5();
+        this.d = new ArrayList();
+        this.e = new ArrayList();
+    }
+
+    public bu5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (bu5) invokeV.objValue;
+    }
+
+    public AlaUserInfoData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AlaUserInfoData) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+            JSONObject optJSONObject = jSONObject2.optJSONObject("user_info");
+            if (optJSONObject != null) {
+                this.a = (AlaUserInfoData) OrmObject.objectWithJson(optJSONObject, AlaUserInfoData.class);
+            }
+            JSONArray optJSONArray = jSONObject2.optJSONArray("watch_list");
+            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
+                qu5 qu5Var = new qu5();
+                qu5Var.a(optJSONArray.getJSONObject(i));
+                this.e.add(qu5Var);
+            }
+            JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
+            for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
+                AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
+                alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
+                this.d.add(alaLiveInfoData);
+            }
+            this.b.a(jSONObject2.optJSONObject(VodClient.PATH_MEDIA));
+            this.c.parserJson(jSONObject2.optJSONObject("privacy_set"));
+            this.g.parserJson(jSONObject2.optJSONObject("authority_info"));
+            JSONObject optJSONObject2 = jSONObject2.optJSONObject("dating_room");
+            if (optJSONObject2 != null) {
+                su5 su5Var = new su5();
+                this.h = su5Var;
+                su5Var.a(optJSONObject2);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f = z;
+        }
     }
 }

@@ -1,21 +1,28 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class sb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tb8 a;
-    public ub8 b;
-    public LinkedList<qb8> c;
+    public String a;
+    public String b;
+    public long c;
+    public int d;
+    public long e;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
+    public String j;
+    public String k;
 
     public sb8() {
         Interceptable interceptable = $ic;
@@ -27,43 +34,32 @@ public class sb8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new tb8();
-        this.b = new ub8();
-        this.c = new LinkedList<>();
     }
 
-    public tb8 a() {
-        InterceptResult invokeV;
+    public boolean equals(@Nullable Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (tb8) invokeV.objValue;
-    }
-
-    public ub8 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (ub8) invokeV.objValue;
-    }
-
-    public List<qb8> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableList(this.c) : (List) invokeV.objValue;
-    }
-
-    public void d(qb8 qb8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, qb8Var) == null) || qb8Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof sb8) {
+                sb8 sb8Var = (sb8) obj;
+                return TextUtils.equals(this.a, sb8Var.a) && TextUtils.equals(this.b, sb8Var.b);
+            }
+            return false;
         }
-        this.c.add(qb8Var);
+        return invokeL.booleanValue;
     }
 
-    public void e(qb8 qb8Var) {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qb8Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (this.a + this.b).hashCode();
         }
+        return invokeV.intValue;
     }
 }

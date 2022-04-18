@@ -61,7 +61,7 @@ public class vz1 extends pz1 implements View.OnClickListener {
             U1(view2);
             s2(-1);
             B2(-16777216);
-            u2(H(R.string.obfuscated_res_0x7f0f1224));
+            u2(H(R.string.obfuscated_res_0x7f0f1223));
             w2(true);
             I2(false);
         }
@@ -70,7 +70,7 @@ public class vz1 extends pz1 implements View.OnClickListener {
     public final void T2(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0913fc);
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0913fd);
             this.F0 = relativeLayout;
             relativeLayout.setOnClickListener(this);
             if (qj2.y0().d() || !de3.G()) {
@@ -131,7 +131,7 @@ public class vz1 extends pz1 implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0913fc) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0913fd) {
                 qj2.t0().a();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0902e4) {
                 V2();

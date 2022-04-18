@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class WriteEvaluationHeaderView extends FrameLayout implements View.OnClickListener, RankStarView.a {
     public static /* synthetic */ Interceptable $ic;
@@ -131,13 +131,13 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08da, (ViewGroup) this, true);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090f90);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090f92);
-            this.e = findViewById(R.id.obfuscated_res_0x7f092483);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f8f);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090f91);
-            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f090f9d);
-            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090f9a);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090f91);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090f93);
+            this.e = findViewById(R.id.obfuscated_res_0x7f092484);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f90);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090f92);
+            this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f090f9e);
+            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090f9b);
             this.h = rankStarView;
             rankStarView.setStarSpacing(oi.f(getContext(), R.dimen.tbds30));
             this.h.setClickable(true);
@@ -172,7 +172,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         EMTextView eMTextView = this.b;
         if (eMTextView != null) {
             SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0109);
-            wr4 d = wr4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0206);
         }

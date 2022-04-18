@@ -1,9 +1,10 @@
 package com.repackage;
 
-import android.os.Debug;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.GuardedBy;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,127 +13,54 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.github.anrwatchdog.ANRError;
+import com.fun.ad.sdk.CacheStatistic;
+import com.fun.ad.sdk.FunAdFactory;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdLoadListener;
+import com.fun.ad.sdk.FunAdLoader;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.FunNativeAdInflater;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class gl9 extends Thread {
+public final class gl9 implements FunAdFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static final f o;
-    public static final e p;
-    public static final g q;
+    public static final /* synthetic */ boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
-    public e b;
-    public g c;
-    public final Handler d;
-    public final int e;
-    public String f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public hl9 k;
-    public volatile long l;
-    public volatile boolean m;
-    public final Runnable n;
+    public final Map<String, LinkedHashMap<zf9, FunAdLoader>> a;
+    public final Object b;
+    @GuardedBy("mInitializeLock")
+    public final LinkedList<a> c;
+    @GuardedBy("mInitializeLock")
+    public int d;
+    @GuardedBy("mInitializeLock")
+    public ll9 e;
 
     /* loaded from: classes6.dex */
-    public static class a implements f {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final Context a;
+        public final FunAdSlot b;
+        public final FunAdLoadListener c;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.gl9.f
-        public void onAppNotResponding(ANRError aNRError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
-                throw aNRError;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.gl9.e
-        public long a(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                return 0L;
-            }
-            return invokeJ.longValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.gl9.g
-        public void a(InterruptedException interruptedException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, interruptedException) == null) {
-                Log.w("ANRWatchdog", "Interrupted: " + interruptedException.getMessage());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gl9 a;
-
-        public d(gl9 gl9Var) {
+        public a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gl9Var};
+                Object[] objArr = {context, funAdSlot, funAdLoadListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -142,32 +70,10 @@ public class gl9 extends Thread {
                     return;
                 }
             }
-            this.a = gl9Var;
+            this.a = context;
+            this.b = funAdSlot;
+            this.c = funAdLoadListener;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.l = 0L;
-                this.a.m = false;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface e {
-        long a(long j);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface f {
-        void onAppNotResponding(ANRError aNRError);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface g {
-        void a(InterruptedException interruptedException);
     }
 
     static {
@@ -183,133 +89,263 @@ public class gl9 extends Thread {
                 return;
             }
         }
-        o = new a();
-        p = new b();
-        q = new c();
+        f = !gl9.class.desiredAssertionStatus();
     }
 
-    public gl9(int i) {
+    public gl9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = o;
-        this.b = p;
-        this.c = q;
-        this.d = new Handler(Looper.getMainLooper());
-        this.f = "";
-        this.g = false;
-        this.h = true;
-        this.i = false;
-        this.j = false;
-        this.k = null;
-        this.l = 0L;
-        this.m = false;
-        this.n = new d(this);
-        this.e = i;
+        this.a = new HashMap();
+        this.b = new Object();
+        this.c = new LinkedList<>();
+        this.d = 0;
     }
 
-    public gl9 c(f fVar) {
+    public final List<FunAdLoader> a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-            if (fVar == null) {
-                this.a = o;
-            } else {
-                this.a = fVar;
-            }
-            return this;
-        }
-        return (gl9) invokeL.objValue;
-    }
-
-    public gl9 d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.i = z;
-            return this;
-        }
-        return (gl9) invokeZ.objValue;
-    }
-
-    public gl9 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f = null;
-            return this;
-        }
-        return (gl9) invokeV.objValue;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setName("|ANR-WatchDog|");
-            long j = this.e;
-            long j2 = 0;
-            while (!isInterrupted()) {
-                boolean z = this.l == 0;
-                this.l += j;
-                if (z) {
-                    this.d.post(this.n);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            synchronized (this.a) {
+                zf9 b = rf9.b(str);
+                if (b == null) {
+                    return null;
                 }
-                try {
-                    Thread.sleep(j);
-                    if (this.i && this.j) {
-                        if (this.k == null) {
-                            this.k = new hl9();
-                        }
-                        if (this.l == 0 && !this.m) {
-                            this.j = false;
-                            ANRError NewMainAllStackTrace = ANRError.NewMainAllStackTrace(this.k.b(), j2);
-                            if (NewMainAllStackTrace != null) {
-                                this.a.onAppNotResponding(NewMainAllStackTrace);
-                            }
-                        } else {
-                            j2 = this.l;
-                            this.k.a();
-                        }
-                    }
-                    if (this.l != 0 && !this.m) {
-                        if (!this.h && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
-                            Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
-                            this.m = true;
-                        } else {
-                            j = this.b.a(this.l);
-                            if (j <= 0) {
-                                if (this.f != null) {
-                                    this.a.onAppNotResponding(ANRError.New(this.l, this.f, this.g));
-                                } else if (this.i) {
-                                    this.j = true;
-                                    hl9 hl9Var = new hl9();
-                                    this.k = hl9Var;
-                                    hl9Var.a();
-                                } else {
-                                    this.a.onAppNotResponding(ANRError.NewMainOnly(this.l));
-                                }
-                                j = this.e;
-                                this.m = true;
-                            }
-                        }
-                    }
-                } catch (InterruptedException e2) {
-                    this.c.a(e2);
+                LinkedHashMap<zf9, FunAdLoader> linkedHashMap = this.a.get(str);
+                if (linkedHashMap == null) {
+                    linkedHashMap = new LinkedHashMap<>();
+                    this.a.put(str, linkedHashMap);
+                }
+                if (linkedHashMap.get(b) == null) {
+                    linkedHashMap.put(b, b.a.a(this.e));
+                }
+                ArrayList arrayList = new ArrayList(linkedHashMap.values());
+                Collections.reverse(arrayList);
+                return arrayList;
+            }
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final void b(Activity activity, String str, FunAdInteractionListener funAdInteractionListener, ViewGroup viewGroup, FunNativeAdInflater funNativeAdInflater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, funAdInteractionListener, viewGroup, funNativeAdInflater) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                funAdInteractionListener.onAdError(str);
+                return;
+            }
+            Iterator<FunAdLoader> it = a2.iterator();
+            while (it.hasNext()) {
+                FunAdLoader next = it.next();
+                if (!it.hasNext()) {
+                    next.show(activity, viewGroup, str, funAdInteractionListener, funNativeAdInflater);
+                    return;
+                } else if (next.isReady()) {
+                    next.show(activity, viewGroup, str, funAdInteractionListener, funNativeAdInflater);
                     return;
                 }
             }
         }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void destroyAd(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            synchronized (this.b) {
+                this.c.clear();
+            }
+            synchronized (this.a) {
+                zf9 b = rf9.b(str);
+                if (b == null) {
+                    LogPrinter.e("No SlotId found for sid:%s when destroyAd", str);
+                    return;
+                }
+                LinkedHashMap<zf9, FunAdLoader> linkedHashMap = this.a.get(str);
+                if (linkedHashMap == null) {
+                    LogPrinter.e("No slotIdLoaderMap found for sid:%s when destroyAd", str);
+                    return;
+                }
+                HashSet hashSet = new HashSet();
+                for (Map.Entry<zf9, FunAdLoader> entry : linkedHashMap.entrySet()) {
+                    zf9 key = entry.getKey();
+                    entry.getValue().destroy();
+                    if (!b.equals(key)) {
+                        LogPrinter.d("Remove redundant loader for sid:%s", str);
+                        hashSet.add(key);
+                    }
+                }
+                Iterator it = hashSet.iterator();
+                while (it.hasNext()) {
+                    linkedHashMap.remove((zf9) it.next());
+                }
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public List<CacheStatistic> getCacheStatistics(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 != null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                for (FunAdLoader funAdLoader : a2) {
+                    List<CacheStatistic> cacheStatistics = funAdLoader.getCacheStatistics(str);
+                    if (!cacheStatistics.isEmpty()) {
+                        return cacheStatistics;
+                    }
+                }
+            }
+            return new ArrayList();
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    @Deprecated
+    public FunNativeAd getNativeAd(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                return null;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                FunNativeAd nativeAd = funAdLoader.getNativeAd(context);
+                if (nativeAd != null) {
+                    return nativeAd;
+                }
+            }
+            return null;
+        }
+        return (FunNativeAd) invokeLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public FunNativeAd2 getNativeAd2(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, context, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                return null;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                FunNativeAd2 nativeAd2 = funAdLoader.getNativeAd2(context);
+                if (nativeAd2 != null) {
+                    return nativeAd2;
+                }
+            }
+            return null;
+        }
+        return (FunNativeAd2) invokeLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public boolean isAdReady(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                return false;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                if (funAdLoader.isReady()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void loadAd(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, context, funAdSlot, funAdLoadListener) == null) {
+            synchronized (this.b) {
+                i = this.d;
+            }
+            if (i == -1) {
+                LogPrinter.e("loadAd err because of AdSdks initialized failed", new Object[0]);
+                funAdLoadListener.onError(funAdSlot.getSid());
+            } else if (i == 0) {
+                synchronized (this.b) {
+                    this.c.add(new a(context, funAdSlot, funAdLoadListener));
+                }
+            } else if (i != 1) {
+                throw new RuntimeException("Unknown st:" + i);
+            } else {
+                List<FunAdLoader> a2 = a(funAdSlot.getSid());
+                if (a2 == null) {
+                    LogPrinter.d("No Loader found for sid:%s", funAdSlot.getSid());
+                    funAdLoadListener.onError(funAdSlot.getSid());
+                    return;
+                }
+                Iterator<FunAdLoader> it = a2.iterator();
+                FunAdLoader next = it.next();
+                while (it.hasNext()) {
+                    it.next().recycleLisener();
+                }
+                next.load(context, funAdSlot, funAdLoadListener);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void showAd(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewGroup, str, funAdInteractionListener) == null) {
+            b(activity, str, funAdInteractionListener, viewGroup, null);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public void showAd(Activity activity, String str, FunAdInteractionListener funAdInteractionListener, FunNativeAdInflater funNativeAdInflater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048585, this, activity, str, funAdInteractionListener, funNativeAdInflater) == null) {
+            b(activity, str, funAdInteractionListener, null, funNativeAdInflater);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdFactory
+    public FunSplashAd showSplash(Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, activity, viewGroup, str, funAdInteractionListener)) == null) {
+            List<FunAdLoader> a2 = a(str);
+            if (a2 == null) {
+                LogPrinter.d("No Loader found for sid:%s", str);
+                funAdInteractionListener.onAdError(str);
+                return null;
+            }
+            for (FunAdLoader funAdLoader : a2) {
+                FunSplashAd showSplash = funAdLoader.showSplash(activity, viewGroup, str, funAdInteractionListener);
+                if (showSplash != null) {
+                    return showSplash;
+                }
+            }
+            return null;
+        }
+        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

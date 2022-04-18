@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -40,7 +40,7 @@ public class WhiteListData extends LinkedList<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             WhiteListData whiteListData = new WhiteListData();
-            String q = wt4.k().q("key_white_list", null);
+            String q = vt4.k().q("key_white_list", null);
             if (!TextUtils.isEmpty(q)) {
                 whiteListData.parserJson(q);
             }
@@ -70,7 +70,7 @@ public class WhiteListData extends LinkedList<String> {
     private void save(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
-            wt4.k().y("key_white_list", str);
+            vt4.k().y("key_white_list", str);
         }
     }
 

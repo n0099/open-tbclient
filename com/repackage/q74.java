@@ -1,141 +1,90 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.searchbox.http.request.HttpCommonRequest;
-import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes6.dex */
-public class q74 extends HttpCommonRequest<a> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.repackage.k94;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public interface q74 {
+    ra4 A();
 
-    /* loaded from: classes6.dex */
-    public static class a extends HttpCommonRequestBuilder<a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    int B();
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(AbstractHttpManager abstractHttpManager) {
-            super(abstractHttpManager);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {abstractHttpManager};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((AbstractHttpManager) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
+    void C();
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.request.HttpRequestBuilder
-        /* renamed from: a */
-        public q74 build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new q74(this) : (q74) invokeV.objValue;
-        }
+    void D(wb4 wb4Var);
 
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a(q74 q74Var) {
-            this(q74Var, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q74Var};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    this((q74) objArr2[0], (AbstractHttpManager) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
+    String E();
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(q74 q74Var, AbstractHttpManager abstractHttpManager) {
-            super(q74Var, abstractHttpManager);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q74Var, abstractHttpManager};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((HttpCommonRequest) objArr2[0], (AbstractHttpManager) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
+    int F(String str, int i);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q74(a aVar) {
-        super(aVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((HttpCommonRequestBuilder) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void G(String str, String str2, Throwable th);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    /* renamed from: a */
-    public a newBuilder() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (a) invokeV.objValue;
-    }
+    void H(kc4 kc4Var);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    /* renamed from: b */
-    public a newBuilder(AbstractHttpManager abstractHttpManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abstractHttpManager)) == null) ? new a(this, abstractHttpManager) : (a) invokeL.objValue;
-    }
+    String I();
 
-    @Override // com.baidu.searchbox.http.request.HttpRequest
-    public Request buildOkRequest(RequestBody requestBody) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, requestBody)) == null) ? this.okRequestBuilder.method(HttpTrace.METHOD_NAME, requestBody).build() : (Request) invokeL.objValue;
-    }
+    String J(int i);
+
+    void K(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z);
+
+    void L(String str, String str2, String str3, @Nullable Throwable th, boolean z);
+
+    q94 M();
+
+    float a();
+
+    String b();
+
+    String c();
+
+    void d(byte[] bArr);
+
+    String e();
+
+    CookieManager f();
+
+    String g();
+
+    String h();
+
+    kg4 i();
+
+    long j(int i);
+
+    void k(JSONArray jSONArray, String str, String str2);
+
+    List<a94> l(String str, long j);
+
+    void m(String str, String str2, k94.c cVar);
+
+    q94 n();
+
+    boolean o(boolean z, @NonNull JSONArray jSONArray);
+
+    void p(String str, JSONObject jSONObject, g94 g94Var, List<h94> list);
+
+    String q();
+
+    boolean r(@Nullable i94 i94Var);
+
+    void s(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
+
+    void t(zc4 zc4Var, pd4 pd4Var);
+
+    String u();
+
+    String v(int i);
+
+    long w(int i);
+
+    boolean x();
+
+    void y(String str, String str2);
+
+    void z(String str, String str2, String str3, boolean z);
 }

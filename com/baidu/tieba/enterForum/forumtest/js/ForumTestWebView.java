@@ -28,11 +28,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a56;
 import com.repackage.rg;
-import com.repackage.vl4;
-import com.repackage.w46;
-import com.repackage.x46;
+import com.repackage.ul4;
 import com.repackage.y46;
+import com.repackage.z46;
 /* loaded from: classes3.dex */
 public class ForumTestWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
@@ -44,11 +44,11 @@ public class ForumTestWebView extends WebView {
     public d e;
     public f f;
     public g g;
-    public w46 h;
-    public y46 i;
+    public y46 h;
+    public a56 i;
 
     /* loaded from: classes3.dex */
-    public class a implements y46 {
+    public class a implements a56 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumTestWebView a;
@@ -71,14 +71,14 @@ public class ForumTestWebView extends WebView {
             this.a = forumTestWebView;
         }
 
-        @Override // com.repackage.y46
+        @Override // com.repackage.a56
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                w46 w46Var = this.a.h;
-                if (w46Var != null) {
-                    return w46Var.b(str, jsPromptResult);
+                y46 y46Var = this.a.h;
+                if (y46Var != null) {
+                    return y46Var.b(str, jsPromptResult);
                 }
                 return false;
             }
@@ -359,9 +359,9 @@ public class ForumTestWebView extends WebView {
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
-    public void g(x46 x46Var) {
+    public void g(z46 z46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x46Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z46Var) == null) {
             getSettings().setJavaScriptEnabled(true);
             getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
             getSettings().setAllowFileAccess(true);
@@ -383,10 +383,10 @@ public class ForumTestWebView extends WebView {
             h hVar = new h(this, null);
             this.b = hVar;
             setWebChromeClient(hVar);
-            w46 w46Var = new w46();
-            this.h = w46Var;
-            w46Var.a(x46Var);
-            vl4.f(getContext());
+            y46 y46Var = new y46();
+            this.h = y46Var;
+            y46Var.a(z46Var);
+            ul4.f(getContext());
             removeJavascriptInterface("searchBoxJavaBridge_");
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");

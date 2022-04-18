@@ -32,37 +32,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b88;
+import com.repackage.c88;
+import com.repackage.cu4;
 import com.repackage.du4;
-import com.repackage.eu4;
+import com.repackage.e88;
+import com.repackage.f88;
 import com.repackage.h45;
 import com.repackage.mi;
 import com.repackage.oi;
-import com.repackage.u78;
 import com.repackage.uo;
-import com.repackage.v78;
-import com.repackage.x78;
-import com.repackage.y78;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
-public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, u78 {
+public class PersonReplyFragment extends BaseFragment implements AbsListView.OnScrollListener, b88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public BdListView b;
     public NavigationBarShadowView c;
-    public y78 d;
+    public f88 d;
     public boolean e;
     public NoDataView f;
     public h45 g;
-    public eu4 h;
+    public du4 h;
     public PbListView i;
     public View j;
     public boolean k;
     public int l;
     public int m;
     public boolean n;
-    public v78 o;
+    public c88 o;
     public View.OnClickListener p;
     public PersonPostModel.c q;
 
@@ -108,7 +108,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     }
 
     /* loaded from: classes3.dex */
-    public class b implements du4.g {
+    public class b implements cu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonReplyFragment a;
@@ -131,7 +131,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             this.a = personReplyFragment;
         }
 
-        @Override // com.repackage.du4.g
+        @Override // com.repackage.cu4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -322,7 +322,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             }
             hideLoadingView(this.a);
             N0(false);
-            x78.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0c18), true);
+            e88.b(this.g, this.p, getActivity(), this.a, getString(R.string.obfuscated_res_0x7f0f0c17), true);
             this.b.setVisibility(8);
         }
     }
@@ -330,9 +330,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public final void Q0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            y78 y78Var = new y78(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
-            this.d = y78Var;
-            y78Var.i(this.q);
+            f88 f88Var = new f88(getPageContext(), getArguments().getString("key_uid"), getArguments().getString(PersonPostActivityConfig.KEY_PORTRAIT_URL), getUniqueId());
+            this.d = f88Var;
+            f88Var.i(this.q);
             this.b.setAdapter((ListAdapter) this.d);
             this.b.setOnItemClickListener(new d(this));
         }
@@ -349,21 +349,21 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         O0();
     }
 
-    public void S0(v78 v78Var) {
+    public void S0(c88 c88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v78Var) == null) {
-            this.o = v78Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, c88Var) == null) {
+            this.o = c88Var;
         }
     }
 
-    @Override // com.repackage.u78
+    @Override // com.repackage.b88
     public void Y() {
-        y78 y78Var;
+        f88 f88Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (y78Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (f88Var = this.d) == null) {
             return;
         }
-        y78Var.f(true);
+        f88Var.f(true);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -374,7 +374,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             if (isAdded()) {
                 View view2 = this.j;
                 if (view2 != null) {
-                    SkinManager.setViewTextColor((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916ea), R.color.common_color_10215, 1);
+                    SkinManager.setViewTextColor((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916eb), R.color.common_color_10215, 1);
                 }
                 NoDataView noDataView = this.f;
                 if (noDataView != null) {
@@ -386,9 +386,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
                 }
                 this.h.H(i);
                 SkinManager.setBackgroundColor(this.a, this.m, i);
-                y78 y78Var = this.d;
-                if (y78Var != null) {
-                    y78Var.notifyDataSetChanged();
+                f88 f88Var = this.d;
+                if (f88Var != null) {
+                    f88Var.notifyDataSetChanged();
                 }
             }
         }
@@ -409,8 +409,8 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06d9, viewGroup, false);
             this.a = inflate;
-            this.b = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091281);
-            this.c = (NavigationBarShadowView) this.a.findViewById(R.id.obfuscated_res_0x7f091502);
+            this.b = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091282);
+            this.c = (NavigationBarShadowView) this.a.findViewById(R.id.obfuscated_res_0x7f091503);
             this.f = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070235)), NoDataViewFactory.e.d(null, getArguments().getString(PersonPostActivity.KEY_EMPTYVIEW_TXT)), null);
             return this.a;
         }
@@ -422,9 +422,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            y78 y78Var = this.d;
-            if (y78Var != null) {
-                y78Var.e();
+            f88 f88Var = this.d;
+            if (f88Var != null) {
+                f88Var.e();
                 this.d.i(null);
             }
         }
@@ -494,9 +494,9 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, view2, bundle) == null) {
-            eu4 eu4Var = new eu4(getPageContext());
-            this.h = eu4Var;
-            this.b.setPullRefresh(eu4Var);
+            du4 du4Var = new du4(getPageContext());
+            this.h = du4Var;
+            this.b.setPullRefresh(du4Var);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + oi.f(getActivity(), R.dimen.obfuscated_res_0x7f070260)));
             this.b.x(textView, 0);
@@ -507,7 +507,7 @@ public class PersonReplyFragment extends BaseFragment implements AbsListView.OnS
             pbListView.p(R.color.common_color_10022);
             this.i.E(SkinManager.getColor(R.color.common_color_10039));
             this.b.setNextPage(this.i);
-            View findViewById = this.i.b().findViewById(R.id.obfuscated_res_0x7f0916ed);
+            View findViewById = this.i.b().findViewById(R.id.obfuscated_res_0x7f0916ee);
             this.j = findViewById;
             findViewById.setVisibility(8);
         }

@@ -25,16 +25,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gw8;
 import com.repackage.ng5;
-import com.repackage.s98;
+import com.repackage.nw8;
+import com.repackage.z98;
 /* loaded from: classes4.dex */
-public class AdVideoFlowFragment extends BaseFragment implements ng5.b, gw8 {
+public class AdVideoFlowFragment extends BaseFragment implements ng5.b, nw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureInterceptTouchFrameLayout a;
     public FrameLayout b;
-    public s98 c;
+    public z98 c;
     public VideoItemModel d;
     public int e;
     public int f;
@@ -143,24 +143,24 @@ public class AdVideoFlowFragment extends BaseFragment implements ng5.b, gw8 {
         }
     }
 
-    public void D0(s98 s98Var) {
+    public void D0(z98 z98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s98Var) == null) {
-            this.c = s98Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z98Var) == null) {
+            this.c = z98Var;
         }
     }
 
     @Override // com.repackage.ng5.b
     public void K(float f, float f2) {
-        s98 s98Var;
+        z98 z98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (s98Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (z98Var = this.c) == null) {
             return;
         }
-        s98Var.onViewDoubleClick();
+        z98Var.onViewDoubleClick();
     }
 
-    @Override // com.repackage.gw8
+    @Override // com.repackage.nw8
     public void M(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -168,14 +168,14 @@ public class AdVideoFlowFragment extends BaseFragment implements ng5.b, gw8 {
         }
     }
 
-    @Override // com.repackage.gw8
+    @Override // com.repackage.nw8
     public VideoItemModel W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (VideoItemModel) invokeV.objValue;
     }
 
-    @Override // com.repackage.gw8
+    @Override // com.repackage.nw8
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -211,7 +211,7 @@ public class AdVideoFlowFragment extends BaseFragment implements ng5.b, gw8 {
                 this.d = (VideoItemModel) arguments.get("video_data");
                 this.f = arguments.getInt(VideoPlayActivityConfig.CURRENT_TYPE);
             }
-            this.c.setDrawables(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0809e4, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809c3, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080834, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080832, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080838, SkinManager.getColor(R.color.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080839, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.c.setDrawables(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0809e8, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809c7, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080833, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080831, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080837, SkinManager.getColor(R.color.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080838, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
             this.c.updateTiebaData(this.f, this.d);
             GestureInterceptTouchFrameLayout gestureInterceptTouchFrameLayout = (GestureInterceptTouchFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d007a, (ViewGroup) null);
             this.a = gestureInterceptTouchFrameLayout;
@@ -231,11 +231,11 @@ public class AdVideoFlowFragment extends BaseFragment implements ng5.b, gw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            s98 s98Var = this.c;
-            if (s98Var == null) {
+            z98 z98Var = this.c;
+            if (z98Var == null) {
                 return;
             }
-            s98Var.onDestroy();
+            z98Var.onDestroy();
         }
     }
 
@@ -256,11 +256,11 @@ public class AdVideoFlowFragment extends BaseFragment implements ng5.b, gw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            s98 s98Var = this.c;
-            if (s98Var == null) {
+            z98 z98Var = this.c;
+            if (z98Var == null) {
                 return;
             }
-            s98Var.onPause();
+            z98Var.onPause();
         }
     }
 
@@ -269,32 +269,32 @@ public class AdVideoFlowFragment extends BaseFragment implements ng5.b, gw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPrimary();
-            s98 s98Var = this.c;
-            if (s98Var == null) {
+            z98 z98Var = this.c;
+            if (z98Var == null) {
                 return;
             }
-            s98Var.onPrimary(isPrimary());
+            z98Var.onPrimary(isPrimary());
         }
     }
 
     @Override // com.repackage.ng5.b
     public void onViewClick() {
-        s98 s98Var;
+        z98 z98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (s98Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (z98Var = this.c) == null) {
             return;
         }
-        s98Var.onViewClick();
+        z98Var.onViewClick();
     }
 
     @Override // com.repackage.ng5.b
     public void onViewDragToRight() {
-        s98 s98Var;
+        z98 z98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (s98Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (z98Var = this.c) == null) {
             return;
         }
-        s98Var.onViewDragToRight();
+        z98Var.onViewDragToRight();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -302,11 +302,11 @@ public class AdVideoFlowFragment extends BaseFragment implements ng5.b, gw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             super.setUserVisibleHint(z);
-            s98 s98Var = this.c;
-            if (s98Var == null) {
+            z98 z98Var = this.c;
+            if (z98Var == null) {
                 return;
             }
-            s98Var.onUserVisibleHint(z);
+            z98Var.onUserVisibleHint(z);
         }
     }
 }

@@ -37,15 +37,15 @@ public final class wl5 {
     public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ti4 a;
+        public final /* synthetic */ si4 a;
         public final /* synthetic */ PopupWindow b;
 
-        public a(ti4 ti4Var, PopupWindow popupWindow) {
+        public a(si4 si4Var, PopupWindow popupWindow) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ti4Var, popupWindow};
+                Object[] objArr = {si4Var, popupWindow};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,7 +55,7 @@ public final class wl5 {
                     return;
                 }
             }
-            this.a = ti4Var;
+            this.a = si4Var;
             this.b = popupWindow;
         }
 
@@ -63,7 +63,7 @@ public final class wl5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090ccd) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090cce) {
                     if (x8.f().b() != null && !StringUtils.isNull(this.a.f())) {
                         Uri parse = Uri.parse(this.a.f());
                         if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
@@ -81,7 +81,7 @@ public final class wl5 {
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090ccc) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090ccd) {
                     try {
                         this.b.dismiss();
                     } catch (Throwable th2) {
@@ -97,15 +97,15 @@ public final class wl5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ ti4 b;
+        public final /* synthetic */ si4 b;
         public final /* synthetic */ PopupWindow c;
 
-        public b(String str, ti4 ti4Var, PopupWindow popupWindow) {
+        public b(String str, si4 si4Var, PopupWindow popupWindow) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, ti4Var, popupWindow};
+                Object[] objArr = {str, si4Var, popupWindow};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -116,7 +116,7 @@ public final class wl5 {
                 }
             }
             this.a = str;
-            this.b = ti4Var;
+            this.b = si4Var;
             this.c = popupWindow;
         }
 
@@ -124,7 +124,7 @@ public final class wl5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090ccd) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090cce) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921361, this.a));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.b.j).param("obj_source", "tb_password").param("obj_name", this.b.h).param("obj_param1", this.b.k.intValue()));
                     try {
@@ -132,7 +132,7 @@ public final class wl5 {
                     } catch (Throwable th) {
                         BdLog.e(th);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090ccc) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090ccd) {
                     try {
                         this.c.dismiss();
                     } catch (Throwable th2) {
@@ -143,45 +143,45 @@ public final class wl5 {
         }
     }
 
-    public static PopupWindow a(ti4 ti4Var) {
+    public static PopupWindow a(si4 si4Var) {
         InterceptResult invokeL;
         View.OnClickListener aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ti4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, si4Var)) == null) {
             Activity b2 = x8.f().b();
-            if (b2 == null || ti4Var == null) {
+            if (b2 == null || si4Var == null) {
                 return null;
             }
-            String f = ti4Var.f();
+            String f = si4Var.f();
             if (StringUtils.isNull(f)) {
                 return null;
             }
             View inflate = LayoutInflater.from(b2).inflate(R.layout.obfuscated_res_0x7f0d00e0, (ViewGroup) null, true);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ccd);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ccc);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09207b);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09207a);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09207c);
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811e1);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090cce);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ccd);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09207c);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09207b);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09207d);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0811e5);
             tbImageView.setAutoChangeStyle(false);
             PopupWindow popupWindow = new PopupWindow(b2);
-            if (ti4Var.g() != 3) {
-                aVar = new b(f, ti4Var, popupWindow);
-                if (!StringUtils.isNull(ti4Var.c())) {
-                    tbImageView.K(ti4Var.c(), 10, false);
+            if (si4Var.g() != 3) {
+                aVar = new b(f, si4Var, popupWindow);
+                if (!StringUtils.isNull(si4Var.c())) {
+                    tbImageView.K(si4Var.c(), 10, false);
                 } else {
-                    tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0811e1);
+                    tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0811e5);
                 }
             } else {
-                tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0811e2);
-                aVar = new a(ti4Var, popupWindow);
+                tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0811e6);
+                aVar = new a(si4Var, popupWindow);
             }
             textView.setOnClickListener(aVar);
             textView2.setOnClickListener(aVar);
-            textView.setText(ti4Var.b());
-            textView2.setText(ti4Var.a());
-            textView3.setText(ti4Var.e());
-            textView4.setText(ti4Var.d());
+            textView.setText(si4Var.b());
+            textView2.setText(si4Var.a());
+            textView3.setText(si4Var.e());
+            textView4.setText(si4Var.d());
             ColorDrawable colorDrawable = new ColorDrawable();
             colorDrawable.setColor(Color.argb(178, 0, 0, 0));
             popupWindow.setBackgroundDrawable(colorDrawable);

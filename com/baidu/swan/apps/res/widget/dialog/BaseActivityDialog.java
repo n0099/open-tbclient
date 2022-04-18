@@ -645,16 +645,16 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0907bf);
             this.mMessage = (TextView) findViewById(R.id.obfuscated_res_0x7f0907b5);
             this.mMessageContent = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907b6);
-            this.mPositiveButton = (TextView) findViewById(R.id.obfuscated_res_0x7f09189c);
-            this.mNegativeButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091530);
-            this.mNeutralButton = (TextView) findViewById(R.id.obfuscated_res_0x7f09153d);
+            this.mPositiveButton = (TextView) findViewById(R.id.obfuscated_res_0x7f09189d);
+            this.mNegativeButton = (TextView) findViewById(R.id.obfuscated_res_0x7f091531);
+            this.mNeutralButton = (TextView) findViewById(R.id.obfuscated_res_0x7f09153e);
             this.mDivider3 = findViewById(R.id.obfuscated_res_0x7f0907ed);
             this.mDivider4 = findViewById(R.id.obfuscated_res_0x7f0907ee);
             this.mDialogContent = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907ab);
             this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907af);
-            this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c41);
+            this.mDialogLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c42);
             this.mDivider2 = findViewById(R.id.obfuscated_res_0x7f0907ec);
-            this.mScrollView = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f091402);
+            this.mScrollView = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f091403);
             this.mBtnPanelLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090431);
             this.mBtnHeight = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070125);
             if (this.mBuilder.p > 0) {

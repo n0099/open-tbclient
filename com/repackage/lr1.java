@@ -100,7 +100,7 @@ public class lr1 extends ir1 {
                 return js1Var;
             }
             if (((JSONObject) s.second).optBoolean("hasCloseHandler", false)) {
-                nc4.a().c();
+                mc4.a().c();
             } else {
                 x();
             }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.br4;
 import com.repackage.l65;
 import com.repackage.m65;
 import com.repackage.of;
@@ -119,15 +119,15 @@ public class MvcJsonHttpResponsedMessage<D extends p65> extends MvcHttpResponsed
                         return;
                     }
                     if (l65Var.n()) {
-                        cr4.f();
-                        qe<byte[]> e = cr4.e(x, currentAccount);
+                        br4.f();
+                        qe<byte[]> e = br4.e(x, currentAccount);
                         if (e == null) {
                             return;
                         }
                         e.g(cacheKey, bArr);
                     } else if (mvcHttpMessage.getRequestData() instanceof m65) {
-                        cr4.f();
-                        qe<String> h = cr4.h(x, currentAccount);
+                        br4.f();
+                        qe<String> h = br4.h(x, currentAccount);
                         if (h == null) {
                             return;
                         }

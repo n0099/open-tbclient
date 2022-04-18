@@ -83,10 +83,10 @@ public class hz extends j00 {
     }
 
     @Override // com.repackage.qy
-    public void l(rx5<qn4> rx5Var) {
+    public void l(tx5<pn4> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rx5Var) == null) {
-            this.y.setSubClickListener(rx5Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, tx5Var) == null) {
+            this.y.setSubClickListener(tx5Var);
         }
     }
 
@@ -103,39 +103,39 @@ public class hz extends j00 {
     }
 
     @Override // com.repackage.j00
-    public k78 p() {
+    public r78 p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            l78 l78Var = new l78(this.b, this.i);
-            l78Var.setStageType("2003");
-            return l78Var;
+            s78 s78Var = new s78(this.b, this.i);
+            s78Var.setStageType("2003");
+            return s78Var;
         }
-        return (k78) invokeV.objValue;
+        return (r78) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.j00, com.repackage.fz
     /* renamed from: q */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, qn4Var) == null) {
-            this.h = qn4Var;
-            if (qn4Var == null || qn4Var.getThreadData() == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, pn4Var) == null) {
+            this.h = pn4Var;
+            if (pn4Var == null || pn4Var.getThreadData() == null) {
                 return;
             }
-            ThreadData threadData = qn4Var.getThreadData();
+            ThreadData threadData = pn4Var.getThreadData();
             if (threadData.getThreadVideoInfo() != null) {
                 this.y.setVisibility(8);
                 this.i.setVisibility(0);
                 this.A.setVisibility(8);
-                super.a(qn4Var);
+                super.a(pn4Var);
                 return;
             }
             this.i.setVisibility(8);
             this.y.setVisibility(0);
             this.A.setVisibility(0);
-            this.y.a(qn4Var);
+            this.y.a(pn4Var);
             ThreadCardUtils.setTitle(this.g, threadData);
             ThreadCardUtils.setAbstract(this.A, this.g, threadData, B);
         }
@@ -146,11 +146,11 @@ public class hz extends j00 {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01a6, (ViewGroup) null, true);
             this.f = inflate;
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092352);
-            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092351);
-            this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab1);
-            this.y = (InterviewLiveLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090aad);
-            k78 p = p();
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092353);
+            this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092352);
+            this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab2);
+            this.y = (InterviewLiveLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090aae);
+            r78 p = p();
             this.j = p;
             p.getMainView().setBackgroundResource(R.color.transparent);
         }

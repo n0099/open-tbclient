@@ -22,7 +22,7 @@ public abstract class s95<T, V extends TypeAdapter.ViewHolder> extends ho<T, V> 
     public boolean j;
     public TbPageContext<?> k;
     public zo l;
-    public lm4 m;
+    public km4 m;
     public fa5 n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -63,18 +63,18 @@ public abstract class s95<T, V extends TypeAdapter.ViewHolder> extends ho<T, V> 
         }
     }
 
-    public void b0(View view2, qn4 qn4Var) {
+    public void b0(View view2, pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, qn4Var) == null) || qn4Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, pn4Var) == null) || pn4Var == null) {
             return;
         }
-        lm4 lm4Var = this.m;
-        if (lm4Var != null) {
-            int i = qn4Var.position;
-            lm4Var.a(view2, qn4Var, i, i);
+        km4 km4Var = this.m;
+        if (km4Var != null) {
+            int i = pn4Var.position;
+            km4Var.a(view2, pn4Var, i, i);
             return;
         }
-        ha5.a(new ga5(StatsType.CLICK, qn4Var, view2, this.e));
+        ha5.a(new ga5(StatsType.CLICK, pn4Var, view2, this.e));
     }
 
     public int c0() {
@@ -196,10 +196,10 @@ public abstract class s95<T, V extends TypeAdapter.ViewHolder> extends ho<T, V> 
         }
     }
 
-    public void o0(lm4 lm4Var) {
+    public void o0(km4 km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, lm4Var) == null) {
-            this.m = lm4Var;
+        if (interceptable == null || interceptable.invokeL(1048592, this, km4Var) == null) {
+            this.m = km4Var;
         }
     }
 
@@ -217,16 +217,16 @@ public abstract class s95<T, V extends TypeAdapter.ViewHolder> extends ho<T, V> 
         }
     }
 
-    public void r0(View view2, qn4 qn4Var, int i, long j) {
+    public void r0(View view2, pn4 pn4Var, int i, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{view2, qn4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || qn4Var == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{view2, pn4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || pn4Var == null) {
             return;
         }
-        lm4 lm4Var = this.m;
-        if (lm4Var != null) {
-            lm4Var.c(view2, qn4Var, qn4Var.position, j);
+        km4 km4Var = this.m;
+        if (km4Var != null) {
+            km4Var.c(view2, pn4Var, pn4Var.position, j);
         } else {
-            ha5.a(new ga5(StatsType.SHOW, qn4Var, view2, this.e));
+            ha5.a(new ga5(StatsType.SHOW, pn4Var, view2, this.e));
         }
     }
 }

@@ -1,21 +1,16 @@
 package com.repackage;
 
+import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class um5 implements yl3 {
+public class um5 extends jw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,38 +28,16 @@ public class um5 implements yl3 {
         }
     }
 
-    @Override // com.repackage.am3
-    public void a(g13 g13Var) {
+    @Override // com.repackage.jw2
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, g13Var) == null) || g13Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String string = bundle.getString("key_param_url");
+            if (StringUtils.isNull(string)) {
+                c();
+            } else {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001447, string));
+            }
         }
-        g13Var.b(new wm5(g13Var));
-        g13Var.b(new pm5(g13Var));
-        g13Var.b(new yh3(g13Var));
-        g13Var.b(new ai3(g13Var));
-        g13Var.b(new ci3(g13Var));
-        g13Var.b(new x23(g13Var));
-        g13Var.b(new y23(g13Var));
-        g13Var.b(new y43(g13Var));
-        g13Var.b(new di3(g13Var));
-        g13Var.b(new bn1(g13Var));
-        g13Var.b(new tm5(g13Var));
-    }
-
-    @Override // com.repackage.am3
-    @Nullable
-    public Map<String, Object> b(@NonNull ko1 ko1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ko1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(ko1Var) : (Map) invokeL.objValue;
-    }
-
-    @Override // com.repackage.am3
-    @Nullable
-    public Map<String, Object> c(@NonNull ko1 ko1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ko1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(ko1Var) : (Map) invokeL.objValue;
     }
 }

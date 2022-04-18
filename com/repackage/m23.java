@@ -59,7 +59,7 @@ public class m23 extends n23 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.e.d) {
-                    b03 f = b03.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f12e5);
+                    b03 f = b03.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f12e4);
                     f.l(2);
                     f.G();
                 }
@@ -156,7 +156,7 @@ public class m23 extends n23 {
     public void k(j03 j03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j03Var, unitedSchemeEntity, callbackHandler, str) == null) {
-            PMSAppInfo u = f84.i().u(this.c);
+            PMSAppInfo u = e84.i().u(this.c);
             if (u != null && !TextUtils.isEmpty(u.appId)) {
                 if (this.d) {
                     n23.m("1", "btn", "invoke");

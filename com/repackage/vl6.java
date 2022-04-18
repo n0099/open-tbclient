@@ -1,81 +1,128 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b00;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.AlbumElement;
+import tbclient.ItemGameCode;
+import tbclient.ItemGameInfo;
+import tbclient.ItemInfo;
+import tbclient.ItemPage.DataRes;
+import tbclient.RecentUpdate;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
-public class vl6 extends id6<km6, ThreadCardViewHolder<km6>> {
+public class vl6 implements p65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ItemInfo a;
+    public List<AlbumElement> b;
+    public ArrayList<uo> c;
+    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vl6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    public vl6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = tbPageContext;
-        this.e = bdUniqueId2;
+        this.c = new ArrayList<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: l0 */
-    public ThreadCardViewHolder<km6> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            b00.b bVar = new b00.b(this.k.getPageActivity(), true);
-            bVar.n(new dm6(this.k.getPageActivity()));
-            bVar.l().b(0);
-            bVar.l().c(0);
-            bVar.l().f(0);
-            bVar.l().e(0);
-            bVar.l().i(0);
-            bVar.l().h(0);
-            ThreadCardViewHolder<km6> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.m));
-            threadCardViewHolder.k(this.e);
-            return threadCardViewHolder;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        ItemInfo itemInfo = dataRes.item_info;
+        this.a = itemInfo;
+        if (itemInfo == null) {
+            return;
+        }
+        this.b = dataRes.album_list;
+        int i = 1;
+        this.d = dataRes.has_tornado.intValue() == 1;
+        ItemGameCode itemGameCode = dataRes.item_game_code;
+        if (itemGameCode != null && ListUtils.getCount(itemGameCode.game_code_list) != 0) {
+            nm6 nm6Var = new nm6();
+            nm6Var.i(dataRes.item_game_code);
+            this.c.add(nm6Var);
+        }
+        ItemGameInfo itemGameInfo = dataRes.item_game_info;
+        if (itemGameInfo != null) {
+            List<ThreadInfo> list = itemGameInfo.hot_videos;
+            if (list != null && ListUtils.getCount(list) >= 3) {
+                om6 om6Var = new om6();
+                om6Var.g(dataRes.item_game_info.hot_videos);
+                this.c.add(om6Var);
+            }
+            RecentUpdate recentUpdate = dataRes.item_game_info.recent_update;
+            if (recentUpdate != null && !ni.isEmpty(recentUpdate.log)) {
+                pm6 pm6Var = new pm6();
+                pm6Var.g(dataRes.item_game_info.recent_update);
+                this.c.add(pm6Var);
+            }
+        }
+        if (!ListUtils.isEmpty(dataRes.thread_list)) {
+            lm6 lm6Var = new lm6();
+            lm6Var.setSupportType(BaseCardInfo.SupportType.TOP);
+            this.c.add(lm6Var);
+            for (ThreadInfo threadInfo : dataRes.thread_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.parser_title();
+                    threadData.setPositionInFrsItemTab(i);
+                    i++;
+                    threadData.insertItemToTitleOrAbstractText();
+                    this.c.add(threadData);
+                    lm6 lm6Var2 = new lm6();
+                    lm6Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                    this.c.add(lm6Var2);
+                }
+            }
+            lm6 lm6Var3 = new lm6();
+            lm6Var3.g(this.a.id.intValue());
+            lm6Var3.setPositionInFrsItemTab(i);
+            lm6Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+            this.c.add(lm6Var3);
+        }
+        mm6 mm6Var = new mm6();
+        mm6Var.i(dataRes.item_info);
+        if (mm6Var.g()) {
+            this.c.add(mm6Var);
+        }
+        qm6 qm6Var = new qm6();
+        qm6Var.g(dataRes.recommend_item);
+        this.c.add(qm6Var);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.id6, com.repackage.ho
-    /* renamed from: m0 */
-    public View S(int i, View view2, ViewGroup viewGroup, km6 km6Var, ThreadCardViewHolder<km6> threadCardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.p65
+    public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, km6Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(km6Var);
-            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            return threadCardViewHolder.b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.p65
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+        }
     }
 }

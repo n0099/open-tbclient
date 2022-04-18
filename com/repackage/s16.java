@@ -1,18 +1,19 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.repackage.a26;
 /* loaded from: classes7.dex */
-public class s16 implements r16 {
+public final class s16 extends r16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s16() {
+        super(new BottomRetainer(0.5f), new y16());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,54 +21,12 @@ public class s16 implements r16 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((a26) objArr[0], (a26.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.repackage.r16
-    public void a(d06 item, long j, d26 displayer, xz5 config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-        }
-    }
-
-    @Override // com.repackage.r16
-    public void b(d06 item) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-        }
-    }
-
-    @Override // com.repackage.r16
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.repackage.r16
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.r16
-    public boolean d(d06 item, long j, d26 displayer, xz5 config) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            return false;
-        }
-        return invokeCommon.booleanValue;
     }
 }

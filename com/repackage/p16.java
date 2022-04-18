@@ -1,88 +1,102 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y16;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class p16 implements r16 {
+public final class p16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y16 a;
-    public final y16.a b;
 
-    public p16(y16 retainer, y16.a locator) {
+    public static final u06 a(l0 l0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {retainer, locator};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, l0Var)) == null) {
+            Intrinsics.checkNotNullParameter(l0Var, "<this>");
+            return (u06) l0Var.d(u06.class);
+        }
+        return (u06) invokeL.objValue;
+    }
+
+    public static final r06 b(l0 l0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, l0Var)) == null) {
+            Intrinsics.checkNotNullParameter(l0Var, "<this>");
+            return (r06) l0Var.d(r06.class);
+        }
+        return (r06) invokeL.objValue;
+    }
+
+    public static final long c(l0 l0Var) {
+        InterceptResult invokeL;
+        f06 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, l0Var)) == null) {
+            Intrinsics.checkNotNullParameter(l0Var, "<this>");
+            r06 b = b(l0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
             }
+            return a.g();
         }
-        Intrinsics.checkNotNullParameter(retainer, "retainer");
-        Intrinsics.checkNotNullParameter(locator, "locator");
-        this.a = retainer;
-        this.b = locator;
+        return invokeL.longValue;
     }
 
-    @Override // com.repackage.r16
-    public void a(d06 item, long j, d26 displayer, xz5 config) {
+    public static final q06 d(l0 l0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            this.b.a(item, j, displayer, config);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, l0Var)) == null) {
+            Intrinsics.checkNotNullParameter(l0Var, "<this>");
+            return (q06) l0Var.d(q06.class);
         }
+        return (q06) invokeL.objValue;
     }
 
-    @Override // com.repackage.r16
-    public void b(d06 item) {
+    public static final s06 e(l0 l0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            this.a.b(item);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, l0Var)) == null) {
+            Intrinsics.checkNotNullParameter(l0Var, "<this>");
+            return (s06) l0Var.d(s06.class);
         }
+        return (s06) invokeL.objValue;
     }
 
-    @Override // com.repackage.r16
-    public void c(int i, int i2) {
+    public static final long f(l0 l0Var) {
+        InterceptResult invokeL;
+        f06 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.a.update(i, i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, l0Var)) == null) {
+            Intrinsics.checkNotNullParameter(l0Var, "<this>");
+            r06 b = b(l0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
+            }
+            return a.j();
         }
+        return invokeL.longValue;
     }
 
-    @Override // com.repackage.r16
-    public void clear() {
+    public static final boolean g(l0 l0Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.clear();
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, l0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(l0Var, "<this>");
+            return j - f(l0Var) < 0;
         }
+        return invokeLJ.booleanValue;
     }
 
-    @Override // com.repackage.r16
-    public boolean d(d06 item, long j, d26 displayer, xz5 config) {
-        InterceptResult invokeCommon;
+    public static final boolean h(l0 l0Var, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{item, Long.valueOf(j), displayer, config})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            item.f().B(this.a.a(item, j, displayer, config));
-            return item.f().p();
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, l0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(l0Var, "<this>");
+            return j - f(l0Var) > c(l0Var);
         }
-        return invokeCommon.booleanValue;
+        return invokeLJ.booleanValue;
     }
 }

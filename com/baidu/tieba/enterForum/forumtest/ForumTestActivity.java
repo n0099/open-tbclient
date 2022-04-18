@@ -38,26 +38,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.di;
-import com.repackage.kr4;
-import com.repackage.mr4;
+import com.repackage.jr4;
+import com.repackage.lr4;
+import com.repackage.nr4;
 import com.repackage.oi;
-import com.repackage.or4;
-import com.repackage.x46;
+import com.repackage.z46;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ForumTestActivity extends BaseActivity implements x46 {
+public class ForumTestActivity extends BaseActivity implements z46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public or4.d mDialogSaveToDiskListener;
-    public mr4 mMoreDialog;
-    public List<kr4> mMoreDialogDataList;
-    public or4 mMoreDialogView;
+    public nr4.d mDialogSaveToDiskListener;
+    public lr4 mMoreDialog;
+    public List<jr4> mMoreDialogDataList;
+    public nr4 mMoreDialogView;
     public NoNetworkView mNoNetworkView;
     public PermissionJudgePolicy mPermissionJudgement;
-    public kr4 mSaveToDickItem;
+    public jr4 mSaveToDickItem;
     public View mStatusBarView;
     public long mTestId;
     public String mUrl;
@@ -132,7 +132,7 @@ public class ForumTestActivity extends BaseActivity implements x46 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements or4.c {
+    public class c implements nr4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumTestActivity a;
@@ -155,7 +155,7 @@ public class ForumTestActivity extends BaseActivity implements x46 {
             this.a = forumTestActivity;
         }
 
-        @Override // com.repackage.or4.c
+        @Override // com.repackage.nr4.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -165,7 +165,7 @@ public class ForumTestActivity extends BaseActivity implements x46 {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements or4.d {
+    public class d implements nr4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumTestActivity a;
@@ -188,7 +188,7 @@ public class ForumTestActivity extends BaseActivity implements x46 {
             this.a = forumTestActivity;
         }
 
-        @Override // com.repackage.or4.d
+        @Override // com.repackage.nr4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -227,7 +227,7 @@ public class ForumTestActivity extends BaseActivity implements x46 {
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                oi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1372);
+                oi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f1371);
             }
         }
 
@@ -235,7 +235,7 @@ public class ForumTestActivity extends BaseActivity implements x46 {
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                oi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f106d);
+                oi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f106c);
             }
         }
     }
@@ -276,9 +276,9 @@ public class ForumTestActivity extends BaseActivity implements x46 {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideMoreDialog() {
-        mr4 mr4Var;
+        lr4 lr4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && (mr4Var = this.mMoreDialog) != null && mr4Var.isShowing()) {
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && (lr4Var = this.mMoreDialog) != null && lr4Var.isShowing()) {
             this.mMoreDialog.dismiss();
         }
     }
@@ -297,12 +297,12 @@ public class ForumTestActivity extends BaseActivity implements x46 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             if (this.mMoreDialog == null) {
-                this.mMoreDialogView = new or4(this);
+                this.mMoreDialogView = new nr4(this);
             }
             if (this.mMoreDialogDataList == null) {
                 this.mMoreDialogDataList = new ArrayList();
             }
-            this.mMoreDialog = new mr4(getPageContext(), this.mMoreDialogView);
+            this.mMoreDialog = new lr4(getPageContext(), this.mMoreDialogView);
         }
     }
 
@@ -314,7 +314,7 @@ public class ForumTestActivity extends BaseActivity implements x46 {
             this.mStatusBarView.setLayoutParams(layoutParams);
             if (TbSingleton.getInstance().isNotchScreen(getActivity()) || TbSingleton.getInstance().isCutoutScreen(getActivity())) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.mWebView.getLayoutParams();
-                layoutParams2.addRule(3, R.id.obfuscated_res_0x7f091d98);
+                layoutParams2.addRule(3, R.id.obfuscated_res_0x7f091d99);
                 this.mWebView.setLayoutParams(layoutParams2);
             }
         }
@@ -341,9 +341,9 @@ public class ForumTestActivity extends BaseActivity implements x46 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             this.mMoreDialogDataList.clear();
-            kr4 kr4Var = new kr4(getString(R.string.obfuscated_res_0x7f0f106e), this.mMoreDialogView);
-            this.mSaveToDickItem = kr4Var;
-            kr4Var.m(this.mDialogSaveToDiskListener);
+            jr4 jr4Var = new jr4(getString(R.string.obfuscated_res_0x7f0f106d), this.mMoreDialogView);
+            this.mSaveToDickItem = jr4Var;
+            jr4Var.m(this.mDialogSaveToDiskListener);
             this.mMoreDialogDataList.add(this.mSaveToDickItem);
             this.mMoreDialogView.m(new c(this));
             this.mMoreDialogView.j(this.mMoreDialogDataList);
@@ -358,7 +358,7 @@ public class ForumTestActivity extends BaseActivity implements x46 {
         this.mMoreDialog.m();
     }
 
-    @Override // com.repackage.x46
+    @Override // com.repackage.z46
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -428,7 +428,7 @@ public class ForumTestActivity extends BaseActivity implements x46 {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0038);
             this.mNoNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f090072);
-            this.mStatusBarView = findViewById(R.id.obfuscated_res_0x7f091d98);
+            this.mStatusBarView = findViewById(R.id.obfuscated_res_0x7f091d99);
             ForumTestWebView forumTestWebView = (ForumTestWebView) findViewById(R.id.obfuscated_res_0x7f090073);
             this.mWebView = forumTestWebView;
             forumTestWebView.g(this);

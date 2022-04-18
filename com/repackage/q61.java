@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q61 extends Resources {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

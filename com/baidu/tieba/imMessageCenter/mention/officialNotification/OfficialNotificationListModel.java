@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ad5;
+import com.repackage.b57;
 import com.repackage.dd5;
-import com.repackage.l67;
-import com.repackage.y47;
+import com.repackage.o67;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
@@ -61,7 +61,7 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(l67.t().c(String.valueOf(this.b.mUser.getUserId()), String.valueOf(this.a.getMsgId()))) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(o67.t().c(String.valueOf(this.b.mUser.getUserId()), String.valueOf(this.a.getMsgId()))) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -178,10 +178,10 @@ public class OfficialNotificationListModel extends CommonPersonalMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(y47 y47Var) {
+    public boolean loadFirst(b57 b57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, y47Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, b57Var)) == null) {
             if (this.mUser == null) {
                 return false;
             }

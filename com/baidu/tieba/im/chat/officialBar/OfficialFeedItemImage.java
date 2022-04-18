@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c77;
+import com.repackage.f77;
 import com.repackage.oi;
-import com.repackage.r67;
+import com.repackage.u67;
 /* loaded from: classes3.dex */
 public class OfficialFeedItemImage extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -81,15 +81,15 @@ public class OfficialFeedItemImage extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d063e, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0913fa);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091401);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091400);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091405);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0913fb);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091402);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091401);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091406);
             this.f = findViewById(R.id.obfuscated_res_0x7f09038d);
             this.b.setConrers(15);
             this.b.setRadius(oi.f(this.a, R.dimen.tbds21));
-            this.g = findViewById(R.id.obfuscated_res_0x7f090e6d);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091455);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090e6e);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091456);
             c();
         }
     }
@@ -97,7 +97,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0808e8, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0808ec, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.i) {
                 gradientLinear.into(this.f);
@@ -113,7 +113,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i > 0) {
-                this.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e36, StringHelper.numberUniformFormatExtraWithRound(i)));
+                this.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e35, StringHelper.numberUniformFormatExtraWithRound(i)));
                 this.d.setVisibility(0);
                 this.c.setVisibility(0);
                 return;
@@ -123,13 +123,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         }
     }
 
-    public void setData(c77.a aVar, int i, r67 r67Var) {
+    public void setData(f77.a aVar, int i, u67 u67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, r67Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, u67Var) == null) {
             this.b.K(aVar.c, 10, false);
             this.e.setText(aVar.a);
-            if (r67Var != null) {
-                i = r67Var.i();
+            if (u67Var != null) {
+                i = u67Var.i();
             }
             d(i);
         }

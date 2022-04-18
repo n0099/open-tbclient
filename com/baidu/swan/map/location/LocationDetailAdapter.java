@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.u54;
 import com.repackage.v54;
-import com.repackage.w54;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -22,17 +22,17 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public RecyclerView b;
-    public List<w54> c;
-    public v54 d;
+    public List<v54> c;
+    public u54 d;
     public boolean e;
     public String f;
 
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, v54 v54Var, boolean z) {
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, u54 u54Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, recyclerView, v54Var, Boolean.valueOf(z)};
+            Object[] objArr = {context, recyclerView, u54Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
         this.b = recyclerView;
         this.a = context;
-        this.d = v54Var;
+        this.d = u54Var;
         this.e = z;
     }
 
@@ -67,13 +67,13 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (w54 w54Var : this.c) {
-                w54Var.b = false;
+            for (v54 v54Var : this.c) {
+                v54Var.b = false;
             }
         }
     }
 
-    public void g(List<w54> list, String str) {
+    public void g(List<v54> list, String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, str) == null) || list == null) {
             return;
@@ -88,7 +88,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<w54> list = this.c;
+            List<v54> list = this.c;
             if (list == null) {
                 return 0;
             }
@@ -129,7 +129,7 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
 
-    public void setData(List<w54> list) {
+    public void setData(List<v54> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             g(list, null);
@@ -137,19 +137,19 @@ public class LocationDetailAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LocationDetailAdapter(Context context, RecyclerView recyclerView, v54 v54Var) {
-        this(context, recyclerView, v54Var, true);
+    public LocationDetailAdapter(Context context, RecyclerView recyclerView, u54 u54Var) {
+        this(context, recyclerView, u54Var, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, recyclerView, v54Var};
+            Object[] objArr = {context, recyclerView, u54Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (RecyclerView) objArr2[1], (v54) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
+                this((Context) objArr2[0], (RecyclerView) objArr2[1], (u54) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

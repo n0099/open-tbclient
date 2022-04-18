@@ -1,90 +1,135 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes7.dex */
-public class z99 {
+public class z99 implements s99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public long c;
-    public long d;
+    public u99 a;
+    public t99 b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public z99(int i, String str, String str2, long j) {
-        this(i, str, str2, 0L, 0L, j);
+    public z99(u99 u99Var, r99 r99Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j)};
+            Object[] objArr = {u99Var, r99Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2], ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue(), ((Long) objArr2[5]).longValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = u99Var;
+        t99 t99Var = new t99();
+        this.b = t99Var;
+        t99Var.k(r99Var);
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.s99
+    public void a(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.d = j;
+        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
+            this.b.m(downloadException);
+            this.b.r(108);
+            this.a.a(this.b);
         }
     }
 
-    public z99(int i, String str, String str2, long j, long j2, long j3) {
+    @Override // com.repackage.s99
+    public void b(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
+            this.b.m(downloadException);
+            this.b.r(108);
+            this.a.a(this.b);
         }
-        this.a = str2;
-        this.b = j;
-        this.c = j2;
-        this.d = j3;
+    }
+
+    @Override // com.repackage.s99
+    public void onConnectCanceled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.r(107);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.repackage.s99
+    public void onConnected(long j, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.b.s(j);
+            this.b.j(z);
+            this.b.r(103);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.repackage.s99
+    public void onConnecting() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.r(102);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.repackage.s99
+    public void onDownloadCanceled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.r(107);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.repackage.s99
+    public void onDownloadCompleted(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b.r(105);
+            this.b.q(str);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.repackage.s99
+    public void onDownloadPaused() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.r(106);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.repackage.s99
+    public void onDownloadProgress(long j, long j2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            this.b.n(j);
+            this.b.o(j2);
+            this.b.p(i);
+            this.b.r(104);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.repackage.s99
+    public void onStarted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.b.r(101);
+            this.b.a().h();
+        }
     }
 }

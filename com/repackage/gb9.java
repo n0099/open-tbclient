@@ -1,181 +1,97 @@
 package com.repackage;
 
-import android.media.AudioRecord;
-import androidx.annotation.NonNull;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import java.nio.ByteBuffer;
+import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 /* loaded from: classes6.dex */
-public class gb9 {
+public class gb9 extends db9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] b;
-    public static int c;
-    public static int d;
-    public static int e;
-    public static gb9 f;
-    public static byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioRecord a;
+    public boolean B;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755683661, "Lcom/repackage/gb9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755683661, "Lcom/repackage/gb9;");
-                return;
-            }
+    @Override // com.repackage.cb9, com.repackage.rb9
+    public void a(lb9 lb9Var, SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, lb9Var, surfaceTexture) == null) {
+            lb9Var.h(this.mFullScreen2D, this.t, GlUtil.IDENTITY_MATRIX);
+            lb9Var.f(surfaceTexture);
         }
-        b = new int[]{1, 0, 5, 7, 6};
-        c = RecordConstants.MOVIE_ENCODE_SAMPLE_RATE;
-        d = 2048;
-        e = 24;
-        g = new byte[0];
     }
 
-    public gb9(int i) {
-        int[] iArr;
+    public final void i(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7, float[] fArr2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        int minBufferSize = AudioRecord.getMinBufferSize(c, 16, 2);
-        int i4 = d;
-        int i5 = e * i4;
-        i5 = i5 < minBufferSize ? ((minBufferSize / i4) + 1) * i4 * 2 : i5;
-        if (i != -100) {
-            try {
-                AudioRecord audioRecord = new AudioRecord(i, c, 16, 2, i5);
-                this.a = audioRecord;
-                if (audioRecord.getState() != 1) {
-                    this.a = null;
-                }
-            } catch (Exception unused) {
-                this.a = null;
-            }
-            if (this.a != null) {
-                tb9.d("audio_source:(if) ---> " + i);
-            }
-        }
-        if (this.a == null) {
-            for (int i6 : b) {
-                try {
-                    AudioRecord audioRecord2 = new AudioRecord(i6, c, 16, 2, i5);
-                    this.a = audioRecord2;
-                    if (audioRecord2.getState() != 1) {
-                        this.a = null;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            GLES20.glBindFramebuffer(36160, i2);
+            GLES20.glFramebufferTexture2D(36160, 36064, 3553, i3, 0);
+            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            GLES20.glClear(16640);
+            if (this.z) {
+                if (z) {
+                    int i8 = this.j;
+                    int i9 = this.k;
+                    if (i8 > i9) {
+                        int i10 = this.p;
+                        float f = (i10 * 1.0f) / i8;
+                        GLES20.glViewport(0, (this.q - ((int) (i9 * f))) / 2, i10, (int) (i9 * f));
+                    } else {
+                        GLES20.glViewport(0, 0, this.p, this.q);
                     }
-                } catch (Exception unused2) {
-                    this.a = null;
+                    this.o.drawFrame(this.l, fArr2);
                 }
-                if (this.a != null) {
-                    tb9.d("audio_source:(for) ---> " + i6);
-                    return;
+                if (z2) {
+                    GLES20.glViewport(0, 0, this.p, this.q);
+                } else {
+                    GLES20.glViewport(i4 + this.w, ((this.q - i7) - i5) - this.x, i6, i7);
+                }
+                this.mFullScreen2D.drawFrame(i, fArr);
+            } else {
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(i, fArr);
+                if (z) {
+                    int i11 = i4 + this.w;
+                    int i12 = this.q;
+                    int i13 = this.k;
+                    GLES20.glViewport(i11, ((i12 - i13) - i5) - this.x, this.j, i13);
+                    this.o.drawFrame(this.l, fArr2);
                 }
             }
+            GLES20.glBindFramebuffer(36160, 0);
         }
     }
 
-    public int a(@NonNull ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
+    public boolean j(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, byteBuffer, i)) == null) {
-            AudioRecord audioRecord = this.a;
-            if (audioRecord == null) {
-                return 0;
-            }
-            return audioRecord.read(byteBuffer, i);
-        }
-        return invokeLI.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? (this.z && d(motionEvent)) || (!this.z && e(motionEvent)) : invokeL.booleanValue;
     }
 
-    public void b() {
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
-            return;
-        }
-        synchronized (g) {
-            g();
-            if (f == this) {
-                f = null;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B : invokeV.booleanValue;
     }
 
-    public void c() {
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void onDrawFrame(pf0 pf0Var, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (g) {
-                if (f == this) {
-                    return;
-                }
-                if (f != null) {
-                    f.g();
-                    f = null;
-                }
+        if ((interceptable == null || interceptable.invokeLIL(1048580, this, pf0Var, i, fArr) == null) && this.s && this.l != 0) {
+            try {
+                this.mTextureId = i;
+                this.m.updateTexImage();
+                this.m.getTransformMatrix(this.n);
                 f();
-                f = this;
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, !this.B, false);
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(this.t, GlUtil.IDENTITY_MATRIX);
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, false, true);
+            } catch (Throwable th) {
+                ac9.c("followvideo", th.toString());
             }
         }
-    }
-
-    public AudioRecord d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (AudioRecord) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AudioRecord audioRecord = this.a;
-            if (audioRecord != null) {
-                return audioRecord.getRecordingState();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void f() {
-        AudioRecord audioRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (audioRecord = this.a) == null) {
-            return;
-        }
-        audioRecord.startRecording();
-    }
-
-    public final void g() {
-        AudioRecord audioRecord;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.a) == null) {
-            return;
-        }
-        this.a = null;
-        audioRecord.stop();
-        audioRecord.release();
     }
 }

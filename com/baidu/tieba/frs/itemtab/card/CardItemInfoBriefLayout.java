@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gz;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import tbclient.ItemInfo;
 /* loaded from: classes3.dex */
 public class CardItemInfoBriefLayout extends FrameLayout implements gz {
@@ -134,7 +134,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements gz {
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.a;
             multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05c1))));
-            wr4 d = wr4.d(this.a);
+            vr4 d = vr4.d(this.a);
             d.z(R.dimen.T_X07);
             d.w(R.dimen.M_T_X002);
             this.a.setPadding(0, 0, 0, oi.f(getContext(), R.dimen.M_H_X005));
@@ -143,7 +143,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements gz {
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
             eMTextView.setText(R.string.obfuscated_res_0x7f0f05c1);
-            wr4.d(this.a).z(R.dimen.T_X07);
+            vr4.d(this.a).z(R.dimen.T_X07);
             this.b.setPadding(oi.f(getContext(), R.dimen.M_W_X005), oi.f(getContext(), R.dimen.M_H_X005), 0, oi.f(getContext(), R.dimen.M_H_X005));
             this.b.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -157,12 +157,12 @@ public class CardItemInfoBriefLayout extends FrameLayout implements gz {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            wr4 d = wr4.d(this);
+            vr4 d = vr4.d(this);
             d.m(2);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            wr4.d(this.a).v(R.color.CAM_X0105);
-            wr4.d(this.b).v(R.color.CAM_X0304);
+            vr4.d(this.a).v(R.color.CAM_X0105);
+            vr4.d(this.b).v(R.color.CAM_X0304);
         }
     }
 

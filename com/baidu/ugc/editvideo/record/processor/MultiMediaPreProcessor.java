@@ -32,12 +32,12 @@ import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListe
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
 import com.faceunity.gles.GeneratedTexture;
-import com.repackage.lc9;
+import com.repackage.ac9;
+import com.repackage.fc9;
 import com.repackage.pf0;
 import com.repackage.rf0;
-import com.repackage.tb9;
+import com.repackage.sc9;
 import com.repackage.xf0;
-import com.repackage.yb9;
 import java.io.File;
 import java.util.List;
 import java.util.Map;
@@ -160,7 +160,7 @@ public class MultiMediaPreProcessor {
                 }
                 f9 = f12 + ((multiMediaData.width / 2.0f) * f);
                 f2 = (f10 - ((multiMediaData.height / 2.0f) * f)) - f13;
-                tb9.e("MultiMediaPreProcessor", "ADAPTIVE,x:" + multiMediaData.x + ",y:" + multiMediaData.y + ",posx:" + f9 + ",posy:" + f2 + ",previewwidth:" + i3 + ",previeheight:" + i4);
+                ac9.e("MultiMediaPreProcessor", "ADAPTIVE,x:" + multiMediaData.x + ",y:" + multiMediaData.y + ",posx:" + f9 + ",posy:" + f2 + ",previewwidth:" + i3 + ",previeheight:" + i4);
             } else if (multiMediaData.scaleType.contains(charSequence)) {
                 int min = Math.min(i, i2);
                 float f14 = min;
@@ -272,7 +272,7 @@ public class MultiMediaPreProcessor {
             if (this.mBgBitmap != null) {
                 return true;
             }
-            if (yb9.e(this.mUpdateMediaTracks)) {
+            if (fc9.e(this.mUpdateMediaTracks)) {
                 return false;
             }
             for (int i = 1; i < this.mUpdateMediaTracks.size(); i++) {
@@ -675,7 +675,7 @@ public class MultiMediaPreProcessor {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65552, this, multiMediaData) == null) && this.mTestSavePic && (i = this.mTestSavePicCount) < 1) {
             if (i == 0) {
-                lc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor.1
+                sc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MultiMediaPreProcessor this$0;
@@ -828,7 +828,7 @@ public class MultiMediaPreProcessor {
             int i6 = 0;
             this.mCurrentFboIndex = 0;
             this.mPlayTime = j;
-            if (yb9.e(list)) {
+            if (fc9.e(list)) {
                 return 0;
             }
             List<MediaTrack> list3 = this.mUpdateMediaTracks;

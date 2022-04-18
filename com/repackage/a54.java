@@ -2,7 +2,6 @@ package com.repackage;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a54 extends v44<vm2> {
+public class a54 extends u44<vm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,7 +53,7 @@ public class a54 extends v44<vm2> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new a54() : (a54) invokeV.objValue;
     }
 
-    @Override // com.repackage.v44
+    @Override // com.repackage.u44
     public boolean b(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -64,31 +64,23 @@ public class a54 extends v44<vm2> {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vm2Var, sm2Var, j03Var, jSONObject)) == null) {
-            jx1.i("map", "GetRegionAction start");
+            jx1.i("map", "GetScaleAction start");
             rm1 A = wl2.U().A(vm2Var.c);
             if (!(A instanceof pm1)) {
                 jx1.c("map", "WebViewManager is null");
                 return false;
             }
-            t54 d = s44.b().c((pm1) A).d(vm2Var.b);
+            s54 d = r44.b().c((pm1) A).d(vm2Var.b);
             if (d == null) {
                 jx1.c("map", "can not find map by id " + vm2Var.b);
                 return false;
             }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
             try {
-                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
-                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
-                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
-                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
-                jSONObject.put("southwest", jSONObject3);
-                jSONObject.put("northeast", jSONObject2);
+                jSONObject.put(AnimationProperty.SCALE, d.l.getMap().getMapStatus().zoom);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            jx1.i("map", "GetRegionAction end");
+            jx1.i("map", "GetScaleAction end");
             return true;
         }
         return invokeLLLLL.booleanValue;

@@ -334,7 +334,7 @@ public class z71 implements y71 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     t71 t71Var = this.c.d;
-                    t71Var.a(new IOException("status code " + this.a + ", response " + this.b), this.a, p91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e8f));
+                    t71Var.a(new IOException("status code " + this.a + ", response " + this.b), this.a, p91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e8e));
                 }
             }
         }
@@ -369,7 +369,7 @@ public class z71 implements y71 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.d.a(this.a, -1000, p91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e8f));
+                    this.b.d.a(this.a, -1000, p91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e8e));
                 }
             }
         }
@@ -459,7 +459,7 @@ public class z71 implements y71 {
                                 sb2.append(responseCode);
                                 sb2.append(", response ");
                                 sb2.append(c3);
-                                t71Var.a(new IOException(sb2.toString()), responseCode, p91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e8f));
+                                t71Var.a(new IOException(sb2.toString()), responseCode, p91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e8e));
                             }
                         }
                     }
@@ -472,7 +472,7 @@ public class z71 implements y71 {
                             if (this.e.b) {
                                 this.e.a.post(new c(this, th));
                             } else {
-                                this.d.a(th, -1000, p91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e8f));
+                                this.d.a(th, -1000, p91.a().getResources().getString(R.string.obfuscated_res_0x7f0f0e8e));
                             }
                         }
                         j91.a(null, dataOutputStream);

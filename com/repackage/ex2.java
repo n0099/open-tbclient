@@ -38,8 +38,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fj2;
+import com.repackage.gb4;
 import com.repackage.gl2;
-import com.repackage.hb4;
 import com.repackage.n52;
 import com.repackage.q52;
 import java.io.File;
@@ -309,7 +309,7 @@ public final class ex2 extends ax2 {
                     i03.J().m(bundle2, "update_tag_by_app_launch");
                     j03 a02 = j03.a0();
                     if (a02 != null && fj2.O(a02)) {
-                        Set<hb4.a> i = qv2.i(a02.V().f0());
+                        Set<gb4.a> i = qv2.i(a02.V().f0());
                         a02.L0(i);
                         if (i != null && !i.isEmpty()) {
                             y62.c(19);
@@ -519,7 +519,7 @@ public final class ex2 extends ax2 {
                     gl2.a aVar = new gl2.a();
                     PMSAppInfo pMSAppInfo = (PMSAppInfo) bundle.getParcelable("swan_app_prefetch_pms_info");
                     if (pMSAppInfo == null) {
-                        pMSAppInfo = f84.i().u(prefetchEvent.appId);
+                        pMSAppInfo = e84.i().u(prefetchEvent.appId);
                     }
                     aVar.S0(pMSAppInfo);
                     i03.J().m(aVar.D(), "update_tag_by_prefetch");

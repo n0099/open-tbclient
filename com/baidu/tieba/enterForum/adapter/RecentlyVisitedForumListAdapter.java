@@ -174,8 +174,8 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             this.g = recentlyVisitedForumListAdapter;
             view2.setOnClickListener(new a(this, recentlyVisitedForumListAdapter));
             view2.setOnLongClickListener(new b(this, recentlyVisitedForumListAdapter));
-            this.a = view2.findViewById(R.id.obfuscated_res_0x7f092092);
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a53);
+            this.a = view2.findViewById(R.id.obfuscated_res_0x7f092093);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a54);
             this.d = barImageView;
             barImageView.setShowOval(true);
             this.d.setShowOuterBorder(false);
@@ -183,9 +183,9 @@ public class RecentlyVisitedForumListAdapter extends RecyclerView.Adapter<ForumV
             this.d.setStrokeWith(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3));
             this.d.setStrokeColorResId(R.color.CAM_X0401);
             this.d.setPlaceHolderAutoChangeSkinType(1);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a69);
-            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091a1a);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a46);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a6a);
+            this.e = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f091a1b);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a47);
             this.e.setThreeDotMode(2);
             this.e.setEnterForumStyle(true);
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09077a);

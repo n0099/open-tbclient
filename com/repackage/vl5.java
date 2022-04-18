@@ -110,12 +110,12 @@ public class vl5 {
         if (Build.VERSION.SDK_INT <= 21 || TbadkCoreApplication.getInst().isRemoteProcess()) {
             return;
         }
-        cn5.b();
+        en5.b();
         if (ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
             Fresco.initialize(AppRuntime.getAppContext());
         }
         xl5.l().q(TbadkCoreApplication.getInst());
-        zm5.a().b(TbadkCoreApplication.getInst());
+        bn5.a().b(TbadkCoreApplication.getInst());
         l30.e(TbadkCoreApplication.getInst()).l(new a());
         de3.b0(new b(), 3000L);
     }

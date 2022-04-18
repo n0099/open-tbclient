@@ -54,7 +54,9 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
             super.addStatsDuration(str, j);
-            this.mLaunchTaskDuration.put(str, Long.valueOf(j));
+            synchronized (this.mLaunchTaskDuration) {
+                this.mLaunchTaskDuration.put(str, Long.valueOf(j));
+            }
         }
     }
 
@@ -108,8 +110,10 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
             hashMap.put(INIT_IDLE_TASK, String.valueOf(j7));
             hashMap.put(INIT_LAUNCH_TASK, String.valueOf(j9));
             hashMap.put(INIT_SPEED_STATUS, String.valueOf(j10));
-            for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
-                hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
+            synchronized (this.mLaunchTaskDuration) {
+                for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
+                    hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
+                }
             }
             JSONObject jsonData = SpeedStatsUtils.getJsonData(j3, hashMap);
             if (jsonData != null) {

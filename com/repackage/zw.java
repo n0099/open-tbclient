@@ -150,12 +150,12 @@ public class zw {
 
             /* renamed from: com.repackage.zw$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0575a implements Runnable {
+            public class RunnableC0574a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0575a(a aVar) {
+                public RunnableC0574a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public class zw {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    bv.c(new RunnableC0575a(this));
+                    bv.c(new RunnableC0574a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;
@@ -333,11 +333,11 @@ public class zw {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d0744, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f08107c);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081081);
             gradientDrawable.setColor(ex.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060abf)));
             gradientDrawable.setAlpha(204);
             relativeLayout.setBackground(gradientDrawable);
-            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0915b1);
+            TextView textView = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0915b2);
             if (textView != null) {
                 textView.setTextColor(ex.a.a(str2, resources.getColor(R.color.obfuscated_res_0x7f060abe)));
                 textView.setText(charSequence);
@@ -354,18 +354,18 @@ public class zw {
             Context applicationContext = context.getApplicationContext();
             Resources resources = context.getResources();
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d0745, (ViewGroup) null);
-            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f08107c);
+            GradientDrawable gradientDrawable = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081081);
             gradientDrawable.setColor(ex.a.a(str, resources.getColor(R.color.obfuscated_res_0x7f060abf)));
             gradientDrawable.setAlpha(204);
             linearLayout.setBackground(gradientDrawable);
             linearLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a99)) != null) {
+            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a9a)) != null) {
                 textView.setText(charSequence);
                 textView.setTextColor(ex.a.a(str3, resources.getColor(R.color.obfuscated_res_0x7f060abe)));
                 textView.setTextSize(1, i);
             }
-            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a98);
-            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f08107d);
+            TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a99);
+            GradientDrawable gradientDrawable2 = (GradientDrawable) resources.getDrawable(R.drawable.obfuscated_res_0x7f081082);
             gradientDrawable2.setColor(ex.a.a(str4, resources.getColor(R.color.obfuscated_res_0x7f060abf)));
             textView2.setBackground(gradientDrawable2);
             if (!TextUtils.isEmpty(charSequence2)) {

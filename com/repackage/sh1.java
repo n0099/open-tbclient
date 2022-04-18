@@ -13,7 +13,7 @@ public interface sh1 {
 
     void c(JSONObject jSONObject);
 
-    d84 d();
+    c84 d();
 
     void e(int i, String str);
 

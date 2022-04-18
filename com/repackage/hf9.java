@@ -1,5 +1,17 @@
 package com.repackage;
+
+import android.graphics.Bitmap;
+import android.graphics.Typeface;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface hf9<T> {
-    boolean a(T t);
+public abstract class hf9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract boolean a(String str);
+
+    public abstract Typeface b(String str, int i, String str2);
+
+    public abstract Bitmap c(String str);
 }

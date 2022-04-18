@@ -1,148 +1,153 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import tbclient.App;
 /* loaded from: classes5.dex */
-public class cl8 {
+public class cl8 extends PostData {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, el8> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdvertAppInfo F0;
+    public boolean G0;
+    public String H0;
+    public String I0;
+    public String J0;
+    public long K0;
+    public int L0;
+    public boolean M0;
+    public int N0;
+    public boolean O0;
 
-    /* loaded from: classes5.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public cl8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.G0 = false;
+        this.O0 = false;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public String M0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.F0;
+            return advertAppInfo == null ? "" : advertAppInfo.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String N0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.F0;
+            return advertAppInfo == null ? "" : advertAppInfo.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String O0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.G0 ? "PB_BANNER" : this.M0 ? "VIDEO_PB" : "PB" : (String) invokeV.objValue;
+    }
+
+    public AdvertAppInfo.ILegoAdvert P0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.F0;
+            if (advertAppInfo == null) {
+                return null;
+            }
+            return advertAppInfo.i;
+        }
+        return (AdvertAppInfo.ILegoAdvert) invokeV.objValue;
+    }
+
+    public boolean Q0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.F0;
+            return advertAppInfo != null && advertAppInfo.q() == 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void R0(App app) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, app) == null) {
+            AdvertAppInfo advertAppInfo = new AdvertAppInfo();
+            this.F0 = advertAppInfo;
+            advertAppInfo.s(app);
+            this.F0.k = O0();
+        }
+    }
+
+    public AdvertAppInfo getAdvertAppInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.F0 : (AdvertAppInfo) invokeV.objValue;
+    }
+
+    public int getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.F0;
+            if (advertAppInfo == null) {
+                return 0;
+            }
+            return mg.e(advertAppInfo.g, 0);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.uo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        AdvertAppInfo advertAppInfo;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (!bn4.c().g() && (advertAppInfo = this.F0) != null && (iLegoAdvert = advertAppInfo.i) != null && !iLegoAdvert.isNoPicAd()) {
+                return AdvertAppInfo.x;
+            }
+            if (UbsABTestHelper.isPbPageBannerFunAdSdkTest() && this.G0) {
+                return AdvertAppInfo.x;
+            }
+            AdvertAppInfo advertAppInfo2 = this.F0;
+            if (advertAppInfo2 != null && advertAppInfo2.i != null) {
+                int i = advertAppInfo2.c;
+                if (i != 1001 && i != -1001) {
+                    if (P0() != null) {
+                        return AdvertAppInfo.z;
+                    }
+                    return null;
                 }
+                return AdvertAppInfo.x;
             }
+            return AdvertAppInfo.x;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                cl8.a(1);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755793246, "Lcom/repackage/cl8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755793246, "Lcom/repackage/cl8;");
-                return;
-            }
-        }
-        MessageManager.getInstance().registerListener(new a(2001011));
-        a = new HashMap<>();
-    }
-
-    public static void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            for (String str : a.keySet()) {
-                b(a.get(str), i);
-            }
-        }
-    }
-
-    public static void b(el8 el8Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, el8Var, i) == null) {
-            dl8 dl8Var = el8Var.d;
-            dl8 dl8Var2 = el8Var.e;
-            dl8 dl8Var3 = el8Var.f;
-            if (dl8Var.b + dl8Var2.b + dl8Var3.b >= i) {
-                ug ugVar = new ug("dbg");
-                ugVar.b("act", el8Var.c);
-                ugVar.b("httpTimeCost", String.valueOf(dl8Var.a));
-                ugVar.b("httpNum", String.valueOf(dl8Var.b));
-                ugVar.b("httpFailnum", String.valueOf(dl8Var.c));
-                ugVar.b("httpSize", String.valueOf(dl8Var.d));
-                ugVar.b("socketTimeCost", String.valueOf(dl8Var2.a));
-                ugVar.b("socketNum", String.valueOf(dl8Var2.b));
-                ugVar.b("socketFailnum", String.valueOf(dl8Var2.c));
-                ugVar.b("socketSize", String.valueOf(dl8Var2.d));
-                ugVar.b("abortTimeCost", String.valueOf(dl8Var3.a));
-                ugVar.b("abortNum", String.valueOf(dl8Var3.b));
-                ugVar.b("netType", el8Var.b);
-                ugVar.b("isJson", el8Var.a ? "1" : "0");
-                BdStatisticsManager.getInstance().debug("frs", ugVar);
-                dl8Var.a();
-                dl8Var2.a();
-                dl8Var3.a();
-            }
-        }
-    }
-
-    public static void c(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
-            if (str2 == null) {
-                str2 = "";
-            }
-            String str3 = str + str2;
-            if (a.containsKey(str3)) {
-                return;
-            }
-            a.put(str3, new el8(str, str2, z));
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-        }
-    }
-
-    public static el8 e(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, str2, z)) == null) {
-            if (str2 == null) {
-                str2 = "";
-            }
-            String str3 = str + str2;
-            if (!a.containsKey(str3)) {
-                a.put(str3, new el8(str, str2, z));
-            }
-            return a.get(str3);
-        }
-        return (el8) invokeLLZ.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 }

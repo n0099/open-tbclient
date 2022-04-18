@@ -1,35 +1,27 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.kwad.sdk.api.KsNativeAd;
-import com.repackage.bk9;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsFullScreenVideoAd;
 /* loaded from: classes5.dex */
-public class dk9 implements FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x> {
+public class dk9 implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bk9.b a;
-    public final /* synthetic */ Context b;
-    public final /* synthetic */ bk9 c;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ KsFullScreenVideoAd c;
+    public final /* synthetic */ ck9 d;
 
-    public dk9(bk9 bk9Var, KsNativeAd ksNativeAd, Context context) {
+    public dk9(ck9 ck9Var, KsFullScreenVideoAd ksFullScreenVideoAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bk9Var, ksNativeAd, context};
+            Object[] objArr = {ck9Var, ksFullScreenVideoAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,36 +31,61 @@ public class dk9 implements FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x>
                 return;
             }
         }
-        this.c = bk9Var;
-        this.b = context;
-        this.a = new bk9.b(bk9Var, ksNativeAd);
+        this.d = ck9Var;
+        this.c = ksFullScreenVideoAd;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [android.view.View, com.fun.module.ks.x] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.ks.x createExpressView(KsNativeAd ksNativeAd) {
-        InterceptResult invokeL;
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksNativeAd)) == null) ? this.c.a(this.b, ksNativeAd) : (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.c.f(ksNativeAd, str, customInflater.inflate(), customInflater.getClickViews(), this.a, funAdInteractionListener);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.b, new String[0]);
+            this.b = true;
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onPageDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.c.f(ksNativeAd, str, expressInflater.inflate(), baseNativeAd2.getExpressView().getClickViews(), this.a, funAdInteractionListener);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onSkippedVideo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
+            this.d.onAdError(i, String.valueOf(i2));
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
         }
     }
 }

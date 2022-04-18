@@ -61,11 +61,11 @@ public class ImageProblemItemView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d3, (ViewGroup) this, true);
             this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f07);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091fed);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f08);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091fee);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ac);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912e0);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0921a4);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912e1);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0921a5);
         }
     }
 

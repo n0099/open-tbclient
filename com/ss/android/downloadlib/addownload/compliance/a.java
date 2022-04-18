@@ -55,7 +55,7 @@ public class a extends Dialog {
         setContentView(R.layout.obfuscated_res_0x7f0d084a);
         Window window = getWindow();
         if (window != null) {
-            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081214);
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081218);
         }
         setCancelable(true);
         setCanceledOnTouchOutside(true);
@@ -71,14 +71,14 @@ public class a extends Dialog {
     }
 
     private void a() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092168);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09216b);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092167);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092166);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092169);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09219e);
-        this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f090fba);
-        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912e4);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092169);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09216c);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092168);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092167);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09216a);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09219f);
+        this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f090fbb);
+        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912e5);
         this.a.setText(l.a(this.l.e, "--"));
         TextView textView = this.b;
         textView.setText("版本号：" + l.a(this.l.f, "--"));

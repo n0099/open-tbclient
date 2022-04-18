@@ -33,12 +33,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dz8;
-import com.repackage.fv4;
+import com.repackage.ev4;
+import com.repackage.kz8;
 import com.repackage.oi;
 import com.repackage.pg;
 import com.repackage.rb;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -51,7 +51,7 @@ public class RichTextEditor extends LinearLayout {
     public int c;
     public WriteImagesInfo d;
     public View.OnClickListener e;
-    public fv4.a f;
+    public ev4.a f;
     public long g;
     public View.OnFocusChangeListener h;
     public TextWatcher i;
@@ -348,9 +348,9 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setBackgroundResource(0);
             spanGroupEditText.setPadding(0, 0, 0, 0);
             spanGroupEditText.setLineSpacing(oi.f(getContext(), R.dimen.M_T_X002), 1.0f);
-            dz8.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804b6);
+            kz8.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804b6);
             spanGroupEditText.setTextSize(0, getResources().getDimension(R.dimen.T_X06));
-            wr4.d(spanGroupEditText).v(R.color.CAM_X0105);
+            vr4.d(spanGroupEditText).v(R.color.CAM_X0105);
             spanGroupEditText.setDrawingCacheEnabled(false);
             spanGroupEditText.setGravity(51);
             spanGroupEditText.setHint(str);
@@ -360,7 +360,7 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setForumId(this.g);
             spanGroupEditText.setOnClickListener(this.e);
             spanGroupEditText.addTextChangedListener(this.i);
-            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f090ffd, Boolean.TRUE);
+            spanGroupEditText.setTag(R.id.obfuscated_res_0x7f090ffe, Boolean.TRUE);
             return spanGroupEditText;
         }
         return (SpanGroupEditText) invokeL.objValue;
@@ -369,7 +369,7 @@ public class RichTextEditor extends LinearLayout {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            SpanGroupEditText l = l(getContext().getString(R.string.obfuscated_res_0x7f0f0e3e));
+            SpanGroupEditText l = l(getContext().getString(R.string.obfuscated_res_0x7f0f0e3d));
             addView(l, new LinearLayout.LayoutParams(-1, -2));
             this.b = l;
         }
@@ -517,7 +517,7 @@ public class RichTextEditor extends LinearLayout {
         }
     }
 
-    public void setOnSpanGroupChangedListener(fv4.a aVar) {
+    public void setOnSpanGroupChangedListener(ev4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) {
             this.f = aVar;
@@ -581,7 +581,7 @@ public class RichTextEditor extends LinearLayout {
                 if (childAt instanceof RichImageItem) {
                     ((RichImageItem) childAt).f();
                 } else if (childAt instanceof SpanGroupEditText) {
-                    wr4.d(childAt).v(R.color.CAM_X0105);
+                    vr4.d(childAt).v(R.color.CAM_X0105);
                     ((SpanGroupEditText) childAt).setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
                 }
             }
@@ -607,7 +607,7 @@ public class RichTextEditor extends LinearLayout {
             if (childCount > 1) {
                 ((SpanGroupEditText) childAt).setHint("");
             } else {
-                ((SpanGroupEditText) childAt).setHint(getContext().getString(R.string.obfuscated_res_0x7f0f0e3e));
+                ((SpanGroupEditText) childAt).setHint(getContext().getString(R.string.obfuscated_res_0x7f0f0e3d));
             }
         }
     }
@@ -667,7 +667,7 @@ public class RichTextEditor extends LinearLayout {
         this.k = new c(this);
         setOrientation(1);
         setLayoutTransition(null);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fb4));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fb8));
         setShowDividers(2);
         this.a = new a(this);
     }

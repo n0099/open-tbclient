@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mc8;
 import com.repackage.mg;
 import com.repackage.mi;
 import com.repackage.oi;
 import com.repackage.rc5;
-import com.repackage.rc8;
-import com.repackage.vp4;
+import com.repackage.tc8;
+import com.repackage.up4;
 import com.repackage.xb5;
+import com.repackage.yc8;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
 /* loaded from: classes3.dex */
@@ -84,10 +84,10 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = rc8.f().d("HOME");
-            builder.app_pos = mc8.e().c();
+            builder.ad_context_list = yc8.f().d("HOME");
+            builder.app_pos = tc8.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-                vp4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+                up4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
                 builder.from_tid = Long.valueOf(mg.g(pbToHomeUpdateData.a, 0L));
                 builder.query_eqid = pbToHomeUpdateData.b;
                 builder.first_dir = pbToHomeUpdateData.c;

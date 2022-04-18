@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ul9;
+import com.repackage.bm9;
 import java.util.List;
 /* loaded from: classes4.dex */
 public final class c extends com.google.a.a.a implements a {
@@ -43,8 +43,8 @@ public final class c extends com.google.a.a.a implements a {
             Parcel a = a();
             a.writeString(str);
             a.writeTypedList(list);
-            ul9.c(a, bundle);
-            ul9.b(a, dVar);
+            bm9.c(a, bundle);
+            bm9.b(a, dVar);
             b(1, a);
         }
     }
@@ -55,8 +55,8 @@ public final class c extends com.google.a.a.a implements a {
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, dVar) == null) {
             Parcel a = a();
             a.writeString(str);
-            ul9.c(a, bundle);
-            ul9.b(a, dVar);
+            bm9.c(a, bundle);
+            bm9.b(a, dVar);
             b(2, a);
         }
     }

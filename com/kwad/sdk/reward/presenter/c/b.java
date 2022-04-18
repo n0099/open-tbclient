@@ -287,12 +287,12 @@ public class b extends g implements b.c, c.a, e.a, com.kwad.sdk.widget.d, Observ
             com.kwad.sdk.core.d.a.a("LaunchAppTaskPresenter", "initBottomActionBar screen is horizontal");
             return;
         }
-        ((ViewStub) a(R.id.obfuscated_res_0x7f0910e5)).inflate();
-        ViewGroup viewGroup = (ViewGroup) a(R.id.obfuscated_res_0x7f0910db);
+        ((ViewStub) a(R.id.obfuscated_res_0x7f0910e6)).inflate();
+        ViewGroup viewGroup = (ViewGroup) a(R.id.obfuscated_res_0x7f0910dc);
         this.g = viewGroup;
         viewGroup.setClickable(true);
         new com.kwad.sdk.widget.f(this.g, this);
-        final KSFrameLayout kSFrameLayout = (KSFrameLayout) a(R.id.obfuscated_res_0x7f0910dc);
+        final KSFrameLayout kSFrameLayout = (KSFrameLayout) a(R.id.obfuscated_res_0x7f0910dd);
         kSFrameLayout.setRadius(q().getResources().getDimension(R.dimen.obfuscated_res_0x7f07037a));
         final float dimension = q().getResources().getDimension(R.dimen.obfuscated_res_0x7f070375);
         kSFrameLayout.post(new Runnable() { // from class: com.kwad.sdk.reward.presenter.c.b.1
@@ -301,12 +301,12 @@ public class b extends g implements b.c, c.a, e.a, com.kwad.sdk.widget.d, Observ
                 kSFrameLayout.getHeight();
             }
         });
-        this.g = (ViewGroup) a(R.id.obfuscated_res_0x7f0910db);
+        this.g = (ViewGroup) a(R.id.obfuscated_res_0x7f0910dc);
         com.kwad.sdk.reward.d.c cVar = new com.kwad.sdk.reward.d.c(this.g);
         this.i = cVar;
         cVar.a(this);
         this.i.a(((g) this).a.g, false);
-        a aVar = new a((KsAdWebView) a(R.id.obfuscated_res_0x7f0910da), this.g, ((g) this).a.l, this.f, this);
+        a aVar = new a((KsAdWebView) a(R.id.obfuscated_res_0x7f0910db), this.g, ((g) this).a.l, this.f, this);
         this.h = aVar;
         aVar.a(new InterfaceC0338b() { // from class: com.kwad.sdk.reward.presenter.c.b.2
             @Override // com.kwad.sdk.reward.presenter.c.b.InterfaceC0338b
@@ -348,14 +348,14 @@ public class b extends g implements b.c, c.a, e.a, com.kwad.sdk.widget.d, Observ
             ((g) this).a.y = a2;
             a2.g();
             com.kwad.sdk.reward.b.a.a.a(this.f, q(), ((g) this).a.g);
-            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) a(R.id.obfuscated_res_0x7f09112a);
-            this.c = (ViewGroup) a(R.id.obfuscated_res_0x7f091009);
+            AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) a(R.id.obfuscated_res_0x7f09112b);
+            this.c = (ViewGroup) a(R.id.obfuscated_res_0x7f09100a);
             com.kwad.sdk.reward.d.c cVar = new com.kwad.sdk.reward.d.c(this.c);
             this.j = cVar;
             cVar.a(this);
             this.j.a(((g) this).a.g, false);
-            ((KSFrameLayout) a(R.id.obfuscated_res_0x7f09100b)).setWidthBasedRatio(false);
-            d dVar = new d((KsAdWebView) a(R.id.obfuscated_res_0x7f09100a), this.c, ((g) this).a.l, this.f, this);
+            ((KSFrameLayout) a(R.id.obfuscated_res_0x7f09100c)).setWidthBasedRatio(false);
+            d dVar = new d((KsAdWebView) a(R.id.obfuscated_res_0x7f09100b), this.c, ((g) this).a.l, this.f, this);
             this.d = dVar;
             dVar.a(((g) this).a.g, adBaseFrameLayout);
             AdInfo j = com.kwad.sdk.core.response.a.d.j(((g) this).a.g);

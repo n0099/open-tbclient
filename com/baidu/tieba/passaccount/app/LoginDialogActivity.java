@@ -32,29 +32,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dn4;
-import com.repackage.fn4;
+import com.repackage.cn4;
+import com.repackage.en4;
 import com.repackage.h95;
-import com.repackage.lt4;
-import com.repackage.mq7;
-import com.repackage.nq7;
-import com.repackage.oq7;
+import com.repackage.kt4;
+import com.repackage.oi4;
 import com.repackage.pg;
-import com.repackage.pi4;
+import com.repackage.pq7;
+import com.repackage.qq7;
+import com.repackage.rq7;
 import com.repackage.sg;
-import com.repackage.vl4;
+import com.repackage.ul4;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class LoginDialogActivity extends SuspendedActivity implements h95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup contentView;
-    public mq7 dialogControl;
+    public pq7 dialogControl;
     public String dialogType;
     public String locate;
     public ILoginListener loginListener;
     public BdAsyncTask<?, ?, ?> mAccountLoginTask;
-    public final dn4.a mReLoginCallback;
+    public final cn4.a mReLoginCallback;
     public String minePageStatisticKey;
     public String minePageStatisticLocate;
     public String operator;
@@ -64,7 +64,7 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
     public String sign;
 
     /* loaded from: classes3.dex */
-    public class a implements dn4.a {
+    public class a implements cn4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoginDialogActivity a;
@@ -87,7 +87,7 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
             this.a = loginDialogActivity;
         }
 
-        @Override // com.repackage.dn4.a
+        @Override // com.repackage.cn4.a
         public void a(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
@@ -96,7 +96,7 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
             }
         }
 
-        @Override // com.repackage.dn4.a
+        @Override // com.repackage.cn4.a
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -104,7 +104,7 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
             }
         }
 
-        @Override // com.repackage.dn4.a
+        @Override // com.repackage.cn4.a
         public void c(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
@@ -178,8 +178,8 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fn4.g(this.a);
-                lt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+                en4.g(this.a);
+                kt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
             }
         }
     }
@@ -231,11 +231,11 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, accountData) == null) {
             saveAccountInfo(accountData);
-            lt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            kt4.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
             TbadkCoreApplication.getInst().onUserChanged(getIntent());
             finishForResult(-1);
             if (UbsABTestHelper.isBackUserTest()) {
-                pi4.y().r();
+                oi4.y().r();
             }
             continueDoSearchProcess();
         }
@@ -245,9 +245,9 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, accountData) == null) {
             sg.a().c(new c(this, accountData));
-            lt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            kt4.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
             TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-            vl4.f(TbadkCoreApplication.getInst());
+            ul4.f(TbadkCoreApplication.getInst());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
         }
     }
@@ -293,9 +293,9 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            mq7 mq7Var = this.dialogControl;
-            if (mq7Var != null) {
-                return mq7Var.getResultIntent();
+            pq7 pq7Var = this.dialogControl;
+            if (pq7Var != null) {
+                return pq7Var.getResultIntent();
             }
             return null;
         }
@@ -315,9 +315,9 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
             }
             initData();
             if (TextUtils.isEmpty(this.shareModelJSONStr)) {
-                this.dialogControl = new nq7(this.phoneNum, this.operator, this.sign);
+                this.dialogControl = new qq7(this.phoneNum, this.operator, this.sign);
             } else {
-                this.dialogControl = new oq7(this.shareModelJSONStr);
+                this.dialogControl = new rq7(this.shareModelJSONStr);
             }
             this.dialogControl.a(this, linearLayout);
             return this;
@@ -358,9 +358,9 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.contentView.setBackgroundResource(R.color.transparent);
-            mq7 mq7Var = this.dialogControl;
-            if (mq7Var != null) {
-                mq7Var.onViewChangeSkinType(i);
+            pq7 pq7Var = this.dialogControl;
+            if (pq7Var != null) {
+                pq7Var.onViewChangeSkinType(i);
             }
         }
     }
@@ -396,7 +396,7 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
                 if (bdAsyncTask != null) {
                     bdAsyncTask.cancel();
                 }
-                this.mAccountLoginTask = dn4.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
+                this.mAccountLoginTask = cn4.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
                 return;
             }
             closeLoadingDialog();
@@ -417,7 +417,7 @@ public class LoginDialogActivity extends SuspendedActivity implements h95 {
             return;
         }
         if (getLoadingDialog() == null || !getLoadingDialog().c()) {
-            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f1000));
+            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f0fff));
             if (getLoadingDialog() != null) {
                 getLoadingDialog().f(false);
                 getLoadingDialog().g(false);

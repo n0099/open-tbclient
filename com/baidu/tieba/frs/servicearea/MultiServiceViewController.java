@@ -31,22 +31,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ak8;
-import com.repackage.bk8;
 import com.repackage.bo6;
-import com.repackage.kf6;
+import com.repackage.do6;
+import com.repackage.hk8;
+import com.repackage.ik8;
+import com.repackage.mf6;
 import com.repackage.mg;
 import com.repackage.oi;
-import com.repackage.zn6;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class MultiServiceViewController implements zn6 {
+public class MultiServiceViewController implements bo6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public RecyclerView b;
-    public List<bk8> c;
+    public List<ik8> c;
     public FrsViewData d;
     public RecyclerView.Adapter e;
 
@@ -58,7 +58,7 @@ public class MultiServiceViewController implements zn6 {
         public FrameLayout b;
         public TbClipImageView c;
         public TextView d;
-        public bk8 e;
+        public ik8 e;
         public List<String> f;
         public FrsViewData g;
         public View.OnClickListener h;
@@ -92,7 +92,7 @@ public class MultiServiceViewController implements zn6 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     if (this.a.e != null && "tiebaclient://accelerator".equals(this.a.e.d)) {
-                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new kf6(3));
+                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new mf6(3));
                         CustomMessage customMessage = new CustomMessage(2921662);
                         customMessage.setTag(this.a.g.getFrsFragmentTag());
                         customResponsedMessage.setOrginalMessage(customMessage);
@@ -103,9 +103,9 @@ public class MultiServiceViewController implements zn6 {
                             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", this.a.e.g).param("obj_source", "frs_card").param("obj_id", this.a.e.f.b).param("obj_name", this.a.e.f.a).param("obj_param1", this.a.e.f.d.intValue()));
                         }
                         if (this.a.e != null && !"tiebaclient://accelerator".equals(this.a.e.d)) {
-                            bo6.b(view2.getContext(), this.a.e);
+                            do6.b(view2.getContext(), this.a.e);
                         }
-                        bo6.c(this.a.e);
+                        do6.c(this.a.e);
                         return;
                     }
                     HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(view2.getContext());
@@ -165,27 +165,27 @@ public class MultiServiceViewController implements zn6 {
             view2.setOnClickListener(this.h);
         }
 
-        public void c(bk8 bk8Var) {
+        public void c(ik8 ik8Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, bk8Var) == null) || bk8Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, ik8Var) == null) || ik8Var == null) {
                 return;
             }
-            this.e = bk8Var;
-            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0886), bk8Var.b)) {
+            this.e = ik8Var;
+            if (TextUtils.equals(this.itemView.getResources().getString(R.string.obfuscated_res_0x7f0f0886), ik8Var.b)) {
                 this.c.setImageResource(R.drawable.icon_mask_service_celebrity24);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
                 layoutParams.width = oi.f(this.c.getContext(), R.dimen.tbds62);
                 layoutParams.height = oi.f(this.c.getContext(), R.dimen.tbds62);
             } else {
-                this.c.K(bk8Var.b, 10, false);
+                this.c.K(ik8Var.b, 10, false);
             }
-            this.d.setText(StringHelper.cutChineseAndEnglishWithSuffix(bk8Var.c, 10, ""));
+            this.d.setText(StringHelper.cutChineseAndEnglishWithSuffix(ik8Var.c, 10, ""));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            if (this.f.contains(bk8Var.c)) {
+            if (this.f.contains(ik8Var.c)) {
                 return;
             }
-            bo6.d(bk8Var);
-            this.f.add(bk8Var.c);
+            do6.d(ik8Var);
+            this.f.add(ik8Var.c);
         }
     }
 
@@ -219,7 +219,7 @@ public class MultiServiceViewController implements zn6 {
         public void onBindViewHolder(ServiceViewHolder serviceViewHolder, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, serviceViewHolder, i) == null) {
-                serviceViewHolder.c((bk8) this.a.c.get(i));
+                serviceViewHolder.c((ik8) this.a.c.get(i));
             }
         }
 
@@ -265,13 +265,13 @@ public class MultiServiceViewController implements zn6 {
         this.b.setAdapter(this.e);
     }
 
-    @Override // com.repackage.zn6
-    public void a(ak8 ak8Var, FrsViewData frsViewData) {
+    @Override // com.repackage.bo6
+    public void a(hk8 hk8Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, ak8Var, frsViewData) == null) || ak8Var == null || ListUtils.isEmpty(ak8Var.b)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, hk8Var, frsViewData) == null) || hk8Var == null || ListUtils.isEmpty(hk8Var.b)) {
             return;
         }
-        this.c = ak8Var.b;
+        this.c = hk8Var.b;
         this.d = frsViewData;
         this.e.notifyDataSetChanged();
         RecyclerView recyclerView = this.b;
@@ -279,14 +279,14 @@ public class MultiServiceViewController implements zn6 {
         this.b.setClipToPadding(false);
     }
 
-    @Override // com.repackage.zn6
+    @Override // com.repackage.bo6
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.zn6
+    @Override // com.repackage.bo6
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {

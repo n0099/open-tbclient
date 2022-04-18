@@ -33,9 +33,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c96;
-import com.repackage.w86;
-import com.repackage.x86;
+import com.repackage.e96;
+import com.repackage.y86;
+import com.repackage.z86;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -248,7 +248,7 @@ public class EmotionManageActivity extends BaseActivity<EmotionManageActivity> {
                         MyEmotionGroupData myEmotionGroupData = new MyEmotionGroupData();
                         myEmotionGroupData.setGroupId(str);
                         myEmotionGroupData.setUid(TbadkCoreApplication.getCurrentAccount());
-                        if (w86.c().b(myEmotionGroupData)) {
+                        if (y86.c().b(myEmotionGroupData)) {
                             i++;
                         }
                     }
@@ -311,9 +311,9 @@ public class EmotionManageActivity extends BaseActivity<EmotionManageActivity> {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 View inflate = View.inflate(this.a.getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d0263, null);
                 h hVar = new h(null);
-                hVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09088c);
-                hVar.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09088b);
-                hVar.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09088a);
+                hVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09088d);
+                hVar.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09088c);
+                hVar.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09088b);
                 inflate.setTag(hVar);
                 return inflate;
             }
@@ -461,19 +461,19 @@ public class EmotionManageActivity extends BaseActivity<EmotionManageActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                List<MyEmotionGroupData> h = w86.c().h(TbadkCoreApplication.getCurrentAccount());
-                List<EmotionGroupData> l = c96.k().l(1);
+                List<MyEmotionGroupData> h = y86.c().h(TbadkCoreApplication.getCurrentAccount());
+                List<EmotionGroupData> l = e96.k().l(1);
                 LinkedList linkedList = new LinkedList();
                 for (MyEmotionGroupData myEmotionGroupData : h) {
                     Iterator<EmotionGroupData> it = l.iterator();
                     while (true) {
                         if (it.hasNext()) {
                             EmotionGroupData next = it.next();
-                            if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && x86.d(next.getGroupId())) {
+                            if (myEmotionGroupData.getGroupId().equals(next.getGroupId()) && z86.d(next.getGroupId())) {
                                 f fVar = new f(this.a, null);
                                 fVar.a = next.getGroupId();
                                 fVar.b = next.getGroupName();
-                                fVar.d = x86.f(fVar.a, "list.png");
+                                fVar.d = z86.f(fVar.a, "list.png");
                                 linkedList.add(fVar);
                                 break;
                             }
@@ -616,10 +616,10 @@ public class EmotionManageActivity extends BaseActivity<EmotionManageActivity> {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            this.mRoot = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09089f);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            this.mRoot = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908a0);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mTitleBar = navigationBar;
-            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f13ef);
+            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f13ee);
             this.mBack = this.mTitleBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             NavigationBar navigationBar2 = this.mTitleBar;
             NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_LEFT;
@@ -628,15 +628,15 @@ public class EmotionManageActivity extends BaseActivity<EmotionManageActivity> {
             TextView addTextButton = this.mTitleBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0513), this.mOnClickListener);
             this.mEdit = addTextButton;
             SkinManager.setViewTextColor(addTextButton, R.color.CAM_X0106, 1);
-            this.mNotice = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a7);
-            this.mListUpLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f090896);
-            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f09089e);
+            this.mNotice = (TextView) findViewById(R.id.obfuscated_res_0x7f0908a8);
+            this.mListUpLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f090897);
+            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f09089f);
             this.mGroupList = bdListView;
             bdListView.setOnItemClickListener(this.mOnItemClickListener);
             View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0262, (ViewGroup) null);
             this.mFooter = inflate;
             this.mGroupList.addFooterView(inflate);
-            TextView textView = (TextView) this.mFooter.findViewById(R.id.obfuscated_res_0x7f090897);
+            TextView textView = (TextView) this.mFooter.findViewById(R.id.obfuscated_res_0x7f090898);
             this.mEnterRecord = textView;
             textView.setOnClickListener(this.mOnClickListener);
             getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);

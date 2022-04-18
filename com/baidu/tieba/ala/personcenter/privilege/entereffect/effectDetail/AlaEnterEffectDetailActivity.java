@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
-import com.repackage.dv5;
-import com.repackage.gv5;
-import com.repackage.hv5;
-import com.repackage.tu5;
-import com.repackage.uu5;
+import com.repackage.cr4;
+import com.repackage.fv5;
+import com.repackage.iv5;
+import com.repackage.jv5;
+import com.repackage.vu5;
+import com.repackage.wu5;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class AlaEnterEffectDetailActivity extends BaseActivity {
@@ -33,18 +33,18 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     public static final String KEY_STATUS_IS_SELECTED = "key_status_is_selected";
     public static final int REQUEST_CODE_EFFECT_DETAIL = 1001;
     public transient /* synthetic */ FieldHolder $fh;
-    public tu5 mBuyPropModel;
+    public vu5 mBuyPropModel;
     public AlaEnterEffectData mData;
-    public gv5 mMainView;
-    public hv5 mModel;
-    public hv5.b mModelCallback;
-    public dv5 mPreViewController;
+    public iv5 mMainView;
+    public jv5 mModel;
+    public jv5.b mModelCallback;
+    public fv5 mPreViewController;
     public String mSelectedEffectId;
-    public uu5 mTDouBuyController;
-    public gv5.b mViewClickListener;
+    public wu5 mTDouBuyController;
+    public iv5.b mViewClickListener;
 
     /* loaded from: classes3.dex */
-    public class a implements hv5.b {
+    public class a implements jv5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectDetailActivity a;
@@ -67,7 +67,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // com.repackage.hv5.b
+        @Override // com.repackage.jv5.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -75,13 +75,13 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             }
         }
 
-        @Override // com.repackage.hv5.b
+        @Override // com.repackage.jv5.b
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.a.mData == null) {
                 return;
             }
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0cdd);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0cdc);
             Intent intent = new Intent();
             if (z != (this.a.mData.use_status == 1)) {
                 intent.putExtra(AlaEnterEffectDetailActivity.KEY_SELECTED_EFFECT_ID, this.a.mData.id);
@@ -127,7 +127,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements uu5.c {
+    public class c implements wu5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectDetailActivity a;
@@ -150,7 +150,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // com.repackage.uu5.c
+        @Override // com.repackage.wu5.c
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.a.mData != null) {
@@ -164,7 +164,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements tu5.b {
+    public class d implements vu5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectDetailActivity a;
@@ -187,7 +187,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // com.repackage.tu5.b
+        @Override // com.repackage.vu5.b
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -209,13 +209,13 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class e implements gv5.b {
+    public class e implements iv5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectDetailActivity a;
 
         /* loaded from: classes3.dex */
-        public class a implements dr4.e {
+        public class a implements cr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -238,11 +238,11 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 this.a = eVar;
             }
 
-            @Override // com.repackage.dr4.e
-            public void onClick(dr4 dr4Var) {
+            @Override // com.repackage.cr4.e
+            public void onClick(cr4 cr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                    dr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                    cr4Var.dismiss();
                     if (this.a.a.mData != null) {
                         this.a.a.mModel.b(this.a.a.mData.id, this.a.a.mData.use_status != 1);
                     }
@@ -251,7 +251,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements dr4.e {
+        public class b implements cr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -271,11 +271,11 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 }
             }
 
-            @Override // com.repackage.dr4.e
-            public void onClick(dr4 dr4Var) {
+            @Override // com.repackage.cr4.e
+            public void onClick(cr4 cr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                    dr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                    cr4Var.dismiss();
                 }
             }
         }
@@ -298,7 +298,7 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
             this.a = alaEnterEffectDetailActivity;
         }
 
-        @Override // com.repackage.gv5.b
+        @Override // com.repackage.iv5.b
         public void a() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.mData == null) {
@@ -328,14 +328,14 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
                 }
                 return;
             }
-            dr4 dr4Var = new dr4(this.a.getActivity());
-            dr4Var.setCanceledOnTouchOutside(false);
-            dr4Var.setAutoNight(false);
-            dr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0200);
-            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0421, new a(this));
-            dr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new b(this));
-            dr4Var.create(this.a.getPageContext());
-            dr4Var.show();
+            cr4 cr4Var = new cr4(this.a.getActivity());
+            cr4Var.setCanceledOnTouchOutside(false);
+            cr4Var.setAutoNight(false);
+            cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0200);
+            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0421, new a(this));
+            cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new b(this));
+            cr4Var.create(this.a.getPageContext());
+            cr4Var.show();
         }
     }
 
@@ -390,26 +390,26 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.mModel = new hv5(this.mModelCallback);
+            this.mModel = new jv5(this.mModelCallback);
             Serializable serializableExtra = getIntent().getSerializableExtra(KEY_EFFECT_DATA);
             if (!(serializableExtra instanceof AlaEnterEffectData)) {
-                showToast(R.string.obfuscated_res_0x7f0f1364);
+                showToast(R.string.obfuscated_res_0x7f0f1363);
                 setResult(0);
                 finish();
                 return;
             }
             this.mData = (AlaEnterEffectData) serializableExtra;
             this.mSelectedEffectId = getIntent().getStringExtra(KEY_SELECTED_EFFECT_ID);
-            gv5 gv5Var = new gv5(getActivity(), this.mData);
-            this.mMainView = gv5Var;
-            gv5Var.e(this.mViewClickListener);
+            iv5 iv5Var = new iv5(getActivity(), this.mData);
+            this.mMainView = iv5Var;
+            iv5Var.e(this.mViewClickListener);
             this.mMainView.b().setOnClickListener(new b(this));
             setContentView(this.mMainView.b());
-            this.mPreViewController = new dv5(getActivity(), this.mMainView.b());
-            uu5 uu5Var = new uu5(getPageContext());
-            this.mTDouBuyController = uu5Var;
-            uu5Var.e(new c(this));
-            this.mBuyPropModel = new tu5(getPageContext(), new d(this));
+            this.mPreViewController = new fv5(getActivity(), this.mMainView.b());
+            wu5 wu5Var = new wu5(getPageContext());
+            this.mTDouBuyController = wu5Var;
+            wu5Var.e(new c(this));
+            this.mBuyPropModel = new vu5(getPageContext(), new d(this));
         }
     }
 
@@ -418,28 +418,28 @@ public class AlaEnterEffectDetailActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            hv5 hv5Var = this.mModel;
-            if (hv5Var != null) {
-                hv5Var.c();
+            jv5 jv5Var = this.mModel;
+            if (jv5Var != null) {
+                jv5Var.c();
             }
-            dv5 dv5Var = this.mPreViewController;
-            if (dv5Var != null) {
-                dv5Var.d();
+            fv5 fv5Var = this.mPreViewController;
+            if (fv5Var != null) {
+                fv5Var.d();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        dv5 dv5Var;
+        fv5 fv5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
             AlaEnterEffectData alaEnterEffectData = this.mData;
-            if (alaEnterEffectData == null || (dv5Var = this.mPreViewController) == null) {
+            if (alaEnterEffectData == null || (fv5Var = this.mPreViewController) == null) {
                 return;
             }
-            dv5Var.g(alaEnterEffectData);
+            fv5Var.g(alaEnterEffectData);
         }
     }
 }

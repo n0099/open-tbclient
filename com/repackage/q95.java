@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class q95 extends s95<cy5, CardViewHolder<ax5>> {
+/* loaded from: classes7.dex */
+public class q95 extends s95<ey5, CardViewHolder<cx5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NEGFeedBackView.b o;
-    public rx5<cy5> p;
+    public tx5<ey5> p;
 
-    /* loaded from: classes6.dex */
-    public class a extends rx5<cy5> {
+    /* loaded from: classes7.dex */
+    public class a extends tx5<ey5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ q95 b;
@@ -44,12 +44,12 @@ public class q95 extends s95<cy5, CardViewHolder<ax5>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.rx5
+        @Override // com.repackage.tx5
         /* renamed from: d */
-        public void a(View view2, cy5 cy5Var) {
+        public void a(View view2, ey5 ey5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, cy5Var) == null) {
-                this.b.b0(view2, cy5Var);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ey5Var) == null) {
+                this.b.b0(view2, ey5Var);
             }
         }
     }
@@ -80,14 +80,14 @@ public class q95 extends s95<cy5, CardViewHolder<ax5>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: s0 */
-    public CardViewHolder<ax5> M(ViewGroup viewGroup) {
+    public CardViewHolder<cx5> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ax5 ax5Var = new ax5(this.k, this.e);
-            ax5Var.D(h0());
-            ax5Var.Y(this.e);
-            return new CardViewHolder<>(ax5Var);
+            cx5 cx5Var = new cx5(this.k, this.e);
+            cx5Var.D(h0());
+            cx5Var.Y(this.e);
+            return new CardViewHolder<>(cx5Var);
         }
         return (CardViewHolder) invokeL.objValue;
     }
@@ -95,17 +95,17 @@ public class q95 extends s95<cy5, CardViewHolder<ax5>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: t0 */
-    public View S(int i, View view2, ViewGroup viewGroup, cy5 cy5Var, CardViewHolder<ax5> cardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, ey5 ey5Var, CardViewHolder<cx5> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cy5Var, cardViewHolder})) == null) {
-            cy5Var.I(cy5Var.position + 1);
-            ax5 c = cardViewHolder.c();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ey5Var, cardViewHolder})) == null) {
+            ey5Var.I(ey5Var.position + 1);
+            cx5 c = cardViewHolder.c();
             c.b0(i + 1);
-            c.l(cy5Var);
+            c.l(ey5Var);
             c.n(this.p);
             c.C(this.o);
-            r0(cardViewHolder.b(), cy5Var, i, i);
+            r0(cardViewHolder.b(), ey5Var, i, i);
             return cardViewHolder.b();
         }
         return (View) invokeCommon.objValue;

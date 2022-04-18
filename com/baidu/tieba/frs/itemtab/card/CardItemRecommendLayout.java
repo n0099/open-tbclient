@@ -38,10 +38,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f9;
 import com.repackage.gz;
 import com.repackage.oi;
-import com.repackage.om6;
-import com.repackage.qn4;
-import com.repackage.uu4;
-import com.repackage.wr4;
+import com.repackage.pn4;
+import com.repackage.qm6;
+import com.repackage.tu4;
+import com.repackage.vr4;
 import java.util.List;
 import tbclient.ItemInfo;
 import tbclient.ItemPoint;
@@ -120,7 +120,7 @@ public class CardItemRecommendLayout extends LinearLayout implements gz {
                 return;
             }
             ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new uu4(3, i + 1, 2)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new tu4(3, i + 1, 2)));
         }
     }
 
@@ -157,7 +157,7 @@ public class CardItemRecommendLayout extends LinearLayout implements gz {
                 return;
             }
             dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new uu4(3, i + 1, 1)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new tu4(3, i + 1, 1)));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -252,7 +252,7 @@ public class CardItemRecommendLayout extends LinearLayout implements gz {
                     return;
                 }
             }
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b5c);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b5d);
             this.a = barImageView;
             barImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
@@ -260,9 +260,9 @@ public class CardItemRecommendLayout extends LinearLayout implements gz {
             this.a.setShowOuterBorder(true);
             this.a.setPlaceHolder(3);
             this.a.setPageId(f9.a(view2.getContext()).getUniqueId());
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b5d);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b5f);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b5e);
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b5e);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b60);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090b5f);
             this.itemView.setOnClickListener(new a(this));
         }
 
@@ -307,8 +307,8 @@ public class CardItemRecommendLayout extends LinearLayout implements gz {
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 ImageView imageView = this.c;
                 int i2 = R.color.CAM_X0305;
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08099a, R.color.CAM_X0305, null);
-                wr4.d(this.b).v(R.color.CAM_X0105);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08099e, R.color.CAM_X0305, null);
+                vr4.d(this.b).v(R.color.CAM_X0105);
                 TextView textView = this.d;
                 if (!this.e) {
                     i2 = R.color.CAM_X0109;
@@ -348,7 +348,7 @@ public class CardItemRecommendLayout extends LinearLayout implements gz {
             this.a = eMTextView;
             eMTextView.setGravity(16);
             this.a.setText(R.string.obfuscated_res_0x7f0f06ff);
-            wr4 d2 = wr4.d(this.a);
+            vr4 d2 = vr4.d(this.a);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X07);
             this.a.setPadding(oi.f(getContext(), R.dimen.M_W_X005), oi.f(getContext(), R.dimen.M_H_X004), oi.f(getContext(), R.dimen.M_W_X005), oi.f(getContext(), R.dimen.M_H_X008));
@@ -371,8 +371,8 @@ public class CardItemRecommendLayout extends LinearLayout implements gz {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             this.c.notifyDataSetChanged();
-            wr4.d(this.a).v(R.color.CAM_X0105);
-            wr4 d2 = wr4.d(this);
+            vr4.d(this.a).v(R.color.CAM_X0105);
+            vr4 d2 = vr4.d(this);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
         }
@@ -408,14 +408,14 @@ public class CardItemRecommendLayout extends LinearLayout implements gz {
         return invokeL.booleanValue;
     }
 
-    public void setData(qn4 qn4Var) {
+    public void setData(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, qn4Var) == null) && (qn4Var instanceof om6)) {
-            om6 om6Var = (om6) qn4Var;
-            if (om6Var.e() == null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, pn4Var) == null) && (pn4Var instanceof qm6)) {
+            qm6 qm6Var = (qm6) pn4Var;
+            if (qm6Var.e() == null) {
                 return;
             }
-            this.d = om6Var.e();
+            this.d = qm6Var.e();
             this.c.notifyDataSetChanged();
         }
     }

@@ -22,13 +22,13 @@ import java.util.Set;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class q82 implements s82 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public abstract class q82 implements s82 {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            f84.i().c(str);
+            e84.i().c(str);
         }
     }
 
@@ -153,11 +153,11 @@ public abstract class q82 implements s82 {
             }
             String v = r73.v(str);
             if (!TextUtils.isEmpty(v)) {
-                ng4.M(v);
+                mg4.M(v);
             }
             String x = r73.x(str);
             if (!TextUtils.isEmpty(x)) {
-                ng4.M(x);
+                mg4.M(x);
             }
         }
     }
@@ -165,8 +165,8 @@ public abstract class q82 implements s82 {
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            f84.i().h(str);
-            f84.i().e(h94.class, str);
+            e84.i().h(str);
+            e84.i().e(g94.class, str);
         }
     }
 
@@ -186,7 +186,7 @@ public abstract class q82 implements s82 {
             l53 a2 = qj2.q().a();
             jSONObject.put("accredit", new JSONObject(arrayMap));
             String v = qj2.o().v();
-            z64 b = a74.b();
+            y64 b = z64.b();
             if (b == null) {
                 if (!a) {
                     jx1.c("AbsDefaultPurger", "get network obj failed on resetAccredit");
@@ -194,7 +194,7 @@ public abstract class q82 implements s82 {
                     throw new RuntimeException("SwanNetworkRuntime.getSwanNetwork return null , check inject");
                 }
             }
-            m74 g = m74.g();
+            l74 g = l74.g();
             if (!g.c()) {
                 b = null;
             }

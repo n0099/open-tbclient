@@ -127,7 +127,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d06ca);
             this.mFragment = new PersonPolymericFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090aa9, this.mFragment).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090aaa, this.mFragment).commit();
             if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !x8.f().h("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }

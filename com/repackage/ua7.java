@@ -1,77 +1,132 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.NewFloorInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class ua7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b9 a;
+    public View b;
+    public ImageView c;
+    public TextView d;
+    public TBSpecificationBtn e;
+    public b f;
+    public View.OnClickListener g;
 
-    public static void a(la7 la7Var, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, la7Var, i) == null) || la7Var == null || la7Var.B() == null || ListUtils.isEmpty(la7Var.k()) || la7Var.k().size() < 2) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ua7 a;
+
+        public a(ua7 ua7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ua7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ua7Var;
         }
-        List<NewFloorInfo> k = la7Var.k();
-        if (k.size() > 2) {
-            if (StringHelper.equals(la7Var.B().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                if (k.get(1) != null) {
-                    if (k.get(1).is_floor.intValue() == 0) {
-                        b(la7Var, 12, i);
-                        return;
-                    } else if (k.get(1).is_floor.intValue() == 1) {
-                        b(la7Var, 13, i);
-                        return;
-                    } else {
-                        return;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2.getId() == this.a.e.getId()) {
+                    sy4.c(this.a.a);
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 1));
+                } else if (view2.getId() == this.a.c.getId()) {
+                    vt4.k().x("key_im_open_notification_close_time", System.currentTimeMillis());
+                    if (this.a.f != null) {
+                        this.a.f.onClose();
                     }
+                    TiebaStatic.log(new StatisticItem("c13705").param("obj_type", 2));
                 }
-                return;
-            } else if (k.get(1) != null) {
-                if (k.get(1).is_floor.intValue() == 0) {
-                    if (la7Var.v() != null) {
-                        if (StringHelper.equals(la7Var.v().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                            b(la7Var, 14, i);
-                            return;
-                        } else {
-                            b(la7Var, 15, i);
-                            return;
-                        }
-                    }
-                    return;
-                } else if (k.get(1).is_floor.intValue() == 1) {
-                    b(la7Var, 16, i);
-                    return;
-                } else {
-                    return;
-                }
-            } else {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onClose();
+    }
+
+    public ua7(b9 b9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b(la7Var, 11, i);
+        this.g = new a(this);
+        this.a = b9Var;
+        View inflate = LayoutInflater.from(b9Var.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0646, (ViewGroup) null);
+        this.b = inflate;
+        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ea7);
+        this.c = imageView;
+        imageView.setOnClickListener(this.g);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091601);
+        this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090430);
+        this.e.setConfig(new lu4());
+        this.e.setText(b9Var.getString(R.string.obfuscated_res_0x7f0f07b3));
+        this.e.setOnClickListener(this.g);
+        TiebaStatic.log("c13704");
+        f(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public static void b(la7 la7Var, int i, int i2) {
+    public View e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65537, null, la7Var, i, i2) == null) || la7Var == null || la7Var.y() == null || la7Var.m() == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0206);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0808fb, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
         }
-        StatisticItem statisticItem = new StatisticItem("c12928");
-        statisticItem.param("tid", la7Var.m().f);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.param("fid", la7Var.m().e);
-        statisticItem.param("fname", la7Var.m().d);
-        statisticItem.param("pid", la7Var.r());
-        statisticItem.param("obj_type", i);
-        statisticItem.param("obj_locate", i2);
-        TiebaStatic.log(statisticItem);
+    }
+
+    public void g(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
+        }
     }
 }

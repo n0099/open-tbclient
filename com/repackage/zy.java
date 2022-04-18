@@ -49,9 +49,9 @@ public class zy extends sy implements fz<ThreadData>, gz {
         m(z);
     }
 
-    public void k(qn4 qn4Var, boolean z) {
+    public void k(pn4 pn4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qn4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pn4Var, z) == null) {
             this.f = z;
             t(0);
             o(true);

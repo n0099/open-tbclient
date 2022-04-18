@@ -157,8 +157,8 @@ public class mz1 extends pz1 implements View.OnClickListener {
                     this.a.putInt(this.b, 0);
                 }
                 nz2.a aVar = new nz2.a(this.c.i0);
-                aVar.U(R.string.obfuscated_res_0x7f0f124f);
-                aVar.v(R.string.obfuscated_res_0x7f0f124e);
+                aVar.U(R.string.obfuscated_res_0x7f0f124e);
+                aVar.v(R.string.obfuscated_res_0x7f0f124d);
                 aVar.n(new rf3());
                 aVar.O(R.string.obfuscated_res_0x7f0f0110, new DialogInterface$OnClickListenerC0474a(this));
                 aVar.X();
@@ -211,7 +211,7 @@ public class mz1 extends pz1 implements View.OnClickListener {
                     if (activity == null || activity.isDestroyed()) {
                         return;
                     }
-                    fz1.b(this.a.d.i0, R.string.obfuscated_res_0x7f0f124f, str);
+                    fz1.b(this.a.d.i0, R.string.obfuscated_res_0x7f0f124e, str);
                 }
             }
         }
@@ -523,7 +523,7 @@ public class mz1 extends pz1 implements View.OnClickListener {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b03 f = b03.f(this.a.getContext(), R.string.obfuscated_res_0x7f0f12e5);
+                b03 f = b03.f(this.a.getContext(), R.string.obfuscated_res_0x7f0f12e4);
                 f.l(2);
                 f.G();
             }
@@ -581,7 +581,7 @@ public class mz1 extends pz1 implements View.OnClickListener {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b03 f = b03.f(this.b.getContext(), R.string.obfuscated_res_0x7f0f12e5);
+                b03 f = b03.f(this.b.getContext(), R.string.obfuscated_res_0x7f0f12e4);
                 f.l(2);
                 f.G();
             }
@@ -1207,7 +1207,7 @@ public class mz1 extends pz1 implements View.OnClickListener {
                     aVar.H(R.string.obfuscated_res_0x7f0f0131, new b(this));
                 }
                 if (ky1.e() != 0) {
-                    aVar.B(R.string.obfuscated_res_0x7f0f127a, new c(this));
+                    aVar.B(R.string.obfuscated_res_0x7f0f1279, new c(this));
                 }
                 aVar.X();
             }
@@ -1402,7 +1402,7 @@ public class mz1 extends pz1 implements View.OnClickListener {
         if (swanAppWebPopWindow == null || !swanAppWebPopWindow.y()) {
             SwanAppWebPopWindow swanAppWebPopWindow2 = new SwanAppWebPopWindow(activity, "https://baozhang.baidu.com/guarantee/baoshowdetail?appkey=" + a0.N());
             this.P0 = swanAppWebPopWindow2;
-            swanAppWebPopWindow2.r0(R.string.obfuscated_res_0x7f0f1209);
+            swanAppWebPopWindow2.r0(R.string.obfuscated_res_0x7f0f1208);
             swanAppWebPopWindow2.n0(SwanAppWebPopWindow.CloseStyle.CLOSE_AT_BOTTOM);
             swanAppWebPopWindow2.o0();
             swanAppWebPopWindow2.m0();
@@ -1420,7 +1420,7 @@ public class mz1 extends pz1 implements View.OnClickListener {
         if (swanAppWebPopWindow == null || !swanAppWebPopWindow.y()) {
             SwanAppWebPopWindow swanAppWebPopWindow2 = new SwanAppWebPopWindow(activity, this.M0);
             this.P0 = swanAppWebPopWindow2;
-            swanAppWebPopWindow2.s0(H(R.string.obfuscated_res_0x7f0f1237));
+            swanAppWebPopWindow2.s0(H(R.string.obfuscated_res_0x7f0f1236));
             swanAppWebPopWindow2.p0(activity.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07063c));
             swanAppWebPopWindow2.n0(SwanAppWebPopWindow.CloseStyle.CLOSE_AT_RIGHT);
             swanAppWebPopWindow2.m0();
@@ -1471,13 +1471,13 @@ public class mz1 extends pz1 implements View.OnClickListener {
         String str = i03.J().r().V().f0().webUrl;
         if (TextUtils.isEmpty(str)) {
             ee3.b(this.i0).c("");
-            b03.f(this.i0, R.string.obfuscated_res_0x7f0f1302).G();
+            b03.f(this.i0, R.string.obfuscated_res_0x7f0f1301).G();
             return;
         }
         String a3 = a3(str, jq2.b(de3.n()));
-        int i2 = R.string.obfuscated_res_0x7f0f1303;
+        int i2 = R.string.obfuscated_res_0x7f0f1302;
         if (a3.length() > PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL) {
-            i2 = R.string.obfuscated_res_0x7f0f1304;
+            i2 = R.string.obfuscated_res_0x7f0f1303;
         } else {
             str = a3;
         }
@@ -1552,9 +1552,9 @@ public class mz1 extends pz1 implements View.OnClickListener {
             Button button = (Button) view2.findViewById(R.id.obfuscated_res_0x7f090443);
             button.setVisibility(0);
             if (a2.getInt(b2, -1) == 1) {
-                button.setText(R.string.obfuscated_res_0x7f0f124c);
+                button.setText(R.string.obfuscated_res_0x7f0f124b);
             } else {
-                button.setText(R.string.obfuscated_res_0x7f0f124d);
+                button.setText(R.string.obfuscated_res_0x7f0f124c);
             }
             button.setOnClickListener(new b(this, a2, b2, new a(this, a2, b2)));
         }
@@ -1571,9 +1571,9 @@ public class mz1 extends pz1 implements View.OnClickListener {
         FragmentActivity activity;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (activity = getActivity()) != null && this.m0 == null) {
-            p64 p64Var = new p64(activity, this.l0, 13, qj2.K(), new sf3());
-            this.m0 = p64Var;
-            p64Var.q(de3.P());
+            o64 o64Var = new o64(activity, this.l0, 13, qj2.K(), new sf3());
+            this.m0 = o64Var;
+            o64Var.q(de3.P());
             new zp2(this.m0, this).z();
         }
     }
@@ -1594,7 +1594,7 @@ public class mz1 extends pz1 implements View.OnClickListener {
         wt2.j().n().h(textView);
         TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090199);
         textView2.setText(V.e1());
-        Button button = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091ca9);
+        Button button = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091caa);
         button.setOnClickListener(this);
         Button button2 = (Button) view2.findViewById(R.id.obfuscated_res_0x7f090113);
         this.N0 = button2;
@@ -1615,9 +1615,9 @@ public class mz1 extends pz1 implements View.OnClickListener {
             button.setVisibility(8);
             this.N0.setVisibility(8);
         }
-        if4.b().a(textView2);
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c8f)).setText(V.s1());
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f091db9)).setText(V.t1());
+        hf4.b().a(textView2);
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c90)).setText(V.s1());
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dba)).setText(V.t1());
         String G = qj2.o().G();
         this.M0 = G;
         if (!TextUtils.isEmpty(G)) {
@@ -1625,7 +1625,7 @@ public class mz1 extends pz1 implements View.OnClickListener {
             findViewById.setVisibility(0);
             findViewById.setOnClickListener(this);
         }
-        this.O0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091a26);
+        this.O0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091a27);
         PMSAppInfo f0 = V.f0();
         if (o3(f0)) {
             t3(view2, f0.brandsInfo);
@@ -1639,7 +1639,7 @@ public class mz1 extends pz1 implements View.OnClickListener {
             this.I0 = new gf3(this.i0, view2, k1, R.id.obfuscated_res_0x7f090359);
         }
         k3(V.getType());
-        ((Button) view2.findViewById(R.id.obfuscated_res_0x7f0915fc)).setVisibility(8);
+        ((Button) view2.findViewById(R.id.obfuscated_res_0x7f0915fd)).setVisibility(8);
         if (Q0 || wl2.U().N()) {
             View inflate = ((ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090171)).inflate();
             if (X1() && (inflate instanceof Button)) {
@@ -1710,14 +1710,14 @@ public class mz1 extends pz1 implements View.OnClickListener {
             int id = view2.getId();
             if (id == R.id.obfuscated_res_0x7f0901a2) {
                 s3();
-            } else if (id == R.id.obfuscated_res_0x7f0915fc) {
+            } else if (id == R.id.obfuscated_res_0x7f0915fd) {
                 d3();
             } else if (id == R.id.obfuscated_res_0x7f0903f5) {
                 SchemeRouter.invoke(getContext(), this.K0);
                 i3("click", "brand");
             } else if (id == R.id.obfuscated_res_0x7f090169) {
                 c3();
-            } else if (id == R.id.obfuscated_res_0x7f091ca9) {
+            } else if (id == R.id.obfuscated_res_0x7f091caa) {
                 L2();
             } else if (id == R.id.obfuscated_res_0x7f090113) {
                 q3();
@@ -1744,8 +1744,8 @@ public class mz1 extends pz1 implements View.OnClickListener {
                 gf3Var.c();
             }
             G2(1);
-            p64 p64Var = this.m0;
-            if (p64Var != null && p64Var.j()) {
+            o64 o64Var = this.m0;
+            if (o64Var != null && o64Var.j()) {
                 this.m0.C(qj2.M().a());
             }
             if (this.N0 != null) {
@@ -1905,14 +1905,14 @@ public class mz1 extends pz1 implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
             if (h72.n(i03.J().getAppId())) {
-                this.N0.setText(R.string.obfuscated_res_0x7f0f1293);
+                this.N0.setText(R.string.obfuscated_res_0x7f0f1292);
                 this.N0.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060a26));
-                this.N0.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810ff);
+                this.N0.setBackgroundResource(R.drawable.obfuscated_res_0x7f081103);
                 return;
             }
-            this.N0.setText(R.string.obfuscated_res_0x7f0f125f);
+            this.N0.setText(R.string.obfuscated_res_0x7f0f125e);
             this.N0.setTextColor(-1);
-            this.N0.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810fd);
+            this.N0.setBackgroundResource(R.drawable.obfuscated_res_0x7f081101);
         }
     }
 }

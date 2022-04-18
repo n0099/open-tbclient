@@ -33,14 +33,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cx5;
+import com.repackage.ex5;
 import com.repackage.f9;
 import com.repackage.fd5;
 import com.repackage.ni;
 import com.repackage.oi;
-import com.repackage.vl4;
+import com.repackage.ul4;
+import com.repackage.wk4;
 import com.repackage.xk4;
-import com.repackage.yk4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class UserIconLayout extends LinearLayout {
@@ -91,7 +91,7 @@ public class UserIconLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null || this.a.g.getAuthor() == null) {
                 return;
             }
-            vl4.q(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ad), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.g.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            ul4.q(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ac), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.g.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.j == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
@@ -242,8 +242,8 @@ public class UserIconLayout extends LinearLayout {
             if (str2 == null || str == null) {
                 return spannableStringBuilder;
             }
-            arrayList.add(new cx5.a(str, R.drawable.pic_smalldot_title));
-            return cx5.h(this.a, str2, arrayList, true);
+            arrayList.add(new ex5.a(str, R.drawable.pic_smalldot_title));
+            return ex5.h(this.a, str2, arrayList, true);
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
@@ -262,7 +262,7 @@ public class UserIconLayout extends LinearLayout {
             this.d = new UserIconBox(this.a);
             this.e = new UserIconBox(this.a);
             this.b = new TextView(this.a);
-            View a2 = yk4.b().a(this.a, 1);
+            View a2 = xk4.b().a(this.a, 1);
             this.c = a2;
             if (a2 != null) {
                 a2.setVisibility(8);
@@ -307,10 +307,10 @@ public class UserIconLayout extends LinearLayout {
         if (threadData.getAuthor() != null && threadData.getAuthor().getAlaUserData() != null) {
             AlaUserInfoData alaUserData = threadData.getAuthor().getAlaUserData();
             if (this.c != null) {
-                xk4 xk4Var = new xk4();
-                xk4Var.a = alaUserData;
-                xk4Var.b = 1;
-                this.c.setTag(xk4Var);
+                wk4 wk4Var = new wk4();
+                wk4Var.a = alaUserData;
+                wk4Var.b = 1;
+                this.c.setTag(wk4Var);
             }
         }
         if (StringUtils.isNull(this.g.getAuthor().getName_show())) {

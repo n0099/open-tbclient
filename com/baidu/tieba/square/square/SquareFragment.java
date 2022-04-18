@@ -21,16 +21,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.du4;
+import com.repackage.cu4;
 import com.repackage.mi;
-import com.repackage.nh8;
-import com.repackage.ph8;
+import com.repackage.uh8;
+import com.repackage.wh8;
 /* loaded from: classes4.dex */
 public class SquareFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public ph8 a;
+    public wh8 a;
     public SquareModel b;
     public boolean c;
     public boolean d;
@@ -40,7 +40,7 @@ public class SquareFragment extends BaseFragment {
     public final SquareModel.a h;
     public final NoNetworkView.b i;
     public final View.OnKeyListener j;
-    public final du4.g k;
+    public final cu4.g k;
 
     /* loaded from: classes4.dex */
     public class a implements SquareModel.a {
@@ -67,13 +67,13 @@ public class SquareFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.square.square.SquareModel.a
-        public void a(boolean z, String str, nh8 nh8Var) {
+        public void a(boolean z, String str, uh8 uh8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, nh8Var}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, uh8Var}) == null) {
                 this.a.a.h(true, "");
                 SquareFragment squareFragment = this.a;
                 squareFragment.hideLoadingView(squareFragment.a.i());
-                if (z && nh8Var != null && !nh8Var.g()) {
+                if (z && uh8Var != null && !uh8Var.g()) {
                     this.a.a.l(this.a.b.H());
                     this.a.c = true;
                     this.a.a.j();
@@ -95,7 +95,7 @@ public class SquareFragment extends BaseFragment {
                     }
                     if (!this.a.c) {
                         if (mi.z()) {
-                            this.a.a.o(R.string.obfuscated_res_0x7f0f0c30);
+                            this.a.a.o(R.string.obfuscated_res_0x7f0f0c2f);
                         } else {
                             this.a.a.o(R.string.obfuscated_res_0x7f0f077d);
                         }
@@ -199,7 +199,7 @@ public class SquareFragment extends BaseFragment {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements du4.g {
+    public class d implements cu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareFragment a;
@@ -222,7 +222,7 @@ public class SquareFragment extends BaseFragment {
             this.a = squareFragment;
         }
 
-        @Override // com.repackage.du4.g
+        @Override // com.repackage.cu4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -287,9 +287,9 @@ public class SquareFragment extends BaseFragment {
     public final void R0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ph8 ph8Var = new ph8(this.f, getUniqueId(), this.g, this.j);
-            this.a = ph8Var;
-            ph8Var.n(this.k);
+            wh8 wh8Var = new wh8(this.f, getUniqueId(), this.g, this.j);
+            this.a = wh8Var;
+            wh8Var.n(this.k);
         }
     }
 
@@ -356,9 +356,9 @@ public class SquareFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            ph8 ph8Var = this.a;
-            if (ph8Var != null) {
-                ph8Var.onChangeSkinType(i);
+            wh8 wh8Var = this.a;
+            if (wh8Var != null) {
+                wh8Var.onChangeSkinType(i);
             }
         }
     }

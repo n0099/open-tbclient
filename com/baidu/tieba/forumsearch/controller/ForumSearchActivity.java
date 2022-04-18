@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nc6;
+import com.repackage.pc6;
 /* loaded from: classes3.dex */
 public class ForumSearchActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nc6 mController;
+    public pc6 mController;
 
     public ForumSearchActivity() {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class ForumSearchActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            nc6 nc6Var = new nc6(getPageContext());
-            this.mController = nc6Var;
-            setContentView(nc6Var.o().b);
+            pc6 pc6Var = new pc6(getPageContext());
+            this.mController = pc6Var;
+            setContentView(pc6Var.o().b);
             Intent intent = getIntent();
             if (intent != null) {
                 this.mController.x(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));

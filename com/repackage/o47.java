@@ -1,18 +1,19 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.hottopicselect.HotSelectCacheReqMessage;
+import com.baidu.tieba.hottopicselect.HotSelectCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetSugTopic.TopicList;
 /* loaded from: classes6.dex */
-public class o47 {
+public class o47 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Integer b;
 
     public o47() {
         Interceptable interceptable = $ic;
@@ -28,35 +29,21 @@ public class o47 {
         }
     }
 
-    public Integer a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Integer) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(TopicList topicList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, topicList) == null) || topicList == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof HotSelectCacheReqMessage)) {
+                return null;
+            }
+            HotSelectCacheResponseMessage hotSelectCacheResponseMessage = new HotSelectCacheResponseMessage();
+            try {
+                hotSelectCacheResponseMessage.decodeInBackGround(2016491, (byte[]) null);
+            } catch (Exception unused) {
+            }
+            return hotSelectCacheResponseMessage;
         }
-        Long l = topicList.topic_id;
-        this.a = topicList.topic_name;
-        String str = topicList.topic_pic;
-        String str2 = topicList.topic_desc;
-        Long l2 = topicList.discuss_num;
-        this.b = topicList.tag;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

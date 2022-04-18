@@ -1,7 +1,15 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface fc7 {
-    void setUniqueId(BdUniqueId bdUniqueId);
+    void a(List<ce7> list);
+
+    void b();
+
+    void c(long j, String str);
+
+    void d(String str, String str2, String str3, List<de7> list);
+
+    void e(long j, String str, int i, String str2);
 }

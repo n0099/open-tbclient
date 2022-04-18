@@ -119,7 +119,7 @@ public class wo0 {
 
         /* renamed from: com.repackage.wo0$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0543b {
+        public static class C0544b {
             public static /* synthetic */ Interceptable $ic;
             public static final b a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public class wo0 {
         public static b b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0543b.a : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0544b.a : (b) invokeV.objValue;
         }
 
         public ep0 a(String str) {

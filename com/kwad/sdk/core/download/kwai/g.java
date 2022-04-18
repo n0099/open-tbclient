@@ -67,7 +67,7 @@ public class g extends com.kwad.sdk.widget.a {
 
     private View a() {
         View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d044f, (ViewGroup) null, false);
-        inflate.findViewById(R.id.obfuscated_res_0x7f0910b4).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.kwai.g.1
+        inflate.findViewById(R.id.obfuscated_res_0x7f0910b5).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.kwai.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (g.this.a != null) {
@@ -75,7 +75,7 @@ public class g extends com.kwad.sdk.widget.a {
                 }
             }
         });
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910b6);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910b7);
         if (!TextUtils.isEmpty(this.c)) {
             textView.setText(this.c);
         }
@@ -88,7 +88,7 @@ public class g extends com.kwad.sdk.widget.a {
                 }
             }
         });
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910b5);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910b6);
         if (!TextUtils.isEmpty(this.e)) {
             textView2.setText(this.e);
         }
@@ -101,7 +101,7 @@ public class g extends com.kwad.sdk.widget.a {
                 }
             }
         });
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910b3)).setText(this.b);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910b4)).setText(this.b);
         return inflate;
     }
 

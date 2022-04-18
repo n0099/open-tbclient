@@ -67,7 +67,7 @@ public class YoungsterVerifyModel extends BdBaseModel {
             if (!StringUtils.isNull(this.a.mErrorString)) {
                 str = this.a.mErrorString;
             } else {
-                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
             }
             ErrorData errorData = new ErrorData();
             errorData.setError_code(this.a.mErrorCode);

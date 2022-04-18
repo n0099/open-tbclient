@@ -137,12 +137,12 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0691, this);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091703);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091706);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091705);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091702);
-            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091704);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0808f7, R.color.CAM_X0622, null);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091704);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091707);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091706);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091703);
+            this.f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091705);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0808fb, R.color.CAM_X0622, null);
         }
     }
 
@@ -150,7 +150,7 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.g = true;
-            this.c.setText(R.string.obfuscated_res_0x7f0f0dce);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0dcd);
             a aVar = this.i;
             if (aVar != null) {
                 aVar.cancel();
@@ -169,7 +169,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             if (aVar != null) {
                 aVar.cancel();
             }
-            this.c.setText(R.string.obfuscated_res_0x7f0f0dcf);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0dce);
             this.f.setProgress(0);
         }
     }
@@ -180,7 +180,7 @@ public class PbNextVideoLayout extends RelativeLayout {
             return;
         }
         this.b.K(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
-        this.c.setText(R.string.obfuscated_res_0x7f0f0dce);
+        this.c.setText(R.string.obfuscated_res_0x7f0f0dcd);
         this.d.setText(threadData.getTitle());
         this.f.setProgress(0);
     }

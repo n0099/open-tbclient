@@ -181,7 +181,7 @@ public class lp1 extends cp1 {
             this.e.h.m2(this.e.g);
             lp1 lp1Var = this.e;
             SwanAppWebPopWindow swanAppWebPopWindow = new SwanAppWebPopWindow(activity, this.c);
-            swanAppWebPopWindow.r0(R.string.obfuscated_res_0x7f0f1209);
+            swanAppWebPopWindow.r0(R.string.obfuscated_res_0x7f0f1208);
             lp1Var.f = swanAppWebPopWindow;
             if (TextUtils.equals(this.d, "protect")) {
                 SwanAppWebPopWindow swanAppWebPopWindow2 = this.e.f;

@@ -65,7 +65,7 @@ public class tr2 extends lr2 {
             this.f = cVar;
         }
 
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.repackage.r94.a
+        @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.repackage.q94.a
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
@@ -184,7 +184,7 @@ public class tr2 extends lr2 {
                 int G = this.a.X().G();
                 String l = c73.l();
                 String e = de3.n().e();
-                SwanAppNetworkUtils.a(m74.g().getOkHttpClient(), this.d);
+                SwanAppNetworkUtils.a(l74.g().getOkHttpClient(), this.d);
                 this.e.handleSchemeDispatchCallback(this.f, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
                 c73.Q(0, this.c, G, iOException.getMessage(), l, e, this.g, System.currentTimeMillis(), this.d);
             }

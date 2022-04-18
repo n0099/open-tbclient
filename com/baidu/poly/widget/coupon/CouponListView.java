@@ -307,8 +307,8 @@ public class CouponListView extends FrameLayout {
                 } else if (i == 1) {
                     View inflate = View.inflate(this.b.getContext(), R.layout.obfuscated_res_0x7f0d0219, null);
                     PopupWindow popupWindow = new PopupWindow(inflate, -1, -1, true);
-                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091893)).setText(aVar.b);
-                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09188e)).setOnClickListener(new a(this, popupWindow));
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091894)).setText(aVar.b);
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09188f)).setOnClickListener(new a(this, popupWindow));
                     popupWindow.A(new b(this));
                     popupWindow.D(this.b, 0, 0, 0);
                 } else {
@@ -524,7 +524,7 @@ public class CouponListView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0207, (ViewGroup) this, true);
-            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091ad5);
+            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091ad6);
             this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090707);
             this.b = (ListView) findViewById(R.id.obfuscated_res_0x7f090708);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f0902f9);

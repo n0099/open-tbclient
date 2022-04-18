@@ -238,7 +238,7 @@ public class s85 extends r85 {
             a.b("cdninit", String.valueOf(this.p));
             a.b("messagesetinit", String.valueOf(this.q));
             a.b("logores", String.valueOf(this.B));
-            a.b("opttest", String.valueOf(wt4.k().l("static_opt_open", 0) > 0 ? 1 : 0));
+            a.b("opttest", String.valueOf(vt4.k().l("static_opt_open", 0) > 0 ? 1 : 0));
             long j6 = this.r;
             if (j6 <= 0) {
                 str = "1";

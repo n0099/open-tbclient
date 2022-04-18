@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a57;
+import com.repackage.d57;
 import com.repackage.ef;
 import com.repackage.ff;
 import com.repackage.mg;
@@ -25,7 +25,7 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class MsgActivityView extends a57 {
+public class MsgActivityView extends d57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView A;
@@ -165,11 +165,11 @@ public class MsgActivityView extends a57 {
                 return;
             }
         }
-        this.h = (TextView) e(R.id.obfuscated_res_0x7f091f04);
-        this.z = (TextView) e(R.id.obfuscated_res_0x7f091451);
-        this.A = (TextView) e(R.id.obfuscated_res_0x7f091450);
-        this.B = (TextView) e(R.id.obfuscated_res_0x7f09144f);
-        HeadImageView headImageView = (HeadImageView) e(R.id.obfuscated_res_0x7f090ebc);
+        this.h = (TextView) e(R.id.obfuscated_res_0x7f091f05);
+        this.z = (TextView) e(R.id.obfuscated_res_0x7f091452);
+        this.A = (TextView) e(R.id.obfuscated_res_0x7f091451);
+        this.B = (TextView) e(R.id.obfuscated_res_0x7f091450);
+        HeadImageView headImageView = (HeadImageView) e(R.id.obfuscated_res_0x7f090ebd);
         this.y = headImageView;
         headImageView.setIsRound(false);
         this.y.setClickable(true);
@@ -205,16 +205,16 @@ public class MsgActivityView extends a57 {
                 String str = "";
                 switch (i3) {
                     case 0:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f110d);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f110c);
                         break;
                     case 1:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0cb8);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0cb7);
                         break;
                     case 2:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f145f);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f145e);
                         break;
                     case 3:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13aa);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f13a9);
                         break;
                     case 4:
                         str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f06b2);
@@ -223,11 +223,11 @@ public class MsgActivityView extends a57 {
                         str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f061b);
                         break;
                     case 6:
-                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1182);
+                        str = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f1181);
                         break;
                 }
                 if (i > 12) {
-                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0e8e);
+                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0e8d);
                     i -= 12;
                 } else {
                     string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0274);
@@ -248,7 +248,7 @@ public class MsgActivityView extends a57 {
         }
     }
 
-    @Override // com.repackage.a57
+    @Override // com.repackage.d57
     public void u(ef efVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, efVar) == null) {
@@ -256,7 +256,7 @@ public class MsgActivityView extends a57 {
         }
     }
 
-    @Override // com.repackage.a57
+    @Override // com.repackage.d57
     public void v(ff ffVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ffVar) == null) {
@@ -264,7 +264,7 @@ public class MsgActivityView extends a57 {
         }
     }
 
-    @Override // com.repackage.a57
+    @Override // com.repackage.d57
     public void w(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {

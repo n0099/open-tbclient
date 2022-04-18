@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c77;
-import com.repackage.d57;
-import com.repackage.x87;
+import com.repackage.a97;
+import com.repackage.f77;
+import com.repackage.g57;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class OfficialBarHistoryAdapter extends BaseAdapter {
@@ -62,7 +62,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                 return;
             }
             ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) this.a.d.get(intValue);
-            String f = x87.f(PreferencesUtil.LEFT_MOUNT + aVar.c + PreferencesUtil.RIGHT_MOUNT, true);
+            String f = a97.f(PreferencesUtil.LEFT_MOUNT + aVar.c + PreferencesUtil.RIGHT_MOUNT, true);
             if (f == null) {
                 return;
             }
@@ -142,7 +142,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                     };
                     chatMessage.setContent(aVar.c);
                     chatMessage.setMsgType(aVar.b);
-                    d57.e(historyItemView.getRichTextView(), chatMessage, "official_history_adapter", 0);
+                    g57.e(historyItemView.getRichTextView(), chatMessage, "official_history_adapter", 0);
                 } else if (itemViewType == 1) {
                     if (view2 == null) {
                         view2 = new HistoryItemView(this.a);
@@ -188,7 +188,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                     };
                     chatMessage2.setContent(PreferencesUtil.LEFT_MOUNT + aVar.c + PreferencesUtil.RIGHT_MOUNT);
                     chatMessage2.setMsgType(aVar.b);
-                    d57.d(this.a, view2, historyItemView2.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                    g57.d(this.a, view2, historyItemView2.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     historyItemView2.getImageView().setTag(Integer.valueOf(i));
                     historyItemView2.getImageView().setOnClickListener(this.c);
                 } else if (itemViewType == 2) {
@@ -198,7 +198,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                     MultiContentView multiContentView = new MultiContentView(this.a);
                     multiContentView.setNeedNightMode(true);
                     multiContentView.setTime(aVar.a);
-                    multiContentView.setData(this.b.getPageContext(), c77.a(aVar.c, "", 0L, 0L), viewGroup);
+                    multiContentView.setData(this.b.getPageContext(), f77.a(aVar.c, "", 0L, 0L), viewGroup);
                     ((HistoryItemView) view2).a(multiContentView);
                 }
             }

@@ -90,7 +90,7 @@ public final class o93 {
         }
 
         @Nullable
-        public static SwanCoreVersion b(Bundle bundle, int i) {
+        public static SwanCoreVersion c(Bundle bundle, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bundle, i)) == null) {
@@ -106,7 +106,7 @@ public final class o93 {
             return (SwanCoreVersion) invokeLI.objValue;
         }
 
-        public SwanCoreVersion a(int i) {
+        public SwanCoreVersion b(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -126,8 +126,8 @@ public final class o93 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
                 Bundle bundle2 = new Bundle();
-                bundle2.putParcelable("aiapps_swan_core", a(0));
-                bundle2.putParcelable("aiapps_game_core", a(1));
+                bundle2.putParcelable("aiapps_swan_core", b(0));
+                bundle2.putParcelable("aiapps_game_core", b(1));
                 return bundle2;
             }
             return (Bundle) invokeL.objValue;
@@ -176,7 +176,7 @@ public final class o93 {
                     if (a) {
                         Log.d("SwanAppSwanCoreManager", "deleteOldSwanCores deleteFolder: " + file2);
                     }
-                    ng4.j(file2);
+                    mg4.j(file2);
                 }
             }
         }
@@ -255,9 +255,9 @@ public final class o93 {
             }
             yw2 c = ww2.c(b.class, null);
             if (a) {
-                Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionIPC:" + ProcessUtils.getCurProcessName() + " swan core: " + b.b(c.a, i));
+                Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionIPC:" + ProcessUtils.getCurProcessName() + " swan core: " + b.c(c.a, i));
             }
-            return b.b(c.a, i);
+            return b.c(c.a, i);
         }
         return (SwanCoreVersion) invokeI.objValue;
     }
@@ -354,14 +354,14 @@ public final class o93 {
     public static void p(u93 u93Var, int i, cf3<Exception> cf3Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65552, null, u93Var, i, cf3Var) == null) {
-            pb4 pb4Var = new pb4(i);
+            ob4 ob4Var = new ob4(i);
             if (i == 0) {
-                s74.l(pb4Var, new m32(cf3Var));
+                r74.l(ob4Var, new m32(cf3Var));
                 return;
             }
             r32 p = rj2.i().p(cf3Var);
             if (p != null) {
-                s74.m(pb4Var, new m32(null), p);
+                r74.m(ob4Var, new m32(null), p);
             } else if (cf3Var != null) {
                 cf3Var.onCallback(null);
             }

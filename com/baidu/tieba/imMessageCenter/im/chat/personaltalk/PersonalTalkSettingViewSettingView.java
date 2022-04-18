@@ -56,7 +56,7 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
             LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0651, this);
-            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f091dd6);
+            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f091dd7);
             this.a = settingTextSwitchView;
             SkinManager.setBackgroundColor(settingTextSwitchView.getView(), R.color.common_color_10163);
         }

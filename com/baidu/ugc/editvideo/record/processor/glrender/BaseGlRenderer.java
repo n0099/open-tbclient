@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-import com.repackage.tb9;
-import com.repackage.yb9;
+import com.repackage.ac9;
+import com.repackage.fc9;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class BaseGlRenderer implements IGlRenderer {
@@ -79,8 +79,8 @@ public class BaseGlRenderer implements IGlRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
-                if (yb9.b(this.runOnProcess) > 0) {
-                    tb9.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
+                if (fc9.b(this.runOnProcess) > 0) {
+                    ac9.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
                 }
                 while (!this.runOnProcess.isEmpty()) {
                     this.runOnProcess.removeFirst().run();

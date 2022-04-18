@@ -34,14 +34,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bz7;
+import com.repackage.bs7;
+import com.repackage.cl8;
 import com.repackage.iz7;
 import com.repackage.oi;
-import com.repackage.vk8;
-import com.repackage.yr7;
+import com.repackage.pz7;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class DetailInfoFragment extends BaseFragment implements bz7 {
+public class DetailInfoFragment extends BaseFragment implements iz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AbsPbActivity a;
@@ -49,7 +49,7 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
     public BdTypeRecyclerView c;
     public PbListView d;
     public VideoPbViewModel e;
-    public iz7 f;
+    public pz7 f;
     public int g;
     public String h;
     public String i;
@@ -234,17 +234,17 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
         return (DetailInfoFragment) invokeL.objValue;
     }
 
-    public final void H0(yr7 yr7Var) {
+    public final void H0(bs7 bs7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, yr7Var) == null) || this.e == null || yr7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bs7Var) == null) || this.e == null || bs7Var == null) {
             return;
         }
-        Q0(yr7Var);
-        O0(yr7Var);
-        this.f.n(yr7Var);
+        Q0(bs7Var);
+        O0(bs7Var);
+        this.f.n(bs7Var);
         if (this.a instanceof PbActivity) {
             this.e.v(false);
-            ((PbActivity) this.a).logOnPbDataSet(yr7Var.g());
+            ((PbActivity) this.a).logOnPbDataSet(bs7Var.g());
         }
     }
 
@@ -253,10 +253,10 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        List<vk8> Y = w().T0().Y();
-        for (vk8 vk8Var : Y) {
-            if (TextUtils.equals(str, vk8Var.N0())) {
-                Y.remove(vk8Var);
+        List<cl8> Y = w().T0().Y();
+        for (cl8 cl8Var : Y) {
+            if (TextUtils.equals(str, cl8Var.N0())) {
+                Y.remove(cl8Var);
                 return;
             }
         }
@@ -280,7 +280,7 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
     public final void L0(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091695);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091696);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             this.c.addOnScrollListener(this.j);
@@ -297,7 +297,7 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
             this.d.t(oi.f(getContext(), R.dimen.tbds182));
             this.d.s();
             this.c.setNextPage(this.d);
-            this.f = new iz7(this, this.c);
+            this.f = new pz7(this, this.c);
             if (w() == null || w().C1()) {
                 return;
             }
@@ -306,7 +306,7 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
     }
 
     public void M0() {
-        yr7 T0;
+        bs7 T0;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (T0 = w().T0()) == null) {
             return;
@@ -315,25 +315,25 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
         this.f.l();
     }
 
-    public final void O0(yr7 yr7Var) {
+    public final void O0(bs7 bs7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, yr7Var) == null) || yr7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, bs7Var) == null) || bs7Var == null) {
             return;
         }
         if (TbSingleton.getInstance().isBrowseMode()) {
             K0();
-        } else if (ListUtils.isEmpty(yr7Var.f())) {
+        } else if (ListUtils.isEmpty(bs7Var.f())) {
             V0();
         } else {
             K0();
-            this.d.C(getString(R.string.obfuscated_res_0x7f0f0f5b));
+            this.d.C(getString(R.string.obfuscated_res_0x7f0f0f5a));
         }
     }
 
     public final void P0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            yr7 c2 = this.e.c();
+            bs7 c2 = this.e.c();
             if (c2 == null) {
                 c2 = this.e.d();
             }
@@ -341,15 +341,15 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
         }
     }
 
-    public final void Q0(yr7 yr7Var) {
+    public final void Q0(bs7 bs7Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yr7Var) == null) || yr7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bs7Var) == null) || bs7Var == null) {
             return;
         }
-        if (yr7Var.O() != null) {
-            String Q = yr7Var.Q();
-            str = yr7Var.O().getBaijiahaoData() != null ? yr7Var.O().getBaijiahaoData().oriUgcNid : null;
+        if (bs7Var.O() != null) {
+            String Q = bs7Var.Q();
+            str = bs7Var.O().getBaijiahaoData() != null ? bs7Var.O().getBaijiahaoData().oriUgcNid : null;
             r1 = Q;
         } else {
             str = null;
@@ -379,12 +379,12 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
     }
 
     public void T0() {
-        iz7 iz7Var;
+        pz7 pz7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (iz7Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (pz7Var = this.f) == null) {
             return;
         }
-        iz7Var.m();
+        pz7Var.m();
     }
 
     public final void U0() {
@@ -404,7 +404,7 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
         if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (pbListView = this.d) == null) {
             return;
         }
-        pbListView.I(getString(R.string.obfuscated_res_0x7f0f0c5b), R.drawable.new_pic_emotion_08, oi.f(TbadkApplication.getInst(), R.dimen.tbds256));
+        pbListView.I(getString(R.string.obfuscated_res_0x7f0f0c5a), R.drawable.new_pic_emotion_08, oi.f(TbadkApplication.getInst(), R.dimen.tbds256));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -435,9 +435,9 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             super.onChangeSkinType(i);
-            iz7 iz7Var = this.f;
-            if (iz7Var != null) {
-                iz7Var.l();
+            pz7 pz7Var = this.f;
+            if (pz7Var != null) {
+                pz7Var.l();
             }
             PbListView pbListView = this.d;
             if (pbListView != null) {
@@ -506,13 +506,13 @@ public class DetailInfoFragment extends BaseFragment implements bz7 {
         return (AbsVideoPbFragment) invokeV.objValue;
     }
 
-    @Override // com.repackage.bz7
-    public void t0(boolean z, int i, int i2, int i3, yr7 yr7Var, String str, int i4) {
+    @Override // com.repackage.iz7
+    public void t0(boolean z, int i, int i2, int i3, bs7 bs7Var, String str, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), yr7Var, str, Integer.valueOf(i4)}) == null) || yr7Var == null || getActivity() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bs7Var, str, Integer.valueOf(i4)}) == null) || bs7Var == null || getActivity() == null) {
             return;
         }
-        H0(yr7Var);
+        H0(bs7Var);
     }
 
     public PbModel w() {

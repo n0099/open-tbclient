@@ -1,73 +1,220 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipUpgrade;
+import com.repackage.cr4;
+import java.util.Date;
 /* loaded from: classes7.dex */
-public class vi7 implements uo {
+public class vi7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755230131, "Lcom/repackage/vi7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a implements cr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ BubbleListData.BubbleData b;
+
+        public a(e eVar, BubbleListData.BubbleData bubbleData) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, bubbleData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755230131, "Lcom/repackage/vi7;");
-                return;
+            this.a = eVar;
+            this.b = bubbleData;
+        }
+
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.a(this.b.getBcode());
+                }
             }
         }
-        a = BdUniqueId.gen();
     }
 
-    public vi7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class b implements cr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+
+        public b(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+        }
+
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.b();
+                }
             }
         }
     }
 
-    public void a(DataRes dataRes) {
-        VipUpgrade vipUpgrade;
+    /* loaded from: classes7.dex */
+    public static class c implements cr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ BubbleListData.BubbleData b;
+
+        public c(e eVar, BubbleListData.BubbleData bubbleData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, bubbleData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+            this.b = bubbleData;
+        }
+
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.a(this.b.getBcode());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d implements cr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+
+        public d(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+        }
+
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.b();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface e {
+        void a(int i);
+
+        void b();
+    }
+
+    public static void a(TbPageContext<?> tbPageContext, BubbleListData.BubbleData bubbleData, e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null || (vipUpgrade = dataRes.upgrade) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, bubbleData, eVar) == null) || bubbleData == null) {
             return;
         }
-        String str = vipUpgrade.svip;
-        String str2 = vipUpgrade.link;
-        String str3 = vipUpgrade.button;
-        String str4 = vipUpgrade.text;
-        vipUpgrade.pay.intValue();
-        dataRes.upgrade.normal.intValue();
-        VipUpgrade vipUpgrade2 = dataRes.upgrade;
-        String str5 = vipUpgrade2.card_id;
-        String str6 = vipUpgrade2.expire;
+        cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
+        cr4Var.setCanceledOnTouchOutside(false);
+        Date date = new Date();
+        Date date2 = new Date(date.getTime() + (bubbleData.getTime_interval() * 1000));
+        String dateStringDay = ni.getDateStringDay(date);
+        String dateStringDay2 = ni.getDateStringDay(date2);
+        String format = String.format(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0341), bubbleData.getBname(), Integer.valueOf(bubbleData.getTime_interval() / 86400));
+        View inflate = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0169, (ViewGroup) null);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fef);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ff0);
+        SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(textView2, R.color.CAM_X0108, 1);
+        textView.setText(format);
+        textView2.setText(dateStringDay + tbPageContext.getString(R.string.obfuscated_res_0x7f0f13f4) + dateStringDay2);
+        cr4Var.setContentView(inflate);
+        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f14a3, new a(eVar, bubbleData));
+        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new b(eVar));
+        cr4Var.create(tbPageContext);
+        cr4Var.show();
     }
 
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static void b(TbPageContext<?> tbPageContext, BubbleListData.BubbleData bubbleData, e eVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, bubbleData, eVar) == null) || bubbleData == null) {
+            return;
+        }
+        cr4 cr4Var = new cr4(tbPageContext.getPageActivity());
+        cr4Var.setCanceledOnTouchOutside(false);
+        cr4Var.setMessage(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0343), bubbleData.getLevel_name()));
+        cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ccb, new c(eVar, bubbleData));
+        cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new d(eVar));
+        cr4Var.create(tbPageContext);
+        cr4Var.show();
     }
 }

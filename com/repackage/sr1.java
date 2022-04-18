@@ -182,7 +182,7 @@ public class sr1 extends ir1 {
         j03 L;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && (L = j03.L()) != null && L.d0().f("mapp_set_user_agent")) {
-            jSONObject.put(TTDownloadField.TT_USERAGENT, a74.b().a());
+            jSONObject.put(TTDownloadField.TT_USERAGENT, z64.b().a());
         }
     }
 

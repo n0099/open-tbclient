@@ -1,65 +1,91 @@
 package com.repackage;
 
-import androidx.collection.LongSparseArray;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class fe6 {
+public class fe6 extends SparseArray<pe6> {
     public static /* synthetic */ Interceptable $ic;
-    public static final fe6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LongSparseArray<LinkedList<String>> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755710662, "Lcom/repackage/fe6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755710662, "Lcom/repackage/fe6;");
-                return;
-            }
-        }
-        b = new fe6();
-    }
+    public BdUniqueId a;
 
     public fe6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LongSparseArray<>();
+        this.a = null;
     }
 
-    public static fe6 a() {
-        InterceptResult invokeV;
+    public void a(int i, pe6 pe6Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (fe6) invokeV.objValue;
-    }
-
-    public void b(long j) {
-        LinkedList<String> linkedList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || (linkedList = this.a.get(j)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, pe6Var) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            put(i, pe6Var);
         }
-        linkedList.clear();
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                pe6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.v(null);
+                    valueAt.i();
+                }
+            }
+        }
+    }
+
+    public pe6 c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i > 100) {
+                i = 100;
+            }
+            return get(i);
+        }
+        return (pe6) invokeI.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (int i = 0; i < size(); i++) {
+                pe6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.init();
+                }
+            }
+        }
+    }
+
+    public void e(te6 te6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, te6Var) == null) {
+            for (int i = 0; i < size(); i++) {
+                pe6 valueAt = valueAt(i);
+                if (valueAt != null) {
+                    valueAt.v(te6Var);
+                }
+            }
+        }
     }
 }

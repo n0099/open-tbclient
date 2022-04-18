@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,19 +13,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class t38 extends ho<d58, CardViewHolder<e68>> {
+public class t38 extends ho<m58, CardViewHolder<p68>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
+    public TbPageContext i;
+    public View.OnClickListener j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t38(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), d58.c);
+    public t38(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,23 +44,35 @@ public class t38 extends ho<d58, CardViewHolder<e68>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: Z */
-    public CardViewHolder<e68> M(ViewGroup viewGroup) {
+    public CardViewHolder<p68> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new e68(this.i)) : (CardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new p68(this.i)) : (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, d58 d58Var, CardViewHolder<e68> cardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, m58 m58Var, CardViewHolder<p68> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, d58Var, cardViewHolder})) == null) {
-            cardViewHolder.c().l(d58Var);
-            cardViewHolder.c().m(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.b();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, m58Var, cardViewHolder})) == null) {
+            if (m58Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+                return null;
+            }
+            cardViewHolder.c().l(m58Var);
+            if (cardViewHolder.c().k() != null) {
+                cardViewHolder.c().k().setOnClickListener(this.j);
+            }
+            return cardViewHolder.c().k();
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public void b0(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.j = onClickListener;
+        }
     }
 }

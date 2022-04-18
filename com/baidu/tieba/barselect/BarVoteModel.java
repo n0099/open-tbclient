@@ -23,15 +23,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.am8;
-import com.repackage.fw5;
+import com.repackage.hm8;
+import com.repackage.hw5;
 import com.repackage.mi;
 import com.repackage.ni;
 import com.repackage.oi;
 import com.repackage.pg;
-import com.repackage.uv5;
 import com.repackage.wa;
 import com.repackage.wv5;
+import com.repackage.yv5;
 /* loaded from: classes3.dex */
 public class BarVoteModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -40,7 +40,7 @@ public class BarVoteModel extends BdBaseModel {
     public final BdUniqueId RELOAD_TYPE;
     public final BdUniqueId SWITCH_TYPE;
     public BarVoteActivity a;
-    public wv5 b;
+    public yv5 b;
     public c c;
     public long d;
     public wa e;
@@ -144,7 +144,7 @@ public class BarVoteModel extends BdBaseModel {
 
         @Override // com.repackage.wa
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            wv5 voteData;
+            yv5 voteData;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null) {
                 return;
@@ -187,7 +187,7 @@ public class BarVoteModel extends BdBaseModel {
                     if (this.a.a != null) {
                         pg.a().postDelayed(new b(this), 5000L);
                     }
-                } else if (voteData.a().g() == fw5.c) {
+                } else if (voteData.a().g() == hw5.c) {
                     this.a.b = voteData;
                     BarVoteModel barVoteModel3 = this.a;
                     barVoteModel3.mPn = 1;
@@ -238,10 +238,10 @@ public class BarVoteModel extends BdBaseModel {
             int error = httpResponsedMessage.getError();
             if (error != 0) {
                 if (error == 3250023) {
-                    am8.b(error, "", null);
+                    hm8.b(error, "", null);
                     return;
                 } else if (error == 3250021) {
-                    am8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    hm8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                     return;
                 } else if (error != 3250002 && error != 3250004) {
                     oi.N(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -264,9 +264,9 @@ public class BarVoteModel extends BdBaseModel {
             }
             CommitVoteReqMsg commitVoteReqMsg = (CommitVoteReqMsg) orginalMessage;
             if (commitVoteReqMsg.candidate_uid != 0) {
-                for (uv5 uv5Var : this.a.b.b()) {
-                    if (uv5Var.l() == commitVoteReqMsg.candidate_uid) {
-                        uv5Var.D(uv5Var.m() + 1);
+                for (wv5 wv5Var : this.a.b.b()) {
+                    if (wv5Var.l() == commitVoteReqMsg.candidate_uid) {
+                        wv5Var.D(wv5Var.m() + 1);
                         z = true;
                     }
                 }
@@ -285,7 +285,7 @@ public class BarVoteModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(int i, String str, wv5 wv5Var);
+        void a(int i, String str, yv5 yv5Var);
     }
 
     public BarVoteModel(BarVoteActivity barVoteActivity) {

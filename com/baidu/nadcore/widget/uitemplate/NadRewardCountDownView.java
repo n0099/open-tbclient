@@ -284,7 +284,7 @@ public class NadRewardCountDownView extends RelativeLayout {
                     this.a.k = 4;
                 }
                 this.a.c.setText(this.a.j);
-                this.a.c.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd8));
+                this.a.c.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ddc));
                 this.a.requestLayout();
             }
         }
@@ -359,12 +359,12 @@ public class NadRewardCountDownView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ca, (ViewGroup) this, true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0914db);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0914dc);
             this.b = textView;
             textView.setText("跳过");
             this.b.setVisibility(8);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09149f);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0914dc);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0914a0);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0914dd);
             this.a.setClickable(true);
             this.b.setOnClickListener(new a(this));
             this.c.setOnClickListener(new b(this));

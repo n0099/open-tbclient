@@ -92,11 +92,11 @@ public final class mx2 {
                 }
                 Application context = qj2.c();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
-                String b2 = b(context, jSONObject, "contentPlaceholder", R.string.obfuscated_res_0x7f0f12be);
-                String e2 = e(b(context, jSONObject, "titlePlaceholder", R.string.obfuscated_res_0x7f0f12bf), 20, null, 4, null);
-                String e3 = e(b(context, jSONObject, "confirmText", R.string.obfuscated_res_0x7f0f12c0), 4, null, 4, null);
+                String b2 = b(context, jSONObject, "contentPlaceholder", R.string.obfuscated_res_0x7f0f12bd);
+                String e2 = e(b(context, jSONObject, "titlePlaceholder", R.string.obfuscated_res_0x7f0f12be), 20, null, 4, null);
+                String e3 = e(b(context, jSONObject, "confirmText", R.string.obfuscated_res_0x7f0f12bf), 4, null, 4, null);
                 String e4 = e(b(context, jSONObject, "cancelText", R.string.obfuscated_res_0x7f0f0108), 4, null, 4, null);
-                String e5 = e(b(context, jSONObject, "navBarTitleText", R.string.obfuscated_res_0x7f0f12c1), 8, null, 4, null);
+                String e5 = e(b(context, jSONObject, "navBarTitleText", R.string.obfuscated_res_0x7f0f12c0), 8, null, 4, null);
                 String c2 = c(jSONObject, "navBarTextStyle", "");
                 if (!CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"black", "white"}).contains(c2)) {
                     c2 = "black";

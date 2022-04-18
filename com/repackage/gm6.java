@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemRecentUpdateLayout;
+import com.baidu.tieba.frs.itemtab.card.CardItemGameCodeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class gm6 extends qy<nm6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardItemRecentUpdateLayout f;
+    public final CardItemGameCodeLayout f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gm6(Context context) {
@@ -34,7 +34,7 @@ public class gm6 extends qy<nm6> {
                 return;
             }
         }
-        this.f = new CardItemRecentUpdateLayout(context);
+        this.f = new CardItemGameCodeLayout(context);
     }
 
     @Override // com.repackage.qy
@@ -50,7 +50,7 @@ public class gm6 extends qy<nm6> {
     public void a(nm6 nm6Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nm6Var) == null) {
-            this.f.setData(nm6Var.e());
+            this.f.setData(nm6Var);
         }
     }
 

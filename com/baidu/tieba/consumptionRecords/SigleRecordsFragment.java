@@ -29,11 +29,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cz5;
+import com.repackage.cu4;
 import com.repackage.du4;
-import com.repackage.dz5;
-import com.repackage.eu4;
 import com.repackage.ez5;
+import com.repackage.fz5;
+import com.repackage.gz5;
 import com.repackage.oi;
 import java.util.ArrayList;
 @SuppressLint({"ResourceAsColor"})
@@ -48,8 +48,8 @@ public class SigleRecordsFragment extends BaseFragment {
     public int e;
     public LinearLayout f;
     public BdListView g;
-    public eu4 h;
-    public ez5 i;
+    public du4 h;
+    public gz5 i;
     public NoDataView j;
     public TextView k;
     public TbImageView l;
@@ -88,15 +88,15 @@ public class SigleRecordsFragment extends BaseFragment {
                 if (this.a.d) {
                     this.a.k.setText(R.string.obfuscated_res_0x7f0f0a2b);
                 } else {
-                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0c46);
+                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0c45);
                 }
             }
         }
 
         @Override // com.baidu.tieba.consumptionRecords.ConsumptionRecordsModel.b
-        public void b(int i, String str, ArrayList<cz5> arrayList, dz5 dz5Var, boolean z) {
+        public void b(int i, String str, ArrayList<ez5> arrayList, fz5 fz5Var, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, arrayList, dz5Var, Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, arrayList, fz5Var, Boolean.valueOf(z)}) == null) {
                 this.a.d = z;
                 SigleRecordsFragment sigleRecordsFragment = this.a;
                 sigleRecordsFragment.hideLoadingView(sigleRecordsFragment.f);
@@ -104,8 +104,8 @@ public class SigleRecordsFragment extends BaseFragment {
                 if (i == 0) {
                     this.a.c = true;
                     if (arrayList == null || arrayList.size() <= 0) {
-                        if (dz5Var != null) {
-                            this.a.V0(dz5Var);
+                        if (fz5Var != null) {
+                            this.a.V0(fz5Var);
                             return;
                         } else {
                             this.a.U0();
@@ -116,7 +116,7 @@ public class SigleRecordsFragment extends BaseFragment {
                     if (z) {
                         this.a.k.setText(R.string.obfuscated_res_0x7f0f0a32);
                     } else {
-                        this.a.k.setText(R.string.obfuscated_res_0x7f0f0c46);
+                        this.a.k.setText(R.string.obfuscated_res_0x7f0f0c45);
                     }
                     this.a.i.h(arrayList);
                     this.a.i.notifyDataSetChanged();
@@ -128,7 +128,7 @@ public class SigleRecordsFragment extends BaseFragment {
                 } else if (z) {
                     this.a.k.setText(R.string.obfuscated_res_0x7f0f0a2b);
                 } else {
-                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0c46);
+                    this.a.k.setText(R.string.obfuscated_res_0x7f0f0c45);
                 }
                 this.a.c = true;
             }
@@ -136,7 +136,7 @@ public class SigleRecordsFragment extends BaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements du4.g {
+    public class b implements cu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SigleRecordsFragment a;
@@ -159,7 +159,7 @@ public class SigleRecordsFragment extends BaseFragment {
             this.a = sigleRecordsFragment;
         }
 
-        @Override // com.repackage.du4.g
+        @Override // com.repackage.cu4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -205,15 +205,15 @@ public class SigleRecordsFragment extends BaseFragment {
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dz5 a;
+        public final /* synthetic */ fz5 a;
         public final /* synthetic */ SigleRecordsFragment b;
 
-        public d(SigleRecordsFragment sigleRecordsFragment, dz5 dz5Var) {
+        public d(SigleRecordsFragment sigleRecordsFragment, fz5 fz5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sigleRecordsFragment, dz5Var};
+                Object[] objArr = {sigleRecordsFragment, fz5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -224,7 +224,7 @@ public class SigleRecordsFragment extends BaseFragment {
                 }
             }
             this.b = sigleRecordsFragment;
-            this.a = dz5Var;
+            this.a = fz5Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -304,7 +304,7 @@ public class SigleRecordsFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             int i = this.e;
-            int i2 = i != 1 ? i != 2 ? i != 3 ? R.string.obfuscated_res_0x7f0f0c5a : R.string.obfuscated_res_0x7f0f0c58 : R.string.obfuscated_res_0x7f0f0c42 : R.string.obfuscated_res_0x7f0f0c37;
+            int i2 = i != 1 ? i != 2 ? i != 3 ? R.string.obfuscated_res_0x7f0f0c59 : R.string.obfuscated_res_0x7f0f0c57 : R.string.obfuscated_res_0x7f0f0c41 : R.string.obfuscated_res_0x7f0f0c36;
             if (this.j == null) {
                 this.j = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.f, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, oi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.a(i2), null);
             }
@@ -316,9 +316,9 @@ public class SigleRecordsFragment extends BaseFragment {
         }
     }
 
-    public final void V0(dz5 dz5Var) {
+    public final void V0(fz5 fz5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, dz5Var) == null) || dz5Var == null || this.f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, fz5Var) == null) || fz5Var == null || this.f == null) {
             return;
         }
         if (this.l == null) {
@@ -326,9 +326,9 @@ public class SigleRecordsFragment extends BaseFragment {
             this.l.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
             this.l.setScaleType(ImageView.ScaleType.FIT_CENTER);
         }
-        this.l.K(dz5Var.a(), 10, false);
+        this.l.K(fz5Var.a(), 10, false);
         this.l.setVisibility(0);
-        this.l.setOnClickListener(new d(this, dz5Var));
+        this.l.setOnClickListener(new d(this, fz5Var));
         P0();
         Q0();
         this.f.addView(this.l);
@@ -354,9 +354,9 @@ public class SigleRecordsFragment extends BaseFragment {
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0108);
             }
-            eu4 eu4Var = this.h;
-            if (eu4Var != null) {
-                eu4Var.H(i);
+            du4 du4Var = this.h;
+            if (du4Var != null) {
+                du4Var.H(i);
             }
             if (this.i != null && (bdListView = this.g) != null) {
                 SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0204);
@@ -395,11 +395,11 @@ public class SigleRecordsFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
             LinearLayout linearLayout = (LinearLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0779, (ViewGroup) null);
             this.f = linearLayout;
-            this.g = (BdListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a12);
-            this.h = new eu4(this.a.getPageContext());
-            ez5 ez5Var = new ez5(this.a.getPageContext(), this.e);
-            this.i = ez5Var;
-            this.g.setAdapter((ListAdapter) ez5Var);
+            this.g = (BdListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091a13);
+            this.h = new du4(this.a.getPageContext());
+            gz5 gz5Var = new gz5(this.a.getPageContext(), this.e);
+            this.i = gz5Var;
+            this.g.setAdapter((ListAdapter) gz5Var);
             this.g.setPullRefresh(this.h);
             TextView textView = new TextView(this.a.getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + oi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070260)));

@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mn6;
-import com.repackage.nn6;
 import com.repackage.o65;
+import com.repackage.on6;
+import com.repackage.pn6;
 /* loaded from: classes3.dex */
-public class FrsProfessionPermissionModel<T> extends NetAutoModel<mn6, nn6, T> {
+public class FrsProfessionPermissionModel<T> extends NetAutoModel<on6, pn6, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsProfessionPermissionModel(TbPageContext<T> tbPageContext, mn6 mn6Var) {
-        super(tbPageContext, mn6Var);
+    public FrsProfessionPermissionModel(TbPageContext<T> tbPageContext, on6 on6Var) {
+        super(tbPageContext, on6Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, mn6Var};
+            Object[] objArr = {tbPageContext, on6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,9 +80,9 @@ public class FrsProfessionPermissionModel<T> extends NetAutoModel<mn6, nn6, T> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<nn6> getResponseDataClass() {
+    public Class<pn6> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? nn6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? pn6.class : (Class) invokeV.objValue;
     }
 }

@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.kd5;
-import com.repackage.p68;
+import com.repackage.w68;
 /* loaded from: classes.dex */
-public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements p68 {
+public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements w68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbLiveContainer a;
@@ -37,7 +37,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements p68 {
         }
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -51,7 +51,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements p68 {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements p68 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements p68 {
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -93,7 +93,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements p68 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements p68 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -121,7 +121,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements p68 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public void startPlay() {
         TbLiveContainer tbLiveContainer;
         Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class AutoLiveViewHolder extends TypeAdapter.ViewHolder implements p68 {
         }
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public void stopPlay() {
         TbLiveContainer tbLiveContainer;
         Interceptable interceptable = $ic;

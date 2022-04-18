@@ -1,18 +1,14 @@
 package com.repackage;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.yw3;
 /* loaded from: classes6.dex */
-public class k14 {
+public class k14 extends q82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
     public k14() {
         Interceptable interceptable = $ic;
@@ -28,17 +24,13 @@ public class k14 {
         }
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.s82
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            yw3.d.d(str);
+            tc2.k(str);
+            m14.k(str);
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

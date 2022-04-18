@@ -31,8 +31,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gz;
-import com.repackage.jq4;
-import com.repackage.lm4;
+import com.repackage.iq4;
+import com.repackage.km4;
 import com.repackage.oi;
 import com.repackage.qo;
 import com.repackage.so;
@@ -120,8 +120,8 @@ public class ConcernRecommendLayout extends LinearLayout implements gz {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01fc, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092012);
-            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f85);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092013);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f86);
             ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.a);
             this.e = concernRecommendListAdapter;
             this.d.setAdapter(concernRecommendListAdapter);
@@ -166,19 +166,19 @@ public class ConcernRecommendLayout extends LinearLayout implements gz {
         }
     }
 
-    public void setData(jq4 jq4Var) {
+    public void setData(iq4 iq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jq4Var) == null) {
-            if (jq4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, iq4Var) == null) {
+            if (iq4Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            if (!TextUtils.isEmpty(jq4Var.a) && jq4Var.b != 0) {
+            if (!TextUtils.isEmpty(iq4Var.a) && iq4Var.b != 0) {
                 this.c.setTextSize(0, oi.f(this.a, R.dimen.tbds37));
-                this.c.setText(jq4Var.a);
+                this.c.setText(iq4Var.a);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
-                this.g = jq4Var.b;
+                this.g = iq4Var.b;
             } else {
                 this.c.setTextSize(0, oi.f(this.a, R.dimen.tbds37));
                 this.c.setText(R.string.obfuscated_res_0x7f0f041c);
@@ -186,7 +186,7 @@ public class ConcernRecommendLayout extends LinearLayout implements gz {
                 this.g = R.color.CAM_X0105;
             }
             this.e.h(TbadkCoreApplication.getInst().getSkinType());
-            this.e.setData(jq4Var.e());
+            this.e.setData(iq4Var.e());
             this.e.notifyDataSetChanged();
         }
     }
@@ -198,10 +198,10 @@ public class ConcernRecommendLayout extends LinearLayout implements gz {
         }
     }
 
-    public void setOnItemCoverListener(lm4<MetaData> lm4Var) {
+    public void setOnItemCoverListener(km4<MetaData> km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, lm4Var) == null) {
-            this.e.l(lm4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, km4Var) == null) {
+            this.e.l(km4Var);
         }
     }
 

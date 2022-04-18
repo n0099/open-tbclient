@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.b;
 import com.meizu.cloud.pushsdk.util.d;
-import com.repackage.rm9;
+import com.repackage.ym9;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class NotificationService extends IntentService {
@@ -40,7 +40,7 @@ public class NotificationService extends IntentService {
         String a = a(getPackageName(), intent.getAction());
         if (TextUtils.isEmpty(a)) {
             d.a(this, intent, "reflectReceiver sendbroadcast", 2005);
-            rm9.d("NotificationService", " reflectReceiver error: receiver for: " + intent.getAction() + " not found, package: " + getPackageName());
+            ym9.d("NotificationService", " reflectReceiver error: receiver for: " + intent.getAction() + " not found, package: " + getPackageName());
             intent.setPackage(getPackageName());
             sendBroadcast(intent);
             return;
@@ -52,17 +52,17 @@ public class NotificationService extends IntentService {
             if (!a2.a || a2.b == 0) {
                 return;
             }
-            rm9.d("NotificationService", "Reflect MzPushReceiver " + a2.a);
+            ym9.d("NotificationService", "Reflect MzPushReceiver " + a2.a);
             com.meizu.cloud.pushsdk.base.a.a.a(a2.b).a("onReceive", Context.class, Intent.class).a(a2.b, getApplicationContext(), intent);
         } catch (Exception e) {
-            rm9.d("NotificationService", "reflect e: " + e);
+            ym9.d("NotificationService", "reflect e: " + e);
             d.a(this, intent, e.getMessage(), 2004);
         }
     }
 
     @Override // android.app.IntentService, android.app.Service
     public void onDestroy() {
-        rm9.d("NotificationService", "NotificationService destroy");
+        ym9.d("NotificationService", "NotificationService destroy");
         this.a = null;
         super.onDestroy();
     }
@@ -73,14 +73,14 @@ public class NotificationService extends IntentService {
         Process.setThreadPriority(10);
         if (intent != null) {
             try {
-                rm9.d("NotificationService", "onHandleIntentaction " + intent.getAction());
+                ym9.d("NotificationService", "onHandleIntentaction " + intent.getAction());
                 String stringExtra = intent.getStringExtra("command_type");
                 if (!PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && !PushConstants.MZ_PUSH_ON_REGISTER_ACTION.equals(intent.getAction()) && !PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION.equals(intent.getAction())) {
                     z = false;
-                    rm9.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
+                    ym9.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
                     if (TextUtils.isEmpty(stringExtra) && stringExtra.equals("reflect_receiver") && z) {
                         String stringExtra2 = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
-                        rm9.d("NotificationService", "control message is " + stringExtra2);
+                        ym9.d("NotificationService", "control message is " + stringExtra2);
                         if (!TextUtils.isEmpty(stringExtra2)) {
                             com.meizu.cloud.pushsdk.c.a.a(this, new b(stringExtra2, null, null).b().c());
                         }
@@ -90,11 +90,11 @@ public class NotificationService extends IntentService {
                     return;
                 }
                 z = true;
-                rm9.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
+                ym9.a("NotificationService", "-- command_type -- " + stringExtra + " legalAction " + z);
                 if (TextUtils.isEmpty(stringExtra)) {
                 }
             } catch (Exception e) {
-                rm9.b("NotificationService", "onHandleIntent error " + e.getMessage());
+                ym9.b("NotificationService", "onHandleIntent error " + e.getMessage());
             }
         }
     }

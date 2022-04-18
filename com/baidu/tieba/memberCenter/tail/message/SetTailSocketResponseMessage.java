@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jk7;
+import com.repackage.mk7;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.SetTail.SetTailResIdl;
 /* loaded from: classes3.dex */
-public class SetTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<jk7> {
+public class SetTailSocketResponseMessage extends SocketResponsedMessage implements IDataResponseMessage<mk7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jk7 resultData;
+    public mk7 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SetTailSocketResponseMessage() {
@@ -37,7 +37,7 @@ public class SetTailSocketResponseMessage extends SocketResponsedMessage impleme
         }
     }
 
-    public static jk7 getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
+    public static mk7 getResult(ResponsedMessage<?> responsedMessage, int i, byte[] bArr) throws Exception {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, responsedMessage, i, bArr)) == null) {
@@ -53,11 +53,11 @@ public class SetTailSocketResponseMessage extends SocketResponsedMessage impleme
             if (setTailResIdl.data == null) {
                 return null;
             }
-            jk7 jk7Var = new jk7();
-            jk7Var.b(setTailResIdl.data);
-            return jk7Var;
+            mk7 mk7Var = new mk7();
+            mk7Var.b(setTailResIdl.data);
+            return mk7Var;
         }
-        return (jk7) invokeLIL.objValue;
+        return (mk7) invokeLIL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,9 +72,9 @@ public class SetTailSocketResponseMessage extends SocketResponsedMessage impleme
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.IDataResponseMessage
-    public jk7 getResultData() {
+    public mk7 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (jk7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (mk7) invokeV.objValue;
     }
 }

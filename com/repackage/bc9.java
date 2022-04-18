@@ -1,123 +1,226 @@
 package com.repackage;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 /* loaded from: classes5.dex */
 public class bc9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static Toast a = null;
-    public static int b = -1;
-    public static int c = -1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755831655, "Lcom/repackage/bc9;")) == null) {
-            return;
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (uc9.a(str)) {
+                return null;
+            }
+            byte[] decode = Base64.decode(str, 0);
+            return BitmapFactory.decodeByteArray(decode, 0, decode.length);
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755831655, "Lcom/repackage/bc9;");
-        }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public static void a(int i) {
+    public static int b(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            b(i, 0);
-        }
-    }
-
-    public static void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            c(w79.c().getContext().getResources().getString(i), i2);
-        }
-    }
-
-    public static void c(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, str, i) == null) {
-            d(str, i, null);
-        }
-    }
-
-    public static void d(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, str2) == null) {
-            e(str, i, str2, -1);
-        }
-    }
-
-    public static void e(String str, int i, String str2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
-            if (b != -1 && c != -1) {
-                Toast toast = a;
-                if (toast != null) {
-                    toast.cancel();
-                }
-                Toast toast2 = new Toast(w79.c().getContext());
-                a = toast2;
-                if (i2 > -1) {
-                    toast2.setGravity(i2, 0, 0);
-                }
-                a.setDuration(i);
-                try {
-                    View inflate = LayoutInflater.from(w79.c().getContext()).inflate(b, (ViewGroup) null);
-                    TextView textView = (TextView) inflate.findViewById(c);
-                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && str.contains(str2)) {
-                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(w79.c().getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603f6)), str.indexOf(str2), str.indexOf(str2) + str2.length(), 33);
-                        textView.setText(spannableStringBuilder);
-                    } else {
-                        textView.setText(str);
-                    }
-                    a.setView(inflate);
-                    a.show();
-                    return;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
+                int i7 = i4 / 2;
+                while (i6 / i5 > i2 && i7 / i5 > i) {
+                    i5 *= 2;
                 }
             }
-            Toast toast3 = a;
-            if (toast3 == null) {
-                Toast makeText = Toast.makeText(w79.c().getContext(), str, i);
-                a = makeText;
-                if (i2 > -1) {
-                    makeText.setGravity(i2, 0, 0);
-                }
-            } else {
-                toast3.cancel();
-                Toast makeText2 = Toast.makeText(w79.c().getContext(), str, i);
-                a = makeText2;
-                if (i2 > -1) {
-                    makeText2.setGravity(i2, 0, 0);
-                }
-                a.setDuration(i);
+            return i5;
+        }
+        return invokeLII.intValue;
+    }
+
+    public static Bitmap c(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bitmap, compressFormat, i)) == null) {
+            if (bitmap == null) {
+                return null;
             }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(compressFormat, i, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        }
+        return (Bitmap) invokeLLI.objValue;
+    }
+
+    public static Bitmap d(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
+            if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+            return createBitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static Bitmap e(String str, int i, int i2, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
+            if (FileUtils.isExists(str)) {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(str, options);
+                options.inSampleSize = b(options, i, i2);
+                options.inJustDecodeBounds = false;
+                Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
+                if (f % 360.0f == 0.0f) {
+                    return decodeFile;
+                }
+                if (decodeFile == null) {
+                    return null;
+                }
+                Matrix matrix = new Matrix();
+                matrix.postRotate(f);
+                Bitmap createBitmap = Bitmap.createBitmap(decodeFile, 0, 0, decodeFile.getWidth(), decodeFile.getHeight(), matrix, true);
+                decodeFile.recycle();
+                return createBitmap;
+            }
+            return null;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static Bitmap f(String str) {
+        FileInputStream fileInputStream;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
-                a.show();
-            } catch (Exception unused) {
+                fileInputStream = new FileInputStream(str);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                fileInputStream = null;
             }
+            return BitmapFactory.decodeStream(fileInputStream);
         }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x005f  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0064  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Bitmap g(Bitmap bitmap, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (bitmap == null || bitmap.isRecycled()) {
+                return null;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (width == 0 || height == 0 || i == 0 || i2 == 0) {
+                return bitmap;
+            }
+            float f = width;
+            float f2 = height;
+            float f3 = (f * 1.0f) / f2;
+            float f4 = i * 1.0f;
+            float f5 = i2;
+            float f6 = f4 / f5;
+            if (Math.abs(f3 - f6) < 0.01d) {
+                i4 = width;
+            } else if (f3 > f6) {
+                i4 = (i * height) / i2;
+            } else {
+                i3 = (i2 * width) / i;
+                i4 = width;
+                int i5 = width <= i4 ? (width - i4) / 2 : 0;
+                int i6 = height <= i3 ? (height - i3) / 2 : 0;
+                Matrix matrix = new Matrix();
+                matrix.postScale(f4 / f, (f5 * 1.0f) / f2);
+                Bitmap createBitmap = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix, true);
+                if (z && bitmap != null && !bitmap.equals(createBitmap)) {
+                    bitmap.recycle();
+                }
+                return createBitmap;
+            }
+            i3 = height;
+            if (width <= i4) {
+            }
+            if (height <= i3) {
+            }
+            Matrix matrix2 = new Matrix();
+            matrix2.postScale(f4 / f, (f5 * 1.0f) / f2);
+            Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix2, true);
+            if (z) {
+                bitmap.recycle();
+            }
+            return createBitmap2;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? d89.c().getContext() : (Context) invokeV.objValue;
+    }
+
+    public static Bitmap h(Bitmap bitmap, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (i <= 0 || i2 <= 0 || bitmap == null || bitmap.isRecycled()) {
+                return bitmap;
+            }
+            if ((bitmap.getWidth() > bitmap.getHeight()) != (i > i2)) {
+                i2 = i;
+                i = i2;
+            }
+            return (i == bitmap.getWidth() && i2 == bitmap.getHeight()) ? bitmap : i(bitmap, i, i2, z);
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static Bitmap i(Bitmap bitmap, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (bitmap == null || bitmap.isRecycled()) {
+                return null;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            Matrix matrix = new Matrix();
+            matrix.postScale(i / width, i2 / height);
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            if (z && bitmap != null && !bitmap.equals(createBitmap)) {
+                bitmap.recycle();
+            }
+            return createBitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

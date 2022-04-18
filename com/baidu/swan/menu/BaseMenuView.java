@@ -83,7 +83,7 @@ public abstract class BaseMenuView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Resources resources = getResources();
-            this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08111b));
+            this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08111f));
             this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060367));
             this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060368));
             this.c.setAlpha(1.0f);

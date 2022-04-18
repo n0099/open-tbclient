@@ -30,12 +30,12 @@ public class nl0 {
 
         /* renamed from: com.repackage.nl0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0479a extends BroadcastReceiver {
+        public class C0480a extends BroadcastReceiver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a this$1;
 
-            public C0479a(a aVar) {
+            public C0480a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class nl0 {
                 if (this.a.d == null) {
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                    this.a.d = new C0479a(this);
+                    this.a.d = new C0480a(this);
                     hi0.b().registerReceiver(this.a.d, intentFilter);
                     return;
                 }

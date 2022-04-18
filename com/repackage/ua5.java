@@ -129,7 +129,7 @@ public class ua5 {
     }
 
     public final void c(BdTypeRecyclerView bdTypeRecyclerView, CustomResponsedMessage<?> customResponsedMessage) {
-        rq4 rq4Var;
+        qq4 qq4Var;
         ThreadData threadData;
         ThreadData threadData2;
         Interceptable interceptable = $ic;
@@ -147,10 +147,10 @@ public class ua5 {
                         break;
                     }
                     uo C = bdTypeRecyclerView.C(i);
-                    if (C instanceof qn4) {
-                        qn4 qn4Var = (qn4) C;
-                        if (qn4Var.getThreadData() != null && qn4Var.getThreadData().getThreadAlaInfo() != null && optString2.equals(String.valueOf(qn4Var.getThreadData().getThreadAlaInfo().live_id))) {
-                            optString = qn4Var.getThreadData().getTid();
+                    if (C instanceof pn4) {
+                        pn4 pn4Var = (pn4) C;
+                        if (pn4Var.getThreadData() != null && pn4Var.getThreadData().getThreadAlaInfo() != null && optString2.equals(String.valueOf(pn4Var.getThreadData().getThreadAlaInfo().live_id))) {
+                            optString = pn4Var.getThreadData().getTid();
                             break;
                         }
                     }
@@ -164,7 +164,7 @@ public class ua5 {
         Iterator<uo> it = this.c.iterator();
         while (it.hasNext()) {
             uo next = it.next();
-            if ((next instanceof qn4) && (threadData2 = ((qn4) next).getThreadData()) != null && !TextUtils.isEmpty(threadData2.getTid()) && optString.equals(threadData2.getTid())) {
+            if ((next instanceof pn4) && (threadData2 = ((pn4) next).getThreadData()) != null && !TextUtils.isEmpty(threadData2.getTid()) && optString.equals(threadData2.getTid())) {
                 it.remove();
             }
         }
@@ -179,15 +179,15 @@ public class ua5 {
         int i5 = 0;
         while (it2.hasNext()) {
             uo next2 = it2.next();
-            if ((next2 instanceof rq4) && (threadData = (rq4Var = (rq4) next2).s) != null) {
+            if ((next2 instanceof qq4) && (threadData = (qq4Var = (qq4) next2).s) != null) {
                 if (i2 >= 0) {
-                    if (rq4Var.position != i2) {
+                    if (qq4Var.position != i2) {
                         break;
                     }
                     it2.remove();
                     i4 = i5;
                 } else if (StringHelper.equals(optString, threadData.getTid())) {
-                    i2 = rq4Var.position;
+                    i2 = qq4Var.position;
                     it2.remove();
                     i3 = i5;
                 }
@@ -209,7 +209,7 @@ public class ua5 {
                 return la5Var;
             }
             List<ThreadData> f = ma5Var.f();
-            List<qn4> e = ma5Var.e();
+            List<pn4> e = ma5Var.e();
             ma5Var.h(f);
             eb5.b("response threadList =  " + ListUtils.getCount(f));
             if (!ListUtils.isEmpty(f)) {
@@ -227,8 +227,8 @@ public class ua5 {
             eb5.b("dataList = " + ListUtils.getCount(arrayList));
             eb5.b("floorList = " + ListUtils.getCount(e));
             if (!ListUtils.isEmpty(e)) {
-                for (qn4 qn4Var : e) {
-                    fb5.b(arrayList, qn4Var);
+                for (pn4 pn4Var : e) {
+                    fb5.b(arrayList, pn4Var);
                 }
             }
             List<uo> d = ma5Var.d(arrayList);

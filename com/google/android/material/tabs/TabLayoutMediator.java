@@ -32,7 +32,7 @@ public final class TabLayoutMediator {
     @NonNull
     public final ViewPager2 viewPager;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class PagerAdapterObserver extends RecyclerView.AdapterDataObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public final class TabLayoutMediator {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface TabConfigurationStrategy {
         void onConfigureTab(@NonNull TabLayout.Tab tab, int i);
     }

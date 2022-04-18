@@ -84,11 +84,11 @@ public class aj5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, placeId)) == null) {
             List<AdvertAppInfo> list = this.a.get(placeId);
-            if (gd7.e(list)) {
+            if (jd7.e(list)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList(list);
-            gd7.c(list);
+            jd7.c(list);
             return arrayList;
         }
         return (List) invokeL.objValue;
@@ -100,7 +100,7 @@ public class aj5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, placeId)) == null) {
             List<AdvertAppInfo> list = this.a.get(placeId);
-            if (gd7.e(list)) {
+            if (jd7.e(list)) {
                 return null;
             }
             return list.remove(0);
@@ -124,7 +124,7 @@ public class aj5 {
     public boolean f(@NonNull PlaceId placeId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, placeId)) == null) ? !gd7.e(this.a.get(placeId)) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, placeId)) == null) ? !jd7.e(this.a.get(placeId)) : invokeL.booleanValue;
     }
 
     public aj5() {

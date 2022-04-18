@@ -57,12 +57,12 @@ public class kt2 implements cf3<HybridUbcFlow> {
             if (a) {
                 Log.i("LaunchCounter", "report: flow=" + hybridUbcFlow);
             }
-            if (hybridUbcFlow == null || (u = f84.i().u(i03.J().getAppId())) == null) {
+            if (hybridUbcFlow == null || (u = e84.i().u(i03.J().getAppId())) == null) {
                 return;
             }
             UbcFlowEvent g = hybridUbcFlow.g("naStart");
             u.countLaunch(g == null ? System.currentTimeMillis() : g.g());
-            f84.i().y(u);
+            e84.i().y(u);
         }
     }
 }

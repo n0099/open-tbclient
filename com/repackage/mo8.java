@@ -1,43 +1,56 @@
 package com.repackage;
 
 import android.content.Intent;
-import android.os.Build;
-import android.view.KeyEvent;
+import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.GrowthStatsUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.tblauncher.SchemaRouteActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class mo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final pn8 b;
-    public final co8 c;
-    public long d;
+    public boolean b;
 
     /* loaded from: classes6.dex */
-    public class a implements dr4.e {
+    public class a implements BdUniDispatchSchemeController.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mo8 a;
+        public final /* synthetic */ Intent a;
 
-        public a(mo8 mo8Var) {
+        public a(mo8 mo8Var, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mo8Var};
+                Object[] objArr = {mo8Var, intent};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,34 +60,58 @@ public class mo8 {
                     return;
                 }
             }
-            this.a = mo8Var;
+            this.a = intent;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
+        public void a(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                dr4Var.dismiss();
-                if (this.a.c == null || this.a.c.e() == null) {
-                    return;
-                }
-                this.a.c.e().b();
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) || hashMap == null || this.a == null) {
+                return;
+            }
+            Object obj = hashMap.get(BdUniDispatchSchemeController.NATIVE_PARAM_MAINTAB_LOCATE);
+            int intValue = obj instanceof Integer ? ((Integer) obj).intValue() : -1;
+            Object obj2 = hashMap.get(BdUniDispatchSchemeController.NATIVE_PARAM_MAINTAB_SUBTAB);
+            String str = obj2 instanceof String ? (String) obj2 : null;
+            Object obj3 = hashMap.get(BdUniDispatchSchemeController.PARAM_TAB_NAME);
+            String str2 = obj3 instanceof String ? (String) obj3 : null;
+            Object obj4 = hashMap.get(BdUniDispatchSchemeController.PARAM_TAB_CODE);
+            String str3 = obj4 instanceof String ? (String) obj4 : null;
+            if (intValue != -1) {
+                this.a.putExtra("is_from_scheme", true);
+                this.a.putExtra("locate_type", intValue);
+                this.a.putExtra("sub_locate_type", str);
+                this.a.putExtra("sub_tab_name", str2);
+                this.a.putExtra("sub_tab_code", str3);
+                qt4.b = intValue;
+                Object obj5 = hashMap.get(BdUniDispatchSchemeController.PARAM_NEW_GOD_FROM);
+                String str4 = obj5 instanceof String ? (String) obj5 : null;
+                Object obj6 = hashMap.get(BdUniDispatchSchemeController.PARAM_FIELD_ID);
+                String str5 = obj6 instanceof String ? (String) obj6 : null;
+                this.a.putExtra(BdUniDispatchSchemeController.PARAM_NEW_GOD_FROM, str4);
+                this.a.putExtra(BdUniDispatchSchemeController.PARAM_FIELD_ID, str5);
+            }
+            oi4.y().N(true);
+            if (intValue == 1 && "ForumSquare".equals(str)) {
+                qt4.c = qt4.e;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements dr4.e {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mo8 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ mo8 b;
 
-        public b(mo8 mo8Var) {
+        public b(mo8 mo8Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mo8Var};
+                Object[] objArr = {mo8Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,29 +121,26 @@ public class mo8 {
                     return;
                 }
             }
-            this.a = mo8Var;
+            this.b = mo8Var;
+            this.a = str;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                try {
-                    this.a.a.startActivity(new Intent("android.settings.APPLICATION_DEVELOPMENT_SETTINGS"));
-                    dr4Var.dismiss();
-                } catch (Exception unused) {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f07c8);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nb.b().d();
+                UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{this.a});
             }
         }
     }
 
-    public mo8(MainTabActivity mainTabActivity, pn8 pn8Var) {
+    public mo8(MainTabActivity mainTabActivity, wn8 wn8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pn8Var};
+            Object[] objArr = {mainTabActivity, wn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -116,65 +150,87 @@ public class mo8 {
                 return;
             }
         }
-        this.d = 0L;
+        this.b = false;
         this.a = mainTabActivity;
-        this.b = pn8Var;
-        this.c = mainTabActivity.mLogicController;
+    }
+
+    public void b(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
+            return;
+        }
+        String dataString = intent.getDataString();
+        UtilHelper.clearClipBoardBySchemaParam(dataString);
+        if (!StringUtils.isNull(dataString) && dataString.startsWith("tbmaintab://")) {
+            String decode = Uri.decode(intent.getData().getEncodedPath());
+            if (StringUtils.isNull(decode)) {
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_type", 1).param(TiebaStatic.Params.OBJ_TO, 1).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
+                hj4.a(param, decode);
+                TiebaStatic.log(param);
+                return;
+            }
+            if (decode.startsWith("//")) {
+                decode = decode.substring(2);
+            }
+            Map<String, String> paramPair = UrlManager.getParamPair(decode);
+            if (paramPair == null) {
+                return;
+            }
+            if ("bpush".equals(paramPair.get("fr"))) {
+                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
+                hj4.b(statisticItem, paramPair);
+                statisticItem.param("obj_locate", paramPair.get("obj_locate"));
+                statisticItem.param("obj_type", 1);
+                statisticItem.param("obj_source", paramPair.get("obj_source"));
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2));
+                statisticItem.param(TiebaStatic.Params.OBJ_TO, 1);
+                statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
+                statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
+                if (!ni.isEmpty(paramPair.get("ext_log"))) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(paramPair.get("ext_log"));
+                        Iterator<String> keys = jSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            statisticItem.param(next, jSONObject.getString(next));
+                        }
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                    }
+                }
+                TiebaStatic.log(statisticItem);
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SCHEMA_UPLOAD);
+                httpMessage.addParam("call_url", dataString);
+                MessageManager.getInstance().sendMessage(httpMessage);
+            }
+            oi4.y().N(true);
+        } else if (!StringUtils.isNull(dataString) && (dataString.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT) || dataString.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_ZM) || dataString.startsWith(UrlSchemaHelper.SCHEMA_LIVE_SDK) || dataString.startsWith(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK))) {
+            String dataString2 = intent.getDataString();
+            if (!StringUtils.isNull(dataString2) && PermissionUtil.isAgreePrivacyPolicy()) {
+                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{dataString2});
+                oi4.y().N(true);
+            }
+        } else if (!StringUtils.isNULL(dataString) && dataString.startsWith(BdUniDispatchSchemeController.SCHEME)) {
+            BdUniDispatchSchemeController.getInstance().parseMainTabScheme(intent.getData(), new a(this, intent));
+        }
+        String stringExtra = intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME);
+        if (!StringUtils.isNull(stringExtra)) {
+            pg.a().postDelayed(new b(this, stringExtra), this.b ? 0L : DeviceInfoUtil.getMainTabActJumpOtherDelayTime());
+            this.a.getIntent().removeExtra(MainTabActivityConfig.TARGET_SCHEME);
+            this.a.getIntent().putExtra(MainTabActivityConfig.TARGET_SCHEME_BAK, stringExtra);
+            GrowthStatsUtil.statisticChannel("push", stringExtra);
+        } else if (StringUtils.isNull(SchemaRouteActivity.targetSchemeAction)) {
+        } else {
+            SchemeActionManager.getInstance().doSchemeAction(this.a.getPageContext(), SchemaRouteActivity.targetSchemeAction);
+            SchemaRouteActivity.targetSchemeAction = null;
+        }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new dr4(this.a).setTitle(R.string.obfuscated_res_0x7f0f0429).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f02bf).setPositiveButton(R.string.obfuscated_res_0x7f0f0c9e, new b(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0c24, new a(this)).create(f9.a(this.a)).show();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = true;
         }
-    }
-
-    public boolean d(KeyEvent keyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, keyEvent)) == null) {
-            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                return false;
-            }
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016322, (Class) null);
-            if (runTask == null || !((Boolean) runTask.getData()).booleanValue()) {
-                CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(2016323, (Class) null);
-                if (runTask2 == null || !((Boolean) runTask2.getData()).booleanValue()) {
-                    az8 az8Var = this.a.mWriteTab;
-                    if (az8Var != null && az8Var.n()) {
-                        this.a.mWriteTab.m(true);
-                        return true;
-                    } else if (this.b.C()) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007010));
-                        return true;
-                    } else {
-                        CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(2921405, Boolean.class, Boolean.FALSE);
-                        if (runTask3 == null || runTask3.getData() == null || !(runTask3.getData() instanceof Boolean) || !((Boolean) runTask3.getData()).booleanValue()) {
-                            if (TbSingleton.getInstance().isFromFeedVideoClick()) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921612));
-                                return true;
-                            }
-                            if (System.currentTimeMillis() - this.d > 2000) {
-                                this.a.showToast(R.string.obfuscated_res_0x7f0f04e8);
-                                this.d = System.currentTimeMillis();
-                            } else if (UtilHelper.isBackgroundProcessLimitNone() && Build.VERSION.SDK_INT >= 14) {
-                                c();
-                                return true;
-                            } else {
-                                co8 co8Var = this.c;
-                                if (co8Var != null && co8Var.e() != null) {
-                                    this.c.e().b();
-                                }
-                            }
-                            return false;
-                        }
-                        return true;
-                    }
-                }
-                return true;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

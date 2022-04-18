@@ -101,8 +101,8 @@ public class CommonTabWidgetView extends LinearLayout {
             setVisibility(8);
             removeAllViews();
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f6, (ViewGroup) this, true);
-            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f091903);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091901);
+            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f091904);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091902);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
         }

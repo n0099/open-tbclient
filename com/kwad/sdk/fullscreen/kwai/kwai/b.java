@@ -79,8 +79,8 @@ public class b extends g implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.c = (TextView) a(R.id.obfuscated_res_0x7f09105d);
-        this.b = (ImageView) a(R.id.obfuscated_res_0x7f091131);
+        this.c = (TextView) a(R.id.obfuscated_res_0x7f09105e);
+        this.b = (ImageView) a(R.id.obfuscated_res_0x7f091132);
     }
 
     @Override // android.view.View.OnClickListener

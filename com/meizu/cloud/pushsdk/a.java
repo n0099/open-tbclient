@@ -14,7 +14,7 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-import com.repackage.rm9;
+import com.repackage.ym9;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -228,7 +228,7 @@ public class a {
         if (a == null) {
             synchronized (a.class) {
                 if (a == null) {
-                    rm9.d("PushMessageProxy", "PushMessageProxy init");
+                    ym9.d("PushMessageProxy", "PushMessageProxy init");
                     a = new a(context);
                 }
             }
@@ -257,17 +257,17 @@ public class a {
     }
 
     public void a(Intent intent) {
-        rm9.b("PushMessageProxy", "is onMainThread " + a());
+        ym9.b("PushMessageProxy", "is onMainThread " + a());
         try {
             String stringExtra = intent.getStringExtra("method");
-            rm9.d("PushMessageProxy", "receive action " + intent.getAction() + " method " + stringExtra);
+            ym9.d("PushMessageProxy", "receive action " + intent.getAction() + " method " + stringExtra);
             if (intent != null) {
                 Iterator<Map.Entry<Integer, c>> it = this.c.entrySet().iterator();
                 while (it.hasNext() && !it.next().getValue().b(intent)) {
                 }
             }
         } catch (Exception e) {
-            rm9.b("PushMessageProxy", "processMessage error " + e.getMessage());
+            ym9.b("PushMessageProxy", "processMessage error " + e.getMessage());
         }
     }
 

@@ -1,99 +1,35 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-import com.baidu.tieba.view.cloudmusic.model.CloudMusicModel;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class hx8 implements ix8 {
+public class hx8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public static final qs8 b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CloudMusicModel a;
-    public final jx8 b;
 
-    /* loaded from: classes6.dex */
-    public class a implements px8<CloudMusicData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hx8 a;
-
-        public a(hx8 hx8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755632759, "Lcom/repackage/hx8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hx8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = hx8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.px8
-        /* renamed from: b */
-        public void a(CloudMusicData cloudMusicData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudMusicData) == null) {
-                this.a.b.displayLoading(false);
-                if (cloudMusicData != null) {
-                    this.a.b.displayNoDataView(false);
-                    if (cloudMusicData.tag_list.isEmpty()) {
-                        this.a.b.displayNoDataView(true);
-                        return;
-                    } else {
-                        this.a.b.showCloudMusicWithTagData(cloudMusicData);
-                        return;
-                    }
-                }
-                this.a.b.displayNoDataView(true);
-            }
-        }
-    }
-
-    public hx8(CloudMusicModel cloudMusicModel, jx8 jx8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cloudMusicModel, jx8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755632759, "Lcom/repackage/hx8;");
                 return;
             }
         }
-        this.a = cloudMusicModel;
-        this.b = jx8Var;
-        jx8Var.setPresenter(this);
-    }
-
-    @Override // com.repackage.ix8
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.cancelLoadData();
-        }
-    }
-
-    @Override // com.repackage.ix8
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.displayLoading(true);
-            this.a.z(new a(this));
-        }
+        a = TimeUnit.DAYS.toMillis(5L);
+        b = new qs8("camera_last_api", 0, "camera_last_api_stamp");
+        c = "Lenovo K520".equals(Build.MODEL);
     }
 }

@@ -27,9 +27,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lp4;
 import com.repackage.mg;
-import com.repackage.mp4;
-import com.repackage.qn4;
+import com.repackage.pn4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes3.dex */
-public class CardPersonDynamicThreadData extends qn4 {
+public class CardPersonDynamicThreadData extends pn4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -687,17 +687,17 @@ public class CardPersonDynamicThreadData extends qn4 {
         }
     }
 
-    @Override // com.repackage.qn4
-    public mp4 getNegFeedBackData() {
+    @Override // com.repackage.pn4
+    public lp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (mp4) invokeV.objValue;
+        return (lp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.qn4
+    @Override // com.repackage.pn4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

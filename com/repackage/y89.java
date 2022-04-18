@@ -1,178 +1,187 @@
 package com.repackage;
 
-import android.media.AudioTrack;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class y89 extends s89 {
+public class y89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x89 B;
-    public Thread C;
+    public List<AudioPlayData> a;
+    public List<AudioPlayData> b;
+    public g99 c;
+    public int d;
+    public b e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y89(String str, int[] iArr) throws Exception {
-        super(0, str, iArr);
+    /* loaded from: classes7.dex */
+    public class a extends va9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ AudioPlayData b;
+        public final /* synthetic */ y89 c;
+
+        public a(y89 y89Var, String str, AudioPlayData audioPlayData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y89Var, str, audioPlayData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = y89Var;
+            this.a = str;
+            this.b = audioPlayData;
+        }
+
+        @Override // com.repackage.va9, com.repackage.ua9
+        public void onExceptionThrown(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.c.e == null) {
+                return;
+            }
+            this.c.e.onFailed(str);
+        }
+
+        @Override // com.repackage.va9
+        public void onFinishedWriting(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                AudioPlayData audioPlayData = new AudioPlayData(this.a, 0, (int) vc9.b(this.a), this.b.volume);
+                if (this.c.b == null) {
+                    this.c.b = new ArrayList();
+                }
+                this.c.b.add(audioPlayData);
+                y89.c(this.c);
+                this.c.f();
+            }
+        }
+
+        @Override // com.repackage.va9, com.repackage.ua9
+        public void onProgressChanged(int i, double d, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        @Override // com.repackage.va9, com.repackage.ua9
+        public void onTrackEnd(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onFailed(String str);
+
+        void onSuccess(List<AudioPlayData> list);
+    }
+
+    public y89() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static /* synthetic */ int c(y89 y89Var) {
+        int i = y89Var.d;
+        y89Var.d = i + 1;
+        return i;
+    }
+
+    public final void f() {
+        AudioPlayData audioPlayData;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (fc9.c(this.a, this.d) == null) {
+                b bVar = this.e;
+                if (bVar != null) {
+                    bVar.onSuccess(this.b);
+                    return;
+                }
                 return;
             }
-        }
-    }
-
-    @Override // com.repackage.s89
-    public void B(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            M(j * 1000, true);
-        }
-    }
-
-    @Override // com.repackage.s89
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Thread thread = this.C;
-            if (thread == null || !thread.isAlive()) {
-                Thread thread2 = new Thread(this);
-                this.C = thread2;
-                thread2.start();
-            }
-            super.I();
-        }
-    }
-
-    public final void K() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (i() == 1) {
-                i = 4;
+            AudioPlayData audioPlayData2 = this.a.get(this.d);
+            if (!FileUtils.isExists(audioPlayData2.audioPath)) {
+                String str = audioPlayData2.audioPath;
+                int i = audioPlayData2.start;
+                audioPlayData = new AudioPlayData(str, i, audioPlayData2.end - i, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
+                }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
+            } else if (audioPlayData2.mSpeed == 1.0f) {
+                audioPlayData = new AudioPlayData(audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
+                }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
             } else {
-                i();
-                i = 12;
-            }
-            int i2 = this.q;
-            if (i2 != 1 && i2 != 2) {
-                this.q = 2;
-            }
-            this.B = new x89(3, m(), i, h() == 2 ? 2 : 3, AudioTrack.getMinBufferSize(m(), i, h() == 2 ? 2 : 3), 1);
-        }
-    }
-
-    public boolean L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            x89 x89Var = this.B;
-            return x89Var != null && x89Var.getState() == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void M(long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            if (j < 0) {
-                j = 0;
-            }
-            if (this.e != null && j > this.e.getDuration()) {
-                j = this.e.getDuration();
-            }
-            if (z) {
-                int playState = L() ? this.B.getPlayState() : 2;
-                if (playState == 2) {
-                    pause();
-                }
-                synchronized (this.b) {
-                    if (L()) {
-                        this.B.flush();
-                    }
-                    this.d = 0L;
-                }
-                e();
-                c();
-                if (playState == 3) {
-                    I();
-                }
-            }
-            synchronized (this.c) {
-                if (this.e != null) {
-                    this.e.seek(j);
+                String str2 = FileUtils.removeExtention(audioPlayData2.audioPath) + "_speed.aac";
+                try {
+                    g99 g99Var = new g99(audioPlayData2.audioPath, str2, null);
+                    this.c = g99Var;
+                    g99Var.S(new a(this, str2, audioPlayData2));
+                    this.c.D(null);
+                    this.c.G(audioPlayData2.mSpeed);
+                    this.c.B(audioPlayData2.start);
+                    this.c.R(audioPlayData2.end);
+                    this.c.I();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    public void N(float f, float f2) {
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            synchronized (this.b) {
-                if (L()) {
-                    this.B.setStereoVolume(f, f2);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.e = bVar;
         }
     }
 
-    @Override // com.repackage.s89
-    public w89 p() throws IOException {
-        InterceptResult invokeV;
+    public void h(List<AudioPlayData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            K();
-            return this.B;
-        }
-        return (w89) invokeV.objValue;
-    }
-
-    @Override // com.repackage.s89
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this.b) {
-                if (L() && this.B.getPlayState() != 2) {
-                    this.B.pause();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
     }
 
-    @Override // com.repackage.s89
-    public void u() {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this.b) {
-                if (L() && this.B.getPlayState() != 3) {
-                    this.B.play();
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            f();
         }
-    }
-
-    @Override // com.repackage.s89
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.C == null) {
-            return;
-        }
-        this.C = null;
     }
 }

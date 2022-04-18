@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nw8;
 import com.repackage.oi;
-import com.repackage.w76;
+import com.repackage.uw8;
+import com.repackage.y76;
 /* loaded from: classes4.dex */
 public class PersonHeaderAttentionView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public TextView i;
     public TextView j;
     public int k;
-    public nw8 l;
+    public uw8 l;
     public UserData m;
     public View n;
     public View o;
@@ -52,7 +52,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public w76 a;
+        public y76 a;
         public final /* synthetic */ PersonHeaderAttentionView b;
 
         public a(PersonHeaderAttentionView personHeaderAttentionView) {
@@ -71,7 +71,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
                 }
             }
             this.b = personHeaderAttentionView;
-            this.a = new w76();
+            this.a = new y76();
         }
 
         @Override // android.view.View.OnClickListener
@@ -163,17 +163,17 @@ public class PersonHeaderAttentionView extends LinearLayout {
             setOrientation(0);
             setGravity(16);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d040b, (ViewGroup) this, true);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0917be);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0917bb);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917bf);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0917b6);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0917b3);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0917b9);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0917b8);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917cb);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0917bf);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0917bc);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0917c0);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0917b7);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0917b4);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0917ba);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0917b9);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917cc);
             this.i = textView;
             textView.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0917ca);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0917cb);
             this.j = textView2;
             textView2.setVisibility(8);
             this.n = findViewById(R.id.obfuscated_res_0x7f0907fb);
@@ -208,7 +208,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             Context context = this.a;
-            BdToast.i(context, String.format(context.getString(R.string.obfuscated_res_0x7f0f0e2e), StringHelper.getUserDescByGender(i)), R.drawable.obfuscated_res_0x7f0809a5, true).q();
+            BdToast.i(context, String.format(context.getString(R.string.obfuscated_res_0x7f0f0e2d), StringHelper.getUserDescByGender(i)), R.drawable.obfuscated_res_0x7f0809a9, true).q();
         }
     }
 
@@ -242,10 +242,10 @@ public class PersonHeaderAttentionView extends LinearLayout {
         }
     }
 
-    public void setOnViewResponseListener(nw8 nw8Var) {
+    public void setOnViewResponseListener(uw8 uw8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nw8Var) == null) {
-            this.l = nw8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, uw8Var) == null) {
+            this.l = uw8Var;
         }
     }
 

@@ -200,8 +200,8 @@ public class n51 extends j51 {
                 return;
             }
         }
-        this.f = (TextView) a(R.id.obfuscated_res_0x7f090988);
-        this.g = (RelativeLayout) a(R.id.obfuscated_res_0x7f0914b5);
+        this.f = (TextView) a(R.id.obfuscated_res_0x7f090989);
+        this.g = (RelativeLayout) a(R.id.obfuscated_res_0x7f0914b6);
         view2.setBackgroundColor(0);
         this.h = uk0.a(this.g, IDownloadViewCreator.ViewType.FEED_DOWNLOAD_VIEW);
         this.g.setOnClickListener(new a(this));

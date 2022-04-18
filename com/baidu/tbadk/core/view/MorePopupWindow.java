@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
 import com.repackage.rg;
-import com.repackage.tm4;
+import com.repackage.sm4;
 /* loaded from: classes3.dex */
 public class MorePopupWindow extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
@@ -65,15 +65,15 @@ public class MorePopupWindow extends PopupWindow {
         init(activity, view2, drawable, aVar);
     }
 
-    private void applaySkin(tm4 tm4Var, int i, Drawable drawable) {
+    private void applaySkin(sm4 sm4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65539, this, tm4Var, i, drawable) == null) || this.mContentView == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65539, this, sm4Var, i, drawable) == null) || this.mContentView == null) {
             return;
         }
         setBackgroundDrawable(drawable);
-        tm4Var.k(i == 1);
+        sm4Var.k(i == 1);
         try {
-            tm4Var.j(this.mContentView);
+            sm4Var.j(this.mContentView);
         } catch (IllegalArgumentException e) {
             BdLog.e(e.toString());
         }
@@ -216,10 +216,10 @@ public class MorePopupWindow extends PopupWindow {
         }
     }
 
-    public void onChangeSkinType(tm4 tm4Var, int i, Drawable drawable) {
+    public void onChangeSkinType(sm4 sm4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, tm4Var, i, drawable) == null) {
-            applaySkin(tm4Var, i, drawable);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, sm4Var, i, drawable) == null) {
+            applaySkin(sm4Var, i, drawable);
         }
     }
 

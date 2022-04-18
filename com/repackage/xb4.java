@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,16 +12,38 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class xb4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xb4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public JSONObject b;
+    public a a;
 
-    public xb4(JSONArray jSONArray, JSONObject jSONObject) {
+    /* loaded from: classes7.dex */
+    public static class a extends sg4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_ceres");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public xb4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,19 +53,62 @@ public class xb4 {
                 return;
             }
         }
-        this.a = jSONArray;
-        this.b = jSONObject;
+        this.a = new a();
     }
 
-    public JSONArray a() {
+    public static xb4 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (JSONArray) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (xb4.class) {
+                    if (b == null) {
+                        b = new xb4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (xb4) invokeV.objValue;
     }
 
-    public JSONObject b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("ceres_info", "0") : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("global_info", "0") : (String) invokeV.objValue;
+    }
+
+    public wb4 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("global_info");
+            if (optJSONObject == null || optJSONObject2 == null) {
+                return null;
+            }
+            String optString = optJSONObject.optString("version");
+            JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+            if (TextUtils.isEmpty(optString) || optJSONArray == null) {
+                return null;
+            }
+            String optString2 = optJSONObject2.optString("version");
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
+            if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
+                return null;
+            }
+            this.a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+            return new wb4(optJSONArray, optJSONObject3);
+        }
+        return (wb4) invokeL.objValue;
     }
 }

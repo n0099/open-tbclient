@@ -1,127 +1,79 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.backUser.BackUserHTTPResMsg;
-import com.baidu.tbadk.BdToken.backUser.BackUserReqMsg;
-import com.baidu.tbadk.BdToken.backUser.BackUserSocketResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class rj4 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int A = 3;
+    public static int B = 4;
+    public static int C = 5;
+    public static int D = 1;
+    public static int E = 2;
+    public static int y = 1;
+    public static int z = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public wa b;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public int i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public double n;
+    public String o;
+    public String p;
+    public String q;
+    public int r;
+    public int s;
+    public long t;
+    public long u;
+    public ArrayList<String> v;
+    public ArrayList<String> w;
+    public int x;
 
-    /* loaded from: classes7.dex */
-    public class a extends wa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rj4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(rj4 rj4Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rj4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rj4Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755348427, "Lcom/repackage/rj4;")) == null) {
+            return;
         }
-
-        @Override // com.repackage.wa
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.b() != responsedMessage.getOrginalMessage().getTag() || responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                return;
-            }
-            qj4 qj4Var = null;
-            if (responsedMessage instanceof BackUserHTTPResMsg) {
-                qj4Var = ((BackUserHTTPResMsg) responsedMessage).getData();
-            } else if (responsedMessage instanceof BackUserSocketResMsg) {
-                qj4Var = ((BackUserSocketResMsg) responsedMessage).getData();
-            }
-            if (qj4Var == null || !qj4Var.a) {
-                return;
-            }
-            wt4.k().x(wt4.o("pref_key_last_request_mission"), System.currentTimeMillis());
-            ut4.e().i();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755348427, "Lcom/repackage/rj4;");
         }
     }
 
-    public rj4(BdUniqueId bdUniqueId) {
+    public rj4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new a(this, CmdConfigHttp.CMD_BACK_USER, 309689);
-        this.a = bdUniqueId;
-        c();
-        this.b.setTag(this.a);
-        MessageManager.getInstance().registerListener(this.b);
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(wt4.k().m(wt4.o("pref_key_last_request_mission"), 0L), System.currentTimeMillis()) : invokeV.booleanValue;
-    }
-
-    public BdUniqueId b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (BdUniqueId) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            dk8.h(309689, BackUserSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, dk8.a(TbConfig.URL_BACK_USER, 309689));
-            tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && a()) {
-            BackUserReqMsg backUserReqMsg = new BackUserReqMsg();
-            backUserReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(backUserReqMsg);
-        }
+        this.v = new ArrayList<>();
+        this.w = new ArrayList<>();
+        this.x = 0;
     }
 }

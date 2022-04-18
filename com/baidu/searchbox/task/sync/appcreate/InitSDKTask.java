@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mk4;
+import com.repackage.lk4;
 /* loaded from: classes2.dex */
 public class InitSDKTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -67,7 +67,7 @@ public class InitSDKTask extends LaunchTask {
     private void initTBTaskSDK() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            mk4.f().g(TbadkCoreApplication.getInst());
+            lk4.f().g(TbadkCoreApplication.getInst());
         }
     }
 

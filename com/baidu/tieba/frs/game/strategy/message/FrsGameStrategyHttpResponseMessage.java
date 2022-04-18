@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ak6;
-import com.repackage.tj6;
-import com.repackage.uj6;
+import com.repackage.ck6;
 import com.repackage.uo;
+import com.repackage.vj6;
+import com.repackage.wj6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -22,7 +22,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mHasMore;
-    public List<ak6> mTabList;
+    public List<ck6> mTabList;
     public List<uo> mThreadList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,7 +44,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
         this.mHasMore = false;
     }
 
-    public List<ak6> getTabList() {
+    public List<ck6> getTabList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTabList : (List) invokeV.objValue;
@@ -70,7 +70,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
             Message<?> orginalMessage = getOrginalMessage();
             FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = (orginalMessage == null || !(orginalMessage.getExtra() instanceof FrsGameStrategyRequestMessage)) ? null : (FrsGameStrategyRequestMessage) orginalMessage.getExtra();
             if (frsGameStrategyRequestMessage != null) {
-                new uj6().d(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
+                new wj6().d(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
             }
         }
     }
@@ -89,8 +89,8 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
                 setError(error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = tj6.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = tj6.b(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = vj6.a(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = vj6.b(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
         }
     }

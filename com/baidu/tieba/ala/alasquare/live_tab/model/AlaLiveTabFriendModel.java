@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mi;
 import com.repackage.oi;
-import com.repackage.qp5;
-import com.repackage.to5;
+import com.repackage.sp5;
 import com.repackage.uo;
+import com.repackage.vo5;
 import com.yy.hiidostatis.inner.FlushManager;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -34,7 +34,7 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public qp5 f;
+    public sp5 f;
     public long g;
     public b h;
     public HttpMessageListener i;
@@ -77,16 +77,16 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
                         this.a.h.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
                 } else {
-                    to5 to5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    vo5 vo5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
-                        this.a.f.a(to5Var);
+                        this.a.f.a(vo5Var);
                         AlaLiveTabFriendModel.E(this.a);
                     } else {
                         AlaLiveTabFragment.k++;
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
-                        this.a.f = new qp5(alaTabLiveResponsedMessage);
+                        this.a.f = new sp5(alaTabLiveResponsedMessage);
                     }
                     AlaLiveTabFriendModel alaLiveTabFriendModel = this.a;
                     alaLiveTabFriendModel.c = alaLiveTabFriendModel.f.f();
@@ -164,8 +164,8 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            qp5 qp5Var = this.f;
-            return (qp5Var == null || ListUtils.isEmpty(qp5Var.d())) ? false : true;
+            sp5 sp5Var = this.f;
+            return (sp5Var == null || ListUtils.isEmpty(sp5Var.d())) ? false : true;
         }
         return invokeV.booleanValue;
     }

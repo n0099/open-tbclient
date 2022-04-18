@@ -37,13 +37,13 @@ public class xk3 {
             return;
         }
         try {
-            Object k = n44.k(cls, "getInstance", new Object[0]);
+            Object k = m44.k(cls, "getInstance", new Object[0]);
             this.c = k;
             if (k != null) {
-                Object h = n44.h(k, "UNIPERF_EVENT_APP_START");
+                Object h = m44.h(k, "UNIPERF_EVENT_APP_START");
                 this.a = h == null ? this.a : ((Integer) h).intValue();
             }
-            Method i3 = n44.i(cls, "uniPerfEvent", Integer.TYPE, String.class, int[].class);
+            Method i3 = m44.i(cls, "uniPerfEvent", Integer.TYPE, String.class, int[].class);
             this.b = i3;
             if (i3 != null) {
                 i3.setAccessible(true);
@@ -58,7 +58,7 @@ public class xk3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                cls = n44.b("android.iawareperf.UniPerf", true);
+                cls = m44.b("android.iawareperf.UniPerf", true);
             } catch (Throwable unused) {
                 cls = null;
             }

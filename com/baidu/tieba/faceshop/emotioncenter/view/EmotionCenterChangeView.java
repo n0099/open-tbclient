@@ -26,10 +26,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aa6;
+import com.repackage.ca6;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, aa6 {
+public class EmotionCenterChangeView extends LinearLayout implements View.OnClickListener, ca6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -83,14 +83,14 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         return (Animation) invokeV.objValue;
     }
 
-    @Override // com.repackage.aa6
+    @Override // com.repackage.ca6
     public void Q(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionCenterData) == null) {
         }
     }
 
-    @Override // com.repackage.aa6
+    @Override // com.repackage.ca6
     public void Z(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionCenterData) == null) {
@@ -128,16 +128,16 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
             this.b.setVisibility(8);
             this.c.setVisibility(8);
             this.d.setVisibility(8);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090879);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09087a);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0905ea);
             this.g = relativeLayout;
             relativeLayout.setVisibility(8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09087a);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09087b);
             this.e = imageView;
             imageView.setOnClickListener(this);
             this.h = findViewById(R.id.obfuscated_res_0x7f0905aa);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0908ba);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090889);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0908bb);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09088a);
             this.j = textView;
             textView.setOnClickListener(this);
             this.k = new EmotionChangeModel(this.a);
@@ -194,7 +194,7 @@ public class EmotionCenterChangeView extends LinearLayout implements View.OnClic
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.m : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.aa6
+    @Override // com.repackage.ca6
     public void i0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, emotionCenterData) == null) {

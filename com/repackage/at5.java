@@ -3,13 +3,10 @@ package com.repackage;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.R;
-import com.baidu.tieba.ala.livecard.holder.FrsPageAlaVideoHolder;
+import com.baidu.tieba.ala.livecard.holder.FrsPageAlaStageViewHolder;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,60 +14,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class at5 extends id6<rq4, FrsPageAlaVideoHolder> implements px5, qi5 {
+public class at5 extends kd6<lj8, FrsPageAlaStageViewHolder> implements rx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kt5 t;
-    public String u;
-    public String v;
-    public rx5<ThreadData> w;
-
-    /* loaded from: classes5.dex */
-    public class a extends rx5<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ at5 b;
-
-        public a(at5 at5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {at5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = at5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.rx5
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            CustomMessage customMessage;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f0911ea) {
-                    customMessage = new CustomMessage(2921018);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f09054b && view2.getId() != R.id.obfuscated_res_0x7f090547 && view2.getId() != R.id.obfuscated_res_0x7f09227a) {
-                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f0922fc ? new CustomMessage(2921019) : null;
-                } else {
-                    customMessage = new CustomMessage(2921016);
-                }
-                if (customMessage == null || this.b.k == null) {
-                    return;
-                }
-                customMessage.setData(threadData);
-                this.b.k.sendMessage(customMessage);
-            }
-        }
-    }
+    public String t;
+    public lt5 u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public at5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -91,89 +39,63 @@ public class at5 extends id6<rq4, FrsPageAlaVideoHolder> implements px5, qi5 {
                 return;
             }
         }
-        this.w = new a(this);
     }
 
-    @Override // com.repackage.px5
+    @Override // com.repackage.kd6, com.repackage.ho
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        m0(i, view2, viewGroup, (lj8) obj, (FrsPageAlaStageViewHolder) viewHolder);
+        return view2;
+    }
+
+    @Override // com.repackage.rx5
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.u = str;
-        }
-    }
-
-    @Override // com.repackage.qi5
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.v = str;
-        }
-    }
-
-    @Override // com.repackage.id6
-    public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, bdUniqueId) == null) {
-            super.n(tbPageContext, bdUniqueId);
+            this.t = str;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
-    /* renamed from: n0 */
-    public FrsPageAlaVideoHolder M(ViewGroup viewGroup) {
+    /* renamed from: l0 */
+    public FrsPageAlaStageViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             TbPageContext<?> tbPageContext = this.k;
             if (tbPageContext == null) {
                 return null;
             }
-            kt5 kt5Var = new kt5(tbPageContext, this.e);
-            this.t = kt5Var;
-            kt5Var.V(this.e);
-            this.t.a(this.u);
-            this.t.n(this.w);
-            return new FrsPageAlaVideoHolder(this.t);
+            lt5 lt5Var = new lt5(tbPageContext);
+            this.u = lt5Var;
+            lt5Var.a(this.t);
+            return new FrsPageAlaStageViewHolder(this.u);
         }
-        return (FrsPageAlaVideoHolder) invokeL.objValue;
+        return (FrsPageAlaStageViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.id6, com.repackage.ho
-    /* renamed from: o0 */
-    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, FrsPageAlaVideoHolder frsPageAlaVideoHolder) {
+    public View m0(int i, View view2, ViewGroup viewGroup, lj8 lj8Var, FrsPageAlaStageViewHolder frsPageAlaStageViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, frsPageAlaVideoHolder})) == null) {
-            TiebaStatic.log("c11842");
-            CustomMessage customMessage = new CustomMessage(2921017);
-            FrsViewData frsViewData = this.j;
-            int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-            ThreadData threadData = rq4Var.s;
-            threadData.statFloor = (i + 1) - topThreadSize;
-            customMessage.setData(threadData);
-            this.k.sendMessage(customMessage);
-            if (rq4Var != null) {
-                kt5 kt5Var = frsPageAlaVideoHolder.b;
-                if (kt5Var instanceof pi5) {
-                    kt5Var.b(this.v);
-                }
-                frsPageAlaVideoHolder.b.a(this.u);
-                frsPageAlaVideoHolder.b.W(b0());
-                frsPageAlaVideoHolder.b.l(rq4Var.s);
-                rq4Var.s.updateShowStatus();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lj8Var, frsPageAlaStageViewHolder})) == null) {
+            super.S(i, view2, viewGroup, lj8Var, frsPageAlaStageViewHolder);
+            if (lj8Var != null) {
+                FrsViewData frsViewData = this.j;
+                int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
+                lt5 lt5Var = frsPageAlaStageViewHolder.a;
+                lt5Var.x = (i + 1) - topThreadSize;
+                lt5Var.a(this.t);
+                frsPageAlaStageViewHolder.a.l(lj8Var);
             }
-            this.m = (zo) viewGroup;
-            return frsPageAlaVideoHolder.b();
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.px5
+    @Override // com.repackage.rx5
     public void r(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
         }
     }
 }

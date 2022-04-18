@@ -328,12 +328,12 @@ public class xh3 extends lr2 {
     public static void C(@NonNull Request request, cf3<String> cf3Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, request, cf3Var) == null) {
-            l74 l74Var = new l74(request.url().toString(), request.body(), new c(cf3Var, request));
-            l74Var.i = request.tag();
-            l74Var.f = true;
-            l74Var.g = true;
-            l74Var.h = true;
-            m74.g().e(l74Var);
+            k74 k74Var = new k74(request.url().toString(), request.body(), new c(cf3Var, request));
+            k74Var.i = request.tag();
+            k74Var.f = true;
+            k74Var.g = true;
+            k74Var.h = true;
+            l74.g().e(k74Var);
             o73.a(SwanInterfaceType.REAL_NAME_CHECK);
         }
     }

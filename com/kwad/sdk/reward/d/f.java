@@ -46,10 +46,10 @@ public class f extends d implements View.OnClickListener {
     }
 
     private void b() {
-        this.c = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910fe);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910fc);
-        this.e = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910ff);
-        this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091100);
+        this.c = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910ff);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910fd);
+        this.e = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091100);
+        this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091101);
         this.d.setOnClickListener(this);
         this.c.setOnClickListener(this);
         this.b.setOnClickListener(this);

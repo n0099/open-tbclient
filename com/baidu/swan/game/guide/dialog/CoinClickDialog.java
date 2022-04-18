@@ -282,13 +282,13 @@ public class CoinClickDialog extends Activity {
     private void init(GameGuideConfigInfo gameGuideConfigInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, gameGuideConfigInfo) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09217d);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09217e);
-            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f0921a0);
-            TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f0921a1);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09217e);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09217f);
+            TextView textView3 = (TextView) findViewById(R.id.obfuscated_res_0x7f0921a1);
+            TextView textView4 = (TextView) findViewById(R.id.obfuscated_res_0x7f0921a2);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090464);
             ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f090658);
-            ((SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09209e)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
+            ((SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09209f)).setController(Fresco.newDraweeControllerBuilder().setUri(gameGuideConfigInfo.dialogInfo.iconUrl).setAutoPlayAnimations(true).build());
             if (this.isShowMax) {
                 textView.setText(gameGuideConfigInfo.dialogInfo.maxNumsTips);
             } else {
@@ -316,7 +316,7 @@ public class CoinClickDialog extends Activity {
             }
             textView3.setText(str3);
             textView4.setText(gameGuideConfigInfo.dialogInfo.guideTips2);
-            findViewById(R.id.obfuscated_res_0x7f090fbf).setOnClickListener(new a(this, (CheckBox) findViewById(R.id.obfuscated_res_0x7f0905af)));
+            findViewById(R.id.obfuscated_res_0x7f090fc0).setOnClickListener(new a(this, (CheckBox) findViewById(R.id.obfuscated_res_0x7f0905af)));
             constraintLayout.setOnClickListener(new b(this));
             this.mDownloadCallback = new c(this);
             GamenowDownloadButtomView j = sq3.n().j(this.mDownloadCallback, "wdview", "0", this.coinsThisTime, this.coinsTotal);

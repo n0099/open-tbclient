@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nu4;
-import com.repackage.yc6;
+import com.repackage.ad6;
+import com.repackage.mu4;
 import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes3.dex */
@@ -77,15 +77,15 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
         this.c = -1;
         this.d = -1;
         this.a = frsMoveAreaChooseView;
-        this.b = yc6.h().g();
+        this.b = ad6.h().g();
         this.e = new SparseArray<>();
         if (ListUtils.isEmpty(this.b)) {
             return;
         }
         for (int i3 = 0; i3 < this.b.size(); i3++) {
             FrsTabInfo frsTabInfo = this.b.get(i3);
-            if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == yc6.h().e() || frsTabInfo.tab_type.intValue() == 3 || frsTabInfo.tab_type.intValue() == 100)) {
-                if (frsTabInfo.tab_id.intValue() == yc6.h().e()) {
+            if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == ad6.h().e() || frsTabInfo.tab_type.intValue() == 3 || frsTabInfo.tab_type.intValue() == 100)) {
+                if (frsTabInfo.tab_id.intValue() == ad6.h().e()) {
                     this.c = i3;
                 }
                 this.e.append(i3, frsTabInfo);
@@ -124,21 +124,21 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tBSpecificationBtn, i) == null) {
             if (i == this.d) {
-                nu4 nu4Var = new nu4();
-                nu4Var.p(R.color.CAM_X0304);
-                tBSpecificationBtn.setConfig(nu4Var);
+                mu4 mu4Var = new mu4();
+                mu4Var.p(R.color.CAM_X0304);
+                tBSpecificationBtn.setConfig(mu4Var);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(false);
             } else if (this.e.get(i) != null) {
-                nu4 nu4Var2 = new nu4();
-                nu4Var2.r(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(nu4Var2);
+                mu4 mu4Var2 = new mu4();
+                mu4Var2.r(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(mu4Var2);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(true);
             } else {
-                nu4 nu4Var3 = new nu4();
-                nu4Var3.r(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(nu4Var3);
+                mu4 mu4Var3 = new mu4();
+                mu4Var3.r(R.color.CAM_X0105);
+                tBSpecificationBtn.setConfig(mu4Var3);
                 tBSpecificationBtn.k();
                 tBSpecificationBtn.setUseDisableState(false);
             }

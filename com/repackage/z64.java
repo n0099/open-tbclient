@@ -1,33 +1,32 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
-import java.util.List;
-import okhttp3.Interceptor;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes7.dex */
-public interface z64 {
-    String a();
+public class z64 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    CookieManager f();
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b().h() : invokeV.booleanValue;
+    }
 
-    int g();
+    @Inject
+    public static y64 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ek2.a() : (y64) invokeV.objValue;
+    }
 
-    Context getAppContext();
-
-    int getReadTimeout();
-
-    boolean h();
-
-    boolean i();
-
-    boolean isDebug();
-
-    void j(String str, HttpRequestBuilder httpRequestBuilder);
-
-    int k();
-
-    List<Interceptor> l();
-
-    int m();
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b().isDebug() : invokeV.booleanValue;
+    }
 }

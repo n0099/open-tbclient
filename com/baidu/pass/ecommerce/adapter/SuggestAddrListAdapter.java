@@ -51,9 +51,9 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
                 }
             }
             this.this$0 = suggestAddrListAdapter;
-            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f091bba);
-            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f091bb9);
-            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f091bb6);
+            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f091bbb);
+            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f091bba);
+            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f091bb7);
             Resources resources = view2.getContext().getResources();
             if (suggestAddrListAdapter.isDarkMode) {
                 view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060931));

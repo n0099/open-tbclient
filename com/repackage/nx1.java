@@ -19,10 +19,10 @@ public class nx1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gl2Var)) == null) {
             File file = new File(Environment.getExternalStorageDirectory() + "/" + ox1.d());
             fj2.M(file, b(), gl2Var);
-            ng4.j(file);
+            mg4.j(file);
             fj2.g gVar = new fj2.g();
             File file2 = new File(b(), "app.json");
-            SwanAppConfigData c = SwanAppConfigData.c(ng4.E(file2), b());
+            SwanAppConfigData c = SwanAppConfigData.c(mg4.E(file2), b());
             gVar.a = b().getPath() + File.separator;
             gVar.b = c;
             jx1.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.a);

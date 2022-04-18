@@ -91,6 +91,6 @@ public class gt3 {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? g14.c() > 0 && sw3.c() && System.currentTimeMillis() - g14.c() > 6000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f14.c() > 0 && sw3.c() && System.currentTimeMillis() - f14.c() > 6000 : invokeV.booleanValue;
     }
 }

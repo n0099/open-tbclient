@@ -58,7 +58,7 @@ public class ca2 implements da2.a {
     private void update() throws JSONException {
         PMSAppInfo u;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = f84.i().u(this.a)) != null) {
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = e84.i().u(this.a)) != null) {
             this.b.put("app_name", u.appName);
             this.b.put("pkg_vername", u.versionName);
             this.b.put("pkg_vercode", u.versionCode);

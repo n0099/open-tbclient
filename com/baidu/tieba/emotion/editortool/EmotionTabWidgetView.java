@@ -138,10 +138,10 @@ public class EmotionTabWidgetView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             removeAllViews();
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0272, (ViewGroup) this, true);
-            this.a = (EmotionTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f090964);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090962);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090965);
-            this.d = findViewById(R.id.obfuscated_res_0x7f0922d4);
+            this.a = (EmotionTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f090965);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090963);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090966);
+            this.d = findViewById(R.id.obfuscated_res_0x7f0922d5);
             this.b.setOnClickListener(new a(this));
             this.c.setOnClickListener(new b(this));
             this.c.setVisibility(8);

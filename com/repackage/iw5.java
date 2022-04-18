@@ -1,320 +1,70 @@
 package com.repackage;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.view.View;
+import android.view.Window;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hw5;
-import com.repackage.qx8;
 /* loaded from: classes6.dex */
-public class iw5 implements hw5 {
+public class iw5 extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qx8 a;
+    public View a;
     public TextView b;
-    public hw5.c c;
-    public hw5.b d;
-    public hw5.a e;
+    public String c;
 
-    /* loaded from: classes6.dex */
-    public class a implements qx8.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iw5 a;
-
-        public a(iw5 iw5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iw5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iw5Var;
-        }
-
-        @Override // com.repackage.qx8.a
-        public float a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.d != null) {
-                    return this.a.d.a();
-                }
-                return 1.0f;
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.repackage.qx8.a
-        public void b(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
-                if (this.a.e != null) {
-                    this.a.e.a(f);
-                }
-                TextView textView = this.a.b;
-                iw5 iw5Var = this.a;
-                textView.setText(iw5Var.h(iw5Var.getProgress()));
-            }
-        }
-
-        @Override // com.repackage.qx8.a
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a.c == null) {
-                return;
-            }
-            this.a.c.a();
-        }
-
-        @Override // com.repackage.qx8.a
-        public void onProgress(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-                this.a.b.setText(this.a.h(f));
-            }
-        }
-    }
-
-    public iw5(qx8 qx8Var, TextView textView, hw5.c cVar, hw5.b bVar, hw5.a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iw5(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qx8Var, textView, cVar, bVar, aVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = qx8Var;
-        this.b = textView;
-        this.c = cVar;
-        this.d = bVar;
-        this.e = aVar;
-        i();
     }
 
-    @Override // com.repackage.hw5
-    public boolean a() {
-        InterceptResult invokeV;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                qx8Var.a();
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            SkinManager.setBackgroundShapeDrawable(this.a, oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.hw5
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // android.app.Dialog
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                return qx8Var.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.show();
+            Window window = getWindow();
+            if (window != null) {
+                window.setDimAmount(0.0f);
+                window.setContentView(R.layout.obfuscated_res_0x7f0d03c4);
+                this.a = window.findViewById(R.id.obfuscated_res_0x7f092070);
+                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f092079);
+                if (!StringUtils.isNull(this.c)) {
+                    this.b.setText(this.c);
+                }
+                a(TbadkCoreApplication.getInst().getSkinType());
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.hw5
-    public int getMaxDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                return qx8Var.getMaxDuration();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.hw5
-    public float getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                return qx8Var.getProgress();
-            }
-            return 0.0f;
-        }
-        return invokeV.floatValue;
-    }
-
-    @Override // com.repackage.hw5
-    public int getSlideNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                return qx8Var.getSlideNum();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public final String h(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (f >= getMaxDuration()) {
-                f = getMaxDuration();
-            }
-            if (f > 60.0f) {
-                return ((int) (f / 60.0f)) + "'" + String.format("%.1f", Float.valueOf(f % 60.0f));
-            }
-            return String.format("%.1f", Float.valueOf(f));
-        }
-        return (String) invokeF.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var == null) {
-                return false;
-            }
-            qx8Var.setOnProgressListener(new a(this));
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.hw5
-    public boolean pause() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                qx8Var.stop();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.hw5
-    public boolean reset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                qx8Var.reset();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.hw5
-    public boolean setMaxDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                qx8Var.setMaxDuration(i);
-                this.a.invalidate();
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.repackage.hw5
-    public boolean setMinDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                qx8Var.setMinDuration(i);
-                this.a.invalidate();
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.repackage.hw5
-    public boolean setProgress(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                qx8Var.setProgress(j);
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.repackage.hw5
-    public boolean setShowDeleteLastTip(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                qx8Var.setShowDeleteLastTip(z);
-                return true;
-            }
-            return false;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    @Override // com.repackage.hw5
-    public boolean start() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            qx8 qx8Var = this.a;
-            if (qx8Var != null) {
-                qx8Var.start();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

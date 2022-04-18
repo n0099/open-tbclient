@@ -25,12 +25,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.m00;
-import com.repackage.qn4;
+import com.repackage.pn4;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class b00<T extends qn4> implements gz, pi5 {
+public class b00<T extends pn4> implements gz, pi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -359,7 +359,7 @@ public class b00<T extends qn4> implements gz, pi5 {
         if (qyVar != null) {
             qyVar.onChangeSkinType(tbPageContext, i);
             if (this.k == null && ((t2 = this.o) == null || !t2.isSupportContent())) {
-                wr4 d = wr4.d(this.e);
+                vr4 d = vr4.d(this.e);
                 d.m(1);
                 d.n(R.string.J_X06);
                 d.f(this.n.h);
@@ -378,14 +378,14 @@ public class b00<T extends qn4> implements gz, pi5 {
         if (qyVar3 != null) {
             qyVar3.onChangeSkinType(tbPageContext, i);
             if (this.h == null && ((t = this.o) == null || !t.isSupportContent())) {
-                wr4 d2 = wr4.d(this.e);
+                vr4 d2 = vr4.d(this.e);
                 d2.m(2);
                 d2.n(R.string.J_X06);
                 d2.f(this.n.h);
             }
         }
         if (this.h != null && this.k != null) {
-            wr4 d3 = wr4.d(this.e);
+            vr4 d3 = vr4.d(this.e);
             d3.n(R.string.J_X06);
             d3.i(this.n.h, R.color.CAM_X0206);
         }
@@ -408,25 +408,25 @@ public class b00<T extends qn4> implements gz, pi5 {
         }
     }
 
-    public void p(rx5<T> rx5Var) {
+    public void p(tx5<T> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, rx5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, tx5Var) == null) {
             qy<T> qyVar = this.h;
             if (qyVar != null) {
-                qyVar.l(rx5Var);
+                qyVar.l(tx5Var);
             }
             qy<T> qyVar2 = this.i;
             if (qyVar2 != null) {
-                qyVar2.l(rx5Var);
+                qyVar2.l(tx5Var);
             }
             for (xy xyVar : this.j) {
                 if (xyVar != null) {
-                    xyVar.l(rx5Var);
+                    xyVar.l(tx5Var);
                 }
             }
             qy<T> qyVar3 = this.k;
             if (qyVar3 != null) {
-                qyVar3.l(rx5Var);
+                qyVar3.l(tx5Var);
             }
         }
     }
@@ -549,7 +549,7 @@ public class b00<T extends qn4> implements gz, pi5 {
         } else {
             inflate = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0825, viewGroup, false);
         }
-        ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.obfuscated_res_0x7f091f86);
+        ThreadCardView threadCardView = (ThreadCardView) inflate.findViewById(R.id.obfuscated_res_0x7f091f87);
         this.e = threadCardView;
         this.f = (RelativeLayout) threadCardView.findViewById(R.id.obfuscated_res_0x7f0904fa);
         LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09039c);

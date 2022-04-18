@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yt5;
+import com.repackage.au5;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +25,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public String b;
     public String c;
     public String d;
-    public yt5 e;
+    public au5 e;
 
     public AlaPersonCenterFragment() {
         Interceptable interceptable = $ic;
@@ -73,9 +73,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
-            yt5 yt5Var = this.e;
-            if (yt5Var != null) {
-                yt5Var.m(i);
+            au5 au5Var = this.e;
+            if (au5Var != null) {
+                au5Var.m(i);
             }
         }
     }
@@ -85,9 +85,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            yt5 yt5Var = this.e;
-            if (yt5Var != null) {
-                yt5Var.m(i);
+            au5 au5Var = this.e;
+            if (au5Var != null) {
+                au5Var.m(i);
             }
         }
     }
@@ -108,9 +108,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             this.a = pageContext;
-            yt5 yt5Var = new yt5(pageContext, true);
-            this.e = yt5Var;
-            yt5Var.s(this.c);
+            au5 au5Var = new au5(pageContext, true);
+            this.e = au5Var;
+            au5Var.s(this.c);
             this.e.r(this.b);
             this.e.t(this.d);
             if (getArguments() != null) {

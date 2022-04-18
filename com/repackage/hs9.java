@@ -2,82 +2,68 @@ package com.repackage;
 
 import android.content.Context;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import java.util.HashMap;
+import org.json.JSONException;
 /* loaded from: classes6.dex */
-public class hs9 {
+public class hs9 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public Info b;
-    public Handler c;
+    public final /* synthetic */ os9 a;
 
-    public hs9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hs9(os9 os9Var, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {os9Var, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new as9(this, Looper.getMainLooper());
+        this.a = os9Var;
     }
 
-    public static boolean b(Uri uri) {
-        InterceptResult invokeL;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        String str;
+        Context context;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) ? "appmarket".equalsIgnoreCase(uri.getScheme()) : invokeL.booleanValue;
-    }
-
-    public static boolean c(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
-            String scheme = uri.getScheme();
-            String host = uri.getHost();
-            return "market".equalsIgnoreCase(scheme) || "market.android.com".equalsIgnoreCase(host) || "play.google.com".equalsIgnoreCase(host);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void a(Context context, String str, Info info) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, info) == null) {
-            this.a = context;
-            this.b = info;
-            WebView webView = new WebView(context);
-            WebSettings settings = webView.getSettings();
-            settings.setAllowContentAccess(true);
-            settings.setJavaScriptEnabled(true);
-            if (Build.VERSION.SDK_INT >= 11) {
-                webView.removeJavascriptInterface("searchBoxJavaBridge_");
-                webView.removeJavascriptInterface("accessibility");
-                webView.removeJavascriptInterface("accessibilityTraversal");
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            int i = message.what;
+            try {
+                if (i != 11) {
+                    if (i == 12) {
+                        str = (String) message.obj;
+                        context = this.a.a;
+                    }
+                }
+                str = (String) message.obj;
+                yr9 a = cs9.a(this.a.a);
+                try {
+                    a.b = cs9.d("ps", new gs9(this.a.b));
+                    a.k("co", 2002);
+                    a.l("msg", str);
+                } catch (JSONException unused) {
+                }
+                a.m();
+                context = this.a.a;
+                ds9.a(context, Uri.parse(str));
+            } catch (Exception unused2) {
             }
-            webView.setWebViewClient(new es9(this, context, info, str));
-            HashMap hashMap = new HashMap();
-            hashMap.put("X-Requested-With", "");
-            webView.loadUrl(str, hashMap);
-            Message obtain = Message.obtain();
-            obtain.what = 11;
-            obtain.obj = str;
-            this.c.sendMessageDelayed(obtain, 5000L);
         }
     }
 }

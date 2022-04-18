@@ -351,7 +351,7 @@ public class SpeedStats {
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
             int i = this.mStartMainActivityType;
             if (i != 6 && i != 5 && i != 3 && i != 1) {
-                mainActivityCreateStartTimeStamp = (i == 4 || i == 2 || i == 0) ? this.mSpeedStatsManager.getAppLaunchStartTimeStamp() : -1L;
+                mainActivityCreateStartTimeStamp = (i == 4 || i == 2 || i == 0 || i == 8 || i == 9) ? this.mSpeedStatsManager.getAppLaunchStartTimeStamp() : -1L;
             } else {
                 mainActivityCreateStartTimeStamp = this.mSpeedStatsManager.getMainActivityCreateStartTimeStamp();
             }
@@ -372,7 +372,7 @@ public class SpeedStats {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
-            if ((TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_COLD_DIRECT) || TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_NEW_INSTALL_DIRECT) || TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_UPGRADE_DIRECT)) && ((TextUtils.equals(this.mUbcValue, "none") || TextUtils.equals(this.mUbcValue, "skin")) && TextUtils.equals(this.mUbcFrom, SpeedStatsUtils.UBC_FROM_MAINLINE) && TextUtils.equals(this.mUbcPage, SpeedStatsUtils.UBC_PAGE_ALLCACHE))) {
+            if ((TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_COLD_DIRECT) || TextUtils.equals(this.mUbcType, "push") || TextUtils.equals(this.mUbcType, "scheme")) && ((TextUtils.equals(this.mUbcValue, "none") || TextUtils.equals(this.mUbcValue, "skin")) && TextUtils.equals(this.mUbcFrom, SpeedStatsUtils.UBC_FROM_MAINLINE))) {
                 JSONObject jSONObject = new JSONObject();
                 if (this.mSpeedStatsManager.packData(jSONObject)) {
                     return jSONObject.toString();
@@ -387,25 +387,7 @@ public class SpeedStats {
     public String calculateUbcPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            if (this.mFeedDataType == -1 && this.mHotwordDataType == -1) {
-                return "error";
-            }
-            if (this.mFeedDataType == 0 && this.mHotwordDataType == 0) {
-                return SpeedStatsUtils.UBC_PAGE_ALLCACHE;
-            }
-            if (this.mFeedDataType == 0 && this.mHotwordDataType == 1) {
-                return SpeedStatsUtils.UBC_PAGE_FEED_CACHE;
-            }
-            if (this.mFeedDataType == 1 && this.mHotwordDataType == 0) {
-                return SpeedStatsUtils.UBC_PAGE_HOTWORD_CACHE;
-            }
-            if (this.mFeedDataType == 1 && this.mHotwordDataType == 1) {
-                return SpeedStatsUtils.UBC_PAGE_ALLNET;
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) ? !TextUtils.isEmpty(this.mUbcPage) ? this.mUbcPage : "unknown" : (String) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -428,8 +410,13 @@ public class SpeedStats {
                     return SpeedStatsUtils.UBC_TYPE_COLD_INDIRECT;
                 case 6:
                     return SpeedStatsUtils.UBC_TYPE_HOT_LAUNCH;
+                case 7:
                 default:
                     return null;
+                case 8:
+                    return "scheme";
+                case 9:
+                    return "push";
             }
         }
         return (String) invokeV.objValue;
@@ -709,6 +696,7 @@ public class SpeedStats {
         nb.b().c();
         if (this.mSpeedStatsManager.getStatsFlag()) {
             this.mSpeedStatsManager.addStatsTimeStamp(6000);
+            this.mUbcPage = SpeedStatsUtils.UBC_PAGE_ALLCACHE;
             Log.d(TAG, "*****************统计终点*****************");
             if (!checkValid()) {
                 resetMainActivityStatsPeriod();
@@ -726,15 +714,16 @@ public class SpeedStats {
 
     @DebugTrace
     @TimeSpendTrace(isEnd = true)
-    public void onSchemeOrPushStatsEnd(Context context, boolean z) {
+    public void onSchemeOrPushStatsEnd(Context context, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048587, this, context, z) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, Boolean.valueOf(z), str}) == null) {
             nb.b().c();
             if (z) {
-                this.mStartMainActivityType = 0;
+                this.mStartMainActivityType = 8;
             } else {
-                this.mStartMainActivityType = 2;
+                this.mStartMainActivityType = 9;
             }
+            this.mUbcPage = str;
             this.mSpeedStatsManager.addStatsTimeStamp(6000);
             asyncUploadSpeedInfo();
         }

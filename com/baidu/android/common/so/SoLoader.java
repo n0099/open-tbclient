@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vm4;
+import com.repackage.um4;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -54,7 +54,7 @@ public final class SoLoader {
                 return;
             }
         }
-        DEBUG = vm4.e();
+        DEBUG = um4.e();
         sLoadedLibraries = Collections.synchronizedSet(new HashSet());
         soSources = new ArrayList();
     }

@@ -63,7 +63,7 @@ public class ob2 extends g23 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 File d = q93.d();
                 File c = q93.c();
-                if (d.exists() && ng4.U(d.getPath(), c.getPath())) {
+                if (d.exists() && mg4.U(d.getPath(), c.getPath())) {
                     iw2.M(true);
                     Toast.makeText(qj2.c(), (int) R.string.obfuscated_res_0x7f0f0148, 1).show();
                     return;

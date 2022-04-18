@@ -85,7 +85,7 @@ public class tk2 {
             jSONObject.put("userDataPath", gc2.USER_DATA_PATH);
             jSONObject.put("preloadId", d72.U().a0());
             jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
-            jSONObject.put("ttsExtractJSUrl", rc4.b().a());
+            jSONObject.put("ttsExtractJSUrl", qc4.b().a());
             jSONObject.put("coreJSPath", d72.U().c0());
             if (tp1.d()) {
                 jSONObject.put("pendingList", new JSONArray((Collection) es1.d()));

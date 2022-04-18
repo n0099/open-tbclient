@@ -44,7 +44,7 @@ public class n25 extends u05 {
         pbNewInputContainer.setTransLink(!z);
         ((PbNewInputContainer) this.k).setmAtListRequestResponseCode(i);
         this.r = ((PbNewInputContainer) this.k).getInputView();
-        ((PbNewInputContainer) this.k).setHint(context.getString(R.string.obfuscated_res_0x7f0f1074));
+        ((PbNewInputContainer) this.k).setHint(context.getString(R.string.obfuscated_res_0x7f0f1073));
         ((PbNewInputContainer) this.k).G(z2);
         this.n = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45};
     }

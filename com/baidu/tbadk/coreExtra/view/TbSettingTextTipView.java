@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class TbSettingTextTipView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -108,8 +108,8 @@ public class TbSettingTextTipView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d080b, (ViewGroup) this, true);
             this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091f07);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091fed);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091f08);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091fee);
             this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ac);
         }
     }
@@ -151,7 +151,7 @@ public class TbSettingTextTipView extends FrameLayout {
             }
             SkinManager.setViewTextColor(textView, i2);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            wr4.d(this).f(R.color.CAM_X0205);
+            vr4.d(this).f(R.color.CAM_X0205);
         }
     }
 

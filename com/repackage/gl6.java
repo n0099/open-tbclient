@@ -1,69 +1,44 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
+import com.repackage.l36;
 /* loaded from: classes6.dex */
 public class gl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public BdUniqueId b;
+    public boolean c;
+    public m36 d;
+    public boolean e;
+    public VelocityTracker f;
+    public l36.b g;
 
     /* loaded from: classes6.dex */
-    public static class a implements dr4.e {
+    public class a implements l36.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gl6 a;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) || dr4Var == null) {
-                return;
-            }
-            dr4Var.dismiss();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements dr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ BlockPopInfoData b;
-
-        public b(TbPageContext tbPageContext, BlockPopInfoData blockPopInfoData) {
+        public a(gl6 gl6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, blockPopInfoData};
+                Object[] objArr = {gl6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,76 +48,145 @@ public class gl6 {
                     return;
                 }
             }
-            this.a = tbPageContext;
-            this.b = blockPopInfoData;
+            this.a = gl6Var;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.l36.b
+        public void a(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{this.b.ahead_url});
-                if (dr4Var == null) {
-                    return;
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && e(i2)) {
+                this.a.e(true);
+            }
+        }
+
+        @Override // com.repackage.l36.b
+        public void b(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && e(i2)) {
+                this.a.e(false);
+            }
+        }
+
+        @Override // com.repackage.l36.b
+        public void c(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            }
+        }
+
+        @Override // com.repackage.l36.b
+        public void d(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            }
+        }
+
+        public final boolean e(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) ? Math.abs(f) >= 10.0f : invokeF.booleanValue;
+        }
+    }
+
+    public gl6(Context context, BdUniqueId bdUniqueId, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = false;
+        this.g = new a(this);
+        this.a = context;
+        this.b = bdUniqueId;
+        this.e = z;
+        if (z) {
+            m36 m36Var = new m36(context);
+            this.d = m36Var;
+            m36Var.d(this.g);
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
+        if (r5 != 3) goto L12;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(View view2, MotionEvent motionEvent) {
+        m36 m36Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, motionEvent) == null) {
+            if (this.f == null) {
+                this.f = VelocityTracker.obtain();
+            }
+            this.f.addMovement(motionEvent);
+            int action = motionEvent.getAction();
+            if (action != 1) {
+                if (action == 2) {
+                    this.f.computeCurrentVelocity(1000);
+                    if (Math.abs(this.f.getXVelocity()) > Math.abs(this.f.getYVelocity())) {
+                        this.e = false;
+                    } else {
+                        this.e = true;
+                    }
                 }
-                dr4Var.dismiss();
+                if (this.e || (m36Var = this.d) == null) {
+                }
+                m36Var.c(motionEvent);
+                return;
+            }
+            c();
+            if (this.e) {
             }
         }
     }
 
-    public static boolean a(TbPageContext<?> tbPageContext, FrsViewData frsViewData) {
-        InterceptResult invokeLL;
-        String fixedText;
+    public final void c() {
+        VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, frsViewData)) == null) {
-            if (tbPageContext != null && frsViewData != null) {
-                if (!ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
-                    return true;
-                }
-                AntiData anti = frsViewData.getAnti();
-                if (anti != null) {
-                    if (b(tbPageContext, anti.getBlock_stat(), anti.mFrsForbidenDialogInfo)) {
-                        return true;
-                    }
-                    if (anti.getIfpost() == 0 && !StringUtils.isNull(anti.getForbid_info())) {
-                        String forbid_info = anti.getForbid_info();
-                        if (StringHelper.getRealSize(forbid_info) > 14) {
-                            forbid_info = StringHelper.getFixedText(forbid_info, 7, false) + "\n" + forbid_info.substring(fixedText.length());
-                        }
-                        BdToast i = BdToast.i(tbPageContext.getPageActivity(), forbid_info, R.drawable.obfuscated_res_0x7f0809a5, true);
-                        i.k(1.25f);
-                        i.q();
-                    }
-                }
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (velocityTracker = this.f) == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        velocityTracker.clear();
+        this.f.recycle();
+        this.f = null;
     }
 
-    public static boolean b(TbPageContext<?> tbPageContext, int i, BlockPopInfoData blockPopInfoData) {
-        InterceptResult invokeLIL;
+    public final void d(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, tbPageContext, i, blockPopInfoData)) == null) {
-            if (blockPopInfoData == null || blockPopInfoData.can_post.intValue() == 1 || !TbadkCoreApplication.isLogin()) {
-                return false;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                CustomMessage customMessage = new CustomMessage(2001617);
+                customMessage.setTag(this.b);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001617, Boolean.valueOf(z2));
+                customResponsedMessage.setOrginalMessage(customMessage);
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+                return;
             }
-            String string = StringUtils.isNull(blockPopInfoData.block_info) ? tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f06c1) : blockPopInfoData.block_info;
-            if (i != 1 && i != 2) {
-                BdToast i2 = BdToast.i(tbPageContext.getPageActivity(), string, R.drawable.obfuscated_res_0x7f0809a5, true);
-                i2.k(1.25f);
-                i2.q();
-                return false;
-            }
-            dr4 dr4Var = new dr4(tbPageContext.getPageActivity());
-            dr4Var.setMessage(StringHelper.getFixedText(string, 50, true));
-            dr4Var.setNegativeButton(StringHelper.getFixedText(StringUtils.isNull(blockPopInfoData.ok_info) ? tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f07d8) : blockPopInfoData.ok_info, 4, true), new a());
-            if (!StringUtils.isNull(blockPopInfoData.ahead_info) && !StringUtils.isNull(blockPopInfoData.ahead_url)) {
-                dr4Var.setPositiveButton(StringHelper.getFixedText(blockPopInfoData.ahead_info, 4, true), new b(tbPageContext, blockPopInfoData));
-            }
-            dr4Var.create(tbPageContext).show();
-            return true;
+            CustomMessage customMessage2 = new CustomMessage(2001618);
+            customMessage2.setTag(this.b);
+            CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001618, Boolean.valueOf(z2));
+            customResponsedMessage2.setOrginalMessage(customMessage2);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
         }
-        return invokeLIL.booleanValue;
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+            if (this.e) {
+                d(!z, true);
+            }
+        }
     }
 }

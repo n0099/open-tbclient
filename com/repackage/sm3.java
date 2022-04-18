@@ -18,7 +18,7 @@ public class sm3 {
         HashMap<String, PMSAppInfo> hashMap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Cursor query = y84.a().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
+            Cursor query = x84.a().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
             HashMap<String, PMSAppInfo> hashMap2 = new HashMap<>();
             if (query == null || !query.moveToFirst()) {
                 hashMap = hashMap2;
@@ -112,7 +112,7 @@ public class sm3 {
                     columnIndex4 = i10;
                 }
             }
-            ng4.d(query);
+            mg4.d(query);
             return hashMap;
         }
         return (HashMap) invokeV.objValue;

@@ -1,23 +1,25 @@
 package com.repackage;
 
-import android.view.View;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.views.CloseParentView;
+import com.win.opensdk.PBError;
 /* loaded from: classes6.dex */
-public class ju9 implements View.OnClickListener {
+public class ju9 implements xo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ CloseParentView a;
+    public final /* synthetic */ iq9 a;
 
-    public ju9(CloseParentView closeParentView) {
+    public ju9(iq9 iq9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {closeParentView};
+            Object[] objArr = {iq9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,16 +29,79 @@ public class ju9 implements View.OnClickListener {
                 return;
             }
         }
-        this.a = closeParentView;
+        this.a = iq9Var;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        nu9 nu9Var;
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (nu9Var = this.a.g) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.k = true;
+            jq9 jq9Var = this.a.e;
+            if (jq9Var != null) {
+                jq9Var.onClicked();
+            }
+        }
+    }
+
+    @Override // com.repackage.xo9
+    public void onDisplayed() {
+        jq9 jq9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jq9Var = this.a.e) == null) {
             return;
         }
-        ((yo9) nu9Var).a.finish();
+        jq9Var.onDisplayed();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
+            if (pBError == PBError.PID_INVALID) {
+                jq9 jq9Var = this.a.e;
+                if (jq9Var != null) {
+                    jq9Var.onFail(PBError.NO_FILL);
+                    return;
+                }
+                return;
+            }
+            iq9 iq9Var = this.a;
+            jq9 jq9Var2 = iq9Var.e;
+            if (jq9Var2 == null || iq9Var.j) {
+                return;
+            }
+            jq9Var2.onFail(PBError.NO_FILL);
+        }
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.b.d()) {
+            iq9 iq9Var = this.a;
+            Context context = iq9Var.a;
+            zo9 zo9Var = iq9Var.b.a;
+            mr9.s(context, (zo9Var == null || !zo9Var.f()) ? 0L : zo9Var.c.getLo_timeout());
+            String str = "";
+            if (this.a.b.c().equals("image")) {
+                zo9 zo9Var2 = this.a.b.a;
+                if (zo9Var2 != null && zo9Var2.f()) {
+                    str = zo9Var2.c.getLoad();
+                }
+                this.a.f(str);
+            } else if (this.a.b.c().equals(NativeConstants.TYPE_GIF)) {
+                zo9 zo9Var3 = this.a.b.a;
+                if (zo9Var3 != null && zo9Var3.f()) {
+                    str = zo9Var3.c.getLoad();
+                }
+                this.a.c(str);
+            } else {
+                jq9 jq9Var = this.a.e;
+                if (jq9Var != null) {
+                    jq9Var.onFail(PBError.LOAD_TYPE_ERROR);
+                }
+            }
+        }
     }
 }

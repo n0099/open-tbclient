@@ -1,186 +1,158 @@
 package com.repackage;
 
 import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.util.Log;
-import android.view.Surface;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.afx.recode.OutputSurface;
-import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.FaceUnityUtils;
-import com.faceunity.gles.FullFrameRect;
-import com.faceunity.gles.Texture2dProgram;
-import com.faceunity.wrapper.faceunity;
+import com.baidu.ugc.editvideo.muxer.VideoMuxer;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import com.repackage.ht8;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class gt8 implements SurfaceTexture.OnFrameAvailableListener {
+public class gt8 {
     public static /* synthetic */ Interceptable $ic;
-    public static int m;
-    public static int n;
-    public static int[] o;
     public transient /* synthetic */ FieldHolder $fh;
-    public SurfaceTexture a;
-    public Surface b;
-    public Object c;
-    public boolean d;
-    public Context e;
-    public String f;
-    public int g;
-    public int h;
-    public FullFrameRect i;
-    public FullFrameRect j;
-    public int k;
-    public final float[] l;
+    public Context a;
+    public ot8 b;
+    public ht8 c;
+    public ht8.c d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755666394, "Lcom/repackage/gt8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755666394, "Lcom/repackage/gt8;");
-                return;
-            }
-        }
-        o = new int[]{0, 0, 0};
-    }
-
-    public gt8(Context context, String str, int i, int i2) {
+    public gt8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
-        this.f = "normal";
-        this.l = new float[16];
-        this.e = context;
-        this.f = str;
-        this.g = i;
-        this.h = i2;
-        f();
+        this.a = context;
     }
 
-    public void a() {
+    public static void a(List<ot8> list, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                while (!this.d) {
-                    try {
-                        this.c.wait(500L);
-                        if (!this.d) {
-                            throw new RuntimeException("Surface frame wait timed out");
-                        }
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-                this.d = false;
-            }
-            b("before updateTexImage");
-            this.a.updateTexImage();
-        }
-    }
-
-    public void b(String str) {
-        int glGetError;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
+        if (!(interceptable == null || interceptable.invokeLILL(65537, null, list, i, str, str2) == null) || list == null) {
             return;
         }
-        Log.e(OutputSurface.TAG, str + ": glError " + glGetError);
-        throw new RuntimeException(str + ": glError " + glGetError);
+        list.add(new ot8(str, i, str2));
     }
 
-    public void c() {
+    public static List<ot8> c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.updateTexImage();
-            this.a.getTransformMatrix(this.l);
-            faceunity.fuItemSetParam(m, TbFileVideoActivityConfig.FILTER_NAME, this.f);
-            faceunity.fuItemSetParam(m, "eye_bright", 0.0d);
-            faceunity.fuItemSetParam(m, "tooth_whiten", 0.0d);
-            this.i.drawFrame(faceunity.fuBeautifyImage(this.k, 1, this.g, this.h, 0, o), this.l);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (context == null) {
+                context = TbadkCoreApplication.getInst();
+            }
+            a(arrayList, R.drawable.obfuscated_res_0x7f080561, context.getString(R.string.obfuscated_res_0x7f0f0611), "origin");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080565, context.getString(R.string.obfuscated_res_0x7f0f060e), "hongkong");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080568, context.getString(R.string.obfuscated_res_0x7f0f0612), "refreshing");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080564, context.getString(R.string.obfuscated_res_0x7f0f060c), "girly");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055f, context.getString(R.string.obfuscated_res_0x7f0f0609), "concrete");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08056c, context.getString(R.string.obfuscated_res_0x7f0f0616), "warm");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055e, context.getString(R.string.obfuscated_res_0x7f0f0608), "cold");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080566, context.getString(R.string.obfuscated_res_0x7f0f060f), "Japanese");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080560, context.getString(R.string.obfuscated_res_0x7f0f060d), "cruz");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055b, context.getString(R.string.obfuscated_res_0x7f0f0605), "abao");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080562, context.getString(R.string.obfuscated_res_0x7f0f060a), "dew");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08056a, context.getString(R.string.obfuscated_res_0x7f0f0614), "slowlived");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08056b, context.getString(R.string.obfuscated_res_0x7f0f0615), "sweet");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055d, context.getString(R.string.obfuscated_res_0x7f0f0607), "boardwalk");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080567, context.getString(R.string.obfuscated_res_0x7f0f0610), "keylime");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080563, context.getString(R.string.obfuscated_res_0x7f0f060b), "electric");
+            a(arrayList, R.drawable.obfuscated_res_0x7f080569, context.getString(R.string.obfuscated_res_0x7f0f0613), "silver");
+            a(arrayList, R.drawable.obfuscated_res_0x7f08055c, context.getString(R.string.obfuscated_res_0x7f0f0606), "blackwhite");
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 
-    public Surface d() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (Surface) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return vs8.f + VideoMuxer.FILTER_TEMP_DIR_PREFIX + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ot8 ot8Var = this.b;
+            return (ot8Var == null || "normal".equalsIgnoreCase(ot8Var.c)) ? "" : this.b.c;
+        }
+        return (String) invokeV.objValue;
     }
 
     public void e() {
+        ht8 ht8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.release();
-            this.b = null;
-            this.a = null;
-            FullFrameRect fullFrameRect = this.i;
-            if (fullFrameRect != null) {
-                fullFrameRect.release(false);
-                this.i = null;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ht8Var = this.c) == null) {
+            return;
+        }
+        ht8Var.e();
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ht8 ht8Var = this.c;
+            if (ht8Var != null) {
+                return ht8Var.f();
             }
-            faceunity.fuDestroyItem(n);
-            int[] iArr = o;
-            n = 0;
-            iArr[1] = 0;
-            faceunity.fuDestroyItem(m);
-            int[] iArr2 = o;
-            m = 0;
-            iArr2[0] = 0;
-            faceunity.fuOnDeviceLost();
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void f() {
+    public void g(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.i = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-            Log.d(OutputSurface.TAG, "onSurfaceCreated: ");
-            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-            this.j = fullFrameRect;
-            this.k = fullFrameRect.createTextureObject();
-            this.a = new SurfaceTexture(this.k);
-            this.b = new Surface(this.a);
-            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.e);
-            m = upFaceUnity;
-            o[0] = upFaceUnity;
-            this.a.setOnFrameAvailableListener(this);
-        }
-    }
-
-    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
-            Log.d(OutputSurface.TAG, "new frame available");
-            synchronized (this.c) {
-                if (!this.d) {
-                    this.d = true;
-                    this.c.notifyAll();
-                } else {
-                    throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            ht8 ht8Var = this.c;
+            if ((ht8Var == null || !ht8Var.f()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+                ht8 ht8Var2 = new ht8(this.a, str, d(), str2);
+                this.c = ht8Var2;
+                ht8.c cVar = this.d;
+                if (cVar != null) {
+                    ht8Var2.h(cVar);
                 }
+                this.c.i();
+            }
+        }
+    }
+
+    public void h(ot8 ot8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ot8Var) == null) {
+            this.b = ot8Var;
+        }
+    }
+
+    public void i(ht8.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.d = cVar;
+            ht8 ht8Var = this.c;
+            if (ht8Var != null) {
+                ht8Var.h(cVar);
             }
         }
     }

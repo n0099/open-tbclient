@@ -33,7 +33,7 @@ import com.repackage.fd2;
 import com.repackage.i03;
 import com.repackage.j03;
 import com.repackage.l73;
-import com.repackage.ng4;
+import com.repackage.mg4;
 import com.repackage.py2;
 import com.repackage.qj2;
 import com.repackage.tg1;
@@ -146,7 +146,7 @@ public class SubscribeHelper {
                         do {
                             hashMap.put(query.getString(query.getColumnIndex("templateId")), Integer.valueOf(query.getInt(query.getColumnIndex("result"))));
                         } while (query.moveToNext());
-                        ng4.d(query);
+                        mg4.d(query);
                     }
                 }
                 LinkedHashMap<String, Boolean> linkedHashMap = new LinkedHashMap<>();

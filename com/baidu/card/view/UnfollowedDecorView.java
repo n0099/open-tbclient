@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fc5;
-import com.repackage.nz5;
+import com.repackage.pz5;
 /* loaded from: classes.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nz5 a;
+    public pz5 a;
     public int b;
     public int c;
 
@@ -144,11 +144,11 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
                 return;
             }
         }
-        this.b = R.drawable.obfuscated_res_0x7f0808ef;
+        this.b = R.drawable.obfuscated_res_0x7f0808f3;
         this.c = R.color.CAM_X0111;
-        this.a = new nz5(g((Activity) context), this);
+        this.a = new pz5(g((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808ef, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808f3, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 }

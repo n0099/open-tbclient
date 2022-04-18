@@ -64,38 +64,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ax4;
-import com.repackage.bw7;
+import com.repackage.dv7;
+import com.repackage.ev7;
 import com.repackage.i05;
 import com.repackage.i25;
+import com.repackage.iw7;
 import com.repackage.j05;
 import com.repackage.oi;
 import com.repackage.p05;
 import com.repackage.rb;
-import com.repackage.s86;
-import com.repackage.su7;
+import com.repackage.tv4;
 import com.repackage.u05;
-import com.repackage.uv4;
+import com.repackage.u86;
 import com.repackage.v05;
-import com.repackage.wu7;
-import com.repackage.xu7;
+import com.repackage.zu7;
+import com.repackage.zw4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, VoiceManager.j, j05 {
+public class PbFullScreenEditorActivity extends BaseActivity implements zu7.c, VoiceManager.j, j05 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REPLY_MAX_SIZE = 140;
     public transient /* synthetic */ FieldHolder $fh;
     public View mBackBtn;
-    public bw7 mContentProcessController;
+    public iw7 mContentProcessController;
     public Context mContext;
     public PbFullScreenEditorInputView mEditContent;
     public SpanGroupManager mEditContentSpanGroupManager;
-    public xu7 mEditorBuilder;
+    public ev7 mEditorBuilder;
     public LinearLayout mEditorContainer;
     public EditorTools mEditorTools;
-    public wu7 mFullScreenEditor;
+    public dv7 mFullScreenEditor;
     public GestureDetector mGestureDetector;
-    public su7 mImgsAdapter;
+    public zu7 mImgsAdapter;
     public WholeDisplayGridView mImgsGridView;
     public ImageView mIvDeleteVoice;
     public LinearLayout mLayoutDelVoice;
@@ -215,8 +215,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 this.a.checkPostBtnEnabled();
-                bw7 bw7Var = this.a.mContentProcessController;
-                if (bw7Var == null || bw7Var.e() == null) {
+                iw7 iw7Var = this.a.mContentProcessController;
+                if (iw7Var == null || iw7Var.e() == null) {
                     return;
                 }
                 if (!this.a.mContentProcessController.e().e()) {
@@ -522,8 +522,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
             boolean z = false;
             boolean z2 = writeImagesInfo != null && writeImagesInfo.size() > 0;
             boolean z3 = !TextUtils.isEmpty(this.mEditContent.getText().toString());
-            wu7 wu7Var = this.mFullScreenEditor;
-            z = (z2 || z3 || (wu7Var != null && wu7Var.g() != null)) ? true : true;
+            dv7 dv7Var = this.mFullScreenEditor;
+            z = (z2 || z3 || (dv7Var != null && dv7Var.g() != null)) ? true : true;
             TextView textView = this.mPostBtn;
             if (textView != null) {
                 textView.setEnabled(z);
@@ -549,7 +549,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             if (this.mFullScreenEditor.g() != null) {
-                uv4.a(uv4.b(this.mFullScreenEditor.g().voiceId));
+                tv4.a(tv4.b(this.mFullScreenEditor.g().voiceId));
             }
             this.mFullScreenEditor.q(null);
             this.mLayoutVoicePlay.setVisibility(8);
@@ -646,13 +646,13 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
                 }
                 PbEditorData.ThreadData threadData = this.mPbEditorData.getThreadData();
                 this.mThreadData = threadData;
-                xu7 xu7Var = this.mEditorBuilder;
-                if (xu7Var != null) {
-                    xu7Var.l(threadData);
+                ev7 ev7Var = this.mEditorBuilder;
+                if (ev7Var != null) {
+                    ev7Var.l(threadData);
                 }
-                wu7 wu7Var = this.mFullScreenEditor;
-                if (wu7Var != null) {
-                    wu7Var.p(this.mThreadData);
+                dv7 dv7Var = this.mFullScreenEditor;
+                if (dv7Var != null) {
+                    dv7Var.p(this.mThreadData);
                 }
                 String content = this.mPbEditorData.getContent();
                 if (this.mPbEditorData.getEditorType() == 1) {
@@ -692,16 +692,16 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65553, this, z) == null) {
             this.mEditorContainer = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09086c);
-            xu7 xu7Var = new xu7();
-            this.mEditorBuilder = xu7Var;
-            xu7Var.j(z);
+            ev7 ev7Var = new ev7();
+            this.mEditorBuilder = ev7Var;
+            ev7Var.j(z);
             PbEditorData pbEditorData = this.mPbEditorData;
             if (pbEditorData != null && pbEditorData.getThreadData() != null) {
                 this.mEditorBuilder.i(this.mPbEditorData.getThreadData().isBJH);
             }
-            wu7 wu7Var = (wu7) this.mEditorBuilder.a(this.mContext);
-            this.mFullScreenEditor = wu7Var;
-            this.mEditorTools = wu7Var.a();
+            dv7 dv7Var = (dv7) this.mEditorBuilder.a(this.mContext);
+            this.mFullScreenEditor = dv7Var;
+            this.mEditorTools = dv7Var.a();
             this.mFullScreenEditor.o(this);
             this.mEditorBuilder.k(this);
             this.mEditorContainer.addView(this.mEditorTools, new LinearLayout.LayoutParams(-1, -2));
@@ -715,7 +715,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
             this.mGestureDetector = new GestureDetector(new e(this));
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091bff);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c00);
             this.mScrollViewChild = findViewById;
             findViewById.setOnClickListener(new f(this));
         }
@@ -725,14 +725,14 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
         View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091514);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091515);
             this.mNavigationBar = navigationBar;
             navigationBar.showBottomLine();
             this.mBackBtn = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            TextView centerTextTitle = this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0dbf));
+            TextView centerTextTitle = this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0dbe));
             this.mTvName = centerTextTitle;
             SkinManager.setViewTextColor(centerTextTitle, (int) R.color.CAM_X0105);
-            this.mPostBtn = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f10e9));
+            this.mPostBtn = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f10e8));
             ImageView backImageView = this.mNavigationBar.getBackImageView();
             if (backImageView == null || !(backImageView.getLayoutParams() instanceof LinearLayout.LayoutParams) || (view2 = this.mBackBtn) == null || this.mPostBtn == null) {
                 return;
@@ -744,7 +744,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
             layoutParams2.width = -2;
             this.mBackBtn.setLayoutParams(layoutParams2);
             if (this.mNavigationBar.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mNavigationBar.getBackImageView(), R.drawable.obfuscated_res_0x7f0809b7, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mNavigationBar.getBackImageView(), R.drawable.obfuscated_res_0x7f0809bb, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             this.mBackBtn.setOnClickListener(new g(this));
             LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.mPostBtn.getLayoutParams();
@@ -759,8 +759,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             initNavigationBar();
-            this.mTopLine = findViewById(R.id.obfuscated_res_0x7f0923a5);
-            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091bfe);
+            this.mTopLine = findViewById(R.id.obfuscated_res_0x7f0923a6);
+            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091bff);
             this.mScrollView = editorScrollView;
             editorScrollView.setListener(new a(this));
             initGestureControl();
@@ -769,15 +769,15 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
             pbFullScreenEditorInputView.setOnClickListener(new b(this));
             this.mEditContent.addTextChangedListener(new c(this));
             this.mEditContentSpanGroupManager = this.mEditContent.getSpanGroupManager();
-            this.mLayoutVoicePlay = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911f4);
+            this.mLayoutVoicePlay = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911f5);
             this.mVoicePlayButton = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f09043a);
-            this.mLayoutDelVoice = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911c9);
-            this.mIvDeleteVoice = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc8);
+            this.mLayoutDelVoice = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911ca);
+            this.mIvDeleteVoice = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc9);
             this.mLayoutDelVoice.setOnClickListener(new d(this));
-            this.mImgsGridView = (WholeDisplayGridView) findViewById(R.id.obfuscated_res_0x7f090cf7);
-            su7 su7Var = new su7(this.mContext);
-            this.mImgsAdapter = su7Var;
-            su7Var.b(this);
+            this.mImgsGridView = (WholeDisplayGridView) findViewById(R.id.obfuscated_res_0x7f090cf8);
+            zu7 zu7Var = new zu7(this.mContext);
+            this.mImgsAdapter = zu7Var;
+            zu7Var.b(this);
             this.mImgsGridView.setAdapter((ListAdapter) this.mImgsAdapter);
         }
     }
@@ -837,7 +837,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
         }
         int i2 = i05Var.a;
         if (i2 == 3) {
-            s86.a(this.mEditContent);
+            u86.a(this.mEditContent);
         } else if (i2 == 14) {
             ensureWriteImagesInfo();
             AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.mContext, this.mWriteImagesInfo.toJsonString(), true, true);
@@ -887,10 +887,10 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
             }
         } else {
             Object obj2 = i05Var.c;
-            if (obj2 instanceof ax4) {
-                ax4 ax4Var = (ax4) obj2;
-                if (ax4Var.getType() != EmotionGroupType.BIG_EMOTION && ax4Var.getType() != EmotionGroupType.USER_COLLECT) {
-                    this.mEditContent.m(ax4Var);
+            if (obj2 instanceof zw4) {
+                zw4 zw4Var = (zw4) obj2;
+                if (zw4Var.getType() != EmotionGroupType.BIG_EMOTION && zw4Var.getType() != EmotionGroupType.USER_COLLECT) {
+                    this.mEditContent.m(zw4Var);
                     return;
                 }
                 if (this.mCurrentPermissionJudgePolicy == null) {
@@ -907,9 +907,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
                 }
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                 imageFileInfo.setImageType(1);
-                imageFileInfo.setFilePath(ax4Var.c());
-                imageFileInfo.width = ax4Var.g();
-                imageFileInfo.height = ax4Var.b();
+                imageFileInfo.setFilePath(zw4Var.c());
+                imageFileInfo.width = zw4Var.g();
+                imageFileInfo.height = zw4Var.b();
                 ensureWriteImagesInfo();
                 this.mWriteImagesInfo.addChooseFile(imageFileInfo);
                 this.mWriteImagesInfo.updateQuality();
@@ -925,9 +925,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            wu7 wu7Var = this.mFullScreenEditor;
-            if (wu7Var != null) {
-                wu7Var.j(i2, i3, intent);
+            dv7 dv7Var = this.mFullScreenEditor;
+            if (dv7Var != null) {
+                dv7Var.j(i2, i3, intent);
             }
             if (i3 == -1) {
                 if (i2 == 11025) {
@@ -1016,8 +1016,8 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
             this.mPbEditorData.setVoiceModel(this.mFullScreenEditor.g());
             intent.putExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA, this.mPbEditorData);
             if (z) {
-                bw7 bw7Var = this.mContentProcessController;
-                if (bw7Var != null && bw7Var.e() != null && this.mContentProcessController.e().d()) {
+                iw7 iw7Var = this.mContentProcessController;
+                if (iw7Var != null && iw7Var.e() != null && this.mContentProcessController.e().d()) {
                     showToast(this.mContentProcessController.e().c());
                     this.mContentProcessController.a(true);
                     return;
@@ -1048,13 +1048,13 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
             SkinManager.setImageResource(this.mIvDeleteVoice, R.drawable.icon_edit_close_n);
             SkinManager.setBackgroundColor(this.mTopLine, R.color.CAM_X0204);
             if (this.mNavigationBar.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mNavigationBar.getBackImageView(), R.drawable.obfuscated_res_0x7f0809b7, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mNavigationBar.getBackImageView(), R.drawable.obfuscated_res_0x7f0809bb, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             SkinManager.setViewTextColor(this.mTvName, (int) R.color.CAM_X0105);
             checkPostBtnEnabled();
-            bw7 bw7Var = this.mContentProcessController;
-            if (bw7Var != null) {
-                bw7Var.i();
+            iw7 iw7Var = this.mContentProcessController;
+            if (iw7Var != null) {
+                iw7Var.i();
             }
             EditorTools editorTools = this.mEditorTools;
             if (editorTools != null) {
@@ -1063,7 +1063,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
         }
     }
 
-    @Override // com.repackage.su7.c
+    @Override // com.repackage.zu7.c
     public void onClickImage(int i2) {
         ImageFileInfo imageInfoAt;
         Interceptable interceptable = $ic;
@@ -1091,11 +1091,11 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
             if (pbEditorData != null && pbEditorData.getEditorType() == 1 && (pbFullScreenEditorInputView = this.mEditContent) != null) {
                 pbFullScreenEditorInputView.setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
             }
-            bw7 bw7Var = new bw7();
-            this.mContentProcessController = bw7Var;
+            iw7 iw7Var = new iw7();
+            this.mContentProcessController = iw7Var;
             PbFullScreenEditorInputView pbFullScreenEditorInputView2 = this.mEditContent;
             if (pbFullScreenEditorInputView2 != null) {
-                bw7Var.m(pbFullScreenEditorInputView2);
+                iw7Var.m(pbFullScreenEditorInputView2);
             }
             PostWriteCallBackData postWriteCallBackData = this.mPostWriteCallBackData;
             if (postWriteCallBackData != null) {
@@ -1105,7 +1105,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
         }
     }
 
-    @Override // com.repackage.su7.c
+    @Override // com.repackage.zu7.c
     public void onDeleteImage(int i2) {
         WriteImagesInfo writeImagesInfo;
         Interceptable interceptable = $ic;
@@ -1127,9 +1127,9 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
-            bw7 bw7Var = this.mContentProcessController;
-            if (bw7Var != null) {
-                bw7Var.j();
+            iw7 iw7Var = this.mContentProcessController;
+            if (iw7Var != null) {
+                iw7Var.j();
             }
             VoiceManager voiceManager = this.mVoiceManager;
             if (voiceManager != null) {
@@ -1149,11 +1149,11 @@ public class PbFullScreenEditorActivity extends BaseActivity implements su7.c, V
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
-        wu7 wu7Var;
+        dv7 dv7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048591, this, i2, strArr, iArr) == null) {
-            if (i2 == 0 && (wu7Var = this.mFullScreenEditor) != null) {
-                wu7Var.s();
+            if (i2 == 0 && (dv7Var = this.mFullScreenEditor) != null) {
+                dv7Var.s();
             } else {
                 super.onRequestPermissionsResult(i2, strArr, iArr);
             }

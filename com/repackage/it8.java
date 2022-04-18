@@ -1,232 +1,236 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.graphics.YuvImage;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class it8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile it8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public DownloadData b;
 
     /* loaded from: classes6.dex */
-    public class a implements e05 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ it8 c;
+        public int a;
+        public int b;
+        public int c;
 
-        public a(it8 it8Var, b bVar, String str) {
+        public a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {it8Var, bVar, str};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = it8Var;
-            this.a = bVar;
-            this.b = str;
-        }
-
-        @Override // com.repackage.e05
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                    this.c.b = null;
-                }
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a(str);
-                }
-            }
-        }
-
-        @Override // com.repackage.e05
-        public void onFileDownloadSucceed(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath())) {
-                return;
-            }
-            if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                this.c.b = null;
-            }
-            if (this.a != null) {
-                this.c.a.put(downloadData.getPath().substring(os8.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-                this.a.c(this.b, downloadData.getPath());
-            }
-        }
-
-        @Override // com.repackage.e05
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.repackage.e05
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
-                    this.c.b = null;
-                }
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.b();
-                }
-            }
-        }
-
-        @Override // com.repackage.e05
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
+            this.a = i;
+            this.b = i2;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
-
-        void c(String str, String str2);
-    }
-
-    public it8() {
+    public static boolean a(Bitmap bitmap, ArrayList<a> arrayList) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bitmap, arrayList)) == null) {
+            if (arrayList == null || arrayList.size() == 0 || bitmap == null || bitmap.isRecycled()) {
+                return false;
+            }
+            SparseArray sparseArray = new SparseArray();
+            Iterator<a> it = arrayList.iterator();
+            while (it.hasNext()) {
+                a next = it.next();
+                int i = next.a;
+                int i2 = next.b;
+                if (i >= bitmap.getWidth() || i2 >= bitmap.getHeight()) {
+                    return false;
+                }
+                int pixel = bitmap.getPixel(i, i2);
+                if (sparseArray.get(pixel) != null) {
+                    return false;
+                }
+                next.c = pixel;
+                sparseArray.put(pixel, next);
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Bitmap b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
+            Bitmap bitmap = null;
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                new YuvImage(bArr, 17, i, i2, null).compressToJpeg(new Rect(0, 0, i, i2), 100, byteArrayOutputStream);
+                bitmap = BitmapFactory.decodeStream(new ByteArrayInputStream(byteArrayOutputStream.toByteArray()));
+                byteArrayOutputStream.close();
+                return bitmap;
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return bitmap;
+            }
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            try {
+                Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
+                intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));
+                context.sendBroadcast(intent);
+            } catch (Exception unused) {
             }
         }
     }
 
-    public static it8 g() {
-        InterceptResult invokeV;
+    public static void d(byte[] bArr, int[] iArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (c == null) {
-                synchronized (it8.class) {
-                    if (c == null) {
-                        c = new it8();
+        if (interceptable == null || interceptable.invokeLLII(65539, null, bArr, iArr, i, i2) == null) {
+            int i3 = i * i2;
+            int i4 = 0;
+            int i5 = 0;
+            for (int i6 = 0; i6 < i2; i6++) {
+                int i7 = 0;
+                while (i7 < i) {
+                    int i8 = iArr[i5];
+                    int i9 = (iArr[i5] & 16711680) >> 16;
+                    int i10 = (iArr[i5] & 65280) >> 8;
+                    int i11 = 255;
+                    int i12 = (iArr[i5] & 255) >> 0;
+                    int i13 = (((((i9 * 66) + (i10 * 129)) + (i12 * 25)) + 128) >> 8) + 16;
+                    int i14 = (((((i9 * (-38)) - (i10 * 74)) + (i12 * 112)) + 128) >> 8) + 128;
+                    int i15 = (((((i9 * 112) - (i10 * 94)) - (i12 * 18)) + 128) >> 8) + 128;
+                    int i16 = i4 + 1;
+                    if (i13 < 0) {
+                        i13 = 0;
+                    } else if (i13 > 255) {
+                        i13 = 255;
                     }
-                }
-            }
-            return c;
-        }
-        return (it8) invokeV.objValue;
-    }
-
-    public void d() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null) {
-                this.a = new HashMap<>();
-            } else {
-                hashMap.clear();
-            }
-            File file = new File(os8.a);
-            if (file.exists()) {
-                for (File file2 : file.listFiles()) {
-                    if (file2.isFile()) {
-                        this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    bArr[i4] = (byte) i13;
+                    if (i6 % 2 == 0 && i5 % 2 == 0) {
+                        int i17 = i3 + 1;
+                        if (i15 < 0) {
+                            i15 = 0;
+                        } else if (i15 > 255) {
+                            i15 = 255;
+                        }
+                        bArr[i3] = (byte) i15;
+                        i3 = i17 + 1;
+                        if (i14 < 0) {
+                            i11 = 0;
+                        } else if (i14 <= 255) {
+                            i11 = i14;
+                        }
+                        bArr[i17] = (byte) i11;
                     }
+                    i5++;
+                    i7++;
+                    i4 = i16;
                 }
             }
         }
     }
 
-    public void e(String str, String str2, b bVar) {
-        String nameMd5FromUrl;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) == null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
-            return;
-        }
-        DownloadData downloadData = this.b;
-        if (downloadData != null) {
-            if (str2.equals(downloadData.getUrl())) {
-                return;
-            }
-            f05.k().h(this.b.getUrl(), true);
-        }
-        File file = new File(os8.a);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        DownloadData downloadData2 = new DownloadData();
-        downloadData2.setType(17);
-        downloadData2.setId(str);
-        downloadData2.setUrl(str2);
-        downloadData2.setPath(os8.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
-        downloadData2.setCallback(new a(this, bVar, str2));
-        this.b = downloadData2;
-        f05.k().l(downloadData2);
-    }
-
-    public String f(String str) {
+    public static byte[] e(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-            if (nameMd5FromUrl == null) {
-                return null;
-            }
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null) {
-                this.a = new HashMap<>();
-                d();
-                if (this.a.size() > 0) {
-                    return this.a.get(nameMd5FromUrl);
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap)) == null) ? g(bitmap.getWidth(), bitmap.getHeight(), bitmap) : (byte[]) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r10v2, resolved type: java.util.ArrayList<com.repackage.it8$a> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static ArrayList<a> f(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
+            if (bitmap != null && !bitmap.isRecycled()) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                SparseArray sparseArray = new SparseArray();
+                int i = 0;
+                loop0: for (int i2 = 0; i2 < width; i2++) {
+                    for (int i3 = 0; i3 < height; i3++) {
+                        int pixel = bitmap.getPixel(i2, i3);
+                        a aVar = new a(i2, i3);
+                        if (sparseArray.get(pixel) == null) {
+                            sparseArray.put(pixel, aVar);
+                            i++;
+                        }
+                        if (i == 3) {
+                            break loop0;
+                        }
+                    }
                 }
+                ArrayList<a> arrayList = new ArrayList<>();
+                for (int i4 = 0; i4 < sparseArray.size(); i4++) {
+                    arrayList.add(sparseArray.valueAt(i4));
+                }
+                return arrayList;
+            }
+            return new ArrayList<>();
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public static byte[] g(int i, int i2, Bitmap bitmap) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65542, null, i, i2, bitmap)) == null) {
+            int i3 = i * i2;
+            try {
+                int[] iArr = new int[i3];
+                bitmap.getPixels(iArr, 0, i, 0, 0, i, i2);
+                byte[] bArr = new byte[(i3 * 3) / 2];
+                d(bArr, iArr, i, i2);
+                return bArr;
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
-            return hashMap.get(nameMd5FromUrl);
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeIIL.objValue;
+    }
+
+    public static Bitmap h(Bitmap bitmap, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, bitmap, f)) == null) {
+            if (bitmap == null || bitmap.isRecycled()) {
+                return null;
+            }
+            Matrix matrix = new Matrix();
+            matrix.postRotate(f);
+            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }
+        return (Bitmap) invokeLF.objValue;
     }
 }

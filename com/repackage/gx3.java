@@ -1,7 +1,6 @@
 package com.repackage;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,10 +25,20 @@ public class gx3 implements xx3 {
     }
 
     @Override // com.repackage.xx3
-    public void a(@NonNull Activity activity, vw3 vw3Var, ay3 ay3Var) {
+    public void a(w04 w04Var, v04 v04Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, vw3Var, ay3Var) == null) {
-            ay3Var.a();
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, w04Var, v04Var) == null) || v04Var == null) {
+            return;
         }
+        v04Var.a(w04Var, "Method 'shareVideo' is not implemented.");
+    }
+
+    @Override // com.repackage.xx3
+    public void b(n04 n04Var, m04 m04Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n04Var, m04Var) == null) || m04Var == null) {
+            return;
+        }
+        m04Var.a(n04Var, "Method 'clipVideo' is not implemented.");
     }
 }

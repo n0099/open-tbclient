@@ -58,12 +58,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.d35;
-import com.repackage.ij4;
-import com.repackage.ks4;
+import com.repackage.hj4;
+import com.repackage.js4;
+import com.repackage.ls4;
 import com.repackage.mg;
-import com.repackage.ms4;
-import com.repackage.od8;
-import com.repackage.pi4;
+import com.repackage.oi4;
+import com.repackage.vd8;
 import com.repackage.x45;
 import com.repackage.x8;
 import com.repackage.xb5;
@@ -139,20 +139,20 @@ public class SchemaRouteActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeL(65537, this, intent) == null) || intent == null) {
             return;
         }
-        ks4.t(intent.getDataString(), false);
+        js4.t(intent.getDataString(), false);
         clearClipBoardIfNeed(intent.getData());
         parserWiseSampleId(intent.getData());
         String dataString = intent.getDataString();
         UtilHelper.clearClipBoardBySchemaParam(dataString);
-        ij4.e(intent.getData());
-        ij4.c(intent.getData());
+        hj4.e(intent.getData());
+        hj4.c(intent.getData());
         GrowthStatsUtil.statisticChannel(GrowthStatsUtil.SPLASH_SOURCE.THIRD_PARTY, dataString);
-        od8.d().a(intent.getData());
-        if (!TextUtils.isEmpty(dataString) && ms4.a().d()) {
-            ms4.a().i(1);
+        vd8.d().a(intent.getData());
+        if (!TextUtils.isEmpty(dataString) && ls4.a().d()) {
+            ls4.a().i(1);
         }
         if (!TextUtils.isEmpty(dataString) && SchemeActionHelper.isTieBaAppSchemeHeader(dataString)) {
-            pi4.y().N(true);
+            oi4.y().N(true);
             if (!x8.f().h("MainTabActivity")) {
                 targetSchemeAction = dataString;
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig(getActivity())));
@@ -163,7 +163,7 @@ public class SchemaRouteActivity extends BaseActivity {
             FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getActivity());
             frsActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2003000, frsActivityConfig));
-            pi4.y().N(true);
+            oi4.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbpb") || dataString.contains(PbModel.UNIDISPATCH_PB))) {
             if ("tbpb://tieba.baidu.com".equals(dataString)) {
                 if (x8.f().h("MainTabActivity")) {
@@ -186,7 +186,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 videoRecommentPlayActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage(2002001, videoRecommentPlayActivityConfig));
             }
-            pi4.y().N(true);
+            oi4.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && dataString.contains("tbwebview")) {
             Uri data = intent.getData();
             if (BdUniDispatchSchemeController.isUniScheme(data)) {
@@ -196,32 +196,32 @@ public class SchemaRouteActivity extends BaseActivity {
                 tbWebViewActivityConfig.setUri(intent.getData());
                 sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
             }
-            pi4.y().N(true);
+            oi4.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbtopicdetail") || dataString.contains("unidispatch/topicdetail"))) {
             TopicDetailActivityConfig topicDetailActivityConfig = new TopicDetailActivityConfig(getActivity());
             topicDetailActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, topicDetailActivityConfig));
-            pi4.y().N(true);
+            oi4.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("tbusercenter") || dataString.contains("unidispatch/usercenter") || dataString.contains("usercenter"))) {
             PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(getActivity());
             personPolymericActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, personPolymericActivityConfig));
-            pi4.y().N(true);
+            oi4.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && dataString.contains(UrlSchemaHelper.FROM_FORUM_SQUARE)) {
             ForumSquareActivityConfig forumSquareActivityConfig = new ForumSquareActivityConfig(getActivity());
             forumSquareActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
-            pi4.y().N(true);
+            oi4.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/hotuserrank")) {
             HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(getActivity());
             hotUserRankActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
-            pi4.y().N(true);
+            oi4.y().N(true);
         } else if (!TextUtils.isEmpty(dataString) && (dataString.contains("unidispatch/openapp") || dataString.contains("donothing"))) {
             if (!x8.f().h("MainTabActivity")) {
                 sendMessage(new CustomMessage(2002001, new LogoActivityConfig(getActivity())));
             }
-            pi4.y().N(true);
+            oi4.y().N(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
                 if (dataString.contains(BdUniDispatchSchemeController.HOST + BdUniDispatchSchemeController.PATH_CHUSHOU_ALA_ROOM)) {
@@ -229,7 +229,7 @@ public class SchemaRouteActivity extends BaseActivity {
                     String queryParameter3 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_CHUSHOU_THIRD_LIVE_TYPE);
                     String queryParameter4 = parse.getQueryParameter(BdUniDispatchSchemeController.PARAM_CHUSHOU_ROOM_ID);
                     UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + queryParameter4 + "&livetype=" + queryParameter3});
-                    pi4.y().N(true);
+                    oi4.y().N(true);
                     return;
                 }
             }
@@ -238,7 +238,7 @@ public class SchemaRouteActivity extends BaseActivity {
                     String queryParameter5 = Uri.parse(dataString).getQueryParameter(BdUniDispatchSchemeController.PARAM_YY_URL);
                     if (queryParameter5 != null) {
                         UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{new String(Base64.decode(queryParameter5.getBytes(), 2))});
-                        pi4.y().N(true);
+                        oi4.y().N(true);
                         return;
                     }
                     return;
@@ -252,7 +252,7 @@ public class SchemaRouteActivity extends BaseActivity {
                 } else {
                     sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this).createNormalCfg(1)));
                 }
-                pi4.y().N(true);
+                oi4.y().N(true);
             } else if (!TextUtils.isEmpty(dataString) && dataString.startsWith(UrlSchemaHelper.SCHEMA_LIVE_MY_CONCERN_LIST)) {
                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                 mainTabActivityConfig.setTargetScheme(dataString);
@@ -293,7 +293,7 @@ public class SchemaRouteActivity extends BaseActivity {
                         FrsActivityConfig frsActivityConfig2 = new FrsActivityConfig(getActivity());
                         frsActivityConfig2.setUri(Uri.parse(str6));
                         sendMessage(new CustomMessage(2003000, frsActivityConfig2));
-                        pi4.y().N(true);
+                        oi4.y().N(true);
                     } else {
                         String queryParameter13 = parse3.getQueryParameter(BdUniDispatchSchemeController.PARAM_ITEM_ID_CAMEL);
                         HashMap hashMap2 = new HashMap();
@@ -405,7 +405,7 @@ public class SchemaRouteActivity extends BaseActivity {
                     LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this);
                     loginActivityConfig.setAutoLogin(dataString);
                     sendMessage(new CustomMessage(2002001, loginActivityConfig));
-                    pi4.y().N(true);
+                    oi4.y().N(true);
                 }
                 if (!TextUtils.isEmpty(dataString) && dataString.contains("unidispatch/voiceRoom")) {
                     try {
@@ -514,7 +514,7 @@ public class SchemaRouteActivity extends BaseActivity {
             if (TbadkCoreApplication.getInst().getStartType() == 2) {
                 d35.a = true;
             }
-            ks4.u(this);
+            js4.u(this);
             super.onCreate(bundle);
             setDayOrDarkSkin();
             if (PermissionUtil.isAgreePrivacyPolicy()) {

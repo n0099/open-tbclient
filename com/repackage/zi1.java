@@ -26,7 +26,7 @@ public class zi1 implements hl1 {
 
         /* renamed from: com.repackage.zi1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0569a implements cf3<String> {
+        public class C0568a implements cf3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File a;
@@ -35,18 +35,18 @@ public class zi1 implements hl1 {
 
             /* renamed from: com.repackage.zi1$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes7.dex */
-            public class RunnableC0570a implements Runnable {
+            public class RunnableC0569a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ File a;
-                public final /* synthetic */ C0569a b;
+                public final /* synthetic */ C0568a b;
 
-                public RunnableC0570a(C0569a c0569a, File file) {
+                public RunnableC0569a(C0568a c0568a, File file) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0569a, file};
+                        Object[] objArr = {c0568a, file};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public class zi1 implements hl1 {
                             return;
                         }
                     }
-                    this.b = c0569a;
+                    this.b = c0568a;
                     this.a = file;
                 }
 
@@ -69,7 +69,7 @@ public class zi1 implements hl1 {
                 }
             }
 
-            public C0569a(a aVar, File file, String str) {
+            public C0568a(a aVar, File file, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,17 +97,17 @@ public class zi1 implements hl1 {
                 if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                     try {
                         File file = new File(this.a, "report");
-                        ng4.l(file);
+                        mg4.l(file);
                         zi1.e(file, this.b, str);
                         zi1.d(file);
                         File file2 = new File(this.a, "report.zip");
-                        ng4.j(file2);
-                        ng4.X(file.getAbsolutePath(), file2.getAbsolutePath());
-                        ng4.L(file);
-                        de3.a0(new RunnableC0570a(this, file2));
+                        mg4.j(file2);
+                        mg4.X(file.getAbsolutePath(), file2.getAbsolutePath());
+                        mg4.L(file);
+                        de3.a0(new RunnableC0569a(this, file2));
                     } catch (Exception e) {
                         jx1.b("DefaultSwanAppLogManager", Log.getStackTraceString(e));
-                        b03.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f123b)).G();
+                        b03.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f123a)).G();
                     }
                 }
             }
@@ -141,7 +141,7 @@ public class zi1 implements hl1 {
                 } else if (!W2.exists() && !W2.mkdirs()) {
                     jx1.k("DefaultSwanAppLogManager", "cacheDir 为不存在且创建目录失败：" + W2.getAbsolutePath());
                 } else {
-                    cd3.i(this.a, new C0569a(this, W2, cd3.l(this.a) + "===== 启动信息 =====\n"));
+                    cd3.i(this.a, new C0568a(this, W2, cd3.l(this.a) + "===== 启动信息 =====\n"));
                 }
             }
         }
@@ -167,12 +167,12 @@ public class zi1 implements hl1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
             File file2 = new File(file, "swan");
-            ng4.e(qj2.p0().a(), file2);
-            for (File file3 : ng4.C(file2)) {
+            mg4.e(qj2.p0().a(), file2);
+            for (File file3 : mg4.C(file2)) {
                 if (file3.isDirectory()) {
-                    for (File file4 : ng4.C(file3)) {
+                    for (File file4 : mg4.C(file3)) {
                         if (file4 != null && file4.isFile() && !file4.getName().endsWith(".log")) {
-                            ng4.L(file4);
+                            mg4.L(file4);
                         }
                     }
                 }

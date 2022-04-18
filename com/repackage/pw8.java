@@ -1,15 +1,15 @@
 package com.repackage;
 
 import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,18 +30,10 @@ public class pw8 {
     public View e;
     public TextView f;
     public String g;
-    public List<c> h;
-    public f i;
-    public d j;
-    public g k;
-    public RadioButton l;
-    public RadioButton m;
-    public RadioButton n;
-    public RadioButton o;
-    public RadioButton p;
-    public LinearLayout q;
-    public int r;
-    public View.OnClickListener s;
+    public List<b> h;
+    public e i;
+    public c j;
+    public boolean k;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -71,79 +63,13 @@ public class pw8 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2 == this.a.l) {
-                    this.a.m.setChecked(false);
-                    this.a.n.setChecked(false);
-                    this.a.o.setChecked(false);
-                    this.a.p.setChecked(false);
-                    this.a.r = 1;
-                } else if (view2 == this.a.m) {
-                    this.a.l.setChecked(true);
-                    this.a.n.setChecked(false);
-                    this.a.o.setChecked(false);
-                    this.a.p.setChecked(false);
-                    this.a.r = 2;
-                } else if (view2 == this.a.n) {
-                    this.a.l.setChecked(true);
-                    this.a.m.setChecked(true);
-                    this.a.o.setChecked(false);
-                    this.a.p.setChecked(false);
-                    this.a.r = 3;
-                } else if (view2 == this.a.o) {
-                    this.a.l.setChecked(true);
-                    this.a.m.setChecked(true);
-                    this.a.n.setChecked(true);
-                    this.a.p.setChecked(false);
-                    this.a.r = 4;
-                } else if (view2 == this.a.p) {
-                    this.a.l.setChecked(true);
-                    this.a.m.setChecked(true);
-                    this.a.n.setChecked(true);
-                    this.a.o.setChecked(true);
-                    this.a.r = 5;
-                }
-                if (this.a.k != null) {
-                    this.a.k.onClick(this.a.r);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pw8 a;
-
-        public b(pw8 pw8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pw8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pw8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.j.onClick();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class c {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -153,22 +79,23 @@ public class pw8 {
         public View e;
         public String f;
         public int g;
-        public e h;
+        public d h;
         public boolean i;
-        public final View.OnClickListener j;
+        public boolean j;
+        public final View.OnClickListener k;
 
         /* loaded from: classes6.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
+            public final /* synthetic */ b a;
 
-            public a(c cVar) {
+            public a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
+                    Object[] objArr = {bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -178,7 +105,7 @@ public class pw8 {
                         return;
                     }
                 }
-                this.a = cVar;
+                this.a = bVar;
             }
 
             @Override // android.view.View.OnClickListener
@@ -188,15 +115,15 @@ public class pw8 {
                     if (this.a.h != null) {
                         this.a.h.onClick();
                     }
-                    if (this.a.b == null || this.a.b.k() == null) {
+                    if (this.a.b == null || this.a.b.c() == null) {
                         return;
                     }
-                    this.a.b.k().onItemClick(this.a.a);
+                    this.a.b.c().a(this.a.a, view2);
                 }
             }
         }
 
-        public c(String str, pw8 pw8Var) {
+        public b(String str, pw8 pw8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -213,7 +140,7 @@ public class pw8 {
             }
             this.g = 17;
             this.i = true;
-            this.j = new a(this);
+            this.k = new a(this);
             this.f = str;
             this.b = pw8Var;
             this.a = hashCode();
@@ -233,7 +160,7 @@ public class pw8 {
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.d) == null) {
                 return;
             }
-            textView.setOnClickListener(this.j);
+            textView.setOnClickListener(this.k);
         }
 
         public final void f() {
@@ -242,9 +169,9 @@ public class pw8 {
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pw8Var = this.b) == null || pw8Var.getContext() == null) {
                 return;
             }
-            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0163, this.b.l(), false);
+            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0163, this.b.d(), false);
             this.c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090fac);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090fad);
             this.d = textView;
             textView.setText(this.f);
             this.d.setGravity(this.g);
@@ -261,19 +188,31 @@ public class pw8 {
         public void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                SkinManager.setBackgroundResource(this.d, R.drawable.bg_bottom_up_list_dialog_item);
-                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0106);
+                TextView textView = this.d;
+                if (textView != null) {
+                    if (this.j) {
+                        SkinManager.setBackgroundResource(textView, R.drawable.bg_bottom_up_corner_dialog);
+                    } else {
+                        textView.setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0211));
+                    }
+                }
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
                 SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
             }
         }
 
-        public void h(e eVar) {
+        public void h(d dVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-                this.h = eVar;
+            if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
+                this.h = dVar;
                 e();
             }
         }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void onClick();
     }
 
     /* loaded from: classes6.dex */
@@ -283,17 +222,7 @@ public class pw8 {
 
     /* loaded from: classes6.dex */
     public interface e {
-        void onClick();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface f {
-        void onItemClick(int i);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface g {
-        void onClick(int i);
+        void a(int i, View view2);
     }
 
     public pw8(Context context) {
@@ -311,206 +240,115 @@ public class pw8 {
                 return;
             }
         }
-        this.s = new a(this);
         if (context == null) {
             return;
         }
         this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d070d, (ViewGroup) null);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0164, (ViewGroup) null);
         this.b = inflate;
         this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0906f2);
-        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092012);
-        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092024);
+        this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092013);
+        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f092025);
         this.h = new ArrayList();
         this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09079d);
-        RadioButton radioButton = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f09068f);
-        this.l = radioButton;
-        radioButton.setOnClickListener(this.s);
-        RadioButton radioButton2 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090690);
-        this.m = radioButton2;
-        radioButton2.setOnClickListener(this.s);
-        RadioButton radioButton3 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090691);
-        this.n = radioButton3;
-        radioButton3.setOnClickListener(this.s);
-        RadioButton radioButton4 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090692);
-        this.o = radioButton4;
-        radioButton4.setOnClickListener(this.s);
-        RadioButton radioButton5 = (RadioButton) this.b.findViewById(R.id.obfuscated_res_0x7f090693);
-        this.p = radioButton5;
-        radioButton5.setOnClickListener(this.s);
-        this.q = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09068e);
     }
 
-    public Context getContext() {
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Context) invokeV.objValue;
-    }
-
-    public View j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (!StringUtils.isNull(this.g)) {
                 this.d.setText(this.g);
+                this.e.setVisibility(0);
             } else {
                 this.d.setVisibility(8);
+                this.e.setVisibility(8);
             }
             if (this.j != null) {
-                this.f.setOnClickListener(new b(this));
+                this.f.setOnClickListener(new a(this));
             }
-            m();
+            e();
             return this.b;
         }
         return (View) invokeV.objValue;
     }
 
-    public f k() {
+    public e c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (e) invokeV.objValue;
     }
 
-    public ViewGroup l() {
+    public ViewGroup d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (ViewGroup) invokeV.objValue;
     }
 
-    public void m() {
+    public void e() {
+        b bVar;
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.d, R.drawable.bg_title_corner_dialog_item);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0108);
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(this.f, R.drawable.bg_bottom_up_list_dialog_item);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0106);
-            SkinManager.setBackgroundResource(this.q, R.drawable.bg_bottom_up_list_dialog_item);
-            List<c> list = this.h;
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
+            List<b> list = this.h;
             if (list != null) {
-                for (c cVar : list) {
-                    cVar.g();
+                for (b bVar2 : list) {
+                    bVar2.g();
                 }
             }
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f.setVisibility(i);
-        }
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.l.setEnabled(z);
-            this.m.setEnabled(z);
-            this.n.setEnabled(z);
-            this.o.setEnabled(z);
-            this.p.setEnabled(z);
-        }
-    }
-
-    public void p(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) {
-            this.q.setPadding(i, i2, i3, i4);
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            if (i == 1) {
-                this.l.setChecked(true);
-                this.m.setChecked(false);
-                this.n.setChecked(false);
-                this.o.setChecked(false);
-                this.p.setChecked(false);
-            } else if (i == 2) {
-                this.l.setChecked(true);
-                this.m.setChecked(true);
-                this.n.setChecked(false);
-                this.o.setChecked(false);
-                this.p.setChecked(false);
-            } else if (i == 3) {
-                this.l.setChecked(true);
-                this.m.setChecked(true);
-                this.n.setChecked(true);
-                this.o.setChecked(false);
-                this.p.setChecked(false);
-            } else if (i == 4) {
-                this.l.setChecked(true);
-                this.m.setChecked(true);
-                this.n.setChecked(true);
-                this.o.setChecked(true);
-                this.p.setChecked(false);
-            } else if (i != 5) {
-            } else {
-                this.l.setChecked(true);
-                this.m.setChecked(true);
-                this.n.setChecked(true);
-                this.o.setChecked(true);
-                this.p.setChecked(true);
+            if (this.k) {
+                if (!StringUtils.isNull(this.g) && (textView = this.d) != null && (textView.getBackground() instanceof GradientDrawable)) {
+                    float dimension = getContext().getResources().getDimension(R.dimen.tbds32);
+                    ((GradientDrawable) this.d.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
+                    return;
+                }
+                List<b> list2 = this.h;
+                if (list2 == null || ListUtils.getCount(list2) <= 0 || (bVar = this.h.get(0)) == null || bVar.j) {
+                    return;
+                }
+                bVar.j = true;
+                bVar.g();
             }
         }
     }
 
-    public void r(int i) {
+    public void f(List<b> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.q.setVisibility(i);
-        }
-    }
-
-    public void s(List<c> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, list) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || list == null) {
             return;
         }
         this.h = list;
         this.c.removeAllViews();
         for (int i = 0; i < list.size(); i++) {
-            c cVar = list.get(i);
-            if (cVar != null) {
-                this.c.addView(cVar.d());
+            b bVar = list.get(i);
+            if (bVar != null) {
+                this.c.addView(bVar.d());
             }
         }
     }
 
-    public void t(d dVar) {
+    public void g(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, dVar) == null) {
-            this.j = dVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+            this.j = cVar;
         }
     }
 
-    public void u(g gVar) {
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, gVar) == null) {
-            this.k = gVar;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (Context) invokeV.objValue;
     }
 
-    public void v(int i, int i2, int i3, int i4) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048589, this, i, i2, i3, i4) == null) {
-            this.d.setPadding(i, i2, i3, i4);
-        }
-    }
-
-    public void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.d.setTextSize(0, oi.f(this.a, i));
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.g = str;
         }
     }

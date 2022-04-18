@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
-import com.repackage.kg9;
+import com.repackage.rg9;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -149,10 +149,10 @@ public class f0 extends LinearLayout {
         return (List) invokeV.objValue;
     }
 
-    public kg9 getDownloadListener() {
+    public rg9 getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new kg9(this.e) : (kg9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new rg9(this.e) : (rg9) invokeV.objValue;
     }
 
     @Override // android.view.View

@@ -28,7 +28,7 @@ public class wr2 extends ProviderDelegation {
         }
     }
 
-    public static int a() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {

@@ -49,7 +49,7 @@ public class AlaAllLiveSimpleActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d07a7);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914ee);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914ef);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0266);

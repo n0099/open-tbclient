@@ -60,6 +60,6 @@ public class g extends com.kwad.sdk.reward.g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        ((KsAdWebView) a(R.id.obfuscated_res_0x7f0910bd)).setVisibility(4);
+        ((KsAdWebView) a(R.id.obfuscated_res_0x7f0910be)).setVisibility(4);
     }
 }

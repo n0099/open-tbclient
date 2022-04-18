@@ -302,7 +302,7 @@ public final class h53 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             try {
                 PackageInfo packageInfo = e().getPackageManager().getPackageInfo(e().getPackageName(), 64);
-                return (packageInfo == null || (signatureArr = packageInfo.signatures) == null || signatureArr.length <= 0) ? "" : pg4.d(signatureArr[0].toByteArray(), false);
+                return (packageInfo == null || (signatureArr = packageInfo.signatures) == null || signatureArr.length <= 0) ? "" : og4.d(signatureArr[0].toByteArray(), false);
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
                 return "";

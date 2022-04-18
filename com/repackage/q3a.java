@@ -6,17 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes6.dex */
-public final class q3a implements bz9 {
+/* loaded from: classes7.dex */
+public final class q3a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SequentialSubscription a;
+    public final long a;
+    public final T b;
 
-    public q3a() {
+    public q3a(long j, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,32 +28,63 @@ public final class q3a implements bz9 {
                 return;
             }
         }
-        this.a = new SequentialSubscription();
+        this.b = t;
+        this.a = j;
     }
 
-    public void a(bz9 bz9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bz9Var) == null) {
-            if (bz9Var != null) {
-                this.a.replace(bz9Var);
-                return;
-            }
-            throw new IllegalArgumentException("Subscription can not be null");
-        }
-    }
-
-    @Override // com.repackage.bz9
-    public boolean isUnsubscribed() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
     }
 
-    @Override // com.repackage.bz9
-    public void unsubscribe() {
+    public T b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.unsubscribe();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (T) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && (obj instanceof q3a)) {
+                q3a q3aVar = (q3a) obj;
+                if (this.a == q3aVar.a) {
+                    T t = this.b;
+                    T t2 = q3aVar.b;
+                    if (t == t2) {
+                        return true;
+                    }
+                    if (t != null && t.equals(t2)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long j = this.a;
+            int i = (((int) (j ^ (j >>> 32))) + 31) * 31;
+            T t = this.b;
+            return i + (t == null ? 0 : t.hashCode());
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.a), this.b.toString()) : (String) invokeV.objValue;
     }
 }

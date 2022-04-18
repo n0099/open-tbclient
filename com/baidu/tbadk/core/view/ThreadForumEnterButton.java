@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class ThreadForumEnterButton extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -154,7 +154,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             setOnClickListener(this);
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d019d, (ViewGroup) this, true);
             this.c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a6a);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a6b);
             this.f = textView;
             textView.setCompoundDrawablePadding(oi.f(this.b, R.dimen.M_W_X002));
         }
@@ -175,7 +175,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         }
         this.i = skinType;
         if (this.e) {
-            wr4 d = wr4.d(this.f);
+            vr4 d = vr4.d(this.f);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0304);
@@ -184,7 +184,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             d.l(R.dimen.L_X01);
             d.k(R.color.CAM_X0304);
         } else {
-            wr4 d2 = wr4.d(this.f);
+            vr4 d2 = vr4.d(this.f);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0304);
@@ -193,7 +193,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
         }
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808e0, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808e4, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
         this.g = pureDrawable;
         if (pureDrawable != null) {
             int f = oi.f(this.b, R.dimen.T_X09);
@@ -215,7 +215,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             if (this.a.getType() == ThreadData.TYPE_FAKE_VIDEO) {
                 Context context = this.b;
-                BdToast.i(context, context.getString(R.string.obfuscated_res_0x7f0f14d8), R.drawable.obfuscated_res_0x7f0809a5, true).q();
+                BdToast.i(context, context.getString(R.string.obfuscated_res_0x7f0f14d7), R.drawable.obfuscated_res_0x7f0809a9, true).q();
             } else if (StringUtils.isNull(this.a.getForum_name())) {
             } else {
                 view2.setTag(this.a);

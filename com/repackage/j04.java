@@ -1,11 +1,9 @@
 package com.repackage;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.swan.games.screenrecord.GameRecorderController;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j04 extends EventTargetImpl implements dd0 {
+public class j04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean c;
+    public static volatile j04 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public g04 b;
-    public String c;
+    public GameRecorderController a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,113 +33,97 @@ public class j04 extends EventTargetImpl implements dd0 {
                 return;
             }
         }
-        d = tg1.a;
+        c = tg1.a;
+        d = null;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j04(JSRuntime jSRuntime) {
-        super(jSRuntime);
+    public j04() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSRuntime};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.b = new g04();
-        k04.a().b().s(this);
     }
 
-    public void A(String str) {
+    public static j04 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    @Override // com.repackage.dd0
-    public void onError(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (d) {
-                Log.d("GameRecorderApi", "onError:" + i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (j04.class) {
+                    if (d == null) {
+                        d = new j04();
+                    }
+                }
             }
-            y("error", new f04("internal error"));
+            return d;
         }
+        return (j04) invokeV.objValue;
     }
 
-    @Override // com.repackage.dd0
-    public void onPause() {
+    @NonNull
+    public GameRecorderController b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c) {
+                Log.i("GameRecorderManager", "getRecorderController:" + this.a);
+            }
+            GameRecorderController gameRecorderController = this.a;
+            return gameRecorderController == null ? GameRecorderController.j() : gameRecorderController;
+        }
+        return (GameRecorderController) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (c) {
+                Log.i("GameRecorderManager", "isGamePause:" + this.b);
+            }
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            y("pause", this.b);
-            l73 l73Var = new l73();
-            l73Var.b = "pause";
-            c73.h(l73Var);
+            this.b = true;
         }
     }
 
-    @Override // com.repackage.dd0
-    public void onResume() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            y("resume", this.b);
-            l73 l73Var = new l73();
-            l73Var.b = "resume";
-            c73.h(l73Var);
+            this.b = false;
         }
     }
 
-    @Override // com.repackage.dd0
-    public void onStart() {
+    public void f(GameRecorderController gameRecorderController) {
+        GameRecorderController gameRecorderController2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int i = this.a;
-            y("start", i == -1 ? this.b : new h04(i));
-            l73 l73Var = new l73();
-            l73Var.b = "start";
-            c73.h(l73Var);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, gameRecorderController) == null) && (gameRecorderController2 = this.a) != null && gameRecorderController2 == gameRecorderController) {
+            gameRecorderController2.p();
+            this.a = null;
         }
     }
 
-    @Override // com.repackage.dd0
-    public void x(int i, String str) {
+    public void g(GameRecorderController gameRecorderController) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            if (d) {
-                Log.d("GameRecorderApi", "schemeVideoPath:" + this.c);
+        if (interceptable == null || interceptable.invokeL(1048581, this, gameRecorderController) == null) {
+            GameRecorderController gameRecorderController2 = this.a;
+            if (gameRecorderController2 != null && gameRecorderController2 != gameRecorderController) {
+                gameRecorderController2.p();
             }
-            y(IntentConfig.STOP, new i04(this.c));
-            l73 l73Var = new l73();
-            l73Var.b = IntentConfig.STOP;
-            l73Var.a("dura", String.valueOf(i / 1000.0f));
-            c73.h(l73Var);
-        }
-    }
-
-    public final void y(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, obj) == null) {
-            if (d) {
-                Log.i("GameRecorderApi", "dispatchEvent:" + str);
-            }
-            dispatchEvent(new JSEvent(str, obj));
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.a = i;
+            this.a = gameRecorderController;
         }
     }
 }

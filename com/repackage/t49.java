@@ -1,10 +1,10 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,16 +12,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class t49 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile t49 c;
+    public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public int a;
+    public int b;
+    public JSONObject c;
+    public JSONObject d;
+    public JSONObject e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public List<g49> m;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +50,15 @@ public class t49 {
                 return;
             }
         }
-        b = r49.m();
+        n = y49.m();
     }
 
-    public t49() {
+    public t49(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,224 +68,190 @@ public class t49 {
                 return;
             }
         }
-        this.a = ub1.g();
+        this.m = new ArrayList();
+        this.c = jSONObject;
     }
 
-    public static t49 a() {
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (t49.class) {
-                    if (c == null) {
-                        c = new t49();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (JSONObject) invokeV.objValue;
+    }
+
+    public List<g49> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.m : (List) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.l : invokeV.intValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            try {
+                if (this.c != null && this.c.length() != 0) {
+                    JSONObject jSONObject = this.c;
+                    this.d = jSONObject.optJSONObject("set");
+                    this.a = jSONObject.optInt("threshold", 10000);
+                    this.b = jSONObject.optInt("timeup", 604800000);
+                    this.f = jSONObject.optString(ShaderParams.VALUE_TYPE_STEP);
+                    jSONObject.optString(StickerDataChangeType.REPLACE);
+                    this.e = jSONObject.optJSONObject("del");
+                    this.g = jSONObject.optInt("all_size", 614400);
+                    this.h = jSONObject.optInt("single_size", 153600);
+                    this.i = jSONObject.optInt("real_size", 614400);
+                    this.j = jSONObject.optInt("non_real_size", 614400);
+                    this.k = jSONObject.optInt("trigger_number", 100);
+                    this.l = jSONObject.optInt("trigger_interval", 180);
+                    int i = 1;
+                    if (this.d != null) {
+                        Iterator<String> keys = this.d.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            if (!TextUtils.isEmpty(next) && (optJSONObject = this.d.optJSONObject(next)) != null && optJSONObject.length() != 0) {
+                                JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
+                                String optString = optJSONObject.optString("version");
+                                if (optJSONObject2 != null && !TextUtils.isEmpty(optString)) {
+                                    Iterator<String> it = keys;
+                                    g49 g49Var = new g49(next, optJSONObject2.optInt("switch", i) != 0, optJSONObject2.optInt(Constant.IS_REAL, 0) == 1, optJSONObject2.optInt("timeout", 60), optJSONObject2.optInt("type", 0), optJSONObject2.optInt("isAbtest", 0) == 1);
+                                    if (j49.a(next)) {
+                                        g49Var.y(optJSONObject2.optInt("isSend", 1) == 1);
+                                    }
+                                    if (optJSONObject2.has("rate")) {
+                                        g49Var.D(optJSONObject2.getInt("rate"));
+                                    }
+                                    if (optJSONObject2.has("c")) {
+                                        g49Var.u(optJSONObject2.getString("c"));
+                                    }
+                                    if (optJSONObject2.has("limitUnit")) {
+                                        g49Var.A(optJSONObject2.getInt("limitUnit"));
+                                    }
+                                    if (optJSONObject2.has("limitCnt")) {
+                                        g49Var.z(optJSONObject2.getInt("limitCnt"));
+                                    }
+                                    if (optJSONObject2.has(Constant.ID_TYPE)) {
+                                        g49Var.w(optJSONObject2.getInt(Constant.ID_TYPE));
+                                    }
+                                    g49Var.C(optJSONObject2.optInt("ch", 0) == 1);
+                                    if (optJSONObject2.has("dfc")) {
+                                        g49Var.x(optJSONObject2.getInt("dfc") == 1);
+                                    }
+                                    if (optJSONObject2.has("reallog")) {
+                                        g49Var.E(optJSONObject2.getInt("reallog") == 1);
+                                    }
+                                    if (optJSONObject2.has("gflow")) {
+                                        g49Var.v(optJSONObject2.getInt("gflow"));
+                                    }
+                                    if (optJSONObject2.has("uploadType")) {
+                                        g49Var.F(optJSONObject2.optInt("uploadType", -1));
+                                    }
+                                    int optInt = optJSONObject2.optInt("lcache", 2);
+                                    if (optInt == 1 || optInt == 0) {
+                                        g49Var.B(optInt);
+                                    }
+                                    g49Var.G(optString);
+                                    this.m.add(g49Var);
+                                    keys = it;
+                                    i = 1;
+                                }
+                            }
+                        }
+                        return true;
                     }
+                    return true;
                 }
-            }
-            return c;
-        }
-        return (t49) invokeV.objValue;
-    }
-
-    public void b(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) || !this.a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i == 0) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-            jSONObject.put("dbOverNum", i);
-            jSONObject.put("tableName", str2);
-            c("logDiscard", "database", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public final void c(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            if (b) {
-                String jSONObject2 = jSONObject != null ? jSONObject.toString() : "";
-                Log.d("UBCQualityStatics", "Quality event: type=" + str + ", value=" + str2 + ",ext=" + jSONObject2);
-            }
-            try {
-                JSONObject jSONObject3 = new JSONObject();
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject3.put("type", str);
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject3.put("value", str2);
-                }
-                if (jSONObject != null) {
-                    jSONObject3.put("ext", jSONObject);
-                }
-                uBCManager.onEvent("1876", jSONObject3);
+                return false;
             } catch (JSONException e) {
-                e.printStackTrace();
+                if (n) {
+                    e.printStackTrace();
+                }
+                return false;
             }
         }
+        return invokeV.booleanValue;
     }
 
-    public void d(String str, int i) {
+    public void m(List<g49> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) || !this.a || TextUtils.isEmpty(str) || i == 0) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-            jSONObject.put("fileNum", i);
-            c("logDiscard", "fileNum", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.m = list;
         }
     }
 
-    public void e(String str, int i, int i2, int i3) {
+    public t49(List<g49> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIII(1048579, this, str, i, i2, i3) == null) && this.a && !TextUtils.isEmpty(str)) {
-            if (i == 0 && i2 == 0 && i3 == 0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-                if (i != 0) {
-                    jSONObject.put("flowExpired", i);
-                }
-                if (i2 != 0) {
-                    jSONObject.put("eventExpired", i2);
-                }
-                if (i3 != 0) {
-                    jSONObject.put("flowInterrupt", i3);
-                }
-                c("logDiscard", "timeExpired", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
         }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.a && !TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-                c("logDiscard", "realLog", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void g(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) || !this.a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+        this.m = new ArrayList();
+        if (list == null || list.size() <= 0) {
             return;
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
-            jSONObject.put("size", str2);
-            jSONObject.put("logId", str3);
-            c("logSize", "single", jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.a && !TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("exception", str);
-                c("sqlError", null, jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && this.a) {
-            if (TextUtils.isEmpty(str2) && TextUtils.isEmpty(str)) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("msg", str);
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("exception", str2);
-                }
-                c("sendFail", "requestError", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && this.a && !TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("exception", str);
-                c("sendFail", "bodyError", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && this.a) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("errno", i);
-                c("sendFail", "backend", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void l(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) || !this.a || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str2);
-            jSONObject.put("size", str3);
-            c("logSize", str, jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void m(boolean z, long j) {
-        int q;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            if (z) {
-                q = w39.o().r();
-            } else {
-                q = w39.o().q();
-            }
-            String str = z ? "uploadReal" : "uploadNonReal";
-            if (j > q) {
-                l(str, String.valueOf(q), String.valueOf(j));
-            }
-        }
+        this.m.addAll(list);
     }
 }

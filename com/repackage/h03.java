@@ -50,13 +50,13 @@ public class h03 extends i03 {
     }
 
     @Override // com.repackage.i03
-    public r94 H() {
+    public q94 H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (r94) invokeV.objValue;
+        return (q94) invokeV.objValue;
     }
 
     @Override // com.repackage.i03

@@ -1,17 +1,15 @@
 package com.repackage;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
+import android.view.View;
+import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
 /* loaded from: classes7.dex */
 public interface sx3 {
-    boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull jo3 jo3Var);
+    View a(Context context, GameCloseGuidePopView.e eVar);
 
-    boolean b(Context context, String str, String str2, String str3);
+    void b(int i);
 
-    boolean c();
+    void c();
 
-    String getPackageName();
-
-    void init();
+    void release();
 }

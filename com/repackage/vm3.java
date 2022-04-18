@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class vm3 implements xf4 {
+public class vm3 implements wf4 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class vm3 implements xf4 {
         }
     }
 
-    @Override // com.repackage.xf4
+    @Override // com.repackage.wf4
     public boolean a(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -57,8 +57,8 @@ public class vm3 implements xf4 {
             }
             an3 an3Var = new an3();
             HashMap hashMap = new HashMap(2);
-            hashMap.put("cuid", pf4.g().getDeviceId(AppRuntime.getApplication()));
-            hashMap.put("uuid", pf4.g().p(AppRuntime.getApplication()));
+            hashMap.put("cuid", of4.g().getDeviceId(AppRuntime.getApplication()));
+            hashMap.put("uuid", of4.g().p(AppRuntime.getApplication()));
             zm3.d().g(hashMap, jSONArray.toString().getBytes(), null, an3Var);
             if (a) {
                 Log.d("OpenBehaviorUploader", "errorCode : " + an3Var.a);
@@ -66,7 +66,7 @@ public class vm3 implements xf4 {
             }
             int i = an3Var.a;
             if (i == 1 || i == 2 || i == 4) {
-                ig4.a();
+                hg4.a();
                 return false;
             }
             return true;

@@ -12,16 +12,15 @@ public class wo8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final co8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wo8(MainTabActivity mainTabActivity, pn8 pn8Var) {
-        super(2921543);
+    public wo8(MainTabActivity mainTabActivity, wn8 wn8Var) {
+        super(2016311);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pn8Var};
+            Object[] objArr = {mainTabActivity, wn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,17 +32,15 @@ public class wo8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.mLogicController;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        co8 co8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (co8Var = this.b) == null || co8Var.j() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || "advertevent://ignore".equals((String) customResponsedMessage.getData())) {
             return;
         }
-        this.b.j().a();
+        this.a.mIsSplashClick = true;
     }
 }

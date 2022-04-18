@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.he6;
+import com.repackage.je6;
 import com.repackage.m45;
 import com.repackage.n45;
 /* loaded from: classes3.dex */
@@ -59,14 +59,14 @@ public class FrsGameStrategyFragmentDelegateStatic extends m45 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001616 || customResponsedMessage.getData() == null) {
                 return;
             }
-            he6 he6Var = (he6) customResponsedMessage.getData();
+            je6 je6Var = (je6) customResponsedMessage.getData();
             FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
-            he6Var.a(frsGameStrategyFragmentDelegateStatic);
-            if (he6Var.getContext() == null || (b = frsGameStrategyFragmentDelegateStatic.b()) == null) {
+            je6Var.a(frsGameStrategyFragmentDelegateStatic);
+            if (je6Var.getContext() == null || (b = frsGameStrategyFragmentDelegateStatic.b()) == null) {
                 return;
             }
             Bundle bundle = new Bundle();
-            bundle.putString("name", he6Var.d());
+            bundle.putString("name", je6Var.d());
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());

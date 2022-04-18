@@ -88,7 +88,7 @@ public class kj5 extends Handler {
             super.handleMessage(message);
             if (message.what != 1) {
                 c();
-                if (vm4.e()) {
+                if (um4.e()) {
                     Log.d("AdFakeProgressHandler", "fake stop is not WHAT_UPDATE_PROGRESS");
                     return;
                 }
@@ -100,21 +100,21 @@ public class kj5 extends Handler {
                 if (this.d <= 0) {
                     adDownloadData.setFakePercent(0);
                     c();
-                    if (vm4.e()) {
+                    if (um4.e()) {
                         Log.d("AdFakeProgressHandler", "fake stop ：开关关闭");
                         return;
                     }
                     return;
                 } else if (!mi.z()) {
                     c();
-                    if (vm4.e()) {
+                    if (um4.e()) {
                         Log.d("AdFakeProgressHandler", "fake stop ：检测无网络");
                         return;
                     }
                     return;
                 } else if (adDownloadData.getCurrentState() != DownloadStatus.STATUS_DOWNLOADING) {
                     c();
-                    if (vm4.e()) {
+                    if (um4.e()) {
                         Log.d("AdFakeProgressHandler", "fake stop ：非正在下载状态:" + adDownloadData.getCurrentState());
                         return;
                     }
@@ -123,7 +123,7 @@ public class kj5 extends Handler {
                     int fakePercent = adDownloadData.getFakePercent();
                     if (fakePercent >= this.d) {
                         c();
-                        if (vm4.e()) {
+                        if (um4.e()) {
                             Log.d("AdFakeProgressHandler", "fake stop ：假进度达到最大值.");
                             return;
                         }
@@ -132,7 +132,7 @@ public class kj5 extends Handler {
                     int i = fakePercent + 1;
                     adDownloadData.setFakePercent(i);
                     if (i < adDownloadData.getPercent()) {
-                        if (vm4.e()) {
+                        if (um4.e()) {
                             Log.d("AdFakeProgressHandler", "fake log ：真实进度超过假进度.");
                         }
                     } else {
@@ -143,7 +143,7 @@ public class kj5 extends Handler {
                 }
             }
             c();
-            if (vm4.e()) {
+            if (um4.e()) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("fake stop ：回收");
                 sb.append(adDownloadData == null);

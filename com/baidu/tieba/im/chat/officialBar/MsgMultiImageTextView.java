@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a57;
-import com.repackage.c77;
+import com.repackage.d57;
+import com.repackage.f77;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class MsgMultiImageTextView extends a57 {
+public class MsgMultiImageTextView extends d57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiContentView y;
@@ -45,8 +45,8 @@ public class MsgMultiImageTextView extends a57 {
     public final void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = (TextView) e(R.id.obfuscated_res_0x7f091f04);
-            this.y = (MultiContentView) e(R.id.obfuscated_res_0x7f09144c);
+            this.h = (TextView) e(R.id.obfuscated_res_0x7f091f05);
+            this.y = (MultiContentView) e(R.id.obfuscated_res_0x7f09144d);
         }
     }
 
@@ -56,7 +56,7 @@ public class MsgMultiImageTextView extends a57 {
             return;
         }
         C(chatMessage);
-        List<c77.a> b = c77.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+        List<f77.a> b = f77.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
         this.y.setPosition(this.f);
         this.y.setOnItemViewLongClickListener(this.c);
         this.y.setNeedNightMode(true);

@@ -43,8 +43,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bj5;
 import com.repackage.nd5;
-import com.repackage.r98;
 import com.repackage.wi5;
+import com.repackage.y98;
 import com.repackage.ye;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -91,7 +91,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements r98.c {
+    public static class b implements y98.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -109,8 +109,8 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.r98.c
-        public int a(Context context, String str, String str2, boolean z, r98.d dVar, boolean z2, Bundle bundle) {
+        @Override // com.repackage.y98.c
+        public int a(Context context, String str, String str2, boolean z, y98.d dVar, boolean z2, Bundle bundle) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
@@ -126,7 +126,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements r98.a {
+    public static class c implements y98.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -144,7 +144,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.r98.a
+        @Override // com.repackage.y98.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Bundle i;
@@ -207,7 +207,7 @@ public class AdStatic {
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TOPIC)) {
                         AdStatic.p(context, str3, str.substring(6), null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_ZB)) {
-                        AdStatic.p(context, str.substring(3), context.getString(R.string.obfuscated_res_0x7f0f0e3d), null);
+                        AdStatic.p(context, str.substring(3), context.getString(R.string.obfuscated_res_0x7f0f0e3c), null);
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_LIST)) {
                         String substring2 = str.substring(5);
                         if (!TextUtils.isEmpty(substring2)) {
@@ -222,7 +222,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements r98.a {
+    public static class d implements y98.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -240,7 +240,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.r98.a
+        @Override // com.repackage.y98.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -312,7 +312,7 @@ public class AdStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements r98.a {
+    public static class e implements y98.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -330,7 +330,7 @@ public class AdStatic {
             }
         }
 
-        @Override // com.repackage.r98.a
+        @Override // com.repackage.y98.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;

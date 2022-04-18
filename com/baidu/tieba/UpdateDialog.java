@@ -36,8 +36,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.hi5;
 import com.repackage.ki5;
+import com.repackage.qt4;
 import com.repackage.rg;
-import com.repackage.rt4;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class UpdateDialog extends BaseActivity<UpdateDialog> {
@@ -124,7 +124,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.mData.forceUpdate()) {
-                    rt4.e(this.a.a.getPageContext().getPageActivity(), 200);
+                    qt4.e(this.a.a.getPageContext().getPageActivity(), 200);
                 }
             }
         }
@@ -362,7 +362,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 } else if (intent.getBooleanExtra("action_update_progress_interrupted", false)) {
                     this.this$0.mSupportDialog.dismiss();
                     UpdateDialog updateDialog = this.this$0;
-                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f148d));
+                    updateDialog.showToast(updateDialog.getPageContext().getString(R.string.obfuscated_res_0x7f0f148c));
                     this.this$0.finish();
                     this.this$0.stopUpdataService();
                 } else {

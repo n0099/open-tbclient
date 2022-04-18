@@ -270,13 +270,13 @@ public class b13 {
     }
 
     @NonNull
-    public static lg4 f(@NonNull String str) {
+    public static kg4 f(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             return x83.b(str + "_domain_config");
         }
-        return (lg4) invokeL.objValue;
+        return (kg4) invokeL.objValue;
     }
 
     @Nullable

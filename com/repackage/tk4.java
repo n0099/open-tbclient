@@ -1,27 +1,22 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.adBillingLog.AdBillingLogHttpResMsg;
+import com.baidu.tbadk.adBillingLog.AdBillingLogReqMsg;
+import com.baidu.tbadk.adBillingLog.AdBillingLogSocketResMsg;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class tk4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public static int b = 2;
-    public static int c = 3;
-    public static int d = 1;
-    public static int e = 2;
-    public static int f = 3;
-    public static int g = 4;
-    public static int h = 5;
-    public static int i = 6;
-    public static int j = 7;
-    public static int k = 8;
-    public static int l = 9;
-    public static uk4 m;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,20 +32,32 @@ public class tk4 {
                 return;
             }
         }
-        m = new uk4();
+        kk8.f(309711, AdBillingLogSocketResMsg.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_AD_BILLING_LOG, kk8.a(TbConfig.URL_AD_BILLING_LOG, 309711));
+        tbHttpMessageTask.setResponsedClass(AdBillingLogHttpResMsg.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static void a(@NonNull int i2, @NonNull int i3, String str, String str2, String str3, int i4) {
+    public tk4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Integer.valueOf(i4)}) == null) {
-            vk4 vk4Var = new vk4();
-            vk4Var.a = i2;
-            vk4Var.b = i3;
-            vk4Var.c = str;
-            vk4Var.d = str2;
-            vk4Var.e = str3;
-            vk4Var.f = i4;
-            m.a(vk4Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public void a(uk4 uk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, uk4Var) == null) {
+            AdBillingLogReqMsg adBillingLogReqMsg = new AdBillingLogReqMsg();
+            adBillingLogReqMsg.setReqData(uk4Var);
+            MessageManager.getInstance().sendMessage(adBillingLogReqMsg);
         }
     }
 }

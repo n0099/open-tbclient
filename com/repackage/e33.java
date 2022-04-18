@@ -149,9 +149,9 @@ public class e33 extends g23 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
                 if (i == 0) {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081134));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081138));
                 } else {
-                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081133));
+                    view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081137));
                 }
             }
         }
@@ -178,7 +178,7 @@ public class e33 extends g23 {
                 if (view2 == null) {
                     view2 = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00d4, null);
                 }
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f07);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f08);
                 textView.setTextColor(this.c);
                 textView.setText(getItem(i));
                 b(view2, i);
@@ -350,7 +350,7 @@ public class e33 extends g23 {
             mz2Var.B(R.string.obfuscated_res_0x7f0f0108, new b(this, callbackHandler, unitedSchemeEntity));
             mz2Var.K(new a(this, callbackHandler, unitedSchemeEntity));
             View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d00d3, null);
-            ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f09126c);
+            ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f09126d);
             listView.setSelector(new ColorDrawable(0));
             listView.setAdapter((ListAdapter) new c(this, arrayList, context, i));
             mz2Var.W(inflate);

@@ -60,7 +60,7 @@ public final class g42 {
             bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
             bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
             if (pMSAppInfo == null) {
-                pMSAppInfo = f84.i().u(prefetchEvent.appId);
+                pMSAppInfo = e84.i().u(prefetchEvent.appId);
             }
             if (pMSAppInfo == null) {
                 return;

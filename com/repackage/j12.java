@@ -151,16 +151,16 @@ public class j12 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, networkStatus, q02Var, c12Var) == null) {
             boolean b = q02Var.b();
-            int i = R.string.obfuscated_res_0x7f0f12e7;
+            int i = R.string.obfuscated_res_0x7f0f12e6;
             if (b) {
-                i = R.string.obfuscated_res_0x7f0f12ec;
+                i = R.string.obfuscated_res_0x7f0f12eb;
             } else if (c12Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
-                i = R.string.obfuscated_res_0x7f0f12ea;
+                i = R.string.obfuscated_res_0x7f0f12e9;
             } else if (c12Var.e() != RequestStatus.STATUS_FAILED) {
                 if (c12Var.e() == RequestStatus.STATUS_SLOW) {
-                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f12eb : R.string.obfuscated_res_0x7f0f12e8;
+                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f12ea : R.string.obfuscated_res_0x7f0f12e7;
                 } else if (c12Var.e() != RequestStatus.STATUS_CORE_FAILED) {
-                    i = R.string.obfuscated_res_0x7f0f12e9;
+                    i = R.string.obfuscated_res_0x7f0f12e8;
                 }
             }
             j02.f(i);

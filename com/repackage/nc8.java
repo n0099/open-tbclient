@@ -1,78 +1,152 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class nc8 extends zi5 {
+public class nc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aj5 h;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
+    public String j;
+    public boolean k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nc8(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
-        super(placeId, str, aVar);
+    public nc8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {placeId, str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((PlaceId) objArr2[0], (String) objArr2[1], (IAdBaseAsyncController.a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = aj5.d();
+        this.k = false;
     }
 
-    @Override // com.repackage.zi5
-    public void c(List<AdvertAppInfo> list) {
+    public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.h.a(this.a, list);
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, advertAppInfo, adCard) == null) || advertAppInfo == null) {
+            return;
+        }
+        int i = advertAppInfo.p;
+        if (i == 3) {
+            this.a = "apk_download";
+            this.f = advertAppInfo.s;
+            this.g = advertAppInfo.r;
+        } else if (i == 1) {
+            this.a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
+        }
+        this.e = adCard.getButtonText();
+        this.b = adCard.userName;
+        this.c = adCard.userImage;
+        this.d = adCard.scheme;
+        this.i = adCard.threadTitle;
+        this.j = adCard.getButtonCmdScheme();
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("style");
+        this.b = jSONObject.optString("user_name");
+        this.c = jSONObject.optString("user_portrait");
+        this.d = jSONObject.optString("scheme");
+        this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+        this.h = jSONObject.optInt("close_time");
+        JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
+        if (optJSONObject != null) {
+            this.f = optJSONObject.optString("pkgname");
+            this.g = optJSONObject.optString("download_url");
+        }
+        jSONObject.optString("content");
+        this.k = true;
+        this.j = jSONObject.optString("button_scheme");
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            b(new JSONObject(str));
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public void h(int i) {
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (k98.e(System.currentTimeMillis(), this.h.e(this.a), i)) {
-                List<AdvertAppInfo> b = this.h.b(this.a);
-                if (gd7.e(b)) {
-                    return;
-                }
-                for (AdvertAppInfo advertAppInfo : b) {
-                    tc8.i(advertAppInfo, 0, 44);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("style", this.a);
+                jSONObject.put("user_name", this.b);
+                jSONObject.put("user_portrait", this.c);
+                jSONObject.put("scheme", this.d);
+                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.e);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("pkgname", this.f);
+                jSONObject2.put("download_url", this.g);
+                jSONObject.put("ext_data", jSONObject2);
+                jSONObject.put("content", this.h);
+                jSONObject.put("button_scheme", this.j);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    @Nullable
-    public AdvertAppInfo i() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h.c(this.a) : (AdvertAppInfo) invokeV.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h.f(this.a) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("style", this.a);
+                jSONObject.put("user_name", this.b);
+                jSONObject.put("user_portrait", this.c);
+                jSONObject.put("scheme", this.d);
+                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.e);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("pkgname", this.f);
+                jSONObject2.put("download_url", this.g);
+                jSONObject.put("ext_data", jSONObject2);
+                jSONObject.put("content", this.h);
+                jSONObject.put("button_scheme", this.j);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

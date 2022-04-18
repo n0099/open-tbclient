@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c87;
 import com.repackage.ic5;
-import com.repackage.z77;
 import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.ManagerApplyInfo;
 import tbclient.PriManagerApplyInfo;
@@ -195,7 +195,7 @@ public class ItemMsgManage extends LinearLayout {
                     this.f.setVisibility(8);
                 }
             }
-            z77.j().d(TbadkCoreApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new a(this));
+            c87.j().d(TbadkCoreApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new a(this));
         }
     }
 

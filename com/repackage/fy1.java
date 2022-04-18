@@ -184,7 +184,7 @@ public class fy1 {
                 this.c = null;
                 jx1.i("PropertyLogcat", "Stop monitor logcat");
             }
-            ng4.d(this.e);
+            mg4.d(this.e);
             this.e = null;
             return r73.I(f(), j03.f0());
         }

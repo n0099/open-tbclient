@@ -247,12 +247,12 @@ public class ku3 {
                             file2.delete();
                         }
                         d(null);
-                        ng4.d(fileOutputStream);
+                        mg4.d(fileOutputStream);
                     }
                 } catch (Throwable th) {
                     th = th;
                     closeable = ".bdsave";
-                    ng4.d(closeable);
+                    mg4.d(closeable);
                     throw th;
                 }
             } catch (Exception e3) {
@@ -260,10 +260,10 @@ public class ku3 {
                 fileOutputStream = null;
             } catch (Throwable th2) {
                 th = th2;
-                ng4.d(closeable);
+                mg4.d(closeable);
                 throw th;
             }
-            ng4.d(fileOutputStream);
+            mg4.d(fileOutputStream);
         }
     }
 }

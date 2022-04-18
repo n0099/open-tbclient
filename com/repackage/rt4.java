@@ -1,116 +1,171 @@
 package com.repackage;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
+import com.baidu.tieba.stampmission.mission.StampMission;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class rt4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static qt4 a = null;
-    public static int b = 0;
-    public static int c = 0;
-    public static int d = 0;
-    public static int e = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755338817, "Lcom/repackage/rt4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public rt4() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755338817, "Lcom/repackage/rt4;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            qt4 qt4Var = a;
-            if (qt4Var == null) {
-                return -1;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return qt4Var.getCurrentTabType();
         }
-        return invokeV.intValue;
     }
 
-    public static Class<?> b() {
-        InterceptResult invokeV;
+    public void a(AgreeData agreeData, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            qt4 qt4Var = a;
-            if (qt4Var == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, agreeData, str) == null) {
+            AgreeEvent agreeEvent = new AgreeEvent();
+            agreeEvent.agreeData = agreeData;
+            agreeEvent.agreeExtra = str;
+            o55.i(agreeEvent);
+        }
+    }
+
+    public void b(Context context, vn4 vn4Var, AgreeData agreeData, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vn4Var, agreeData, threadData) == null) || vn4Var == null || agreeData == null) {
+            return;
+        }
+        BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+        StatisticItem param = new StatisticItem("c13271").param("obj_type", vn4Var.g).param("obj_locate", vn4Var.h).param("obj_id", vn4Var.i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+        if (threadData != null) {
+            param.param("tid", threadData.getId()).param("nid", threadData.getNid()).param("fid", threadData.getFid()).param("ab_tag", threadData.mRecomAbTag).param("recom_source", threadData.mRecomSource).param("weight", threadData.mRecomWeight).param("extra", threadData.mRecomExtra);
+            if (threadData.getBaijiahaoData() != null) {
+                param.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
+                if (threadData.isBJHVideoThreadType() || threadData.isBJHVideoDynamicThreadType()) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                }
             }
-            return qt4Var.d();
-        }
-        return (Class) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            qt4 qt4Var = a;
-            if (qt4Var == null) {
-                return null;
+            if (threadData.isBjhDynamicThread()) {
+                param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+            } else if (!threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
+                int i = threadData.threadType;
+                if (i == 0 || i == 40) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                }
+            } else {
+                param.param(TiebaStatic.Params.OBJ_PARAM5, 3);
             }
-            return qt4Var.f();
+        } else {
+            param.param("tid", agreeData.threadId);
+            param.param("nid", agreeData.nid);
+            param.param("fid", agreeData.forumId);
+            param.param("card_type", agreeData.cardType);
+            param.param("ab_tag", agreeData.recomAbTag);
+            param.param("recom_source", agreeData.recomSource);
+            param.param("weight", agreeData.recomWeight);
+            param.param("extra", agreeData.recomExtra);
+            BaijiahaoData baijiahaoData2 = agreeData.baijiahaoData;
+            if (baijiahaoData2 != null) {
+                param.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData2.oriUgcVid);
+            }
         }
-        return (String) invokeV.objValue;
+        if (context != null) {
+            u75.b(context, param);
+        }
+        TiebaStatic.log(param);
     }
 
-    public static void d(Context context) {
-        qt4 qt4Var;
+    public void c(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) || (qt4Var = a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{agreeData, Integer.valueOf(i), bdUniqueId, Boolean.valueOf(z)}) == null) || agreeData == null) {
             return;
         }
-        qt4Var.a(context);
-    }
-
-    public static void e(Context context, int i) {
-        qt4 qt4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, context, i) == null) || (qt4Var = a) == null) {
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+        httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+        httpMessage.addParam("thread_id", agreeData.threadId);
+        httpMessage.addParam("op_type", i);
+        if (agreeData.objType == 0) {
+            agreeData.objType = 3;
+        }
+        httpMessage.addParam("obj_type", agreeData.objType);
+        httpMessage.addParam("agree_type", agreeData.agreeType);
+        httpMessage.addParam("forum_id", agreeData.forumId);
+        if (!StringUtil.isEmpty(agreeData.objSource)) {
+            httpMessage.addParam("obj_source", agreeData.objSource);
+        }
+        if (!TextUtils.isEmpty(agreeData.postId)) {
+            httpMessage.addParam("post_id", agreeData.postId);
+        }
+        BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+        if (baijiahaoData != null) {
+            httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
+            httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
+            httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
+            httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
+        }
+        httpMessage.setTag(bdUniqueId);
+        httpMessage.setExtra(Integer.valueOf(i));
+        httpMessage.addHeader("needSig", "1");
+        if (z) {
+            if (!TextUtils.isEmpty(m55.b())) {
+                httpMessage.addParam(HttpRequest.BDUSS, m55.b());
+            }
+            if (!TextUtils.isEmpty(m55.f())) {
+                httpMessage.addParam(HttpRequest.TBS, m55.f());
+            }
+            if (!TextUtils.isEmpty(m55.e())) {
+                httpMessage.addParam("stoken", m55.e());
+            }
+        }
+        MessageManager.getInstance().sendMessage(httpMessage);
+        if (TbadkCoreApplication.getCurrentAccount() == null || i != 0 || agreeData.agreeType == 5 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
             return;
         }
-        qt4Var.b(context, i);
-    }
-
-    public static void f(Context context, int i, boolean z) {
-        qt4 qt4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || (qt4Var = a) == null) {
-            return;
+        if (TbSingleton.getInstance().showStampMissionDialog && UbsABTestHelper.isStampMissionDialogABTestB()) {
+            ni8.r().A(0, 3);
+            ni8.r().G();
         }
-        qt4Var.c(context, i, z);
+        ni8.r().z(StampMission.Type.LIKE_THREAD);
     }
 
-    public static void g(Context context, int i, boolean z) {
-        qt4 qt4Var;
+    public void d(AgreeData agreeData, sk8 sk8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || (qt4Var = a) == null) {
-            return;
-        }
-        qt4Var.e(context, i, z);
-    }
-
-    public static void h(qt4 qt4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, qt4Var) == null) {
-            a = qt4Var;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, sk8Var) == null) {
+            sk8Var.b = agreeData;
+            if (agreeData.isInThread) {
+                BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+                if (baijiahaoData != null) {
+                    agreeData.nid = baijiahaoData.oriUgcNid;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, sk8Var));
+                a(agreeData, AgreeEvent.IS_THREAD);
+            } else if (agreeData.isInPost) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, sk8Var));
+                a(agreeData, AgreeEvent.IS_POST);
+            }
         }
     }
 }

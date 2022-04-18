@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q64;
+import com.repackage.p64;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class MainMenuView extends BaseMenuView {
@@ -31,7 +31,7 @@ public class MainMenuView extends BaseMenuView {
     public MenuContentAdapter j;
     public RecyclerView k;
     public MenuContentAdapter l;
-    public List<List<q64>> m;
+    public List<List<p64>> m;
     public View n;
     public boolean o;
 
@@ -74,7 +74,7 @@ public class MainMenuView extends BaseMenuView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<List<q64>> list = this.m;
+            List<List<p64>> list = this.m;
             return list != null && list.size() > 1;
         }
         return invokeV.booleanValue;
@@ -141,7 +141,7 @@ public class MainMenuView extends BaseMenuView {
         }
     }
 
-    public final void g(List<List<q64>> list, boolean z, int i) {
+    public final void g(List<List<p64>> list, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.m = list;
@@ -168,7 +168,7 @@ public class MainMenuView extends BaseMenuView {
         }
     }
 
-    public void update(List<List<q64>> list, View view2, boolean z, int i) {
+    public void update(List<List<p64>> list, View view2, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             setMode();

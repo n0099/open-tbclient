@@ -104,20 +104,20 @@ public class nd3 {
             try {
                 try {
                     String readLine = bufferedReader.readLine();
-                    ng4.d(bufferedReader);
+                    mg4.d(bufferedReader);
                     return readLine;
                 } catch (IOException e) {
                     e = e;
                     if (a) {
                         e.printStackTrace();
                     }
-                    ng4.d(bufferedReader);
+                    mg4.d(bufferedReader);
                     return null;
                 }
             } catch (Throwable th) {
                 th = th;
                 bufferedReader2 = bufferedReader;
-                ng4.d(bufferedReader2);
+                mg4.d(bufferedReader2);
                 throw th;
             }
         } catch (IOException e2) {
@@ -125,7 +125,7 @@ public class nd3 {
             bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;
-            ng4.d(bufferedReader2);
+            mg4.d(bufferedReader2);
             throw th;
         }
     }

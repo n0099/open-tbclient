@@ -31,7 +31,7 @@ public class w05 extends u05 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f08095c;
+        this.d = R.drawable.obfuscated_res_0x7f080960;
         this.f = R.drawable.icon_pure_post_more_at64;
         this.g = false;
         this.h = true;

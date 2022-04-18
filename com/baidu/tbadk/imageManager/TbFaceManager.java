@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cu4;
+import com.repackage.bu4;
 import com.repackage.f35;
 import com.repackage.fo;
 import com.repackage.h35;
@@ -202,7 +202,7 @@ public class TbFaceManager {
                     int start = matcher.start();
                     BitmapDrawable j = d2.j();
                     j.setBounds(0, 0, 55, 55);
-                    spannableString.setSpan(new cu4(j, 0), start, length + start, 33);
+                    spannableString.setSpan(new bu4(j, 0), start, length + start, 33);
                 }
             }
             return spannableString;

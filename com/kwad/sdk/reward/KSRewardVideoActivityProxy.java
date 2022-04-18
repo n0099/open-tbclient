@@ -188,9 +188,9 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
     }
 
     private void initView() {
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09112a);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09112b);
         this.mRootContainer = adBaseFrameLayout;
-        this.mDetailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091170);
+        this.mDetailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091171);
         boolean z = !af.e(this.mContext);
         if ((isRewardLaunchAppTask() || isRewardLandPageOpenTask()) && z) {
             this.mDetailVideoView.setForce(true);
@@ -387,7 +387,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
         aVar.r = true;
         aVar.s = this.mRewardTopBarNewStyle;
         if (com.kwad.sdk.core.response.a.a.an(this.mAdInfo)) {
-            aVar.m = new com.kwad.sdk.widget.e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910bd));
+            aVar.m = new com.kwad.sdk.widget.e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910be));
         }
         return aVar;
     }

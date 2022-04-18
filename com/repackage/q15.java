@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yj8;
+import com.repackage.fk8;
 /* loaded from: classes6.dex */
 public class q15 {
     public static /* synthetic */ Interceptable $ic;
@@ -46,7 +46,7 @@ public class q15 {
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(m67.t().i(this.a.a().a)) : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(p67.t().i(this.a.a().a)) : invokeV.objValue;
         }
     }
 
@@ -80,7 +80,7 @@ public class q15 {
             b.setCustomGroupType(2);
             b.setMsgType(1);
             b.setContent(str);
-            long b2 = w87.b(j);
+            long b2 = z87.b(j);
             b.setMsgId(b2);
             b.setRecordId(b2);
             b.setTime(System.currentTimeMillis() / 1000);
@@ -131,19 +131,19 @@ public class q15 {
 
     public /* synthetic */ void c(String str, Object obj) {
         if (obj instanceof Long) {
-            s77.j().t(a(str, ((Long) obj).longValue()));
+            v77.j().t(a(str, ((Long) obj).longValue()));
             e("");
         }
     }
 
-    public void d(yj8.g gVar) {
+    public void d(fk8.g gVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) || gVar == null) {
             return;
         }
         o15 o15Var = this.a;
         if (o15Var != null && o15Var.a() != null) {
-            yj8.m(this.a.a().a, gVar);
+            fk8.m(this.a.a().a, gVar);
         } else {
             gVar.a(null);
         }
@@ -155,7 +155,7 @@ public class q15 {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (o15Var = this.a) == null || o15Var.a() == null) {
             return;
         }
-        yj8.w(this.a.a().a, str);
+        fk8.w(this.a.a().a, str);
     }
 
     public void f(o15 o15Var, final String str) {

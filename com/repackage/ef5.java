@@ -83,7 +83,7 @@ public class ef5 {
                     return;
                 }
             }
-            h(R.drawable.obfuscated_res_0x7f0809e8);
+            h(R.drawable.obfuscated_res_0x7f0809ec);
             i(R.dimen.tbds3);
         }
 
@@ -114,7 +114,7 @@ public class ef5 {
             if (interceptable == null || interceptable.invokeLIL(1048579, this, view2, i, z45Var) == null) {
                 if (z45Var.n()) {
                     Context context = view2.getContext();
-                    BdToast.i(context, context.getString(R.string.obfuscated_res_0x7f0f14d1), R.drawable.obfuscated_res_0x7f0809a5, true).q();
+                    BdToast.i(context, context.getString(R.string.obfuscated_res_0x7f0f14d0), R.drawable.obfuscated_res_0x7f0809a9, true).q();
                     return;
                 }
                 if (z45Var.o()) {
@@ -230,7 +230,7 @@ public class ef5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                BdToast.i(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.obfuscated_res_0x7f0f14d1), R.drawable.obfuscated_res_0x7f0809a5, true).q();
+                BdToast.i(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.obfuscated_res_0x7f0f14d0), R.drawable.obfuscated_res_0x7f0809a9, true).q();
             }
         }
     }
@@ -425,14 +425,14 @@ public class ef5 {
                 return;
             }
             TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) currentActivity;
-            xz4 xz4Var = new xz4();
-            xz4Var.a = str;
+            wz4 wz4Var = new wz4();
+            wz4Var.a = str;
             if (threadData != null) {
-                xz4Var.b = threadData.getResource();
-                xz4Var.c = threadData.getPbTitle();
+                wz4Var.b = threadData.getResource();
+                wz4Var.c = threadData.getPbTitle();
             }
-            hc5.h(xz4Var);
-            UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{xz4Var.a, xz4Var.c});
+            hc5.h(wz4Var);
+            UrlManager.getInstance().dealOneLink(tbPageContextSupport.getPageContext(), new String[]{wz4Var.a, wz4Var.c});
         }
     }
 
@@ -842,16 +842,16 @@ public class ef5 {
             if (intValue != 2) {
                 if (intValue != 3) {
                     if (intValue == 5) {
-                        a2.h(R.drawable.obfuscated_res_0x7f080805);
+                        a2.h(R.drawable.obfuscated_res_0x7f080804);
                     } else if (intValue == 6) {
-                        a2.h(R.drawable.obfuscated_res_0x7f080f52);
+                        a2.h(R.drawable.obfuscated_res_0x7f080f56);
                     } else if (intValue != 7) {
-                        a2.h(R.drawable.obfuscated_res_0x7f080968);
+                        a2.h(R.drawable.obfuscated_res_0x7f08096c);
                     }
                 }
-                a2.h(R.drawable.obfuscated_res_0x7f0809ec);
+                a2.h(R.drawable.obfuscated_res_0x7f0809f0);
             } else {
-                a2.h(R.drawable.obfuscated_res_0x7f080960);
+                a2.h(R.drawable.obfuscated_res_0x7f080964);
             }
             return Pair.create(a2.b(i, tiebaPlusInfo.desc, c2), c2);
         }
@@ -870,7 +870,7 @@ public class ef5 {
             int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds36);
             int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.tbds13);
             SpannableString spannableString = new SpannableString(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0979));
-            spannableString.setSpan(new ev4(i2, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
+            spannableString.setSpan(new dv4(i2, dimenPixelSize, dimenPixelSize2, dimenPixelSize3, 0, z), 0, spannableString.length(), 33);
             return spannableString;
         }
         return (SpannableString) invokeCommon.objValue;
@@ -916,13 +916,13 @@ public class ef5 {
                     gVar.j(-1);
                 }
                 if (z) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080968, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08096c, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan.c(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                     spannableString2.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
                     spannableString2.setSpan(gVar, 1, (str5.length() + 1) - 1, 33);
                     return spannableString2;
                 } else if (z2) {
-                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a98, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                    EMRichTextAnyIconSpan eMRichTextAnyIconSpan2 = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f080a9c, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                     eMRichTextAnyIconSpan2.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
                     spannableString2.setSpan(eMRichTextAnyIconSpan2, str5.length() - 1, str5.length() + 1, 33);
                     spannableString2.setSpan(gVar, 0, str5.length() - 1, 33);
@@ -1001,7 +1001,7 @@ public class ef5 {
     public static void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65566, null) == null) {
-            b.b(35, new b(RichTextMaker.IconPos.START, R.drawable.obfuscated_res_0x7f080968, R.color.CAM_X0304, R.dimen.M_W_X002));
+            b.b(35, new b(RichTextMaker.IconPos.START, R.drawable.obfuscated_res_0x7f08096c, R.color.CAM_X0304, R.dimen.M_W_X002));
         }
     }
 

@@ -68,17 +68,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
-import com.repackage.dn4;
+import com.repackage.cn4;
+import com.repackage.cw4;
 import com.repackage.dw4;
-import com.repackage.eq7;
-import com.repackage.ew4;
+import com.repackage.hq7;
 import com.repackage.ki5;
 import com.repackage.pg;
-import com.repackage.pq7;
-import com.repackage.qq7;
 import com.repackage.s85;
 import com.repackage.sq7;
-import com.repackage.wt4;
+import com.repackage.tq7;
+import com.repackage.vq7;
+import com.repackage.vt4;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.tencent.mm.sdk.modelbase.BaseResp;
@@ -419,7 +419,7 @@ public class PassManagerStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements CustomMessageTask.CustomRunnable<eq7> {
+    public static class d implements CustomMessageTask.CustomRunnable<hq7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -438,13 +438,13 @@ public class PassManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<eq7> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<hq7> customMessage) {
             InterceptResult invokeL;
             BaseResp baseResp;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof eq7)) {
-                    eq7 data = customMessage.getData();
+                if (customMessage != null && (customMessage.getData() instanceof hq7)) {
+                    hq7 data = customMessage.getData();
                     if (data.a != null && (baseResp = data.b) != null && (baseResp instanceof SendAuth.Resp)) {
                         PassportSDK.getInstance().handleWXLoginResp(data.a, ((SendAuth.Resp) baseResp).state, ((SendAuth.Resp) baseResp).code, data.b.errCode);
                     }
@@ -526,7 +526,7 @@ public class PassManagerStatic {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                         Context context = TbadkApplication.getInst().getContext();
-                        BdToast.f(context, context.getString(R.string.obfuscated_res_0x7f0f1076), BdToast.DefaultIcon.SUCCESS).q();
+                        BdToast.f(context, context.getString(R.string.obfuscated_res_0x7f0f1075), BdToast.DefaultIcon.SUCCESS).q();
                     }
                 }
             }
@@ -837,10 +837,10 @@ public class PassManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<ew4> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<dw4> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001268, sq7.d()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001268, vq7.d()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -864,10 +864,10 @@ public class PassManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<dn4> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<cn4> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001293, pq7.e()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001293, sq7.e()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -1074,7 +1074,7 @@ public class PassManagerStatic {
         x();
         u();
         n();
-        qq7.o();
+        tq7.o();
         s();
         t();
     }
@@ -1165,15 +1165,15 @@ public class PassManagerStatic {
             long currentTimeMillis = System.currentTimeMillis();
             SapiAccountManager.setGlobalCallback(new b());
             SapiConfiguration.Builder builder = new SapiConfiguration.Builder(context);
-            if (wt4.k().h("is_domain_qa", false)) {
-                dw4.a = Domain.DOMAIN_QA;
+            if (vt4.k().h("is_domain_qa", false)) {
+                cw4.a = Domain.DOMAIN_QA;
                 builder.setRuntimeEnvironment(Domain.DOMAIN_QA);
             } else {
-                builder.setRuntimeEnvironment(dw4.a);
+                builder.setRuntimeEnvironment(cw4.a);
             }
             builder.setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).sofireSdkConfig("200033", "ea737e4f435b53786043369d2e5ace4f", 1).customActionBar(true).skin("file:///android_asset/sapi_theme/style.css").fastLoginSupport(k()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).qqAppID("101462192").sinaAppID("1511099634", PassBioEnv.PASSPORT_DOMAIN).yyOauthConfig("openyy183").setSupportTouchLogin(false).setSupportFaceLogin(true).enableShare(true).forbidPresetPhoneNumber(true);
             builder.setAgreeDangerousProtocol(PermissionUtil.isAgreePrivacyPolicy());
-            Domain domain = dw4.a;
+            Domain domain = cw4.a;
             Domain domain2 = Domain.DOMAIN_QA;
             if (domain == domain2) {
                 builder.setRuntimeEnvironment(domain2.forceHttps(true));
@@ -1219,7 +1219,7 @@ public class PassManagerStatic {
     public static void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            dw4.a();
+            cw4.a();
             TbadkCoreApplication.getInst().RegisterOrUpdateIntent(LoginActivityConfig.class, LoginActivity.class);
             TbadkCoreApplication.getInst().RegisterOrUpdateIntent(LoginDialogActivityConfig.class, LoginDialogActivity.class);
             TbadkCoreApplication.getInst().RegisterOrUpdateIntent(OneKeyLoginActivityConfig.class, OneKeyLoginActivity.class);

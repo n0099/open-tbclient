@@ -1,38 +1,47 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tbadk.data.TbMusicData;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.external.music.data.MusicData;
+import com.baidu.tieba.view.widget.recordeffect.RecordEffectLayout;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f09;
-import com.repackage.hz5;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.FrsTabInfo;
-import tbclient.SimpleForum;
 /* loaded from: classes7.dex */
-public class wy8 implements hz5 {
+public class wy8 extends BaseAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public f09 a;
-    public ArrayList<TransmitForumData> b;
-    public List<SimpleForum> c;
-    public hz5.a d;
-    public boolean e;
-    public int f;
-    public f09.b g;
+    public List<zy8> a;
+    public String b;
+    public int c;
+    public RecordEffectLayout.i d;
 
     /* loaded from: classes7.dex */
-    public class a implements f09.b {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wy8 a;
+        public TbImageView a;
+        public ProgressBar b;
+        public TextView c;
+        public int d;
 
         public a(wy8 wy8Var) {
             Interceptable interceptable = $ic;
@@ -46,108 +55,305 @@ public class wy8 implements hz5 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = wy8Var;
         }
+    }
 
-        @Override // com.repackage.f09.b
-        public void a(List<SimpleForum> list, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) {
-                this.a.c = list;
-                this.a.f = i;
-                this.a.h();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755184933, "Lcom/repackage/wy8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755184933, "Lcom/repackage/wy8;");
+                return;
             }
         }
-
-        @Override // com.repackage.f09.b
-        public void onError() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.g();
-            }
-        }
+        e = UtilHelper.getDimenPixelSize(R.dimen.tbds156);
     }
 
     public wy8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList<>();
-        this.g = new a(this);
-        BdUniqueId gen = BdUniqueId.gen();
-        f09 f09Var = new f09(gen);
-        this.a = f09Var;
-        f09Var.i(this.g);
-        this.a.j(gen);
+        this.c = -1;
     }
 
-    @Override // com.repackage.hz5
-    public void a(hz5.a aVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public zy8 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.d = aVar;
-        }
-    }
-
-    @Override // com.repackage.hz5
-    public void b() {
-        f09 f09Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d == null || (f09Var = this.a) == null) {
-            return;
-        }
-        this.e = false;
-        f09Var.l(null);
-        this.a.k(null);
-        this.a.h();
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.e) {
-            return;
-        }
-        hz5.a aVar = this.d;
-        if (aVar != null) {
-            aVar.a(null, false, 2, 0);
-        }
-        this.e = true;
-    }
-
-    public final void h() {
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.clear();
-            if (ListUtils.getCount(this.c) > 0) {
-                for (SimpleForum simpleForum : this.c) {
-                    if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
-                        TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
-                        transmitForumData.tabItemDatas = new ArrayList<>();
-                        for (FrsTabInfo frsTabInfo : simpleForum.tab_info) {
-                            if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                                transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
-                            }
-                        }
-                        this.b.add(transmitForumData);
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<zy8> list = this.a;
+            if (list != null && i >= 0 && i < list.size()) {
+                return this.a.get(i);
             }
-            hz5.a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(this.b, true, 2, this.f);
+            return null;
+        }
+        return (zy8) invokeI.objValue;
+    }
+
+    public final void b(a aVar, View view2, ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, view2, viewGroup) == null) {
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fcb);
+            aVar.a = tbImageView;
+            tbImageView.setIsRound(true);
+            aVar.a.setDrawerType(1);
+            aVar.a.setDefaultBgResource(R.color.transparent);
+            aVar.a.setBorderWidth(oi.f(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
+            aVar.a.setConrers(15);
+            aVar.a.setBorderColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0302));
+            aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921c0);
+        }
+    }
+
+    public void c(TbMusicData tbMusicData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbMusicData) == null) || getCount() <= 1 || getItem(1) == null || getItem(1).getType() != 3) {
+            return;
+        }
+        this.c = 1;
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b0d);
+        notifyDataSetChanged();
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void e(List<zy8> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, str) == null) {
+            this.a = list;
+            this.b = str;
+        }
+    }
+
+    public void f(RecordEffectLayout.i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iVar) == null) {
+            this.d = iVar;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && getCount() > 1 && getItem(1) != null && getItem(1).getType() == 3 && (getItem(1).c() instanceof MusicData)) {
+            ((MusicData) getItem(1).c()).img = str;
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            List<zy8> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            zy8 item = getItem(i);
+            if (item == null) {
+                return 0;
+            }
+            int type = item.getType();
+            if (type != 1) {
+                return type != 3 ? 0 : 1;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        View view3;
+        zy8 zy8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                aVar = new a(this);
+                int itemViewType = getItemViewType(i);
+                if (itemViewType == 0) {
+                    view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0179, (ViewGroup) null);
+                    b(aVar, view3, viewGroup);
+                    aVar.b = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f090fda);
+                    aVar.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
+                } else if (itemViewType == 1) {
+                    view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0179, (ViewGroup) null);
+                    b(aVar, view3, viewGroup);
+                    aVar.b = (ProgressBar) view3.findViewById(R.id.obfuscated_res_0x7f090fda);
+                    aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080300);
+                    aVar.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
+                } else if (itemViewType != 2) {
+                    view3 = view2;
+                } else {
+                    view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0178, (ViewGroup) null);
+                    b(aVar, view3, viewGroup);
+                    aVar.c.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0101));
+                }
+                view3.setTag(aVar);
+            } else {
+                aVar = (a) view2.getTag();
+                view3 = view2;
+            }
+            List<zy8> list = this.a;
+            if (list != null && i >= 0 && i <= list.size() - 1 && (zy8Var = this.a.get(i)) != null) {
+                int itemViewType2 = getItemViewType(i);
+                if (itemViewType2 == 0) {
+                    QmFilterItem qmFilterItem = (QmFilterItem) zy8Var.c();
+                    if ("-1".equals(qmFilterItem.id)) {
+                        TbImageView tbImageView = aVar.a;
+                        String str = qmFilterItem.bgurl;
+                        int i2 = e;
+                        tbImageView.H(str, 24, i2, i2, false);
+                    } else {
+                        TbImageView tbImageView2 = aVar.a;
+                        String str2 = qmFilterItem.bgurl;
+                        int i3 = e;
+                        tbImageView2.H(str2, 10, i3, i3, false);
+                    }
+                    if (!TextUtils.isEmpty(qmFilterItem.id) && qmFilterItem.id.equals(this.b)) {
+                        aVar.a.setDrawBorder(true);
+                    } else {
+                        aVar.a.setDrawBorder(false);
+                    }
+                    if (qmFilterItem.isDownLoading) {
+                        aVar.b.setVisibility(0);
+                    } else {
+                        aVar.b.setVisibility(4);
+                    }
+                    if (this.c != i) {
+                        aVar.b.setVisibility(4);
+                    } else if (aVar.b.getVisibility() == 0) {
+                        aVar.a.setDrawBorder(false);
+                    }
+                    aVar.c.setText(zy8Var.b());
+                } else if (itemViewType2 == 1) {
+                    MusicData musicData = (MusicData) zy8Var.c();
+                    int i4 = musicData.editMusicType;
+                    if (i4 != 0 && (i4 != 2 || TextUtils.isEmpty(musicData.img))) {
+                        TbImageView tbImageView3 = aVar.a;
+                        String valueOf = String.valueOf(zy8Var.a());
+                        int i5 = e;
+                        tbImageView3.H(valueOf, 24, i5, i5, false);
+                    } else {
+                        TbImageView tbImageView4 = aVar.a;
+                        String str3 = musicData.img;
+                        int i6 = e;
+                        tbImageView4.H(str3, 10, i6, i6, false);
+                    }
+                    if (!TextUtils.isEmpty(zy8Var.b()) && zy8Var.b().equals(this.b)) {
+                        aVar.a.setDrawBorder(true);
+                    } else {
+                        aVar.a.setDrawBorder(false);
+                    }
+                    if (this.c != i) {
+                        aVar.b.setVisibility(4);
+                    } else if (aVar.b.getVisibility() == 0) {
+                        aVar.a.setDrawBorder(false);
+                    }
+                    aVar.c.setText(musicData.name);
+                } else if (itemViewType2 == 2) {
+                    if (!TextUtils.isEmpty(zy8Var.b()) && zy8Var.b().equals(this.b)) {
+                        aVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080246);
+                    } else {
+                        aVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080245);
+                    }
+                    aVar.c.setText(zy8Var.b());
+                }
+                aVar.a.setTag(zy8Var);
+                aVar.a.setTag(R.id.obfuscated_res_0x7f091a12, aVar);
+                aVar.a.setOnClickListener(this);
+                aVar.d = i;
+            }
+            return view3;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        RecordEffectLayout.i iVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090fcb && (view2.getTag() instanceof zy8)) {
+            zy8 zy8Var = (zy8) view2.getTag();
+            if (zy8Var.getType() == 3 && (zy8Var.c() instanceof MusicData)) {
+                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b0d).equals(zy8Var.b()) && (iVar = this.d) != null) {
+                    iVar.b(zy8Var, view2.getTag(R.id.obfuscated_res_0x7f091a12));
+                    this.c = this.a.indexOf(zy8Var);
+                    this.b = zy8Var.b();
+                }
+                if (!TextUtils.isEmpty(zy8Var.b()) && zy8Var.b().equals(this.b)) {
+                    return;
+                }
+                if (!zy8Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0b0d))) {
+                    this.c = this.a.indexOf(zy8Var);
+                }
+            } else {
+                this.c = this.a.indexOf(zy8Var);
+            }
+            if (zy8Var.getType() == 2 && (zy8Var.c() instanceof QmFilterItem)) {
+                this.b = ((QmFilterItem) zy8Var.c()).id;
+            } else {
+                this.b = zy8Var.b();
+            }
+            notifyDataSetChanged();
+            RecordEffectLayout.i iVar2 = this.d;
+            if (iVar2 != null) {
+                iVar2.b(zy8Var, view2.getTag(R.id.obfuscated_res_0x7f091a12));
             }
         }
     }

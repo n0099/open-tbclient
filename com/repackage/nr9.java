@@ -1,58 +1,26 @@
 package com.repackage;
 
 import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.L;
-import com.win.opensdk.PBMediaView;
 import com.win.opensdk.core.Info;
-import com.win.opensdk.views.CircleProgressbar;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class nr9 {
+public class nr9 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public tt9 b;
-    public Info c;
-    public View d;
-    public List e;
-    public bs9 f;
-    public at9 g;
-    public long h;
-    public xt9 i;
-    public boolean j;
-    public long k;
-    public float l;
-    public float m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public long v;
-    public int w;
-    public int x;
-    public long y;
+    public final /* synthetic */ ur9 a;
 
-    public nr9(Context context, String str) {
+    public nr9(ur9 ur9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {ur9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,133 +30,59 @@ public class nr9 {
                 return;
             }
         }
-        this.e = Collections.synchronizedList(new ArrayList());
-        this.h = 0L;
-        this.i = new xq9(this);
-        this.j = false;
-        this.k = 0L;
-        this.a = context;
-        tt9 tt9Var = new tt9(context, str, L.f);
-        this.b = tt9Var;
-        tt9Var.g = this.i;
-        this.g = new at9(context);
+        this.a = ur9Var;
     }
 
-    public static /* synthetic */ void c(nr9 nr9Var, View view2) {
-        if (nr9Var.t <= 0 || nr9Var.u <= 0) {
-            nr9Var.u = view2.getHeight();
-            nr9Var.t = view2.getWidth();
-        }
-    }
-
-    public void a() {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Info info;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                f();
-                if (this.b != null) {
-                    this.b.b();
-                    this.b = null;
-                }
-                if (this.f != null) {
-                    this.f = null;
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public void b(View view2, PBMediaView pBMediaView, List list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, pBMediaView, list) == null) || view2 == null || list == null || list.size() == 0 || !e()) {
-            return;
-        }
-        this.h = 0L;
-        if (this.d != null) {
-            f();
-        }
-        this.d = view2;
-        try {
-            kr9 kr9Var = new kr9(this);
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                View view3 = (View) it.next();
-                if (view3 != null && !(view3 instanceof PBMediaView)) {
-                    if (!this.e.contains(view3)) {
-                        this.e.add(view3);
-                    }
-                    if (!(view3 instanceof CircleProgressbar)) {
-                        view3.setOnClickListener(kr9Var);
-                        view3.setOnTouchListener(kr9Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                this.a.j = true;
+                this.a.k = System.currentTimeMillis();
+                this.a.l = motionEvent.getX();
+                this.a.m = motionEvent.getY();
+                this.a.n = (int) motionEvent.getRawX();
+                this.a.o = (int) motionEvent.getRawY();
+                this.a.v = System.currentTimeMillis();
+                this.a.p = (int) motionEvent.getX();
+                this.a.q = (int) motionEvent.getY();
+                ur9.c(this.a, view2);
+            } else if (action == 1) {
+                this.a.w = (int) motionEvent.getRawX();
+                this.a.x = (int) motionEvent.getRawY();
+                this.a.r = (int) motionEvent.getX();
+                this.a.s = (int) motionEvent.getY();
+                this.a.y = System.currentTimeMillis();
+                Math.abs(motionEvent.getX() - this.a.l);
+                Math.abs(motionEvent.getY() - this.a.m);
+                if (System.currentTimeMillis() - this.a.k < 2000) {
+                    ur9 ur9Var = this.a;
+                    if (ur9Var.j && (info = ur9Var.c) != null && ar9.d(info, ur9Var.h)) {
+                        this.a.h = System.currentTimeMillis();
+                        ur9 ur9Var2 = this.a;
+                        Context context = ur9Var2.a;
+                        String open = ur9Var2.c.getOpen();
+                        ur9 ur9Var3 = this.a;
+                        ar9.a(context, open, ur9Var3.c, ur9Var3.g, ur9Var3.g().toString());
+                        yr9 a = cs9.a(this.a.a);
+                        a.h(new gs9(this.a.c), null);
+                        a.l("desc", this.a.g().toString());
+                        a.m();
+                        ur9 ur9Var4 = this.a;
+                        wp9.p(ur9Var4.c, ur9Var4.g().toString());
+                        is9 is9Var = this.a.f;
+                        if (is9Var != null) {
+                            is9Var.onClicked();
+                        }
                     }
                 }
             }
-        } catch (Exception unused) {
+            return true;
         }
-        if (pBMediaView != null) {
-            try {
-                if (pBMediaView.getHtmlWebView() != null) {
-                    cs9 htmlWebView = pBMediaView.getHtmlWebView();
-                    htmlWebView.a(e() ? this.c.getLoad() : "", this.c);
-                    if (this.c.isNat()) {
-                        htmlWebView.c.setOnTouchListener(new gr9(this));
-                    }
-                    htmlWebView.b = new hr9(this);
-                }
-            } catch (Exception unused2) {
-            }
-        }
-        rr9 a = vr9.a(this.a);
-        a.o(new zr9(this.c));
-        a.m();
-        if (this.c != null) {
-            fr9.m(this.a, this.c.getId() + ":" + System.currentTimeMillis(), false);
-        }
-        new qp9().a(view2, this.c, new dr9(this, view2));
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Info info = this.c;
-            return info != null && info.isEffective();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                for (View view2 : this.e) {
-                    if (view2 != null) {
-                        view2.setOnClickListener(null);
-                    }
-                }
-                this.e.clear();
-                if (this.d != null) {
-                    this.d = null;
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public HashMap g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.n));
-            hashMap.put("dy", Integer.valueOf(this.o));
-            hashMap.put("dts", Long.valueOf(this.v));
-            hashMap.put("ux", Integer.valueOf(this.w));
-            hashMap.put("uy", Integer.valueOf(this.x));
-            hashMap.put("uts", Long.valueOf(this.y));
-            pp9.j(hashMap, this.p, this.q, this.r, this.s, this.t, this.u);
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

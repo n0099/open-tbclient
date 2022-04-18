@@ -1,23 +1,27 @@
 package com.repackage;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
+import com.baidu.tieba.im.push.PushResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.Bigvip.BigvipResIdl;
-import tbclient.Bigvip.UserInfoBigVip;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class p77 implements CustomMessageTask.CustomRunnable<Object> {
+public class p77 extends ua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p77() {
+        super(202009);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -25,38 +29,44 @@ public class p77 implements CustomMessageTask.CustomRunnable<Object> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ra
+    /* renamed from: c */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            UserInfoBigVip userInfoBigVip = null;
-            if (customMessage != null && (customMessage.getData() instanceof Long)) {
-                long longValue = ((Long) customMessage.getData()).longValue();
-                cr4.f();
-                qe<byte[]> d = cr4.d("tb.im_recommend_detail");
-                if (d == null) {
-                    return new CustomResponsedMessage<>(2001306, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage instanceof PushResponseMessage) {
+                if (socketResponsedMessage.getError() == 110000) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
                 }
-                byte[] bArr = d.get(longValue + "");
-                if (bArr == null) {
-                    return new CustomResponsedMessage<>(2001306, null);
+                PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
+                if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
+                    CustomMessage customMessage = new CustomMessage(2012100);
+                    customMessage.setData(pushResponseMessage.getNotificationData());
+                    MessageManager.getInstance().sendMessage(customMessage);
+                    return null;
                 }
-                try {
-                    userInfoBigVip = ((BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class)).data.user_info;
-                } catch (Exception e) {
-                    BdLog.e(e);
+                List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
+                if (groupMsg != null && groupMsg.size() > 0) {
+                    for (GroupMsgData groupMsgData : groupMsg) {
+                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
+                        }
+                    }
                 }
-                return new CustomResponsedMessage<>(2001306, userInfoBigVip);
+                return socketResponsedMessage;
             }
-            return new CustomResponsedMessage<>(2001306, null);
+            return null;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

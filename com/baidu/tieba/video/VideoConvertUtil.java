@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.os8;
-import com.repackage.ps8;
+import com.repackage.vs8;
+import com.repackage.ws8;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class VideoConvertUtil {
@@ -29,7 +29,7 @@ public class VideoConvertUtil {
     public String d;
     public File e;
     public File f;
-    public ps8 g;
+    public ws8 g;
     public IntenalConvertListener h;
     public int i;
     public boolean j;
@@ -172,7 +172,7 @@ public class VideoConvertUtil {
                 return;
             }
         }
-        String str = os8.f;
+        String str = vs8.f;
     }
 
     public VideoConvertUtil(Context context) {
@@ -262,12 +262,12 @@ public class VideoConvertUtil {
                 e.printStackTrace();
                 i = -1;
             }
-            ps8 ps8Var = this.g;
-            if (ps8Var != null) {
+            ws8 ws8Var = this.g;
+            if (ws8Var != null) {
                 if (i == 0) {
-                    ps8Var.b();
+                    ws8Var.b();
                 } else {
-                    ps8Var.a(i);
+                    ws8Var.a(i);
                 }
             }
         }
@@ -290,10 +290,10 @@ public class VideoConvertUtil {
         return invokeV.booleanValue;
     }
 
-    public void o(ps8 ps8Var) {
+    public void o(ws8 ws8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ps8Var) == null) {
-            this.g = ps8Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ws8Var) == null) {
+            this.g = ws8Var;
         }
     }
 }

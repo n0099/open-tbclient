@@ -1,23 +1,23 @@
 package com.repackage;
 
-import android.view.ViewTreeObserver;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ro9 implements ViewTreeObserver.OnScrollChangedListener {
+public class ro9 implements wo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ np9 a;
-    public final /* synthetic */ qp9 b;
+    public final /* synthetic */ zo9 a;
 
-    public ro9(qp9 qp9Var, np9 np9Var) {
+    public ro9(zo9 zo9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qp9Var, np9Var};
+            Object[] objArr = {zo9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,27 +27,39 @@ public class ro9 implements ViewTreeObserver.OnScrollChangedListener {
                 return;
             }
         }
-        this.b = qp9Var;
-        this.a = np9Var;
+        this.a = zo9Var;
     }
 
-    @Override // android.view.ViewTreeObserver.OnScrollChangedListener
-    public void onScrollChanged() {
+    @Override // com.repackage.wo9
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                if (this.b.b || !this.b.b(this.b.a)) {
-                    return;
-                }
-                this.b.e.removeMessages(1101);
-                this.b.a.getViewTreeObserver().removeOnScrollChangedListener(this);
-                if (this.a != null) {
-                    this.a.a();
-                }
-                this.b.b = true;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
+    }
+
+    @Override // com.repackage.wo9
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            zo9 zo9Var = this.a;
+            if (ar9.d(zo9Var.c, zo9Var.h)) {
+                this.a.h = System.currentTimeMillis();
+                zo9 zo9Var2 = this.a;
+                ar9.a(zo9Var2.a, str, zo9Var2.c, zo9Var2.g, str2);
+                yr9 a = cs9.a(this.a.a);
+                a.h(new gs9(this.a.c), str);
+                a.l("desc", str2);
+                a.m();
+                xo9 xo9Var = this.a.f;
+                if (xo9Var != null) {
+                    xo9Var.onClicked();
+                }
+                wp9.p(this.a.c, str2);
+                return true;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

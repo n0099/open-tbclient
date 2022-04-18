@@ -124,7 +124,7 @@ public class mv1 {
                 }
                 return;
             }
-            m74.g().getRequest().cookieManager(qj2.q().a()).url(qj2.m().processUrl(nv1.a())).build().executeAsync(new a(ov1Var));
+            l74.g().getRequest().cookieManager(qj2.q().a()).url(qj2.m().processUrl(nv1.a())).build().executeAsync(new a(ov1Var));
         }
     }
 
@@ -152,14 +152,14 @@ public class mv1 {
     public static void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && SwanAppNetworkUtils.h()) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) m74.g().postRequest().cookieManager(qj2.q().a())).url(qj2.m().processUrl(nv1.b()))).requestBody(c(map)).build().executeAsync(null);
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) l74.g().postRequest().cookieManager(qj2.q().a())).url(qj2.m().processUrl(nv1.b()))).requestBody(c(map)).build().executeAsync(null);
         }
     }
 
     public static void e(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65541, null, map) == null) && SwanAppNetworkUtils.h()) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) m74.g().postRequest().cookieManager(qj2.q().a())).url(qj2.m().processUrl(nv1.c()))).requestBody(c(map)).build().executeAsync(null);
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) l74.g().postRequest().cookieManager(qj2.q().a())).url(qj2.m().processUrl(nv1.c()))).requestBody(c(map)).build().executeAsync(null);
         }
     }
 }

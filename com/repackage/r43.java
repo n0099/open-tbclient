@@ -63,13 +63,13 @@ public class r43 {
 
         /* renamed from: com.repackage.r43$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0501a implements Runnable {
+        public class RunnableC0505a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Uri a;
             public final /* synthetic */ a b;
 
-            public RunnableC0501a(a aVar, Uri uri) {
+            public RunnableC0505a(a aVar, Uri uri) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -126,7 +126,7 @@ public class r43 {
                 if (r43.a) {
                     Log.d("SYSTEM_SCREENSHOT", "onChange(), uri: " + uri);
                 }
-                ExecutorUtilsExt.postOnElastic(new RunnableC0501a(this, uri), "systemScreenShot", 1);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0505a(this, uri), "systemScreenShot", 1);
             }
         }
     }
@@ -397,7 +397,7 @@ public class r43 {
     public static boolean p(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? Build.VERSION.SDK_INT < 23 || me4.a(context, "android.permission.READ_EXTERNAL_STORAGE") == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? Build.VERSION.SDK_INT < 23 || le4.a(context, "android.permission.READ_EXTERNAL_STORAGE") == 0 : invokeL.booleanValue;
     }
 
     /* JADX WARN: Not initialized variable reg: 4, insn: 0x0157: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:44:0x0157 */
@@ -434,7 +434,7 @@ public class r43 {
                                         Log.d("SYSTEM_SCREENSHOT", "imageUri: " + k.toString());
                                     }
                                     if (k(string)) {
-                                        ng4.d(cursor);
+                                        mg4.d(cursor);
                                         return;
                                     }
                                     l = k.toString();
@@ -457,23 +457,23 @@ public class r43 {
                                     hashMap.put("ext", queryContentProviders.toString());
                                     q63.j("460", hashMap);
                                 }
-                                ng4.d(cursor);
+                                mg4.d(cursor);
                             }
                         }
                     } catch (Throwable th) {
                         th = th;
                         closeable2 = closeable;
-                        ng4.d(closeable2);
+                        mg4.d(closeable2);
                         throw th;
                     }
                 } catch (RuntimeException unused2) {
                     cursor = null;
                 } catch (Throwable th2) {
                     th = th2;
-                    ng4.d(closeable2);
+                    mg4.d(closeable2);
                     throw th;
                 }
-                ng4.d(cursor);
+                mg4.d(cursor);
             }
         }
     }

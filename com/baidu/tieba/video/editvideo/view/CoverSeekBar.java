@@ -256,7 +256,7 @@ public class CoverSeekBar extends FrameLayout {
             this.d = oi.k(getContext()) / 10;
             this.e = oi.f(getContext(), R.dimen.obfuscated_res_0x7f07023a);
             this.g = new LinearLayout.LayoutParams(this.d, this.e);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e86);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e87);
             this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f09071a);
             this.c.setLayoutParams(new FrameLayout.LayoutParams(this.d, this.e));
         }

@@ -1,57 +1,87 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
 /* loaded from: classes7.dex */
-public class z3a implements Interceptor {
+public final class z3a {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public z3a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static final class a implements iz9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.iz9
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.iz9
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755161559, "Lcom/repackage/z3a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755161559, "Lcom/repackage/z3a;");
                 return;
             }
         }
-        this.b = 0;
-        this.a = i;
+        a = new a();
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    public static iz9 a(oz9 oz9Var) {
         InterceptResult invokeL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            Request request = chain.request();
-            Response proceed = chain.proceed(request);
-            while (!proceed.isSuccessful() && (i = this.b) < this.a) {
-                this.b = i + 1;
-                proceed.close();
-                proceed = chain.proceed(request);
-                RLog.info("RetryInterceptor", "RetryInterceptor maxRetry=%s, retryCount=%s", Integer.valueOf(this.a), Integer.valueOf(this.b));
-            }
-            return proceed;
-        }
-        return (Response) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, oz9Var)) == null) ? v3a.b(oz9Var) : (iz9) invokeL.objValue;
+    }
+
+    public static iz9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? v3a.a() : (iz9) invokeV.objValue;
+    }
+
+    public static iz9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : (iz9) invokeV.objValue;
     }
 }

@@ -39,14 +39,14 @@ public class z55 implements i55<MissionEvent> {
                 long j = missionEvent.tid;
                 String str = missionEvent.actionType;
                 if ("onResume".equals(str)) {
-                    pi4.y().M(i, j);
-                    pi4.y().R(i2, j);
+                    oi4.y().M(i, j);
+                    oi4.y().R(i2, j);
                 } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-                    pi4.y().G();
+                    oi4.y().G();
                 } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
-                    pi4.y().H();
+                    oi4.y().H();
                 } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-                    pi4.y().M(i, j);
+                    oi4.y().M(i, j);
                 }
                 return true;
             }

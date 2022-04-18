@@ -39,13 +39,13 @@ public class kc2 {
 
         /* renamed from: com.repackage.kc2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0454a implements Runnable {
+        public class RunnableC0455a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ic2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0454a(a aVar, ic2 ic2Var) {
+            public RunnableC0455a(a aVar, ic2 ic2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class kc2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.b.runOnJSThread(new RunnableC0454a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
+                this.f.b.runOnJSThread(new RunnableC0455a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
             }
         }
     }

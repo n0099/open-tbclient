@@ -33,16 +33,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gw8;
+import com.repackage.fw8;
+import com.repackage.nw8;
 import com.repackage.oi;
-import com.repackage.wr4;
-import com.repackage.yv8;
+import com.repackage.vr4;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000t\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\n\u0010\u001a\u001a\u0004\u0018\u00010\u0018H\u0016J\b\u0010\u001b\u001a\u00020\u0013H\u0016J\b\u0010\u001c\u001a\u00020\u001dH\u0002J\u0006\u0010\u001e\u001a\u00020\u001fJ\u0012\u0010 \u001a\u00020\u001d2\b\u0010!\u001a\u0004\u0018\u00010\"H\u0016J\u0010\u0010#\u001a\u00020\u001d2\u0006\u0010$\u001a\u00020\u0013H\u0016J&\u0010%\u001a\u0004\u0018\u00010\f2\u0006\u0010&\u001a\u00020'2\b\u0010(\u001a\u0004\u0018\u00010)2\b\u0010!\u001a\u0004\u0018\u00010\"H\u0016J\u000e\u0010*\u001a\u00020\u001d2\u0006\u0010+\u001a\u00020\u0013J\u0010\u0010,\u001a\u00020\u001d2\u0006\u0010-\u001a\u00020\u0013H\u0016R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082.¢\u0006\u0002\n\u0000R\u0014\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\b0\u0007X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0013X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0016X\u0082.¢\u0006\u0002\n\u0000¨\u0006."}, d2 = {"Lcom/baidu/tieba/videoplay/fragment/VideoAttentionListPageFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/videoplay/verticalviewpager/transforms/IVideoFragment;", "()V", "adapter", "Lcom/baidu/tieba/videoplay/adapter/VideoAttentionPageRecomendListAdapter;", "datalist", "", "Lcom/baidu/tieba/videoplay/data/VideoAttentionPersonListData;", "headText", "Lcom/baidu/tbadk/core/elementsMaven/view/EMTextView;", "headerView", "Landroid/view/View;", "lastView", "listView", "Lcom/baidu/adp/widget/ListView/BdRecyclerView;", "mBackHomeAnimListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mCurrentType", "", "mFragmentIndex", "mFromPage", "", "mVideoItemModel", "Lcom/baidu/tieba/video/VideoItemModel;", "showWord", "getCurrentData", "getFragmentIndex", "initRecyclerView", "", "isOnViewTop", "", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "scrollToPosition", "position", "setFragmentIndex", "index", "VideoPlay_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes4.dex */
-public final class VideoAttentionListPageFragment extends BaseFragment implements gw8 {
+public final class VideoAttentionListPageFragment extends BaseFragment implements nw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public VideoAttentionPageRecomendListAdapter a;
@@ -220,7 +220,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
         }
     }
 
-    @Override // com.repackage.gw8
+    @Override // com.repackage.nw8
     public void M(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -228,7 +228,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
         }
     }
 
-    @Override // com.repackage.gw8
+    @Override // com.repackage.nw8
     public VideoItemModel W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -267,7 +267,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.gw8
+    @Override // com.repackage.nw8
     public int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -392,7 +392,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                         Intrinsics.throwUninitializedPropertyAccessException("headerView");
                         inflate2 = null;
                     }
-                    wr4 d = wr4.d(inflate2);
+                    vr4 d = vr4.d(inflate2);
                     d.n(R.string.J_X05);
                     d.g(SkinManager.getColor(0, (int) R.color.CAM_X0105));
                     View inflate3 = inflater.inflate(R.layout.obfuscated_res_0x7f0d0868, viewGroup, false);
@@ -403,10 +403,10 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                             Intrinsics.throwUninitializedPropertyAccessException("headerView");
                             view2 = null;
                         }
-                        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0922fb);
+                        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0922fc);
                         Intrinsics.checkNotNullExpressionValue(findViewById, "headerView.findViewById(…eo_concern_no_data_title)");
                         this.h = (EMTextView) findViewById;
-                        View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f09237e);
+                        View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f09237f);
                         Intrinsics.checkNotNullExpressionValue(findViewById2, "rooView.findViewById(R.id.viedo_attention_list)");
                         BdRecyclerView bdRecyclerView2 = (BdRecyclerView) findViewById2;
                         this.e = bdRecyclerView2;
@@ -418,7 +418,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                         bdRecyclerView.setPadding(0, oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds250), 0, 0);
                         B0();
                         final GestureDetectorCompat gestureDetectorCompat = new GestureDetectorCompat(getContext(), new b(inflate));
-                        inflate.setOnTouchListener(new View.OnTouchListener() { // from class: com.repackage.mv8
+                        inflate.setOnTouchListener(new View.OnTouchListener() { // from class: com.repackage.tv8
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -429,7 +429,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                                 return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, motionEvent)) == null) ? VideoAttentionListPageFragment.C0(GestureDetectorCompat.this, view3, motionEvent) : invokeLL.booleanValue;
                             }
                         });
-                        inflate.setOnLongClickListener(yv8.a);
+                        inflate.setOnLongClickListener(fw8.a);
                         return inflate;
                     }
                     throw new NullPointerException("null cannot be cast to non-null type android.view.View");

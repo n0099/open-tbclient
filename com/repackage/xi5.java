@@ -44,7 +44,7 @@ public class xi5 extends rh0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vh0Var, map, zh0Var)) == null) {
             super.b(context, vh0Var, map, zh0Var);
-            return ga8.h(context, vh0Var.d());
+            return na8.h(context, vh0Var.d());
         }
         return invokeLLLL.booleanValue;
     }

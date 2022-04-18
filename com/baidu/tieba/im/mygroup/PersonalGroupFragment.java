@@ -39,9 +39,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cu4;
 import com.repackage.du4;
-import com.repackage.eu4;
-import com.repackage.i77;
+import com.repackage.l77;
 import com.repackage.mi;
 import com.repackage.ya;
 import java.util.List;
@@ -52,8 +52,8 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
-    public eu4 b;
-    public i77 c;
+    public du4 b;
+    public l77 c;
     public NoDataView d;
     public View e;
     public boolean f;
@@ -102,7 +102,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
     }
 
     /* loaded from: classes3.dex */
-    public class b implements du4.g {
+    public class b implements cu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalGroupFragment a;
@@ -125,7 +125,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             this.a = personalGroupFragment;
         }
 
-        @Override // com.repackage.du4.g
+        @Override // com.repackage.cu4.g
         public void onListPullRefresh(boolean z) {
             PersonGroupActivity F0;
             Interceptable interceptable = $ic;
@@ -229,7 +229,7 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
                 ResponseGroupsByUidMessage responseGroupsByUidMessage = (ResponseGroupsByUidMessage) socketResponsedMessage;
                 if (responseGroupsByUidMessage.getError() != 0) {
                     if (responseGroupsByUidMessage.getError() != 0) {
-                        this.a.showToast(StringUtils.isNull(responseGroupsByUidMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18) : responseGroupsByUidMessage.getErrorString());
+                        this.a.showToast(StringUtils.isNull(responseGroupsByUidMessage.getErrorString()) ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) : responseGroupsByUidMessage.getErrorString());
                         return;
                     }
                     return;
@@ -463,9 +463,9 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            i77 i77Var = this.c;
-            if (i77Var != null) {
-                i77Var.notifyDataSetChanged();
+            l77 l77Var = this.c;
+            if (l77Var != null) {
+                l77Var.notifyDataSetChanged();
             }
             NoDataView noDataView = this.d;
             if (noDataView != null) {
@@ -506,24 +506,24 @@ public class PersonalGroupFragment extends BaseFragment implements AdapterView.O
             PersonGroupActivity F0 = F0();
             if (F0 != null && !F0.getIsHost()) {
                 if (this.g == 0) {
-                    d2 = NoDataViewFactory.e.c(String.format(getString(R.string.obfuscated_res_0x7f0f0e14), F0.getUtype()));
+                    d2 = NoDataViewFactory.e.c(String.format(getString(R.string.obfuscated_res_0x7f0f0e13), F0.getUtype()));
                 } else {
-                    d2 = NoDataViewFactory.e.c(getString(R.string.obfuscated_res_0x7f0f0e13));
+                    d2 = NoDataViewFactory.e.c(getString(R.string.obfuscated_res_0x7f0f0e12));
                 }
             } else {
                 d2 = (F0 == null || !F0.getIsHost()) ? null : NoDataViewFactory.e.d(getString(R.string.obfuscated_res_0x7f0f07e1), getString(R.string.obfuscated_res_0x7f0f07e2));
             }
             this.d = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070235)), d2, null);
-            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f0917ae);
-            this.b = new eu4(getPageContext());
-            this.c = new i77(this);
+            this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f0917af);
+            this.b = new du4(getPageContext());
+            this.c = new l77(this);
             this.b.f(new b(this));
             this.a.setPullRefresh(this.b);
             this.a.setAdapter((ListAdapter) this.c);
             this.a.setOnItemClickListener(this);
             this.d.setVisibility(8);
             this.a.removeHeaderView(this.d);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090cfb);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090cfc);
             if (F0() != null && this.g == F0().getCurrentPageType()) {
                 this.a.F();
             }

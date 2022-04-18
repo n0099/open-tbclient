@@ -1,36 +1,106 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionCategoryAdapter;
-import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionHorizontalAdapter;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class v96 {
+public class v96 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b9 a;
-    public BdTypeListView b;
-    public final List<ho> c;
-    public EmotionCategoryAdapter d;
-    public EmotionHorizontalAdapter e;
-    public List<uo> f;
+    public List<bl4> a;
+    public String b;
+    public Context c;
+    public k35 d;
+    public int e;
+    public int f;
 
-    public v96(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    /* loaded from: classes7.dex */
+    public class a implements g35 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+
+        public a(v96 v96Var, ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v96Var, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+        }
+
+        @Override // com.repackage.g35
+        public void a(fo foVar, String str, boolean z) {
+            HeadImageView headImageView;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, foVar, str, z) == null) || (headImageView = (HeadImageView) this.a.findViewWithTag(str)) == null || foVar == null) {
+                return;
+            }
+            headImageView.invalidate();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HeadImageView a;
+        public TextView b;
+        public ImageView c;
+
+        public b(v96 v96Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v96Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(v96 v96Var, a aVar) {
+            this(v96Var);
+        }
+    }
+
+    public v96(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,75 +110,112 @@ public class v96 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.f = new ArrayList();
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        b();
+        this.c = context;
+        this.d = new k35();
+        this.f = (int) this.c.getResources().getDimension(R.dimen.obfuscated_res_0x7f07023f);
+        this.e = oi.k(this.c) / 2;
     }
 
-    public void a(List<uo> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public bl4 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (this.b != null) {
-            this.f.addAll(list);
-            this.b.setData(this.f);
-        }
-        c();
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = new EmotionCategoryAdapter((TbPageContext) this.a, w96.a);
-            this.e = new EmotionHorizontalAdapter((TbPageContext) this.a, x96.b);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.b.a(this.c);
-        }
-    }
-
-    public void c() {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeListView = this.b) == null || bdTypeListView.getAdapter2() == null || !(this.b.getAdapter2() instanceof BaseAdapter)) {
-            return;
-        }
-        this.b.getAdapter2().notifyDataSetChanged();
-    }
-
-    public void d(List<uo> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        if (!ListUtils.isEmpty(this.f)) {
-            this.f.clear();
-        }
-        BdTypeListView bdTypeListView = this.b;
-        if (bdTypeListView != null) {
-            bdTypeListView.setData(list);
-            this.f.addAll(list);
-        }
-        c();
-    }
-
-    public void e(EmotionPackageData emotionPackageData) {
-        x96 x96Var;
-        EmotionPackageData emotionPackageData2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, emotionPackageData) == null) || emotionPackageData == null || ListUtils.isEmpty(this.f)) {
-            return;
-        }
-        for (uo uoVar : this.f) {
-            if ((uoVar instanceof x96) && (x96Var = (x96) uoVar) != null && (emotionPackageData2 = x96Var.a) != null && emotionPackageData2.id == emotionPackageData.id) {
-                emotionPackageData2.download = emotionPackageData.download;
-                emotionPackageData2.share = emotionPackageData.share;
-                c();
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<bl4> list = this.a;
+            if (list == null || i < 0 || i >= list.size()) {
+                return null;
             }
+            return this.a.get(i);
         }
+        return (bl4) invokeI.objValue;
+    }
+
+    public void b(List<bl4> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
+            this.a = list;
+            this.b = str;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<bl4> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 != null) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d01ed, viewGroup, false);
+                bVar = new b(this, null);
+                bVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f70);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f82);
+                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f58);
+                bVar.c = imageView;
+                SkinManager.setImageResource(imageView, R.drawable.icon_site_ok);
+                view2.setTag(bVar);
+            }
+            bVar.a.setTag(null);
+            bVar.a.setDefaultResource(R.drawable.pic_image_h_not);
+            bVar.a.K(null, 12, false);
+            bVar.a.invalidate();
+            bl4 item = getItem(i);
+            if (item != null) {
+                if (!TextUtils.isEmpty(item.g())) {
+                    item.g();
+                    String s = oi.s(bVar.b.getPaint(), item.g(), this.e);
+                    bVar.b.setText(s + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
+                } else {
+                    bVar.b.setText("");
+                }
+                String b2 = item.b();
+                if (!TextUtils.isEmpty(b2) && b2.equals(this.b)) {
+                    bVar.c.setVisibility(0);
+                } else {
+                    bVar.c.setVisibility(8);
+                }
+                ImageFileInfo e = item.e();
+                if (e != null) {
+                    e.clearPageActions();
+                    int i2 = this.f;
+                    e.addPageAction(u35.g(i2, i2));
+                    fo c = this.d.c(e, false);
+                    bVar.a.setTag(e.toCachedKey(false));
+                    if (c != null) {
+                        bVar.a.invalidate();
+                    } else {
+                        this.d.e(e, new a(this, viewGroup), false, false);
+                    }
+                }
+            } else {
+                bVar.b.setText("");
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

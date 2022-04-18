@@ -415,15 +415,15 @@ public class t82 implements xg1, da2 {
             b93.j().g("aiapp_", set, true);
             String w = r73.w();
             if (!TextUtils.isEmpty(w)) {
-                ng4.k(w);
+                mg4.k(w);
             }
             String y = r73.y();
             if (!TextUtils.isEmpty(y)) {
-                ng4.k(y);
+                mg4.k(y);
             }
             String n = fj2.n();
             if (!TextUtils.isEmpty(n)) {
-                ng4.k(n);
+                mg4.k(n);
             }
             yh1 yh1Var = this.e;
             if (yh1Var != null) {

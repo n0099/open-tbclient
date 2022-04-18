@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt4;
+import com.repackage.vt4;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class VideoCardLazyInitSwitch extends BaseNormalSwitch {
@@ -58,7 +58,7 @@ public class VideoCardLazyInitSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 2) {
-                int l = wt4.k().l("key_video_card_lazy_init", 0);
+                int l = vt4.k().l("key_video_card_lazy_init", 0);
                 type = l;
                 if (l == 2) {
                     switchOn = true;

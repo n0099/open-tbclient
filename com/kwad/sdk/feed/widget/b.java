@@ -45,13 +45,13 @@ public class b extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09100d);
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091088)).setRatio(0.56f);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091014);
-        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091015);
-        this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091016);
-        this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f09100f);
-        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091010);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09100e);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091089)).setRatio(0.56f);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091015);
+        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091016);
+        this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091017);
+        this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f091010);
+        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091011);
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a

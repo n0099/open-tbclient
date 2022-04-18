@@ -1,32 +1,48 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.n74;
 /* loaded from: classes5.dex */
-public class a74 {
+public class a74 extends n74.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a74(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b().h() : invokeV.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    @Inject
-    public static z64 b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.n74.a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    /* renamed from: a */
+    public n74 build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ek2.a() : (z64) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b().isDebug() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            z64.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
+        }
+        return (n74) invokeV.objValue;
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bt4;
+import com.repackage.at4;
 import com.repackage.ki;
 import com.repackage.ll5;
 import com.repackage.oi;
@@ -39,6 +39,7 @@ public class SplashNativePolicy {
     public static final int SPLASH_REQUEST_START = 96;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean loadResult;
+    public int plgAdType;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -101,31 +102,39 @@ public class SplashNativePolicy {
                 return;
             }
         }
+        this.plgAdType = 0;
         this.loadResult = ki.d().h("splash_policy", 1);
         PrintStream printStream = System.out;
         printStream.println("SplashPolicy loadResult: " + this.loadResult);
     }
 
-    @bt4
+    @at4
     private native void nativeInitSplashPolicy(String str, String str2, int i, int i2, int i3, int i4, int i5);
 
-    @bt4
+    @at4
     private native void nativeReleaseSplash();
 
-    @bt4
+    @at4
     private native void nativeUpdateSplashConfig(int i, int i2, int i3, int i4, int i5);
 
-    @bt4
+    @at4
     private native void onNativeSplashEvent(int i, int i2);
 
-    @bt4
+    @at4
     public void eventCallback(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             PrintStream printStream = System.out;
             printStream.println("SplashPolicy eventCallback=>" + i);
             if (i == 128 || i == 129) {
-                ll5.e().k();
+                int i2 = this.plgAdType;
+                ll5.e().k(i2 > 120 ? 1 : i2 == 120 ? 2 : i2 > 0 ? 3 : 0);
+            } else if (i == 131) {
+                ll5.e().k(-1);
+            } else if (i == 132) {
+                ll5.e().k(-2);
+            } else if (i == 130) {
+                ll5.e().k(-3);
             }
             if (oi.B()) {
                 switch (i) {
@@ -198,7 +207,18 @@ public class SplashNativePolicy {
     public void onSplashEvent(int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) && this.loadResult) {
-            onNativeSplashEvent(i, i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? 112 : 120 : 122 : 113 : 123);
+            if (i2 == 0) {
+                this.plgAdType = 123;
+            } else if (i2 == 1) {
+                this.plgAdType = 113;
+            } else if (i2 == 2) {
+                this.plgAdType = 122;
+            } else if (i2 != 3) {
+                this.plgAdType = 112;
+            } else {
+                this.plgAdType = 120;
+            }
+            onNativeSplashEvent(i, this.plgAdType);
         }
     }
 }

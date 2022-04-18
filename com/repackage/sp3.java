@@ -93,11 +93,11 @@ public class sp3 {
     public final void a(@NonNull Request request) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, request) == null) {
-            l74 l74Var = new l74(request.url().toString(), new a(this));
-            l74Var.f = true;
-            l74Var.g = false;
-            l74Var.h = false;
-            m74.g().d(l74Var);
+            k74 k74Var = new k74(request.url().toString(), new a(this));
+            k74Var.f = true;
+            k74Var.g = false;
+            k74Var.h = false;
+            l74.g().d(k74Var);
         }
     }
 

@@ -1,13 +1,51 @@
 package com.repackage;
 
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
-public interface vw9 {
-    String d(String str);
+public class vw9 extends rw9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean e(String str);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vw9() {
+        super(Framedata.Opcode.PONG);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    Iterator<String> g();
-
-    byte[] getContent();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vw9(uw9 uw9Var) {
+        super(Framedata.Opcode.PONG);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uw9Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        j(uw9Var.a());
+    }
 }

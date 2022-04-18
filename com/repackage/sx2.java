@@ -232,8 +232,8 @@ public final class sx2 extends g23 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             nz2.a aVar = new nz2.a(context);
             aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f12b9);
-            aVar.v(R.string.obfuscated_res_0x7f0f12bd);
+            aVar.U(R.string.obfuscated_res_0x7f0f12b8);
+            aVar.v(R.string.obfuscated_res_0x7f0f12bc);
             aVar.O(R.string.obfuscated_res_0x7f0f0110, b.a);
             aVar.X();
         }

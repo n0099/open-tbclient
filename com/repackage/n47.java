@@ -1,7 +1,19 @@
 package com.repackage;
 
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,21 +21,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetSugTopic.TopicList;
-import tbclient.GetSugTopic.TopicListModule;
 /* loaded from: classes6.dex */
 public class n47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public List<o47> c;
-    public List<q47> d;
+    public final l47 a;
+    public View b;
+    public BdTypeRecyclerView c;
+    public PbListView d;
 
-    public n47() {
+    /* loaded from: classes6.dex */
+    public interface a {
+    }
+
+    public n47(a aVar, View view2, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, view2, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,70 +49,113 @@ public class n47 {
                 return;
             }
         }
-        this.b = -1;
-        this.c = new ArrayList();
-        this.d = new ArrayList();
+        this.b = view2;
+        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090b43);
+        this.c = bdTypeRecyclerView;
+        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
+        this.c.setFadingEdgeLength(0);
+        this.c.setOverScrollMode(2);
+        PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
+        this.d = pbListView;
+        pbListView.a();
+        this.d.p(R.color.CAM_X0205);
+        this.d.t(oi.f(tbPageContext.getPageActivity(), R.dimen.tbds182));
+        this.d.x();
+        this.d.G(R.dimen.tbfontsize33);
+        this.d.A(R.color.CAM_X0110);
+        this.c.setNextPage(this.d);
+        this.d.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.d.f();
+        this.d.C(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
+        c();
+        this.a = new l47(tbPageContext, this.c);
     }
 
-    public String a() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    public List<o47> b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = this.c;
+            if (bdTypeRecyclerView == null) {
+                return false;
+            }
+            return !ListUtils.isEmpty(bdTypeRecyclerView.getData());
+        }
+        return invokeV.booleanValue;
     }
 
-    public List<q47> c() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (List) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            PbListView pbListView = this.d;
+            if (pbListView != null) {
+                pbListView.E(SkinManager.getColor(R.color.CAM_X0107));
+                this.d.d(skinType);
+            }
+            BdTypeRecyclerView bdTypeRecyclerView = this.c;
+            if (bdTypeRecyclerView == null || bdTypeRecyclerView.getAdapter() == null) {
+                return;
+            }
+            this.c.getAdapter().notifyDataSetChanged();
+        }
     }
 
-    public void d(TopicListModule topicListModule) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, topicListModule) == null) || topicListModule == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.scrollToPosition(0);
+        }
+    }
+
+    public void e(List<uo> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.a = topicListModule.module_title;
-        List<TopicList> list = topicListModule.topic_list;
-        if (list == null) {
-            return;
+        this.c.setData(list);
+    }
+
+    public void f(TbPageTag tbPageTag) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, tbPageTag) == null) {
+            this.a.a(tbPageTag);
         }
-        int count = ListUtils.getCount(list);
-        for (int i = 0; i < count; i++) {
-            o47 o47Var = new o47();
-            TopicList topicList = (TopicList) ListUtils.getItem(topicListModule.topic_list, i);
-            if (topicList != null) {
-                o47Var.c(topicList);
-                if (!ni.isEmptyStringAfterTrim(o47Var.b())) {
-                    this.c.add(o47Var);
-                    this.d.add(new q47(topicList));
-                }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z) {
+                this.c.setVisibility(0);
+            } else {
+                this.c.setVisibility(8);
             }
         }
     }
 
-    public void e(String str) {
+    public void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            td6 td6Var = new td6();
+            td6Var.a = 401;
+            td6Var.b = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, td6Var));
         }
     }
 
-    public void f(int i) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new sd6());
+            this.c.setData(arrayList);
         }
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
     }
 }

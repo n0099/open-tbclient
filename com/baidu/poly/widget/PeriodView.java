@@ -200,8 +200,8 @@ public class PeriodView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06a7, (ViewGroup) this, true);
-            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091ad5);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091762);
+            this.c = (PolyFrameLayout) findViewById(R.id.obfuscated_res_0x7f091ad6);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091763);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f090620);
             this.h = findViewById;
             findViewById.setOnTouchListener(new a(this));
@@ -209,8 +209,8 @@ public class PeriodView extends FrameLayout {
             View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0902f9);
             this.f = findViewById2;
             findViewById2.setOnClickListener(new c(this));
-            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091763);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f0a);
+            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091764);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090f0b);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090699);
             da1 da1Var = new da1(getContext());
             this.l = da1Var;

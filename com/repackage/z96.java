@@ -1,171 +1,55 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z96 extends PopupWindow implements View.OnClickListener {
+public class z96 implements uo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView a;
-    public TextView b;
-    public TextView c;
-    public View d;
-    public View e;
-    public View f;
-    public LinearLayout g;
-    public ba6 h;
-    public Context i;
+    public EmotionPackageData a;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z96 a;
-
-        public a(z96 z96Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755157126, "Lcom/repackage/z96;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = z96Var;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                int top = this.a.d.findViewById(R.id.obfuscated_res_0x7f090e3b).getTop();
-                int y = (int) motionEvent.getY();
-                if (motionEvent.getAction() == 1 && y < top) {
-                    this.a.dismiss();
-                }
-                return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755157126, "Lcom/repackage/z96;");
+                return;
             }
-            return invokeLL.booleanValue;
         }
+        b = BdUniqueId.gen();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z96(Context context, int i) {
-        super(context);
+    public z96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b(context, i);
-        this.i = context;
-        e();
-        c(TbadkCoreApplication.getInst().getSkinType());
-        this.a.setOnClickListener(this);
-        this.b.setOnClickListener(this);
-        this.c.setOnClickListener(this);
-    }
-
-    public final void b(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0256, (ViewGroup) null);
-            this.d = inflate;
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ed);
-            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0921be);
-            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092171);
-            this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090e3b);
-            this.e = this.d.findViewById(R.id.obfuscated_res_0x7f09124c);
-            this.f = this.d.findViewById(R.id.obfuscated_res_0x7f09124d);
-            if (i == 1) {
-                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
-            } else {
-                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0204);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void c(int i) {
+    @Override // com.repackage.uo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            SkinManager.setBackgroundResource(this.g, R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.e, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.f, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
-        }
-    }
-
-    public void d(ba6 ba6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ba6Var) == null) {
-            this.h = ba6Var;
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (Build.VERSION.SDK_INT >= 22) {
-                setAttachedInDecor(false);
-            }
-            setContentView(this.d);
-            setWidth(-1);
-            setHeight(oi.i(this.i));
-            setFocusable(true);
-            setBackgroundDrawable(new ColorDrawable(getContentView().getResources().getColor(R.color.black_alpha50)));
-            this.d.setOnTouchListener(new a(this));
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            dismiss();
-            ba6 ba6Var = this.h;
-            if (ba6Var == null) {
-                return;
-            }
-            if (view2 == this.a) {
-                ba6Var.b();
-            } else if (view2 == this.b) {
-                ba6Var.a();
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

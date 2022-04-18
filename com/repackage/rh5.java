@@ -26,7 +26,7 @@ public class rh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BaseFragmentActivity a;
-    public jz5 b;
+    public lz5 b;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -104,44 +104,44 @@ public class rh5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.registerListener(new a(this, 2921639));
-            this.b = new jz5(this.a);
+            this.b = new lz5(this.a);
         }
     }
 
     public void d(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
-            iz5.a().b(configuration);
+            kz5.a().b(configuration);
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            iz5.a().c();
+            kz5.a().c();
         }
     }
 
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            iz5.a().d();
+            kz5.a().d();
         }
     }
 
     public void g() {
-        jz5 jz5Var;
+        lz5 lz5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (jz5Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (lz5Var = this.b) == null) {
             return;
         }
-        jz5Var.i();
+        lz5Var.i();
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            iz5.a().e(this.a);
+            kz5.a().e(this.a);
         }
     }
 
@@ -155,7 +155,7 @@ public class rh5 {
             if (!AdToMainTabActivitySwitch.getIsOn()) {
                 j();
             }
-            if (!ug8.a(this.a.getIntent()) && !ug8.b(this.a.getIntent()) && !this.a.isTaskRoot()) {
+            if (!bh8.a(this.a.getIntent()) && !bh8.b(this.a.getIntent()) && !this.a.isTaskRoot()) {
                 this.a.finish();
             } else {
                 h();
@@ -165,10 +165,10 @@ public class rh5 {
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || ug8.a(this.a.getIntent())) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || bh8.a(this.a.getIntent())) {
             return;
         }
-        if (this.a.isTaskRoot() || ug8.b(this.a.getIntent())) {
+        if (this.a.isTaskRoot() || bh8.b(this.a.getIntent())) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
         }
     }

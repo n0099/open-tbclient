@@ -1,194 +1,168 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g38 {
+public class g38 implements p48 {
     public static /* synthetic */ Interceptable $ic;
-    public static g38 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
+    public m88 a;
+    public TbPageContext b;
+    public BdUniqueId c;
+    public HttpMessageListener d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755728859, "Lcom/repackage/g38;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g38 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(g38 g38Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g38Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755728859, "Lcom/repackage/g38;");
-                return;
+            this.a = g38Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage().getTag() == this.a.c) {
+                if (!httpResponsedMessage.isSuccess() || httpResponsedMessage.getError() != 0) {
+                    if (this.a.b == null || StringUtils.isNull(httpResponsedMessage.getErrorString())) {
+                        return;
+                    }
+                    this.a.b.showToast(httpResponsedMessage.getErrorString());
+                    return;
+                }
+                if (this.a.b != null) {
+                    this.a.b.showToast(R.string.obfuscated_res_0x7f0f0ecb);
+                }
+                this.a.e = 1;
+                this.a.a.e();
             }
         }
-        h = new g38();
     }
 
-    public g38() {
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g38 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(g38 g38Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g38Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g38Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            int intValue;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921065 || customResponsedMessage.getData() == null || this.a.e == (intValue = ((Integer) customResponsedMessage.getData()).intValue())) {
+                return;
+            }
+            this.a.e = intValue;
+            if (intValue != 1) {
+                return;
+            }
+            this.a.a.e();
+        }
+    }
+
+    public g38(TbPageContext tbPageContext, m88 m88Var, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, m88Var, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-        this.e = 0L;
-        this.f = 0L;
-        this.g = 0L;
+        this.e = 0;
+        this.b = tbPageContext;
+        this.a = m88Var;
+        this.c = bdUniqueId;
+        this.d = new a(this, CmdConfigHttp.SET_PRIVATE_CMD);
+        b bVar = new b(this, 2921065);
+        this.d.setTag(this.c);
+        bVar.setTag(this.c);
+        MessageManager.getInstance().registerListener(this.d);
+        MessageManager.getInstance().registerListener(bVar);
     }
 
-    public static g38 d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.p48
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? h : (g38) invokeV.objValue;
-    }
-
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.longValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : invokeV.longValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.longValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a = 0L;
-            this.b = 0L;
-            this.c = 0L;
-            this.d = 0L;
-            this.e = 0L;
-            this.f = 0L;
-            this.g = 0L;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!mi.z()) {
+                TbPageContext tbPageContext = this.b;
+                if (tbPageContext != null) {
+                    tbPageContext.showToast(R.string.obfuscated_res_0x7f0f0c17);
+                    return;
+                }
+                return;
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
+            httpMessage.addParam("opt", "post");
+            httpMessage.addParam("val", String.valueOf(1));
+            httpMessage.setTag(this.c);
+            MessageManager.getInstance().sendMessage(httpMessage);
+            TiebaStatic.log(new StatisticItem("c12515").param("obj_locate", 1));
         }
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.e = j;
-        }
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void m(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && this.b == 0) {
-            this.b = j;
-        }
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public void o(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048589, this, j) == null) && this.g == 0) {
-            this.g = j;
-        }
-    }
-
-    public void p(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.f = j;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(" beginTime:");
-            stringBuffer.append(this.e);
-            stringBuffer.append(" creatTime:");
-            stringBuffer.append(this.a);
-            stringBuffer.append(" refreshStartTime:");
-            stringBuffer.append(this.g);
-            stringBuffer.append(" refrehTime:");
-            stringBuffer.append(this.f);
-            stringBuffer.append(" drawTime:");
-            stringBuffer.append(this.d);
-            stringBuffer.append(" profileTime:");
-            stringBuffer.append(this.c);
-            return stringBuffer.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

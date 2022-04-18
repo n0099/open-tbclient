@@ -101,7 +101,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092012)).setText(str);
+                ((TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092013)).setText(str);
             }
         }
     }
@@ -156,7 +156,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         c.c0(new b(this));
         this.mNgWebView = c.u();
         c.loadUrl(this.mUrl);
-        c.l((FrameLayout) findViewById(R.id.obfuscated_res_0x7f092427), this.mNgWebView.covertToView());
+        c.l((FrameLayout) findViewById(R.id.obfuscated_res_0x7f092428), this.mNgWebView.covertToView());
     }
 
     private void startExitActivityAnim() {
@@ -180,7 +180,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.yd4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.xd4, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {

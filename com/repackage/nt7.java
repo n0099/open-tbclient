@@ -1,76 +1,45 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.pb.PbPageRequestMessage;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b00;
-import com.repackage.m00;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class nt7 extends ho<dy5, ThreadCardViewHolder<dy5>> {
+public class nt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId i;
-    public TbPageContext<?> j;
-    public boolean k;
-    public zo l;
-    public rx5<dy5> m;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public final BdUniDispatchSchemeController.b f;
 
     /* loaded from: classes6.dex */
-    public class a extends rx5<dy5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nt7 b;
-
-        public a(nt7 nt7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nt7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nt7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.rx5
-        /* renamed from: d */
-        public void a(View view2, dy5 dy5Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, dy5Var) == null) || view2 == null || dy5Var == null || dy5Var.getThreadData() == null || StringUtils.isNull(dy5Var.getThreadData().getTid())) {
-                return;
-            }
-            this.b.d0(view2, dy5Var);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements dp {
+    public class a implements BdUniDispatchSchemeController.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nt7 a;
 
-        public b(nt7 nt7Var) {
+        public a(nt7 nt7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,101 +57,414 @@ public class nt7 extends ho<dy5, ThreadCardViewHolder<dy5>> {
             this.a = nt7Var;
         }
 
-        @Override // com.repackage.dp
-        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
+        public void a(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof dy5) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                dy5 dy5Var = (dy5) uoVar;
-                dy5Var.f = 1;
-                if (this.a.m != null) {
-                    this.a.m.a(threadCardViewHolder.b(), dy5Var);
-                }
-                ThreadCardUtils.jumpToPB((qn4) dy5Var, view2.getContext(), dy5Var.C, false);
-                threadCardViewHolder.c().o(new m00.a(1));
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) || hashMap == null) {
+                return;
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_TID) instanceof String) {
+                this.a.a = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_TID);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID) instanceof String) {
+                this.a.b = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_NID);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID) instanceof String) {
+                this.a.c = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TID);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE) instanceof String) {
+                this.a.d = mg.e((String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_TYPE), 0);
+            }
+            if (hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID) instanceof String) {
+                this.a.e = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_ORI_UGC_VID);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nt7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PbPageRequestMessage a;
+
+        public b(nt7 nt7Var, PbPageRequestMessage pbPageRequestMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nt7Var, pbPageRequestMessage};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pbPageRequestMessage;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().sendMessage(this.a);
+            }
+        }
+    }
+
+    public nt7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = true;
-        this.m = new a(this);
-        this.j = tbPageContext;
+        this.f = new a(this);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: b0 */
-    public ThreadCardViewHolder<dy5> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            b00.b bVar = new b00.b(this.j.getPageActivity(), false);
-            bVar.l().j(true);
-            pz pzVar = new pz(this.j.getPageActivity());
-            pzVar.r("pb");
-            pzVar.s(this.k);
-            bVar.n(pzVar);
-            b00 k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.l);
-            k.r(0);
-            ThreadCardViewHolder<dy5> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.i);
-            V(new b(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: c0 */
-    public View S(int i, View view2, ViewGroup viewGroup, dy5 dy5Var, ThreadCardViewHolder<dy5> threadCardViewHolder) {
+    public final String f(String str, boolean z, int i, String str2, String str3, int i2, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dy5Var, threadCardViewHolder})) == null) {
-            if (dy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || dy5Var.a == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), str2, str3, Integer.valueOf(i2), str4})) == null) {
+            if (str == null || str.equals("0")) {
+                str = g(str2, str3, i2, str4);
+            }
+            if (z) {
+                str = str + "_host";
+            }
+            if (i == 1) {
+                str = str + "_rev";
+            } else if (i == 2) {
+                str = str + "_hot";
+            }
+            if (TbadkCoreApplication.getCurrentAccount() != null) {
+                return str + TbadkCoreApplication.getCurrentAccount();
+            }
+            return str;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final String g(String str, String str2, int i, String str3) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, str3)) == null) {
+            String str4 = "";
+            if (str != null) {
+                str4 = "" + str;
+            }
+            if (str2 != null) {
+                str4 = str4 + str2;
+            }
+            String str5 = str4 + i;
+            if (str3 != null) {
+                return str5 + str3;
+            }
+            return str5;
+        }
+        return (String) invokeLLIL.objValue;
+    }
+
+    public HashMap<String, Object> h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
                 return null;
             }
-            dy5Var.I(dy5Var.position + 1);
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(dy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.m);
-            ry7.n(dy5Var, this.j);
-            return threadCardViewHolder.b();
+            if (str.startsWith("//")) {
+                str = str.substring(2);
+            }
+            HashMap<String, Object> hashMap = new HashMap<>();
+            String[] split = str.split("[&]");
+            if (split.length == 0) {
+                return null;
+            }
+            for (String str2 : split) {
+                String[] split2 = str2.split("[=]");
+                if (split2.length > 1) {
+                    hashMap.put(split2[0], split2[1]);
+                }
+            }
+            return hashMap;
         }
-        return (View) invokeCommon.objValue;
+        return (HashMap) invokeL.objValue;
     }
 
-    public final void d0(View view2, dy5 dy5Var) {
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00f0  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0182  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0184  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x01b5 A[Catch: Exception -> 0x0285, TryCatch #0 {Exception -> 0x0285, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:95:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x01bd A[Catch: Exception -> 0x0285, TryCatch #0 {Exception -> 0x0285, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:95:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x01fd A[Catch: Exception -> 0x0285, TryCatch #0 {Exception -> 0x0285, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:95:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0205 A[Catch: Exception -> 0x0285, TryCatch #0 {Exception -> 0x0285, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:95:0x010c }] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x022c A[Catch: Exception -> 0x0285, TryCatch #0 {Exception -> 0x0285, blocks: (B:53:0x010c, B:55:0x0110, B:58:0x011a, B:62:0x0185, B:69:0x01b5, B:71:0x01cb, B:73:0x01fd, B:75:0x0209, B:77:0x022c, B:79:0x0236, B:86:0x024d, B:82:0x0241, B:74:0x0205, B:70:0x01bd), top: B:95:0x010c }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void i(String str) {
+        int i;
+        int i2;
+        PbPageRequestMessage pbPageRequestMessage;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, dy5Var) == null) {
-            ry7.m(dy5Var, 1, this.j);
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    public void e0(zo zoVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zoVar) == null) {
-            this.l = zoVar;
+        if ((!str.contains("tbpb") && !str.contains(PbModel.UNIDISPATCH_PB)) || "tbpb://tieba.baidu.com".equals(str)) {
+            return;
         }
+        Uri parse = Uri.parse(str);
+        if (BdUniDispatchSchemeController.isUniScheme(parse)) {
+            BdUniDispatchSchemeController.getInstance().parsePbScheme(parse, this.f);
+        } else if (StringUtils.isNull(this.a)) {
+            if (!StringUtils.isNull(str) && str.startsWith("tbpb://")) {
+                String decode = Uri.decode(parse.getEncodedPath());
+                if (StringUtils.isNull(decode)) {
+                    return;
+                }
+                h(decode);
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SCHEMA_UPLOAD);
+                httpMessage.addParam("call_url", str);
+                MessageManager.getInstance().sendMessage(httpMessage);
+            }
+            if (StringUtils.isNull(this.a)) {
+                this.a = parse.getQueryParameter("thread_id");
+            }
+            if (StringUtils.isNull(this.b)) {
+                this.b = parse.getQueryParameter("key_ori_ugc_nid");
+            }
+            if (StringUtils.isNull(this.c)) {
+                this.c = parse.getQueryParameter("key_ori_ugc_tid");
+            }
+            if (this.d == 0) {
+                this.d = mg.e(parse.getQueryParameter("key_ori_ugc_type"), 0);
+            }
+            if (StringUtils.isNull(this.e)) {
+                this.e = parse.getQueryParameter("key_ori_ugc_vid");
+            }
+        }
+        String queryParameter = parse.getQueryParameter("comment_sort_type");
+        int i3 = -1;
+        try {
+            if (!TextUtils.isEmpty(queryParameter)) {
+                if ("0".equals(queryParameter)) {
+                    i = 0;
+                } else if ("2".equals(queryParameter)) {
+                    i = 2;
+                }
+                if (i < 0) {
+                    i = vt4.k().l("key_pb_current_sort_type", 2);
+                }
+                i2 = i;
+                pbPageRequestMessage = new PbPageRequestMessage();
+                pbPageRequestMessage.setUpdateType(3);
+                pbPageRequestMessage.setIsReqAd(1);
+                pbPageRequestMessage.setLastids(yz4.o);
+                if (this.a == null && this.a.length() != 0) {
+                    pbPageRequestMessage.set_kz(mg.g(this.a, 0L));
+                    pbPageRequestMessage.setFloorSortType(1);
+                    pbPageRequestMessage.setFloor_rn(4);
+                    pbPageRequestMessage.set_rn(15);
+                    pbPageRequestMessage.set_with_floor(1);
+                    pbPageRequestMessage.set_scr_w(Integer.valueOf(oi.k(TbadkCoreApplication.getInst().getApp())));
+                    pbPageRequestMessage.set_scr_h(Integer.valueOf(oi.i(TbadkCoreApplication.getInst().getApp())));
+                    pbPageRequestMessage.set_scr_dip(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
+                    pbPageRequestMessage.set_q_type(Integer.valueOf(!TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
+                    pbPageRequestMessage.setSchemeUrl(str);
+                    pbPageRequestMessage.set_r(Integer.valueOf(i2));
+                    pbPageRequestMessage.set_thread_type(0);
+                    pbPageRequestMessage.set_banner(1);
+                    pbPageRequestMessage.set_back(0);
+                    if (i2 != 0 && i2 != 2) {
+                        z = false;
+                        if (!z) {
+                            pbPageRequestMessage.set_pn(1);
+                        } else {
+                            pbPageRequestMessage.set_last(1);
+                            pbPageRequestMessage.set_pn(1);
+                        }
+                        pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+                        pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+                        pbPageRequestMessage.setObjParam1(String.valueOf(25));
+                        pbPageRequestMessage.setIsSubPostDataReverse(false);
+                        pbPageRequestMessage.setFromSmartFrs(0);
+                        if (!UtilHelper.isUgcThreadType(this.d)) {
+                            pbPageRequestMessage.setForumId(String.valueOf(0));
+                        } else {
+                            pbPageRequestMessage.setForumId(null);
+                        }
+                        pbPageRequestMessage.setNeedRepostRecommendForum(false);
+                        pbPageRequestMessage.setFrom_push(0);
+                        pbPageRequestMessage.setSourceType(1);
+                        pbPageRequestMessage.setOriUgcNid(this.b);
+                        pbPageRequestMessage.setOriUgcTid(this.c);
+                        pbPageRequestMessage.setOriUgcType(this.d);
+                        pbPageRequestMessage.setOriUgcVid(this.e);
+                        if (pbPageRequestMessage.getPn() != null) {
+                            if (pbPageRequestMessage.getR().intValue() == 1) {
+                                if (pbPageRequestMessage.getPn().intValue() == 1) {
+                                    pbPageRequestMessage.setAfterAdThreadCount(i3);
+                                    pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                                    pbPageRequestMessage.setReqFoldComment(false);
+                                    pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                                    pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                                    pbPageRequestMessage.setFromPbOptimize(true);
+                                    lt7.a().f(true);
+                                    new Handler(Looper.getMainLooper()).post(new b(this, pbPageRequestMessage));
+                                    return;
+                                }
+                            } else if (pbPageRequestMessage.getPn().intValue() == 1) {
+                                pbPageRequestMessage.setAfterAdThreadCount(i3);
+                                pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                                pbPageRequestMessage.setReqFoldComment(false);
+                                pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                                pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                                pbPageRequestMessage.setFromPbOptimize(true);
+                                lt7.a().f(true);
+                                new Handler(Looper.getMainLooper()).post(new b(this, pbPageRequestMessage));
+                                return;
+                            }
+                        }
+                        i3 = 0;
+                        pbPageRequestMessage.setAfterAdThreadCount(i3);
+                        pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                        pbPageRequestMessage.setReqFoldComment(false);
+                        pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                        pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                        pbPageRequestMessage.setFromPbOptimize(true);
+                        lt7.a().f(true);
+                        new Handler(Looper.getMainLooper()).post(new b(this, pbPageRequestMessage));
+                        return;
+                    }
+                    z = true;
+                    if (!z) {
+                    }
+                    pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+                    pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+                    pbPageRequestMessage.setObjParam1(String.valueOf(25));
+                    pbPageRequestMessage.setIsSubPostDataReverse(false);
+                    pbPageRequestMessage.setFromSmartFrs(0);
+                    if (!UtilHelper.isUgcThreadType(this.d)) {
+                    }
+                    pbPageRequestMessage.setNeedRepostRecommendForum(false);
+                    pbPageRequestMessage.setFrom_push(0);
+                    pbPageRequestMessage.setSourceType(1);
+                    pbPageRequestMessage.setOriUgcNid(this.b);
+                    pbPageRequestMessage.setOriUgcTid(this.c);
+                    pbPageRequestMessage.setOriUgcType(this.d);
+                    pbPageRequestMessage.setOriUgcVid(this.e);
+                    if (pbPageRequestMessage.getPn() != null) {
+                    }
+                    i3 = 0;
+                    pbPageRequestMessage.setAfterAdThreadCount(i3);
+                    pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                    pbPageRequestMessage.setReqFoldComment(false);
+                    pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                    pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                    pbPageRequestMessage.setFromPbOptimize(true);
+                    lt7.a().f(true);
+                    new Handler(Looper.getMainLooper()).post(new b(this, pbPageRequestMessage));
+                    return;
+                }
+                return;
+            }
+            if (this.a == null) {
+                return;
+            }
+            pbPageRequestMessage.set_kz(mg.g(this.a, 0L));
+            pbPageRequestMessage.setFloorSortType(1);
+            pbPageRequestMessage.setFloor_rn(4);
+            pbPageRequestMessage.set_rn(15);
+            pbPageRequestMessage.set_with_floor(1);
+            pbPageRequestMessage.set_scr_w(Integer.valueOf(oi.k(TbadkCoreApplication.getInst().getApp())));
+            pbPageRequestMessage.set_scr_h(Integer.valueOf(oi.i(TbadkCoreApplication.getInst().getApp())));
+            pbPageRequestMessage.set_scr_dip(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
+            pbPageRequestMessage.set_q_type(Integer.valueOf(!TbImageHelper.getInstance().isShowBigImage() ? 2 : 1));
+            pbPageRequestMessage.setSchemeUrl(str);
+            pbPageRequestMessage.set_r(Integer.valueOf(i2));
+            pbPageRequestMessage.set_thread_type(0);
+            pbPageRequestMessage.set_banner(1);
+            pbPageRequestMessage.set_back(0);
+            if (i2 != 0) {
+                z = false;
+                if (!z) {
+                }
+                pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+                pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+                pbPageRequestMessage.setObjParam1(String.valueOf(25));
+                pbPageRequestMessage.setIsSubPostDataReverse(false);
+                pbPageRequestMessage.setFromSmartFrs(0);
+                if (!UtilHelper.isUgcThreadType(this.d)) {
+                }
+                pbPageRequestMessage.setNeedRepostRecommendForum(false);
+                pbPageRequestMessage.setFrom_push(0);
+                pbPageRequestMessage.setSourceType(1);
+                pbPageRequestMessage.setOriUgcNid(this.b);
+                pbPageRequestMessage.setOriUgcTid(this.c);
+                pbPageRequestMessage.setOriUgcType(this.d);
+                pbPageRequestMessage.setOriUgcVid(this.e);
+                if (pbPageRequestMessage.getPn() != null) {
+                }
+                i3 = 0;
+                pbPageRequestMessage.setAfterAdThreadCount(i3);
+                pbPageRequestMessage.setImmersionVideoCommentSource(0);
+                pbPageRequestMessage.setReqFoldComment(false);
+                pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+                pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+                pbPageRequestMessage.setFromPbOptimize(true);
+                lt7.a().f(true);
+                new Handler(Looper.getMainLooper()).post(new b(this, pbPageRequestMessage));
+                return;
+            }
+            z = true;
+            if (!z) {
+            }
+            pbPageRequestMessage.setIsFromMark(Boolean.FALSE);
+            pbPageRequestMessage.setCacheKey(f(this.a, false, i2, this.b, this.c, this.d, this.e));
+            pbPageRequestMessage.setObjParam1(String.valueOf(25));
+            pbPageRequestMessage.setIsSubPostDataReverse(false);
+            pbPageRequestMessage.setFromSmartFrs(0);
+            if (!UtilHelper.isUgcThreadType(this.d)) {
+            }
+            pbPageRequestMessage.setNeedRepostRecommendForum(false);
+            pbPageRequestMessage.setFrom_push(0);
+            pbPageRequestMessage.setSourceType(1);
+            pbPageRequestMessage.setOriUgcNid(this.b);
+            pbPageRequestMessage.setOriUgcTid(this.c);
+            pbPageRequestMessage.setOriUgcType(this.d);
+            pbPageRequestMessage.setOriUgcVid(this.e);
+            if (pbPageRequestMessage.getPn() != null) {
+            }
+            i3 = 0;
+            pbPageRequestMessage.setAfterAdThreadCount(i3);
+            pbPageRequestMessage.setImmersionVideoCommentSource(0);
+            pbPageRequestMessage.setReqFoldComment(false);
+            pbPageRequestMessage.getHttpMessage().addHeader("thread_id", this.a);
+            pbPageRequestMessage.getHttpMessage().addHeader("client_type", "2");
+            pbPageRequestMessage.setFromPbOptimize(true);
+            lt7.a().f(true);
+            new Handler(Looper.getMainLooper()).post(new b(this, pbPageRequestMessage));
+            return;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+            return;
+        }
+        i = -1;
+        if (i < 0) {
+        }
+        i2 = i;
+        pbPageRequestMessage = new PbPageRequestMessage();
+        pbPageRequestMessage.setUpdateType(3);
+        pbPageRequestMessage.setIsReqAd(1);
+        pbPageRequestMessage.setLastids(yz4.o);
     }
 }

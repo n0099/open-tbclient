@@ -595,7 +595,7 @@ public class BannerView extends FrameLayout implements ea0 {
         if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i2, i3)) == null) {
             View view2 = new View(getContext());
             view2.setSelected(i2 == i3);
-            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d1e);
+            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d22);
             if (i2 == i3) {
                 layoutParams = new LinearLayout.LayoutParams(this.o, this.p);
             } else {
@@ -876,7 +876,7 @@ public class BannerView extends FrameLayout implements ea0 {
                     new j(this).a(y90.a(getContext(), this.b));
                     this.b = 0;
                 }
-                this.l.setImageResource(R.drawable.obfuscated_res_0x7f080d0c);
+                this.l.setImageResource(R.drawable.obfuscated_res_0x7f080d10);
             }
         }
     }

@@ -58,13 +58,13 @@ public final class kx2 {
 
         /* renamed from: com.repackage.kx2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0458a implements cf3<gx2> {
+        public class C0459a implements cf3<gx2> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ ix2 b;
 
-            public C0458a(a aVar, String str, ix2 ix2Var) {
+            public C0459a(a aVar, String str, ix2 ix2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public final class kx2 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + ix2Var.b);
                 }
                 synchronized (this.a.g) {
-                    bf3.a(i03.L(), new C0458a(this, str, ix2Var), this.a.g);
+                    bf3.a(i03.L(), new C0459a(this, str, ix2Var), this.a.g);
                 }
             }
         }

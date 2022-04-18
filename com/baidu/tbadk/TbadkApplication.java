@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
 import com.repackage.ng;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import java.util.Calendar;
 /* loaded from: classes2.dex */
 public class TbadkApplication extends TbadkCoreApplication {
@@ -198,7 +198,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            wt4.k().D("account_share");
+            vt4.k().D("account_share");
         }
     }
 

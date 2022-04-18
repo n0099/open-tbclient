@@ -1,22 +1,18 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public final class dx4 {
+public class dx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
+    public List<ex4> a;
 
     public dx4() {
         Interceptable interceptable = $ic;
@@ -28,72 +24,44 @@ public final class dx4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = -1;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public void a(JSONArray jSONArray) {
+        boolean z;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public final void e(JSONObject jsonObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jsonObject) == null) {
-            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
-            i(jsonObject.optInt("match_cond_registry", 0));
-            h(jsonObject.optInt("match_cond_login", 0));
-            f(jsonObject.optInt("cond_day_after_close", -1));
-            g(jsonObject.optInt("cond_time_close", 0));
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            try {
+                if (jSONArray == null) {
+                    vt4.k().y("key_index_tab_info_list", "[]");
+                    return;
+                }
+                JSONArray jSONArray2 = new JSONArray(vt4.k().q("key_index_tab_info_list", "[]"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    ex4 ex4Var = new ex4();
+                    ex4 ex4Var2 = new ex4();
+                    ex4Var.e(jSONArray.getJSONObject(i));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        ex4Var2.e(jSONArray2.getJSONObject(i2));
+                        if (ex4Var.c != null && ex4Var.c.equals(ex4Var2.c)) {
+                            if (!TextUtils.isEmpty(ex4Var2.e) && ex4Var2.e.equals(ex4Var.e)) {
+                                z = false;
+                                ex4Var.f = z;
+                            }
+                            z = true;
+                            ex4Var.f = z;
+                        }
+                    }
+                    if (!ex4Var.c()) {
+                        this.a.add(ex4Var);
+                    }
+                }
+                vt4.k().y("key_index_tab_info_list", jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

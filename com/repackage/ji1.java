@@ -80,7 +80,7 @@ public class ji1 implements gk1 {
     public String f(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? vg4.b(context).a() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? ug4.b(context).a() : (String) invokeL.objValue;
     }
 
     @Override // com.repackage.gk1
@@ -103,7 +103,7 @@ public class ji1 implements gk1 {
     public String i(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? vg4.b(context).a() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? ug4.b(context).a() : (String) invokeL.objValue;
     }
 
     @Override // com.repackage.gk1

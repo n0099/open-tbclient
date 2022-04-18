@@ -45,14 +45,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ed6;
-import com.repackage.he6;
-import com.repackage.kq5;
+import com.repackage.gd6;
+import com.repackage.je6;
 import com.repackage.m45;
+import com.repackage.mq5;
 import com.repackage.n45;
 import com.repackage.o45;
-import com.repackage.rt4;
-import com.repackage.wt4;
+import com.repackage.qt4;
+import com.repackage.vt4;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import tbclient.FrsTabInfo;
@@ -122,9 +122,9 @@ public class AlaSquareDelegateStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof he6) {
-                he6 he6Var = (he6) data;
-                he6Var.a(new kq5(he6Var.c(), he6Var.d()));
+            if (data instanceof je6) {
+                je6 je6Var = (je6) data;
+                je6Var.a(new mq5(je6Var.c(), je6Var.d()));
             }
         }
     }
@@ -152,7 +152,7 @@ public class AlaSquareDelegateStatic {
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911006, wt4.k().q("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播")) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911006, vt4.k().q("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播")) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -179,7 +179,7 @@ public class AlaSquareDelegateStatic {
         public CustomResponsedMessage<String> run(CustomMessage customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911008, wt4.k().q("show_live_forum_name", "百度直播")) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2911008, vt4.k().q("show_live_forum_name", "百度直播")) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -210,7 +210,7 @@ public class AlaSquareDelegateStatic {
                 if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null) {
                     String lowerCase = strArr[0].toLowerCase();
                     if (lowerCase.contains(UrlSchemaHelper.JUMP_TO_VIDEO_SQUARE)) {
-                        rt4.f(tbPageContext.getPageActivity(), 15, true);
+                        qt4.f(tbPageContext.getPageActivity(), 15, true);
                         return 1;
                     }
                     Matcher matcher = Pattern.compile("http[s]?://tieba.baidu.com/video/square\\?tid=(\\d+)").matcher(lowerCase);
@@ -327,14 +327,14 @@ public class AlaSquareDelegateStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ed6 ed6Var;
+            gd6 gd6Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ed6) || (ed6Var = (ed6) customResponsedMessage.getData()) == null || ListUtils.isEmpty(ed6Var.e())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof gd6) || (gd6Var = (gd6) customResponsedMessage.getData()) == null || ListUtils.isEmpty(gd6Var.e())) {
                 return;
             }
-            for (FrsTabInfo frsTabInfo : ed6Var.e()) {
+            for (FrsTabInfo frsTabInfo : gd6Var.e()) {
                 if (frsTabInfo.tab_id.intValue() == 1120) {
-                    AlaSquareDelegateStatic.b(ed6Var);
+                    AlaSquareDelegateStatic.b(gd6Var);
                 }
             }
         }
@@ -344,14 +344,14 @@ public class AlaSquareDelegateStatic {
     public static class i extends m45 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ed6 c;
+        public final /* synthetic */ gd6 c;
 
-        public i(ed6 ed6Var) {
+        public i(gd6 gd6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ed6Var};
+                Object[] objArr = {gd6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -361,7 +361,7 @@ public class AlaSquareDelegateStatic {
                     return;
                 }
             }
-            this.c = ed6Var;
+            this.c = gd6Var;
         }
 
         @Override // com.repackage.m45
@@ -546,12 +546,12 @@ public class AlaSquareDelegateStatic {
         }
     }
 
-    public static void b(ed6 ed6Var) {
+    public static void b(gd6 gd6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, ed6Var) == null) || ed6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, gd6Var) == null) || gd6Var == null) {
             return;
         }
-        ed6Var.a(new i(ed6Var));
+        gd6Var.a(new i(gd6Var));
     }
 
     public static boolean c() {

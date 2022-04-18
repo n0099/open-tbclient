@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mi;
 import com.repackage.of;
 import com.repackage.ui;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -374,7 +374,7 @@ public class TbCdnMobileGetIpModel {
             synchronized (d) {
                 try {
                     if (0 == e) {
-                        e = wt4.k().m("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
+                        e = vt4.k().m("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
                     }
                     currentTimeMillis = System.currentTimeMillis();
                 } catch (Exception e2) {
@@ -382,7 +382,7 @@ public class TbCdnMobileGetIpModel {
                 }
                 if (0 == e || currentTimeMillis - e >= 300000) {
                     e = currentTimeMillis;
-                    wt4.k().x("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
+                    vt4.k().x("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
                     this.c.sendEmptyMessage(10002);
                 }
             }

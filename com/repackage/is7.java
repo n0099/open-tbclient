@@ -1,8 +1,6 @@
 package com.repackage;
 
-import androidx.annotation.DrawableRes;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,17 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class is7 extends PostData {
+public class is7 implements uo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId L0;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    @DrawableRes
-    public int F0;
-    public String G0;
-    public int H0;
-    public int I0;
-    public int J0;
-    public int K0;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +27,7 @@ public class is7 extends PostData {
                 return;
             }
         }
-        L0 = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
     public is7() {
@@ -49,16 +40,14 @@ public class is7 extends PostData {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.K0 = 0;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.uo
+    @Override // com.repackage.uo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? L0 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

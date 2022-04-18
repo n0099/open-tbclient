@@ -87,7 +87,7 @@ public class GroupImageView extends TbClipImageView {
                 return;
             }
         }
-        this.w0 = R.drawable.obfuscated_res_0x7f081207;
+        this.w0 = R.drawable.obfuscated_res_0x7f08120b;
         this.x0 = R.color.CAM_X0205;
         w();
     }

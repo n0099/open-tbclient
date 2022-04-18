@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nv4;
+import com.repackage.mv4;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
-public class CommonUserLikeButton extends TextView implements nv4 {
+public class CommonUserLikeButton extends TextView implements mv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -50,14 +50,14 @@ public class CommonUserLikeButton extends TextView implements nv4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c);
         this.c = false;
         this.f = false;
         f();
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void a(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class CommonUserLikeButton extends TextView implements nv4 {
         onClickListener.onClick(view2);
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -75,7 +75,7 @@ public class CommonUserLikeButton extends TextView implements nv4 {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -83,7 +83,7 @@ public class CommonUserLikeButton extends TextView implements nv4 {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void d(int i) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -186,7 +186,7 @@ public class CommonUserLikeButton extends TextView implements nv4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c);
         this.c = false;
         this.f = false;
@@ -212,7 +212,7 @@ public class CommonUserLikeButton extends TextView implements nv4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c);
         this.c = false;
         this.f = false;

@@ -1,21 +1,19 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryWriteMessage;
-import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryWriteMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.HotForum.HotTopicList;
 /* loaded from: classes6.dex */
-public class kf7 implements CustomMessageTask.CustomRunnable<Object> {
+public class kf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
 
     public kf7() {
         Interceptable interceptable = $ic;
@@ -31,31 +29,31 @@ public class kf7 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
-                RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                cr4.f();
-                qe<String> h = cr4.h("tb.searchperson_history", currentAccount);
-                if (requestSearchPersonHistoryWriteMessage.isClear()) {
-                    BdCacheService.k().j(h);
-                } else {
-                    Object data = requestSearchPersonHistoryWriteMessage.getData();
-                    if (data != null && (data instanceof String)) {
-                        h.g((String) data, null);
-                    }
-                }
-                return new ResponseSearchPersonHistoryWriteMessage();
-            }
-            return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public void d(HotTopicList hotTopicList) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, hotTopicList) == null) || hotTopicList == null) {
+            return;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        this.a = hotTopicList.topic_id.longValue();
+        this.b = hotTopicList.topic_name;
+        this.c = hotTopicList.tag.intValue();
     }
 }

@@ -2,6 +2,7 @@ package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class by5 extends ux5 {
+public class by5 extends fy5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+    public static final BdUniqueId N0;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<o37> a;
-    public String b;
-    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,13 +29,15 @@ public class by5 extends ux5 {
                 return;
             }
         }
-        d = BdUniqueId.gen();
+        N0 = BdUniqueId.gen();
     }
 
-    public by5() {
+    public by5(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,52 +47,32 @@ public class by5 extends ux5 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = threadData;
     }
 
-    public void e(o37 o37Var) {
+    public static boolean Z(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o37Var) == null) {
-            this.a.add(o37Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
+            }
+            return threadData.isBJHNormalThreadType();
         }
+        return invokeL.booleanValue;
     }
 
-    public String g() {
+    @Override // com.repackage.fy5, com.repackage.xx5, com.repackage.pn4
+    public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
     }
 
-    public List<o37> getDataList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    @Override // com.repackage.fy5, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? N0 : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -44,27 +44,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
 import com.google.protobuf.CodedInputStream;
-import com.repackage.am7;
 import com.repackage.bt8;
-import com.repackage.ht8;
+import com.repackage.ct8;
+import com.repackage.dm7;
+import com.repackage.gt8;
 import com.repackage.it8;
-import com.repackage.jt8;
 import com.repackage.mi;
-import com.repackage.mt8;
-import com.repackage.ns8;
-import com.repackage.nt8;
-import com.repackage.os8;
+import com.repackage.ot8;
+import com.repackage.pt8;
+import com.repackage.qt8;
+import com.repackage.tt8;
 import com.repackage.us8;
+import com.repackage.ut8;
 import com.repackage.vs8;
-import com.repackage.wl7;
-import com.repackage.yt4;
-import com.repackage.zs8;
+import com.repackage.xt4;
+import com.repackage.zl7;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVideoView.f {
+public class EditVideoActivity extends BaseActivity implements bt8, ct8, MaskVideoView.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isCancel;
@@ -73,9 +73,9 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
     public String mCallFrom;
     public SelectCoverModel mCoverModel;
     public String mCoverPath;
-    public mt8 mEditVideoView;
+    public tt8 mEditVideoView;
     public String mFid;
-    public zs8 mFilterEffectManager;
+    public gt8 mFilterEffectManager;
     public int mForumLevel;
     public String mForumName;
     public String mFrom;
@@ -83,17 +83,17 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
     public FrsTabInfoData mFrsTabInfo;
     public HttpMessageListener mGetVideoActivityListener;
     public SelectMusicModel mMusicModel;
-    public wl7 mPostMonitorManager;
+    public zl7 mPostMonitorManager;
     public CustomMessageListener mPostSuccessListener;
     public int mProZone;
-    public yt4 mProgressDialog;
+    public xt4 mProgressDialog;
     public VideoInfo mVideoInfo;
     public String mVideoPath;
     public String mVideoTitle;
     public VideoTitleData mVideoTitleData;
-    public nt8 saveEditVideoController;
+    public ut8 saveEditVideoController;
     public int statisticFrom;
-    public ns8 thisPageCallback;
+    public us8 thisPageCallback;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -137,7 +137,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
     }
 
     /* loaded from: classes4.dex */
-    public class b extends ns8 {
+    public class b extends us8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditVideoActivity i;
@@ -164,7 +164,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
             this.i = editVideoActivity;
         }
 
-        @Override // com.repackage.ns8
+        @Override // com.repackage.us8
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -173,7 +173,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
             }
         }
 
-        @Override // com.repackage.ns8
+        @Override // com.repackage.us8
         public void d(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -182,14 +182,14 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
             }
         }
 
-        @Override // com.repackage.ns8
+        @Override // com.repackage.us8
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
         }
 
-        @Override // com.repackage.ns8
+        @Override // com.repackage.us8
         public void f(VideoInfo videoInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, videoInfo) == null) {
@@ -198,7 +198,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
                     return;
                 }
                 File file = new File(videoInfo.getVideoPath());
-                String str = os8.g + file.getName();
+                String str = vs8.g + file.getName();
                 if (!str.equals(file.getAbsolutePath())) {
                     FileHelper.copyFileByAbsolutelyPath(file.getAbsolutePath(), str);
                 }
@@ -207,7 +207,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
             }
         }
 
-        @Override // com.repackage.ns8
+        @Override // com.repackage.us8
         public void g(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
@@ -216,7 +216,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
             }
         }
 
-        @Override // com.repackage.ns8
+        @Override // com.repackage.us8
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -277,10 +277,10 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, am7.class);
-        am7 am7Var = runTask != null ? (am7) runTask.getData() : null;
-        if (am7Var != null) {
-            this.mPostMonitorManager = am7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, dm7.class);
+        dm7 dm7Var = runTask != null ? (dm7) runTask.getData() : null;
+        if (dm7Var != null) {
+            this.mPostMonitorManager = dm7Var.get();
         }
         this.mGetVideoActivityListener = new a(this, CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY);
         this.mPostSuccessListener = new c(this, 2001374);
@@ -289,9 +289,9 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
     private void cancelProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            nt8 nt8Var = this.saveEditVideoController;
-            if (nt8Var != null) {
-                nt8Var.cancel();
+            ut8 ut8Var = this.saveEditVideoController;
+            if (ut8Var != null) {
+                ut8Var.cancel();
             }
             this.isCancel = true;
             this.mCoverPath = null;
@@ -302,17 +302,17 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
     private void handleGenMaskCoverFinish(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, bitmap) == null) {
-            mt8 mt8Var = this.mEditVideoView;
-            if (mt8Var != null && this.mCoverModel != null) {
+            tt8 tt8Var = this.mEditVideoView;
+            if (tt8Var != null && this.mCoverModel != null) {
                 if (this.isCancel) {
                     this.isCancel = false;
                     return;
                 }
-                if (!TextUtils.isEmpty(mt8Var.x())) {
+                if (!TextUtils.isEmpty(tt8Var.x())) {
                     bitmap = this.mEditVideoView.r(bitmap);
                 }
                 if (bitmap != null) {
-                    this.mCoverModel.C(bitmap, os8.b);
+                    this.mCoverModel.C(bitmap, vs8.b);
                     return;
                 }
                 return;
@@ -324,12 +324,12 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideProgress() {
-        yt4 yt4Var;
+        xt4 xt4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (yt4Var = this.mProgressDialog) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (xt4Var = this.mProgressDialog) == null) {
             return;
         }
-        yt4Var.h(false);
+        xt4Var.h(false);
     }
 
     private void registerLoadVideoActivitysTask() {
@@ -359,16 +359,16 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
 
     private void setSelectedMusicAndFilter() {
         VideoInfo videoInfo;
-        mt8 mt8Var;
+        tt8 tt8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (videoInfo = this.mVideoInfo) == null || videoInfo.getEditVideoData() == null || (mt8Var = this.mEditVideoView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (videoInfo = this.mVideoInfo) == null || videoInfo.getEditVideoData() == null || (tt8Var = this.mEditVideoView) == null) {
             return;
         }
-        ht8 u = mt8Var.u(this.mVideoInfo.getEditVideoData().filterName);
+        ot8 u = tt8Var.u(this.mVideoInfo.getEditVideoData().filterName);
         if (u != null) {
-            zs8 zs8Var = this.mFilterEffectManager;
-            if (zs8Var != null) {
-                zs8Var.h(u);
+            gt8 gt8Var = this.mFilterEffectManager;
+            if (gt8Var != null) {
+                gt8Var.h(u);
             }
             this.mEditVideoView.Z(u);
         }
@@ -381,7 +381,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
             try {
                 new MediaScannerClient(this).saveImage(str);
-                bt8.c(this, str);
+                it8.c(this, str);
             } catch (Exception unused) {
                 hideProgress();
                 this.isSend = false;
@@ -395,7 +395,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         if (interceptable == null || interceptable.invokeL(65550, this, str) == null) {
             try {
                 new MediaScannerClient(this).saveVideo(str);
-                bt8.c(this, str);
+                it8.c(this, str);
             } catch (Exception unused) {
                 hideProgress();
                 this.isSend = false;
@@ -403,25 +403,25 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         }
     }
 
-    @Override // com.repackage.us8
+    @Override // com.repackage.bt8
     public void clearFinalVideoPath() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.repackage.us8
+    @Override // com.repackage.bt8
     public void finishPage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             hideProgress();
             this.isSend = false;
-            nt8 nt8Var = this.saveEditVideoController;
-            if (nt8Var != null) {
-                nt8Var.cancel();
+            ut8 ut8Var = this.saveEditVideoController;
+            if (ut8Var != null) {
+                ut8Var.cancel();
             }
-            mt8 mt8Var = this.mEditVideoView;
-            if (mt8Var != null && mt8Var.y() != null) {
+            tt8 tt8Var = this.mEditVideoView;
+            if (tt8Var != null && tt8Var.y() != null) {
                 this.mEditVideoView.y().pause();
                 this.mEditVideoView.y().z();
             }
@@ -462,7 +462,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
                 if (TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2)) {
                     return;
                 }
-                String f = it8.g().f(stringExtra);
+                String f = pt8.g().f(stringExtra);
                 if (this.mEditVideoView == null || TextUtils.isEmpty(f)) {
                     return;
                 }
@@ -473,12 +473,12 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        mt8 mt8Var;
+        tt8 tt8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (mt8Var = this.mEditVideoView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (tt8Var = this.mEditVideoView) == null) {
             return;
         }
-        mt8Var.b0();
+        tt8Var.b0();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -487,14 +487,14 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             getLayoutMode().k(i == 1);
             getLayoutMode().j(this.mEditVideoView.w());
-            mt8 mt8Var = this.mEditVideoView;
-            if (mt8Var != null) {
-                mt8Var.G(getPageContext(), i);
+            tt8 tt8Var = this.mEditVideoView;
+            if (tt8Var != null) {
+                tt8Var.G(getPageContext(), i);
             }
         }
     }
 
-    @Override // com.repackage.us8
+    @Override // com.repackage.bt8
     public void onCheckUegFail(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
@@ -508,18 +508,18 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         }
     }
 
-    @Override // com.repackage.us8
+    @Override // com.repackage.bt8
     public void onCheckUegSuccess() {
         SelectCoverModel selectCoverModel;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            mt8 mt8Var = this.mEditVideoView;
-            if (mt8Var != null && (selectCoverModel = this.mCoverModel) != null) {
+            tt8 tt8Var = this.mEditVideoView;
+            if (tt8Var != null && (selectCoverModel = this.mCoverModel) != null) {
                 if (this.isCancel) {
                     this.isCancel = false;
                     return;
                 } else {
-                    selectCoverModel.E(this.mVideoPath, mt8Var.getCurrentPosition());
+                    selectCoverModel.E(this.mVideoPath, tt8Var.getCurrentPosition());
                     return;
                 }
             }
@@ -556,21 +556,21 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
             if (!TextUtils.isEmpty(this.mVideoPath) && !new File(this.mVideoPath).exists()) {
                 finishPage();
             }
-            new File(os8.g).mkdirs();
+            new File(vs8.g).mkdirs();
             this.mCoverModel = new SelectCoverModel(getPageContext(), this, this.mPostMonitorManager);
             this.mMusicModel = new SelectMusicModel(getPageContext(), this);
-            this.mFilterEffectManager = new zs8(this);
-            mt8 mt8Var = new mt8(getPageContext(), this, findViewById(R.id.obfuscated_res_0x7f091ad5), this.mPostMonitorManager);
-            this.mEditVideoView = mt8Var;
-            mt8Var.Q(this.mVideoPath);
+            this.mFilterEffectManager = new gt8(this);
+            tt8 tt8Var = new tt8(getPageContext(), this, findViewById(R.id.obfuscated_res_0x7f091ad6), this.mPostMonitorManager);
+            this.mEditVideoView = tt8Var;
+            tt8Var.Q(this.mVideoPath);
             this.mEditVideoView.X(getIntent());
             this.mEditVideoView.S(this.mFilterEffectManager);
             this.mEditVideoView.T(this);
             this.mCoverModel.B();
             this.mMusicModel.z();
-            yt4 yt4Var = new yt4(getPageContext());
-            this.mProgressDialog = yt4Var;
-            yt4Var.i(R.string.obfuscated_res_0x7f0f0ac6);
+            xt4 xt4Var = new xt4(getPageContext());
+            this.mProgressDialog = xt4Var;
+            xt4Var.i(R.string.obfuscated_res_0x7f0f0ac5);
             registerListener(this.mPostSuccessListener);
             registerLoadVideoActivitysTask();
             registerListener(this.mGetVideoActivityListener);
@@ -578,7 +578,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
             TiebaStatic.log("c12303");
             b bVar = new b(this, this, this.mVideoPath, this.mCoverPath);
             this.thisPageCallback = bVar;
-            this.saveEditVideoController = new nt8(bVar);
+            this.saveEditVideoController = new ut8(bVar);
             setSelectedMusicAndFilter();
         }
     }
@@ -588,9 +588,9 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            mt8 mt8Var = this.mEditVideoView;
-            if (mt8Var != null) {
-                mt8Var.N();
+            tt8 tt8Var = this.mEditVideoView;
+            if (tt8Var != null) {
+                tt8Var.N();
             }
             SelectCoverModel selectCoverModel = this.mCoverModel;
             if (selectCoverModel != null) {
@@ -612,7 +612,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         }
     }
 
-    @Override // com.repackage.us8
+    @Override // com.repackage.bt8
     public void onGetCoverBitmap(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bitmap) == null) {
@@ -639,22 +639,22 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         }
     }
 
-    @Override // com.repackage.us8
+    @Override // com.repackage.bt8
     public void onNext() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (this.mEditVideoView != null && this.mCoverModel != null && this.mMusicModel != null) {
                 if (!mi.z()) {
-                    getPageContext().showToast(R.string.obfuscated_res_0x7f0f0c4e);
+                    getPageContext().showToast(R.string.obfuscated_res_0x7f0f0c4d);
                     return;
                 } else if (this.isSend) {
                     return;
                 } else {
                     this.isSend = true;
                     this.isCancel = false;
-                    nt8 nt8Var = this.saveEditVideoController;
-                    if (nt8Var != null) {
-                        nt8Var.cancel();
+                    ut8 ut8Var = this.saveEditVideoController;
+                    if (ut8Var != null) {
+                        ut8Var.cancel();
                     }
                     this.mCoverPath = null;
                     this.mEditVideoView.I();
@@ -673,9 +673,9 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onPause();
-            mt8 mt8Var = this.mEditVideoView;
-            if (mt8Var != null) {
-                mt8Var.I();
+            tt8 tt8Var = this.mEditVideoView;
+            if (tt8Var != null) {
+                tt8Var.I();
                 this.mEditVideoView.L();
                 this.mEditVideoView.M();
                 this.mEditVideoView.y().z();
@@ -685,9 +685,9 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
             }
             this.isSend = false;
             this.isCancel = true;
-            nt8 nt8Var = this.saveEditVideoController;
-            if (nt8Var != null) {
-                nt8Var.cancel();
+            ut8 ut8Var = this.saveEditVideoController;
+            if (ut8Var != null) {
+                ut8Var.cancel();
             }
             cancelProgress();
         }
@@ -698,8 +698,8 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onRestart();
-            it8.g().d();
-            jt8.g().d();
+            pt8.g().d();
+            qt8.g().d();
         }
     }
 
@@ -708,24 +708,24 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onResume();
-            mt8 mt8Var = this.mEditVideoView;
-            if (mt8Var != null) {
-                mt8Var.K();
+            tt8 tt8Var = this.mEditVideoView;
+            if (tt8Var != null) {
+                tt8Var.K();
             }
         }
     }
 
-    @Override // com.repackage.us8
+    @Override // com.repackage.bt8
     public void onSave() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.isCancel = false;
             this.isSend = false;
             this.thisPageCallback.i(false);
-            ns8 ns8Var = this.thisPageCallback;
-            ns8Var.c = this.mCoverPath;
-            ns8Var.b = this.mVideoPath;
-            ns8Var.d = this.mEditVideoView.v();
+            us8 us8Var = this.thisPageCallback;
+            us8Var.c = this.mCoverPath;
+            us8Var.b = this.mVideoPath;
+            us8Var.d = this.mEditVideoView.v();
             this.thisPageCallback.e = this.mEditVideoView.D();
             this.thisPageCallback.f = this.mFilterEffectManager.b();
             this.saveEditVideoController.b();
@@ -735,7 +735,7 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v15, types: [com.baidu.tbadk.core.data.PostPrefixData] */
     /* JADX WARN: Type inference failed for: r7v12 */
-    @Override // com.repackage.us8
+    @Override // com.repackage.bt8
     public void onSaveCover(String str) {
         String str2;
         PostPrefixData postPrefixData;
@@ -781,27 +781,27 @@ public class EditVideoActivity extends BaseActivity implements us8, vs8, MaskVid
         }
     }
 
-    @Override // com.repackage.vs8
+    @Override // com.repackage.ct8
     public void onSaveMusicVideo(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048596, this, str, i, str2) == null) {
         }
     }
 
-    @Override // com.repackage.vs8
+    @Override // com.repackage.ct8
     public void setMusicData(List<MusicData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, list) == null) {
             if (list == null) {
                 list = new ArrayList<>();
             }
-            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b10)));
-            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b0e)));
+            list.add(0, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_NORMAL_ID, 1, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b0f)));
+            list.add(1, new MusicData(com.baidu.tieba.external.music.data.MusicData.MUSIC_CLOUD_ID, 2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0b0d)));
             this.mEditVideoView.U(list);
         }
     }
 
-    @Override // com.repackage.us8
+    @Override // com.repackage.bt8
     public void setPendantData(List<PendantData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, list) == null) {

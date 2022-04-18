@@ -1,33 +1,34 @@
 package com.repackage;
 
+import android.app.Activity;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
 import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes5.dex */
-public class eh9 implements TTNativeExpressAd.ExpressAdInteractionListener {
+/* loaded from: classes6.dex */
+public class eh9 implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public boolean b;
-    public final /* synthetic */ ExpressAdListenerWrapper c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ TTNativeExpressAd e;
-    public final /* synthetic */ dh9 f;
+    public final /* synthetic */ ch9 b;
 
-    public eh9(dh9 dh9Var, ExpressAdListenerWrapper expressAdListenerWrapper, String str, TTNativeExpressAd tTNativeExpressAd) {
+    public eh9(ch9 ch9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dh9Var, expressAdListenerWrapper, str, tTNativeExpressAd};
+            Object[] objArr = {ch9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,68 +38,39 @@ public class eh9 implements TTNativeExpressAd.ExpressAdInteractionListener {
                 return;
             }
         }
-        this.f = dh9Var;
-        this.c = expressAdListenerWrapper;
-        this.d = str;
-        this.e = tTNativeExpressAd;
+        this.b = ch9Var;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdClicked(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(TTNativeExpressAd tTNativeExpressAd) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            LogPrinter.e("CSJNativeExpressAd onAdClicked type: " + i, new Object[0]);
-            this.f.onAdClicked(this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tTNativeExpressAd)) == null) ? tTNativeExpressAd.getExpressAdView() : (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, TTNativeExpressAd tTNativeExpressAd, BaseNativeAd2<TTNativeExpressAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, tTNativeExpressAd, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdShow(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, TTNativeExpressAd tTNativeExpressAd, BaseNativeAd2<TTNativeExpressAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-            LogPrinter.e("CSJNativeExpressAd onAdShow type: " + i, new Object[0]);
-            this.f.onAdShow(this.e, this.a, new String[0]);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, tTNativeExpressAd, baseNativeAd2, funAdInteractionListener}) == null) {
+            expressInflater.inflate();
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.b.j.get(tTNativeExpressAd);
+            if (expressAdListenerWrapper != null) {
+                expressAdListenerWrapper.funListener = funAdInteractionListener;
+            } else {
+                LogPrinter.e("Can not get correspond listener by csjDrawVideoAd.", new Object[0]);
+            }
+            this.b.onShowStart(this.a);
             this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderFail(View view2, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
-            LogPrinter.e("CSJNativeExpressAd onRenderFail message: " + str + ", code:" + i, new Object[0]);
-            this.f.onError(i, str);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view2, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            LogPrinter.e("CSJNativeExpressAd onRenderSuccess width: " + f + ", height:" + f2, new Object[0]);
-            this.f.j.put(this.e, this.c);
-            this.f.onAdLoaded((dh9) this.e);
         }
     }
 }

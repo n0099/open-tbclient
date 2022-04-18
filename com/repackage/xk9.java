@@ -1,21 +1,53 @@
 package com.repackage;
 
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public interface xk9 {
-    void onAdClicked(Ssp.Pid pid);
+public class xk9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public kf9 a;
+    public final xf9 b;
+    public final HashMap<String, zf9> c;
 
-    void onAdClose(Ssp.Pid pid);
+    /* loaded from: classes7.dex */
+    public interface a<E> {
+        void a(E e);
 
-    void onAdLoad(Ssp.Pid pid);
+        void b(E e);
+    }
 
-    void onAdLoadError(Ssp.Pid pid, int i, String str);
+    public xk9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new xf9();
+        this.c = new HashMap<>();
+    }
 
-    void onAdLoaded(Ssp.Pid pid);
-
-    void onAdShow(Ssp.Pid pid);
-
-    void onAdShowError(Ssp.Pid pid, int i, String str);
-
-    void onRewardedVideo(Ssp.Pid pid);
+    public final <E> void a(Set<E> set, Set<E> set2, a<E> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, set, set2, aVar) == null) {
+            for (E e : set2) {
+                if (set == null || !set.contains(e)) {
+                    aVar.b(e);
+                } else {
+                    aVar.a(e);
+                }
+            }
+        }
+    }
 }

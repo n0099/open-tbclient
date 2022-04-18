@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.kr7;
+import com.repackage.br4;
+import com.repackage.nr7;
 import com.repackage.qe;
 import com.squareup.wire.Wire;
 import java.util.List;
@@ -23,7 +23,7 @@ import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes3.dex */
-public class ChosenPbSocketResponse extends SocketResponsedMessage implements kr7 {
+public class ChosenPbSocketResponse extends SocketResponsedMessage implements nr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Post> postList;
@@ -49,49 +49,49 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements kr
         }
     }
 
-    @Override // com.repackage.kr7
+    @Override // com.repackage.nr7
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getError() : invokeV.intValue;
     }
 
-    @Override // com.repackage.kr7
+    @Override // com.repackage.nr7
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? getErrorString() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.kr7
+    @Override // com.repackage.nr7
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.postList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.kr7
+    @Override // com.repackage.nr7
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.threadInfo : (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.kr7
+    @Override // com.repackage.nr7
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.userInfo : (UserInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.kr7
+    @Override // com.repackage.nr7
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.userList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.kr7
+    @Override // com.repackage.nr7
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;
@@ -112,8 +112,8 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements kr
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
-            cr4.f();
-            qe<byte[]> d = cr4.d("tb.pb_normal");
+            br4.f();
+            qe<byte[]> d = br4.d("tb.pb_normal");
             d.remove(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
             d.g(PbChosenActivity.CHOSEN_PB_TABLE_NAME, bArr);
         }

@@ -1,30 +1,18 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class fx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public boolean f;
-    public String g;
-    public String h;
-    public int i;
-    public int j;
+    public int b;
+    public int c;
+    public int d;
 
     public fx4() {
         Interceptable interceptable = $ic;
@@ -36,95 +24,23 @@ public class fx4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
     }
 
-    @Nullable
-    public static fx4 a(String str) {
-        InterceptResult invokeL;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("[pic-tab]")) {
-                String[] split = str.split(" ");
-                if (split.length != 5) {
-                    return null;
-                }
-                try {
-                    fx4 fx4Var = new fx4();
-                    fx4Var.g = split[1];
-                    fx4Var.h = split[2];
-                    fx4Var.i = Integer.parseInt(split[3]);
-                    fx4Var.j = Integer.parseInt(split[4]);
-                    return fx4Var;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (fx4) invokeL.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (d()) {
-                return "[pic-tab] " + this.g + " " + this.h + " " + this.i + " " + this.j;
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TextUtils.isEmpty(this.b) || this.a <= 0 : invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !TextUtils.isEmpty(this.g) && !TextUtils.isEmpty(this.h) && this.i > 0 && this.j > 0 : invokeV.booleanValue;
-    }
-
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optInt("tab_type");
-        this.b = jSONObject.optString("tab_name");
-        this.c = jSONObject.optString("tab_code");
-        this.d = jSONObject.optString("tab_url");
-        this.e = jSONObject.optString("tab_version");
-        this.g = jSONObject.optString("selected_pic_url");
-        this.h = jSONObject.optString("unselected_pic_url");
-        this.i = jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH);
-        this.j = jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || fx4.class != obj.getClass()) {
-                return false;
-            }
-            fx4 fx4Var = (fx4) obj;
-            return this.a == fx4Var.a && this.f == fx4Var.f && this.i == fx4Var.i && this.j == fx4Var.j && Objects.equals(this.b, fx4Var.b) && Objects.equals(this.c, fx4Var.c) && Objects.equals(this.d, fx4Var.d) && Objects.equals(this.e, fx4Var.e) && Objects.equals(this.g, fx4Var.g) && Objects.equals(this.h, fx4Var.h);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.b, this.c, this.d, this.e, Boolean.valueOf(this.f), this.g, this.h, Integer.valueOf(this.i), Integer.valueOf(this.j)) : invokeV.intValue;
+        this.a = jSONObject.optInt("days_new_user", 0);
+        this.b = jSONObject.optInt("days_low_active", 0);
+        this.c = jSONObject.optInt("limit_day", 0);
+        this.d = jSONObject.optInt("limit_count", 0);
     }
 }

@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.dr4;
+import com.repackage.cr4;
 import com.repackage.f9;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -306,7 +306,7 @@ public class PermissionJudgePolicy {
     private int getPermissionDescriptionId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) ? R.string.obfuscated_res_0x7f0f0faf : ("android.permission.ACCESS_FINE_LOCATION".equals(str) || "android.permission.ACCESS_COARSE_LOCATION".equals(str)) ? R.string.obfuscated_res_0x7f0f0fb4 : "android.permission.CAMERA".equals(str) ? R.string.obfuscated_res_0x7f0f0fac : "android.permission.RECORD_AUDIO".equals(str) ? R.string.obfuscated_res_0x7f0f0fb5 : "android.permission.READ_PHONE_STATE".equals(str) ? R.string.obfuscated_res_0x7f0f0fae : "android.permission.SEND_SMS".equals(str) ? R.string.obfuscated_res_0x7f0f0fb6 : "android.permission.CALL_PHONE".equals(str) ? R.string.obfuscated_res_0x7f0f0fad : R.string.obfuscated_res_0x7f0f0faf : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, this, str)) == null) ? (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) ? R.string.obfuscated_res_0x7f0f0fae : ("android.permission.ACCESS_FINE_LOCATION".equals(str) || "android.permission.ACCESS_COARSE_LOCATION".equals(str)) ? R.string.obfuscated_res_0x7f0f0fb3 : "android.permission.CAMERA".equals(str) ? R.string.obfuscated_res_0x7f0f0fab : "android.permission.RECORD_AUDIO".equals(str) ? R.string.obfuscated_res_0x7f0f0fb4 : "android.permission.READ_PHONE_STATE".equals(str) ? R.string.obfuscated_res_0x7f0f0fad : "android.permission.SEND_SMS".equals(str) ? R.string.obfuscated_res_0x7f0f0fb5 : "android.permission.CALL_PHONE".equals(str) ? R.string.obfuscated_res_0x7f0f0fac : R.string.obfuscated_res_0x7f0f0fae : invokeL.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -382,11 +382,11 @@ public class PermissionJudgePolicy {
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, str)) {
                 return true;
             }
-            dr4 dr4Var = new dr4(activity);
-            dr4Var.setCanceledOnTouchOutside(false);
-            dr4Var.setTitle(R.string.obfuscated_res_0x7f0f0fb0);
-            dr4Var.setMessageId(getPermissionDescriptionId(str));
-            dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0964, new dr4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
+            cr4 cr4Var = new cr4(activity);
+            cr4Var.setCanceledOnTouchOutside(false);
+            cr4Var.setTitle(R.string.obfuscated_res_0x7f0f0faf);
+            cr4Var.setMessageId(getPermissionDescriptionId(str));
+            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0964, new cr4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -413,11 +413,11 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // com.repackage.dr4.e
-                public void onClick(dr4 dr4Var2) {
+                @Override // com.repackage.cr4.e
+                public void onClick(cr4 cr4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dr4Var2) == null) {
-                        dr4Var2.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cr4Var2) == null) {
+                        cr4Var2.dismiss();
                         Intent intent = new Intent();
                         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                         intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
@@ -428,7 +428,7 @@ public class PermissionJudgePolicy {
                         }
                     }
                 }
-            }).setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new dr4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
+            }).setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new cr4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -453,18 +453,18 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // com.repackage.dr4.e
-                public void onClick(dr4 dr4Var2) {
+                @Override // com.repackage.cr4.e
+                public void onClick(cr4 cr4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dr4Var2) == null) {
-                        dr4Var2.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, cr4Var2) == null) {
+                        cr4Var2.dismiss();
                         if (this.this$0.mDialogClickListener != null) {
                             this.this$0.mDialogClickListener.onDialogCaneled(this.val$permission);
                         }
                     }
                 }
             }).create(f9.a(activity));
-            dr4Var.show();
+            cr4Var.show();
             return false;
         }
         return invokeLL.booleanValue;

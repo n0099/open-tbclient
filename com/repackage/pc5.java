@@ -88,7 +88,7 @@ public class pc5 {
                 if (StringUtils.isNull(TbConfig.MEMBER_AUTO_RENEWAL_URL)) {
                     return;
                 }
-                vl4.m(this.a, TbConfig.MEMBER_AUTO_RENEWAL_URL);
+                ul4.m(this.a, TbConfig.MEMBER_AUTO_RENEWAL_URL);
             }
         }
     }
@@ -110,7 +110,7 @@ public class pc5 {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? wt4.k().h("key_member_auto_ban_renewal_show", false) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? vt4.k().h("key_member_auto_ban_renewal_show", false) : invokeV.booleanValue;
     }
 
     public void c(Activity activity) {
@@ -123,17 +123,17 @@ public class pc5 {
             if (activity == null) {
                 return;
             }
-            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0ef0, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0eef, TBAlertConfig.OperateBtnStyle.MAIN);
             TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f07cc, TBAlertConfig.OperateBtnStyle.SECONDARY);
-            rr4 rr4Var = new rr4(activity);
-            rr4Var.v(R.string.obfuscated_res_0x7f0f0ab2);
-            rr4Var.l(R.string.obfuscated_res_0x7f0f0374);
-            rr4Var.r(aVar2, aVar);
-            rr4Var.n(true);
-            rr4Var.i(false);
-            rr4Var.m(3);
-            this.a = rr4Var.y();
-            wt4.k().u("key_member_auto_ban_renewal_show", true);
+            qr4 qr4Var = new qr4(activity);
+            qr4Var.v(R.string.obfuscated_res_0x7f0f0ab1);
+            qr4Var.l(R.string.obfuscated_res_0x7f0f0374);
+            qr4Var.r(aVar2, aVar);
+            qr4Var.n(true);
+            qr4Var.i(false);
+            qr4Var.m(3);
+            this.a = qr4Var.y();
+            vt4.k().u("key_member_auto_ban_renewal_show", true);
             aVar.a(new a(this));
             aVar2.a(new b(this, activity));
         }

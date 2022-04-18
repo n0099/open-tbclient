@@ -264,7 +264,7 @@ public class ae3 {
 
     public static void c(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65556, null, activity) == null) && sc3.d(activity) && og4.d() && og4.e(activity)) {
+        if ((interceptable == null || interceptable.invokeL(65556, null, activity) == null) && sc3.d(activity) && ng4.d() && ng4.e(activity)) {
             i(activity);
         }
     }
@@ -454,7 +454,7 @@ public class ae3 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65562, null, activity) == null) && sc3.d(activity) && (frameLayout = (FrameLayout) activity.getWindow().getDecorView().getRootView().findViewById(R.id.obfuscated_res_0x7f090177)) != null) {
             frameLayout.setBackgroundColor(activity.getResources().getColor(R.color.obfuscated_res_0x7f0603b3));
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(og4.a(activity), -1);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ng4.a(activity), -1);
             layoutParams.gravity = 17;
             ((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f090179)).setLayoutParams(new FrameLayout.LayoutParams(layoutParams));
         }

@@ -1,9 +1,130 @@
 package com.repackage;
+
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public interface my8 {
-    void g(String str);
+public class my8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void k(String str);
+    public static long[] a(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
+                    } else {
+                        fArr[i2] = i3 * f;
+                    }
+                    i2 = i3;
+                }
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
+            }
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
+            }
+            return jArr;
+        }
+        return (long[]) invokeCommon.objValue;
+    }
 
-    void n();
+    public static py8 b(ry8 ry8Var, hy8 hy8Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ry8Var, hy8Var)) == null) {
+            if (ry8Var == null || hy8Var == null || ry8Var.e == null) {
+                return null;
+            }
+            long[] a = a(ry8Var.b, ry8Var.a);
+            MultiMediaData multiMediaData = ry8Var.e;
+            py8 py8Var = new py8();
+            py8Var.e = new ArrayList();
+            py8Var.a = multiMediaData.path;
+            py8Var.c = ry8Var.c;
+            py8Var.d = ry8Var.d;
+            py8Var.b = multiMediaData.rotation;
+            for (int i = 0; i < ry8Var.b; i++) {
+                long j = multiMediaData.start + a[i];
+                jy8 jy8Var = new jy8();
+                jy8Var.a = cy8.b(multiMediaData.path, j, multiMediaData.type);
+                jy8Var.b = multiMediaData.path;
+                jy8Var.f = i;
+                jy8Var.g = multiMediaData.type;
+                jy8Var.h = ry8Var.c;
+                jy8Var.i = ry8Var.d;
+                jy8Var.j = hy8Var;
+                jy8Var.d = j;
+                jy8Var.c = multiMediaData.rotation;
+                py8Var.e.add(jy8Var);
+            }
+            return py8Var;
+        }
+        return (py8) invokeLL.objValue;
+    }
+
+    public static List<py8> c(qy8 qy8Var, hy8 hy8Var) {
+        InterceptResult invokeLL;
+        List<jy8> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, qy8Var, hy8Var)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (qy8Var == null || hy8Var == null || qy8Var.b <= 0 || fc9.e(qy8Var.e) || fc9.e(qy8Var.f)) {
+                return null;
+            }
+            long[] a = a(qy8Var.b, qy8Var.a);
+            ArrayList arrayList = new ArrayList();
+            py8 py8Var = null;
+            for (int i = 0; i < qy8Var.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(qy8Var.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) fc9.c(qy8Var.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        py8Var = new py8();
+                        py8Var.e = new ArrayList();
+                        py8Var.a = multiMediaData2.path;
+                        py8Var.c = qy8Var.c;
+                        py8Var.d = qy8Var.d;
+                        py8Var.b = multiMediaData2.rotation;
+                        arrayList.add(py8Var);
+                    }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) fc9.c(qy8Var.e, findInputIndexInSegments), j) * 1000;
+                    jy8 jy8Var = new jy8();
+                    jy8Var.a = cy8.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    jy8Var.b = multiMediaData2.path;
+                    jy8Var.f = i;
+                    jy8Var.g = multiMediaData2.type;
+                    jy8Var.h = qy8Var.c;
+                    jy8Var.i = qy8Var.d;
+                    jy8Var.d = multiMediaDataSeekTime;
+                    jy8Var.j = hy8Var;
+                    jy8Var.c = multiMediaData2.rotation;
+                    if (py8Var != null && (list = py8Var.e) != null) {
+                        list.add(jy8Var);
+                    }
+                    multiMediaData = multiMediaData2;
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
 }

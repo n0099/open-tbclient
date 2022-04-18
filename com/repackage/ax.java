@@ -36,12 +36,12 @@ public final class ax extends zw {
 
         /* renamed from: com.repackage.ax$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0378a implements Runnable {
+        public class RunnableC0381a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0378a(a aVar) {
+            public RunnableC0381a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public final class ax extends zw {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ax.c.post(new RunnableC0378a(this));
+                ax.c.post(new RunnableC0381a(this));
             }
         }
     }
@@ -118,12 +118,12 @@ public final class ax extends zw {
 
             /* renamed from: com.repackage.ax$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class View$OnClickListenerC0379a implements View.OnClickListener {
+            public class View$OnClickListenerC0382a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public View$OnClickListenerC0379a(a aVar) {
+                public View$OnClickListenerC0382a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,7 +178,7 @@ public final class ax extends zw {
                     ax.b.setView(this.a.b);
                     ax.b.setGravity(81, 0, this.a.c);
                     ix.m(ax.b, R.style.obfuscated_res_0x7f100411);
-                    this.a.b.setOnClickListener(new View$OnClickListenerC0379a(this));
+                    this.a.b.setOnClickListener(new View$OnClickListenerC0382a(this));
                     ax.b.show();
                 }
             }

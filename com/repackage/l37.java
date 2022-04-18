@@ -1,6 +1,6 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
+import android.os.Build;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,46 +8,104 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i37;
 /* loaded from: classes6.dex */
-public class l37 extends i37.b {
+public class l37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l37(View view2) {
-        super(view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+        }
+
+        public abstract boolean a();
+
+        public abstract void b(Runnable runnable);
+
+        public abstract void c(int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(View view2) {
+            super(view2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.repackage.l37.a
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.repackage.l37.a
+        public void b(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
+                this.a.post(runnable);
+            }
+        }
+
+        @Override // com.repackage.l37.a
+        public void c(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                View view2 = this.a;
+                view2.scrollTo(i, view2.getScrollY());
             }
         }
     }
 
-    @Override // com.repackage.i37.b, com.repackage.i37.a
-    @TargetApi(11)
-    public boolean a() {
-        InterceptResult invokeV;
+    public static final a a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.isHardwareAccelerated() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.i37.b, com.repackage.i37.a
-    @TargetApi(14)
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.setScrollX(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            if (Build.VERSION.SDK_INT >= 14) {
+                return new o37(view2);
+            }
+            return new b(view2);
         }
+        return (a) invokeL.objValue;
     }
 }

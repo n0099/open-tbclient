@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a63;
 import com.repackage.d63;
 import com.repackage.e63;
-import com.repackage.ng4;
+import com.repackage.mg4;
 import com.repackage.tg1;
 import com.repackage.z53;
 import java.io.File;
@@ -285,7 +285,7 @@ public final class SoLoader {
                 SoUtils.sendLog(this.sb.toString());
                 return false;
             } finally {
-                ng4.d(apkZipFile);
+                mg4.d(apkZipFile);
             }
         }
         return invokeCommon.booleanValue;
@@ -358,8 +358,8 @@ public final class SoLoader {
                 try {
                     if (SoUtils.copyStream(inputStream, fileOutputStream, 256) > 0) {
                         boolean renameTo = file2.renameTo(file);
-                        ng4.d(inputStream);
-                        ng4.d(fileOutputStream);
+                        mg4.d(inputStream);
+                        mg4.d(fileOutputStream);
                         return renameTo;
                     }
                     inputStream2 = inputStream;
@@ -370,27 +370,27 @@ public final class SoLoader {
                         if (DEBUG) {
                             Log.e("SoLoader", "SoLoader releaseFileFromApk exception.", e);
                         }
-                        ng4.d(inputStream2);
-                        ng4.d(fileOutputStream);
+                        mg4.d(inputStream2);
+                        mg4.d(fileOutputStream);
                         return false;
                     } catch (Throwable th3) {
                         th = th3;
-                        ng4.d(inputStream2);
-                        ng4.d(fileOutputStream);
+                        mg4.d(inputStream2);
+                        mg4.d(fileOutputStream);
                         throw th;
                     }
                 } catch (Throwable th4) {
                     th = th4;
                     inputStream2 = inputStream;
-                    ng4.d(inputStream2);
-                    ng4.d(fileOutputStream);
+                    mg4.d(inputStream2);
+                    mg4.d(fileOutputStream);
                     throw th;
                 }
             } else {
                 fileOutputStream = null;
             }
-            ng4.d(inputStream2);
-            ng4.d(fileOutputStream);
+            mg4.d(inputStream2);
+            mg4.d(fileOutputStream);
             return false;
         }
         return invokeLLL.booleanValue;
@@ -464,7 +464,7 @@ public final class SoLoader {
                                 }
                                 if (fileLock != null) {
                                 }
-                                ng4.d(fileChannel);
+                                mg4.d(fileChannel);
                                 return z;
                             }
                         }
@@ -477,7 +477,7 @@ public final class SoLoader {
                             } catch (IOException e5) {
                                 e = e5;
                                 e.printStackTrace();
-                                ng4.d(fileChannel);
+                                mg4.d(fileChannel);
                                 return z;
                             }
                         }
@@ -491,11 +491,11 @@ public final class SoLoader {
                             } catch (IOException e7) {
                                 e = e7;
                                 e.printStackTrace();
-                                ng4.d(fileChannel);
+                                mg4.d(fileChannel);
                                 return z;
                             }
                         }
-                        ng4.d(fileChannel);
+                        mg4.d(fileChannel);
                         return z;
                     }
                 } catch (Throwable th) {
@@ -507,7 +507,7 @@ public final class SoLoader {
                             e8.printStackTrace();
                         }
                     }
-                    ng4.d(parentFile);
+                    mg4.d(parentFile);
                     throw th;
                 }
             } catch (Exception e9) {
@@ -518,10 +518,10 @@ public final class SoLoader {
                 parentFile = 0;
                 if (0 != 0) {
                 }
-                ng4.d(parentFile);
+                mg4.d(parentFile);
                 throw th;
             }
-            ng4.d(fileChannel);
+            mg4.d(fileChannel);
             return z;
         }
         return invokeLLLL.booleanValue;

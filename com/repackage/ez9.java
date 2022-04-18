@@ -1,6 +1,6 @@
 package com.repackage;
 
-import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +8,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.TimeUnit;
+import rx.internal.schedulers.SchedulerWhen;
 /* loaded from: classes6.dex */
-public final class ez9 {
+public abstract class ez9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<ez9> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xy9 a;
+
+    /* loaded from: classes6.dex */
+    public static abstract class a implements iz9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? System.currentTimeMillis() : invokeV.longValue;
+        }
+
+        public abstract iz9 b(oz9 oz9Var);
+
+        public abstract iz9 c(oz9 oz9Var, long j, TimeUnit timeUnit);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +58,7 @@ public final class ez9 {
                 return;
             }
         }
-        b = new AtomicReference<>();
+        TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15L).longValue());
     }
 
     public ez9() {
@@ -42,37 +71,21 @@ public final class ez9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        xy9 b2 = cz9.a().b().b();
-        if (b2 != null) {
-            this.a = b2;
-        } else {
-            this.a = new fz9(Looper.getMainLooper());
-        }
     }
 
-    public static ez9 a() {
-        ez9 ez9Var;
+    public abstract a createWorker();
+
+    public long now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            do {
-                ez9 ez9Var2 = b.get();
-                if (ez9Var2 != null) {
-                    return ez9Var2;
-                }
-                ez9Var = new ez9();
-            } while (!b.compareAndSet(null, ez9Var));
-            return ez9Var;
-        }
-        return (ez9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? System.currentTimeMillis() : invokeV.longValue;
     }
 
-    public static xy9 b() {
-        InterceptResult invokeV;
+    public <S extends ez9 & iz9> S when(tz9<bz9<bz9<zy9>>, zy9> tz9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a().a : (xy9) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tz9Var)) == null) ? new SchedulerWhen(tz9Var, this) : (S) ((ez9) invokeL.objValue);
     }
 }

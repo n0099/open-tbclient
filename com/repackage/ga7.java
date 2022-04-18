@@ -1,27 +1,22 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.ReplyMe.DataReq;
-import tbclient.ReplyMe.ReplyMeReqIdl;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ga7 implements o65, l65 {
+public class ga7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
-    public String c;
+    public int c;
+    public int d;
+    public int e;
 
     public ga7() {
         Interceptable interceptable = $ic;
@@ -36,7 +31,11 @@ public class ga7 implements o65, l65 {
                 return;
             }
         }
-        this.b = 1;
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
+        this.e = 0;
     }
 
     public int a() {
@@ -45,118 +44,44 @@ public class ga7 implements o65, l65 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void b() {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = 1;
-            this.a = 1;
-            this.c = null;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public void c(FeedData feedData) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, feedData) == null) || feedData == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.c = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b++;
-            this.a = 4;
+        try {
+            this.a = jSONObject.optInt("agree", 0);
+            this.b = jSONObject.optInt("replyme", 0);
+            this.c = jSONObject.optInt("atme", 0);
+            this.d = jSONObject.optInt("fans", 0);
+            jSONObject.optInt("pletter", 0);
+            this.e = jSONObject.optInt("bookmark", 0);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-    }
-
-    @Override // com.repackage.q65
-    public Object f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.pn = Integer.valueOf(this.b);
-                builder.ids = this.c;
-                builder.q_type = Integer.valueOf(cn4.c().e());
-                builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-                builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst().getApp()));
-                builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst().getApp()));
-                if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    rc5.a(builder, true);
-                }
-                ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
-                builder2.data = builder.build(false);
-                return builder2.build(false);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return invokeZ.objValue;
-    }
-
-    @Override // com.repackage.k65
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.l65
-    public boolean isNeedUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.l65
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.n65
-    public HashMap<String, Object> u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-            hashMap.put(Config.PACKAGE_NAME, String.valueOf(this.b));
-            hashMap.put("q_type", Integer.valueOf(cn4.c().e()));
-            hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
-            hashMap.put("scr_h", Integer.valueOf(oi.i(TbadkCoreApplication.getInst().getApp())));
-            hashMap.put("scr_w", Integer.valueOf(oi.k(TbadkCoreApplication.getInst().getApp())));
-            if (this.a == 4 && !TextUtils.isEmpty(this.c)) {
-                hashMap.put("ids", this.c);
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.repackage.n65
-    public HashMap<String, String> w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.repackage.l65
-    public String x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "tb_user_replyme" : (String) invokeV.objValue;
     }
 }

@@ -265,16 +265,16 @@ public class cg5 extends bg5 implements View.OnClickListener {
             sf5 sf5Var = this.e.c;
             if (sf5Var == null) {
                 LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06e6, this.b);
-                TextView textView = (TextView) i(R.id.obfuscated_res_0x7f09215b);
-                RelativeLayout relativeLayout = (RelativeLayout) i(R.id.obfuscated_res_0x7f091afb);
+                TextView textView = (TextView) i(R.id.obfuscated_res_0x7f09215c);
+                RelativeLayout relativeLayout = (RelativeLayout) i(R.id.obfuscated_res_0x7f091afc);
                 Button button = (Button) i(R.id.obfuscated_res_0x7f090407);
                 Button button2 = (Button) i(R.id.obfuscated_res_0x7f090403);
                 button.setTag("submit");
                 button2.setTag("cancel");
                 button.setOnClickListener(this);
                 button2.setOnClickListener(this);
-                button.setText(TextUtils.isEmpty(this.e.B) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e49) : this.e.B);
-                button2.setText(TextUtils.isEmpty(this.e.C) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e43) : this.e.C);
+                button.setText(TextUtils.isEmpty(this.e.B) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e48) : this.e.B);
+                button2.setText(TextUtils.isEmpty(this.e.C) ? context.getResources().getString(R.string.obfuscated_res_0x7f0f0e42) : this.e.C);
                 textView.setText(TextUtils.isEmpty(this.e.D) ? "" : this.e.D);
                 button.setTextColor(this.e.E);
                 button2.setTextColor(this.e.F);
@@ -286,7 +286,7 @@ public class cg5 extends bg5 implements View.OnClickListener {
             } else {
                 sf5Var.a(LayoutInflater.from(context).inflate(this.e.x, this.b));
             }
-            LinearLayout linearLayout = (LinearLayout) i(R.id.obfuscated_res_0x7f091feb);
+            LinearLayout linearLayout = (LinearLayout) i(R.id.obfuscated_res_0x7f091fec);
             linearLayout.setBackgroundColor(this.e.H);
             A(linearLayout);
         }

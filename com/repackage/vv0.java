@@ -78,7 +78,7 @@ public class vv0 extends mv0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.C();
-            AdImageView adImageView = (AdImageView) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0599, y()).findViewById(R.id.obfuscated_res_0x7f090e7b);
+            AdImageView adImageView = (AdImageView) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0599, y()).findViewById(R.id.obfuscated_res_0x7f090e7c);
             this.e = adImageView;
             adImageView.setVisibility(8);
             if (this.e.getLayoutParams() instanceof FrameLayout.LayoutParams) {

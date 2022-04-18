@@ -230,7 +230,7 @@ public class u13 extends g23 {
                 c.a("invoke", optString3, null, optString2);
                 if (optString2.startsWith(BaseWebViewActivity.SHOUBAI_SCHEME)) {
                     if (!qj2.a().c()) {
-                        b03.f(context, R.string.obfuscated_res_0x7f0f1208).G();
+                        b03.f(context, R.string.obfuscated_res_0x7f0f1207).G();
                         return false;
                     }
                     l(context, a2, callbackHandler, optString, optString3);

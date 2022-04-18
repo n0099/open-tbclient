@@ -190,7 +190,7 @@ public class wt3 {
         if (d()) {
             g("1");
         } else {
-            qy3.a().getRequest().cookieManager(qj2.q().a()).url(zw3.b().a()).addUrlParam("appKey", a0.N()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new c(a0));
+            py3.a().getRequest().cookieManager(qj2.q().a()).url(zw3.b().a()).addUrlParam("appKey", a0.N()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new c(a0));
         }
     }
 
@@ -251,7 +251,7 @@ public class wt3 {
         j03 a0;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (a0 = j03.a0()) != null && d() && qj2.h0().e(qj2.c())) {
-            qy3.a().getRequest().cookieManager(qj2.q().a()).url(zw3.b().i()).addUrlParam("appKey", a0.N()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
+            py3.a().getRequest().cookieManager(qj2.q().a()).url(zw3.b().i()).addUrlParam("appKey", a0.N()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
         }
     }
 
@@ -263,12 +263,12 @@ public class wt3 {
             if (TextUtils.isEmpty(h)) {
                 return;
             }
-            String d2 = pg4.d(Base64.encode(h.getBytes(), 0), false);
+            String d2 = og4.d(Base64.encode(h.getBytes(), 0), false);
             String i = qj2.h0().i(qj2.c());
             if (!TextUtils.isEmpty(i) && i.length() > 32) {
                 i = i.substring(0, 32);
             }
-            qy3.a().getRequest().cookieManager(qj2.q().a()).url(zw3.b().q()).addUrlParam("sessionId", d2).addUrlParam("deviceId", i).addUrlParam("behaviorType", str).addUrlParam("behaviorTime", String.valueOf(System.currentTimeMillis() / 1000)).addUrlParam("appKey", a0.N()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
+            py3.a().getRequest().cookieManager(qj2.q().a()).url(zw3.b().q()).addUrlParam("sessionId", d2).addUrlParam("deviceId", i).addUrlParam("behaviorType", str).addUrlParam("behaviorTime", String.valueOf(System.currentTimeMillis() / 1000)).addUrlParam("appKey", a0.N()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
         }
     }
 
@@ -282,7 +282,7 @@ public class wt3 {
             dVar.onFail("swan app is null");
             return;
         }
-        qy3.a().getRequest().cookieManager(qj2.q().a()).url(zw3.b().j()).addUrlParam("appkey", a0.N()).addUrlParam(IMConstants.SERVICE_TYPE_ORDER, str).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new b(dVar));
+        py3.a().getRequest().cookieManager(qj2.q().a()).url(zw3.b().j()).addUrlParam("appkey", a0.N()).addUrlParam(IMConstants.SERVICE_TYPE_ORDER, str).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new b(dVar));
     }
 
     public static void i(long j, d dVar) {
@@ -295,6 +295,6 @@ public class wt3 {
             dVar.onFail("swan app is null");
             return;
         }
-        qy3.a().getRequest().cookieManager(qj2.q().a()).url(zw3.b().h()).addUrlParam("appkey", a0.N()).addUrlParam("duration", String.valueOf(j)).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new a(dVar));
+        py3.a().getRequest().cookieManager(qj2.q().a()).url(zw3.b().h()).addUrlParam("appkey", a0.N()).addUrlParam("duration", String.valueOf(j)).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new a(dVar));
     }
 }

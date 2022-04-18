@@ -27,9 +27,9 @@ import com.faceunity.gles.FullFrameRect;
 import com.faceunity.gles.GeneratedTexture;
 import com.faceunity.gles.Texture2dProgram;
 import com.faceunity.gles.WindowSurface;
-import com.repackage.am7;
-import com.repackage.ql7;
-import com.repackage.wl7;
+import com.repackage.dm7;
+import com.repackage.tl7;
+import com.repackage.zl7;
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
@@ -66,7 +66,7 @@ public class TextureMovieEncoder {
     public int mHeight;
     public WindowSurface mInputWindowSurface;
     public MediaMuxerWrapper mMuxer;
-    public wl7 mPostMonitorManager;
+    public zl7 mPostMonitorManager;
     public boolean mReady;
     public Object mReadyFence;
     public int mRecordingStatus;
@@ -364,10 +364,10 @@ public class TextureMovieEncoder {
         this.mRecordingStatus = 4;
         this.firstTimeStampBase = 0L;
         this.firstNanoTime = 0L;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, am7.class);
-        am7 am7Var = runTask != null ? (am7) runTask.getData() : null;
-        if (am7Var != null) {
-            this.mPostMonitorManager = am7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, dm7.class);
+        dm7 dm7Var = runTask != null ? (dm7) runTask.getData() : null;
+        if (dm7Var != null) {
+            this.mPostMonitorManager = dm7Var.get();
         }
         this.config = null;
         this.prepareEncoderFence = new Object();
@@ -496,15 +496,15 @@ public class TextureMovieEncoder {
                     this.prepareEncoderFence.notify();
                 }
             } catch (IOException e) {
-                wl7 wl7Var = this.mPostMonitorManager;
-                if (wl7Var != null) {
-                    wl7Var.b(12, ql7.a(e));
+                zl7 zl7Var = this.mPostMonitorManager;
+                if (zl7Var != null) {
+                    zl7Var.b(12, tl7.a(e));
                 }
             } catch (IllegalStateException e2) {
                 this.videoEncoderReadyFlag = false;
-                wl7 wl7Var2 = this.mPostMonitorManager;
-                if (wl7Var2 != null) {
-                    wl7Var2.b(13, ql7.a(e2));
+                zl7 zl7Var2 = this.mPostMonitorManager;
+                if (zl7Var2 != null) {
+                    zl7Var2.b(13, tl7.a(e2));
                     return;
                 }
                 return;
@@ -537,9 +537,9 @@ public class TextureMovieEncoder {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                wl7 wl7Var = this.mPostMonitorManager;
-                if (wl7Var != null) {
-                    wl7Var.b(14, ql7.a(e));
+                zl7 zl7Var = this.mPostMonitorManager;
+                if (zl7Var != null) {
+                    zl7Var.b(14, tl7.a(e));
                 }
             }
         }

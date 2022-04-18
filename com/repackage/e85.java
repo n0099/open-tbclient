@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -74,14 +73,14 @@ public class e85 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, payConfig, context) == null) {
             if (payConfig != null && context != null) {
-                if (!e()) {
-                    f(R.string.obfuscated_res_0x7f0f0e77);
+                if (!d()) {
+                    e(R.string.obfuscated_res_0x7f0f0e76);
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
                 return;
             }
-            f(R.string.obfuscated_res_0x7f0f0e76);
+            e(R.string.obfuscated_res_0x7f0f0e75);
         }
     }
 
@@ -96,27 +95,12 @@ public class e85 {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                Class.forName("com.baidu.wallet.lightapp.business.LightappBrowseActivity");
-                return true;
-            } catch (ClassNotFoundException e) {
-                BdLog.e(e, true);
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 : invokeV.booleanValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public final void e(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 : invokeV.booleanValue;
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             oi.M(TbadkCoreApplication.getInst().getContext(), i);
         }
     }

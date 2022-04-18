@@ -172,13 +172,13 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f9);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ee);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905fb);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912ea);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912ec);
-            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912eb);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0921a9);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0921eb);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090f09);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f09187c);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912eb);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912ed);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912ec);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0921aa);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ec);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090f0a);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f09187d);
             setOnClickListener(this);
         }
     }
@@ -277,7 +277,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
                 this.d.setImageResource(R.drawable.obfuscated_res_0x7f080450);
                 this.m = true;
             } else {
-                this.d.setImageResource(R.drawable.obfuscated_res_0x7f08121f);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f081223);
                 this.m = false;
             }
             if (1 == enable) {

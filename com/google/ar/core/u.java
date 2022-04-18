@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
-import com.repackage.km9;
+import com.repackage.rm9;
 /* loaded from: classes5.dex */
 public final class u extends com.google.a.b.a.a.a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ km9 a;
+    public final /* synthetic */ rm9 a;
 
-    public u(km9 km9Var) {
+    public u(rm9 rm9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {km9Var};
+            Object[] objArr = {rm9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,7 +30,7 @@ public final class u extends com.google.a.b.a.a.a.e {
                 return;
             }
         }
-        this.a = km9Var;
+        this.a = rm9Var;
     }
 
     @Override // com.google.a.b.a.a.a.d

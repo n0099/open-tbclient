@@ -424,7 +424,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
             }
             AdImageView adImageView = new AdImageView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            adImageView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dbc);
+            adImageView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dc0);
             adImageView.g(this.l);
             adImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             adImageView.setLayoutParams(layoutParams);
@@ -458,7 +458,7 @@ public final class VideoViewComponent extends AbsComponentPlugin {
             layoutParams.gravity = 48;
             VideoViewHolder videoViewHolder = this.h;
             if (videoViewHolder != null) {
-                videoViewHolder.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dbc);
+                videoViewHolder.setBackgroundResource(R.drawable.obfuscated_res_0x7f080dc0);
                 videoViewHolder.setEnableSlideLeft(true);
                 videoViewHolder.setInterceptOnTouchListener(new a(this, viewGroup, layoutParams));
                 viewGroup.addView(videoViewHolder, layoutParams);

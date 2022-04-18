@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ko5;
+import com.repackage.mo5;
 import com.repackage.ni;
-import com.repackage.no5;
-import com.repackage.qo5;
-import com.repackage.ro5;
+import com.repackage.po5;
+import com.repackage.so5;
 import com.repackage.to5;
+import com.repackage.vo5;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ko5 hotLiveInfo;
-    public no5 officialRecommendLiveInfo;
-    public qo5 stageLiveInfo;
-    public ro5 superEntranceInfo;
-    public to5 tabAllLiveInfo;
+    public mo5 hotLiveInfo;
+    public po5 officialRecommendLiveInfo;
+    public so5 stageLiveInfo;
+    public to5 superEntranceInfo;
+    public vo5 tabAllLiveInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaTabLiveResponsedMessage() {
@@ -57,33 +57,33 @@ public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("goldspace");
             if (optJSONObject2 != null) {
-                ro5 ro5Var = new ro5();
-                this.superEntranceInfo = ro5Var;
-                ro5Var.a(optJSONObject2);
+                to5 to5Var = new to5();
+                this.superEntranceInfo = to5Var;
+                to5Var.a(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("stage_live");
             if (optJSONObject3 != null) {
-                qo5 qo5Var = new qo5();
-                this.stageLiveInfo = qo5Var;
-                qo5Var.b(optJSONObject3, string);
+                so5 so5Var = new so5();
+                this.stageLiveInfo = so5Var;
+                so5Var.b(optJSONObject3, string);
             }
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("hot_live");
             if (optJSONObject4 != null) {
-                ko5 ko5Var = new ko5();
-                this.hotLiveInfo = ko5Var;
-                ko5Var.a(optJSONObject4, string);
+                mo5 mo5Var = new mo5();
+                this.hotLiveInfo = mo5Var;
+                mo5Var.a(optJSONObject4, string);
             }
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("official_recommend");
             if (optJSONObject5 != null) {
-                no5 no5Var = new no5();
-                this.officialRecommendLiveInfo = no5Var;
-                no5Var.a(optJSONObject5, string);
+                po5 po5Var = new po5();
+                this.officialRecommendLiveInfo = po5Var;
+                po5Var.a(optJSONObject5, string);
             }
             JSONObject optJSONObject6 = optJSONObject.optJSONObject("all_lives");
             if (optJSONObject6 != null) {
-                to5 to5Var = new to5();
-                this.tabAllLiveInfo = to5Var;
-                to5Var.a(optJSONObject6, string);
+                vo5 vo5Var = new vo5();
+                this.tabAllLiveInfo = vo5Var;
+                vo5Var.a(optJSONObject6, string);
             }
             String optString = optJSONObject.optString("show_switch", null);
             if (ni.isEmpty(optString)) {

@@ -1,106 +1,103 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jn8 implements qt4 {
+public class jn8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public in8 a;
+    public TbPageContext a;
+    public LinkedList<ln8> b;
+    public int c;
 
-    public jn8() {
+    public jn8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = tbPageContext;
+        this.b = new LinkedList<>();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ln8 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (ln8) ListUtils.getItem(this.b, i) : (ln8) invokeI.objValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.c = i;
         }
     }
 
-    @Override // com.repackage.qt4
-    public void a(Context context) {
+    public void c(List<ln8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                b(context, 1);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.b.clear();
+        this.b.addAll(list);
+        notifyDataSetChanged();
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.b) : invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        on8 on8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                on8Var = new on8(this.a, this.c);
+                view3 = on8Var.b();
+                view3.setTag(on8Var);
             } else {
-                b(context, 0);
+                view3 = view2;
+                on8Var = (on8) view2.getTag();
             }
+            on8Var.d(getItem(i));
+            return view3;
         }
-    }
-
-    @Override // com.repackage.qt4
-    public void b(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i)));
-        }
-    }
-
-    @Override // com.repackage.qt4
-    public void c(Context context, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i, z)));
-        }
-    }
-
-    @Override // com.repackage.qt4
-    public Class<?> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? MainTabActivity.class : (Class) invokeV.objValue;
-    }
-
-    @Override // com.repackage.qt4
-    public void e(Context context, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
-        }
-    }
-
-    @Override // com.repackage.qt4
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? MainTabActivity.class.getName() : (String) invokeV.objValue;
-    }
-
-    public void g(in8 in8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, in8Var) == null) {
-            this.a = in8Var;
-        }
-    }
-
-    @Override // com.repackage.qt4
-    public int getCurrentTabType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            in8 in8Var = this.a;
-            if (in8Var != null) {
-                return in8Var.getCurrentTabType();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
+        return (View) invokeILL.objValue;
     }
 }

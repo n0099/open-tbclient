@@ -50,7 +50,7 @@ public class f92 extends ProviderDelegation {
         }
     }
 
-    public static void a(p92 p92Var) {
+    public static void b(p92 p92Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, p92Var) == null) && a && p92Var != null) {
             if (ProcessUtils.isMainProcess()) {

@@ -151,9 +151,9 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.sdk.core.e.a<com.kw
     }
 
     private void initView() {
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09112a);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09112b);
         this.mRootContainer = adBaseFrameLayout;
-        DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091170);
+        DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091171);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.setAd(true);
     }

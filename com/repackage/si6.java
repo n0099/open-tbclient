@@ -1,41 +1,43 @@
 package com.repackage;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.BdUniqueId;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.SaveDraftDialogView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
 /* loaded from: classes7.dex */
-public class si6 {
+public abstract class si6 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ForumWriteData a;
-    public final SerializableItemInfo b;
-    public InputMethodManager c;
-    public final BaseFragmentActivity d;
-    public NewWriteModel e;
-    public WriteData f;
-    public yt4 g;
-    public b h;
-    public final NewWriteModel.g i;
+    public final BaseFragmentActivity a;
+    public final ForumWriteData b;
+    public View c;
+    public NavigationBar d;
+    public TextView e;
+    public View f;
+    public TextView g;
+    public SerializableItemInfo h;
+    public final ui6 i;
+    public Gson j;
+    public lr4 k;
+    public SaveDraftDialogView l;
 
     /* loaded from: classes7.dex */
-    public class a implements NewWriteModel.g {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ si6 a;
@@ -58,40 +60,30 @@ public class si6 {
             this.a = si6Var;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, rx4 rx4Var, WriteData writeData, AntiData antiData) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, rx4Var, writeData, antiData}) == null) {
-                this.a.c();
-                if (postWriteCallBackData == null) {
-                    return;
-                }
-                if (!z) {
-                    this.a.d.showToast(postWriteCallBackData.getErrorString());
-                    return;
-                }
-                TiebaStatic.log(new StatisticItem("c13723").param("tid", postWriteCallBackData.getThreadId()).param("fid", this.a.a.forumId).param("fname", this.a.a.forumName).param("uid", TbadkCoreApplication.getCurrentAccount()));
-                Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent.putExtras(bundle);
-                this.a.d.setResult(-1, intent);
-                this.a.d.finish();
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
+                return;
             }
+            int id = view2.getId();
+            if (id == R.id.obfuscated_res_0x7f091bdc) {
+                this.a.b();
+                this.a.a.finish();
+            } else if (id == R.id.obfuscated_res_0x7f091bdd) {
+                this.a.k();
+                this.a.a.finish();
+            }
+            this.a.k.dismiss();
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(InputMethodManager inputMethodManager);
-    }
-
-    public si6(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
+    public si6(BaseFragmentActivity baseFragmentActivity, ForumWriteData forumWriteData, SerializableItemInfo serializableItemInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, bdUniqueId, forumWriteData, serializableItemInfo};
+            Object[] objArr = {baseFragmentActivity, forumWriteData, serializableItemInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -101,86 +93,106 @@ public class si6 {
                 return;
             }
         }
-        this.c = null;
-        this.g = null;
-        this.i = new a(this);
-        this.d = baseFragmentActivity;
-        this.a = forumWriteData;
-        this.b = serializableItemInfo;
-        this.c = (InputMethodManager) baseFragmentActivity.getSystemService("input_method");
+        this.j = new Gson();
+        this.a = baseFragmentActivity;
+        this.b = forumWriteData;
+        this.h = serializableItemInfo;
+        this.i = new ui6(baseFragmentActivity, baseFragmentActivity.getUniqueId(), this.b, this.h);
+        f();
         e();
-        d();
+        g();
     }
 
-    public void c() {
+    public void b() {
+        ForumWriteData forumWriteData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g.h(false);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (forumWriteData = this.b) == null) {
+            return;
         }
+        fk8.B(String.valueOf(forumWriteData.forumId), null);
     }
 
-    public final void d() {
+    public abstract void c();
+
+    public View d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = new NewWriteModel();
-            this.f = new WriteData();
-            this.e.n0(this.i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (View) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.d == null) {
+            return;
         }
+        TextView textView = new TextView(this.a);
+        this.g = textView;
+        textView.setAlpha(0.5f);
+        this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f10e8));
+        this.g.setTextSize(0, oi.f(this.a, R.dimen.tbds44));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        layoutParams.gravity = 17;
+        layoutParams.rightMargin = oi.f(this.a, R.dimen.tbds44);
+        this.g.setLayoutParams(layoutParams);
+        this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.g, this);
+        TextView centerTextTitle = this.d.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0ef4));
+        this.e = centerTextTitle;
+        centerTextTitle.setTextSize(0, oi.f(this.a, R.dimen.tbds44));
+        this.f = this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g = new yt4(this.d);
-        }
-    }
+    public abstract void f();
 
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e.setWriteData(this.f);
-            this.e.r0();
-            i();
-        }
-    }
+    public abstract void g();
 
-    public void g(String str, String str2, ForumWriteData forumWriteData) {
+    public void h(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, forumWriteData) == null) {
-            if (!mi.z()) {
-                oi.M(this.d, R.string.obfuscated_res_0x7f0f0c18);
-            }
-            SerializableItemInfo serializableItemInfo = this.b;
-            if (serializableItemInfo != null) {
-                this.f.setItem_id(String.valueOf(serializableItemInfo.id));
-            }
-            this.f.setForumName(forumWriteData.forumName);
-            this.f.setContent(str);
-            this.f.setComment_head(str2);
-            this.f.setForumId(forumWriteData.forumId);
-            this.f.setTitle("");
-            this.f.setIsNoTitle(true);
-            b bVar = this.h;
-            if (bVar != null) {
-                bVar.a(this.c);
-            }
-            f();
-        }
-    }
-
-    public void h(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.h = bVar;
+        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) {
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.g.e(null);
-            this.g.i(R.string.obfuscated_res_0x7f0f10f0);
-            this.g.h(true);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
+            TextView textView = this.e;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            }
+            TextView textView2 = this.g;
+            if (textView2 != null) {
+                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0304);
+            }
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onBackBtnOnChangeSkin();
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            rg.a(this.k, this.a);
+        }
+    }
+
+    public abstract void k();
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (this.l == null) {
+                this.l = new SaveDraftDialogView(this.a);
+                this.l.setOnClickListener(new a(this));
+            }
+            if (this.k == null) {
+                lr4 lr4Var = new lr4(this.a.getPageContext());
+                this.k = lr4Var;
+                lr4Var.setContentView(this.l);
+            }
+            this.l.setText(this.a.getString(R.string.obfuscated_res_0x7f0f158f), null, this.a.getString(R.string.obfuscated_res_0x7f0f1064));
+            this.k.m();
         }
     }
 }

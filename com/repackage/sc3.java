@@ -118,13 +118,13 @@ public final class sc3 {
                 return true;
             } catch (ActivityNotFoundException unused) {
                 if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1207, 0).show();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1206, 0).show();
                     return false;
                 }
                 return false;
             } catch (SecurityException e) {
                 if (z2) {
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1207, 0).show();
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1206, 0).show();
                 }
                 if (a) {
                     Log.e(ActivityUtils.TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);

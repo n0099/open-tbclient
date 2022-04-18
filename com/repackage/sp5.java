@@ -1,15 +1,16 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class sp5 {
@@ -19,16 +20,13 @@ public class sp5 {
     public List<String> b;
     public List<SdkLiveInfoData> c;
     public List<uo> d;
-    public boolean e;
-    public String f;
-    public String g;
 
-    public sp5(to5 to5Var, String str, String str2) {
+    public sp5(AlaTabLiveResponsedMessage alaTabLiveResponsedMessage) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {to5Var, str, str2};
+            Object[] objArr = {alaTabLiveResponsedMessage};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,27 +37,21 @@ public class sp5 {
             }
         }
         this.a = false;
-        this.e = false;
         this.b = new ArrayList();
         this.c = new ArrayList();
         this.d = new ArrayList();
-        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.e = true;
-        }
-        this.f = str;
-        this.g = str2;
-        a(to5Var);
+        a(alaTabLiveResponsedMessage.tabAllLiveInfo);
     }
 
-    public boolean a(to5 to5Var) {
+    public boolean a(vo5 vo5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, to5Var)) == null) {
-            if (to5Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vo5Var)) == null) {
+            if (vo5Var == null) {
                 return false;
             }
-            boolean e = e(to5Var.b);
-            this.a = to5Var.a;
+            boolean e = e(vo5Var);
+            this.a = vo5Var.a;
             return e;
         }
         return invokeL.booleanValue;
@@ -91,30 +83,22 @@ public class sp5 {
             ArrayList<uo> arrayList = new ArrayList<>();
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
-                oo5 oo5Var = new oo5();
-                rn5 rn5Var = new rn5();
-                rn5Var.a = list.get(i);
-                rn5Var.f = true;
-                rn5Var.b = this.e;
-                rn5Var.c = this.f;
-                rn5Var.d = this.g;
+                qo5 qo5Var = new qo5();
+                tn5 tn5Var = new tn5();
+                tn5Var.a = list.get(i);
+                tn5Var.f = true;
+                qo5Var.a = tn5Var;
                 int i2 = i + 1;
-                rn5Var.e = i2;
-                oo5Var.a = rn5Var;
                 if (i2 < size) {
-                    rn5 rn5Var2 = new rn5();
-                    rn5Var2.a = list.get(i2);
-                    rn5Var2.b = this.e;
-                    rn5Var2.c = this.f;
-                    rn5Var2.d = this.g;
-                    rn5Var2.e = i + 2;
-                    oo5Var.b = rn5Var2;
-                    rn5Var2.g = true;
+                    tn5 tn5Var2 = new tn5();
+                    tn5Var2.a = list.get(i2);
+                    qo5Var.b = tn5Var2;
+                    tn5Var2.g = true;
                 } else {
-                    rn5Var.f = false;
-                    rn5Var.h = true;
+                    tn5Var.f = false;
+                    tn5Var.h = true;
                 }
-                arrayList.add(oo5Var);
+                arrayList.add(qo5Var);
             }
             return arrayList;
         }
@@ -134,27 +118,33 @@ public class sp5 {
         return (List) invokeV.objValue;
     }
 
-    public final boolean e(List<SdkLiveInfoData> list) {
+    public final boolean e(vo5 vo5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vo5Var)) == null) {
+            if (vo5Var == null) {
                 return false;
             }
-            ArrayList arrayList = new ArrayList();
-            for (SdkLiveInfoData sdkLiveInfoData : list) {
-                if (sdkLiveInfoData != null) {
-                    String str = sdkLiveInfoData.liveId;
+            ArrayList<SdkLiveInfoData> arrayList = vo5Var.b;
+            if (ListUtils.isEmpty(arrayList)) {
+                return false;
+            }
+            ArrayList arrayList2 = new ArrayList();
+            Iterator<SdkLiveInfoData> it = arrayList.iterator();
+            while (it.hasNext()) {
+                SdkLiveInfoData next = it.next();
+                if (next != null && ho5.c(next)) {
+                    String str = next.liveId;
                     if (!this.b.contains(str)) {
-                        arrayList.add(sdkLiveInfoData);
+                        arrayList2.add(next);
                         this.b.add(str);
                     }
                 }
             }
-            if (ListUtils.isEmpty(arrayList)) {
+            if (ListUtils.isEmpty(arrayList2)) {
                 return false;
             }
-            this.c.addAll(arrayList);
+            this.c.addAll(arrayList2);
             ArrayList<uo> c = c(this.c);
             this.d = c;
             return !ListUtils.isEmpty(c);

@@ -98,9 +98,9 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d059a, this);
-            this.c = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f0914c8);
-            this.d = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f0914c7);
-            BdThumbSeekBar bdThumbSeekBar = (BdThumbSeekBar) findViewById(R.id.obfuscated_res_0x7f091378);
+            this.c = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f0914c9);
+            this.d = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f0914c8);
+            BdThumbSeekBar bdThumbSeekBar = (BdThumbSeekBar) findViewById(R.id.obfuscated_res_0x7f091379);
             this.b = bdThumbSeekBar;
             bdThumbSeekBar.setOnSeekBarChangeListener(this);
         }
@@ -296,9 +296,9 @@ public class BdLayerSeekBar extends FrameLayout implements View.OnClickListener,
         Matrix matrix = new Matrix();
         float f = b / 3.0f;
         matrix.postScale(f, f);
-        Bitmap decodeResource = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e08);
+        Bitmap decodeResource = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e0c);
         bdThumbSeekBar.setThumbBitmap(Bitmap.createBitmap(decodeResource, 0, 0, decodeResource.getWidth(), decodeResource.getHeight(), matrix, true));
-        Bitmap decodeResource2 = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e07);
+        Bitmap decodeResource2 = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e0b);
         bdThumbSeekBar.setScaleThumbBitmap(Bitmap.createBitmap(decodeResource2, 0, 0, decodeResource2.getWidth(), decodeResource2.getHeight(), matrix, true));
     }
 }

@@ -1,34 +1,35 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.searchbox.http.request.PostStringRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class t74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject
-    public static tc4 a() {
-        InterceptResult invokeV;
+    public static void a(@NonNull Object obj, @Nullable Map<String, String> map) {
+        String remove;
+        int parseInt;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? tj2.a() : (tc4) invokeV.objValue;
-    }
-
-    @Inject
-    public static r74 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? yj2.a() : (r74) invokeV.objValue;
-    }
-
-    @Inject
-    public static a94 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ak2.a() : (a94) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, obj, map) == null) || map == null || !map.containsKey("SWAN-TIMEOUT-SETTING") || (remove = map.remove("SWAN-TIMEOUT-SETTING")) == null || !TextUtils.isDigitsOnly(remove) || (parseInt = Integer.parseInt(remove)) <= 0) {
+            return;
+        }
+        if (obj instanceof PostStringRequest.PostStringRequestBuilder) {
+            PostStringRequest.PostStringRequestBuilder postStringRequestBuilder = (PostStringRequest.PostStringRequestBuilder) obj;
+            postStringRequestBuilder.readTimeout(parseInt);
+            postStringRequestBuilder.writeTimeout(parseInt);
+            postStringRequestBuilder.connectionTimeout(parseInt);
+        } else if (obj instanceof PostByteRequest.PostByteRequestBuilder) {
+            PostByteRequest.PostByteRequestBuilder postByteRequestBuilder = (PostByteRequest.PostByteRequestBuilder) obj;
+            postByteRequestBuilder.readTimeout(parseInt);
+            postByteRequestBuilder.writeTimeout(parseInt);
+            postByteRequestBuilder.connectionTimeout(parseInt);
+        }
     }
 }

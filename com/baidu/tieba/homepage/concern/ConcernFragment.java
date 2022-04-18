@@ -41,14 +41,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
-import com.repackage.me6;
+import com.repackage.cr4;
 import com.repackage.mg;
-import com.repackage.np4;
+import com.repackage.mp4;
+import com.repackage.oe6;
 import com.repackage.oi;
 import com.repackage.pg;
-import com.repackage.rm8;
 import com.repackage.wa;
+import com.repackage.ym8;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetMyPost.DataRes;
@@ -57,7 +57,7 @@ import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes3.dex */
-public class ConcernFragment extends BaseFragment implements me6 {
+public class ConcernFragment extends BaseFragment implements oe6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcernPageView a;
@@ -145,17 +145,17 @@ public class ConcernFragment extends BaseFragment implements me6 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(dr4 dr4Var) {
+        public void onNavigationButtonClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(dr4 dr4Var) {
+        public void onPositiveButtonClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cr4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
@@ -284,18 +284,18 @@ public class ConcernFragment extends BaseFragment implements me6 {
             }
             long g = mg.g(postWriteCallBackData.getPostId(), 0L);
             long g2 = mg.g(postWriteCallBackData.getThreadId(), 0L);
-            long g3 = mg.g(rm8.k().l(), 0L);
+            long g3 = mg.g(ym8.k().l(), 0L);
             if (g != 0 && g2 != 0 && g3 != 0) {
                 pg.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
             } else if (StringUtils.isNull(postWriteCallBackData.getVideoid())) {
             } else {
                 WriteData writeData = postWriteCallBackData.writeDataForVideo;
-                np4 np4Var = new np4();
-                np4Var.parseFromWriteData(writeData);
+                mp4 mp4Var = new mp4();
+                mp4Var.parseFromWriteData(writeData);
                 if (this.a.a == null || !this.a.a.z()) {
                     return;
                 }
-                this.a.a.y(np4Var);
+                this.a.a.y(mp4Var);
             }
         }
     }
@@ -386,18 +386,18 @@ public class ConcernFragment extends BaseFragment implements me6 {
             }
             long g = mg.g(postWriteCallBackData.getPostId(), 0L);
             long g2 = mg.g(postWriteCallBackData.getThreadId(), 0L);
-            long g3 = mg.g(rm8.k().l(), 0L);
+            long g3 = mg.g(ym8.k().l(), 0L);
             if (g != 0 && g2 != 0 && g3 != 0) {
                 pg.a().postDelayed(new a(this, postWriteCallBackData, g2, g, g3), 1000L);
             } else if (StringUtils.isNull(postWriteCallBackData.getVideoid())) {
             } else {
                 WriteData writeData = postWriteCallBackData.writeDataForVideo;
-                np4 np4Var = new np4();
-                np4Var.parseFromWriteData(writeData);
+                mp4 mp4Var = new mp4();
+                mp4Var.parseFromWriteData(writeData);
                 if (this.a.a == null || !this.a.a.z()) {
                     return;
                 }
-                this.a.a.y(np4Var);
+                this.a.a.y(mp4Var);
             }
         }
     }
@@ -451,7 +451,7 @@ public class ConcernFragment extends BaseFragment implements me6 {
                     if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                         GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                            errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                            errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                         } else {
                             errorString2 = getMyPostHttpResponseMessage.getErrorString();
                         }
@@ -463,7 +463,7 @@ public class ConcernFragment extends BaseFragment implements me6 {
                     } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                         GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                         if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                         } else {
                             errorString = getMyPostSocketResponseMessage.getErrorString();
                         }
@@ -505,14 +505,14 @@ public class ConcernFragment extends BaseFragment implements me6 {
         this.k = new f(this, CmdConfigHttp.CMD_GET_MY_POST, 303111);
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -545,7 +545,7 @@ public class ConcernFragment extends BaseFragment implements me6 {
             if (dataRes == null || dataRes.thread_info == null) {
                 return;
             }
-            np4 np4Var = new np4();
+            mp4 mp4Var = new mp4();
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
             G0(builder2, getMyPostResIdl.data.user_info);
@@ -557,10 +557,10 @@ public class ConcernFragment extends BaseFragment implements me6 {
             if (user2 != null && (user_Info = getMyPostResIdl.data.user_info) != null && user2.name.equals(user_Info.name)) {
                 builder.author = builder2.build(true);
             }
-            builder.fname = rm8.k().m();
-            builder.fid = Long.valueOf(mg.g(rm8.k().m(), 0L));
-            np4Var.parserProtobuf(builder.build(true));
-            this.a.y(np4Var);
+            builder.fname = ym8.k().m();
+            builder.fid = Long.valueOf(mg.g(ym8.k().m(), 0L));
+            mp4Var.parserProtobuf(builder.build(true));
+            this.a.y(mp4Var);
         }
     }
 
@@ -658,7 +658,7 @@ public class ConcernFragment extends BaseFragment implements me6 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void m() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
@@ -811,7 +811,7 @@ public class ConcernFragment extends BaseFragment implements me6 {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {

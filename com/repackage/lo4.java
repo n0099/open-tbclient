@@ -1,20 +1,20 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.CartoonThread;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.ColorEgg;
 /* loaded from: classes6.dex */
 public class lo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public ArrayList<String> a;
     public int b;
 
     public lo4() {
@@ -27,14 +27,16 @@ public class lo4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    public long a() {
+    public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
     }
 
     public int b() {
@@ -43,25 +45,26 @@ public class lo4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public boolean c(ColorEgg colorEgg) {
+        InterceptResult invokeL;
+        List<String> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorEgg)) == null) {
+            this.b = 0;
+            if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
+                return false;
+            }
+            for (String str : colorEgg.holiday_words) {
+                if (!StringUtils.isNull(str)) {
+                    this.a.add(str);
+                }
+            }
+            if (this.a.size() <= 0) {
+                return false;
+            }
+            this.b = colorEgg.style_flag.intValue();
+            return true;
         }
-        try {
-            this.a = jSONObject.optLong("cartoon_id");
-            this.b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    public void d(CartoonThread cartoonThread) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, cartoonThread) == null) || cartoonThread == null) {
-            return;
-        }
-        this.a = cartoonThread.cartoon_id.longValue();
-        this.b = cartoonThread.chapter_id.intValue();
+        return invokeL.booleanValue;
     }
 }

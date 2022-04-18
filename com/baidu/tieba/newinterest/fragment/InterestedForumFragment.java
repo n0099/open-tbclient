@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hp7;
-import com.repackage.lu4;
+import com.repackage.kp7;
+import com.repackage.ku4;
 /* loaded from: classes3.dex */
 public class InterestedForumFragment extends BaseInterestedForumFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public TBSpecificationBtn h;
     public TextView i;
     public TextView j;
-    public hp7 k;
+    public kp7 k;
     public FrameLayout l;
     public TBSpecificationBtn m;
 
@@ -98,26 +98,26 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public final void H0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090f22);
-            TextView textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090f31);
+            this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090f23);
+            TextView textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090f32);
             this.i = textView;
             textView.setTypeface(Typeface.DEFAULT_BOLD);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0107);
-            this.g = (BdRecyclerView) this.f.findViewById(R.id.obfuscated_res_0x7f090f27);
+            this.g = (BdRecyclerView) this.f.findViewById(R.id.obfuscated_res_0x7f090f28);
             this.l = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0903e3);
-            lu4 lu4Var = new lu4();
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f090f0d);
+            ku4 ku4Var = new ku4();
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f090f0e);
             this.m = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds42);
-            this.m.setConfig(lu4Var);
-            this.m.setText(getResources().getString(R.string.obfuscated_res_0x7f0f142d));
+            this.m.setConfig(ku4Var);
+            this.m.setText(getResources().getString(R.string.obfuscated_res_0x7f0f142c));
             this.m.setEnabled(false);
             this.m.setOnClickListener(this);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f091c59);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f091c5a);
             this.h = tBSpecificationBtn2;
-            tBSpecificationBtn2.setText(getString(R.string.obfuscated_res_0x7f0f10c2));
-            this.k = new hp7(this, this.g, this.m, this.h, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
+            tBSpecificationBtn2.setText(getString(R.string.obfuscated_res_0x7f0f10c1));
+            this.k = new kp7(this, this.g, this.m, this.h, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
         }
     }
 

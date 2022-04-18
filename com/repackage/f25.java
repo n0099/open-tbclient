@@ -241,7 +241,7 @@ public class f25 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (a == 0) {
-                int l = wt4.k().l("key_last_keyboard_height", g(context.getResources()));
+                int l = vt4.k().l("key_last_keyboard_height", g(context.getResources()));
                 a = l;
                 if (l > 0) {
                     TbadkCoreApplication.getInst().setKeyboardHeight(a);
@@ -301,7 +301,7 @@ public class f25 {
             if (a != i && i > 0) {
                 a = i;
                 TbadkCoreApplication.getInst().setKeyboardHeight(a);
-                wt4.k().w("key_last_keyboard_height", i);
+                vt4.k().w("key_last_keyboard_height", i);
                 return true;
             }
             return false;

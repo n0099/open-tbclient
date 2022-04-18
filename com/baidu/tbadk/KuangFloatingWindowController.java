@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bs8;
+import com.repackage.is8;
 import com.repackage.oi;
 /* loaded from: classes2.dex */
 public class KuangFloatingWindowController {
@@ -306,7 +306,7 @@ public class KuangFloatingWindowController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = bs8.a(2002);
+            layoutParams.type = is8.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;

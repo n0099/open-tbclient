@@ -26,18 +26,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d19;
+import com.repackage.k19;
 import com.repackage.mg;
 import com.repackage.oi;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class RelevanceItemListController implements BdRecyclerView.i, d19.b, BdListView.p {
+public class RelevanceItemListController implements BdRecyclerView.i, k19.b, BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final View a;
     public final RelevanceItemListFragment b;
-    public final d19 c;
+    public final k19 c;
     public BdRecyclerView d;
     public PbListView e;
     public List<ReleavanceItemListData.ItemListBean> f;
@@ -70,7 +70,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, d19.b, BdL
                     return;
                 }
             }
-            ItemCardView itemCardView = (ItemCardView) view2.findViewById(R.id.obfuscated_res_0x7f090f89);
+            ItemCardView itemCardView = (ItemCardView) view2.findViewById(R.id.obfuscated_res_0x7f090f8a);
             this.b = itemCardView;
             itemCardView.setBackGroundColor(R.color.transparent_1);
             this.b.setSizeStyle(1);
@@ -172,11 +172,11 @@ public class RelevanceItemListController implements BdRecyclerView.i, d19.b, BdL
         this.i = new a(this);
         this.a = view2;
         this.b = relevanceItemListFragment;
-        this.c = new d19(bdUniqueId, str);
+        this.c = new k19(bdUniqueId, str);
         j();
     }
 
-    @Override // com.repackage.d19.b
+    @Override // com.repackage.k19.b
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -230,10 +230,10 @@ public class RelevanceItemListController implements BdRecyclerView.i, d19.b, BdL
             this.b.getActivity().finish();
             return;
         }
-        oi.M(this.b.getContext(), R.string.obfuscated_res_0x7f0f1586);
+        oi.M(this.b.getContext(), R.string.obfuscated_res_0x7f0f1585);
     }
 
-    @Override // com.repackage.d19.b
+    @Override // com.repackage.k19.b
     public void c(RelevanceItemSearchData relevanceItemSearchData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, relevanceItemSearchData) == null) {
@@ -248,7 +248,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, d19.b, BdL
         }
     }
 
-    @Override // com.repackage.d19.b
+    @Override // com.repackage.k19.b
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -287,7 +287,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, d19.b, BdL
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090f7b);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090f7c);
             this.d = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new XLinearLayoutManager(this.a.getContext()));
             this.d.setAdapter(this.i);
@@ -323,7 +323,7 @@ public class RelevanceItemListController implements BdRecyclerView.i, d19.b, BdL
         }
     }
 
-    @Override // com.repackage.d19.b
+    @Override // com.repackage.k19.b
     public void onError(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {

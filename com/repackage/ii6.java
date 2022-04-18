@@ -1,11 +1,16 @@
 package com.repackage;
+
+import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import com.baidu.tieba.frs.FrsFragment;
 /* loaded from: classes6.dex */
 public interface ii6 {
-    void a(boolean z);
+    yq6 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
 
-    void b(boolean z, boolean z2);
+    hi6 b(FrsFragment frsFragment, zo zoVar, boolean z);
 
-    boolean c();
+    ji6 c();
 
-    void onChangeSkinType(int i);
+    ki6 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
+
+    nr6 e(String str, FrsFragment frsFragment, int i);
 }

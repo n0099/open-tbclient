@@ -393,7 +393,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                         return invokeL.booleanValue;
                     }
                 });
-                ImageView imageView = (ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090eb5);
+                ImageView imageView = (ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090eb6);
                 processAlpha(frameLayout, imageView, this.mList.get(i), i);
                 Bitmap emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i));
                 if (emotionBitmapByName != null) {
@@ -660,7 +660,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                 }
             }
             this.mCtx = context;
-            GridView gridView = (GridView) view2.findViewById(R.id.obfuscated_res_0x7f090e1a);
+            GridView gridView = (GridView) view2.findViewById(R.id.obfuscated_res_0x7f090e1b);
             this.mIconGridList = gridView;
             gridView.setSelector(new ColorDrawable(0));
             this.mIconGridList.setNumColumns(7);
@@ -1075,7 +1075,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                     return;
                 }
             }
-            this.mTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908ba);
+            this.mTitle = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908bb);
             this.mCommonPaddingTop = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070325);
             this.mAllPaddingTop = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070323);
         }
@@ -1306,7 +1306,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
             if (i == 1) {
                 setPadding(0, 0, 0, 0);
             } else if (i == 2) {
-                int dimensionPixelSize = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07095f);
+                int dimensionPixelSize = this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070960);
                 setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
             sExprTotalExtraHeight = (this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070329) * 2) + this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070325) + this.mCtx.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070323);
@@ -1321,8 +1321,8 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                 setBackgroundColor(COLOR_EMOTION_BAG);
             }
             LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0277, this);
-            this.mViewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f0923b0);
-            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f090eed);
+            this.mViewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f0923b1);
+            this.mIndicator = (CircleIndicator) findViewById(R.id.obfuscated_res_0x7f090eee);
             ArrayList arrayList = new ArrayList();
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0276, (ViewGroup) this, false);
             ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090777);
@@ -1525,7 +1525,7 @@ public class BDEmotionBagVerticalLayout extends FrameLayout {
                     }
                 }
             });
-            this.mEmotionRecyclerView = (RecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091a16);
+            this.mEmotionRecyclerView = (RecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091a17);
             OffsetLinearLayoutManager offsetLinearLayoutManager = new OffsetLinearLayoutManager(this.mCtx);
             this.mLayoutManager = offsetLinearLayoutManager;
             this.mEmotionRecyclerView.setLayoutManager(offsetLinearLayoutManager);

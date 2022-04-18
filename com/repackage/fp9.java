@@ -1,38 +1,31 @@
 package com.repackage;
 
-import android.util.Log;
-import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
+import com.win.opensdk.activitys.H5Activity;
 /* loaded from: classes6.dex */
-public class fp9 implements ViewTreeObserver.OnTouchModeChangeListener {
+public class fp9 implements uu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ H5Activity a;
 
-    public fp9(qp9 qp9Var) {
+    public fp9(H5Activity h5Activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qp9Var};
+            Object[] objArr = {h5Activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // android.view.ViewTreeObserver.OnTouchModeChangeListener
-    public void onTouchModeChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onTouchModeChanged:" + z);
-        }
+        this.a = h5Activity;
     }
 }

@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.at8;
 import com.repackage.mi;
 import com.repackage.pg;
-import com.repackage.ts8;
-import com.repackage.vl4;
+import com.repackage.ul4;
 /* loaded from: classes4.dex */
 public class VideoNetworkStateTipView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -93,7 +93,7 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                vl4.x(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06b3), TbConfig.URL_BAIDU_SINGKIL);
+                ul4.x(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06b3), TbConfig.URL_BAIDU_SINGKIL);
             }
         }
     }
@@ -138,11 +138,11 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0553, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09184e);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090ab2);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09184f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090ab3);
             this.c = textView;
             textView.setOnClickListener(new b(this));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09185c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09185d);
             e(TbadkApplication.getInst().getSkinType());
         }
     }
@@ -150,7 +150,7 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (a() || ts8.c().d() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !mi.x()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (a() || at8.c().d() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !mi.x()) ? false : true : invokeV.booleanValue;
     }
 
     public void e(int i) {
@@ -160,11 +160,11 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         }
         this.a = i;
         SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080fad);
+        SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080fb1);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
         SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f080322);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f080fad);
+        SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f080fb1);
     }
 
     public void f() {

@@ -26,24 +26,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c45;
-import com.repackage.c47;
-import com.repackage.k47;
+import com.repackage.f47;
 import com.repackage.mg;
 import com.repackage.mi;
-import com.repackage.oe6;
+import com.repackage.n47;
 import com.repackage.qe6;
+import com.repackage.se6;
 import com.repackage.uo;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Media;
 import tbclient.TopicList.TopicList;
 /* loaded from: classes3.dex */
-public class FrsHottopicFragment extends BaseFragment implements oe6, k47.a, qe6 {
+public class FrsHottopicFragment extends BaseFragment implements qe6, n47.a, se6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotRanklistModel a;
-    public c47 b;
-    public k47 c;
+    public f47 b;
+    public n47 c;
     public long d;
     public String e;
     public String f;
@@ -116,17 +116,17 @@ public class FrsHottopicFragment extends BaseFragment implements oe6, k47.a, qe6
         }
 
         @Override // com.baidu.tieba.hottopic.controller.HotRanklistModel.b
-        public void a(boolean z, c47 c47Var, int i, String str) {
+        public void a(boolean z, f47 f47Var, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), c47Var, Integer.valueOf(i), str}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), f47Var, Integer.valueOf(i), str}) == null) {
                 this.a.g();
                 this.a.M0();
                 this.a.c.h(false);
                 if (z) {
-                    this.a.b = c47Var;
-                    k47 k47Var = this.a.c;
+                    this.a.b = f47Var;
+                    n47 n47Var = this.a.c;
                     FrsHottopicFragment frsHottopicFragment = this.a;
-                    k47Var.e(frsHottopicFragment.K0(frsHottopicFragment.b));
+                    n47Var.e(frsHottopicFragment.K0(frsHottopicFragment.b));
                     if (this.a.L0()) {
                         return;
                     }
@@ -199,29 +199,29 @@ public class FrsHottopicFragment extends BaseFragment implements oe6, k47.a, qe6
         this.j = new c(this, 2001624);
     }
 
-    @Override // com.repackage.qe6
+    @Override // com.repackage.se6
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.repackage.oe6
+    @Override // com.repackage.qe6
     public void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
         }
     }
 
-    public final List<uo> K0(c47 c47Var) {
+    public final List<uo> K0(f47 f47Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c47Var)) == null) {
-            if (c47Var == null || ListUtils.isEmpty(c47Var.a())) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f47Var)) == null) {
+            if (f47Var == null || ListUtils.isEmpty(f47Var.a())) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (TopicList topicList : c47Var.a()) {
+            for (TopicList topicList : f47Var.a()) {
                 if (topicList != null) {
                     ThreadData threadData = new ThreadData();
                     threadData.setTid(topicList.topic_tid + "");
@@ -339,7 +339,7 @@ public class FrsHottopicFragment extends BaseFragment implements oe6, k47.a, qe6
         return (TbPageTag) invokeV.objValue;
     }
 
-    @Override // com.repackage.qe6
+    @Override // com.repackage.se6
     public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -352,9 +352,9 @@ public class FrsHottopicFragment extends BaseFragment implements oe6, k47.a, qe6
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             super.onChangeSkinType(i);
-            k47 k47Var = this.c;
-            if (k47Var != null) {
-                k47Var.c();
+            n47 n47Var = this.c;
+            if (n47Var != null) {
+                n47Var.c();
             }
             c45 c45Var = this.g;
             if (c45Var == null || !c45Var.isViewAttached()) {
@@ -389,9 +389,9 @@ public class FrsHottopicFragment extends BaseFragment implements oe6, k47.a, qe6
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d032e, (ViewGroup) null);
-            k47 k47Var = new k47(this, inflate, getPageContext());
-            this.c = k47Var;
-            k47Var.f(getTbPageTag());
+            n47 n47Var = new n47(this, inflate, getPageContext());
+            this.c = n47Var;
+            n47Var.f(getTbPageTag());
             return inflate;
         }
         return (View) invokeLLL.objValue;
@@ -440,7 +440,7 @@ public class FrsHottopicFragment extends BaseFragment implements oe6, k47.a, qe6
         }
     }
 
-    @Override // com.repackage.oe6
+    @Override // com.repackage.qe6
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -467,7 +467,7 @@ public class FrsHottopicFragment extends BaseFragment implements oe6, k47.a, qe6
         }
     }
 
-    @Override // com.repackage.oe6
+    @Override // com.repackage.qe6
     public void z0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {

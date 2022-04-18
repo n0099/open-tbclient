@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fa8;
+import com.repackage.ma8;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
@@ -61,7 +61,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 UrlManager.getInstance().dealOneLink(this.b.i, new String[]{this.a.getBtnLink()});
-                fa8.q().l().c(this.a.getsExtras(), this.b.a);
+                ma8.q().l().c(this.a.getsExtras(), this.b.a);
             }
         }
     }
@@ -97,7 +97,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 UrlManager.getInstance().dealOneLink(this.b.i, new String[]{this.a.getBtnLink()});
-                fa8.q().l().c(this.a.getsExtras(), this.b.a);
+                ma8.q().l().c(this.a.getsExtras(), this.b.a);
             }
         }
     }
@@ -197,7 +197,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         if (lPBigImgCard.mHasShown) {
             return;
         }
-        fa8.q().l().d(lPBigImgCard.getShowExtra(), this.a);
+        ma8.q().l().d(lPBigImgCard.getShowExtra(), this.a);
         lPBigImgCard.mHasShown = true;
     }
 
@@ -228,9 +228,9 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d017f, (ViewGroup) null);
             this.m = relativeLayout;
-            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f091eeb);
-            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f091eec);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092170);
+            this.n = (TbImageView) l(relativeLayout, R.id.obfuscated_res_0x7f091eec);
+            this.o = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f091eed);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092171);
             return this.m;
         }
         return (View) invokeV.objValue;

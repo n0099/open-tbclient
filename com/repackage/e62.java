@@ -101,7 +101,7 @@ public abstract class e62 {
                     f62 f62Var = this.b;
                     l.setOrientation(e62Var.g(f62Var.h, f62Var.g, f62Var.i));
                     l.updateInstallSrc(3);
-                    f84.i().a(this.b, l);
+                    e84.i().a(this.b, l);
                     HybridUbcFlow hybridUbcFlow5 = this.a;
                     UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("loadPresetApp#run-bulkInsert");
                     ubcFlowEvent5.a(true);
@@ -168,7 +168,7 @@ public abstract class e62 {
                     }
                     return false;
                 } finally {
-                    ng4.d(readableByteChannel);
+                    mg4.d(readableByteChannel);
                 }
             }
             return false;
@@ -256,7 +256,7 @@ public abstract class e62 {
         PMSAppInfo a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, f62Var, jSONObject)) == null) {
-            if (jSONObject == null || f62Var == null || (a2 = pd4.a(jSONObject)) == null) {
+            if (jSONObject == null || f62Var == null || (a2 = od4.a(jSONObject)) == null) {
                 return null;
             }
             a2.copyMainPkgInfo(f62Var);
@@ -271,7 +271,7 @@ public abstract class e62 {
         f62 f62Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, jSONObject)) == null) {
-            if (jSONObject == null || (f62Var = (f62) pd4.j(jSONObject, new f62())) == null) {
+            if (jSONObject == null || (f62Var = (f62) od4.j(jSONObject, new f62())) == null) {
                 return null;
             }
             f62Var.o = jSONObject.optInt("pkg_type");
@@ -295,7 +295,7 @@ public abstract class e62 {
                         if ((i == null || i.b == -1) ? false : true) {
                             return ij2.d(bufferedInputStream, file, i.b).a;
                         }
-                        return qg4.d(bufferedInputStream, file.getPath());
+                        return pg4.d(bufferedInputStream, file.getPath());
                     }
                 } catch (IOException e) {
                     if (a) {
@@ -303,7 +303,7 @@ public abstract class e62 {
                     }
                     return false;
                 } finally {
-                    ng4.d(bufferedInputStream);
+                    mg4.d(bufferedInputStream);
                 }
             }
             return false;

@@ -1,22 +1,27 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class a77 extends la {
+public class a77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<String, ImMessageCenterPojo> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(Iterator<ImMessageCenterPojo> it);
+    }
+
     public a77() {
-        super(2016004);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,36 +29,51 @@ public class a77 extends la {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ConcurrentHashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ra
-    /* renamed from: c */
-    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
+    public void a(ImMessageCenterPojo imMessageCenterPojo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, imMessageCenterPojo) == null) || imMessageCenterPojo == null) {
+            return;
+        }
+        this.a.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public ImMessageCenterPojo c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
-            if (customResponsedMessage == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            if (customResponsedMessage instanceof MemoryChangedMessage) {
-                MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
-                ImMessageCenterPojo data = memoryChangedMessage.getData();
-                if (data != null && data.getCustomGroupType() == -8) {
-                    return new MemoryChangedMessage(u47.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
-                }
-                if (data != null && data.getCustomGroupType() == -7) {
-                    return new MemoryChangedMessage(v47.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
-                }
-            }
-            return customResponsedMessage;
+            return this.a.get(str);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (ImMessageCenterPojo) invokeL.objValue;
+    }
+
+    public void d(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            aVar.a(this.a.values().iterator());
+        }
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (TextUtils.isEmpty(str) || this.a.remove(str) == null) ? false : true : invokeL.booleanValue;
     }
 }

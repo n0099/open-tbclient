@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af6;
+import com.repackage.cf6;
 import com.repackage.uo;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -22,7 +22,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public String errMsg;
     public ArrayList<uo> mAltList;
     public ArrayList<uo> mThreadList;
-    public af6 pageInfo;
+    public cf6 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i) {
@@ -57,9 +57,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             this.errMsg = jSONObject.optString("errmsg");
             this.alaLiveCount = jSONObject.optInt("ala_live_count");
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
-            af6 af6Var = new af6();
-            this.pageInfo = af6Var;
-            af6Var.g = optJSONObject.optInt("has_more") == 1;
+            cf6 cf6Var = new cf6();
+            this.pageInfo = cf6Var;
+            cf6Var.g = optJSONObject.optInt("has_more") == 1;
             this.pageInfo.c = optJSONObject.optInt(Config.PACKAGE_NAME);
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();

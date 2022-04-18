@@ -1,197 +1,148 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.LinkedHashMap;
 /* loaded from: classes6.dex */
-public class l78 extends n78 {
+public class l78 {
     public static /* synthetic */ Interceptable $ic;
+    public static l78 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoItemData M0;
-    public VideoSerializeVideoThreadInfo N0;
-    public ThreadData O0;
+    public LinkedHashMap<String, Integer> a;
+    public CustomMessageListener b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l78(Context context, View view2) {
-        super(context, view2);
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l78 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(l78 l78Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l78Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l78Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+                return;
+            }
+            this.a.a.clear();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755576060, "Lcom/repackage/l78;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755576060, "Lcom/repackage/l78;");
+        }
+    }
+
+    public l78() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 5000;
-    }
-
-    @Override // com.repackage.n78
-    public void O() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i = this.p;
-            if (i == this.e || i == this.n) {
-                y0();
-            }
-        }
-    }
-
-    @Override // com.repackage.n78
-    public void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f = 32;
-        }
-    }
-
-    @Override // com.repackage.n78
-    public void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.n78
-    public void d0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.d0();
-            this.Q.setOnTouchListener(null);
-            this.Q.setOnClickListener(this);
-        }
-    }
-
-    @Override // com.repackage.n78, com.repackage.k78
-    public boolean onBackPress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.n78, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
-            return;
-        }
-        if (view2.getId() == R.id.obfuscated_res_0x7f092329) {
-            W();
-            return;
-        }
-        if (!mi.z()) {
-            oi.M(this.O, R.string.obfuscated_res_0x7f0f0c4f);
-        } else {
-            x0(ThreadCardUtils.computeViewArea(this.Q));
-        }
-        View.OnClickListener onClickListener = this.z0;
-        if (onClickListener != null) {
-            onClickListener.onClick(getMainView());
-        }
-    }
-
-    @Override // com.repackage.n78, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            startPlay();
-        }
-    }
-
-    @Override // com.repackage.n78, com.repackage.k78
-    public void setData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
-            super.setData(threadData);
-            this.O0 = threadData;
-            if (this.T) {
-                VideoItemData videoItemData = new VideoItemData();
-                this.M0 = videoItemData;
-                videoItemData.buildWithThreadData(threadData);
-                return;
-            }
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-            this.N0 = videoSerializeVideoThreadInfo;
-            videoSerializeVideoThreadInfo.copyFromThreadInfo(threadData);
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.N0;
-            videoSerializeVideoThreadInfo2.source = threadData.mRecomSource;
-            videoSerializeVideoThreadInfo2.extra = threadData.mRecomExtra;
-            videoSerializeVideoThreadInfo2.ab_tag = threadData.mRecomAbTag;
-            videoSerializeVideoThreadInfo2.weight = threadData.mRecomWeight;
-        }
-    }
-
-    public final void x0(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect) == null) || this.O0 == null) {
-            return;
-        }
-        if (this.M0 == null) {
-            this.M0 = new VideoItemData();
-        }
-        ArrayList arrayList = new ArrayList();
-        this.M0.buildWithThreadData(this.O0);
-        arrayList.add(this.M0);
-        String str = null;
-        ThreadData threadData = this.O0;
-        if (threadData != null && threadData.getBaijiahaoData() != null) {
-            str = this.O0.getBaijiahaoData().oriUgcNid;
-        }
-        Context context = this.O;
-        boolean z = this.T;
-        String str2 = this.h0;
-        nc5.e(context, arrayList, str, z, 0, rect, "from_nani_video", "personalize_page", "", str2, str2, false, this.O0.isJumpToFrsVideoTabPlay, true);
-    }
-
-    public void y0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            o0(this.f);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public l78(Context context, View view2, boolean z) {
-        this(context, view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        m0(z);
+        this.a = new LinkedHashMap<>(150, 0.75f, true);
+        this.b = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.b);
+    }
+
+    public static l78 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (l78.class) {
+                    if (c == null) {
+                        c = new l78();
+                    }
+                }
+            }
+            return c;
+        }
+        return (l78) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Integer num = this.a.get(str);
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.a.remove(str);
+    }
+
+    public void update(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            if (i == 0 && this.a.containsKey(str)) {
+                return;
+            }
+            this.a.put(str, Integer.valueOf(i));
+        }
     }
 }

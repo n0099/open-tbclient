@@ -26,10 +26,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nv4;
+import com.repackage.mv4;
 import com.repackage.oi;
 /* loaded from: classes4.dex */
-public class FollowUserSpinnerBtn extends LinearLayout implements nv4 {
+public class FollowUserSpinnerBtn extends LinearLayout implements mv4 {
     public static /* synthetic */ Interceptable $ic;
     public static final int p;
     public static final int q;
@@ -132,14 +132,14 @@ public class FollowUserSpinnerBtn extends LinearLayout implements nv4 {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -147,7 +147,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements nv4 {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -155,7 +155,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements nv4 {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -179,7 +179,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements nv4 {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -192,9 +192,9 @@ public class FollowUserSpinnerBtn extends LinearLayout implements nv4 {
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a2, this);
             setOrientation(0);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091205);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091a8c);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092012);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091206);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091a8d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092013);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ab);
             Paint paint = new Paint(1);
             this.e = paint;

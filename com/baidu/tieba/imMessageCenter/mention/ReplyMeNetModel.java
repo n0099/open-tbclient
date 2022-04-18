@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ga7;
-import com.repackage.ha7;
+import com.repackage.ja7;
+import com.repackage.ka7;
 import com.repackage.o65;
 /* loaded from: classes3.dex */
-public class ReplyMeNetModel extends NetAutoModel<ga7, ha7, ReplyMessageFragment> {
+public class ReplyMeNetModel extends NetAutoModel<ja7, ka7, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReplyMeNetModel(TbPageContext tbPageContext, ga7 ga7Var) {
-        super(tbPageContext, ga7Var);
+    public ReplyMeNetModel(TbPageContext tbPageContext, ja7 ja7Var) {
+        super(tbPageContext, ja7Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ga7Var};
+            Object[] objArr = {tbPageContext, ja7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,9 +79,9 @@ public class ReplyMeNetModel extends NetAutoModel<ga7, ha7, ReplyMessageFragment
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<ha7> getResponseDataClass() {
+    public Class<ka7> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ha7.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ka7.class : (Class) invokeV.objValue;
     }
 }

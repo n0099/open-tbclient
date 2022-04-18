@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br8;
-import com.repackage.dk8;
-import com.repackage.er8;
-import com.repackage.fr8;
+import com.repackage.ir8;
+import com.repackage.kk8;
+import com.repackage.lr8;
+import com.repackage.mr8;
 import com.repackage.wa;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<er8> a;
-    public fr8 b;
-    public List<br8> c;
+    public List<lr8> a;
+    public mr8 b;
+    public List<ir8> c;
     public b d;
     public boolean e;
     public wa f;
@@ -92,7 +92,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, List<br8> list, fr8 fr8Var, List<er8> list2);
+        void a(int i, String str, List<ir8> list, mr8 mr8Var, List<lr8> list2);
     }
 
     public DressupCenterModel(DressupCenterActivity dressupCenterActivity) {
@@ -160,8 +160,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            dk8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            dk8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            kk8.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            kk8.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

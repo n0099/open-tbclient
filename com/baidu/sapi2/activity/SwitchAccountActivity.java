@@ -160,7 +160,7 @@ public class SwitchAccountActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f1063);
+            setTitleText(R.string.obfuscated_res_0x7f0f1062);
             SapiWebView sapiWebView = this.sapiWebView;
             sapiWebView.showSwitchAccount = this.configuration.supportMultipleAccounts;
             sapiWebView.showLinkAccount = this.v.supportQueryAssociatedAccount;

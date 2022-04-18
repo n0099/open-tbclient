@@ -25,14 +25,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j66;
-import com.repackage.k66;
+import com.repackage.bj8;
+import com.repackage.dj8;
+import com.repackage.l66;
+import com.repackage.m66;
 import com.repackage.oi;
-import com.repackage.ui8;
-import com.repackage.wi8;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class ForumTestView extends FrameLayout implements k66 {
+public class ForumTestView extends FrameLayout implements m66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ValueAnimator A;
@@ -47,7 +47,7 @@ public class ForumTestView extends FrameLayout implements k66 {
     public float J;
     public int K;
     public int a;
-    public List<j66> b;
+    public List<l66> b;
     public BdUniqueId c;
     public CellForumTestView d;
     public CellForumTestView e;
@@ -344,17 +344,17 @@ public class ForumTestView extends FrameLayout implements k66 {
     }
 
     public void E(int i) {
-        List<j66> list;
-        j66 j66Var;
+        List<l66> list;
+        l66 l66Var;
         int i2;
         StatisticItem j;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (list = this.b) == null || i < 0 || i >= list.size() || (j66Var = this.b.get(i)) == null || (j = ui8.j(false, "a065", "common_exp", i2, (i2 = i + 1), false, null, String.valueOf(j66Var.a), 0)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (list = this.b) == null || i < 0 || i >= list.size() || (l66Var = this.b.get(i)) == null || (j = bj8.j(false, "a065", "common_exp", i2, (i2 = i + 1), false, null, String.valueOf(l66Var.a), 0)) == null) {
             return;
         }
-        wi8 g = wi8.g();
+        dj8 g = dj8.g();
         BdUniqueId bdUniqueId = this.c;
-        g.d(bdUniqueId, ui8.b("" + j66Var.a), j);
+        g.d(bdUniqueId, bj8.b("" + l66Var.a), j);
     }
 
     public final void F(Context context) {
@@ -437,10 +437,10 @@ public class ForumTestView extends FrameLayout implements k66 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d6, (ViewGroup) this, true);
-            this.d = (CellForumTestView) findViewById(R.id.obfuscated_res_0x7f090a8d);
-            this.e = (CellForumTestView) findViewById(R.id.obfuscated_res_0x7f090a8f);
-            this.f = (CellForumTestView) findViewById(R.id.obfuscated_res_0x7f090a8e);
-            this.g = (CellForumTestView) findViewById(R.id.obfuscated_res_0x7f090a8c);
+            this.d = (CellForumTestView) findViewById(R.id.obfuscated_res_0x7f090a8e);
+            this.e = (CellForumTestView) findViewById(R.id.obfuscated_res_0x7f090a90);
+            this.f = (CellForumTestView) findViewById(R.id.obfuscated_res_0x7f090a8f);
+            this.g = (CellForumTestView) findViewById(R.id.obfuscated_res_0x7f090a8d);
             F(context);
             Q();
             ViewConfiguration.get(context);
@@ -773,7 +773,7 @@ public class ForumTestView extends FrameLayout implements k66 {
         }
     }
 
-    @Override // com.repackage.k66
+    @Override // com.repackage.m66
     public void a(int i) {
         CellForumTestView cellForumTestView;
         Interceptable interceptable = $ic;
@@ -1004,7 +1004,7 @@ public class ForumTestView extends FrameLayout implements k66 {
         }
     }
 
-    public void setData(List<j66> list) {
+    public void setData(List<l66> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048604, this, list) == null) || ListUtils.isEmpty(list) || this.B || this.z != 0.0f) {
             return;

@@ -422,11 +422,11 @@ public class g45 extends a45 {
         this.a.addAnimatorUpdateListener(this.k);
         this.a.addAnimatorListener(this.l);
         this.a.setSpeed(1.2f);
-        this.c = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0912ff);
-        this.d = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09130b);
-        ImageView imageView = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091304);
+        this.c = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091300);
+        this.d = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09130c);
+        ImageView imageView = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091305);
         this.e = imageView;
-        imageView.setImageResource(R.drawable.obfuscated_res_0x7f0807bb);
+        imageView.setImageResource(R.drawable.obfuscated_res_0x7f0807ba);
         String[] stringArray = context.getResources().getStringArray(R.array.obfuscated_res_0x7f030011);
         this.b = stringArray;
         this.g = stringArray.length;

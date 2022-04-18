@@ -41,13 +41,13 @@ public class x41 extends w41 {
 
         /* renamed from: com.repackage.x41$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0549a implements View.OnClickListener {
+        public class View$OnClickListenerC0548a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0549a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0548a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -297,7 +297,7 @@ public class x41 extends w41 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.e);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0914a2);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0914a3);
                 this.a.u.setLayoutParams(layoutParams);
             }
         }
@@ -370,7 +370,7 @@ public class x41 extends w41 {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0549a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0548a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -439,7 +439,7 @@ public class x41 extends w41 {
                 int color3 = b().getColor(R.color.obfuscated_res_0x7f060806);
                 int color4 = b().getColor(R.color.obfuscated_res_0x7f0607f8);
                 int color5 = b().getColor(R.color.obfuscated_res_0x7f060807);
-                this.a.s.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d9e));
+                this.a.s.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080da2));
                 this.a.b.setTextColor(color);
                 this.a.c.setTextColor(color4);
                 b bVar = this.a;
@@ -460,12 +460,12 @@ public class x41 extends w41 {
                 this.a.h.setBackgroundColor(color5);
                 this.a.i.setBackgroundColor(color5);
                 this.a.j.setBackgroundColor(color5);
-                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d9d));
-                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d9b));
+                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080da1));
+                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d9f));
                 this.a.g.setBackgroundColor(b().getColor(R.color.obfuscated_res_0x7f060804));
                 TextView e = e();
                 if (e != null) {
-                    e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d99));
+                    e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f080d9d));
                 }
             }
         }
@@ -520,22 +520,22 @@ public class x41 extends w41 {
             this.w = -1;
             this.x = -1;
             this.v = viewGroup;
-            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0914dd);
+            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0914de);
             this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907bf);
             this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907b5);
-            this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0914a2);
-            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09189c);
-            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091530);
-            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09153d);
+            this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0914a3);
+            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09189d);
+            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091531);
+            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09153e);
             this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ed);
             this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ee);
             this.o = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907aa);
             this.p = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ab);
             this.r = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907af);
-            this.s = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091c41);
+            this.s = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091c42);
             this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ec);
-            this.t = (BoxScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091402);
-            this.u = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09149e);
+            this.t = (BoxScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091403);
+            this.u = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09149f);
         }
     }
 

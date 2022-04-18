@@ -59,11 +59,11 @@ public class rr0 extends pr0 {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             super.C(z);
             if (z) {
-                this.h.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df4));
+                this.h.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df8));
                 return;
             }
             J(false);
-            this.h.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df1));
+            this.h.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df5));
         }
     }
 
@@ -162,10 +162,10 @@ public class rr0 extends pr0 {
             ViewGroup viewGroup = (ViewGroup) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d05d6, null);
             this.e = viewGroup;
             this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f090345);
-            BdLayerSeekBar bdLayerSeekBar = (BdLayerSeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f0911b5);
+            BdLayerSeekBar bdLayerSeekBar = (BdLayerSeekBar) this.e.findViewById(R.id.obfuscated_res_0x7f0911b6);
             this.f = bdLayerSeekBar;
             bdLayerSeekBar.setSeekBarHolderListener(this);
-            ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090936);
+            ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090937);
             this.h = imageView;
             imageView.setOnClickListener(this);
             E(false);

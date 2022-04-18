@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
-import com.repackage.i49;
-import com.repackage.m49;
+import com.repackage.p49;
+import com.repackage.t49;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -112,9 +112,9 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
             JSONObject serviceData = cloudControlResponseInfo.getServiceData();
             if (TextUtils.equals(cloudControlResponseInfo.getServiceName(), UBC_KEY) && serviceData != null) {
                 boolean z = !"0".equals(option != null ? option.optString("version_asc") : "0");
-                m49 m49Var = new m49("", serviceData);
-                if (m49Var.l()) {
-                    ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(m49Var, z, new i49(this, iCloudControlUBCCallBack, m49Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+                t49 t49Var = new t49("", serviceData);
+                if (t49Var.l()) {
+                    ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(t49Var, z, new p49(this, iCloudControlUBCCallBack, t49Var.g()) { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ UBCCloudControlProcessor this$0;
@@ -141,7 +141,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
                             this.val$step = r8;
                         }
 
-                        @Override // com.repackage.i49
+                        @Override // com.repackage.p49
                         public void setUBCConfigStatisticData(JSONObject jSONObject) {
                             ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                             Interceptable interceptable2 = $ic;

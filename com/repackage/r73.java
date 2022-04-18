@@ -108,7 +108,7 @@ public final class r73 {
             }
             String d = L.M() != null ? L.M().d() : "";
             if (!TextUtils.isEmpty(d)) {
-                String d2 = pg4.d(d.getBytes(), false);
+                String d2 = og4.d(d.getBytes(), false);
                 if (D(str + b + File.separator + d2)) {
                     if (a) {
                         Log.d("StorageUtil", "the filesystem base path is under UID ");
@@ -120,7 +120,7 @@ public final class r73 {
             if (!TextUtils.isEmpty(i)) {
                 i = i.replace("|", "");
             }
-            return pg4.d(i.getBytes(), false);
+            return og4.d(i.getBytes(), false);
         }
         return (String) invokeL.objValue;
     }
@@ -218,7 +218,7 @@ public final class r73 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
             String I = I(str, str2);
-            String r = ng4.r(ng4.s(str));
+            String r = mg4.r(mg4.s(str));
             if (I != null && !I.contains(".") && r != null) {
                 I = I + "." + r;
             }
@@ -256,7 +256,7 @@ public final class r73 {
         File i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, null, str, j03Var, str2)) == null) {
-            if (j03Var != null && !ng4.x(str)) {
+            if (j03Var != null && !mg4.x(str)) {
                 gl2.a X = j03Var.X();
                 boolean z = X != null && X.n0();
                 if (a && z) {
@@ -333,7 +333,7 @@ public final class r73 {
                 }
                 try {
                     String str4 = new String(Base64.decode(str3, 10));
-                    if (ng4.x(str4)) {
+                    if (mg4.x(str4)) {
                         return null;
                     }
                     stringBuffer.append(str4);
@@ -360,7 +360,7 @@ public final class r73 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, str2)) == null) {
             String replace = TextUtils.equals(str, gc2.USER_DATA_PATH) ? "" : str.replace("bdfile://usr/", "");
-            if (ng4.x(replace) || (z = z(str2)) == null) {
+            if (mg4.x(replace) || (z = z(str2)) == null) {
                 return null;
             }
             return z + File.separator + replace;
@@ -372,11 +372,11 @@ public final class r73 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            Map<String, PMSAppInfo> v = f84.i().v();
+            Map<String, PMSAppInfo> v = e84.i().v();
             if (v.isEmpty()) {
                 return 0L;
             }
-            return ng4.c(o(), v.keySet());
+            return mg4.c(o(), v.keySet());
         }
         return invokeV.longValue;
     }
@@ -390,13 +390,13 @@ public final class r73 {
     public static long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? ng4.a(q()) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? mg4.a(q()) : invokeV.longValue;
     }
 
     public static long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? ng4.a(r()) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? mg4.a(r()) : invokeV.longValue;
     }
 
     public static long e() {
@@ -408,19 +408,19 @@ public final class r73 {
     public static long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? ng4.b(B(), "aiapp_", "aiapp_setting_") : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? mg4.b(B(), "aiapp_", "aiapp_setting_") : invokeV.longValue;
     }
 
     public static long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? ng4.c(o(), c) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? mg4.c(o(), c) : invokeV.longValue;
     }
 
     public static long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? ng4.b(B(), "aiapp_setting_", null) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? mg4.b(B(), "aiapp_setting_", null) : invokeV.longValue;
     }
 
     public static int i() {
@@ -435,7 +435,7 @@ public final class r73 {
     public static long j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? ng4.a(A()) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) ? mg4.a(A()) : invokeV.longValue;
     }
 
     public static int k() {
@@ -447,7 +447,7 @@ public final class r73 {
     public static long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? ng4.a(new File(p(), "ubcdir")) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? mg4.a(new File(p(), "ubcdir")) : invokeV.longValue;
     }
 
     public static boolean m(String str) {

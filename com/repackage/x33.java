@@ -215,11 +215,11 @@ public class x33 extends g23 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, j03Var) == null) {
             String I = qj2.o().I();
-            l74 l74Var = new l74(I, requestBody, new a(this, str, callbackHandler, j03Var, I));
-            l74Var.f = true;
-            l74Var.g = false;
-            l74Var.h = true;
-            m74.g().e(l74Var);
+            k74 k74Var = new k74(I, requestBody, new a(this, str, callbackHandler, j03Var, I));
+            k74Var.f = true;
+            k74Var.g = false;
+            k74Var.h = true;
+            l74.g().e(k74Var);
             o73.a(SwanInterfaceType.NAVIGATE);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }

@@ -1,27 +1,42 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 /* loaded from: classes7.dex */
 public class ya7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str) {
-        String format;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            String urlDecode = ni.getUrlDecode(str);
+            if (urlDecode == null) {
+                return urlDecode;
+            }
+            int lastIndexOf = urlDecode.lastIndexOf("/");
+            if (lastIndexOf == -1 || (indexOf = urlDecode.indexOf(".", lastIndexOf)) == -1) {
+                return null;
+            }
+            return urlDecode.substring(lastIndexOf + 1, indexOf);
         }
-        try {
-            format = String.format("http://graph.baidu.com/details?image=%s&carousel=0&tn=tieba&promotion_name=shitu", URLEncoder.encode(str, "UTF-8"));
-        } catch (UnsupportedEncodingException unused) {
-            format = String.format("http://graph.baidu.com/details?image=%s&carousel=0&tn=tieba&promotion_name=shitu", str);
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            String urlDecode = ni.getUrlDecode(str);
+            return !StringUtils.isNull(urlDecode) && urlDecode.contains("?t=");
         }
-        vl4.m(context, format);
+        return invokeL.booleanValue;
     }
 }

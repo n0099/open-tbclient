@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hr8;
+import com.repackage.or8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ShareScrollableLayout extends LinearLayout implements hr8 {
+public class ShareScrollableLayout extends LinearLayout implements or8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
@@ -46,7 +46,7 @@ public class ShareScrollableLayout extends LinearLayout implements hr8 {
         c();
     }
 
-    @Override // com.repackage.hr8
+    @Override // com.repackage.or8
     public void a(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, view2) == null) {
@@ -77,7 +77,7 @@ public class ShareScrollableLayout extends LinearLayout implements hr8 {
         }
     }
 
-    @Override // com.repackage.hr8
+    @Override // com.repackage.or8
     @NonNull
     public View getView() {
         InterceptResult invokeV;
@@ -85,7 +85,7 @@ public class ShareScrollableLayout extends LinearLayout implements hr8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // android.view.ViewGroup, com.repackage.hr8
+    @Override // android.view.ViewGroup, com.repackage.or8
     public void removeAllViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -94,7 +94,7 @@ public class ShareScrollableLayout extends LinearLayout implements hr8 {
         }
     }
 
-    @Override // com.repackage.hr8
+    @Override // com.repackage.or8
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {

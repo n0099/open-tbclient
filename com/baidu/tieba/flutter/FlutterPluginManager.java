@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.o45;
 import com.repackage.pg;
-import com.repackage.rt4;
+import com.repackage.qt4;
 /* loaded from: classes3.dex */
 public class FlutterPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -203,7 +203,7 @@ public class FlutterPluginManager {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         if (this.this$0.mIsPluginLoadSuccess) {
                             this.this$0.notifyMainTab();
-                            rt4.e(TbadkCoreApplication.getInst(), 8);
+                            qt4.e(TbadkCoreApplication.getInst(), 8);
                             return;
                         }
                         this.this$0.init();

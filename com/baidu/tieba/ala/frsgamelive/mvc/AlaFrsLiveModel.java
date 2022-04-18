@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.is5;
+import com.repackage.ks5;
 import com.repackage.uo;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -185,7 +185,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
             for (uo uoVar : list2) {
-                if (uoVar != null && (uoVar instanceof is5) && (threadData = ((is5) uoVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
+                if (uoVar != null && (uoVar instanceof ks5) && (threadData = ((ks5) uoVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
                     String tid = threadData.getTid();
                     if (!TextUtils.isEmpty(tid)) {
                         boolean z = false;
@@ -195,7 +195,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                                 break;
                             }
                             uo next = it.next();
-                            if (next != null && (next instanceof is5) && (threadData2 = ((is5) next).a) != null && tid.equals(threadData2.getTid())) {
+                            if (next != null && (next instanceof ks5) && (threadData2 = ((ks5) next).a) != null && tid.equals(threadData2.getTid())) {
                                 z = true;
                                 break;
                             }

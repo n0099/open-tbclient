@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fc8;
 import com.repackage.q45;
-import com.repackage.tc7;
-import com.repackage.yb8;
+import com.repackage.wc7;
 /* loaded from: classes3.dex */
 public class RecAppLegoStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -202,7 +202,7 @@ public class RecAppLegoStatic {
                 return;
             }
         }
-        tc7.h().g(new yb8());
+        wc7.h().g(new fc8());
         CustomMessageTask customMessageTask = new CustomMessageTask(2921686, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

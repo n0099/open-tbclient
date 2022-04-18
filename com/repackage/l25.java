@@ -70,7 +70,7 @@ public class l25 extends o25 {
                 }
                 TiebaStatic.eventStat(this.b.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
             } else if (i == 7) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0cf1);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0cf0);
             } else if (i == 8) {
                 if (this.c.k(this.a.getContext(), 11001)) {
                     this.a.L(null, null);

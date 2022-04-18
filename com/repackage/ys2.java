@@ -391,7 +391,7 @@ public class ys2 implements ft2 {
             }
             CallbackHandler callbackHandler = this.f.c;
             String str2 = this.f.i;
-            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f.a.x().getString(R.string.obfuscated_res_0x7f0f1245) + str).toString());
+            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.f.a.x().getString(R.string.obfuscated_res_0x7f0f1244) + str).toString());
         }
 
         @Override // com.repackage.ys2.k
@@ -689,7 +689,7 @@ public class ys2 implements ft2 {
     public static void y(@NonNull JSONObject jSONObject, @NonNull String str) throws JSONException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65562, null, jSONObject, str) == null) {
-            PMSAppInfo u = f84.i().u(str);
+            PMSAppInfo u = e84.i().u(str);
             int i2 = u == null ? PMSConstants.PayProtected.NO_PAY_PROTECTED.type : u.payProtected;
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("baoStatus", i2);
@@ -854,7 +854,7 @@ public class ys2 implements ft2 {
             }
             c73.K("nuomi", "intoPayment", 0);
             if (!z) {
-                String a2 = sg4.a(sg4.a("https://etrade.baidu.com/cashier/create-qrcode", "orderInfo", Uri.encode(jSONObject2.toString())), "deviceType", "ANDROID");
+                String a2 = rg4.a(rg4.a("https://etrade.baidu.com/cashier/create-qrcode", "orderInfo", Uri.encode(jSONObject2.toString())), "deviceType", "ANDROID");
                 xz1.c3("qrCodePay", jq2.d(a2, a2));
                 bt2.b(new h(this, jSONObject, str));
                 jx1.k("SwanAppPaymentManager", "doPolymerPay Qr Code: " + jSONObject2.toString());
@@ -1068,11 +1068,11 @@ public class ys2 implements ft2 {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (j03Var = this.a) == null) {
             return;
         }
-        b03.f(j03Var.x(), R.string.obfuscated_res_0x7f0f12b2).G();
+        b03.f(j03Var.x(), R.string.obfuscated_res_0x7f0f12b1).G();
         if (TextUtils.isEmpty(this.i)) {
             return;
         }
-        this.c.handleSchemeDispatchCallback(this.i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.a.x().getString(R.string.obfuscated_res_0x7f0f12b2)).toString());
+        this.c.handleSchemeDispatchCallback(this.i, UnitedSchemeUtility.wrapCallbackParamsWithBase64(null, 6, this.a.x().getString(R.string.obfuscated_res_0x7f0f12b1)).toString());
     }
 
     public final void O(int i2, String str, String str2) {

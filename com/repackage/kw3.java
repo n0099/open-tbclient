@@ -112,8 +112,8 @@ public class kw3 {
                 if (kw3.h) {
                     Log.d("SwanGameV8Master", "SwanGameCoreRuntime JSThread run event start");
                 }
-                d04 d04Var = this.a.c;
-                ww3 ww3Var = d04Var == null ? null : d04Var.f;
+                c04 c04Var = this.a.c;
+                ww3 ww3Var = c04Var == null ? null : c04Var.f;
                 ww3.a f = ww3.f(ww3Var);
                 if (f.b()) {
                     SwanInspectorEndpoint.v().r(ww3Var, this.c.a, f, this.b);
@@ -515,9 +515,9 @@ public class kw3 {
             HybridUbcFlow p = ot2.p(NodeJS.STARTUP_SCRIPT_NAME);
             p.I(HybridUbcFlow.SubmitStrategy.NA_ONLY);
             p.F(new UbcFlowEvent("na_load_index_js_start"));
-            this.a.dispatchEvent(new ky3());
+            this.a.dispatchEvent(new jy3());
             this.a.a0(this.e, "index.js");
-            this.a.dispatchEvent(new ly3());
+            this.a.dispatchEvent(new ky3());
             ot2.p(NodeJS.STARTUP_SCRIPT_NAME).F(new UbcFlowEvent("na_load_index_js_end"));
             if (h) {
                 Log.d("SwanGameV8Master", "SwanGameCoreRuntime load index.js end.");

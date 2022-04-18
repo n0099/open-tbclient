@@ -66,24 +66,24 @@ public class ActionBarLandscapeVertical extends FrameLayout implements d {
 
     private void a(Context context) {
         FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0476, this);
-        this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09114d);
-        this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09114f);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102f);
-        this.d = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091032);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09102e);
-        this.f = findViewById(R.id.obfuscated_res_0x7f09116c);
-        this.g = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091040);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091031);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0910bf);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09102a);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09102c);
+        this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09114e);
+        this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091150);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091030);
+        this.d = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091033);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09102f);
+        this.f = findViewById(R.id.obfuscated_res_0x7f09116d);
+        this.g = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091041);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091032);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0910c0);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09102b);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09102d);
         this.k = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
         this.k.setTextColor(-1);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f09102d);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f09102e);
         this.l = findViewById;
         new f(findViewById, this);
-        this.m = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091006);
+        this.m = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091007);
     }
 
     private KsAppDownloadListener getAppDownloadListener() {

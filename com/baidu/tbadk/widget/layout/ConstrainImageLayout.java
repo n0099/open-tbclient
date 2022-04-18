@@ -38,8 +38,8 @@ import com.repackage.fo;
 import com.repackage.h35;
 import com.repackage.ig;
 import com.repackage.pe5;
-import com.repackage.ur4;
-import com.repackage.xr4;
+import com.repackage.tr4;
+import com.repackage.wr4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ConstrainImageLayout extends ViewGroup {
@@ -361,14 +361,14 @@ public class ConstrainImageLayout extends ViewGroup {
                 i2 = Integer.MIN_VALUE;
             }
             this.i.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, f, i, i2, Shader.TileMode.CLAMP));
-            canvas2.drawPath(xr4.a(rectF2, fArr), this.i);
+            canvas2.drawPath(wr4.a(rectF2, fArr), this.i);
         }
         canvas.drawBitmap(this.o, rectF.left, rectF.top, this.h);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
         int i5 = ((int) rectF.bottom) - dimenPixelSize;
         int measureText = (((int) rectF.right) - dimenPixelSize2) - ((int) this.j.measureText(this.g));
-        float[] B = ur4.B(R.array.S_O_X001);
+        float[] B = tr4.B(R.array.S_O_X001);
         this.j.setShadowLayer(B[1], B[2], B[3], (int) B[0]);
         canvas.drawText(this.g, measureText, i5, this.j);
     }
@@ -399,7 +399,7 @@ public class ConstrainImageLayout extends ViewGroup {
             if (e == null) {
                 return;
             }
-            d(canvas, e, ur4.y(R.string.J_X11));
+            d(canvas, e, tr4.y(R.string.J_X11));
         }
     }
 

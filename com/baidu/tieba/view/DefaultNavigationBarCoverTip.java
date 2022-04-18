@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mm4;
-import com.repackage.nu4;
+import com.repackage.lm4;
+import com.repackage.mu4;
 /* loaded from: classes4.dex */
 public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +32,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public View i;
     public String j;
     public View.OnClickListener k;
-    public final mm4 l;
+    public final lm4 l;
     public NavigationBarCoverTip.e m;
 
     /* loaded from: classes4.dex */
@@ -74,7 +74,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends mm4 {
+    public class b extends lm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DefaultNavigationBarCoverTip a;
@@ -97,7 +97,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             this.a = defaultNavigationBarCoverTip;
         }
 
-        @Override // com.repackage.mm4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.a.h) {
@@ -198,12 +198,12 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             this.j = str2;
             View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d08de, null);
             this.i = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092486);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091cab);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092487);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091cac);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            nu4 nu4Var = new nu4();
-            nu4Var.s();
-            tBSpecificationBtn.setConfig(nu4Var);
+            mu4 mu4Var = new mu4();
+            mu4Var.s();
+            tBSpecificationBtn.setConfig(mu4Var);
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);

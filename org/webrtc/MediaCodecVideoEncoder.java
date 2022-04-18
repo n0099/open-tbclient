@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import com.repackage.my9;
+import com.repackage.ty9;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1053,7 +1053,7 @@ public class MediaCodecVideoEncoder {
                 Logging.w(TAG, "Egl context already set.");
                 staticEglBase.release();
             }
-            staticEglBase = my9.b(context);
+            staticEglBase = ty9.b(context);
         }
     }
 

@@ -27,8 +27,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c85;
-import com.repackage.dk8;
 import com.repackage.h85;
+import com.repackage.kk8;
 import com.repackage.nd5;
 /* loaded from: classes4.dex */
 public class BuyTBeanActivityStatic {
@@ -133,7 +133,7 @@ public class BuyTBeanActivityStatic {
             }
         }
         TbadkApplication.getInst().RegisterIntent(BuyTBeanActivityConfig.class, BuyTBeanActivity.class);
-        dk8.f(306001, GetYinJiResponseMessage.class, false);
+        kk8.f(306001, GetYinJiResponseMessage.class, false);
         c();
         a();
         b();
@@ -176,7 +176,7 @@ public class BuyTBeanActivityStatic {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, dk8.a(BuyTBeanModel.GET_ICON_URL, 306001));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_GET_YINJI, kk8.a(BuyTBeanModel.GET_ICON_URL, 306001));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

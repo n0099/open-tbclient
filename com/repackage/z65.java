@@ -56,8 +56,8 @@ public class z65<T extends k65> extends w65<T> {
             k65 k65Var = (k65) a();
             if (k65Var != null) {
                 if (k65Var instanceof j65) {
-                    cr4.f();
-                    qe<byte[]> e = cr4.e(this.b, currentAccount);
+                    br4.f();
+                    qe<byte[]> e = br4.e(this.b, currentAccount);
                     if (writeCacheMessage.isClear()) {
                         k65 k65Var2 = (k65) writeCacheMessage.getData();
                         if (k65Var2 == null) {
@@ -75,8 +75,8 @@ public class z65<T extends k65> extends w65<T> {
                         writeCacheRespMsg.setSuccess(true);
                     }
                 } else if (k65Var instanceof m65) {
-                    cr4.f();
-                    qe<String> h = cr4.h(this.b, currentAccount);
+                    br4.f();
+                    qe<String> h = br4.h(this.b, currentAccount);
                     if (writeCacheMessage.isClear()) {
                         k65 k65Var4 = (k65) writeCacheMessage.getData();
                         if (k65Var4 == null) {

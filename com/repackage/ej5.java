@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ej5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class ej5 {
     public String u;
     public pj5 v;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class ej5 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnAttachStateChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -198,7 +198,7 @@ public class ej5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.l == null) {
-                this.l = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.e.d(null, this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f14a1)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0f67), this.m)));
+                this.l = NoDataViewFactory.a(this.c.getPageContext().getPageActivity(), this.a, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.e.d(null, this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f14a0)), NoDataViewFactory.c.a(new NoDataViewFactory.b(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f0f66), this.m)));
             }
             this.l.f(this.c.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.j.setVisibility(8);
@@ -313,18 +313,18 @@ public class ej5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.c.setContentView(R.layout.obfuscated_res_0x7f0d0143);
-            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091add);
-            this.d = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ab);
+            this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091ade);
+            this.d = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ac);
             z("");
-            this.j = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092427);
-            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f092421);
+            this.j = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092428);
+            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f092422);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ab);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ac);
             this.j.setLayoutParams(layoutParams);
-            this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092429);
+            this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09242a);
             View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08c2, new a(this));
             this.f = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09244a);
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09244b);
             this.g = imageView;
             imageView.setContentDescription(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f02bb));
             this.a.addOnAttachStateChangeListener(new b(this));
@@ -430,7 +430,7 @@ public class ej5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ab);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ac);
             this.j.setLayoutParams(layoutParams);
             this.g.setBackgroundDrawable(null);
             this.h.setBackgroundDrawable(null);

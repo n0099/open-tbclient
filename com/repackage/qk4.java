@@ -3,7 +3,7 @@ package com.repackage;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
 public interface qk4 {
-    void a(Object obj, HashMap<String, String> hashMap, String str, a9 a9Var);
+    String a();
 
-    sk4 b(Object obj, HashMap<String, String> hashMap, String str);
+    void b(HashMap<String, String> hashMap, rk4 rk4Var);
 }

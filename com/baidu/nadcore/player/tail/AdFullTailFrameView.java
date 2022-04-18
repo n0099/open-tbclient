@@ -73,7 +73,7 @@ public class AdFullTailFrameView extends AdBaseTailFrameView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.e(context);
-            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090ee6)).setOnClickListener(new a(this));
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f090ee7)).setOnClickListener(new a(this));
         }
     }
 

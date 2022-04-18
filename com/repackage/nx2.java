@@ -618,7 +618,7 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
                 this.a.V0 = i;
                 this.a.G0.setText(this.a.G0.getText().toString().substring(0, 20));
                 this.a.G0.setSelection(20);
-                ky2.h(this.a.getContext(), R.string.obfuscated_res_0x7f0f12c2);
+                ky2.h(this.a.getContext(), R.string.obfuscated_res_0x7f0f12c1);
                 this.a.o3();
             }
         }
@@ -757,8 +757,8 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             nz2.a aVar = new nz2.a(getContext());
             aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f12b9);
-            aVar.v(R.string.obfuscated_res_0x7f0f12bd);
+            aVar.U(R.string.obfuscated_res_0x7f0f12b8);
+            aVar.v(R.string.obfuscated_res_0x7f0f12bc);
             aVar.O(R.string.obfuscated_res_0x7f0f0110, new b(this));
             aVar.X();
         }
@@ -768,10 +768,10 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             nz2.a aVar = new nz2.a(getActivity());
-            aVar.U(R.string.obfuscated_res_0x7f0f12cd);
-            aVar.B(R.string.obfuscated_res_0x7f0f12ca, new d(this));
-            aVar.v(R.string.obfuscated_res_0x7f0f12cc);
-            aVar.O(R.string.obfuscated_res_0x7f0f12cb, new c(this));
+            aVar.U(R.string.obfuscated_res_0x7f0f12cc);
+            aVar.B(R.string.obfuscated_res_0x7f0f12c9, new d(this));
+            aVar.v(R.string.obfuscated_res_0x7f0f12cb);
+            aVar.O(R.string.obfuscated_res_0x7f0f12ca, new c(this));
             aVar.X();
         }
     }
@@ -883,9 +883,9 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             if (z) {
-                this.J0.setImageResource(R.drawable.obfuscated_res_0x7f081192);
+                this.J0.setImageResource(R.drawable.obfuscated_res_0x7f081196);
             } else {
-                this.J0.setImageResource(R.drawable.obfuscated_res_0x7f081195);
+                this.J0.setImageResource(R.drawable.obfuscated_res_0x7f081199);
             }
         }
     }
@@ -896,7 +896,7 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
             fy2.d(this.F0, this.H0);
             ImageView imageView = this.J0;
             if (imageView != null) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081195);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081199);
             }
         }
     }
@@ -923,7 +923,7 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091940) {
+            if (id == R.id.obfuscated_res_0x7f091941) {
                 gy2.onEvent("pub_clk");
                 w3();
             } else if (id == R.id.obfuscated_res_0x7f090497) {
@@ -962,7 +962,7 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
     public final void q3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.J0.setImageResource(R.drawable.obfuscated_res_0x7f081194);
+            this.J0.setImageResource(R.drawable.obfuscated_res_0x7f081198);
             this.J0.setClickable(false);
         }
     }
@@ -970,7 +970,7 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
     public final void r3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.L0.setImageResource(R.drawable.obfuscated_res_0x7f08118e);
+            this.L0.setImageResource(R.drawable.obfuscated_res_0x7f081192);
             this.L0.setClickable(false);
         }
     }
@@ -978,7 +978,7 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
     public final void s3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.J0.setImageResource(R.drawable.obfuscated_res_0x7f081195);
+            this.J0.setImageResource(R.drawable.obfuscated_res_0x7f081199);
             this.J0.setClickable(true);
         }
     }
@@ -986,7 +986,7 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
     public final void t3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.L0.setImageResource(R.drawable.obfuscated_res_0x7f081179);
+            this.L0.setImageResource(R.drawable.obfuscated_res_0x7f08117d);
             this.L0.setClickable(true);
         }
     }
@@ -1039,19 +1039,19 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
                 Log.d("SwanAppPublisher", "go publish");
             }
             if (!SwanAppNetworkUtils.i(getContext())) {
-                ky2.h(getContext(), R.string.obfuscated_res_0x7f0f12bb);
+                ky2.h(getContext(), R.string.obfuscated_res_0x7f0f12ba);
             } else if (this.T0 == null) {
             } else {
                 String obj = this.G0.getText().toString();
                 String obj2 = this.H0.getText().toString();
                 List<String> v3 = v3();
                 if (this.Q0.supportTitle().booleanValue() && TextUtils.isEmpty(obj.trim())) {
-                    ky2.h(getContext(), R.string.obfuscated_res_0x7f0f12b8);
+                    ky2.h(getContext(), R.string.obfuscated_res_0x7f0f12b7);
                 } else if (TextUtils.isEmpty(obj2.trim()) && (v3 == null || v3.size() == 0)) {
-                    ky2.h(getContext(), R.string.obfuscated_res_0x7f0f12b8);
+                    ky2.h(getContext(), R.string.obfuscated_res_0x7f0f12b7);
                 } else if (v3 != null && v3.size() > 0) {
                     ViewGroup viewGroup = (ViewGroup) getActivity().findViewById(16908290);
-                    rz2.h(getContext(), viewGroup, getResources().getString(R.string.obfuscated_res_0x7f0f12ba));
+                    rz2.h(getContext(), viewGroup, getResources().getString(R.string.obfuscated_res_0x7f0f12b9));
                     this.N0.setClickable(false);
                     this.N0.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060a90));
                     dd3.f().execute(new l(this, v3, obj, obj2, viewGroup));
@@ -1145,15 +1145,15 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
             if (a1) {
                 Log.d("SwanAppPublisher", "init view");
             }
-            this.G0 = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f0918c1);
+            this.G0 = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f0918c2);
             if (this.Q0.supportTitle().booleanValue()) {
-                view2.findViewById(R.id.obfuscated_res_0x7f0918c2).setVisibility(0);
+                view2.findViewById(R.id.obfuscated_res_0x7f0918c3).setVisibility(0);
                 this.G0.setHint(this.Q0.getTitleHint());
                 this.G0.setListener(this.Y0);
                 this.G0.setMaxSize(20);
                 this.G0.setOnFocusChangeListener(new f(this));
             } else {
-                view2.findViewById(R.id.obfuscated_res_0x7f0918c2).setVisibility(8);
+                view2.findViewById(R.id.obfuscated_res_0x7f0918c3).setVisibility(8);
             }
             this.J0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09010b);
             if (this.Q0.supportEmoji().booleanValue() && !TextUtils.isEmpty(this.Q0.getEmojiPath().trim())) {
@@ -1161,23 +1161,23 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
             } else {
                 this.J0.setVisibility(8);
             }
-            this.F0 = (SPSwitchPanelLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090871);
-            view2.findViewById(R.id.obfuscated_res_0x7f0914ee).setBackgroundColor(this.Q0.getNavBarBgColor());
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09194e);
+            this.F0 = (SPSwitchPanelLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090872);
+            view2.findViewById(R.id.obfuscated_res_0x7f0914ef).setBackgroundColor(this.Q0.getNavBarBgColor());
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09194f);
             textView.setText(this.Q0.getNavBarTitle());
             textView.setTextColor(this.Q0.getNavBarTextColor());
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09065e);
             this.O0 = imageView;
             imageView.setOnClickListener(this);
-            this.I0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918bd);
+            this.I0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918be);
             if (this.Q0.supportTarget().booleanValue() && !TextUtils.isEmpty(this.Q0.getTarget().trim())) {
                 TextView textView2 = this.I0;
                 textView2.setText("发布到 " + this.Q0.getTarget());
             } else {
-                view2.findViewById(R.id.obfuscated_res_0x7f0918be).setVisibility(8);
+                view2.findViewById(R.id.obfuscated_res_0x7f0918bf).setVisibility(8);
             }
-            this.M0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f2f);
-            EmojiEditText emojiEditText = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f09189f);
+            this.M0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f30);
+            EmojiEditText emojiEditText = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f0918a0);
             this.H0 = emojiEditText;
             emojiEditText.setOnKeyListener(new g(this));
             this.H0.setHint(this.Q0.getContentHint());
@@ -1185,7 +1185,7 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
             this.H0.setMaxSize(4999);
             this.H0.setOnFocusChangeListener(new h(this));
             view2.findViewById(R.id.obfuscated_res_0x7f0906ed).setOnTouchListener(new i(this));
-            TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091940);
+            TextView textView3 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091941);
             this.N0 = textView3;
             textView3.setText(this.Q0.getPublishText());
             this.N0.setOnClickListener(this);
@@ -1196,7 +1196,7 @@ public class nx2 extends pz1 implements View.OnClickListener, eo2<MediaModel>, i
             textView4.setOnClickListener(this);
             textView4.setOnTouchListener(new j(this));
             this.L0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090122);
-            this.K0 = (PhotoChooseView) view2.findViewById(R.id.obfuscated_res_0x7f09182d);
+            this.K0 = (PhotoChooseView) view2.findViewById(R.id.obfuscated_res_0x7f09182e);
             if (this.Q0.supportImage().booleanValue()) {
                 this.L0.setVisibility(0);
                 this.L0.setOnClickListener(this);

@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gj8;
 import com.repackage.mi;
 import com.repackage.oi;
-import com.repackage.wr4;
-import com.repackage.zi8;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class FrsItemAcceleratorView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -120,20 +120,20 @@ public class FrsItemAcceleratorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (StringUtils.isNull(this.g)) {
-                wr4 d = wr4.d(this.c);
+                vr4 d = vr4.d(this.c);
                 d.n(R.string.J_X07);
                 d.f(R.color.CAM_X0303);
             } else {
-                wr4 d2 = wr4.d(this.c);
+                vr4 d2 = vr4.d(this.c);
                 d2.n(R.string.J_X07);
-                d2.g(zi8.e(this.g));
+                d2.g(gj8.e(this.g));
             }
-            wr4.d(this.d).x(R.color.CAM_X0101);
-            wr4.d(this.e).f(R.color.CAM_X0617);
-            wr4 d3 = wr4.d(this);
+            vr4.d(this.d).x(R.color.CAM_X0101);
+            vr4.d(this.e).f(R.color.CAM_X0617);
+            vr4 d3 = vr4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0201);
-            wr4.d(this.b).v(R.color.CAM_X0105);
+            vr4.d(this.b).v(R.color.CAM_X0105);
         }
     }
 
@@ -155,7 +155,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(oi.f(getContext(), R.dimen.M_W_X004), 0, 0, 0);
             this.b.setLayoutParams(layoutParams);
-            wr4.d(this.b).z(R.dimen.T_X07);
+            vr4.d(this.b).z(R.dimen.T_X07);
             this.b.setText(R.string.obfuscated_res_0x7f0f005d);
             addView(this.b);
         }
@@ -166,7 +166,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a = new ImageView(getContext());
             this.a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f08084e, null);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f08084d, null);
             addView(this.a);
         }
     }
@@ -183,7 +183,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             this.d.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             this.d.setGravity(16);
             this.d.setPadding(oi.f(getContext(), R.dimen.M_W_X006), 0, oi.f(getContext(), R.dimen.M_W_X005), 0);
-            wr4.d(this.d).z(R.dimen.T_X08);
+            vr4.d(this.d).z(R.dimen.T_X08);
             this.d.setText(R.string.obfuscated_res_0x7f0f0058);
             this.c.addView(this.d);
             this.e = new View(getContext());
@@ -192,7 +192,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
             this.f = new ImageView(getContext());
             this.f.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             this.f.setPadding(oi.f(getContext(), R.dimen.M_W_X005), 0, oi.f(getContext(), R.dimen.M_W_X006), 0);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f0809d1, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f0809d5, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             this.c.addView(this.f);
         }
     }

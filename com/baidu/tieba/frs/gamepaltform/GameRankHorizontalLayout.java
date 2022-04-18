@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.qs6;
-import com.repackage.rs6;
-import com.repackage.wt4;
+import com.repackage.ss6;
+import com.repackage.ts6;
+import com.repackage.vt4;
 /* loaded from: classes3.dex */
 public class GameRankHorizontalLayout extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
@@ -34,16 +34,16 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qs6 a;
+        public final /* synthetic */ ss6 a;
         public final /* synthetic */ int b;
         public final /* synthetic */ GameRankHorizontalLayout c;
 
-        public a(GameRankHorizontalLayout gameRankHorizontalLayout, qs6 qs6Var, int i) {
+        public a(GameRankHorizontalLayout gameRankHorizontalLayout, ss6 ss6Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gameRankHorizontalLayout, qs6Var, Integer.valueOf(i)};
+                Object[] objArr = {gameRankHorizontalLayout, ss6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -54,7 +54,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 }
             }
             this.c = gameRankHorizontalLayout;
-            this.a = qs6Var;
+            this.a = ss6Var;
             this.b = i;
         }
 
@@ -65,15 +65,15 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 return;
             }
             this.c.b.a(this.a, this.b);
-            if (wt4.k().l("game_rank_list_show_times", 0) != 0) {
-                wt4.k().w("game_rank_list_show_times", 0);
+            if (vt4.k().l("game_rank_list_show_times", 0) != 0) {
+                vt4.k().w("game_rank_list_show_times", 0);
             }
         }
     }
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(qs6 qs6Var, int i);
+        void a(ss6 ss6Var, int i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,60 +108,60 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         }
     }
 
-    public final View c(qs6 qs6Var, int i) {
+    public final View c(ss6 ss6Var, int i) {
         InterceptResult invokeLI;
         RoundAngleRelativeLayout roundAngleRelativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qs6Var, i)) == null) {
-            if (qs6Var == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ss6Var, i)) == null) {
+            if (ss6Var == null) {
                 return null;
             }
-            if (!StringUtils.isNull(qs6Var.b())) {
+            if (!StringUtils.isNull(ss6Var.b())) {
                 roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037c, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
-                HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090d29);
+                HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090d2a);
                 headImageView.setIsRound(true);
-                headImageView.K(qs6Var.b(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09243a)).K(qs6Var.b(), 10, false);
+                headImageView.K(ss6Var.b(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09243b)).K(ss6Var.b(), 10, false);
             } else {
                 roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037b, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
-                HeadImageView headImageView2 = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090d29);
+                HeadImageView headImageView2 = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090d2a);
                 headImageView2.setIsRound(true);
-                headImageView2.K(qs6Var.f(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0915ac)).K(qs6Var.f(), 10, false);
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09229c)).setText(qs6Var.e());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0919a9)).setText(qs6Var.g());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0922ab)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f077f, qs6Var.d()));
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0919a2)).setText(qs6Var.a());
+                headImageView2.K(ss6Var.f(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0915ad)).K(ss6Var.f(), 10, false);
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09229d)).setText(ss6Var.e());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0919aa)).setText(ss6Var.g());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0922ac)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f077f, ss6Var.d()));
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f0919a3)).setText(ss6Var.a());
             }
             if (roundAngleRelativeLayout != null) {
-                roundAngleRelativeLayout.setOnClickListener(new a(this, qs6Var, i));
+                roundAngleRelativeLayout.setOnClickListener(new a(this, ss6Var, i));
             }
             return roundAngleRelativeLayout;
         }
         return (View) invokeLI.objValue;
     }
 
-    public void setData(rs6 rs6Var) {
+    public void setData(ts6 ts6Var) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rs6Var) == null) || (linearLayout = this.a) == null || rs6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ts6Var) == null) || (linearLayout = this.a) == null || ts6Var == null) {
             return;
         }
         linearLayout.removeAllViews();
-        if (ListUtils.isEmpty(rs6Var.b())) {
+        if (ListUtils.isEmpty(ts6Var.b())) {
             return;
         }
-        for (int i = 0; i < rs6Var.b().size(); i++) {
-            View c = c(rs6Var.b().get(i), i);
+        for (int i = 0; i < ts6Var.b().size(); i++) {
+            View c = c(ts6Var.b().get(i), i);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(oi.f(getContext(), R.dimen.obfuscated_res_0x7f0702cc), oi.f(getContext(), R.dimen.obfuscated_res_0x7f07026b));
             if (i != 0) {
                 layoutParams.leftMargin = oi.f(getContext(), R.dimen.obfuscated_res_0x7f070305);
             } else {
                 layoutParams.leftMargin = oi.f(getContext(), R.dimen.obfuscated_res_0x7f070225);
             }
-            if (i == rs6Var.b().size() - 1) {
+            if (i == ts6Var.b().size() - 1) {
                 layoutParams.rightMargin = oi.f(getContext(), R.dimen.obfuscated_res_0x7f070225);
             } else {
                 layoutParams.rightMargin = 0;

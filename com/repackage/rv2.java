@@ -172,7 +172,7 @@ public class rv2 extends mo1 {
                 tv2Var.i = new js1(201, "pluginProvider is empty");
                 return tv2Var;
             }
-            j94 g = hw2.g(optString);
+            i94 g = hw2.g(optString);
             if (g != null) {
                 String str2 = g.r;
                 if (!TextUtils.isEmpty(str2)) {

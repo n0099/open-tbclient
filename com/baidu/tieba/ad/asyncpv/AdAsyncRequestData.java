@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ci5;
-import com.repackage.gd7;
+import com.repackage.jd7;
 import com.repackage.mi;
 import com.repackage.rg5;
 import com.repackage.wb5;
@@ -133,7 +133,7 @@ public class AdAsyncRequestData extends HttpMessage {
             if (rg5.h().y()) {
                 jSONArray.put(create(AdExtParam.KEY_NAD_CORE_VERSION, "5.2.0.3"));
             }
-            if (!gd7.f(map)) {
+            if (!jd7.f(map)) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }

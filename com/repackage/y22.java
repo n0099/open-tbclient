@@ -310,7 +310,7 @@ public class y22 implements gx2 {
 
         /* renamed from: com.repackage.y22$c$c  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0556c extends j22 {
+        public class C0557c extends j22 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c f;
@@ -320,16 +320,16 @@ public class y22 implements gx2 {
             public class a extends i22 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0556c e;
+                public final /* synthetic */ C0557c e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                public a(C0556c c0556c, String str, String str2) {
+                public a(C0557c c0557c, String str, String str2) {
                     super(str, str2);
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0556c, str, str2};
+                        Object[] objArr = {c0557c, str, str2};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -341,7 +341,7 @@ public class y22 implements gx2 {
                             return;
                         }
                     }
-                    this.e = c0556c;
+                    this.e = c0557c;
                 }
 
                 @Override // com.repackage.i22
@@ -359,7 +359,7 @@ public class y22 implements gx2 {
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0556c(c cVar, Context context) {
+            public C0557c(c cVar, Context context) {
                 super(context);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -480,7 +480,7 @@ public class y22 implements gx2 {
         public final f22 j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new C0556c(this, AppRuntime.getAppContext()) : (f22) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new C0557c(this, AppRuntime.getAppContext()) : (f22) invokeV.objValue;
         }
 
         public void k() {

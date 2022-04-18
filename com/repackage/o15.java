@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class o15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qz4 a;
+    public pz4 a;
     public int b;
 
-    public o15(qz4 qz4Var, int i) {
+    public o15(pz4 pz4Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qz4Var, Integer.valueOf(i)};
+            Object[] objArr = {pz4Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -28,14 +28,14 @@ public class o15 {
                 return;
             }
         }
-        this.a = qz4Var;
+        this.a = pz4Var;
         this.b = i;
     }
 
-    public qz4 a() {
+    public pz4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (qz4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (pz4) invokeV.objValue;
     }
 
     public int b() {

@@ -94,12 +94,12 @@ public class j75 {
         return invokeL.booleanValue;
     }
 
-    public void c(String str, String str2, rz4 rz4Var, View view2, NovelInfoCardView novelInfoCardView) {
+    public void c(String str, String str2, qz4 qz4Var, View view2, NovelInfoCardView novelInfoCardView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, rz4Var, view2, novelInfoCardView) == null) || rz4Var == null || view2 == null || novelInfoCardView == null || novelInfoCardView.getVisibility() != 0) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, qz4Var, view2, novelInfoCardView) == null) || qz4Var == null || view2 == null || novelInfoCardView == null || novelInfoCardView.getVisibility() != 0) {
             return;
         }
-        String valueOf = String.valueOf(rz4Var.h());
+        String valueOf = String.valueOf(qz4Var.h());
         if (b(view2) && view2.getVisibility() == 0) {
             if (this.c) {
                 this.c = false;
@@ -124,7 +124,7 @@ public class j75 {
         } else {
             this.e = true;
         }
-        if (rz4Var.i()) {
+        if (qz4Var.i()) {
             if (b(novelInfoCardView.getNovelStateButton())) {
                 if (this.g) {
                     this.g = false;

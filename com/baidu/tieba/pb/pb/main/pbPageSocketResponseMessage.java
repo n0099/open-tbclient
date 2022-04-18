@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lu7;
-import com.repackage.rc8;
-import com.repackage.wr7;
-import com.repackage.yr7;
+import com.repackage.bs7;
+import com.repackage.su7;
+import com.repackage.yc8;
+import com.repackage.zr7;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.AppealInfo;
@@ -26,8 +26,8 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isFromMark;
-    public wr7 mAppealInfo;
-    public yr7 pbData;
+    public zr7 mAppealInfo;
+    public bs7 pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,16 +48,16 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public wr7 getAppealInfo() {
+    public zr7 getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAppealInfo : (wr7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mAppealInfo : (zr7) invokeV.objValue;
     }
 
-    public yr7 getPbData() {
+    public bs7 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.pbData : (yr7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.pbData : (bs7) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -87,10 +87,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             int i2 = this.updateType;
             if (i2 == 3) {
-                lu7.b().e(this.cacheKey, this.isFromMark, bArr);
+                su7.b().e(this.cacheKey, this.isFromMark, bArr);
             } else if (i2 != 4) {
             } else {
-                lu7.b().f(this.cacheKey, bArr);
+                su7.b().f(this.cacheKey, bArr);
             }
         }
     }
@@ -107,12 +107,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 if (getError() != 4 || pbPageResIdl.data == null) {
                     return;
                 }
-                wr7 wr7Var = new wr7();
-                this.mAppealInfo = wr7Var;
+                zr7 zr7Var = new zr7();
+                this.mAppealInfo = zr7Var;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    wr7Var.a = appealInfo.source;
-                    wr7Var.c = appealInfo.appeal_url;
+                    zr7Var.a = appealInfo.source;
+                    zr7Var.c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
@@ -121,18 +121,18 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 }
                 return;
             }
-            yr7 yr7Var = new yr7();
-            this.pbData = yr7Var;
-            yr7Var.y0(2);
+            bs7 bs7Var = new bs7();
+            this.pbData = bs7Var;
+            bs7Var.y0(2);
             this.pbData.x0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
-                JSONObject b = rc8.b(dataRes.thread);
+                JSONObject b = yc8.b(dataRes.thread);
                 ArrayList arrayList = new ArrayList();
                 if (b != null) {
                     arrayList.add(b);
                 }
-                rc8.f().h("PB", arrayList);
+                yc8.f().h("PB", arrayList);
             }
             BdLog.detailException(null);
         }

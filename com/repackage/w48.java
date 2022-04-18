@@ -1,59 +1,95 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class w48 extends BaseCardInfo {
+public class w48 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755251242, "Lcom/repackage/w48;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755251242, "Lcom/repackage/w48;");
-                return;
+    public static void a(String str, List<uo> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        JSONArray jSONArray = new JSONArray();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            uo uoVar = list.get(i);
+            if (uoVar instanceof xz4) {
+                xz4 xz4Var = (xz4) uoVar;
+                if (!xz4Var.e()) {
+                    jSONArray.put(xz4Var.a());
+                }
             }
         }
-        f = BdUniqueId.gen();
+        jSONArray.put(str);
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+        httpMessage.addParam("pic_list", jSONArray.toString());
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public w48() {
+    public static void b(xz4 xz4Var, List<uo> list) {
+        xz4 xz4Var2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, xz4Var, list) == null) || xz4Var == null || ListUtils.isEmpty(list) || StringUtils.isNull(xz4Var.a())) {
+            return;
+        }
+        JSONArray jSONArray = new JSONArray();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            uo uoVar = list.get(i);
+            if ((uoVar instanceof xz4) && (xz4Var2 = (xz4) uoVar) != xz4Var && !xz4Var2.e()) {
+                jSONArray.put(xz4Var2.a());
             }
         }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+        httpMessage.addParam("pic_list", jSONArray.toString());
+        if (jSONArray.length() <= 0) {
+            httpMessage.addParam("truncat", 1);
+        } else {
+            httpMessage.addParam("truncat", 0);
+        }
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static String c(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
+            if (tbPageContext == null || StringUtils.isNull(str)) {
+                return null;
+            }
+            if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
+                return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
+            }
+            return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(xz4 xz4Var, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, xz4Var, bdUniqueId) == null) || xz4Var == null || StringUtils.isNull(xz4Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
+        httpMessage.addParam("pic_url", xz4Var.a());
+        httpMessage.setTag(bdUniqueId);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

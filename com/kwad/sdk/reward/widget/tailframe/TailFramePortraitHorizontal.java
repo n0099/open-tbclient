@@ -69,9 +69,9 @@ public class TailFramePortraitHorizontal extends LinearLayout implements d {
 
     private void b() {
         this.l = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0481, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09117c);
-        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091179);
-        this.m = findViewById(R.id.obfuscated_res_0x7f0922ff);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09117d);
+        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09117a);
+        this.m = findViewById(R.id.obfuscated_res_0x7f092300);
     }
 
     private void c() {
@@ -87,13 +87,13 @@ public class TailFramePortraitHorizontal extends LinearLayout implements d {
 
     private void d() {
         if (!com.kwad.sdk.core.response.a.a.B(this.f) && !com.kwad.sdk.core.response.a.d.v(this.e)) {
-            TailFrameBarH5PortraitHorizontal tailFrameBarH5PortraitHorizontal = (TailFrameBarH5PortraitHorizontal) findViewById(R.id.obfuscated_res_0x7f091168);
+            TailFrameBarH5PortraitHorizontal tailFrameBarH5PortraitHorizontal = (TailFrameBarH5PortraitHorizontal) findViewById(R.id.obfuscated_res_0x7f091169);
             this.c = tailFrameBarH5PortraitHorizontal;
             tailFrameBarH5PortraitHorizontal.setModel(this.e);
             this.c.setVisibility(0);
             return;
         }
-        TailFrameBarAppPortraitHorizontal tailFrameBarAppPortraitHorizontal = (TailFrameBarAppPortraitHorizontal) findViewById(R.id.obfuscated_res_0x7f091152);
+        TailFrameBarAppPortraitHorizontal tailFrameBarAppPortraitHorizontal = (TailFrameBarAppPortraitHorizontal) findViewById(R.id.obfuscated_res_0x7f091153);
         this.b = tailFrameBarAppPortraitHorizontal;
         tailFrameBarAppPortraitHorizontal.a(this.e);
         this.b.setVisibility(0);

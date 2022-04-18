@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.v65;
 /* loaded from: classes5.dex */
-public abstract class e75<D, S extends v65> implements sj8 {
+public abstract class e75<D, S extends v65> implements zj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ViewEventCenter a;

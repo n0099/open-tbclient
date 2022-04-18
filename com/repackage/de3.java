@@ -692,7 +692,7 @@ public final class de3 {
             if (c2 == null) {
                 return false;
             }
-            String str = c2.getString(R.string.obfuscated_res_0x7f0f123f) + "\n" + c2.getString(i);
+            String str = c2.getString(R.string.obfuscated_res_0x7f0f123e) + "\n" + c2.getString(i);
             if (qj2.y0().d()) {
                 b03 g2 = b03.g(c2, str);
                 g2.l(4);
@@ -816,9 +816,9 @@ public final class de3 {
                         if (TextUtils.isEmpty(charSequence)) {
                             str2 = "";
                         } else {
-                            str2 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12b1) + charSequence;
+                            str2 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12b0) + charSequence;
                         }
-                        String str3 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12b0) + packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString() + str2;
+                        String str3 = context.getResources().getString(R.string.obfuscated_res_0x7f0f12af) + packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString() + str2;
                         String string = context.getString(R.string.obfuscated_res_0x7f0f0110);
                         String string2 = context.getString(R.string.obfuscated_res_0x7f0f0108);
                         nz2.a aVar = new nz2.a(context);
@@ -1291,7 +1291,7 @@ public final class de3 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, file)) == null) {
-            String t = ng4.t(file.getPath());
+            String t = mg4.t(file.getPath());
             if (TextUtils.isEmpty(t)) {
                 return "*/*";
             }

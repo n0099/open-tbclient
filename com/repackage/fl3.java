@@ -58,12 +58,12 @@ public class fl3 {
         }
         try {
             this.c = a(context, cls);
-            Method i3 = n44.i(cls, "perfLockAcquire", Integer.TYPE, int[].class);
+            Method i3 = m44.i(cls, "perfLockAcquire", Integer.TYPE, int[].class);
             this.a = i3;
             if (i3 != null) {
                 i3.setAccessible(true);
             }
-            Method i4 = n44.i(cls, "perfLockRelease", new Class[0]);
+            Method i4 = m44.i(cls, "perfLockRelease", new Class[0]);
             this.b = i4;
             if (i4 != null) {
                 i4.setAccessible(true);
@@ -80,7 +80,7 @@ public class fl3 {
             try {
                 cls = d();
                 try {
-                    l44.c(cls);
+                    k44.c(cls);
                 } catch (Throwable unused) {
                 }
             } catch (Throwable unused2) {
@@ -98,7 +98,7 @@ public class fl3 {
             String[] strArr = d;
             for (int i = 0; i < strArr.length; i++) {
                 try {
-                    return n44.a(strArr[i]);
+                    return m44.a(strArr[i]);
                 } catch (Throwable unused) {
                 }
             }
@@ -113,7 +113,7 @@ public class fl3 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, cls)) == null) {
             Object obj = null;
             try {
-                Constructor c = n44.c(cls, Context.class);
+                Constructor c = m44.c(cls, Context.class);
                 if (c != null) {
                     obj = c.newInstance(context);
                 }
@@ -121,7 +121,7 @@ public class fl3 {
             }
             if (obj == null) {
                 try {
-                    return n44.m(cls);
+                    return m44.m(cls);
                 } catch (Throwable unused2) {
                     return obj;
                 }

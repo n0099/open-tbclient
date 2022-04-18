@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class q93 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -37,7 +37,7 @@ public final class q93 {
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             File c = c();
             if (c.exists()) {
-                ng4.j(c);
+                mg4.j(c);
             }
         }
     }
@@ -75,7 +75,7 @@ public final class q93 {
             if (file.exists()) {
                 JSONObject jSONObject = null;
                 try {
-                    jSONObject = new JSONObject(ng4.E(file));
+                    jSONObject = new JSONObject(mg4.E(file));
                 } catch (JSONException e) {
                     if (a) {
                         e.printStackTrace();

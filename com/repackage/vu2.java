@@ -50,7 +50,7 @@ public class vu2 {
             if (j03.a0() == null || j03.a0().x() == null || (viewGroup = (ViewGroup) j03.a0().x().findViewById(16908290)) == null) {
                 return null;
             }
-            ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091d8e);
+            ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091d8f);
             if (viewGroup2 != null) {
                 return viewGroup2;
             }
@@ -74,7 +74,7 @@ public class vu2 {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (a0 = j03.a0()) == null || a0.x() == null) {
             return;
         }
-        ViewGroup viewGroup = (ViewGroup) a0.x().findViewById(R.id.obfuscated_res_0x7f091d8e);
+        ViewGroup viewGroup = (ViewGroup) a0.x().findViewById(R.id.obfuscated_res_0x7f091d8f);
         if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
             ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
         }
@@ -93,28 +93,28 @@ public class vu2 {
     public void f(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090984, j, "#80ff0000", "FCP");
+            j(R.id.obfuscated_res_0x7f090985, j, "#80ff0000", "FCP");
         }
     }
 
     public void g(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f0909a2, j, "#80ff0000", "FIP");
+            j(R.id.obfuscated_res_0x7f0909a3, j, "#80ff0000", "FIP");
         }
     }
 
     public void h(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f0909ea, j, "#8000ff00", "FMP");
+            j(R.id.obfuscated_res_0x7f0909eb, j, "#8000ff00", "FMP");
         }
     }
 
     public void i(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090c07, j, "#80ff0000", "FTP");
+            j(R.id.obfuscated_res_0x7f090c08, j, "#80ff0000", "FTP");
         }
     }
 
@@ -143,6 +143,6 @@ public class vu2 {
         if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || this.a || (b = b()) == null) {
             return;
         }
-        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f091dcb)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
+        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f091dcc)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
     }
 }

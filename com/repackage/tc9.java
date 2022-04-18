@@ -1,103 +1,101 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public class tc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicBoolean a;
-    public static HashMap<Integer, Boolean> b;
-    public static HashMap<Integer, Long> c;
+    public static boolean a;
+    public static float b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755295417, "Lcom/repackage/tc9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755295417, "Lcom/repackage/tc9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755295417, "Lcom/repackage/tc9;")) == null) {
+            return;
         }
-        a = new AtomicBoolean(false);
-        b = new HashMap<>();
-        c = new HashMap<>();
-    }
-
-    public static long a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (c.containsKey(Integer.valueOf(i))) {
-                return c.get(Integer.valueOf(i)).longValue();
-            }
-            return Long.MAX_VALUE;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        return invokeI.longValue;
-    }
-
-    public static SharedPreferences b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? context.getSharedPreferences("CONFIG_RUNTIME", 0) : (SharedPreferences) invokeL.objValue;
-    }
-
-    public static synchronized void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            synchronized (tc9.class) {
-                if (!a.get()) {
-                    SharedPreferences b2 = b(context);
-                    Iterator<Integer> it = uc9.a.iterator();
-                    while (it.hasNext()) {
-                        int intValue = it.next().intValue();
-                        HashMap<Integer, Long> hashMap = c;
-                        Integer valueOf = Integer.valueOf(intValue);
-                        hashMap.put(valueOf, Long.valueOf(b2.getLong("cache_" + intValue, 10080L)));
-                        HashMap<Integer, Boolean> hashMap2 = b;
-                        Integer valueOf2 = Integer.valueOf(intValue);
-                        hashMap2.put(valueOf2, Boolean.valueOf(b2.getBoolean("close_" + intValue, false)));
-                    }
-                    c.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Long.MAX_VALUE);
-                    b.put(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT), Boolean.TRUE);
-                    a.set(true);
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755295417, "Lcom/repackage/tc9;");
         }
     }
 
-    public static boolean d(int i) {
-        InterceptResult invokeI;
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (b.containsKey(Integer.valueOf(i))) {
-                return b.get(Integer.valueOf(i)).booleanValue();
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            if (!a) {
+                f();
             }
-            return true;
+            return (int) ((f * b) + 0.5f);
         }
-        return invokeI.booleanValue;
+        return invokeF.intValue;
     }
 
-    public static boolean e() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!a) {
+                f();
+            }
+            return d;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!a) {
+                f();
+            }
+            return c;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b() : invokeV.intValue;
+    }
+
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c() : invokeV.intValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) d89.c().getContext().getSystemService("window");
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            int orientation = windowManager.getDefaultDisplay().getOrientation();
+            if (orientation != 1 && orientation != 3) {
+                c = displayMetrics.widthPixels;
+                d = displayMetrics.heightPixels;
+            } else {
+                c = displayMetrics.heightPixels;
+                d = displayMetrics.widthPixels;
+            }
+            b = displayMetrics.density;
+            a = true;
+        }
     }
 }

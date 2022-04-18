@@ -128,7 +128,7 @@ public class tz1 extends pz1 {
             U1(view2);
             s2(-1);
             B2(-16777216);
-            u2(H(R.string.obfuscated_res_0x7f0f1233));
+            u2(H(R.string.obfuscated_res_0x7f0f1232));
             w2(true);
             I2(false);
         }
@@ -139,7 +139,7 @@ public class tz1 extends pz1 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || this.G0 == null) {
             return;
         }
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e3d);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e3e);
         j03 a0 = j03.a0();
         if (a0 != null) {
             textView.setText(a0.X().K());
@@ -148,13 +148,13 @@ public class tz1 extends pz1 {
         if (optJSONObject == null) {
             return;
         }
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e3e)).setText(String.format(Locale.CHINA, "%.2f", Double.valueOf((optJSONObject.optLong("fee") * 1.0d) / 100.0d)));
-        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e40);
-        j94 g = hw2.g(this.G0.optString("pluginProvider"));
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e3f)).setText(String.format(Locale.CHINA, "%.2f", Double.valueOf((optJSONObject.optLong("fee") * 1.0d) / 100.0d)));
+        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e41);
+        i94 g = hw2.g(this.G0.optString("pluginProvider"));
         if (g != null) {
             textView2.setText(g.s);
         }
-        ((Button) view2.findViewById(R.id.obfuscated_res_0x7f090e3f)).setOnClickListener(new a(this, optJSONObject));
+        ((Button) view2.findViewById(R.id.obfuscated_res_0x7f090e40)).setOnClickListener(new a(this, optJSONObject));
     }
 
     @Override // com.repackage.pz1

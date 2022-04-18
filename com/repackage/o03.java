@@ -144,10 +144,10 @@ public final class o03 extends i03 {
     }
 
     @Override // com.repackage.i03
-    public r94 H() {
+    public q94 H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new u32(this) : (r94) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new u32(this) : (q94) invokeV.objValue;
     }
 
     @Override // com.repackage.i03

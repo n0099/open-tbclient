@@ -19,19 +19,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b27;
+import com.repackage.a27;
 import com.repackage.b9;
+import com.repackage.e27;
 import com.repackage.mi;
 import com.repackage.uo;
 import com.repackage.wa;
-import com.repackage.x17;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class TopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x17 a;
-    public b27 b;
+    public a27 a;
+    public e27 b;
     public wa c;
 
     /* loaded from: classes3.dex */
@@ -216,9 +216,9 @@ public class TopicDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             if (!mi.A()) {
-                x17 x17Var = this.a;
-                if (x17Var != null) {
-                    x17Var.netCallback(-1, null);
+                a27 a27Var = this.a;
+                if (a27Var != null) {
+                    a27Var.netCallback(-1, null);
                     return;
                 }
                 return;
@@ -235,9 +235,9 @@ public class TopicDetailModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             if (!mi.A()) {
-                x17 x17Var = this.a;
-                if (x17Var != null) {
-                    x17Var.netThreadCallback(-1, false, null);
+                a27 a27Var = this.a;
+                if (a27Var != null) {
+                    a27Var.netThreadCallback(-1, false, null);
                     return;
                 }
                 return;
@@ -252,10 +252,10 @@ public class TopicDetailModel extends BdBaseModel {
         }
     }
 
-    public void F(x17 x17Var) {
+    public void F(a27 a27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x17Var) == null) {
-            this.a = x17Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a27Var) == null) {
+            this.a = a27Var;
         }
     }
 

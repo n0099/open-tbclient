@@ -25,7 +25,7 @@ import com.repackage.m45;
 import com.repackage.n45;
 import com.repackage.o45;
 import com.repackage.oi;
-import com.repackage.wt4;
+import com.repackage.vt4;
 /* loaded from: classes3.dex */
 public class MemberCenterDelegateStatic extends m45 {
     public static /* synthetic */ Interceptable $ic;
@@ -113,7 +113,7 @@ public class MemberCenterDelegateStatic extends m45 {
                     this.a.c.setVisibility(8);
                 } else {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    wt4 k = wt4.k();
+                    vt4 k = vt4.k();
                     if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > k.m("maintab_member_center_red_tip_" + currentAccount, 0L)) {
                         this.a.c.setVisibility(0);
                     } else {

@@ -49,8 +49,8 @@ public class LiveSearchGuideView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d051a, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a2);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a2);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a3);
         }
     }
 
@@ -62,11 +62,11 @@ public class LiveSearchGuideView extends FrameLayout {
         }
         textView.setTextColor(fc0.e().a(getContext(), false, "color_search_guide"));
         if (Config.TRACE_VISIT_RECENT_DAY.equals(str)) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d1a);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d18);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d1e);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d1c);
         } else if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(str)) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d1b);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d19);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d1f);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d1d);
             this.b.setTextColor(-1);
         }
     }

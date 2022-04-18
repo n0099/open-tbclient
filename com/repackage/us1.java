@@ -20,7 +20,7 @@ public class us1 extends ts1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public az9 c;
+    public hz9 c;
 
     /* loaded from: classes7.dex */
     public class a implements cf3<m53<o53.e>> {
@@ -163,7 +163,7 @@ public class us1 extends ts1 {
                 return false;
             }
             dt1 dt1Var = (dt1) r(unitedSchemeEntity);
-            az9 w = new iw1(context, dt1Var).w();
+            hz9 w = new iw1(context, dt1Var).w();
             this.c = w;
             if (w == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -185,12 +185,12 @@ public class us1 extends ts1 {
                 String str = dt1Var.b;
                 pq2 pq2Var = dt1Var.h;
                 if (!TextUtils.isEmpty(str) && pq2Var != null && pq2Var.h()) {
-                    az9 az9Var = this.c;
-                    if (az9Var == null) {
+                    hz9 hz9Var = this.c;
+                    if (hz9Var == null) {
                         cx1.a("SwanAppCameraManager", "executionInstruction with a null subscriber");
                         return false;
                     }
-                    az9Var.onCompleted();
+                    hz9Var.onCompleted();
                     jx1.i("SwanAppCameraManager", "handle insert camera instruction end");
                     return true;
                 }

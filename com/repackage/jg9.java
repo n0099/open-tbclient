@@ -1,28 +1,28 @@
 package com.repackage;
 
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public class jg9 implements TTNativeExpressAd.ExpressAdInteractionListener {
+public class jg9 implements TTRewardVideoAd.RewardAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
-    public final /* synthetic */ TTNativeExpressAd c;
-    public final /* synthetic */ gg9 d;
+    public final /* synthetic */ TTRewardVideoAd c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ ph9 e;
 
-    public jg9(gg9 gg9Var, TTNativeExpressAd tTNativeExpressAd) {
+    public jg9(ph9 ph9Var, TTRewardVideoAd tTRewardVideoAd, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gg9Var, tTNativeExpressAd};
+            Object[] objArr = {ph9Var, tTRewardVideoAd, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,46 +32,71 @@ public class jg9 implements TTNativeExpressAd.ExpressAdInteractionListener {
                 return;
             }
         }
-        this.d = gg9Var;
-        this.c = tTNativeExpressAd;
+        this.e = ph9Var;
+        this.c = tTRewardVideoAd;
+        this.d = str;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdClicked(View view2, int i) {
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onAdClose() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.d.onAdClicked(this.b, new String[0]);
-            this.b = true;
+            this.e.onAdClose();
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdShow(View view2, int i) {
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onAdShow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.e.onAdShow(this.c, this.a, this.d);
             this.a = true;
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderFail(View view2, String str, int i) {
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onAdVideoBarClick() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
-            LogPrinter.e("onRenderFail message: " + str + ", code = " + i, new Object[0]);
-            this.d.isAdLoading = false;
-            this.d.onError(i, str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.e.onAdClicked(this.b, this.d);
+            this.b = true;
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view2, float f, float f2) {
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onRewardVerify(boolean z, int i, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
+            LogPrinter.d("onRewardVerify rewardVerify:%b rewardAmount:%d rewardName:%s errCode:%d errMsg:%s", Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2);
+            this.e.onRewardedVideo(z, this.d);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onSkippedVideo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.e("CSJRewardVideoAd onSkippedVideo", new Object[0]);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onVideoComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             LogPrinter.d();
-            this.d.onAdLoaded((gg9) this.c);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onVideoError() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            LogPrinter.d();
+            this.e.onAdError(0, "F:onVideoError");
         }
     }
 }

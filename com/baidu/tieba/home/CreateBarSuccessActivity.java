@@ -68,18 +68,18 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             this.mContainer = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092012);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092013);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
                 relativeLayout.setLayoutParams(layoutParams);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0457));
-            this.mTextView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f07);
-            this.mTextViewMore = (TextView) findViewById(R.id.obfuscated_res_0x7f091f2c);
+            this.mTextView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f08);
+            this.mTextViewMore = (TextView) findViewById(R.id.obfuscated_res_0x7f091f2d);
         }
     }
 

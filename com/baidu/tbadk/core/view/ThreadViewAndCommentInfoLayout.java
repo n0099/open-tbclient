@@ -61,8 +61,8 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0827, (ViewGroup) this, true);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fc4);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f8e);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fc5);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f8f);
             this.c = context;
         }
     }
@@ -92,7 +92,7 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) && this.b != null && threadData != null && this.h && threadData.isSharedLiveThread()) {
             this.b.setVisibility(0);
-            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e33), StringHelper.numberUniformFormat((threadData.getThreadAlaInfo() == null || threadData.getThreadAlaInfo().share_info == null) ? 0 : threadData.getThreadAlaInfo().share_info.share_count)));
+            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e32), StringHelper.numberUniformFormat((threadData.getThreadAlaInfo() == null || threadData.getThreadAlaInfo().share_info == null) ? 0 : threadData.getThreadAlaInfo().share_info.share_count)));
         }
     }
 
@@ -103,7 +103,7 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
         }
         if (threadData.getView_num() >= 0) {
             this.a.setVisibility(0);
-            this.a.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e36), StringHelper.numberUniformFormat(threadData.getView_num())));
+            this.a.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e35), StringHelper.numberUniformFormat(threadData.getView_num())));
             return;
         }
         this.a.setVisibility(8);
@@ -115,14 +115,14 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
             return;
         }
         this.a.setVisibility(0);
-        this.a.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e34), StringHelper.numberUniformFormat(threadData.getThreadAlaInfo().audience_count)));
+        this.a.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e33), StringHelper.numberUniformFormat(threadData.getThreadAlaInfo().audience_count)));
     }
 
     public final void g(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) && this.b != null && threadData != null && this.g && threadData.isSharedLiveThread()) {
             this.b.setVisibility(0);
-            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e35), StringHelper.numberUniformFormat(threadData.getAgreeNum())));
+            this.b.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f0e34), StringHelper.numberUniformFormat(threadData.getAgreeNum())));
         }
     }
 

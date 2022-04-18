@@ -189,8 +189,8 @@ public class hz2 extends nz2 {
             }
             this.e = hz2Var;
             if (view2 != null) {
-                this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e07);
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e06);
+                this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e08);
+                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e07);
                 this.c = (LinearLayout) view2;
                 this.d = hz2Var2;
             }
@@ -311,9 +311,9 @@ public class hz2 extends nz2 {
             this.g = context;
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00e1, c().e(), false);
             this.d = viewGroup;
-            this.e = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e08);
-            this.h = this.d.findViewById(R.id.obfuscated_res_0x7f090e09);
-            this.f = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090e05);
+            this.e = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e09);
+            this.h = this.d.findViewById(R.id.obfuscated_res_0x7f090e0a);
+            this.f = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090e06);
             View k = k(this.e);
             if (k != null) {
                 this.e.addView(k);

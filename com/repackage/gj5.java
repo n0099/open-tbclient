@@ -167,7 +167,7 @@ public class gj5 extends nj5<oj5, AdDownloadData> implements pj5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, adDownloadData) == null) {
             if (adDownloadData == null) {
-                if (vm4.e()) {
+                if (um4.e()) {
                     throw new IllegalArgumentException("data is null when switch status");
                 }
                 return;
@@ -189,7 +189,7 @@ public class gj5 extends nj5<oj5, AdDownloadData> implements pj5 {
                 }
             } else if (i != 4) {
                 if (i != 5) {
-                    if (vm4.e()) {
+                    if (um4.e()) {
                         throw new IllegalStateException("Invalid status, add more test");
                     }
                     return;
@@ -216,13 +216,13 @@ public class gj5 extends nj5<oj5, AdDownloadData> implements pj5 {
     public void m(@NonNull AdDownloadData adDownloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, adDownloadData) == null) {
-            if (ga8.r(adDownloadData.getPkgName())) {
+            if (na8.r(adDownloadData.getPkgName())) {
                 adDownloadData.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
                 return;
             }
             String downloadFilePath = adDownloadData.extra().getDownloadFilePath();
             if (TextUtils.isEmpty(downloadFilePath) && !TextUtils.isEmpty(adDownloadData.adId())) {
-                downloadFilePath = h98.h(adDownloadData.adId());
+                downloadFilePath = o98.h(adDownloadData.adId());
             }
             if (TextUtils.isEmpty(downloadFilePath) || !new File(downloadFilePath).exists()) {
                 return;

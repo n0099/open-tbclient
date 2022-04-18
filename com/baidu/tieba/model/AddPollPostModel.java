@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.dk8;
+import com.repackage.kk8;
 import com.repackage.mg;
 import com.repackage.wa;
 /* loaded from: classes3.dex */
@@ -126,8 +126,8 @@ public class AddPollPostModel extends BdBaseModel {
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dk8.h(309006, AddPollPostSocketResponseMessage.class, false, false);
-            dk8.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
+            kk8.h(309006, AddPollPostSocketResponseMessage.class, false, false);
+            kk8.c(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
         }
     }
 

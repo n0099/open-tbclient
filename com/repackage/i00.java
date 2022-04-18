@@ -31,7 +31,7 @@ public class i00 extends xy {
     public int i;
     public int j;
     public Context k;
-    public qn4 l;
+    public pn4 l;
     public VideoImageNoPlayerLayout m;
     public int n;
     public String o;
@@ -99,9 +99,9 @@ public class i00 extends xy {
         }
 
         @Override // com.repackage.n00
-        public void a(qn4 qn4Var) {
+        public void a(pn4 pn4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, qn4Var) == null) || this.a.q == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, pn4Var) == null) || this.a.q == null) {
                 return;
             }
             this.a.q.a(this.a.l);
@@ -162,11 +162,11 @@ public class i00 extends xy {
     }
 
     @Override // com.repackage.qy
-    public void l(rx5<qn4> rx5Var) {
+    public void l(tx5<pn4> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rx5Var) == null) {
-            super.l(rx5Var);
-            this.m.setOnCardSubClickListener(rx5Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tx5Var) == null) {
+            super.l(tx5Var);
+            this.m.setOnCardSubClickListener(tx5Var);
         }
     }
 
@@ -205,9 +205,9 @@ public class i00 extends xy {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, qn4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, pn4Var) == null) {
             int k = oi.k(TbadkCoreApplication.getInst());
             if (k != this.n) {
                 s = oi.k(TbadkCoreApplication.getInst());
@@ -221,10 +221,10 @@ public class i00 extends xy {
                 this.j = i / 3;
                 this.n = k;
             }
-            this.l = qn4Var;
-            if (qn4Var != null && qn4Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
+            this.l = pn4Var;
+            if (pn4Var != null && pn4Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
                 this.m.setVisibility(0);
-                this.m.a(qn4Var);
+                this.m.a(pn4Var);
                 ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
                 ViewGroup.LayoutParams layoutParams2 = this.m.j.getLayoutParams();
                 int i2 = layoutParams.width;

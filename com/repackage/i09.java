@@ -1,45 +1,51 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.webkit.WebView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.location.Address;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class i09 implements j09 {
+public class i09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NewVcodeView a;
-    public final NewWriteModel b;
-    public boolean c;
-    public PostWriteCallBackData d;
-    public final NewWriteModel.g e;
-    public NewWriteModel.g f;
+    public String a;
+    public BdUniqueId b;
+    public h09 c;
 
     /* loaded from: classes6.dex */
-    public class a implements NewWriteModel.g {
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<f09, Integer, g09> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ i09 a;
 
-        public a(i09 i09Var) {
+        public b(i09 i09Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,47 +63,151 @@ public class i09 implements j09 {
             this.a = i09Var;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, rx4 rx4Var, WriteData writeData, AntiData antiData) {
-            String str;
-            String str2;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public g09 doInBackground(f09... f09VarArr) {
+            InterceptResult invokeL;
+            f09 f09Var;
+            ImageUploadResult.picInfo picinfo;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, rx4Var, writeData, antiData}) == null) || this.a.a == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f09VarArr)) == null) {
+                String str = null;
+                if (f09VarArr.length == 0 || (f09Var = f09VarArr[0]) == null) {
+                    return null;
+                }
+                vb vbVar = new vb("images", TbMd5.getNameMd5FromUrl(f09Var.i + 42), DiskFileOperate.Action.READ);
+                vbVar.setSubFolder(true);
+                vbVar.setIsFormatData(false);
+                ImageUploadResult m = new o35(null).m(c(vbVar.buildPath(), vbVar.getName()), true, false);
+                if (m != null && (picinfo = m.picInfo) != null) {
+                    ImageUploadResult.PicDetailedInfo picDetailedInfo = picinfo.originPic;
+                    if (picDetailedInfo != null && !StringUtils.isNull(picDetailedInfo.picUrl)) {
+                        str = m.picInfo.originPic.picUrl;
+                    } else {
+                        ImageUploadResult.PicDetailedInfo picDetailedInfo2 = m.picInfo.bigPic;
+                        if (picDetailedInfo2 != null && !StringUtils.isNull(picDetailedInfo2.picUrl)) {
+                            str = m.picInfo.bigPic.picUrl;
+                        } else {
+                            ImageUploadResult.PicDetailedInfo picDetailedInfo3 = m.picInfo.smallPic;
+                            if (picDetailedInfo3 != null && !StringUtils.isNull(picDetailedInfo3.picUrl)) {
+                                str = m.picInfo.smallPic.picUrl;
+                            }
+                        }
+                    }
+                }
+                if (StringUtils.isNull(str)) {
+                    str = f09Var.j;
+                }
+                NetWork netWork = new NetWork();
+                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
+                netWork.getNetContext().getRequest().mIsNeedTbs = true;
+                netWork.addPostData("anonymous", "1");
+                netWork.addPostData("can_no_forum", "0");
+                netWork.addPostData("is_feedback", "0");
+                if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
+                    netWork.addPostData("vcode_tag", "12");
+                }
+                netWork.addPostData("new_vcode", "1");
+                netWork.addPostData("content", f09Var.m);
+                netWork.addPostData("fid", f09Var.e);
+                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, f09Var.f);
+                netWork.addPostData("is_hide", "0");
+                netWork.addPostData(IntentConfig.CALL_FROM, "2");
+                netWork.addPostData("title", f09Var.m);
+                netWork.addPostData("is_ntitle", "1");
+                netWork.addPostData("st_type", "notitle");
+                netWork.addPostData("is_location", "2");
+                Address j = gf.n().j(false);
+                if (j != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(f09Var.e)) {
+                    netWork.addPostData("lbs", String.valueOf(j.getLatitude()) + "," + String.valueOf(j.getLongitude()));
+                    netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
+                    netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+                }
+                LocationData b = bm8.a().b();
+                if (b != null) {
+                    netWork.addPostData("name", b.getFormatted_address());
+                    netWork.addPostData("sn", b.getSn());
+                }
+                netWork.addPostData("is_link_thread", "0");
+                if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
+                    netWork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                }
+                netWork.addPostData("tbopen_app_key", f09Var.a);
+                netWork.addPostData("tbopen_app_icon", f09Var.d);
+                netWork.addPostData("tbopen_app_name", f09Var.c);
+                netWork.addPostData("share_abstract", f09Var.h);
+                netWork.addPostData("share_image", str);
+                netWork.addPostData("share_h5_url", f09Var.k);
+                netWork.addPostData("share_swan_app_key", f09Var.b);
+                netWork.addPostData("share_swan_path", f09Var.l);
+                String postNetData = netWork.postNetData();
+                g09 g09Var = new g09();
+                try {
+                    JSONObject jSONObject = new JSONObject(postNetData);
+                    jSONObject.optString("msg");
+                    jSONObject.optString("pre_msg");
+                    g09Var.b = f09Var.e;
+                    g09Var.c = jSONObject.optString("tid");
+                    jSONObject.optString("pid");
+                    jSONObject.optString("video_id");
+                } catch (Exception unused) {
+                }
+                ErrorData errorData = new ErrorData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    errorData.parserJson(postNetData);
+                } else {
+                    errorData.setError_code(netWork.isNetSuccess() ? netWork.getServerErrorCode() : netWork.getNetErrorCode());
+                    errorData.setError_msg(netWork.getErrorString());
+                }
+                if (errorData.error_code != 0 && !mi.z()) {
+                    errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c17));
+                }
+                g09Var.a = errorData;
+                try {
+                    new AntiData().parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
+                } catch (Exception unused2) {
+                }
+                return g09Var;
+            }
+            return (g09) invokeL.objValue;
+        }
+
+        public String c(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+                String str3 = this.a.a + str2;
+                if (str != null) {
+                    return this.a.a + str + "/" + str2;
+                }
+                return str3;
+            }
+            return (String) invokeLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(g09 g09Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g09Var) == null) || this.a.c == null) {
                 return;
             }
-            this.a.a.showPostThreadLoadingView(false);
-            if (z) {
-                this.a.d = postWriteCallBackData;
-                this.a.c = true;
-                String str3 = null;
-                if (rx4Var == null || rx4Var.a() == null) {
-                    str = null;
-                    str2 = null;
-                } else {
-                    String str4 = rx4Var.a().endPoint;
-                    String str5 = rx4Var.a().successImg;
-                    str2 = rx4Var.a().slideEndPoint;
-                    str = str4;
-                    str3 = str5;
-                }
-                this.a.a.runJsMethod("success", str3 + "," + str + "," + str2);
-            } else if (postWriteCallBackData == null || postWriteCallBackData.getErrorCode() != 227001) {
-                if (this.a.f != null) {
-                    this.a.f.callback(false, postWriteCallBackData, rx4Var, writeData, antiData);
-                }
-            } else {
-                this.a.a.getContext().setVisible(false);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-            }
+            this.a.c.a(g09Var);
+        }
+
+        public /* synthetic */ b(i09 i09Var, a aVar) {
+            this(i09Var);
         }
     }
 
-    public i09(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
+    public i09(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {newVcodeView, newWriteModel};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -107,139 +217,23 @@ public class i09 implements j09 {
                 return;
             }
         }
-        a aVar = new a(this);
-        this.e = aVar;
-        this.a = newVcodeView;
-        this.b = newWriteModel;
-        newWriteModel.n0(aVar);
+        this.a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+        this.b = bdUniqueId;
     }
 
-    @Override // com.repackage.j09
-    public void a(boolean z) {
+    public void c(h09 h09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.a.setRatio(0.9433962f);
-            this.a.showWebView(false);
-            this.a.getWebView().loadUrl(TbConfig.SERVER_ADDRESS_WEB_VIEW + "n/captcha-drag");
+        if (interceptable == null || interceptable.invokeL(1048576, this, h09Var) == null) {
+            this.c = h09Var;
         }
     }
 
-    @Override // com.repackage.j09
-    public boolean b(WebView webView, String str) {
-        InterceptResult invokeLL;
-        WriteData b0;
-        String str2;
+    public void d(f09 f09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
-            if (this.b.b0() == null || StringUtils.isNull(str) || (b0 = this.b.b0()) == null) {
-                return false;
-            }
-            if (str.contains("objc:loadReady")) {
-                if (b0.getVcodeExtra() == null) {
-                    return false;
-                }
-                this.a.runJsMethod("handleFreshCaptcha", "'" + b0.getVcodeUrl() + "','" + b0.getVcodeExtra().slideImg + "','" + b0.getVcodeExtra().textImg + "'");
-                return true;
-            } else if (str.contains("objc:jsChangePosition")) {
-                j(qd5.a(str));
-                return true;
-            } else if (str.contains("objc:finish")) {
-                if (b0 != null && b0.getVideoReviewType() == 1) {
-                    NewVcodeView newVcodeView = this.a;
-                    newVcodeView.showToast(true, newVcodeView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14f7));
-                } else if (b0 != null && b0.getVideoReviewType() == 2) {
-                    NewVcodeView newVcodeView2 = this.a;
-                    newVcodeView2.showToast(true, newVcodeView2.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14f6));
-                } else {
-                    String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10ed);
-                    PostWriteCallBackData postWriteCallBackData = this.d;
-                    String str3 = null;
-                    if (postWriteCallBackData != null) {
-                        str3 = postWriteCallBackData.getPreMsg();
-                        str2 = this.d.getColorMsg();
-                        string = this.d.getErrorString();
-                    } else {
-                        str2 = null;
-                    }
-                    if (b0.getType() != 7) {
-                        xm8.b(this.a.getContext().getActivity(), string, str3, str2);
-                    }
-                }
-                Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", this.d);
-                intent.putExtras(bundle);
-                BaseActivity context = this.a.getContext();
-                this.a.getContext();
-                context.setResult(-1, intent);
-                this.a.getContext().finish();
-                return true;
-            } else if (!str.contains("objc:jumpToFeedback()") || WriteActivityConfig.isAsyncWriting()) {
-                return false;
-            } else {
-                WriteActivityConfig.newInstance(this.a.getContext()).setType(0).setForumId(TbConfig.getPositionPagerId()).setForumName(TbConfig.getPositionPagerName()).setIsVcodeFeedBack().send();
-                return true;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f09Var) == null) {
+            b bVar = new b(this, null);
+            bVar.setTag(this.b);
+            bVar.execute(f09Var);
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.j09
-    public void c(NewWriteModel.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) {
-            this.f = gVar;
-        }
-    }
-
-    @Override // com.repackage.j09
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.showPostThreadLoadingView(false);
-            this.b.cancelLoadData();
-        }
-    }
-
-    @Override // com.repackage.j09
-    public void e(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
-        }
-    }
-
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (!oi.C()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c18);
-                this.a.getContext().finish();
-            } else if (!StringUtils.isNull(str)) {
-                this.a.showPostThreadLoadingView(true);
-                this.b.b0().setVcode(str);
-                this.b.b0().setVcodeType("5");
-                this.b.r0();
-            } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c18);
-                this.a.getContext().finish();
-            }
-        }
-    }
-
-    @Override // com.repackage.j09
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.j09
-    public void onPageFinished(WebView webView, String str) {
-        NewVcodeView newVcodeView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) || (newVcodeView = this.a) == null) {
-            return;
-        }
-        newVcodeView.showWebViewDelay(1000);
     }
 }

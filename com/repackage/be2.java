@@ -58,7 +58,7 @@ public class be2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             File file = new File(r73.w());
-            if (ng4.l(file)) {
+            if (mg4.l(file)) {
                 return file;
             }
             return null;

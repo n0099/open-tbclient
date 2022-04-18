@@ -91,7 +91,7 @@ public class mj2 {
                                             return stringBuffer.toString();
                                         }
                                     }
-                                    ng4.d(bufferedReader);
+                                    mg4.d(bufferedReader);
                                     long currentTimeMillis22 = System.currentTimeMillis();
                                     if (a) {
                                     }
@@ -106,7 +106,7 @@ public class mj2 {
                                             throw th;
                                         }
                                     }
-                                    ng4.d(bufferedReader);
+                                    mg4.d(bufferedReader);
                                     throw th;
                                 }
                             } catch (Throwable th2) {
@@ -114,7 +114,7 @@ public class mj2 {
                                 fileLock = lock;
                                 if (fileLock != null) {
                                 }
-                                ng4.d(bufferedReader);
+                                mg4.d(bufferedReader);
                                 throw th;
                             }
                         }
@@ -134,7 +134,7 @@ public class mj2 {
                                 return stringBuffer.toString();
                             }
                         }
-                        ng4.d(bufferedReader);
+                        mg4.d(bufferedReader);
                     } catch (IOException e5) {
                         e = e5;
                         bufferedReader = null;
@@ -205,7 +205,7 @@ public class mj2 {
                                 Log.e("SwanAppFile", Log.getStackTraceString(e));
                             }
                         }
-                        ng4.d(channel);
+                        mg4.d(channel);
                     } catch (IOException e2) {
                         fileChannel = channel;
                         e = e2;
@@ -218,7 +218,7 @@ public class mj2 {
                                     Log.e("SwanAppFile", Log.getStackTraceString(e3));
                                 }
                             }
-                            ng4.d(fileChannel);
+                            mg4.d(fileChannel);
                             long currentTimeMillis2 = System.currentTimeMillis();
                             if (a) {
                             }
@@ -232,7 +232,7 @@ public class mj2 {
                                     Log.e("SwanAppFile", Log.getStackTraceString(e4));
                                 }
                             }
-                            ng4.d(fileChannel);
+                            mg4.d(fileChannel);
                             throw th;
                         }
                     } catch (Throwable th2) {
@@ -240,7 +240,7 @@ public class mj2 {
                         th = th2;
                         if (fileLock != null) {
                         }
-                        ng4.d(fileChannel);
+                        mg4.d(fileChannel);
                         throw th;
                     }
                 } catch (IOException e5) {

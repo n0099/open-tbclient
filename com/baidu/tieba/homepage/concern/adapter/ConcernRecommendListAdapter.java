@@ -30,10 +30,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lm4;
+import com.repackage.km4;
+import com.repackage.nv4;
 import com.repackage.oi;
-import com.repackage.ov4;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewHolder> {
@@ -44,7 +44,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public BdUniqueId c;
     public int d;
     public List<MetaData> e;
-    public lm4<MetaData> f;
+    public km4<MetaData> f;
 
     /* loaded from: classes3.dex */
     public class ForumViewHolder extends RecyclerView.ViewHolder {
@@ -55,7 +55,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         public TextView c;
         public HeadPendantClickableView d;
         public DynamicUserLikeButton e;
-        public ov4 f;
+        public nv4 f;
         public boolean g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -88,8 +88,8 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             this.d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906c0);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906be);
-            this.e = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0922b0);
-            this.f = new ov4(concernRecommendListAdapter.b, this.e);
+            this.e = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0922b1);
+            this.f = new nv4(concernRecommendListAdapter.b, this.e);
         }
 
         public void a(int i) {
@@ -102,7 +102,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 }
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
                 this.e.s(i);
-                wr4 d = wr4.d(this.a);
+                vr4 d = vr4.d(this.a);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
             }
@@ -276,9 +276,9 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         s(metaData, forumViewHolder);
         p(metaData, forumViewHolder);
         r(metaData, forumViewHolder);
-        lm4<MetaData> lm4Var = this.f;
-        if (lm4Var != null) {
-            lm4Var.c(forumViewHolder.itemView, metaData, i, i);
+        km4<MetaData> km4Var = this.f;
+        if (km4Var != null) {
+            km4Var.c(forumViewHolder.itemView, metaData, i, i);
         }
         forumViewHolder.a(this.d);
     }
@@ -327,10 +327,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         }
     }
 
-    public void l(lm4<MetaData> lm4Var) {
+    public void l(km4<MetaData> km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, lm4Var) == null) {
-            this.f = lm4Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, km4Var) == null) {
+            this.f = km4Var;
         }
     }
 
@@ -368,10 +368,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, metaData, forumViewHolder) == null) {
             forumViewHolder.e.setOnClickEvent(new b(this, metaData));
-            ov4 ov4Var = forumViewHolder.f;
-            if (ov4Var != null) {
-                ov4Var.l(this.c);
-                ov4Var.n(metaData);
+            nv4 nv4Var = forumViewHolder.f;
+            if (nv4Var != null) {
+                nv4Var.l(this.c);
+                nv4Var.n(metaData);
             }
         }
     }

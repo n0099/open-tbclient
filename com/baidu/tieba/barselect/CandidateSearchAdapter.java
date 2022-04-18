@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rv5;
+import com.repackage.tv5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearchItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rv5> a;
+    public List<tv5> a;
 
     public CandidateSearchAdapter() {
         Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.size() : invokeV.intValue;
     }
 
-    public void setData(List<rv5> list) {
+    public void setData(List<tv5> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a.clear();

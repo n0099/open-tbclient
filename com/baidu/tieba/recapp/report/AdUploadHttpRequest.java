@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mi;
-import com.repackage.sc8;
+import com.repackage.zc8;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -28,10 +28,10 @@ public class AdUploadHttpRequest extends HttpMessage {
     public static final String KEY_OS_VERSION = "_os_version";
     public static final String KEY_PRODUCT_ID = "productId";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<sc8> dataArray;
+    public ArrayList<zc8> dataArray;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdUploadHttpRequest(ArrayList<sc8> arrayList) {
+    public AdUploadHttpRequest(ArrayList<zc8> arrayList) {
         super(CmdConfigHttp.CMD_AD_UPLOAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,7 +48,7 @@ public class AdUploadHttpRequest extends HttpMessage {
                 return;
             }
         }
-        ArrayList<sc8> arrayList2 = new ArrayList<>();
+        ArrayList<zc8> arrayList2 = new ArrayList<>();
         this.dataArray = arrayList2;
         arrayList2.addAll(arrayList);
         addParam("ad", toJSONString(this.dataArray));
@@ -59,7 +59,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         addParam(KEY_OS_TYPE, 2);
     }
 
-    private String toJSONString(ArrayList<sc8> arrayList) {
+    private String toJSONString(ArrayList<zc8> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, arrayList)) == null) {
@@ -67,9 +67,9 @@ public class AdUploadHttpRequest extends HttpMessage {
                 return null;
             }
             JSONArray jSONArray = new JSONArray();
-            Iterator<sc8> it = arrayList.iterator();
+            Iterator<zc8> it = arrayList.iterator();
             while (it.hasNext()) {
-                sc8 next = it.next();
+                zc8 next = it.next();
                 if (next != null) {
                     jSONArray.put(next.b());
                 }
@@ -79,7 +79,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         return (String) invokeL.objValue;
     }
 
-    public ArrayList<sc8> getDataArray() {
+    public ArrayList<zc8> getDataArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.dataArray : (ArrayList) invokeV.objValue;
@@ -102,13 +102,13 @@ public class AdUploadHttpRequest extends HttpMessage {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdUploadHttpRequest(sc8 sc8Var) {
+    public AdUploadHttpRequest(zc8 zc8Var) {
         super(CmdConfigHttp.CMD_AD_UPLOAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sc8Var};
+            Object[] objArr = {zc8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -119,9 +119,9 @@ public class AdUploadHttpRequest extends HttpMessage {
                 return;
             }
         }
-        ArrayList<sc8> arrayList = new ArrayList<>();
+        ArrayList<zc8> arrayList = new ArrayList<>();
         this.dataArray = arrayList;
-        arrayList.add(sc8Var);
+        arrayList.add(zc8Var);
         addParam("ad", toJSONString(this.dataArray));
         addParam("brand", Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);

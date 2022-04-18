@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bu6;
 import com.repackage.rc5;
-import com.repackage.rc8;
 import com.repackage.vb5;
-import com.repackage.wt4;
-import com.repackage.zt6;
+import com.repackage.vt4;
+import com.repackage.yc8;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
 /* loaded from: classes3.dex */
@@ -51,10 +51,10 @@ public class ConcernPageRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             boolean isEmpty = TextUtils.isEmpty(this.pageTag);
-            int e = isEmpty ? 0 : rc8.f().e("CONCERN");
+            int e = isEmpty ? 0 : yc8.f().e("CONCERN");
             String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
             String str = "";
-            String d = isEmpty ? "" : rc8.f().d("CONCERN");
+            String d = isEmpty ? "" : yc8.f().d("CONCERN");
             vb5 vb5Var = this.adInfo;
             if (vb5Var != null && !isEmpty) {
                 str = vb5Var.b;
@@ -77,16 +77,16 @@ public class ConcernPageRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.page_tag = this.pageTag;
-                if (zt6.H()) {
-                    if (!zt6.A()) {
-                        builder.page_tag = zt6.v();
+                if (bu6.H()) {
+                    if (!bu6.A()) {
+                        builder.page_tag = bu6.v();
                     } else {
-                        builder.page_tag = zt6.u();
+                        builder.page_tag = bu6.u();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(wt4.k().m(wt4.o("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(vt4.k().m(vt4.o("concern_data_res_request_time"), 0L));
                 int i = 1;
-                builder.follow_type = Integer.valueOf(UbsABTestHelper.isConcernForumCardShow() ? wt4.k().l("key_home_concern_all_status", 0) : 1);
+                builder.follow_type = Integer.valueOf(UbsABTestHelper.isConcernForumCardShow() ? vt4.k().l("key_home_concern_all_status", 0) : 1);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
                     rc5.a(builder, true);
                 }

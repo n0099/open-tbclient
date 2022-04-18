@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr8;
-import com.repackage.iq8;
-import com.repackage.jq8;
-import com.repackage.kq8;
+import com.repackage.mr8;
+import com.repackage.pq8;
+import com.repackage.qq8;
+import com.repackage.rq8;
 import com.repackage.y75;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -22,10 +22,10 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundGroupModel.c mCallback;
-    public kq8 mItemController;
+    public rq8 mItemController;
     public BackgroundGroupModel mModel;
     public TbPageContext<?> mPageContext;
-    public jq8 mView;
+    public qq8 mView;
 
     /* loaded from: classes4.dex */
     public class a implements BackgroundGroupModel.c {
@@ -52,14 +52,14 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, fr8 fr8Var, List<iq8> list) {
+        public void a(int i, String str, mr8 mr8Var, List<pq8> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, fr8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, mr8Var, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.mView.d());
                 this.a.mView.i();
                 if (i == 0) {
-                    this.a.mView.k(fr8Var, list, this.a.mModel.H());
+                    this.a.mView.k(mr8Var, list, this.a.mModel.H());
                     return;
                 }
                 this.a.showToast(str);
@@ -116,9 +116,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            jq8 jq8Var = this.mView;
-            if (jq8Var != null) {
-                jq8Var.f();
+            qq8 qq8Var = this.mView;
+            if (qq8Var != null) {
+                qq8Var.f();
             }
         }
     }
@@ -133,12 +133,12 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.mModel = backgroundGroupModel;
             backgroundGroupModel.K(this.mCallback);
-            kq8 kq8Var = new kq8(this.mPageContext, this.mModel.getUniqueId());
-            this.mItemController = kq8Var;
-            kq8Var.c(1);
-            jq8 jq8Var = new jq8(this, this.mItemController);
-            this.mView = jq8Var;
-            jq8Var.e();
+            rq8 rq8Var = new rq8(this.mPageContext, this.mModel.getUniqueId());
+            this.mItemController = rq8Var;
+            rq8Var.c(1);
+            qq8 qq8Var = new qq8(this, this.mItemController);
+            this.mView = qq8Var;
+            qq8Var.e();
             showLoadingView(this.mView.d());
             this.mModel.loadData();
         }
@@ -154,12 +154,12 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        jq8 jq8Var;
+        qq8 qq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (jq8Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (qq8Var = this.mView) == null) {
             return;
         }
-        showLoadingView(jq8Var.d());
+        showLoadingView(qq8Var.d());
         this.mModel.loadData();
     }
 

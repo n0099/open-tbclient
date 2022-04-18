@@ -26,32 +26,32 @@ public class AppScoreView extends LinearLayout {
 
     private void a() {
         LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d041f, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09112c);
-        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09112b);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09112d);
+        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09112c);
     }
 
     public void setScore(float f) {
         double d = f;
         if (d > 4.5d) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b94);
-            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080b94);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b98);
+            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080b98);
         } else if (d > 4.0d) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b94);
-            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080b93);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b98);
+            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080b97);
         } else {
             if (d > 3.5d) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b94);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b98);
             } else {
                 int i = (d > 3.0d ? 1 : (d == 3.0d ? 0 : -1));
                 if (i > 0) {
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b93);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b97);
                 } else if (i != 0) {
                     return;
                 } else {
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b92);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b96);
                 }
             }
-            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080b92);
+            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080b96);
         }
     }
 }

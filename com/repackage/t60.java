@@ -42,11 +42,11 @@ public class t60 implements CallFactory.CallFactoryProducer {
 
         /* renamed from: com.repackage.t60$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0520a implements a70 {
+        public class C0517a implements a70 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0520a(a aVar, Request request) {
+            public C0517a(a aVar, Request request) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class t60 implements CallFactory.CallFactoryProducer {
                     }
                     newBuilder.eventListener(new v60(this.c.c));
                     if (this.c.d != null) {
-                        Dns a = this.c.d.a(e, new C0520a(this, e));
+                        Dns a = this.c.d.a(e, new C0517a(this, e));
                         newBuilder.dns(a);
                         newBuilder.addNetworkInterceptor(new x60(a));
                     }

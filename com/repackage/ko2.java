@@ -79,7 +79,7 @@ public class ko2 implements Runnable {
                 }
             }
         } finally {
-            ng4.d(null);
+            mg4.d(null);
         }
     }
 
@@ -112,7 +112,7 @@ public class ko2 implements Runnable {
                     cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
                 } catch (Throwable th3) {
                     th = th3;
-                    ng4.d(r1);
+                    mg4.d(r1);
                     throw th;
                 }
             } catch (Exception e2) {
@@ -121,11 +121,11 @@ public class ko2 implements Runnable {
             } catch (Throwable th4) {
                 r1 = 0;
                 th = th4;
-                ng4.d(r1);
+                mg4.d(r1);
                 throw th;
             }
             if (cursor == null) {
-                ng4.d(cursor);
+                mg4.d(cursor);
                 return;
             }
             while (cursor.moveToNext()) {
@@ -183,10 +183,10 @@ public class ko2 implements Runnable {
                     if (yn2.a) {
                         e.printStackTrace();
                     }
-                    ng4.d(cursor);
+                    mg4.d(cursor);
                 }
             }
-            ng4.d(cursor);
+            mg4.d(cursor);
         }
     }
 

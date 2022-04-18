@@ -256,7 +256,7 @@ public class bj2 extends PopupWindow {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(R.layout.obfuscated_res_0x7f0d00bb, (ViewGroup) null);
             this.d = swanAppActivity.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070154);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091001);
+            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091002);
             gridView.setAdapter((ListAdapter) new aj2(swanAppActivity, this.c));
             de3.a0(new b(this, gridView, new a(this, i)));
             ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090672);

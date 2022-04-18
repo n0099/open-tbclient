@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q47;
-import com.repackage.wr4;
+import com.repackage.t47;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class SelectTopicToolItem extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -30,7 +30,7 @@ public class SelectTopicToolItem extends RelativeLayout {
     public EMTextView b;
     public ImageView c;
     public LinearLayout d;
-    public q47 e;
+    public t47 e;
     public b f;
     public boolean g;
     public boolean h;
@@ -77,7 +77,7 @@ public class SelectTopicToolItem extends RelativeLayout {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(@NonNull q47 q47Var);
+        void a(@NonNull t47 t47Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -101,13 +101,13 @@ public class SelectTopicToolItem extends RelativeLayout {
         e();
     }
 
-    public void c(q47 q47Var) {
+    public void c(t47 t47Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, q47Var) == null) || q47Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, t47Var) == null) || t47Var == null) {
             return;
         }
-        this.e = q47Var;
-        if (q47Var.j()) {
+        this.e = t47Var;
+        if (t47Var.j()) {
             this.b.setText("#");
             this.a.setText(this.e.e() + "#");
         } else {
@@ -117,12 +117,12 @@ public class SelectTopicToolItem extends RelativeLayout {
     }
 
     public void d() {
-        q47 q47Var;
-        q47 q47Var2;
+        t47 t47Var;
+        t47 t47Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.g && (q47Var2 = this.e) != null) {
-                if (q47Var2.j()) {
+            if (!this.g && (t47Var2 = this.e) != null) {
+                if (t47Var2.j()) {
                     this.b.setVisibility(0);
                     this.c.setVisibility(0);
                 } else {
@@ -130,9 +130,9 @@ public class SelectTopicToolItem extends RelativeLayout {
                     this.b.setVisibility(8);
                 }
                 if (this.e.h()) {
-                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e8, SkinManager.getColor(R.color.CAM_X0304), null));
+                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ec, SkinManager.getColor(R.color.CAM_X0304), null));
                 } else {
-                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e8, SkinManager.getColor(R.color.CAM_X0105), null));
+                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ec, SkinManager.getColor(R.color.CAM_X0105), null));
                 }
             } else {
                 this.b.setVisibility(8);
@@ -140,26 +140,26 @@ public class SelectTopicToolItem extends RelativeLayout {
                 this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f00d2));
                 this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080611, SkinManager.getColor(R.color.CAM_X0109), null));
             }
-            if (!this.g && (q47Var = this.e) != null && q47Var.h()) {
-                wr4.d(this.a).v(R.color.CAM_X0304);
-                wr4.d(this.b).v(R.color.CAM_X0304);
-                wr4 d = wr4.d(this.d);
+            if (!this.g && (t47Var = this.e) != null && t47Var.h()) {
+                vr4.d(this.a).v(R.color.CAM_X0304);
+                vr4.d(this.b).v(R.color.CAM_X0304);
+                vr4 d = vr4.d(this.d);
                 d.n(R.string.J_X01);
                 d.l(R.dimen.L_X02);
                 d.k(R.color.CAM_X0304);
                 d.f(R.color.CAM_X0905);
             } else if (this.h && !this.g) {
-                wr4.d(this.a).v(R.color.CAM_X0105);
-                wr4.d(this.b).v(R.color.CAM_X0105);
-                wr4 d2 = wr4.d(this.d);
+                vr4.d(this.a).v(R.color.CAM_X0105);
+                vr4.d(this.b).v(R.color.CAM_X0105);
+                vr4 d2 = vr4.d(this.d);
                 d2.n(R.string.J_X01);
                 d2.l(R.dimen.L_X02);
                 d2.k(R.color.CAM_X0209);
                 d2.f(R.color.CAM_X0201);
             } else {
-                wr4.d(this.a).v(R.color.CAM_X0105);
-                wr4.d(this.b).v(R.color.CAM_X0105);
-                wr4 d3 = wr4.d(this.d);
+                vr4.d(this.a).v(R.color.CAM_X0105);
+                vr4.d(this.b).v(R.color.CAM_X0105);
+                vr4 d3 = vr4.d(this.d);
                 d3.n(R.string.J_X01);
                 d3.l(R.dimen.L_X02);
                 d3.k(R.color.CAM_X0209);
@@ -172,10 +172,10 @@ public class SelectTopicToolItem extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0762, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092115);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092117);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092116);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912e8);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092116);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092118);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092117);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912e9);
             setOnClickListener(new a(this));
             d();
         }

@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.qu4;
+import com.repackage.pu4;
 /* loaded from: classes3.dex */
-public class CommonLikeButton extends AppCompatTextView implements qu4 {
+public class CommonLikeButton extends AppCompatTextView implements pu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -43,14 +43,14 @@ public class CommonLikeButton extends AppCompatTextView implements qu4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c);
         this.c = false;
         this.e = false;
         d();
     }
 
-    @Override // com.repackage.qu4
+    @Override // com.repackage.pu4
     public void a(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class CommonLikeButton extends AppCompatTextView implements qu4 {
         onClickListener.onClick(view2);
     }
 
-    @Override // com.repackage.qu4
+    @Override // com.repackage.pu4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -68,7 +68,7 @@ public class CommonLikeButton extends AppCompatTextView implements qu4 {
         }
     }
 
-    @Override // com.repackage.qu4
+    @Override // com.repackage.pu4
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -150,7 +150,7 @@ public class CommonLikeButton extends AppCompatTextView implements qu4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c);
         this.c = false;
         this.e = false;
@@ -176,7 +176,7 @@ public class CommonLikeButton extends AppCompatTextView implements qu4 {
                 return;
             }
         }
-        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d);
+        this.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
         this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c);
         this.c = false;
         this.e = false;

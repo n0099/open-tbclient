@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ga8;
+import com.repackage.na8;
 import com.repackage.oi;
 import com.repackage.qd0;
 /* loaded from: classes2.dex */
@@ -213,7 +213,7 @@ public class McnVideoAdView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (context = this.a) == null || (qd0Var = this.j) == null || (str = qd0Var.d) == null) {
             return;
         }
-        ga8.d(context, str, null, null, null);
+        na8.d(context, str, null, null, null);
         c cVar = this.k;
         if (cVar != null) {
             cVar.b(this.j);
@@ -240,12 +240,12 @@ public class McnVideoAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0539, this);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e30);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e32);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e31);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e31);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e33);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e32);
             this.b.setConrers(5);
-            this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d49);
-            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d49);
+            this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d4d);
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d4d);
             this.b.setRadius(oi.f(this.a, R.dimen.tbds20));
             this.e = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010094);
             Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010093);

@@ -1,92 +1,99 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.VpnService;
+import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class bz8 {
+public class bz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public View c;
-    public a d;
-    public int e;
-    public Rect f;
-    public Rect g;
+    public Fragment a;
+    public Activity b;
+    public az8 c;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(int i);
-    }
-
-    public bz8(Context context, vy8 vy8Var) {
+    public bz8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, vy8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static bz8 c(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
+            bz8 bz8Var = new bz8();
+            bz8Var.a = fragment;
+            return bz8Var;
+        }
+        return (bz8) invokeL.objValue;
+    }
+
+    public void a(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) && i == 25069) {
+            if (i2 == -1) {
+                az8 az8Var = this.c;
+                if (az8Var != null) {
+                    az8Var.a();
+                    return;
+                }
                 return;
             }
-        }
-        this.e = 4;
-        this.f = new Rect();
-        this.g = new Rect();
-        this.a = context;
-    }
-
-    public void a(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, view3) == null) {
-            this.b = view2;
-            this.c = view3;
-            if (view3 != null) {
-                view3.getGlobalVisibleRect(this.f);
+            az8 az8Var2 = this.c;
+            if (az8Var2 != null) {
+                az8Var2.b();
             }
         }
     }
 
-    public void b(boolean z) {
+    public void b(az8 az8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                h();
-            } else {
-                c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, az8Var) == null) {
+            this.c = az8Var;
+            Fragment fragment = this.a;
+            if (fragment != null) {
+                Intent prepare = VpnService.prepare(fragment.getContext());
+                if (prepare != null) {
+                    this.a.startActivityForResult(prepare, 25069);
+                    return;
+                }
+                az8 az8Var2 = this.c;
+                if (az8Var2 != null) {
+                    az8Var2.a();
+                    return;
+                }
+                return;
             }
+            Activity activity = this.b;
+            if (activity != null) {
+                Intent prepare2 = VpnService.prepare(activity);
+                if (prepare2 != null) {
+                    this.b.startActivityForResult(prepare2, 25069);
+                    return;
+                }
+                az8 az8Var3 = this.c;
+                if (az8Var3 != null) {
+                    az8Var3.a();
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
         }
     }
-
-    public abstract void c();
-
-    public abstract void d();
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.d = aVar;
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g();
-        }
-    }
-
-    public abstract void g();
-
-    public abstract void h();
 }

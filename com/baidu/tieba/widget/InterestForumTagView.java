@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gz;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class InterestForumTagView extends LinearLayout implements gz {
     public static /* synthetic */ Interceptable $ic;
@@ -155,7 +155,7 @@ public class InterestForumTagView extends LinearLayout implements gz {
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                wr4 d = wr4.d(symbolEMTextView);
+                vr4 d = vr4.d(symbolEMTextView);
                 d.z(R.dimen.T_X09);
                 d.v(R.color.CAM_X0107);
                 d.w(R.dimen.tbds0);
@@ -165,7 +165,7 @@ public class InterestForumTagView extends LinearLayout implements gz {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0108, WebPManager.ResourceStateType.NORMAL);
             }
-            wr4 d2 = wr4.d(this);
+            vr4 d2 = vr4.d(this);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0202);
         }

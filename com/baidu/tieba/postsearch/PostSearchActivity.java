@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h88;
-import com.repackage.j88;
-import com.repackage.m88;
+import com.repackage.o88;
+import com.repackage.q88;
+import com.repackage.t88;
 /* loaded from: classes3.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,10 +27,10 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String mForumId;
     public String mForumName;
-    public j88 mModel;
+    public q88 mModel;
     public ViewPager.OnPageChangeListener mOnPageChangeListener;
     public String mSearchKey;
-    public m88 mView;
+    public t88 mView;
 
     /* loaded from: classes3.dex */
     public class a implements ViewPager.OnPageChangeListener {
@@ -125,16 +125,16 @@ public class PostSearchActivity extends BaseFragmentActivity {
         }
     }
 
-    public j88 getModel() {
+    public q88 getModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mModel : (j88) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mModel : (q88) invokeV.objValue;
     }
 
-    public m88 getPostSearchView() {
+    public t88 getPostSearchView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mView : (m88) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mView : (t88) invokeV.objValue;
     }
 
     public void hideSoftKeyPad() {
@@ -163,12 +163,12 @@ public class PostSearchActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            m88 m88Var = new m88(this);
-            this.mView = m88Var;
-            m88Var.e();
+            t88 t88Var = new t88(this);
+            this.mView = t88Var;
+            t88Var.e();
             this.mView.l(this.mOnPageChangeListener);
             addGlobalLayoutListener();
-            this.mModel = new j88(this);
+            this.mModel = new q88(this);
             initData();
         }
     }
@@ -177,9 +177,9 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            m88 m88Var = this.mView;
-            if (m88Var != null) {
-                m88Var.h();
+            t88 t88Var = this.mView;
+            if (t88Var != null) {
+                t88Var.h();
             }
             super.onDestroy();
         }
@@ -192,17 +192,17 @@ public class PostSearchActivity extends BaseFragmentActivity {
         }
     }
 
-    public void refreshResultListByTab(int i, h88 h88Var, boolean z) {
+    public void refreshResultListByTab(int i, o88 o88Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), h88Var, Boolean.valueOf(z)}) == null) {
-            if (i == 1 && (h88Var == null || !h88Var.a())) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), o88Var, Boolean.valueOf(z)}) == null) {
+            if (i == 1 && (o88Var == null || !o88Var.a())) {
                 this.mView.c();
                 this.mView.n();
                 return;
             }
             this.mView.c();
             this.mView.b();
-            this.mView.j(i, h88Var, z);
+            this.mView.j(i, o88Var, z);
         }
     }
 

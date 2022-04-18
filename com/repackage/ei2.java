@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ei2 extends de2<ui2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

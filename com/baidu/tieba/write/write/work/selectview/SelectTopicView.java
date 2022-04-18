@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -79,7 +79,7 @@ public class SelectTopicView extends LinearLayout {
                 label.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                 label.setCompoundDrawables(pureDrawable, null, null, null);
                 String cutData = StringHelper.cutChineseAndEnglishWithEmoji(data, 16, StringHelper.STRING_MORE);
-                wr4 d = wr4.d(label);
+                vr4 d = vr4.d(label);
                 d.n(R.string.J_X01);
                 d.f(R.color.CAM_X0204);
                 Intrinsics.checkNotNullExpressionValue(cutData, "cutData");
@@ -152,10 +152,10 @@ public class SelectTopicView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d089a, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092473);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092474);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_topic_sign)");
             setMTopicTitleSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09121e);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09121f);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById2);
             View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905dd);
@@ -164,14 +164,14 @@ public class SelectTopicView extends LinearLayout {
             View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905db);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content)");
             setMCenterContent((AutoChangeLineView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091a94);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091a95);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903d4);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             e();
-            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: com.repackage.p29
+            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: com.repackage.w29
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,7 +183,7 @@ public class SelectTopicView extends LinearLayout {
                     }
                 }
             });
-            setOnClickListener(new View.OnClickListener() { // from class: com.repackage.t29
+            setOnClickListener(new View.OnClickListener() { // from class: com.repackage.a39
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -205,7 +205,7 @@ public class SelectTopicView extends LinearLayout {
             getMCenterContent().setLabelTextColor(SkinManager.getColor(R.color.CAM_X0105));
             getMCenterContent().setLabels(this.g, this.h);
             SkinManager.setViewTextColor(getMLeftTitle(), (int) R.color.CAM_X0105);
-            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f0807a0, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f08079f, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
         }

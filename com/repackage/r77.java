@@ -1,51 +1,55 @@
 package com.repackage;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ProgressBar;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.R;
-import com.baidu.tieba.im.searchGroup.AddGroupActivity;
+import com.baidu.tbadk.core.atomData.SyncServiceConfig;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryNotifyUpdataGroupMessage;
+import com.baidu.tieba.im.message.RequestGetGroupInfoMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class r77 extends z8<AddGroupActivity> {
+public class r77 {
     public static /* synthetic */ Interceptable $ic;
+    public static r77 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public NavigationBar b;
-    public View c;
-    public EditText d;
-    public ImageButton e;
-    public ProgressBar f;
-    public View g;
-    public View h;
-    public AddGroupActivity i;
+    public String a;
+    public ya b;
+    public CustomMessageListener c;
 
     /* loaded from: classes7.dex */
-    public class a implements TextWatcher {
+    public class a extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r77 a;
 
-        public a(r77 r77Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(r77 r77Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r77Var};
+                Object[] objArr = {r77Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -54,139 +58,173 @@ public class r77 extends z8<AddGroupActivity> {
             this.a = r77Var;
         }
 
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                this.a.g.setTag(editable.toString().trim());
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 202006 && (socketResponsedMessage instanceof PushNotifyMessage)) {
+                this.a.e((PushNotifyMessage) socketResponsedMessage);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(r77 r77Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r77Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
 
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            ImMessageCenterPojo imMessageCenterPojo;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016014 || (imMessageCenterPojo = (ImMessageCenterPojo) customResponsedMessage.getData()) == null) {
+                return;
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == 1) {
+                MessageManager.getInstance().dispatchResponsedMessage(new RequestGetGroupInfoMessage(Long.valueOf(mg.g(imMessageCenterPojo.getGid(), 0L))));
+            }
+            i77.l().s(mg.g(imMessageCenterPojo.getGid(), 0L), z87.c(imMessageCenterPojo.getPulled_msgId()), 0L, true);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755397345, "Lcom/repackage/r77;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755397345, "Lcom/repackage/r77;");
+        }
+    }
+
+    public r77() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        new ArrayList();
+        this.b = new a(this, 202006);
+        this.c = new b(this, 0);
+    }
 
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-                if (this.a.d.length() > 0) {
-                    this.a.e.setVisibility(0);
+    public static synchronized r77 b() {
+        InterceptResult invokeV;
+        r77 r77Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (r77.class) {
+                if (d == null) {
+                    d = new r77();
+                }
+                r77Var = d;
+            }
+            return r77Var;
+        }
+        return (r77) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            f();
+        }
+    }
+
+    public final void e(PushNotifyMessage pushNotifyMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pushNotifyMessage) == null) || pushNotifyMessage == null) {
+            return;
+        }
+        if (pushNotifyMessage.getType() == 3) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SyncServiceConfig(TbadkCoreApplication.getInst())));
+        } else if (pushNotifyMessage.getType() == 4) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010001, pushNotifyMessage.getContent()));
+        } else if (b77.p().A()) {
+            String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
+            kt4.a("im", -1L, 202006, "notify", 0, null, "comment", "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
+            if (TextUtils.isEmpty(valueOf)) {
+                return;
+            }
+            BdLog.e("pushNotifyManager groupType = " + pushNotifyMessage.getGroupType() + " gid = " + valueOf + "msgid = " + pushNotifyMessage.getNewestMsgId());
+            if (pushNotifyMessage.getGroupType() == 0) {
+                i77.l().r(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                return;
+            }
+            int a2 = h77.a(pushNotifyMessage.getGroupType());
+            if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().b(a2)) {
+                if (b77.p().j(String.valueOf(pushNotifyMessage.getGroupId()), a2) != null) {
+                    i77.l().r(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
                 } else {
-                    this.a.e.setVisibility(8);
+                    h(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), a2);
                 }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r77(AddGroupActivity addGroupActivity) {
-        super(addGroupActivity.getPageContext());
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {addGroupActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.i = null;
-        this.i = addGroupActivity;
-        n();
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.i.getLayoutMode().k(i == 1);
-            this.i.getLayoutMode().j(this.a);
-            this.b.onChangeSkinType(this.i.getPageContext(), i);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().registerListener(this.b);
+            MessageManager.getInstance().registerListener(2016014, this.c);
         }
     }
 
-    public void i() {
-        EditText editText;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (editText = this.d) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public final void h(long j, long j2, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) || j2 <= 0) {
             return;
         }
-        editText.setText("");
-    }
-
-    public View j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (View) invokeV.objValue;
-    }
-
-    public View k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (View) invokeV.objValue;
-    }
-
-    public View l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (View) invokeV.objValue;
-    }
-
-    public View m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : (View) invokeV.objValue;
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.i.setContentView(R.layout.obfuscated_res_0x7f0d03c6);
-            this.a = this.i.findViewById(R.id.obfuscated_res_0x7f09012a);
-            NavigationBar navigationBar = (NavigationBar) this.i.findViewById(R.id.obfuscated_res_0x7f090128);
-            this.b = navigationBar;
-            this.c = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.b.setTitleText(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f00c6));
-            EditText editText = (EditText) this.i.findViewById(R.id.obfuscated_res_0x7f090127);
-            this.d = editText;
-            editText.setInputType(2);
-            this.e = (ImageButton) this.i.findViewById(R.id.obfuscated_res_0x7f090126);
-            this.g = this.i.findViewById(R.id.obfuscated_res_0x7f09012b);
-            this.h = this.i.findViewById(R.id.obfuscated_res_0x7f09012c);
-            this.d.addTextChangedListener(new a(this));
-            this.g = this.i.findViewById(R.id.obfuscated_res_0x7f09012b);
-            this.f = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f090129);
-            this.c.setOnClickListener(this.i);
-            this.e.setOnClickListener(this.i);
-            this.g.setOnClickListener(this.i);
-            this.h.setOnClickListener(this.i);
-            if (TbadkCoreApplication.getInst().appResponseToCmd(2902030)) {
-                return;
-            }
-            this.h.setVisibility(8);
-        }
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f.setVisibility(z ? 0 : 8);
-        }
+        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+        imMessageCenterPojo.setCustomGroupType(i);
+        imMessageCenterPojo.setGid(String.valueOf(j));
+        imMessageCenterPojo.setPulled_msgId(z87.a(j2 - 1));
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
     }
 }

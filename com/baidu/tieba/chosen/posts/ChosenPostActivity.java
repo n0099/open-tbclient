@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.i65;
-import com.repackage.py5;
 import com.repackage.r65;
+import com.repackage.ry5;
 import com.repackage.s65;
-import com.repackage.ty5;
+import com.repackage.vy5;
 /* loaded from: classes3.dex */
 public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements r65 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -29,7 +29,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     public static final int EVENT_ID_UNLIKE_RESULT = 4102;
     public transient /* synthetic */ FieldHolder $fh;
     public ChosenPostModelController mModelController;
-    public py5 mViewController;
+    public ry5 mViewController;
     public ViewEventCenter mViewEventController;
 
     public ChosenPostActivity() {
@@ -50,8 +50,8 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, s65Var) == null) {
             i65 a = s65Var.a();
-            if (a instanceof ty5) {
-                sendMessage(((ty5) a).a(getPageContext().getPageActivity()));
+            if (a instanceof vy5) {
+                sendMessage(((vy5) a).a(getPageContext().getPageActivity()));
             }
         }
     }
@@ -80,16 +80,16 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         return (ChosenPostModelController) invokeV.objValue;
     }
 
-    public py5 getViewController() {
+    public ry5 getViewController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.mViewController == null) {
-                this.mViewController = new py5(this);
+                this.mViewController = new ry5(this);
             }
             return this.mViewController;
         }
-        return (py5) invokeV.objValue;
+        return (ry5) invokeV.objValue;
     }
 
     @Override // com.repackage.r65

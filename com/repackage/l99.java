@@ -1,25 +1,11 @@
 package com.repackage;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import java.lang.reflect.Type;
 /* loaded from: classes6.dex */
 public interface l99 {
-    void a(DownloadException downloadException);
+    String a(Object obj);
 
-    void b(DownloadException downloadException);
+    <T> T b(String str, Class<T> cls);
 
-    void onConnectCanceled();
-
-    void onConnected(long j, long j2, boolean z);
-
-    void onConnecting();
-
-    void onDownloadCanceled();
-
-    void onDownloadCompleted(String str);
-
-    void onDownloadPaused();
-
-    void onDownloadProgress(long j, long j2, int i);
-
-    void onStarted();
+    <T> T c(String str, Type type);
 }

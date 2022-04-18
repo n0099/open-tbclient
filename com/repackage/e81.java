@@ -23,13 +23,13 @@ public class e81 {
 
         /* renamed from: com.repackage.e81$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0408a extends w81 {
+        public class C0409a extends w81 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONArray a;
             public final /* synthetic */ a b;
 
-            public C0408a(a aVar, JSONArray jSONArray) {
+            public C0409a(a aVar, JSONArray jSONArray) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class e81 {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (c = e81.c()) == null) {
                 return;
             }
-            a81.d(c, new C0408a(this, c));
+            a81.d(c, new C0409a(this, c));
         }
     }
 

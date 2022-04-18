@@ -1,401 +1,438 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.http.PostRequest;
-import com.fun.ad.sdk.internal.api.http.RequestParams;
-import com.fun.ad.sdk.internal.api.http.Response;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.io.IOException;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import org.json.JSONException;
+import java.util.Objects;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vf9 implements Reporter {
+public final class vf9 extends zk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
-    public final String b;
+    public final String a;
+    public final long b;
+    public final long c;
+    public final int d;
+    public final List<c> e;
 
     /* loaded from: classes7.dex */
-    public class a extends e {
+    public class a implements Comparator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vf9 e;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(vf9 vf9Var, JSONObject jSONObject) {
-            super(vf9Var, jSONObject);
+        public a(vf9 vf9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vf9Var, jSONObject};
+                Object[] objArr = {vf9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((vf9) objArr2[0], (JSONObject) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = vf9Var;
-            pf9.j();
-        }
-
-        @Override // com.repackage.vf9.b
-        public void c() {
-            d dVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                pf9.e("key_rpt_suc_c", pf9.h() + 1);
-                vf9 vf9Var = this.e;
-                vf9Var.getClass();
-                int a = pf9.a();
-                int f = pf9.f();
-                if (a > 0 || f > 0) {
-                    int h = pf9.h();
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("fai", a);
-                        jSONObject.put("suc", h);
-                        jSONObject.put("mis", f);
-                    } catch (JSONException unused) {
-                    }
-                    dVar = new d(vf9Var, HostAppInfo.buildReportJson("k_rpt", jSONObject, System.currentTimeMillis()), a, h, f);
-                } else {
-                    dVar = null;
-                }
-                if (dVar != null) {
-                    dVar.d();
                 }
             }
         }
 
-        @Override // com.repackage.vf9.e
-        public void e() {
+        @Override // java.util.Comparator
+        public int compare(Object obj, Object obj2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                pf9.e("key_rpt_fai_c", pf9.a() + 1);
-            }
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? -Integer.compare(((c) obj).a, ((c) obj2).a) : invokeLL.intValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements c {
+    public static final class b extends zk9 implements lf9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final JSONObject a;
-        public final /* synthetic */ vf9 b;
+        public final long a;
+        public final int b;
+        public final Ssp.Pid c;
+        public final c d;
 
-        public b(vf9 vf9Var, JSONObject jSONObject) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map, c cVar) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vf9Var, jSONObject};
+                Object[] objArr = {Integer.valueOf(i), objectInput, map, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = vf9Var;
-            this.a = jSONObject;
-            if (FunAdSdk.isLogEnabled()) {
-                LogPrinter.v("report Event:" + this, new Object[0]);
-            }
+            this.d = cVar;
+            long readLong = objectInput.readLong();
+            this.a = readLong;
+            this.b = objectInput.readInt();
+            this.c = map.get(Long.valueOf(readLong));
         }
 
-        @Override // com.repackage.vf9.c
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(JSONObject jSONObject, Map<Long, Ssp.Pid> map, c cVar) {
+            super(0);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject, map, cVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.d = cVar;
+            long adjustLong = NumberUtils.adjustLong(jSONObject.getLong("id"), 0L);
+            this.a = adjustLong;
+            this.b = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
+            this.c = map.get(Long.valueOf(adjustLong));
+        }
+
+        @Override // com.repackage.lf9
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d() : invokeV.booleanValue;
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:14:0x002b  */
-        /* JADX WARN: Removed duplicated region for block: B:15:0x002f  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean d() {
-            boolean z;
-            Response perform;
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                try {
-                    perform = new PostRequest(this.b.b, new RequestParams(this.a)).perform();
-                } catch (IOException e) {
-                    LogPrinter.e(e);
-                }
-                if (perform != null) {
-                    if (perform.getResponseCode() == 200) {
-                        z = true;
-                        if (z) {
-                            b();
-                        } else {
-                            c();
-                        }
-                        return z;
-                    }
-                }
-                z = false;
-                if (z) {
-                }
-                return z;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
             }
             return invokeV.booleanValue;
         }
 
-        public String toString() {
+        @Override // com.repackage.lf9
+        public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                try {
-                    return "Event{key=" + this.a.getString("key") + ", content=" + this.a.getString("content") + '}';
-                } catch (JSONException unused) {
-                    return "Unknown Event";
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
                 }
+                if (obj == null || b.class != obj.getClass()) {
+                    return false;
+                }
+                b bVar = (b) obj;
+                return this.a == bVar.a && this.b == bVar.b && Objects.equals(this.c, bVar.c);
             }
-            return (String) invokeV.objValue;
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Objects.hash(Long.valueOf(this.a), Integer.valueOf(this.b), this.c) : invokeV.intValue;
+        }
+
+        @Override // com.repackage.zk9
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, objectOutput) == null) {
+                objectOutput.writeLong(this.a);
+                objectOutput.writeInt(this.b);
+            }
         }
     }
 
     /* loaded from: classes7.dex */
-    public interface c {
-        boolean a();
-    }
-
-    /* loaded from: classes7.dex */
-    public class d extends b {
+    public static final class c extends zk9 implements lf9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final int c;
-        public final int d;
-        public final int e;
+        public final int a;
+        public final List<b> b;
+
+        /* loaded from: classes7.dex */
+        public class a implements Comparator<T> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.util.Comparator
+            public int compare(Object obj, Object obj2) {
+                InterceptResult invokeLL;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, obj2)) == null) ? -Integer.compare(((b) obj).b, ((b) obj2).b) : invokeLL.intValue;
+            }
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(vf9 vf9Var, JSONObject jSONObject, int i, int i2, int i3) {
-            super(vf9Var, jSONObject);
+        public c(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vf9Var, jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), objectInput, map};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((vf9) objArr2[0], (JSONObject) objArr2[1]);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = i;
-            this.d = i2;
-            this.e = i3;
-        }
-
-        @Override // com.repackage.vf9.b
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                pf9.d(this.c, this.d, this.e);
+            this.a = objectInput.readInt();
+            int readInt = objectInput.readInt();
+            HashSet hashSet = new HashSet();
+            for (int i4 = 0; i4 < readInt; i4++) {
+                hashSet.add(new b(objectInput.readInt(), objectInput, map, this));
             }
+            this.b = Collections.unmodifiableList(new ArrayList(hashSet));
         }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int c;
-        public final /* synthetic */ vf9 d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(vf9 vf9Var, JSONObject jSONObject) {
-            super(vf9Var, jSONObject);
+        public c(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
+            super(0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vf9Var, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
+                Object[] objArr = {jSONObject, map};
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((vf9) objArr2[0], (JSONObject) objArr2[1]);
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.d = vf9Var;
-            this.c = 0;
-        }
-
-        @Override // com.repackage.vf9.b
-        public final void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.c;
-                int i2 = i + 1;
-                this.c = i2;
-                if (i < 3) {
-                    try {
-                        this.a.put(HostAppInfo.RETRY_I, i2);
-                    } catch (JSONException unused) {
-                    }
-                    vf9 vf9Var = this.d;
-                    vf9Var.a.sendMessageDelayed(vf9Var.a.obtainMessage(102, this), 2000L);
-                    return;
-                }
-                LogPrinter.e("Give up report event:" + this, new Object[0]);
-                e();
+            this.a = NumberUtils.adjustInt(jSONObject.getInt("weight"), 0);
+            HashSet hashSet = new HashSet();
+            JSONArray jSONArray = jSONObject.getJSONArray(TiebaStatic.Params.PID_MERGE);
+            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                hashSet.add(new b(jSONArray.getJSONObject(i3), map, this));
             }
+            ArrayList arrayList = new ArrayList(hashSet);
+            a(arrayList);
+            this.b = Collections.unmodifiableList(arrayList);
         }
 
-        public void e() {
+        public final <T extends b> List<T> a(List<T> list) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                Collections.sort(list, new a(this));
+                return list;
             }
+            return (List) invokeL.objValue;
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public static class f extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(@NonNull Looper looper) {
-            super(looper);
+        @Override // com.repackage.lf9
+        public boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
             }
+            return invokeV.booleanValue;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
+        @Override // com.repackage.lf9
+        public int b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i != 101) {
-                    if (i != 102) {
-                        return;
-                    }
-                    ((c) message.obj).a();
-                    return;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
                 }
-                int i2 = message.arg1;
-                int h = pf9.h();
-                int a = pf9.a();
-                int i3 = (i2 - h) - a;
-                LogPrinter.d("ReportCount: req:%d suc:%d fai:%d mis:%d", Integer.valueOf(i2), Integer.valueOf(h), Integer.valueOf(a), Integer.valueOf(i3));
-                if (i3 > 0) {
-                    pf9.e("key_rpt_mis_c", i3);
+                if (obj == null || c.class != obj.getClass()) {
+                    return false;
+                }
+                c cVar = (c) obj;
+                return this.a == cVar.a && Objects.equals(this.b, cVar.b);
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? Objects.hash(Integer.valueOf(this.a), this.b) : invokeV.intValue;
+        }
+
+        @Override // com.repackage.zk9
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, objectOutput) == null) {
+                objectOutput.writeInt(this.a);
+                objectOutput.writeInt(this.b.size());
+                for (b bVar : this.b) {
+                    bVar.srzable(objectOutput);
                 }
             }
         }
     }
 
-    public vf9(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vf9(int i, ObjectInput objectInput, Map<Long, Ssp.Pid> map) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {Integer.valueOf(i), objectInput, map};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread("rep");
-        handlerThread.start();
-        f fVar = new f(handlerThread.getLooper());
-        this.a = fVar;
-        this.b = str;
-        fVar.obtainMessage(101, pf9.g(), 0).sendToTarget();
+        this.a = objectInput.readUTF();
+        this.b = objectInput.readLong();
+        this.c = objectInput.readLong();
+        int readInt = objectInput.readInt();
+        HashSet hashSet = new HashSet(readInt);
+        for (int i4 = 0; i4 < readInt; i4++) {
+            hashSet.add(new c(objectInput.readInt(), objectInput, map));
+        }
+        ArrayList arrayList = new ArrayList(hashSet);
+        a(arrayList);
+        this.e = Collections.unmodifiableList(arrayList);
+        if (i >= 1) {
+            this.d = objectInput.readInt();
+        } else {
+            this.d = 0;
+        }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
-    public void logEvent(String str, String str2, Object obj) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vf9(JSONObject jSONObject, Map<Long, Ssp.Pid> map) {
+        super(1);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(str2, obj);
-            } catch (JSONException unused) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject, map};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            logEvent(str, jSONObject);
         }
+        this.a = jSONObject.getString("sid");
+        this.b = NumberUtils.adjustLong(jSONObject.getLong("wt"), 0L);
+        this.c = NumberUtils.adjustLong(jSONObject.getLong("tmout"), 0L);
+        JSONArray jSONArray = jSONObject.getJSONArray("pGroups");
+        HashSet hashSet = new HashSet();
+        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+            hashSet.add(new c(jSONArray.getJSONObject(i3), map));
+        }
+        ArrayList arrayList = new ArrayList(hashSet);
+        a(arrayList);
+        this.e = Collections.unmodifiableList(arrayList);
+        this.d = jSONObject.optInt("ver", 0);
     }
 
-    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
-    public void logEvent(String str, Map<String, Object> map) {
+    public final <T extends c> List<T> a(List<T> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) == null) {
-            logEvent(str, new JSONObject(map));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            Collections.sort(list, new a(this));
+            return list;
         }
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
-    public void logEvent(String str, JSONObject jSONObject) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject) == null) {
-            JSONObject buildReportJson = HostAppInfo.buildReportJson(str, jSONObject, System.currentTimeMillis());
-            this.a.sendMessageDelayed(this.a.obtainMessage(102, "ad".equals(str) ? new a(this, buildReportJson) : new e(this, buildReportJson)), 0L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || vf9.class != obj.getClass()) {
+                return false;
+            }
+            vf9 vf9Var = (vf9) obj;
+            return this.b == vf9Var.b && this.c == vf9Var.c && Objects.equals(this.a, vf9Var.a) && Objects.equals(this.e, vf9Var.e) && this.d == vf9Var.d;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.b), Long.valueOf(this.c), this.e, Integer.valueOf(this.d)) : invokeV.intValue;
+    }
+
+    @Override // com.repackage.zk9
+    public void srzableInternal(ObjectOutput objectOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, objectOutput) == null) {
+            objectOutput.writeUTF(this.a);
+            objectOutput.writeLong(this.b);
+            objectOutput.writeLong(this.c);
+            objectOutput.writeInt(this.e.size());
+            for (c cVar : this.e) {
+                cVar.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.d);
         }
     }
 }

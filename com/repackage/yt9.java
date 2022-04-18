@@ -1,25 +1,24 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBNative;
-import com.win.opensdk.PBNativeListener;
 /* loaded from: classes7.dex */
-public class yt9 implements PBNativeListener {
+public class yt9 implements bt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ PBNative a;
+    public final /* synthetic */ ImageView a;
 
-    public yt9(PBNative pBNative) {
+    public yt9(gq9 gq9Var, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pBNative};
+            Object[] objArr = {gq9Var, imageView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,46 +28,30 @@ public class yt9 implements PBNativeListener {
                 return;
             }
         }
-        this.a = pBNative;
+        this.a = imageView;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onClicked() {
-        PBNativeListener pBNativeListener;
+    @Override // com.repackage.bt9
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBNativeListener = this.a.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
-        pBNativeListener.onClicked();
     }
 
-    @Override // com.win.opensdk.PBNativeListener
-    public void onDisplayed() {
-        PBNativeListener pBNativeListener;
+    @Override // com.repackage.bt9
+    public void a(Bitmap bitmap) {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (pBNativeListener = this.a.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || (imageView = this.a) == null || bitmap == null) {
             return;
         }
-        pBNativeListener.onDisplayed();
+        imageView.setImageBitmap(bitmap);
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
-        PBNativeListener pBNativeListener;
+    @Override // com.repackage.bt9
+    public void a(com.win.opensdk.k0 k0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.a.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k0Var) == null) {
         }
-        pBNativeListener.onFail(pBError);
-    }
-
-    @Override // com.win.opensdk.PBListener
-    public void onLoaded() {
-        PBNativeListener pBNativeListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBNativeListener = this.a.c) == null) {
-            return;
-        }
-        pBNativeListener.onLoaded();
     }
 }

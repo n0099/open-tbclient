@@ -204,7 +204,7 @@ public final class yr2 extends g23 {
                         } else if (c != 2) {
                             WebSocketRequest fromJSON = WebSocketRequest.Companion.fromJSON(jSONObject);
                             if (!TextUtils.isEmpty(optString)) {
-                                j94 h = hw2.h(optString);
+                                i94 h = hw2.h(optString);
                                 Map<String, String> headers = fromJSON.getHeaders();
                                 if (headers == null) {
                                     headers = new LinkedHashMap<>();

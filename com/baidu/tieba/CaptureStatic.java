@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cs8;
 import com.repackage.gn;
-import com.repackage.gs8;
 import com.repackage.hn;
+import com.repackage.js8;
+import com.repackage.ns8;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class CaptureStatic {
@@ -52,7 +52,7 @@ public class CaptureStatic {
 
         /* renamed from: com.baidu.tieba.CaptureStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0175a implements gs8 {
+        public class C0175a implements ns8 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
@@ -131,7 +131,7 @@ public class CaptureStatic {
                 this.a = customResponsedMessage;
             }
 
-            @Override // com.repackage.gs8
+            @Override // com.repackage.ns8
             public void a() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.a.getData() instanceof IntentConfig)) {
@@ -148,7 +148,7 @@ public class CaptureStatic {
                 }
             }
 
-            @Override // com.repackage.gs8
+            @Override // com.repackage.ns8
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -182,7 +182,7 @@ public class CaptureStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921582) {
-                cs8.b(TbadkCoreApplication.getInst(), new C0175a(this, customResponsedMessage));
+                js8.b(TbadkCoreApplication.getInst(), new C0175a(this, customResponsedMessage));
             }
         }
     }

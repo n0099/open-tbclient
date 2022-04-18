@@ -260,7 +260,7 @@ public class v20 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             String str = null;
             try {
-                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(R.raw.obfuscated_res_0x7f110063);
+                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(R.raw.obfuscated_res_0x7f110068);
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
                 try {
                     str = bufferedReader.readLine();

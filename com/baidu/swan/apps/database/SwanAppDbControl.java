@@ -30,8 +30,8 @@ import com.repackage.j72;
 import com.repackage.jx1;
 import com.repackage.k72;
 import com.repackage.m72;
+import com.repackage.mg4;
 import com.repackage.n72;
-import com.repackage.ng4;
 import com.repackage.o72;
 import com.repackage.qj2;
 import com.repackage.tg1;
@@ -789,7 +789,7 @@ public class SwanAppDbControl {
                         }
                     }
                 } finally {
-                    ng4.d(cursor);
+                    mg4.d(cursor);
                 }
             }
             return g72Var;

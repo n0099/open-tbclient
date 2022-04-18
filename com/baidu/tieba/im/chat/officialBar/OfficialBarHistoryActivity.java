@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k57;
 import com.repackage.mg;
+import com.repackage.n57;
 import com.repackage.ya;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -28,7 +28,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     public List<ResponseHistoryMessage.a> mDataList;
     public a mListener;
     public b mLocalListener;
-    public k57 mView;
+    public n57 mView;
     public int mforumId;
 
     /* loaded from: classes3.dex */
@@ -101,14 +101,14 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 this.a.hideProgressBar();
                 this.a.isRefreshing = false;
                 if (socketResponsedMessage == null) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     this.a.mView.j(this.a.mDataList);
                 } else if (socketResponsedMessage.getError() != 0) {
                     this.a.showToast(socketResponsedMessage.getErrorString());
                     this.a.mView.j(this.a.mDataList);
                 } else if (socketResponsedMessage.getCmd() != 208002 || !(socketResponsedMessage instanceof ResponseHistoryMessage)) {
                     this.a.mView.j(this.a.mDataList);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 } else {
                     ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
                     if (responseHistoryMessage.getMsg().isEmpty()) {
@@ -239,9 +239,9 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            k57 k57Var = new k57(this);
-            this.mView = k57Var;
-            k57Var.i(this);
+            n57 n57Var = new n57(this);
+            this.mView = n57Var;
+            n57Var.i(this);
         }
     }
 

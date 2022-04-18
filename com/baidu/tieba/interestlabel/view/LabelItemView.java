@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.sb7;
+import com.repackage.vb7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class LabelItemView extends LinearLayout {
@@ -96,7 +96,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<sb7> list, boolean z) {
+    public void setData(List<vb7> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(1048579, this, list, z) == null) || ListUtils.isEmpty(list)) {
@@ -110,19 +110,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            sb7 sb7Var = list.get(i2);
-            if (sb7Var != null && (getChildAt(i2) instanceof TextView)) {
+            vb7 vb7Var = list.get(i2);
+            if (vb7Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = sb7Var.b;
-                if (!StringUtils.isNull(str) && sb7Var.b.length() > 4) {
-                    str = sb7Var.b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = vb7Var.b;
+                if (!StringUtils.isNull(str) && vb7Var.b.length() > 4) {
+                    str = vb7Var.b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(sb7Var.c);
-                textView.setTag(sb7Var);
+                textView.setSelected(vb7Var.c);
+                textView.setTag(vb7Var);
             }
             i2++;
         }

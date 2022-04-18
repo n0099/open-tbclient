@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ek8 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public sq4 a;
-    public uq4 b;
-    public boolean c;
+    public boolean a;
+    public String b;
+    public xj8 c;
 
     static {
         InterceptResult invokeClinit;
@@ -45,22 +45,20 @@ public class ek8 extends ThreadData {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.c = false;
     }
 
-    public sq4 e() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (sq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public uq4 g() {
+    public xj8 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (uq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (xj8) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
@@ -73,27 +71,27 @@ public class ek8 extends ThreadData {
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
     public void k(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
+            this.a = z;
         }
     }
 
-    public void m(sq4 sq4Var) {
+    public void m(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sq4Var) == null) {
-            this.a = sq4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public void q(uq4 uq4Var) {
+    public void q(xj8 xj8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, uq4Var) == null) {
-            this.b = uq4Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, xj8Var) == null) {
+            this.c = xj8Var;
         }
     }
 }

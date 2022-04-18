@@ -19,7 +19,7 @@ public class f32 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<g94, Set<c>> a;
+    public HashMap<f94, Set<c>> a;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -83,61 +83,61 @@ public class f32 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (f32) invokeV.objValue;
     }
 
-    public synchronized void a(g94 g94Var, PMSDownloadType pMSDownloadType, cc3 cc3Var) {
+    public synchronized void a(f94 f94Var, PMSDownloadType pMSDownloadType, cc3 cc3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, g94Var, pMSDownloadType, cc3Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, f94Var, pMSDownloadType, cc3Var) == null) {
             synchronized (this) {
                 if (b) {
-                    Log.i("PMSDownloadRepeatSync", "downloadError:" + g94Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
+                    Log.i("PMSDownloadRepeatSync", "downloadError:" + f94Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
                 }
-                Set<c> set = this.a.get(g94Var);
+                Set<c> set = this.a.get(f94Var);
                 if (set != null) {
                     for (c cVar : set) {
                         if (cVar != null) {
                             cVar.b(pMSDownloadType, cc3Var);
                         }
                     }
-                    this.a.remove(g94Var);
+                    this.a.remove(f94Var);
                 }
             }
         }
     }
 
-    public synchronized void b(g94 g94Var, PMSDownloadType pMSDownloadType) {
+    public synchronized void b(f94 f94Var, PMSDownloadType pMSDownloadType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g94Var, pMSDownloadType) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f94Var, pMSDownloadType) == null) {
             synchronized (this) {
                 if (b) {
-                    Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + g94Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
+                    Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + f94Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
                 }
-                Set<c> set = this.a.get(g94Var);
+                Set<c> set = this.a.get(f94Var);
                 if (set != null) {
                     for (c cVar : set) {
                         if (cVar != null) {
                             cVar.a(pMSDownloadType);
                         }
                     }
-                    this.a.remove(g94Var);
+                    this.a.remove(f94Var);
                 }
             }
         }
     }
 
-    public synchronized void d(g94 g94Var, c cVar) {
+    public synchronized void d(f94 f94Var, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, g94Var, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, f94Var, cVar) == null) {
             synchronized (this) {
                 if (b) {
-                    Log.i("PMSDownloadRepeatSync", "registerResultListener:" + g94Var);
+                    Log.i("PMSDownloadRepeatSync", "registerResultListener:" + f94Var);
                 }
-                if (g94Var != null && cVar != null) {
-                    Set<c> set = this.a.get(g94Var);
+                if (f94Var != null && cVar != null) {
+                    Set<c> set = this.a.get(f94Var);
                     if (set != null) {
                         set.add(cVar);
                     } else {
                         HashSet hashSet = new HashSet();
                         hashSet.add(cVar);
-                        this.a.put(g94Var, hashSet);
+                        this.a.put(f94Var, hashSet);
                     }
                 }
             }

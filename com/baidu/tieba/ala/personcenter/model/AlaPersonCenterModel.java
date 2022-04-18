@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.su5;
+import com.repackage.uu5;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public su5 a;
+    public uu5 a;
     public String b;
     public final HttpMessageListener c;
 
@@ -142,10 +142,10 @@ public class AlaPersonCenterModel extends BdBaseModel {
         }
     }
 
-    public void z(su5 su5Var) {
+    public void z(uu5 uu5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, su5Var) == null) {
-            this.a = su5Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, uu5Var) == null) {
+            this.a = uu5Var;
         }
     }
 }

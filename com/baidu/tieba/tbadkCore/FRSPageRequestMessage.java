@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mc8;
 import com.repackage.rc5;
+import com.repackage.tc8;
 import com.repackage.xb5;
 import com.squareup.wire.Message;
 import tbclient.FrsPage.DataReq;
@@ -338,7 +338,7 @@ public class FRSPageRequestMessage extends NetMessage {
             builder.lastids = this.lastId;
             builder.category_id = Integer.valueOf(this.categoryId);
             builder.call_from = Integer.valueOf(this.callFrom);
-            builder.app_pos = mc8.e().a();
+            builder.app_pos = tc8.e().a();
             builder.app_transmit_data = xb5.b();
             rc5.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();

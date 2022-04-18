@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.cr4;
+import com.repackage.br4;
 import com.repackage.qe;
 /* loaded from: classes4.dex */
 public class ForumRankModel extends BdBaseModel {
@@ -65,8 +65,8 @@ public class ForumRankModel extends BdBaseModel {
             ForumRankData forumRankData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                cr4.f();
-                qe<String> g = cr4.g("tb.forum_rank");
+                br4.f();
+                qe<String> g = br4.g("tb.forum_rank");
                 if (g != null) {
                     str = g.get("forum_rank_cache_key_" + this.a.a);
                 } else {

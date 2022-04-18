@@ -27,11 +27,11 @@ import com.repackage.be3;
 import com.repackage.dw2;
 import com.repackage.fw2;
 import com.repackage.hw2;
+import com.repackage.i94;
 import com.repackage.iw2;
 import com.repackage.j03;
-import com.repackage.j94;
 import com.repackage.ls1;
-import com.repackage.ng4;
+import com.repackage.mg4;
 import com.repackage.oj2;
 import com.repackage.pj2;
 import com.repackage.qj2;
@@ -73,7 +73,7 @@ public class SwanAppConfigData {
     public g i;
     public g j;
     public d k;
-    public List<j94> l;
+    public List<i94> l;
     public String m;
     public String n;
     public i o;
@@ -2534,7 +2534,7 @@ public class SwanAppConfigData {
         if (interceptable == null || interceptable.invokeLLL(65542, null, swanAppConfigData, jSONObject, file) == null) {
             File file2 = new File(file, qj2.n().a() + "_app.json");
             if (file2.exists()) {
-                String E = ng4.E(file2);
+                String E = mg4.E(file2);
                 if (TextUtils.isEmpty(E)) {
                     return;
                 }

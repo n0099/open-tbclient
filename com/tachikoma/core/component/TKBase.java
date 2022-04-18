@@ -129,7 +129,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         T createView = createView(context);
         this.mTargetView = createView;
         if (createView != null) {
-            createView.setTag(R.id.obfuscated_res_0x7f092062, this);
+            createView.setTag(R.id.obfuscated_res_0x7f092063, this);
         }
         this.mNode = TKDomNode.nodeForView(this, list);
         this.viewBackgroundManager = new ViewBackgroundManager(getView());
@@ -144,7 +144,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         ViewParent parent = view2.getParent();
         if (parent instanceof View) {
             View view3 = (View) parent;
-            Object tag = view3.getTag(R.id.obfuscated_res_0x7f092062);
+            Object tag = view3.getTag(R.id.obfuscated_res_0x7f092063);
             if (tag instanceof TKBase) {
                 this.rootTkBase = (TKBase) tag;
             }
@@ -227,7 +227,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
     public static <T extends View> TKBase<T> getTKBaseFromView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) ? (TKBase) view2.getTag(R.id.obfuscated_res_0x7f092062) : (TKBase) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) ? (TKBase) view2.getTag(R.id.obfuscated_res_0x7f092063) : (TKBase) invokeL.objValue;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})

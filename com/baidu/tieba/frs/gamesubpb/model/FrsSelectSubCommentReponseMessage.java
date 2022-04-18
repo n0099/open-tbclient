@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zk6;
+import com.repackage.bl6;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FrsSelectSubCommentReponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zk6 mData;
+    public bl6 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsSelectSubCommentReponseMessage() {
@@ -42,13 +42,13 @@ public class FrsSelectSubCommentReponseMessage extends JsonHttpResponsedMessage 
             if (hasError() || jSONObject == null) {
                 return;
             }
-            this.mData = new zk6(jSONObject.optJSONObject("data"));
+            this.mData = new bl6(jSONObject.optJSONObject("data"));
         }
     }
 
-    public zk6 getSelectSubCommentData() {
+    public bl6 getSelectSubCommentData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (zk6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (bl6) invokeV.objValue;
     }
 }

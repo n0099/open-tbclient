@@ -1,40 +1,86 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.pb.pb.main.ApplyCopyThreadResponseMessage;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class yu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public BdTypeListView b;
-    public boolean c;
-    public int d;
-    public int e;
-    public a f;
+    public PbModel a;
+    public BaseFragmentActivity b;
+    public b c;
+    public final HttpMessageListener d;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void a();
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yu7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(yu7 yu7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yu7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yu7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003066 && (httpResponsedMessage instanceof ApplyCopyThreadResponseMessage)) {
+                if (httpResponsedMessage.getStatusCode() != 200) {
+                    this.a.c.a(-1, null, null);
+                    return;
+                }
+                ApplyCopyThreadResponseMessage applyCopyThreadResponseMessage = (ApplyCopyThreadResponseMessage) httpResponsedMessage;
+                String errorMessage = applyCopyThreadResponseMessage.getErrorMessage();
+                int errorCode = applyCopyThreadResponseMessage.getErrorCode();
+                String tid = applyCopyThreadResponseMessage.getTid();
+                if (errorCode == 0) {
+                    errorMessage = applyCopyThreadResponseMessage.getRemindMessage();
+                }
+                this.a.c.a(errorCode, errorMessage, tid);
+            }
+        }
     }
 
-    public yu7(BdTypeListView bdTypeListView) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(int i, String str, String str2);
+    }
+
+    public yu7(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView};
+            Object[] objArr = {pbModel, baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,65 +90,29 @@ public class yu7 {
                 return;
             }
         }
-        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
-        this.d = -1;
-        this.e = -1;
-        this.b = bdTypeListView;
+        this.c = null;
+        a aVar = new a(this, CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+        this.d = aVar;
+        this.a = pbModel;
+        this.b = baseFragmentActivity;
+        baseFragmentActivity.registerListener(aVar);
     }
 
-    public final int a(List<uo> list, int i) {
-        InterceptResult invokeLI;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, list, i)) == null) {
-            if (!ListUtils.isEmpty(list) && i != -1) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    if ((list.get(i3) instanceof PostData) && ((PostData) list.get(i3)).getType() == PostData.x0 && (i2 = i2 + 1) == i) {
-                        return i3;
-                    }
-                }
-            }
-            return -1;
-        }
-        return invokeLI.intValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = a(this.b.getData(), dr7.b().c());
-        }
-    }
-
-    public void c(int i, int i2) {
-        View childAt;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || this.b == null || this.c || !dr7.b().e() || dr7.b().c() == -1 || this.e < 0 || (childAt = this.b.getChildAt(i2 - 1)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a == null) {
             return;
         }
-        if (this.d <= 0) {
-            this.d = this.b.getHeight() - this.a;
-        }
-        if (this.d <= 0) {
-            return;
-        }
-        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
-        int i3 = (i + i2) - 1;
-        if (i3 > headerViewsCount) {
-            if (i3 - 1 != headerViewsCount || childAt.getTop() <= this.d) {
-                a aVar = this.f;
-                if (aVar != null) {
-                    aVar.a();
-                }
-                this.c = true;
-            }
-        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_APPLY_COPY_THREAD);
+        httpMessage.addParam("thread_id", this.a.l1());
+        httpMessage.addParam("status", String.valueOf(i));
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void d(a aVar) {
+    public void c(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f = aVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 }

@@ -1,32 +1,45 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
-import android.webkit.WebView;
-import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.R;
+import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActivityPage.DataRes;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.ActivityPage.RecommendForumList;
+import tbclient.ActivityPage.RecommendUserList;
+import tbclient.ActivityPage.SpecialColumnList;
+import tbclient.BannerImage;
+import tbclient.Page;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class q17 extends WebChromeClient {
+public class q17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b9 a;
-    public ll8 b;
+    public boolean a;
+    public int b;
+    public ArrayList<ThreadData> c;
+    public do4 d;
+    public bp4 e;
+    public eq4 f;
+    public iq4 g;
+    public r17 h;
+    public SpecialColumnListData i;
 
-    public q17(b9 b9Var) {
+    public q17() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,91 +49,125 @@ public class q17 extends WebChromeClient {
                 return;
             }
         }
-        this.a = b9Var;
+        this.a = true;
+        this.b = 1;
     }
 
-    public void a(ll8 ll8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ll8Var) == null) {
-            this.b = ll8Var;
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public View getVideoLoadingProgressView() {
+    public do4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.a.getPageActivity());
-            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            return frameLayout;
-        }
-        return (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (do4) invokeV.objValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(j2 * 2);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public bp4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            b9 b9Var = this.a;
-            if (b9Var == null || !rg.f(b9Var)) {
-                return true;
-            }
-            return super.onJsAlert(webView, str, str2, jsResult);
-        }
-        return invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (bp4) invokeV.objValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public r17 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            b9 b9Var = this.a;
-            if (b9Var == null || !rg.f(b9Var)) {
-                return true;
-            }
-            return super.onJsBeforeUnload(webView, str, str2, jsResult);
-        }
-        return invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (r17) invokeV.objValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public eq4 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            b9 b9Var = this.a;
-            if (b9Var == null || !rg.f(b9Var)) {
-                return true;
-            }
-            return super.onJsConfirm(webView, str, str2, jsResult);
-        }
-        return invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (eq4) invokeV.objValue;
     }
 
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        b9 b9Var;
+    public iq4 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            ll8 ll8Var = this.b;
-            if ((ll8Var == null || !ll8Var.onJsPrompt(str2, jsPromptResult)) && (b9Var = this.a) != null && rg.f(b9Var)) {
-                return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
-            }
-            return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (iq4) invokeV.objValue;
+    }
+
+    public SpecialColumnListData g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (SpecialColumnListData) invokeV.objValue;
+    }
+
+    public ArrayList<ThreadData> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public void j(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
+        Page page = dataRes.page_info;
+        if (page != null) {
+            this.b = page.current_page.intValue();
+            this.a = page.has_more.intValue() == 1;
+        }
+        this.c = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
+        for (ThreadInfo threadInfo : dataRes.thread_list) {
+            ThreadData threadData = new ThreadData();
+            threadData.parserProtobuf(threadInfo);
+            threadData.insertItemToTitleOrAbstractText();
+            this.c.add(threadData);
+        }
+        List<BannerImage> list = dataRes.banner_image;
+        if (!ListUtils.isEmpty(list)) {
+            do4 do4Var = new do4();
+            this.d = do4Var;
+            do4Var.parserProtobuf(list);
+        }
+        List<BannerImage> list2 = dataRes.grid;
+        if (ListUtils.getCount(list2) >= 4) {
+            bp4 bp4Var = new bp4();
+            this.e = bp4Var;
+            bp4Var.parserProtobuf(list2);
+        }
+        RecommendForumList recommendForumList = dataRes.recommend_forum;
+        if (recommendForumList != null && ListUtils.getCount(recommendForumList.forum_list) >= 5) {
+            eq4 eq4Var = new eq4();
+            this.f = eq4Var;
+            eq4Var.k(recommendForumList.forum_list);
+            eq4 eq4Var2 = this.f;
+            eq4Var2.f = recommendForumList.class_name;
+            eq4Var2.floorPosition = recommendForumList.floor_position.intValue();
+            this.f.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f48);
+            this.f.e = R.color.CAM_X0108;
+        }
+        RecommendUserList recommendUserList = dataRes.recommend_user;
+        if (recommendUserList != null && ListUtils.getCount(recommendUserList.user_list) >= 4) {
+            iq4 iq4Var = new iq4();
+            this.g = iq4Var;
+            iq4Var.g(recommendUserList.user_list);
+            this.g.floorPosition = recommendUserList.floor_position.intValue();
+            this.g.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f62);
+            this.g.b = R.color.CAM_X0108;
+        }
+        HotTopic hotTopic = dataRes.hot_topic;
+        if (hotTopic != null && ListUtils.getCount(hotTopic.topic_list) >= 4) {
+            r17 r17Var = new r17();
+            this.h = r17Var;
+            r17Var.i(hotTopic);
+        }
+        SpecialColumnList specialColumnList = dataRes.special_column;
+        if (specialColumnList == null || ListUtils.getCount(specialColumnList.item_list) < 3) {
+            return;
+        }
+        SpecialColumnListData specialColumnListData = new SpecialColumnListData();
+        this.i = specialColumnListData;
+        specialColumnListData.parserProtobuf(specialColumnList);
     }
 }

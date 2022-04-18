@@ -63,15 +63,15 @@ public class wy1 {
             try {
                 fileChannel2 = new FileOutputStream(file2).getChannel();
                 fileChannel2.transferFrom(channel, 0L, channel.size());
-                ng4.d(channel);
-                ng4.d(fileChannel2);
+                mg4.d(channel);
+                mg4.d(fileChannel2);
             } catch (Throwable th) {
                 th = th;
                 FileChannel fileChannel3 = fileChannel2;
                 fileChannel2 = channel;
                 fileChannel = fileChannel3;
-                ng4.d(fileChannel2);
-                ng4.d(fileChannel);
+                mg4.d(fileChannel2);
+                mg4.d(fileChannel);
                 throw th;
             }
         } catch (Throwable th2) {
@@ -115,9 +115,9 @@ public class wy1 {
                 if (file3.exists()) {
                     file3.renameTo(file);
                 }
-                ng4.d(null);
-                ng4.d(null);
-                ng4.d(null);
+                mg4.d(null);
+                mg4.d(null);
+                mg4.d(null);
                 return;
             }
             FileInputStream fileInputStream2 = new FileInputStream(file);
@@ -150,14 +150,14 @@ public class wy1 {
                             e = exc;
                             try {
                                 e.printStackTrace();
-                                ng4.d(bufferedReader);
-                                ng4.d(fileInputStream);
-                                ng4.d(bufferedWriter);
+                                mg4.d(bufferedReader);
+                                mg4.d(fileInputStream);
+                                mg4.d(bufferedWriter);
                             } catch (Throwable th2) {
                                 th = th2;
-                                ng4.d(bufferedReader);
-                                ng4.d(fileInputStream);
-                                ng4.d(bufferedWriter);
+                                mg4.d(bufferedReader);
+                                mg4.d(fileInputStream);
+                                mg4.d(bufferedWriter);
                                 throw th;
                             }
                         } catch (Throwable th3) {
@@ -166,9 +166,9 @@ public class wy1 {
                             Throwable th4 = th;
                             fileInputStream = fileInputStream2;
                             th = th4;
-                            ng4.d(bufferedReader);
-                            ng4.d(fileInputStream);
-                            ng4.d(bufferedWriter);
+                            mg4.d(bufferedReader);
+                            mg4.d(fileInputStream);
+                            mg4.d(bufferedWriter);
                             throw th;
                         }
                     }
@@ -178,8 +178,8 @@ public class wy1 {
                     } else {
                         file2.delete();
                     }
-                    ng4.d(bufferedReader2);
-                    ng4.d(fileInputStream2);
+                    mg4.d(bufferedReader2);
+                    mg4.d(fileInputStream2);
                 } catch (Exception e3) {
                     e = e3;
                     bufferedWriter = null;
@@ -194,7 +194,7 @@ public class wy1 {
                 th = th6;
                 bufferedWriter = null;
             }
-            ng4.d(bufferedWriter);
+            mg4.d(bufferedWriter);
         }
     }
 

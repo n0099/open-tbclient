@@ -83,7 +83,7 @@ public class TKBaseAdapter extends BaseAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, view2, i)) == null) {
-            V8Proxy.executeJsFunction(this.mV8Adapter, this.mTKJSContext, "convertView", ((ViewHolder) view2.getTag(R.id.obfuscated_res_0x7f090d69)).jsObj, Integer.valueOf(i));
+            V8Proxy.executeJsFunction(this.mV8Adapter, this.mTKJSContext, "convertView", ((ViewHolder) view2.getTag(R.id.obfuscated_res_0x7f090d6a)).jsObj, Integer.valueOf(i));
             return view2;
         }
         return (View) invokeLI.objValue;
@@ -148,7 +148,7 @@ public class TKBaseAdapter extends BaseAdapter {
             viewHolder.base = tKBase;
             viewHolder.jsObj = twin;
             this.v8Objects.add(twin);
-            view2.setTag(R.id.obfuscated_res_0x7f090d69, viewHolder);
+            view2.setTag(R.id.obfuscated_res_0x7f090d6a, viewHolder);
             Log.e("test1", "consumer time :: " + (System.currentTimeMillis() - currentTimeMillis));
             return view2;
         }

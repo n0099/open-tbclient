@@ -1,12 +1,36 @@
 package com.repackage;
 
-import android.util.Pair;
-import java.util.AbstractMap;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.nio.charset.Charset;
+import org.apache.commons.base.CharEncoding;
 /* loaded from: classes7.dex */
-public interface z79 {
-    void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, List<AbstractMap.SimpleEntry<String, String>> list);
+public class z79 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final Charset a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, LinkedList<Pair<String, Object>> linkedList);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755158955, "Lcom/repackage/z79;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755158955, "Lcom/repackage/z79;");
+                return;
+            }
+        }
+        Charset.forName("ISO-8859-1");
+        Charset.forName("US-ASCII");
+        Charset.forName("UTF-16");
+        Charset.forName(CharEncoding.UTF_16BE);
+        Charset.forName(CharEncoding.UTF_16LE);
+        a = Charset.forName("UTF-8");
+    }
 }

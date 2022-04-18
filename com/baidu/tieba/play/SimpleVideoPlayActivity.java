@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o78;
+import com.repackage.v78;
 /* loaded from: classes3.dex */
 public class SimpleVideoPlayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -24,7 +24,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public NavigationBar navigationBar;
     public FrameLayout rootView;
     public String thumbUrl;
-    public o78 videoContainer;
+    public v78 videoContainer;
     public String videoUrl;
 
     /* loaded from: classes3.dex */
@@ -99,9 +99,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 17;
             this.rootView.addView(frameLayout2, layoutParams);
-            o78 o78Var = new o78(this, frameLayout2);
-            this.videoContainer = o78Var;
-            o78Var.setStageType("2006");
+            v78 v78Var = new v78(this, frameLayout2);
+            this.videoContainer = v78Var;
+            v78Var.setStageType("2006");
             NavigationBar navigationBar = new NavigationBar(this);
             this.navigationBar = navigationBar;
             navigationBar.hideBottomLine();
@@ -109,7 +109,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
             layoutParams2.gravity = 48;
             this.rootView.addView(this.navigationBar, layoutParams2);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this)).findViewById(R.id.obfuscated_res_0x7f09244a), R.drawable.obfuscated_res_0x7f080623, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this)).findViewById(R.id.obfuscated_res_0x7f09244b), R.drawable.obfuscated_res_0x7f080622, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 

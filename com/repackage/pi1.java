@@ -106,15 +106,15 @@ public class pi1 extends fk2 {
                 addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
             }
             HttpUrl build = addPathSegments.build();
-            l74 l74Var = new l74();
-            l74Var.b = "POST";
-            l74Var.a = fx1.w(build.toString(), true);
-            l74Var.d = h53.b(map);
-            l74Var.f = true;
-            l74Var.g = true;
-            l74Var.h = false;
-            HttpRequestBuilder a = n74.a(l74Var);
-            m74.g().u(a, l74Var);
+            k74 k74Var = new k74();
+            k74Var.b = "POST";
+            k74Var.a = fx1.w(build.toString(), true);
+            k74Var.d = h53.b(map);
+            k74Var.f = true;
+            k74Var.g = true;
+            k74Var.h = false;
+            HttpRequestBuilder a = m74.a(k74Var);
+            l74.g().u(a, k74Var);
             return a.build();
         }
         return (HttpRequest) invokeLL.objValue;

@@ -26,9 +26,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lp6;
+import com.repackage.np6;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -113,9 +113,9 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             setOnClickListener(this);
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d019d, (ViewGroup) this, true);
             this.c = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a6a);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a6b);
             this.e = textView;
-            wr4 d = wr4.d(textView);
+            vr4 d = vr4.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0305);
@@ -136,7 +136,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         this.h = skinType;
         int color = SkinManager.getColor(R.color.CAM_X0305);
         SkinManager.setViewTextColorWithClickState(this.e, color);
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080911, color, WebPManager.ResourceStateType.NORMAL_PRESS);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080915, color, WebPManager.ResourceStateType.NORMAL_PRESS);
         this.f = pureDrawable;
         if (pureDrawable != null) {
             this.f.setBounds(0, 0, oi.f(this.b, R.dimen.T_X09), oi.f(this.b, R.dimen.T_X09));
@@ -170,9 +170,9 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
         } else if (i == 2) {
             c("c13967", 1);
-            lp6 lp6Var = new lp6();
-            lp6Var.e = 3;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, lp6Var));
+            np6 np6Var = new np6();
+            np6Var.e = 3;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, np6Var));
         }
         View.OnClickListener onClickListener = this.g;
         if (onClickListener != null) {

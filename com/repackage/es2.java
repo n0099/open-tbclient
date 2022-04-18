@@ -20,7 +20,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class es2 {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
@@ -34,7 +34,7 @@ public class es2 {
     public b f;
     public ResponseCallback<JSONObject> g;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class es2 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(JSONObject jSONObject);
 
@@ -171,11 +171,11 @@ public class es2 {
                 return;
             }
             this.a = be3.b(this.a, this.c);
-            l74 l74Var = new l74(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
-            l74Var.c = this.b;
-            l74Var.g = true;
+            k74 k74Var = new k74(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            k74Var.c = this.b;
+            k74Var.g = true;
             jx1.b("IsBlockDomainRequest", "start isblockdomain request : " + this.e);
-            m74.g().e(l74Var);
+            l74.g().e(k74Var);
         }
     }
 
@@ -190,7 +190,7 @@ public class es2 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String i2 = q94.i(h);
+            String i2 = p94.i(h);
             this.a = i2;
             this.a = fx1.b(i2);
             String N = i03.J().r().N();

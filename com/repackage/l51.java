@@ -133,7 +133,7 @@ public class l51 extends n51 {
                 return;
             }
         }
-        this.j = (SimpleFeedAdInfoView) view2.findViewById(R.id.obfuscated_res_0x7f090986);
+        this.j = (SimpleFeedAdInfoView) view2.findViewById(R.id.obfuscated_res_0x7f090987);
         m();
     }
 
@@ -162,7 +162,7 @@ public class l51 extends n51 {
         SimpleFeedAdInfoView simpleFeedAdInfoView;
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) || adBaseModel == null || (simpleFeedAdInfoView = this.j) == null || (findViewById = simpleFeedAdInfoView.findViewById(R.id.obfuscated_res_0x7f09149b)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) || adBaseModel == null || (simpleFeedAdInfoView = this.j) == null || (findViewById = simpleFeedAdInfoView.findViewById(R.id.obfuscated_res_0x7f09149c)) == null) {
             return;
         }
         b41.a(this.j, findViewById, k);
@@ -180,7 +180,7 @@ public class l51 extends n51 {
                 simpleFeedAdInfoView.update(adBaseModel);
                 lo0 lo0Var = adBaseModel.p;
                 if (lo0Var == null || lo0Var.k) {
-                    this.j.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dce));
+                    this.j.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd2));
                 }
                 this.j.setAfterListener(new a(this, adBaseModel));
             }

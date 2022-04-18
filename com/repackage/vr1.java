@@ -19,7 +19,7 @@ public class vr1 {
     public transient /* synthetic */ FieldHolder $fh;
     public ds1 a;
     public boolean b;
-    public bz9 c;
+    public iz9 c;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {

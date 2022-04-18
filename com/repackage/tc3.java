@@ -89,9 +89,9 @@ public class tc3 {
         ofFloat.addListener(new a(S));
     }
 
-    public static void d(@NonNull ge4 ge4Var, String str, int i, int i2) {
+    public static void d(@NonNull fe4 fe4Var, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65539, null, ge4Var, str, i, i2) == null) || ge4Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLII(65539, null, fe4Var, str, i, i2) == null) || fe4Var == null) {
             return;
         }
         char c = 65535;
@@ -111,13 +111,13 @@ public class tc3 {
             if (c == 1 || c == 2) {
                 return;
             }
-            ge4Var.i(i, i2);
+            fe4Var.i(i, i2);
             return;
         }
         sz1 V = wl2.U().V();
         pz1 j = V.j(V.k() - 1);
         if (j == null || !j.D0) {
-            ge4Var.i(i, i2);
+            fe4Var.i(i, i2);
         }
     }
 }

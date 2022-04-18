@@ -64,7 +64,7 @@ public class lw3 extends g23 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 File c = mw3.c();
                 File b = mw3.b();
-                if (c.exists() && ng4.U(c.getPath(), b.getPath())) {
+                if (c.exists() && mg4.U(c.getPath(), b.getPath())) {
                     iw2.L(true);
                     Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0127, 1).show();
                     return;

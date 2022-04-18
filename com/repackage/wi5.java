@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r98;
+import com.repackage.y98;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -23,23 +23,23 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
-public final class wi5 implements r98 {
+public final class wi5 implements y98 {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern d;
     public static wi5 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<r98.a> a;
-    public final ConcurrentHashMap<String, r98.b> b;
-    public r98.c c;
+    public final List<y98.a> a;
+    public final ConcurrentHashMap<String, y98.b> b;
+    public y98.c c;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r98.a a;
+        public final /* synthetic */ y98.a a;
         public final /* synthetic */ wi5 b;
 
-        public a(wi5 wi5Var, r98.a aVar) {
+        public a(wi5 wi5Var, y98.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,14 +108,14 @@ public final class wi5 implements r98 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? e : (wi5) invokeV.objValue;
     }
 
-    @Override // com.repackage.r98
+    @Override // com.repackage.y98
     public boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) && d.matcher(str).find() : invokeL.booleanValue;
     }
 
-    @Override // com.repackage.r98
+    @Override // com.repackage.y98
     public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
@@ -123,14 +123,14 @@ public final class wi5 implements r98 {
         }
     }
 
-    @Override // com.repackage.r98
+    @Override // com.repackage.y98
     public boolean c(Context context, String[] strArr, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, strArr, bundle)) == null) ? h(context, strArr, false, null, false, bundle) : invokeLLL.booleanValue;
     }
 
-    public void e(r98.a aVar) {
+    public void e(y98.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             if (oi.B()) {
@@ -141,7 +141,7 @@ public final class wi5 implements r98 {
         }
     }
 
-    public final void f(r98.a aVar) {
+    public final void f(y98.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || this.a.contains(aVar)) {
             return;
@@ -149,7 +149,7 @@ public final class wi5 implements r98 {
         this.a.add(aVar);
     }
 
-    public boolean g(Context context, String str, String[] strArr, boolean z, r98.d dVar, boolean z2, Bundle bundle) {
+    public boolean g(Context context, String str, String[] strArr, boolean z, y98.d dVar, boolean z2, Bundle bundle) {
         InterceptResult invokeCommon;
         boolean z3;
         Interceptable interceptable = $ic;
@@ -158,18 +158,18 @@ public final class wi5 implements r98 {
                 return false;
             }
             String str2 = strArr[0];
-            r98.b bVar = this.b.get(m(str2));
+            y98.b bVar = this.b.get(m(str2));
             if (bVar != null) {
                 bVar.a(context, j(k(str2)));
                 return true;
             }
-            Iterator<r98.a> it = this.a.iterator();
+            Iterator<y98.a> it = this.a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z3 = false;
                     break;
                 }
-                r98.a next = it.next();
+                y98.a next = it.next();
                 if (next != null && next.a(context, strArr) != 3) {
                     z3 = true;
                     break;
@@ -186,7 +186,7 @@ public final class wi5 implements r98 {
         return invokeCommon.booleanValue;
     }
 
-    public boolean h(Context context, String[] strArr, boolean z, r98.d dVar, boolean z2, Bundle bundle) {
+    public boolean h(Context context, String[] strArr, boolean z, y98.d dVar, boolean z2, Bundle bundle) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) ? g(context, "", strArr, z, dVar, z2, bundle) : invokeCommon.booleanValue;
@@ -198,7 +198,7 @@ public final class wi5 implements r98 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
             if (strArr != null && strArr.length != 0) {
-                for (r98.a aVar : this.a) {
+                for (y98.a aVar : this.a) {
                     if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
                         return a2;
                     }
@@ -258,14 +258,14 @@ public final class wi5 implements r98 {
         return (String) invokeL.objValue;
     }
 
-    public final void n(Context context, String str, String str2, boolean z, r98.d dVar, boolean z2, Bundle bundle) {
+    public final void n(Context context, String str, String str2, boolean z, y98.d dVar, boolean z2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && d.matcher(str2).find()) {
             this.c.a(context, str, str2, z, dVar, z2, bundle);
         }
     }
 
-    public void o(r98.c cVar) {
+    public void o(y98.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
             this.c = cVar;

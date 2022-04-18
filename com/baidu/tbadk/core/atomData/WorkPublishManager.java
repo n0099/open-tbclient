@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dz8;
-import com.repackage.rm8;
+import com.repackage.kz8;
+import com.repackage.ym8;
 /* loaded from: classes3.dex */
 public class WorkPublishManager {
     public static /* synthetic */ Interceptable $ic = null;
@@ -62,21 +62,21 @@ public class WorkPublishManager {
         }
         objLocate = str;
         if (str != null && str.equals("7")) {
-            rm8.k().z(true);
-            rm8.k().x(str2);
+            ym8.k().z(true);
+            ym8.k().x(str2);
             i = 7;
         } else if (TextUtils.equals(str, "8")) {
-            rm8.k().y(8);
-            rm8.k().x(str2);
+            ym8.k().y(8);
+            ym8.k().x(str2);
             i = 8;
         } else {
             i = 6;
         }
-        if (dz8.b()) {
-            dz8.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        if (kz8.b()) {
+            kz8.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
             return;
         }
-        dz8.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        kz8.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
     }
 
     public static void setObjLocate(String str) {

@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.repackage.kf9;
-import com.repackage.mf9;
-import com.repackage.of9;
-import com.repackage.pf9;
+import com.repackage.ag9;
+import com.repackage.rf9;
 import com.repackage.tf9;
+import com.repackage.vf9;
+import com.repackage.wf9;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public abstract class o0 {
@@ -66,7 +66,7 @@ public abstract class o0 {
             put("st", this.b);
             put("sid", this.c.b);
             put("sidv", Integer.valueOf(this.c.c));
-            put("ldr_i", Integer.valueOf(pf9.b(this.c.b)));
+            put("ldr_i", Integer.valueOf(wf9.b(this.c.b)));
             put("type", this.c.d);
         }
     }
@@ -78,7 +78,7 @@ public abstract class o0 {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(String str, Ssp.Pid pid) {
-            super(str, kf9.a(str, pid), "n");
+            super(str, rf9.a(str, pid), "n");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,13 +104,13 @@ public abstract class o0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(of9 of9Var) {
-            super(of9Var.a, of9Var.d, "p");
+        public c(vf9 vf9Var) {
+            super(vf9Var.a, vf9Var.d, "p");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {of9Var};
+                Object[] objArr = {vf9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -132,13 +132,13 @@ public abstract class o0 {
         public long e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(mf9 mf9Var) {
-            super(mf9Var.a, mf9Var.c, "s");
+        public d(tf9 tf9Var) {
+            super(tf9Var.a, tf9Var.c, "s");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mf9Var};
+                Object[] objArr = {tf9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -211,7 +211,7 @@ public abstract class o0 {
                 return;
             }
         }
-        this.a = tf9.a();
+        this.a = ag9.a();
         this.b = str;
         this.d = str2;
         this.c = i;
@@ -221,10 +221,10 @@ public abstract class o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String str = this.b;
-            Object obj = pf9.a;
-            int i = pf9.b.getInt("key_sid_c_pre_" + str, 0);
+            Object obj = wf9.a;
+            int i = wf9.b.getInt("key_sid_c_pre_" + str, 0);
             String str2 = this.b;
-            pf9.e("key_sid_c_pre_" + str2, i + 1);
+            wf9.e("key_sid_c_pre_" + str2, i + 1);
         }
     }
 

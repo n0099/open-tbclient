@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c18;
-import com.repackage.d18;
+import com.repackage.b18;
+import com.repackage.j18;
+import com.repackage.k18;
 import com.repackage.oi;
-import com.repackage.u08;
 import com.repackage.uo;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public View b;
     public TextView c;
     public HTypeListView d;
-    public c18 e;
+    public j18 e;
     public int f;
     public TbPageContext g;
 
@@ -56,18 +56,18 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.a = view2;
         this.g = tbPageContext;
         this.b = view2.findViewById(R.id.obfuscated_res_0x7f090813);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f49);
-        HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091280);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f4a);
+        HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091281);
         this.d = hTypeListView;
-        this.e = new c18(this.g, hTypeListView);
+        this.e = new j18(this.g, hTypeListView);
     }
 
-    public void c(d18 d18Var) {
+    public void c(k18 k18Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, d18Var) == null) || d18Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, k18Var) == null) || k18Var == null) {
             return;
         }
-        this.e.c(e(d18Var.a()));
+        this.e.c(e(k18Var.a()));
     }
 
     public void d() {
@@ -90,9 +90,9 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            u08 u08Var = new u08(oi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), oi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023f));
-            ListUtils.add(arrayList, 0, u08Var);
-            ListUtils.add(arrayList, u08Var);
+            b18 b18Var = new b18(oi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), oi.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023f));
+            ListUtils.add(arrayList, 0, b18Var);
+            ListUtils.add(arrayList, b18Var);
             return arrayList;
         }
         return (List) invokeL.objValue;

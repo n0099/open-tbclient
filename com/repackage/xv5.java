@@ -1,143 +1,186 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import tbclient.ElectionInfo.Basic;
+import tbclient.ElectionInfo.NoticeContent;
 /* loaded from: classes7.dex */
-public class xv5 extends BdAsyncTask<Void, String, String> {
+public class xv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public tv5 b;
-    public String c;
+    public long a;
+    public long b;
+    public long c;
+    public int d;
+    public long e;
+    public int f;
+    public boolean g;
+    public NoticeContent h;
 
-    public xv5(String str, int i, tv5 tv5Var) {
+    public xv5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), tv5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = tv5Var;
-        this.c = str;
+        this.d = 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
+    public static xv5 i(Basic basic) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            String str = this.c;
-            if (str == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, basic)) == null) {
+            if (basic == null) {
                 return null;
             }
-            return c(str);
+            xv5 xv5Var = new xv5();
+            xv5Var.p(j(basic.remind_time));
+            xv5Var.q(basic.status.intValue());
+            xv5Var.l(basic.candidate_num.intValue());
+            xv5Var.r(basic.total_vote_num.intValue());
+            xv5Var.m(j(basic.begin_apply_time));
+            xv5Var.s(j(basic.begin_vote_time));
+            xv5Var.n(j(basic.begin_public_time));
+            xv5Var.k(basic.is_voted.booleanValue());
+            xv5Var.o(basic.notice);
+            return xv5Var;
         }
-        return (String) invokeL.objValue;
+        return (xv5) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0028 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0036 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0009 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v11 */
-    /* JADX WARN: Type inference failed for: r0v12 */
-    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    /* JADX WARN: Type inference failed for: r0v6 */
-    /* JADX WARN: Type inference failed for: r0v7 */
-    /* JADX WARN: Type inference failed for: r0v8, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v9 */
-    public String c(String str) {
+    public static long j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        ?? isEmpty = TextUtils.isEmpty(str);
-        String str2 = null;
-        str2 = null;
-        str2 = null;
-        InputStream inputStream = null;
-        try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
-            } catch (IOException e) {
+                return Long.parseLong(str);
+            } catch (Exception e) {
                 e.printStackTrace();
+                return 0L;
             }
-            if (isEmpty != 0) {
-                return null;
-            }
-            try {
-                isEmpty = new FileInputStream(str);
-                try {
-                    byte[] bArr = new byte[isEmpty.available()];
-                    isEmpty.read(bArr);
-                    str2 = Base64.encodeToString(bArr, 0);
-                    isEmpty.close();
-                    isEmpty = isEmpty;
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    if (isEmpty != 0) {
-                        isEmpty.close();
-                        isEmpty = isEmpty;
-                    }
-                    return str2;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                isEmpty = 0;
-            } catch (Throwable th) {
-                th = th;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-            return str2;
-        } catch (Throwable th2) {
-            th = th2;
-            inputStream = isEmpty;
+        }
+        return invokeL.longValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    public NoticeContent e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (NoticeContent) invokeV.objValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.longValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.g = z;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            super.onPostExecute((xv5) str);
-            tv5 tv5Var = this.b;
-            if (tv5Var == null || str == null) {
-                return;
-            }
-            tv5Var.a("", this.a, str);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.a = j;
+        }
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public void o(NoticeContent noticeContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, noticeContent) == null) {
+            this.h = noticeContent;
+        }
+    }
+
+    public void p(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.e = j;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        }
+    }
+
+    public void s(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.b = j;
         }
     }
 }

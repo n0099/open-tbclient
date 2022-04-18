@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class qc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Comparator<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,11 +97,11 @@ public class qc2 {
             if (!absolutePath.equals(str)) {
                 File file3 = new File(str);
                 if (file3.exists()) {
-                    ng4.L(file3);
+                    mg4.L(file3);
                 }
                 if (!file2.renameTo(file3)) {
-                    ng4.f(file2, file3);
-                    ng4.L(file2);
+                    mg4.f(file2, file3);
+                    mg4.L(file2);
                 }
             }
         }

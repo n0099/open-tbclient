@@ -1,83 +1,56 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: HeaderViewLogic.java */
-/* loaded from: classes5.dex */
-public final /* synthetic */ class eo6 {
+/* loaded from: classes6.dex */
+public class eo6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static fo6 a() {
+    public static void a(@NonNull StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, statisticItem) == null) {
+            statisticItem.param("obj_param1", c());
+        }
+    }
+
+    public static void b(@NonNull StatisticItem statisticItem, @NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, statisticItem, str, str2) == null) {
+            statisticItem.param("fid", str);
+            statisticItem.param("fname", str2);
+        }
+    }
+
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (UbsABTestHelper.isFrsModifyABTestA()) {
-                return new ho6();
-            }
-            return new go6();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UbsABTestHelper.isFrsModifyABTestA() ? "100465_2" : UbsABTestHelper.isFrsModifyABTestOnline() ? "100465_1" : "100465_3" : (String) invokeV.objValue;
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            StatisticItem param = new StatisticItem("c14564").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId());
+            a(param);
+            TiebaStatic.log(param);
         }
-        return (fo6) invokeV.objValue;
     }
 
-    public static View b(View view2) {
-        InterceptResult invokeL;
+    public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (c()) {
-                return view2.findViewById(R.id.obfuscated_res_0x7f090b3d);
-            }
-            return view2.findViewById(R.id.obfuscated_res_0x7f090b46);
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UbsABTestHelper.isFrsModifyABTestA() : invokeV.booleanValue;
-    }
-
-    @NonNull
-    public static TextView d(@NonNull View view2, boolean z) {
-        InterceptResult invokeLZ;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, view2, z)) == null) {
-            if (c()) {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a1f);
-            } else {
-                if (z) {
-                    textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d22);
-                } else {
-                    textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d23);
-                }
-                textView.bringToFront();
-            }
-            wr4.d(textView).v(R.color.CAM_X0619);
-            return textView;
-        }
-        return (TextView) invokeLZ.objValue;
-    }
-
-    public static void e(@NonNull View view2, @NonNull View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, view3) == null) {
-            if (c()) {
-                wr4.d(view3).o(new int[]{R.color.black_alpha0, R.color.black_alpha30});
-                return;
-            }
-            wr4 d = wr4.d(view2);
-            d.n(R.string.J_X11);
-            d.s(R.array.Mask_X005);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            StatisticItem param = new StatisticItem(UbsABTestHelper.isFrsModifyABTestA() ? "c14556" : TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 11);
+            a(param);
+            TiebaStatic.log(param);
         }
     }
 }

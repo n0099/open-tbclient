@@ -207,14 +207,14 @@ public class xz1 extends pz1 {
             }
         }
 
-        public void c(ee4 ee4Var) {
+        public void c(de4 de4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ee4Var) == null) || ee4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, de4Var) == null) || de4Var == null) {
                 return;
             }
             this.a.b = this.b.toString();
             xz1 b3 = xz1.b3(this.a, "default_webview");
-            ge4 a = ee4Var.a();
+            fe4 a = de4Var.a();
             a.a(R.id.obfuscated_res_0x7f09017e, b3);
             a.d(null);
             a.e();

@@ -33,7 +33,7 @@ public final class sz1 {
     public static final int h;
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public ee4 a;
+    public de4 a;
     public ArrayList<pz1> b;
     public Queue<Runnable> c;
     public final List<a> d;
@@ -49,7 +49,7 @@ public final class sz1 {
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ge4 a;
+        public fe4 a;
         public String b;
         public final /* synthetic */ sz1 c;
 
@@ -98,12 +98,12 @@ public final class sz1 {
 
         /* renamed from: com.repackage.sz1$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0519b implements Runnable {
+        public class RunnableC0516b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ pz1 a;
 
-            public RunnableC0519b(b bVar, pz1 pz1Var) {
+            public RunnableC0516b(b bVar, pz1 pz1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -216,9 +216,9 @@ public final class sz1 {
         public void c(pz1 pz1Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pz1Var) == null) {
-                ge4 ge4Var = this.a;
-                ge4Var.g(pz1Var);
-                ge4Var.f();
+                fe4 fe4Var = this.a;
+                fe4Var.g(pz1Var);
+                fe4Var.f();
                 this.c.a.c();
             }
         }
@@ -426,9 +426,9 @@ public final class sz1 {
         public void o(pz1 pz1Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048590, this, pz1Var) == null) {
-                ge4 ge4Var = this.a;
-                ge4Var.j(pz1Var);
-                ge4Var.f();
+                fe4 fe4Var = this.a;
+                fe4Var.j(pz1Var);
+                fe4Var.f();
                 this.c.a.c();
             }
         }
@@ -461,7 +461,7 @@ public final class sz1 {
         public final void r() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-                this.c.c.offer(new RunnableC0519b(this, this.c.m()));
+                this.c.c.offer(new RunnableC0516b(this, this.c.m()));
             }
         }
 

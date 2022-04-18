@@ -21,11 +21,11 @@ public class fl5 extends fc1<mi0> {
 
         /* renamed from: com.repackage.fl5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0417a implements ni0 {
+        public class C0418a implements ni0 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0417a(a aVar) {
+            public C0418a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -200,7 +200,7 @@ public class fl5 extends fc1<mi0> {
         public ni0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0417a(this) : (ni0) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new C0418a(this) : (ni0) invokeV.objValue;
         }
     }
 

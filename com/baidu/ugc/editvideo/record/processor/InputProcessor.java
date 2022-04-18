@@ -16,10 +16,10 @@ import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
-import com.repackage.lc9;
+import com.repackage.fc9;
 import com.repackage.pf0;
+import com.repackage.sc9;
 import com.repackage.xf0;
-import com.repackage.yb9;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class InputProcessor extends BaseEffectProcessor {
@@ -48,7 +48,7 @@ public class InputProcessor extends BaseEffectProcessor {
             return;
         }
         if (i2 == 0) {
-            lc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
+            sc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InputProcessor this$0;
@@ -130,7 +130,7 @@ public class InputProcessor extends BaseEffectProcessor {
             if (pf0Var == null || pf0Var.l() == null) {
                 return i;
             }
-            MediaTrack mediaTrack = (MediaTrack) yb9.c(pf0Var.l(), 0);
+            MediaTrack mediaTrack = (MediaTrack) fc9.c(pf0Var.l(), 0);
             boolean m = xf0.m(mediaTrack, "input_blank");
             int f = !m ? pf0Var.f(mediaTrack, pf0Var.f(mediaTrack, pf0Var.f(mediaTrack, pf0Var.f(mediaTrack, pf0Var.f(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
             if (m) {

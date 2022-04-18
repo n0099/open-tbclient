@@ -52,12 +52,12 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d030a, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ade);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090adf);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090adf);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090add);
-            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d09);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092067);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090ae0);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090ade);
+            this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d0a);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092068);
             this.c.setText(R.string.obfuscated_res_0x7f0f0646);
             this.d.setText(R.string.obfuscated_res_0x7f0f0645);
             this.f.setText(R.string.obfuscated_res_0x7f0f0401);

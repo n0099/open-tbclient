@@ -19,15 +19,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.dk8;
-import com.repackage.gm4;
+import com.repackage.fm4;
+import com.repackage.kk8;
 import com.repackage.wa;
 /* loaded from: classes4.dex */
 public class UserBlockSetModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public gm4 b;
+    public fm4 b;
     public wa c;
 
     /* loaded from: classes4.dex */
@@ -118,8 +118,8 @@ public class UserBlockSetModel extends BdBaseModel {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dk8.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
-            dk8.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
+            kk8.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
+            kk8.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
             this.c.getSocketMessageListener().setSelfListener(true);
             registerListener(this.c);
@@ -139,10 +139,10 @@ public class UserBlockSetModel extends BdBaseModel {
         }
     }
 
-    public void F(gm4 gm4Var) {
+    public void F(fm4 fm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gm4Var) == null) {
-            this.b = gm4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fm4Var) == null) {
+            this.b = fm4Var;
         }
     }
 

@@ -1,178 +1,105 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.gift.buyGift.GiftCommonList;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-@Deprecated
+import tbclient.Esport;
+import tbclient.EsportRank;
+import tbclient.EsportStatic;
 /* loaded from: classes7.dex */
-public class ts6 extends BaseAdapter {
+public class ts6 implements uo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<GiftCommonList.NumInfo> a;
-    public Context b;
+    public int a;
+    public List<ss6> b;
+    public String c;
+    public String d;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public View b;
-
-        public b(ts6 ts6Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755280134, "Lcom/repackage/ts6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ts6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755280134, "Lcom/repackage/ts6;");
+                return;
             }
         }
-
-        public /* synthetic */ b(ts6 ts6Var, a aVar) {
-            this(ts6Var);
-        }
+        e = BdUniqueId.gen();
     }
 
-    public ts6(Context context) {
+    public ts6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public GiftCommonList.NumInfo getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (this.a == null || i < 0 || i >= getCount() - 1) {
-                return null;
-            }
-            return this.a.get(i);
-        }
-        return (GiftCommonList.NumInfo) invokeI.objValue;
-    }
-
-    public void b(List<GiftCommonList.NumInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<GiftCommonList.NumInfo> list = this.a;
-            if (list == null) {
-                return 1;
-            }
-            return list.size() + 1;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i == getCount() - 1 ? 1 : 0 : invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && view2.getTag() != null) {
-                bVar = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0387, (ViewGroup) null);
-                bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f07);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0907ea);
-                view2.setTag(bVar);
-            }
-            SkinManager.setBackgroundResource(view2, R.drawable.list_item_selector);
-            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
-            GiftCommonList.NumInfo item = getItem(i);
-            if (getItemViewType(i) == 1) {
-                bVar.a.setText(R.string.obfuscated_res_0x7f0f046d);
-                bVar.b.setVisibility(4);
-            } else {
-                if (item != null) {
-                    int num = item.getNum() > 0 ? item.getNum() : 1;
-                    String name = item.getName() != null ? item.getName() : "";
-                    TextView textView = bVar.a;
-                    textView.setText(num + name);
-                    bVar.b.setVisibility(0);
-                } else {
-                    bVar.a.setText("");
-                    bVar.b.setVisibility(0);
-                }
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
+    public List<ss6> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 2;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public void e(Esport esport) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, esport) == null) || esport == null) {
+            return;
         }
-        return invokeV.intValue;
+        this.a = esport.floor_no.intValue();
+        EsportStatic esportStatic = esport._static;
+        if (esportStatic != null) {
+            this.c = esportStatic.img;
+            this.d = esportStatic.url;
+        }
+        this.b = new ArrayList();
+        if (!StringUtils.isNull(this.c)) {
+            ss6 ss6Var = new ss6();
+            ss6Var.i(this.c);
+            ss6Var.j(this.d);
+            this.b.add(ss6Var);
+        }
+        if (ListUtils.isEmpty(esport.billboard)) {
+            return;
+        }
+        for (EsportRank esportRank : esport.billboard) {
+            ss6 ss6Var2 = new ss6();
+            ss6Var2.h(esportRank);
+            this.b.add(ss6Var2);
+        }
+    }
+
+    @Override // com.repackage.uo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
     }
 }

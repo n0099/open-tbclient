@@ -41,7 +41,7 @@ public class WriteThreadDelegateStatic extends m45 {
             n45 n45Var = new n45();
             n45Var.a = new WriteThreadFragment();
             n45Var.e = 9;
-            n45Var.b = R.string.obfuscated_res_0x7f0f10e0;
+            n45Var.b = R.string.obfuscated_res_0x7f0f10df;
             n45Var.d = R.drawable.icon_tabbar_add_n;
             n45Var.i = n45.k;
             return n45Var;

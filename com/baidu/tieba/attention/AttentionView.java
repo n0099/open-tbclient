@@ -273,7 +273,7 @@ public class AttentionView extends FrameLayout implements xg5<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0758, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c60);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c61);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.k(2);

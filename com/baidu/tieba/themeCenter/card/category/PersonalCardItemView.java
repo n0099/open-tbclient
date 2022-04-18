@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aq8;
+import com.repackage.hq8;
 import com.repackage.oi;
 /* loaded from: classes4.dex */
 public class PersonalCardItemView extends LinearLayout {
@@ -32,7 +32,7 @@ public class PersonalCardItemView extends LinearLayout {
     public ImageView g;
     public TextView h;
     public View i;
-    public aq8 j;
+    public hq8 j;
     public b k;
     public int l;
     public int m;
@@ -73,7 +73,7 @@ public class PersonalCardItemView extends LinearLayout {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(aq8 aq8Var);
+        void a(hq8 hq8Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,13 +98,13 @@ public class PersonalCardItemView extends LinearLayout {
         d();
     }
 
-    public void c(aq8 aq8Var) {
+    public void c(hq8 hq8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aq8Var) == null) || aq8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, hq8Var) == null) || hq8Var == null) {
             return;
         }
-        this.j = aq8Var;
-        if (aq8Var.a() == aq8.k) {
+        this.j = hq8Var;
+        if (hq8Var.a() == hq8.k) {
             this.c.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
             SkinManager.setImageResource(this.c, R.drawable.icon_bubble_choose_no);
@@ -117,18 +117,18 @@ public class PersonalCardItemView extends LinearLayout {
             this.e.setVisibility(0);
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setImageBitmap(null);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080b76);
-            this.c.K(aq8Var.e(), 10, false);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080b7a);
+            this.c.K(hq8Var.e(), 10, false);
         }
-        if (aq8Var.g() == 1) {
+        if (hq8Var.g() == 1) {
             this.g.setVisibility(0);
             SkinManager.setImageResource(this.g, R.drawable.icon_choose_photo);
         } else {
             this.g.setVisibility(8);
         }
-        this.e.K(aq8Var.i(), 10, false);
-        this.f.K(aq8Var.b(), 10, false);
-        this.h.setText(aq8Var.j());
+        this.e.K(hq8Var.i(), 10, false);
+        this.f.K(hq8Var.b(), 10, false);
+        this.h.setText(hq8Var.j());
         setVisibility(0);
     }
 
@@ -141,18 +141,18 @@ public class PersonalCardItemView extends LinearLayout {
             this.m = (int) (k * 0.57d);
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06dc, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e6a);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09176a);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e6b);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09176b);
             this.e = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081207);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081207);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d8f);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08120b);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120b);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d90);
             this.f = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081207);
-            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081207);
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f08120b);
+            this.f.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120b);
             this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09061f);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092220);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092392);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092221);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092393);
             this.i = this.b.findViewById(R.id.obfuscated_res_0x7f090390);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
             layoutParams.height = this.m;

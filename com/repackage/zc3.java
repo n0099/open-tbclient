@@ -55,7 +55,7 @@ public class zc3 {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    zc3.f(jSONObject, wr2.a(), this.a, this.b);
+                    zc3.f(jSONObject, wr2.b(), this.a, this.b);
                 } catch (Exception e) {
                     jd3.f(jSONObject, "errorMsg", e.getMessage());
                 }

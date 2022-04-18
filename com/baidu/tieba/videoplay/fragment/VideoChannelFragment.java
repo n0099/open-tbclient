@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.n45;
+import com.repackage.ni4;
 import com.repackage.oi4;
-import com.repackage.pi4;
 /* loaded from: classes4.dex */
 public class VideoChannelFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -245,8 +245,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
-            if (pi4.y().A(oi4.c0)) {
-                pi4.y().G();
+            if (oi4.y().A(ni4.c0)) {
+                oi4.y().G();
             }
         }
     }
@@ -258,8 +258,8 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
             super.onPrimary();
             if (isPrimary()) {
                 startBrowseTimeMission();
-            } else if (pi4.y().A(oi4.c0)) {
-                pi4.y().G();
+            } else if (oi4.y().A(ni4.c0)) {
+                oi4.y().G();
             }
         }
     }
@@ -276,7 +276,7 @@ public class VideoChannelFragment extends AbsVideoChannelFragment {
     public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            pi4.y().P(oi4.c0);
+            oi4.y().P(ni4.c0);
         }
     }
 

@@ -19,8 +19,8 @@ import com.baidu.ugc.editvideo.record.processor.glrender.MultiMediaPreGlRenderer
 import com.baidu.ugc.editvideo.record.renderer.IMediaRenderer;
 import com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
+import com.repackage.fc9;
 import com.repackage.pf0;
-import com.repackage.yb9;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -218,7 +218,7 @@ public class MultiMediaOutputSurface extends BaseOutputSurface implements OnDraw
                 }
                 i2 = i4;
             }
-            if (this.mVlogEdit == null || yb9.e(this.mMediaRenderers)) {
+            if (this.mVlogEdit == null || fc9.e(this.mMediaRenderers)) {
                 this.mFullScreen2D.drawFrame(i, fArr);
                 return;
             }

@@ -157,15 +157,15 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mTransBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091200);
-            this.mBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911f8);
-            this.mTitleView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ff);
-            this.mDescView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fd);
-            this.mContentLineView = findViewById(R.id.obfuscated_res_0x7f0911fc);
-            this.mCancelView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fa);
-            this.mButtonLineView = findViewById(R.id.obfuscated_res_0x7f0911f9);
-            this.mConfirmView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fb);
-            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fe);
+            this.mTransBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091201);
+            this.mBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911f9);
+            this.mTitleView = (TextView) findViewById(R.id.obfuscated_res_0x7f091200);
+            this.mDescView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fe);
+            this.mContentLineView = findViewById(R.id.obfuscated_res_0x7f0911fd);
+            this.mCancelView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fb);
+            this.mButtonLineView = findViewById(R.id.obfuscated_res_0x7f0911fa);
+            this.mConfirmView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fc);
+            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ff);
             this.mTransBgView.setBackgroundColor(Color.parseColor("#A8000000"));
             ClientUpdateInfo clientUpdateInfo = this.mClientUpdateInfo;
             if (clientUpdateInfo != null) {

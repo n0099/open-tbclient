@@ -94,7 +94,7 @@ public class zb5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String q = wt4.k().q("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+            String q = vt4.k().q("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
             if (StringUtils.isNull(q)) {
                 return new String[0];
             }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cs6;
+import com.repackage.es6;
 import com.repackage.pg;
 /* loaded from: classes3.dex */
 public class LogoTestMainActivity extends Activity {
@@ -42,7 +42,7 @@ public class LogoTestMainActivity extends Activity {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && cs6.j().y(this.a)) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && es6.j().y(this.a)) {
                 this.a.overridePendingTransition(0, 0);
             }
         }

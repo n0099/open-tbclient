@@ -83,9 +83,9 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914bf);
-            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914c1);
-            this.s = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914c0);
+            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914c0);
+            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914c2);
+            this.s = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914c1);
             Resources resources = context.getResources();
             this.t = (((((c11.c.e(context) - c11.c.a(getContext(), this.m)) - c11.c.a(getContext(), this.n)) - c11.c.a(getContext(), this.o)) - c11.c.a(getContext(), this.p)) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070051) * 2)) / 3;
             this.u = Math.round((this.t / ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f07052f))) * ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f07052e)));

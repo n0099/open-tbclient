@@ -1,109 +1,44 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class dr7 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ds7 a;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final dr7 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-433714902, "Lcom/repackage/dr7$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-433714902, "Lcom/repackage/dr7$b;");
-                    return;
-                }
-            }
-            a = new dr7(null);
-        }
-    }
-
-    public /* synthetic */ dr7(a aVar) {
-        this();
-    }
-
-    public static dr7 b() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (dr7) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            wt4.k().y("key_pb_guide_enter_forum", "");
-        }
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e()) {
-                return this.a.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                a = vt4.k().q("nick_name_activity_link", "");
             }
-            return -1;
+            return a;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void d(ds7 ds7Var) {
+    public static SpannableStringBuilder b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ds7Var) == null) {
-            this.a = ds7Var;
-            wt4.k().y("key_pb_guide_enter_forum", ds7Var.toString());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) str);
+            int length = spannableStringBuilder.length();
+            Drawable drawable = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08087c);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            spannableStringBuilder.append((CharSequence) "tag");
+            spannableStringBuilder.setSpan(new ju4(drawable), length, spannableStringBuilder.length(), 33);
+            return spannableStringBuilder;
         }
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ds7 ds7Var = this.a;
-            return ds7Var != null && ds7Var.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public dr7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = ds7.a(wt4.k().q("key_pb_guide_enter_forum", ""));
+        return (SpannableStringBuilder) invokeLL.objValue;
     }
 }

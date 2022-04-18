@@ -35,7 +35,7 @@ public class wb5 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements iz9<String> {
+    public static class a implements pz9<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -59,11 +59,11 @@ public class wb5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.iz9
+        @Override // com.repackage.pz9
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                String q = wt4.k().q("old_sniff_url", "");
+                String q = vt4.k().q("old_sniff_url", "");
                 if (TextUtils.isEmpty(this.a) || this.a.equals(q)) {
                     wb5.q(false);
                     return;
@@ -73,7 +73,7 @@ public class wb5 {
                     file.mkdir();
                 }
                 if (ub5.j().b(new File(file, "sniff.json"), this.a) > 0) {
-                    wt4.k().y("old_sniff_url", "");
+                    vt4.k().y("old_sniff_url", "");
                 }
                 wb5.q(true);
             }
@@ -81,7 +81,7 @@ public class wb5 {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements iz9<String> {
+    public static class b implements pz9<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -105,7 +105,7 @@ public class wb5 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.iz9
+        @Override // com.repackage.pz9
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -207,7 +207,7 @@ public class wb5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String q = wt4.k().q("AD_SNIFF_RESULT_KEY", "");
+            String q = vt4.k().q("AD_SNIFF_RESULT_KEY", "");
             if (!TextUtils.isEmpty(q)) {
                 ArrayList<Long> arrayList = new ArrayList<>();
                 for (String str : q.split(",")) {
@@ -248,7 +248,7 @@ public class wb5 {
     public static void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            uy9.f("").k(Schedulers.io()).w(new a(str));
+            bz9.f("").k(Schedulers.io()).w(new a(str));
         }
     }
 
@@ -327,7 +327,7 @@ public class wb5 {
                 f(packageManager, optString, i, i2);
             }
             n(i);
-            wt4.k().y("AD_SNIFF_RESULT_KEY", j());
+            vt4.k().y("AD_SNIFF_RESULT_KEY", j());
         }
     }
 
@@ -364,7 +364,7 @@ public class wb5 {
     public static void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
-            uy9.f("").k(Schedulers.io()).w(new b(z));
+            bz9.f("").k(Schedulers.io()).w(new b(z));
         }
     }
 
@@ -375,14 +375,14 @@ public class wb5 {
         }
         long time = new Date().getTime();
         String str2 = "AD_SNIFF_RESULT_KEY_" + str + "_TS";
-        long m = wt4.k().m(str2, 0L);
+        long m = vt4.k().m(str2, 0L);
         long millis = TimeUnit.MINUTES.toMillis(i2);
         boolean z2 = true;
         int i3 = (m > 0L ? 1 : (m == 0L ? 0 : -1));
         boolean z3 = i3 == 0;
         z2 = (i3 <= 0 || time - m <= millis) ? false : false;
         if (z || z3 || z2) {
-            wt4.k().x(str2, time);
+            vt4.k().x(str2, time);
             o(i, jSONArray);
         }
     }

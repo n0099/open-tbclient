@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ie6;
+import com.repackage.ke6;
 import com.repackage.m45;
 import com.repackage.oi;
 import com.repackage.w75;
@@ -209,11 +209,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ie6)) {
-                ie6 ie6Var = (ie6) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ke6)) {
+                ke6 ke6Var = (ke6) customResponsedMessage.getData();
                 ArrayList arrayList = new ArrayList();
-                if (ie6Var.e() != null) {
-                    for (m45 m45Var : ie6Var.e()) {
+                if (ke6Var.e() != null) {
+                    for (m45 m45Var : ke6Var.e()) {
                         if (m45Var.b().a != null) {
                             arrayList.add(m45Var.b().a);
                         }
@@ -292,11 +292,11 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
             d dVar = new d(this, 2001620);
             dVar.setPriority(Integer.MAX_VALUE);
             registerListener(dVar);
-            ie6 ie6Var = new ie6(getPageContext().getPageActivity());
-            ie6Var.g(this.forumId);
-            ie6Var.h(this.forumName);
-            ie6Var.f(this.forumGameLabel);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, ie6Var));
+            ke6 ke6Var = new ke6(getPageContext().getPageActivity());
+            ke6Var.g(this.forumId);
+            ke6Var.h(this.forumName);
+            ke6Var.f(this.forumGameLabel);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001620, ke6Var));
         }
     }
 

@@ -33,11 +33,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.p68;
-import com.repackage.ur4;
-import com.repackage.wr4;
+import com.repackage.tr4;
+import com.repackage.vr4;
+import com.repackage.w68;
 /* loaded from: classes.dex */
-public class TbLiveContainer extends FrameLayout implements p68 {
+public class TbLiveContainer extends FrameLayout implements w68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbLiveCyberView a;
@@ -193,11 +193,11 @@ public class TbLiveContainer extends FrameLayout implements p68 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0891, (ViewGroup) null);
-            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee8);
-            this.b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090ab1);
-            this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091da3);
+            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee9);
+            this.b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090ab2);
+            this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091da4);
             addView(inflate, new ViewGroup.LayoutParams(-1, -1));
-            this.b.setRoundLayoutRadius(ur4.y(R.string.J_X05));
+            this.b.setRoundLayoutRadius(tr4.y(R.string.J_X05));
             this.b.setVisibility(8);
             this.a.setOuterListener(new b(this));
         }
@@ -206,7 +206,7 @@ public class TbLiveContainer extends FrameLayout implements p68 {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            wr4 d = wr4.d(this.c);
+            vr4 d = vr4.d(this.c);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0201);
         }
@@ -240,7 +240,7 @@ public class TbLiveContainer extends FrameLayout implements p68 {
         TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -261,21 +261,21 @@ public class TbLiveContainer extends FrameLayout implements p68 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.getOriginUrl() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -285,14 +285,14 @@ public class TbLiveContainer extends FrameLayout implements p68 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.isPlaying() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -306,7 +306,7 @@ public class TbLiveContainer extends FrameLayout implements p68 {
         }
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -317,7 +317,7 @@ public class TbLiveContainer extends FrameLayout implements p68 {
         }
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {

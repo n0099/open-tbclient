@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.n32;
 import java.io.File;
 import java.util.Set;
-/* loaded from: classes6.dex */
-public class q32<T extends n32> extends w74<i94> {
+/* loaded from: classes7.dex */
+public class q32<T extends n32> extends v74<h94> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class q32<T extends n32> extends w74<i94> {
         this.a = t;
     }
 
-    @Override // com.repackage.w74
+    @Override // com.repackage.v74
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public class q32<T extends n32> extends w74<i94> {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.b84
+    @Override // com.repackage.a84
     @NonNull
     public Bundle m(@NonNull Bundle bundle, Set<String> set) {
         InterceptResult invokeLL;
@@ -93,21 +93,21 @@ public class q32<T extends n32> extends w74<i94> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.z74
+    @Override // com.repackage.y74
     /* renamed from: o */
-    public String d(i94 i94Var) {
+    public String d(h94 h94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, i94Var)) == null) {
-            if (TextUtils.isEmpty(i94Var.o)) {
-                i94Var.o = l();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, h94Var)) == null) {
+            if (TextUtils.isEmpty(h94Var.o)) {
+                h94Var.o = l();
             }
-            int i = i94Var.h;
+            int i = h94Var.h;
             if (i == 0) {
-                return c42.b(i94Var.o, String.valueOf(i94Var.i));
+                return c42.b(h94Var.o, String.valueOf(h94Var.i));
             }
             if (i == 1) {
-                return c42.d(i94Var.o, String.valueOf(i94Var.i));
+                return c42.d(h94Var.o, String.valueOf(h94Var.i));
             }
             return null;
         }
@@ -115,63 +115,63 @@ public class q32<T extends n32> extends w74<i94> {
     }
 
     @CallSuper
-    public void p(@NonNull i94 i94Var, @Nullable cc3 cc3Var) {
+    public void p(@NonNull h94 h94Var, @Nullable cc3 cc3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, i94Var, cc3Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, h94Var, cc3Var) == null) {
         }
     }
 
     @CallSuper
-    public void q(i94 i94Var, c94 c94Var) {
+    public void q(h94 h94Var, b94 b94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i94Var, c94Var) == null) {
-            super.e(i94Var, c94Var);
-            jx1.k("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + i94Var.a);
-            ng4.M(i94Var.a);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h94Var, b94Var) == null) {
+            super.e(h94Var, b94Var);
+            jx1.k("SwanPMSSubDownload", "PMSPkgSub#onDownloadError del:" + h94Var.a);
+            mg4.M(h94Var.a);
             if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadError " + i94Var + ", error=" + c94Var);
+                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadError " + h94Var + ", error=" + b94Var);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.w74, com.repackage.z74
+    @Override // com.repackage.v74, com.repackage.y74
     /* renamed from: r */
-    public final void i(i94 i94Var) {
+    public final void i(h94 h94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, i94Var) == null) {
-            super.i(i94Var);
-            p(i94Var, t(i94Var));
+        if (interceptable == null || interceptable.invokeL(1048585, this, h94Var) == null) {
+            super.i(h94Var);
+            p(h94Var, t(h94Var));
             if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadFinish " + i94Var);
+                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadFinish " + h94Var);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.w74, com.repackage.z74
+    @Override // com.repackage.v74, com.repackage.y74
     /* renamed from: s */
-    public void c(i94 i94Var) {
+    public void c(h94 h94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, i94Var) == null) {
-            super.c(i94Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, h94Var) == null) {
+            super.c(h94Var);
             if (b) {
-                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadStart " + i94Var);
+                Log.d("SwanPMSSubDownload", "PMSPkgSub onDownloadStart " + h94Var);
             }
         }
     }
 
-    public final cc3 t(i94 i94Var) {
+    public final cc3 t(h94 h94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, i94Var)) == null) {
-            if (!wd3.a(new File(i94Var.a), i94Var.m)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, h94Var)) == null) {
+            if (!wd3.a(new File(h94Var.a), h94Var.m)) {
                 cc3 cc3Var = new cc3();
                 cc3Var.k(12L);
                 cc3Var.b(2300L);
                 cc3Var.d("分包签名校验失败");
                 return cc3Var;
-            } else if (c42.g(i94Var)) {
+            } else if (c42.g(h94Var)) {
                 return null;
             } else {
                 cc3 cc3Var2 = new cc3();

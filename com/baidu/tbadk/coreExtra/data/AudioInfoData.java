@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.go4;
+import com.repackage.fo4;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AudioInfoData extends go4 implements Serializable {
+public class AudioInfoData extends fo4 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3295150133270063363L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public class AudioInfoData extends go4 implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.voiceId : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.go4
+    @Override // com.repackage.fo4
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
@@ -72,7 +72,7 @@ public class AudioInfoData extends go4 implements Serializable {
         }
     }
 
-    @Override // com.repackage.go4
+    @Override // com.repackage.fo4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {

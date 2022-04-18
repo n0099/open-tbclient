@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t46;
+import com.repackage.v46;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetForumSquare.GetForumSquareResIdl;
@@ -16,7 +16,7 @@ import tbclient.GetForumSquare.GetForumSquareResIdl;
 public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t46 mForumSquareRespData;
+    public v46 mForumSquareRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSquareHttpResponsedMessage() {
@@ -36,10 +36,10 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public t46 getData() {
+    public v46 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumSquareRespData : (t46) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumSquareRespData : (v46) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,9 +59,9 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
                 setErrorString(getForumSquareResIdl.error.usermsg);
             }
             if (getError() == 0 && getForumSquareResIdl.data != null) {
-                t46 t46Var = new t46();
-                this.mForumSquareRespData = t46Var;
-                t46Var.a(getForumSquareResIdl.data);
+                v46 v46Var = new v46();
+                this.mForumSquareRespData = v46Var;
+                v46Var.a(getForumSquareResIdl.data);
             }
         }
     }

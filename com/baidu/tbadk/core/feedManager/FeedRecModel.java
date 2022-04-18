@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dk8;
+import com.repackage.kk8;
 import com.repackage.l95;
 import com.repackage.wa;
 import tbclient.Personalized.DataRes;
@@ -174,7 +174,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, dk8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, kk8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
             tbHttpMessageTask.setPriority(4);

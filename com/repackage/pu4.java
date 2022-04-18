@@ -1,7 +1,11 @@
 package com.repackage;
+
+import android.view.View;
 /* loaded from: classes6.dex */
 public interface pu4 {
-    boolean getIsLike();
+    void a(View view2);
 
-    void setIsLike(boolean z);
+    void b(View.OnClickListener onClickListener);
+
+    void c(boolean z);
 }

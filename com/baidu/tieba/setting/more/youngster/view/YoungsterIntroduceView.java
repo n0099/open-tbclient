@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lu4;
+import com.repackage.ku4;
 /* loaded from: classes4.dex */
 public class YoungsterIntroduceView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -57,16 +57,16 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08e0, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092232);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09222e);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09222f);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092230);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092231);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee2);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092233);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09222f);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092230);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092231);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092232);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09044d);
             this.g = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(new lu4());
-            this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f15d5));
+            tBSpecificationBtn.setConfig(new ku4());
+            this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f15d4));
             this.g.setOnClickListener(this);
             b();
         }
@@ -75,7 +75,7 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f38, WebPManager.ResourceStateType.NORMAL));
+            this.a.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f3c, WebPManager.ResourceStateType.NORMAL));
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);

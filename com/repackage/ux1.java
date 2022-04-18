@@ -413,7 +413,7 @@ public class ux1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048579, this, f22Var, pm1Var, gl2Var, gVar) == null) {
             if (f22Var != null && f22Var.h() != null) {
-                de3.a0(new c(this, f22Var, ng4.E(new File(qx1.e())), new b(this, f22Var, pm1Var, gl2Var, gVar)));
+                de3.a0(new c(this, f22Var, mg4.E(new File(qx1.e())), new b(this, f22Var, pm1Var, gl2Var, gVar)));
             } else {
                 jx1.k("LocalDebugger", "loadMasterDebugJs - master or js container is null");
             }
@@ -424,7 +424,7 @@ public class ux1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, pm1Var, valueCallback) == null) {
             if (pm1Var != null && pm1Var.u() != null) {
-                String E = ng4.E(new File(qx1.f()));
+                String E = mg4.E(new File(qx1.f()));
                 if (valueCallback == null) {
                     valueCallback = new d(this);
                 }

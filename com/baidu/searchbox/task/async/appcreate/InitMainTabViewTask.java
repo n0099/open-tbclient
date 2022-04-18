@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.q45;
-import com.repackage.xt6;
+import com.repackage.zt6;
 /* loaded from: classes2.dex */
 public class InitMainTabViewTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public class InitMainTabViewTask extends LaunchTask {
                     return;
                 }
             }
-            q45.b().c = new xt6(TbadkCoreApplication.getInst());
+            q45.b().c = new zt6(TbadkCoreApplication.getInst());
         }
     }
 

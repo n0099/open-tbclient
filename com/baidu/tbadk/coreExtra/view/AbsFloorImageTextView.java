@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dt7;
 import com.repackage.fd5;
 import com.repackage.oi;
-import com.repackage.ws7;
 /* loaded from: classes3.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -34,11 +34,11 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageUrlData a;
-    public ws7.a b;
-    public ws7 c;
+    public dt7.a b;
+    public dt7 c;
 
     /* loaded from: classes3.dex */
-    public class a implements ws7.a {
+    public class a implements dt7.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsFloorImageTextView a;
@@ -61,7 +61,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             this.a = absFloorImageTextView;
         }
 
-        @Override // com.repackage.ws7.a
+        @Override // com.repackage.dt7.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeLL.booleanValue;
         }
 
-        @Override // com.repackage.ws7.a
+        @Override // com.repackage.dt7.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeLL.booleanValue;
         }
 
-        @Override // com.repackage.ws7.a
+        @Override // com.repackage.dt7.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -94,13 +94,13 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends ws7 {
+    public class b extends dt7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsFloorImageTextView d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(AbsFloorImageTextView absFloorImageTextView, ws7.a aVar) {
+        public b(AbsFloorImageTextView absFloorImageTextView, dt7.a aVar) {
             super(aVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -111,7 +111,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((ws7.a) newInitContext.callArgs[0]);
+                    super((dt7.a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -120,7 +120,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             this.d = absFloorImageTextView;
         }
 
-        @Override // com.repackage.ws7, android.view.GestureDetector.OnGestureListener
+        @Override // com.repackage.dt7, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeCommon.booleanValue;
         }
 
-        @Override // com.repackage.ws7, android.view.GestureDetector.OnGestureListener
+        @Override // com.repackage.dt7, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;

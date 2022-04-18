@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vn4;
+import com.repackage.un4;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
 public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
@@ -132,10 +132,10 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             float dimensionPixelSize = this.i.getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.u = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ab5);
+            this.u = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ab6);
             this.v = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0900ad);
             this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090100);
-            this.y = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092343);
+            this.y = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092344);
             this.v.setPlaceHolder(3);
             this.u.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
         }
@@ -155,10 +155,10 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
             if (advertAppInfo != null) {
                 int i = -1;
                 String pageTypeByBusiness = getPageTypeByBusiness();
-                vn4 vn4Var = advertAppInfo.j;
-                if (vn4Var != null) {
-                    i = vn4Var.b;
-                    pageTypeByBusiness = vn4Var.a;
+                un4 un4Var = advertAppInfo.j;
+                if (un4Var != null) {
+                    i = un4Var.b;
+                    pageTypeByBusiness = un4Var.a;
                 }
                 this.x.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
             }

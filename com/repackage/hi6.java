@@ -1,17 +1,42 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.tbadkCore.FrsViewData;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface hi6 {
-    void a(ar6 ar6Var, FrsViewData frsViewData);
+    void a(String str);
 
-    void b(View view2);
+    void b();
 
-    void c(ar6 ar6Var, od6 od6Var, FrsViewData frsViewData);
+    int c();
 
-    int d(int i, FrsRequestData frsRequestData);
+    void d(dp dpVar);
 
-    boolean e(int i);
+    void e();
+
+    List<uo> f();
+
+    void g(ArrayList<uo> arrayList, FrsViewData frsViewData);
+
+    HashMap<Integer, ThreadData> h();
+
+    int i();
+
+    int j();
+
+    boolean k(BdUniqueId bdUniqueId);
+
+    void l(fd6 fd6Var);
+
+    void m();
+
+    void n(boolean z);
+
+    void notifyDataSetChanged();
+
+    void setFromCDN(boolean z);
 }

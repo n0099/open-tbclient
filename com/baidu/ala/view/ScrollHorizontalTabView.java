@@ -172,8 +172,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 }
             }
             this.this$0 = scrollHorizontalTabView;
-            this.title = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921aa);
-            this.icon = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921a6);
+            this.title = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ab);
+            this.icon = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921a7);
         }
     }
 

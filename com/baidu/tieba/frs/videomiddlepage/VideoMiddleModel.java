@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kl4;
-import com.repackage.ng6;
+import com.repackage.jl4;
+import com.repackage.pg6;
 import com.repackage.xb5;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -88,10 +88,10 @@ public class VideoMiddleModel extends BdBaseModel {
                     this.mDataList = new ArrayList();
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        ng6 ng6Var = new ng6();
-                        ng6Var.g(jSONArray.optString(i2));
-                        if (ng6Var.n != null) {
-                            this.mDataList.add(ng6Var);
+                        pg6 pg6Var = new pg6();
+                        pg6Var.g(jSONArray.optString(i2));
+                        if (pg6Var.n != null) {
+                            this.mDataList.add(pg6Var);
                         }
                     }
                 }
@@ -156,13 +156,13 @@ public class VideoMiddleModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<kl4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<jl4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<kl4> it = videoRecordList.iterator();
+                        Iterator<jl4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            kl4 next = it.next();
+                            jl4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());

@@ -1,81 +1,145 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class c66 extends ho<h66, CardViewHolder<m66>> {
+public class c66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public rx5 j;
+    public TbPageContext a;
+    public List<ho> b;
+    public zo c;
+    public d66 d;
+    public e66 e;
+    public f66 f;
+    public List<uo> g;
+    public tx5<BaseCardInfo> h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c66(TbPageContext tbPageContext, rx5 rx5Var) {
-        super(tbPageContext.getPageActivity(), h66.f);
+    /* loaded from: classes5.dex */
+    public class a extends tx5<BaseCardInfo> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c66 b;
+
+        public a(c66 c66Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c66Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = c66Var;
+        }
+
+        @Override // com.repackage.tx5
+        public void a(View view2, BaseCardInfo baseCardInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && baseCardInfo != null && (baseCardInfo instanceof j66)) {
+                ArrayList arrayList = new ArrayList();
+                String title = ((j66) baseCardInfo).getTitle();
+                for (uo uoVar : this.b.g) {
+                    if (uoVar instanceof j66) {
+                        j66 j66Var = (j66) uoVar;
+                        if (title.equals(j66Var.getTitle())) {
+                            List<i66> q = j66Var.q();
+                            arrayList.add(uoVar);
+                            arrayList.addAll(q);
+                        } else {
+                            List<i66> m = j66Var.m();
+                            arrayList.add(uoVar);
+                            arrayList.addAll(m);
+                        }
+                    }
+                }
+                k66 k66Var = new k66();
+                k66Var.a = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+                arrayList.add(k66Var);
+                if (arrayList.size() > 0) {
+                    this.b.c.setData(arrayList);
+                }
+            }
+        }
+    }
+
+    public c66(TbPageContext tbPageContext, zo zoVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, rx5Var};
+            Object[] objArr = {tbPageContext, zoVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
-        this.j = rx5Var;
+        this.h = new a(this);
+        this.a = tbPageContext;
+        this.c = zoVar;
+        c();
+        this.c.a(this.b);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public CardViewHolder<m66> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            m66 m66Var = new m66(this.i);
-            m66Var.o(this.e);
-            return new CardViewHolder<>(m66Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = new ArrayList();
+            d66 d66Var = new d66(this.a);
+            this.d = d66Var;
+            this.b.add(d66Var);
+            e66 e66Var = new e66(this.a, this.h);
+            this.e = e66Var;
+            this.b.add(e66Var);
+            f66 f66Var = new f66(this.a);
+            this.f = f66Var;
+            this.b.add(f66Var);
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, h66 h66Var, CardViewHolder<m66> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void d() {
+        zo zoVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h66Var, cardViewHolder})) == null) {
-            if (h66Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
-                return null;
-            }
-            if (viewGroup instanceof BdTypeRecyclerView) {
-                cardViewHolder.c().u(h66Var.needTopMargin);
-            }
-            cardViewHolder.c().l(h66Var);
-            if (this.j != null) {
-                cardViewHolder.c().n(this.j);
-            }
-            return cardViewHolder.b();
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (zoVar = this.c) == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        zoVar.getListAdapter().notifyDataSetChanged();
+    }
+
+    public void e(List<uo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.g = list;
+            this.c.setData(list);
+        }
+    }
+
+    public void f(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
+            for (ho hoVar : this.b) {
+                hoVar.X(bdUniqueId);
+            }
+        }
     }
 }

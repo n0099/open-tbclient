@@ -168,17 +168,17 @@ public class ri5 extends BaseAdapter {
                             bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09006c);
                             TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090776);
                             bVar.d = textView;
-                            wr4.d(textView).v(R.color.CAM_X0105);
+                            vr4.d(textView).v(R.color.CAM_X0105);
                             bVar.d.setOnClickListener(this.d);
                             view2.setTag(bVar);
-                            wr4.d(bVar.a).v(R.color.CAM_X0105);
+                            vr4.d(bVar.a).v(R.color.CAM_X0105);
                             SkinManager.setBackgroundResource(bVar.c, R.drawable.icon_set_list_ok_s);
                         } else {
                             view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0020, viewGroup, false);
                             bVar = new b(this, null);
                             bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090124);
                             view2.setTag(bVar);
-                            wr4.d(bVar.b).v(R.color.CAM_X0302);
+                            vr4.d(bVar.b).v(R.color.CAM_X0302);
                         }
                     } else {
                         bVar = (b) view2.getTag();
@@ -203,7 +203,7 @@ public class ri5 extends BaseAdapter {
                 }
                 return view2;
             } finally {
-                wr4.d(view2).f(R.color.CAM_X0205);
+                vr4.d(view2).f(R.color.CAM_X0205);
             }
         }
         return (View) invokeILL.objValue;

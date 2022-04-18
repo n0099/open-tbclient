@@ -76,12 +76,12 @@ public class RewardTaskStepView extends LinearLayout {
     }
 
     private void a(ViewGroup viewGroup, int i, String str) {
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091127)).setText(str);
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091126)).setText(String.valueOf(i));
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091128)).setText(str);
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091127)).setText(String.valueOf(i));
     }
 
     private void a(ViewGroup viewGroup, String str) {
-        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091127)).setText(str);
+        ((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091128)).setText(str);
     }
 
     private void a(boolean z) {

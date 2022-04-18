@@ -1,25 +1,15 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Set;
+import com.kwad.sdk.api.KsFeedAd;
 /* loaded from: classes7.dex */
-public class qk9 {
+public abstract class qk9 implements KsFeedAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public df9 a;
-    public final qf9 b;
-    public final HashMap<String, sf9> c;
-
-    /* loaded from: classes7.dex */
-    public interface a<E> {
-        void a(E e);
-
-        void b(E e);
-    }
 
     public qk9() {
         Interceptable interceptable = $ic;
@@ -31,23 +21,21 @@ public class qk9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new qf9();
-        this.c = new HashMap<>();
     }
 
-    public final <E> void a(Set<E> set, Set<E> set2, a<E> aVar) {
+    @Override // com.kwad.sdk.api.KsFeedAd.AdInteractionListener
+    public void onDownloadTipsDialogDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, set, set2, aVar) == null) {
-            for (E e : set2) {
-                if (set == null || !set.contains(e)) {
-                    aVar.b(e);
-                } else {
-                    aVar.a(e);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFeedAd.AdInteractionListener
+    public void onDownloadTipsDialogShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 }

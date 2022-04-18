@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr8;
+import com.repackage.mr8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
     public boolean hasMore;
     public boolean isDefault;
     public List<DressItemData> mDressItemList;
-    public fr8 mRecommand;
+    public mr8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleListSocketResponseMessage() {
@@ -52,10 +52,10 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDressItemList : (List) invokeV.objValue;
     }
 
-    public fr8 getRecommand() {
+    public mr8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (fr8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (mr8) invokeV.objValue;
     }
 
     public boolean hasMore() {
@@ -87,9 +87,9 @@ public class BubbleListSocketResponseMessage extends SocketResponsedMessage {
             DataRes dataRes = getBubbleListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    fr8 fr8Var = new fr8();
-                    this.mRecommand = fr8Var;
-                    fr8Var.d(getBubbleListResIdl.data.recommend);
+                    mr8 mr8Var = new mr8();
+                    this.mRecommand = mr8Var;
+                    mr8Var.d(getBubbleListResIdl.data.recommend);
                 }
                 if (getBubbleListResIdl.data.bubbles != null) {
                     this.mDressItemList = new ArrayList();

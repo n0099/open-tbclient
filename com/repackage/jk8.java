@@ -4,17 +4,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActHot;
-import tbclient.ActPost;
-import tbclient.LinkInfo;
+import tbclient.SmartApp;
 /* loaded from: classes6.dex */
 public class jk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<hk8> a;
-    public ArrayList<ik8> b;
+    public String a;
+    public String b;
+    public String c;
+    public Integer d;
 
     public jk8() {
         Interceptable interceptable = $ic;
@@ -26,33 +24,19 @@ public class jk8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
     }
 
-    public void a(ActPost actPost) {
+    public void a(SmartApp smartApp) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, actPost) == null) || actPost == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) || smartApp == null) {
             return;
         }
-        String str = actPost.list_head;
-        for (ActHot actHot : actPost.act_hot) {
-            if (actHot != null) {
-                hk8 hk8Var = new hk8();
-                hk8Var.g(actHot);
-                this.a.add(hk8Var);
-            }
-        }
-        List<LinkInfo> list = actPost.link_info;
-        for (LinkInfo linkInfo : list) {
-            if (list != null) {
-                ik8 ik8Var = new ik8();
-                ik8Var.a(linkInfo);
-                this.b.add(ik8Var);
-            }
-        }
+        String str = smartApp.avatar;
+        this.a = smartApp.name;
+        this.b = smartApp.id;
+        this.c = smartApp.link;
+        this.d = smartApp.is_game;
     }
 }

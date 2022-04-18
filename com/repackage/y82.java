@@ -109,14 +109,14 @@ public class y82 {
         }
     }
 
-    public static void e(qd4 qd4Var) {
+    public static void e(pd4 pd4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, qd4Var) == null) && d && qd4Var != null) {
-            for (g94 g94Var : qd4Var.j()) {
-                if (g94Var instanceof h94) {
-                    d(g94Var.g);
-                } else if (g94Var instanceof i94) {
-                    d(((i94) g94Var).o);
+        if ((interceptable == null || interceptable.invokeL(65541, null, pd4Var) == null) && d && pd4Var != null) {
+            for (f94 f94Var : pd4Var.j()) {
+                if (f94Var instanceof g94) {
+                    d(f94Var.g);
+                } else if (f94Var instanceof h94) {
+                    d(((h94) f94Var).o);
                 }
             }
         }

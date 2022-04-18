@@ -153,7 +153,7 @@ public class hw2 {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            j94 g = g(str);
+            i94 g = g(str);
             if ((g == null || TextUtils.isEmpty(g.r)) ? false : true) {
                 return g.r;
             }
@@ -163,7 +163,7 @@ public class hw2 {
         return (String) invokeL.objValue;
     }
 
-    public static j94 g(String str) {
+    public static i94 g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
@@ -172,13 +172,13 @@ public class hw2 {
             }
             return qv2.p(str, com.kuaishou.weapon.un.d.S, 0L);
         }
-        return (j94) invokeL.objValue;
+        return (i94) invokeL.objValue;
     }
 
-    public static j94 h(String str) {
+    public static i94 h(String str) {
         InterceptResult invokeL;
         SwanAppConfigData P;
-        List<j94> list;
+        List<i94> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
@@ -189,15 +189,15 @@ public class hw2 {
             }
             j03 L = j03.L();
             if (L != null && (P = L.P()) != null && (list = P.l) != null) {
-                for (j94 j94Var : list) {
-                    if (TextUtils.equals(str, j94Var.g)) {
-                        return j94Var;
+                for (i94 i94Var : list) {
+                    if (TextUtils.equals(str, i94Var.g)) {
+                        return i94Var;
                     }
                 }
             }
             return null;
         }
-        return (j94) invokeL.objValue;
+        return (i94) invokeL.objValue;
     }
 
     public static String i(String str, String str2) {
@@ -221,7 +221,7 @@ public class hw2 {
         }
     }
 
-    public static List<j94> k(String str, boolean z) {
+    public static List<i94> k(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, str, z)) == null) {
@@ -240,21 +240,21 @@ public class hw2 {
                     if (optJSONObject != null) {
                         String optString = optJSONObject.optString("plugin_id");
                         if (!TextUtils.isEmpty(optString)) {
-                            j94 j94Var = new j94();
-                            j94Var.g = optString;
-                            j94Var.i = optJSONObject.optLong("version_code", 0L);
-                            j94Var.j = optJSONObject.optString("version_name", com.kuaishou.weapon.un.d.S);
-                            j94Var.p = optJSONObject.optString("token");
-                            j94Var.q = optJSONObject.optString("domains");
-                            j94Var.h = 4;
-                            j94Var.r = optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                            j94Var.s = optJSONObject.optString("app_name");
-                            j94Var.l = "";
-                            j94Var.m = "";
-                            j94Var.n = "";
-                            arrayList.add(j94Var);
+                            i94 i94Var = new i94();
+                            i94Var.g = optString;
+                            i94Var.i = optJSONObject.optLong("version_code", 0L);
+                            i94Var.j = optJSONObject.optString("version_name", com.kuaishou.weapon.un.d.S);
+                            i94Var.p = optJSONObject.optString("token");
+                            i94Var.q = optJSONObject.optString("domains");
+                            i94Var.h = 4;
+                            i94Var.r = optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                            i94Var.s = optJSONObject.optString("app_name");
+                            i94Var.l = "";
+                            i94Var.m = "";
+                            i94Var.n = "";
+                            arrayList.add(i94Var);
                             if (z) {
-                                f84.i().m(j94Var);
+                                e84.i().m(i94Var);
                             }
                         }
                     }

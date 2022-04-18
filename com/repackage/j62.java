@@ -117,8 +117,8 @@ public class j62 {
                                         fileOutputStream.flush();
                                         x83.a().putLong("zeus_v8_modified_time", lastModified);
                                         fileInputStream = fileInputStream2;
-                                        ng4.d(fileInputStream);
-                                        ng4.d(fileOutputStream);
+                                        mg4.d(fileInputStream);
+                                        mg4.d(fileOutputStream);
                                         if (fileLock != null) {
                                             try {
                                                 fileLock.release();
@@ -126,15 +126,15 @@ public class j62 {
                                                 e.printStackTrace();
                                             }
                                         }
-                                        ng4.d(channel);
+                                        mg4.d(channel);
                                     } catch (Exception e2) {
                                         fileChannel = channel;
                                         e = e2;
                                         fileInputStream = fileInputStream2;
                                         try {
                                             e.printStackTrace();
-                                            ng4.d(fileInputStream);
-                                            ng4.d(fileOutputStream);
+                                            mg4.d(fileInputStream);
+                                            mg4.d(fileOutputStream);
                                             if (fileLock != null) {
                                                 try {
                                                     fileLock.release();
@@ -142,12 +142,12 @@ public class j62 {
                                                     e3.printStackTrace();
                                                 }
                                             }
-                                            ng4.d(fileChannel);
+                                            mg4.d(fileChannel);
                                             return;
                                         } catch (Throwable th) {
                                             th = th;
-                                            ng4.d(fileInputStream);
-                                            ng4.d(fileOutputStream);
+                                            mg4.d(fileInputStream);
+                                            mg4.d(fileOutputStream);
                                             if (fileLock != null) {
                                                 try {
                                                     fileLock.release();
@@ -155,18 +155,18 @@ public class j62 {
                                                     e4.printStackTrace();
                                                 }
                                             }
-                                            ng4.d(fileChannel);
+                                            mg4.d(fileChannel);
                                             throw th;
                                         }
                                     } catch (Throwable th2) {
                                         fileChannel = channel;
                                         th = th2;
                                         fileInputStream = fileInputStream2;
-                                        ng4.d(fileInputStream);
-                                        ng4.d(fileOutputStream);
+                                        mg4.d(fileInputStream);
+                                        mg4.d(fileOutputStream);
                                         if (fileLock != null) {
                                         }
-                                        ng4.d(fileChannel);
+                                        mg4.d(fileChannel);
                                         throw th;
                                     }
                                 } catch (Exception e5) {
@@ -190,11 +190,11 @@ public class j62 {
                         }
                     }
                     fileOutputStream = null;
-                    ng4.d(fileInputStream);
-                    ng4.d(fileOutputStream);
+                    mg4.d(fileInputStream);
+                    mg4.d(fileOutputStream);
                     if (fileLock != null) {
                     }
-                    ng4.d(channel);
+                    mg4.d(channel);
                 } catch (Exception e7) {
                     fileChannel = channel;
                     fileOutputStream = null;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d76;
+import com.repackage.f76;
 import com.repackage.i65;
 import com.repackage.uo;
 import com.squareup.wire.Wire;
@@ -19,7 +19,7 @@ import tbclient.Tabfeedlist.TabfeedlistResIdl;
 public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements i65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d76 enterForumTabFeedData;
+    public f76 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -68,9 +68,9 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
             if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                d76 d76Var = new d76();
-                this.enterForumTabFeedData = d76Var;
-                d76Var.g(tabfeedlistResIdl.data);
+                f76 f76Var = new f76();
+                this.enterForumTabFeedData = f76Var;
+                f76Var.g(tabfeedlistResIdl.data);
             }
         }
     }

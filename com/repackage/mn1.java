@@ -158,11 +158,11 @@ public class mn1 extends ln1 {
     public final void q(String str, String str2, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, callbackHandler) == null) {
-            l74 l74Var = new l74(str, new a(this, str, str2, callbackHandler));
-            l74Var.f = true;
-            l74Var.g = false;
-            l74Var.h = true;
-            m74.g().d(l74Var);
+            k74 k74Var = new k74(str, new a(this, str, str2, callbackHandler));
+            k74Var.f = true;
+            k74Var.g = false;
+            k74Var.h = true;
+            l74.g().d(k74Var);
         }
     }
 
@@ -186,7 +186,7 @@ public class mn1 extends ln1 {
                 return;
             }
             try {
-                str3 = m13.A(lr2.s(response.headers()), ng4.t(str));
+                str3 = m13.A(lr2.s(response.headers()), mg4.t(str));
             } catch (JSONException e) {
                 e.printStackTrace();
                 str3 = null;
@@ -222,7 +222,7 @@ public class mn1 extends ln1 {
                     }
                 }
             }
-            return qg4.a(byteStream, file);
+            return pg4.a(byteStream, file);
         }
         return invokeLL.booleanValue;
     }

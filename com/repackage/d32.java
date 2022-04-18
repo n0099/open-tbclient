@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cb4;
+import com.repackage.bb4;
 /* loaded from: classes5.dex */
 public abstract class d32 {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public abstract class d32 {
     }
 
     @WorkerThread
-    public void c(@NonNull cb4.a aVar) {
+    public void c(@NonNull bb4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
         }
@@ -50,22 +50,22 @@ public abstract class d32 {
     public abstract void d();
 
     @WorkerThread
-    public void e(@NonNull j94 j94Var) {
+    public void e(@NonNull i94 i94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, j94Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, i94Var) == null) {
         }
     }
 
-    public void f(c94 c94Var) {
+    public void f(b94 b94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, c94Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, b94Var) == null) {
         }
     }
 
     @WorkerThread
-    public void g(@NonNull i94 i94Var) {
+    public void g(@NonNull h94 h94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, i94Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, h94Var) == null) {
         }
     }
 

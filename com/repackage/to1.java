@@ -194,7 +194,7 @@ public class to1 extends mo1 {
                     to1Var.d(str, new js1(202, "current version error:" + j0));
                     return;
                 }
-                List<i94> k = f84.i().k(this.a.b, Integer.parseInt(j0));
+                List<h94> k = e84.i().k(this.a.b, Integer.parseInt(j0));
                 ArraySet<String> arraySet = new ArraySet();
                 List synchronizedList = Collections.synchronizedList(new ArrayList());
                 for (int i = 0; i < this.c.length(); i++) {
@@ -351,13 +351,13 @@ public class to1 extends mo1 {
         }
     }
 
-    public static boolean E(@Nullable String str, @Nullable List<i94> list) {
+    public static boolean E(@Nullable String str, @Nullable List<h94> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
             if (str != null && list != null && !list.isEmpty()) {
-                for (i94 i94Var : list) {
-                    if (i94Var != null && TextUtils.equals(i94Var.p, str)) {
+                for (h94 h94Var : list) {
+                    if (h94Var != null && TextUtils.equals(h94Var.p, str)) {
                         return true;
                     }
                 }

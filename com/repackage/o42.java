@@ -138,7 +138,7 @@ public class o42 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.c == null) {
-                String o = ng4.o();
+                String o = mg4.o();
                 if (TextUtils.isEmpty(o)) {
                     return null;
                 }

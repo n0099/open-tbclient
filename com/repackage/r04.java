@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class r04 extends q04 {
+public class r04 extends p04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r04(g13 g13Var) {
-        super(g13Var, "/swanAPI/hideShareMenu", "hideShareMenu");
+        super(g13Var, "/swanAPI/showShareMenu", "showShareMenu");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,12 +34,12 @@ public class r04 extends q04 {
         }
     }
 
-    @Override // com.repackage.q04
-    public boolean k(@NonNull t04 t04Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    @Override // com.repackage.p04
+    public boolean k(@NonNull s04 s04Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, t04Var, unitedSchemeEntity, callbackHandler)) == null) {
-            t04Var.a();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, s04Var, unitedSchemeEntity, callbackHandler)) == null) {
+            s04Var.d();
             j(unitedSchemeEntity, callbackHandler);
             return true;
         }

@@ -29,13 +29,13 @@ public class mr1 extends ir1 {
 
         /* renamed from: com.repackage.mr1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0468a implements cf3<m53<o53.e>> {
+        public class C0469a implements cf3<m53<o53.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ lo1.b a;
             public final /* synthetic */ a b;
 
-            public C0468a(a aVar, lo1.b bVar) {
+            public C0469a(a aVar, lo1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class mr1 extends ir1 {
                 if (a0 == null) {
                     return new js1(1001, "null swan runtime");
                 }
-                a0.d0().g(i03.J(), "mapp_i_get_common_sys_info", new C0468a(this, bVar));
+                a0.d0().g(i03.J(), "mapp_i_get_common_sys_info", new C0469a(this, bVar));
                 return new js1(0);
             }
             return (js1) invokeLL.objValue;
@@ -233,7 +233,7 @@ public class mr1 extends ir1 {
             }
             String l = be3.l(str3, "BAIDUID");
             String l2 = be3.l(str3, "H_WISE_SIDS");
-            String a2 = vg4.b(AppRuntime.getAppContext()).a();
+            String a2 = ug4.b(AppRuntime.getAppContext()).a();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("cuid", i);

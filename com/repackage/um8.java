@@ -1,34 +1,21 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.WorkPublishManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes7.dex */
-public class um8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface um8 {
+    void a(TbPageContext<?> tbPageContext);
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            TiebaStatic.log(new StatisticItem("c14041").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", WorkPublishManager.isWorkPublishLocate() ? 1 : 0));
-        }
-    }
+    void b(String str);
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            TiebaStatic.log(new StatisticItem("c14040").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", WorkPublishManager.isWorkPublishLocate() ? 1 : 0));
-        }
-    }
+    boolean c(ej ejVar, int i);
 
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            TiebaStatic.log(new StatisticItem("c14029").param("uid", TbadkCoreApplication.getCurrentAccount()));
-        }
-    }
+    void cancelRecord();
+
+    void d(ej ejVar);
+
+    boolean e();
+
+    void release();
+
+    void stopRecord();
 }

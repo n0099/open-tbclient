@@ -67,7 +67,7 @@ public class id5 {
                     Bitmap p = foVar.p();
                     this.a.thumbData = id5.a(p);
                 } else {
-                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f74);
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f78);
                     this.a.thumbData = id5.a(cashBitmap);
                 }
                 this.b.sendReq(this.c);
@@ -81,7 +81,7 @@ public class id5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bitmap)) == null) {
             if (bitmap == null) {
                 try {
-                    bitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f74);
+                    bitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f080f78);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return null;

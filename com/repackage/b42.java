@@ -53,8 +53,8 @@ public final class b42 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 File filesDir = AppRuntime.getAppContext().getFilesDir();
-                ng4.j(new File(filesDir, "aiapps_zip"));
-                ng4.i(filesDir, "aiapps_zip");
+                mg4.j(new File(filesDir, "aiapps_zip"));
+                mg4.i(filesDir, "aiapps_zip");
                 File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_zip");
                 if (!file.isDirectory() || (listFiles = file.listFiles()) == null) {
                     return;
@@ -63,7 +63,7 @@ public final class b42 {
                 for (File file2 : listFiles) {
                     long lastModified = file2.lastModified();
                     if (file2.isFile() && lastModified > 0 && currentTimeMillis - lastModified > 86400000) {
-                        ng4.L(file2);
+                        mg4.L(file2);
                     }
                 }
             }
@@ -128,10 +128,10 @@ public final class b42 {
         }
     }
 
-    public static cc3 a(ReadableByteChannel readableByteChannel, String str, a84 a84Var) throws IOException {
+    public static cc3 a(ReadableByteChannel readableByteChannel, String str, z74 z74Var) throws IOException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, readableByteChannel, str, a84Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, readableByteChannel, str, z74Var)) == null) {
             if (readableByteChannel == null) {
                 cc3 cc3Var = new cc3();
                 cc3Var.k(11L);
@@ -143,11 +143,11 @@ public final class b42 {
                 }
                 return cc3Var;
             }
-            a84Var.n("670", "aiapp_aps_check_sign_start_timestamp");
-            a84Var.n("770", "na_pms_start_check_sign");
+            z74Var.n("670", "aiapp_aps_check_sign_start_timestamp");
+            z74Var.n("770", "na_pms_start_check_sign");
             if (wd3.d(readableByteChannel, str, new qe3())) {
-                a84Var.n("670", "aiapp_aps_check_sign_end_timestamp");
-                a84Var.n("770", "na_pms_end_check_sign");
+                z74Var.n("670", "aiapp_aps_check_sign_end_timestamp");
+                z74Var.n("770", "na_pms_end_check_sign");
                 return null;
             }
             cc3 cc3Var2 = new cc3();
@@ -163,14 +163,14 @@ public final class b42 {
         return (cc3) invokeLLL.objValue;
     }
 
-    public static boolean b(@Nullable g94 g94Var) {
+    public static boolean b(@Nullable f94 f94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, g94Var)) == null) {
-            if (g94Var == null || TextUtils.isEmpty(g94Var.a)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, f94Var)) == null) {
+            if (f94Var == null || TextUtils.isEmpty(f94Var.a)) {
                 return false;
             }
-            File file = new File(g94Var.a);
+            File file = new File(f94Var.a);
             return file.exists() && file.isFile() && file.delete();
         }
         return invokeL.booleanValue;
@@ -227,49 +227,49 @@ public final class b42 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? rj2.g().c() : (String) invokeV.objValue;
     }
 
-    public static boolean j(c94 c94Var) {
+    public static boolean j(b94 b94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, c94Var)) == null) {
-            if (c94Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, b94Var)) == null) {
+            if (b94Var == null) {
                 return false;
             }
-            int i = c94Var.a;
+            int i = b94Var.a;
             return i == 1013 || i == 1015;
         }
         return invokeL.booleanValue;
     }
 
-    public static void k(PMSAppInfo pMSAppInfo, h94 h94Var) {
+    public static void k(PMSAppInfo pMSAppInfo, g94 g94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65548, null, pMSAppInfo, h94Var) == null) || pMSAppInfo == null || h94Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65548, null, pMSAppInfo, g94Var) == null) || pMSAppInfo == null || g94Var == null) {
             return;
         }
-        pMSAppInfo.copyMainPkgInfo(h94Var);
-        if (h94Var.h == 1) {
-            pMSAppInfo.setOrientation(rj2.i().v(h94Var.g, h94Var.i));
+        pMSAppInfo.copyMainPkgInfo(g94Var);
+        if (g94Var.h == 1) {
+            pMSAppInfo.setOrientation(rj2.i().v(g94Var.g, g94Var.i));
         } else {
             pMSAppInfo.setOrientation(0);
         }
     }
 
-    public static void l(PMSAppInfo pMSAppInfo, i94 i94Var) {
+    public static void l(PMSAppInfo pMSAppInfo, h94 h94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65549, null, pMSAppInfo, i94Var) == null) || pMSAppInfo == null || i94Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65549, null, pMSAppInfo, h94Var) == null) || pMSAppInfo == null || h94Var == null) {
             return;
         }
-        pMSAppInfo.copySubPkgInfo(i94Var);
-        if (i94Var.h == 0) {
+        pMSAppInfo.copySubPkgInfo(h94Var);
+        if (h94Var.h == 0) {
             pMSAppInfo.setOrientation(0);
         }
     }
 
-    public static cc3 m(g94 g94Var, a84 a84Var) {
+    public static cc3 m(f94 f94Var, z74 z74Var) {
         InterceptResult invokeLL;
         File i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, g94Var, a84Var)) == null) {
-            if (g94Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, f94Var, z74Var)) == null) {
+            if (f94Var == null) {
                 cc3 cc3Var = new cc3();
                 cc3Var.k(11L);
                 cc3Var.i(2320L);
@@ -277,10 +277,10 @@ public final class b42 {
                 gc3.a().f(cc3Var);
                 return cc3Var;
             }
-            File file = new File(g94Var.a);
-            int i2 = g94Var.h;
+            File file = new File(f94Var.a);
+            int i2 = f94Var.h;
             if (i2 == 1) {
-                i = rj2.g().a(g94Var.g, String.valueOf(g94Var.i));
+                i = rj2.g().a(f94Var.g, String.valueOf(f94Var.i));
                 if (i == null) {
                     cc3 cc3Var2 = new cc3();
                     cc3Var2.k(11L);
@@ -292,7 +292,7 @@ public final class b42 {
                     Log.e("PkgDownloadUtil", "bundleZipFile:" + file);
                 }
             } else if (i2 == 0) {
-                i = fj2.e.i(g94Var.g, String.valueOf(g94Var.i));
+                i = fj2.e.i(f94Var.g, String.valueOf(f94Var.i));
             } else {
                 cc3 cc3Var3 = new cc3();
                 cc3Var3.k(11L);
@@ -330,17 +330,17 @@ public final class b42 {
                 if (a) {
                     Log.i("PkgDownloadUtil", "开始执行解压操作, bundle:" + file.getPath() + " , folder:" + i.getPath());
                 }
-                if (n(file, i, a84Var).b) {
+                if (n(file, i, z74Var).b) {
                     return null;
                 }
-                b n = n(file, i, a84Var);
+                b n = n(file, i, z74Var);
                 if (n.b) {
-                    y63.a(a84Var, g94Var.h, true);
+                    y63.a(z74Var, f94Var.h, true);
                     return null;
                 }
-                y63.a(a84Var, g94Var.h, false);
+                y63.a(z74Var, f94Var.h, false);
                 jx1.k("PkgDownloadUtil", "解压失败后删除解压目录: " + i.getAbsolutePath());
-                ng4.L(i);
+                mg4.L(i);
                 cc3 cc3Var7 = new cc3();
                 int i3 = n.a;
                 if (i3 == 0) {
@@ -364,32 +364,32 @@ public final class b42 {
     }
 
     @NonNull
-    public static b n(@NonNull File file, @NonNull File file2, @NonNull a84 a84Var) {
+    public static b n(@NonNull File file, @NonNull File file2, @NonNull z74 z74Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, file, file2, a84Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, file, file2, z74Var)) == null) {
             b bVar = new b();
             long currentTimeMillis = System.currentTimeMillis();
             ij2.c j = ij2.j(file);
             int i = 0;
             if (j.b != -1) {
-                a84Var.n("670", "package_start_decrypt");
-                a84Var.n("770", "na_package_start_decrypt");
+                z74Var.n("670", "package_start_decrypt");
+                z74Var.n("770", "na_package_start_decrypt");
                 ij2.b d = ij2.d(j.a, file2, j.b);
-                a84Var.n("670", "package_end_decrypt");
-                a84Var.n("770", "na_package_end_decrypt");
+                z74Var.n("670", "package_end_decrypt");
+                z74Var.n("770", "na_package_end_decrypt");
                 bVar.b = d.a;
                 bVar.c = d.b;
                 i = j.b;
                 bVar.a = i;
             } else {
                 bVar.a = 0;
-                a84Var.n("670", "package_start_unzip");
-                a84Var.n("770", "na_package_start_unzip");
-                boolean U = ng4.U(file.getPath(), file2.getPath());
+                z74Var.n("670", "package_start_unzip");
+                z74Var.n("770", "na_package_start_unzip");
+                boolean U = mg4.U(file.getPath(), file2.getPath());
                 bVar.b = U;
                 if (U) {
-                    boolean B = ng4.B(file.getAbsolutePath(), file2.getAbsolutePath());
+                    boolean B = mg4.B(file.getAbsolutePath(), file2.getAbsolutePath());
                     bVar.b = B;
                     if (!B) {
                         k73 k73Var = new k73();
@@ -404,8 +404,8 @@ public final class b42 {
                         c73.R(k73Var);
                     }
                 }
-                a84Var.n("670", "package_end_unzip");
-                a84Var.n("770", "na_package_end_unzip");
+                z74Var.n("670", "package_end_unzip");
+                z74Var.n("770", "na_package_end_unzip");
             }
             long currentTimeMillis2 = System.currentTimeMillis();
             if (a) {
@@ -413,7 +413,7 @@ public final class b42 {
             }
             Bundle bundle = new Bundle();
             bundle.putInt("download_package_type_id", i);
-            e84.a(a84Var, bundle, "event_download_package_type");
+            d84.a(z74Var, bundle, "event_download_package_type");
             return bVar;
         }
         return (b) invokeLLL.objValue;

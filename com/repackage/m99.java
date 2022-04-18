@@ -1,26 +1,17 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
+import com.google.gson.Gson;
+import java.lang.reflect.Type;
 /* loaded from: classes6.dex */
-public class m99 {
+public class m99 implements l99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public int d;
-    public boolean e;
-    public DownloadException f;
-    public k99 g;
-    public String h;
-    public boolean i;
 
     public m99() {
         Interceptable interceptable = $ic;
@@ -36,126 +27,57 @@ public class m99 {
         }
     }
 
-    public k99 a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.l99
+    public String a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (k99) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : invokeV.booleanValue;
-    }
-
-    public Exception c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (Exception) invokeV.objValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.e = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                if (d89.c().d() != null && d89.c().d().c() != null) {
+                    return d89.c().d().c().a(obj);
+                }
+                return new Gson().toJson(obj);
+            } catch (Exception e) {
+                gc9.b(e.getMessage());
+                return "";
+            }
         }
+        return (String) invokeL.objValue;
     }
 
-    public void k(k99 k99Var) {
+    @Override // com.repackage.l99
+    public <T> T b(String str, Class<T> cls) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, k99Var) == null) {
-            this.g = k99Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
+            try {
+                if (d89.c().d() != null && d89.c().d().c() != null) {
+                    return (T) d89.c().d().c().b(str, cls);
+                }
+                return (T) new Gson().fromJson(str, (Class<Object>) cls);
+            } catch (Exception e) {
+                gc9.b(e.getMessage());
+                return null;
+            }
         }
+        return (T) invokeLL.objValue;
     }
 
-    public void l(boolean z) {
+    @Override // com.repackage.l99
+    public <T> T c(String str, Type type) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.i = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
+            try {
+                if (d89.c().d() != null && d89.c().d().c() != null) {
+                    return (T) d89.c().d().c().c(str, type);
+                }
+                return (T) new Gson().fromJson(str, type);
+            } catch (Exception e) {
+                gc9.b(e.getMessage());
+                return null;
+            }
         }
-    }
-
-    public void m(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, downloadException) == null) {
-            this.f = downloadException;
-        }
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public void o(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void s(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-        }
+        return (T) invokeLL.objValue;
     }
 }

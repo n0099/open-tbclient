@@ -110,30 +110,30 @@ public class KsLogoView extends LinearLayout {
             }
         };
         if (z) {
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f080ca8);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f080cac);
         }
         a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        this.b.setImageDrawable(getContext().getResources().getDrawable(this.c ? R.drawable.obfuscated_res_0x7f080bcd : R.drawable.obfuscated_res_0x7f080bce));
+        this.b.setImageDrawable(getContext().getResources().getDrawable(this.c ? R.drawable.obfuscated_res_0x7f080bd1 : R.drawable.obfuscated_res_0x7f080bd2));
     }
 
     private void a(Context context) {
         TextView textView;
         int i;
         LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d044d, this);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0910b0);
-        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910af);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0910b1);
+        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910b0);
         boolean z = getBackground() == null;
         this.c = z;
         if (z) {
-            this.b.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bcd));
+            this.b.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bd1));
             textView = this.a;
             i = -6513508;
         } else {
-            this.b.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bce));
+            this.b.setImageDrawable(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bd2));
             textView = this.a;
             i = -1711276033;
         }
@@ -154,7 +154,7 @@ public class KsLogoView extends LinearLayout {
     */
     public void a(AdTemplate adTemplate) {
         a aVar;
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0910ae);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0910af);
         AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate);
         String str = this.c ? j.adBaseInfo.adGrayMarkIcon : j.adBaseInfo.adMarkIcon;
         if (TextUtils.isEmpty(str) && TextUtils.isEmpty(j.adBaseInfo.adSourceDescription)) {

@@ -39,17 +39,17 @@ public class ud3 {
             }
             try {
                 BitmapFactory.decodeStream(openInputStream, null, options);
-                ng4.d(openInputStream);
+                mg4.d(openInputStream);
             } catch (FileNotFoundException e2) {
                 e = e2;
                 inputStream = openInputStream;
                 e.printStackTrace();
-                ng4.d(inputStream);
+                mg4.d(inputStream);
                 return options;
             } catch (Throwable th2) {
                 th = th2;
                 inputStream = openInputStream;
-                ng4.d(inputStream);
+                mg4.d(inputStream);
                 throw th;
             }
             return options;

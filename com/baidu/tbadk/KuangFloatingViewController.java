@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bs8;
+import com.repackage.is8;
 import com.repackage.oi;
 /* loaded from: classes2.dex */
 public class KuangFloatingViewController {
@@ -237,7 +237,7 @@ public class KuangFloatingViewController {
                         }
                     }
                 });
-                this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f0909df).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.4
+                this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f0909e0).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ KuangFloatingViewController this$0;
@@ -271,7 +271,7 @@ public class KuangFloatingViewController {
             } else if (view2.getParent() != null) {
                 return false;
             }
-            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f090eef)).setText(this.mInfo);
+            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f090ef0)).setText(this.mInfo);
             return true;
         }
         return invokeV.booleanValue;
@@ -288,7 +288,7 @@ public class KuangFloatingViewController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = bs8.a(2002);
+            layoutParams.type = is8.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;

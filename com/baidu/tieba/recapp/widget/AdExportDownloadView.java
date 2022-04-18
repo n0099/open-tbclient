@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wb8;
+import com.repackage.dc8;
 /* loaded from: classes4.dex */
 public class AdExportDownloadView extends ApkDownloadView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wb8.a h;
+    public dc8.a h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdExportDownloadView(Context context, AttributeSet attributeSet, int i) {
@@ -40,10 +40,10 @@ public class AdExportDownloadView extends ApkDownloadView {
     }
 
     @Nullable
-    public wb8.a getRegisterListener() {
+    public dc8.a getRegisterListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : (wb8.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : (dc8.a) invokeV.objValue;
     }
 
     public void setBackGroundDrawable(@DrawableRes int i) {
@@ -74,7 +74,7 @@ public class AdExportDownloadView extends ApkDownloadView {
         }
     }
 
-    public void setRegisterListener(@Nullable wb8.a aVar) {
+    public void setRegisterListener(@Nullable dc8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
             this.h = aVar;

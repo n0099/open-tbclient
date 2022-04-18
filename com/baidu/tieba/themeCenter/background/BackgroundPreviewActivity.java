@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c35;
-import com.repackage.qq8;
+import com.repackage.xq8;
 import com.repackage.y75;
 /* loaded from: classes4.dex */
 public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewActivity> {
@@ -26,7 +26,7 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
     public int mInUse;
     public BackgroundPreviewModel mModel;
     public int mPropId;
-    public qq8 mView;
+    public xq8 mView;
 
     /* loaded from: classes4.dex */
     public class a implements BackgroundPreviewModel.b {
@@ -163,9 +163,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            qq8 qq8Var = this.mView;
-            if (qq8Var != null) {
-                qq8Var.g();
+            xq8 xq8Var = this.mView;
+            if (xq8Var != null) {
+                xq8Var.g();
             }
         }
     }
@@ -185,9 +185,9 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             BackgroundPreviewModel backgroundPreviewModel = new BackgroundPreviewModel(this.mPropId, this.mInUse);
             this.mModel = backgroundPreviewModel;
             backgroundPreviewModel.D(this.mCallback);
-            qq8 qq8Var = new qq8(this);
-            this.mView = qq8Var;
-            showLoadingView(qq8Var.f());
+            xq8 xq8Var = new xq8(this);
+            this.mView = xq8Var;
+            showLoadingView(xq8Var.f());
             this.mView.j(new b(this));
             this.mModel.loadData();
         }
@@ -202,21 +202,21 @@ public class BackgroundPreviewActivity extends BaseActivity<BackgroundPreviewAct
             if (backgroundPreviewModel != null) {
                 backgroundPreviewModel.destroy();
             }
-            qq8 qq8Var = this.mView;
-            if (qq8Var != null) {
-                qq8Var.h();
+            xq8 xq8Var = this.mView;
+            if (xq8Var != null) {
+                xq8Var.h();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        qq8 qq8Var;
+        xq8 xq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (qq8Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (xq8Var = this.mView) == null) {
             return;
         }
-        showLoadingView(qq8Var.f());
+        showLoadingView(xq8Var.f());
         this.mModel.loadData();
     }
 

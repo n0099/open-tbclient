@@ -1,76 +1,123 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.w69;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public final class d79 {
+public final class d79 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
-    public static List<WeakReference<ScheduledFuture<?>>> a;
-    public static ExecutorService b;
-    public static ScheduledExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
+    public w69 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755814357, "Lcom/repackage/d79;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755814357, "Lcom/repackage/d79;");
+    public d79(w69 w69Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w69Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList();
-        b = Executors.newFixedThreadPool(2);
-        c = Executors.newScheduledThreadPool(2);
+        this.a = w69Var;
     }
 
-    public static synchronized void a(Runnable runnable) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            synchronized (d79.class) {
-                if (c == null || c.isShutdown()) {
-                    c = Executors.newScheduledThreadPool(2);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            synchronized (this.a.b()) {
+                for (w69.a aVar : this.a.b()) {
+                    aVar.a(activity);
                 }
-                c.execute(runnable);
             }
         }
     }
 
-    public static synchronized void b(Runnable runnable, long j, long j2) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityDestroyed(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            synchronized (d79.class) {
-                if (c == null || c.isShutdown()) {
-                    c = Executors.newScheduledThreadPool(2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            synchronized (this.a.b()) {
+                for (w69.a aVar : this.a.b()) {
+                    aVar.onActivityDestroyed(activity);
                 }
-                a.add(new WeakReference<>(c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
             }
         }
     }
 
-    public static void c(Runnable runnable) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityPaused(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            ExecutorService executorService = b;
-            if (executorService == null || executorService.isShutdown()) {
-                b = Executors.newFixedThreadPool(2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            synchronized (this.a.b()) {
+                for (w69.a aVar : this.a.b()) {
+                    aVar.c();
+                }
             }
-            b.execute(runnable);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityResumed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            synchronized (this.a.b()) {
+                for (w69.a aVar : this.a.b()) {
+                    aVar.b();
+                }
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            synchronized (this.a.b()) {
+                Iterator<w69.a> it = this.a.b().iterator();
+                while (it.hasNext()) {
+                    it.next();
+                }
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            synchronized (this.a.b()) {
+                Iterator<w69.a> it = this.a.b().iterator();
+                while (it.hasNext()) {
+                    it.next();
+                }
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public final void onActivityStopped(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            synchronized (this.a.b()) {
+                Iterator<w69.a> it = this.a.b().iterator();
+                while (it.hasNext()) {
+                    it.next();
+                }
+            }
         }
     }
 }

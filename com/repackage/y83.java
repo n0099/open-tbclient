@@ -30,7 +30,7 @@ public class y83 extends ProviderDelegation {
     }
 
     @Nullable
-    public static AshmemFileDescriptor a(@NonNull String str, int i) {
+    public static AshmemFileDescriptor b(@NonNull String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {

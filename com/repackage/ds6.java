@@ -1,101 +1,50 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes5.dex */
-public class ds6 implements fs6 {
+public class ds6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<fs6> a;
-    public static final fs6 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final int d;
+    public final int e;
+    public final double f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755756790, "Lcom/repackage/ds6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755756790, "Lcom/repackage/ds6;");
-                return;
-            }
-        }
-        a = new AtomicReference<>(null);
-        b = new ds6();
-    }
-
-    public ds6() {
+    public ds6(String str, String str2, String str3, int i, int i2, double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = str2;
+        this.d = i;
+        this.c = str3;
+        this.e = i2;
+        this.f = d;
     }
 
-    public static fs6 e() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            fs6 fs6Var = a.get();
-            return fs6Var == null ? b : fs6Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "FunAdCacheInfo{adType='" + this.a + "', platform='" + this.b + "', pid='" + this.c + "', adHashCode=" + this.d + ", count=" + this.e + ", basePrice=" + this.f + '}';
         }
-        return (fs6) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fs6
-    public ho<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
-            return null;
-        }
-        return (ho) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.fs6
-    public ho<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, bdUniqueId)) == null) {
-            return null;
-        }
-        return (ho) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.fs6
-    public ho<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
-            return null;
-        }
-        return (ho) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.fs6
-    public ho<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, baseFragmentActivity, bdUniqueId)) == null) {
-            return null;
-        }
-        return (ho) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -1,55 +1,75 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
+import com.baidu.tieba.newinterest.model.InterestSelectionStyleAModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ClassForumInfo;
-import tbclient.GetVerticalForumList.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
-public class mp7 {
+public class mp7<V> implements wp7<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<kp7> a;
+    public InterestSelectionStyleAModel a;
+    public cp7 b;
+    public BaseInterestSelectionFragment c;
 
-    public mp7() {
+    public mp7(BaseInterestSelectionFragment baseInterestSelectionFragment, cp7 cp7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseInterestSelectionFragment, cp7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = baseInterestSelectionFragment;
+        this.b = cp7Var;
+        this.a = new InterestSelectionStyleAModel(cp7Var, this);
     }
 
-    public void a(DataRes dataRes) {
+    @Override // com.repackage.wp7
+    public void a(V v) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, v) == null) || (baseInterestSelectionFragment = this.c) == null) {
             return;
         }
-        if (dataRes.class_foruminfo != null) {
-            this.a = new ArrayList();
-            for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
-                kp7 kp7Var = new kp7();
-                kp7Var.b = classForumInfo.class_id;
-                kp7Var.c = classForumInfo.class_name;
-                kp7Var.d = classForumInfo.class_icon;
-                ArrayList arrayList = new ArrayList();
-                for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
-                    arrayList.add(new qp7(recommendForumInfo, false));
-                }
-                kp7Var.a = arrayList;
-                this.a.add(kp7Var);
-            }
+        baseInterestSelectionFragment.C0();
+    }
+
+    public void b() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (interestSelectionStyleAModel = this.a) == null) {
+            return;
         }
-        Page page = dataRes.page;
+        interestSelectionStyleAModel.onDestroy();
+    }
+
+    public void c() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interestSelectionStyleAModel = this.a) == null) {
+            return;
+        }
+        interestSelectionStyleAModel.D();
+    }
+
+    @Override // com.repackage.wp7
+    public void onError(int i, String str) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || (baseInterestSelectionFragment = this.c) == null) {
+            return;
+        }
+        baseInterestSelectionFragment.D0(str);
     }
 }

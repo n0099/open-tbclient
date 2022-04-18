@@ -70,18 +70,18 @@ public class Game2GroupShareDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d037f, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c7f);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091cce);
-            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090c7d);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c82);
-            this.d = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090c81);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090c7e);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c80);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091ccf);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090c7e);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c83);
+            this.d = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090c82);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090c7f);
             SkinManager.setViewTextColor(this.f, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
             this.b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0106, 1);
             this.b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090c7c);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090c7d);
             this.g = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
             a();

@@ -41,7 +41,7 @@ public class a extends g {
 
         @Override // com.kwad.sdk.reward.presenter.a
         public int e() {
-            return R.id.obfuscated_res_0x7f09103e;
+            return R.id.obfuscated_res_0x7f09103f;
         }
 
         @Override // com.kwad.sdk.reward.presenter.a

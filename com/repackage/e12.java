@@ -158,9 +158,9 @@ public class e12 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
             int i = b.a[networkStatus.ordinal()];
             if (i != 1 && i != 2) {
-                j02.f(R.string.obfuscated_res_0x7f0f12ee);
+                j02.f(R.string.obfuscated_res_0x7f0f12ed);
             } else {
-                j02.f(R.string.obfuscated_res_0x7f0f12e4);
+                j02.f(R.string.obfuscated_res_0x7f0f12e3);
             }
         }
     }

@@ -34,12 +34,12 @@ public class ie3 implements cf3<Exception> {
 
         /* renamed from: com.repackage.ie3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0439a implements Runnable {
+        public class RunnableC0445a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0439a(a aVar) {
+            public RunnableC0445a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,8 +101,8 @@ public class ie3 implements cf3<Exception> {
                         if (this.a.c != null) {
                             this.a.b.removeCallbacks(this.a.c);
                         }
-                        this.a.c = new RunnableC0439a(this);
-                        long a = oc4.a(300) * 1000;
+                        this.a.c = new RunnableC0445a(this);
+                        long a = nc4.a(300) * 1000;
                         this.a.b.postDelayed(this.a.c, a);
                         if (ie3.e) {
                             Log.d("SwanH2HeartBeatManager", "wait next heart beat: " + a);
@@ -143,7 +143,7 @@ public class ie3 implements cf3<Exception> {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                s74.l(new pb4(0), new m32(this.a, true));
+                r74.l(new ob4(0), new m32(this.a, true));
             }
         }
     }
@@ -240,7 +240,7 @@ public class ie3 implements cf3<Exception> {
     @Override // com.repackage.cf3
     /* renamed from: k */
     public void onCallback(Exception exc) {
-        c94 pmsError;
+        b94 pmsError;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
             this.c = null;
@@ -251,7 +251,7 @@ public class ie3 implements cf3<Exception> {
                 Throwable cause = exc.getCause();
                 if ((cause instanceof PMSException) && (pmsError = ((PMSException) cause).getPmsError()) != null && pmsError.f >= 500) {
                     m();
-                    oc4.a = false;
+                    nc4.a = false;
                     jx1.k("SwanH2HeartBeatManager", "update core heartBeat exception: code=" + pmsError.f);
                     return;
                 }
@@ -262,7 +262,7 @@ public class ie3 implements cf3<Exception> {
 
     public void l() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && oc4.a) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && nc4.a) {
             if (e) {
                 Log.d("SwanH2HeartBeatManager", "startHeartBeat");
             }
@@ -272,7 +272,7 @@ public class ie3 implements cf3<Exception> {
 
     public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && oc4.a) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && nc4.a) {
             if (e) {
                 Log.d("SwanH2HeartBeatManager", "stopHeartBeat");
             }

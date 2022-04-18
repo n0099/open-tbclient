@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f95;
-import com.repackage.nc7;
 import com.repackage.oi;
+import com.repackage.qc7;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes3.dex */
 public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
@@ -69,7 +69,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.b.getContext())) {
-                nc7 a = nc7.a();
+                qc7 a = qc7.a();
                 RankDetailTrendCard rankDetailTrendCard = this.a;
                 a.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
             }
@@ -263,13 +263,13 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01bc, (ViewGroup) null);
             this.m = linearLayout;
-            this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f091208);
-            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f090f55);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092135);
-            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092133);
-            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f092134);
+            this.n = (TbImageView) l(linearLayout, R.id.obfuscated_res_0x7f091209);
+            this.o = (TextView) l(this.m, R.id.obfuscated_res_0x7f090f56);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f092136);
+            this.q = (TbImageView) l(this.m, R.id.obfuscated_res_0x7f092134);
+            this.r = (TextView) l(this.m, R.id.obfuscated_res_0x7f092135);
             this.s = (TextView) l(this.m, R.id.obfuscated_res_0x7f09043b);
-            HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090d21);
+            HeadImageView headImageView = (HeadImageView) l(this.m, R.id.obfuscated_res_0x7f090d22);
             this.t = headImageView;
             headImageView.setIsRound(true);
             return this.m;

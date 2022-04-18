@@ -1,33 +1,47 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
+import android.content.Intent;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class bh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2) {
+    public static boolean a(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_CLICK);
-            statisticItem.param("obj_source", str);
-            statisticItem.param("obj_type", str2);
-            statisticItem.param("obj_locate", ks4.f() >= 1 ? 2 : 1);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) {
+            if (intent == null) {
+                return false;
+            }
+            return intent.getBooleanExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, false);
         }
+        return invokeL.booleanValue;
     }
 
-    public static void b(String str) {
+    public static boolean b(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.WINDOW_EXPOSURE);
-            statisticItem.param("obj_type", str);
-            statisticItem.param("obj_locate", ks4.f() >= 1 ? 2 : 1);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            if (intent == null) {
+                return false;
+            }
+            boolean booleanExtra = intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false);
+            if (booleanExtra) {
+                String stringExtra = intent.getStringExtra("fname");
+                if (!StringUtils.isNull(stringExtra)) {
+                    TiebaStatic.log(new StatisticItem("c11897").param("fname", stringExtra));
+                }
+            }
+            return booleanExtra;
         }
+        return invokeL.booleanValue;
     }
 }

@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb8;
+import com.repackage.ib8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AppDownloadView extends LinearLayout {
@@ -94,7 +94,7 @@ public class AppDownloadView extends LinearLayout {
     public static int getStatus(DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, downloadData)) == null) ? bb8.p(downloadData) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, downloadData)) == null) ? ib8.p(downloadData) : invokeL.intValue;
     }
 
     public final void d(Context context) {
@@ -104,9 +104,9 @@ public class AppDownloadView extends LinearLayout {
             setGravity(16);
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0124, (ViewGroup) this, true);
             this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090299);
-            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090ad3);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad1);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad2);
+            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090ad4);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad2);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ad3);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -130,7 +130,7 @@ public class AppDownloadView extends LinearLayout {
             setVisibility(0);
             SkinManager.setImageResource(this.c, R.drawable.icon_download_play);
         }
-        int j = bb8.n().j(downloadData.getId(), downloadData.getName());
+        int j = ib8.n().j(downloadData.getId(), downloadData.getName());
         if (j >= 0) {
             h(j);
         } else {
@@ -188,7 +188,7 @@ public class AppDownloadView extends LinearLayout {
                                 }
                             }
                             if (downloadData != null) {
-                                this.a.h(bb8.n().j(downloadData.getId(), downloadData.getName()));
+                                this.a.h(ib8.n().j(downloadData.getId(), downloadData.getName()));
                                 this.a.postInvalidate();
                             }
                         }
@@ -233,7 +233,7 @@ public class AppDownloadView extends LinearLayout {
                         if (this.a.e.getId() == null || downloadData == null || !this.a.e.getId().equals(downloadData.getId())) {
                             return;
                         }
-                        int p = bb8.p(downloadData);
+                        int p = ib8.p(downloadData);
                         if (p == 7) {
                             SkinManager.setImageResource(this.a.c, R.drawable.icon_download_pause);
                         } else if (p == 1) {

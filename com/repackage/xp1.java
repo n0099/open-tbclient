@@ -101,7 +101,7 @@ public class xp1 extends pp1 {
                 }
                 xp1 xp1Var = this.a;
                 xp1Var.q("#cancelRequest cancelTag=" + optString, false);
-                SwanAppNetworkUtils.a((xp1.j.remove(optString) ? m74.l() : m74.g()).getOkHttpClient(), optString);
+                SwanAppNetworkUtils.a((xp1.j.remove(optString) ? l74.l() : l74.g()).getOkHttpClient(), optString);
                 return js1.f();
             }
             return (js1) invokeLLL.objValue;
@@ -183,7 +183,7 @@ public class xp1 extends pp1 {
             this.f = eVar;
         }
 
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.repackage.r94.a
+        @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.repackage.q94.a
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
@@ -299,7 +299,7 @@ public class xp1 extends pp1 {
                 int G = this.a.X().G();
                 String l = c73.l();
                 String e = de3.n().e();
-                SwanAppNetworkUtils.a((xp1.j.remove(this.d) ? m74.l() : m74.g()).getOkHttpClient(), this.d);
+                SwanAppNetworkUtils.a((xp1.j.remove(this.d) ? l74.l() : l74.g()).getOkHttpClient(), this.d);
                 this.h.d(this.f, new js1(1001, iOException.getMessage()));
                 c73.Q(0, this.c, G, iOException.getMessage(), l, e, this.g, System.currentTimeMillis(), this.d);
             }
@@ -441,7 +441,7 @@ public class xp1 extends pp1 {
     */
     public static Pair<HttpRequest, Integer> C(@Nullable JSONObject jSONObject, @Nullable String str) {
         InterceptResult invokeLL;
-        m74 g2;
+        l74 g2;
         int i2;
         HttpUrl httpUrl;
         HttpUrl httpUrl2;
@@ -473,9 +473,9 @@ public class xp1 extends pp1 {
                     if (z) {
                         j.add(str);
                     }
-                    g2 = z ? m74.l() : m74.g();
+                    g2 = z ? l74.l() : l74.g();
                 } else {
-                    g2 = m74.g();
+                    g2 = l74.g();
                 }
                 String optString = jSONObject.optString("__plugin__");
                 boolean optBoolean = jSONObject.optBoolean("ping", false);
@@ -496,9 +496,9 @@ public class xp1 extends pp1 {
                     return new Pair<>(null, 4);
                 }
                 HashMap hashMap = new HashMap();
-                l74 l74Var = new l74();
-                l74Var.b = upperCase;
-                HttpRequestBuilder b2 = n74.b(l74Var, g2);
+                k74 k74Var = new k74();
+                k74Var.b = upperCase;
+                HttpRequestBuilder b2 = m74.b(k74Var, g2);
                 W(httpUrl3, b2, jSONObject.optJSONObject("header"), hashMap);
                 b2.setHeader("Referer", yp1.d());
                 if (!TextUtils.isEmpty(optString)) {
@@ -527,13 +527,13 @@ public class xp1 extends pp1 {
                         if (b2 instanceof HttpCommonRequestBuilder) {
                             ((HttpCommonRequestBuilder) b2).requestBody(G);
                         }
-                        l74Var.a = httpUrl2.toString();
-                        l74Var.f = X();
-                        l74Var.g = false;
-                        l74Var.h = true;
-                        l74Var.i = str;
-                        l74Var.k = 3;
-                        g2.u(b2, l74Var);
+                        k74Var.a = httpUrl2.toString();
+                        k74Var.f = X();
+                        k74Var.g = false;
+                        k74Var.h = true;
+                        k74Var.i = str;
+                        k74Var.k = 3;
+                        g2.u(b2, k74Var);
                         HttpRequest build = b2.build();
                         if (!optBoolean) {
                             build = bs2.e(build, "request", optString);
@@ -547,13 +547,13 @@ public class xp1 extends pp1 {
                 }
                 if (b2 instanceof HttpCommonRequestBuilder) {
                 }
-                l74Var.a = httpUrl2.toString();
-                l74Var.f = X();
-                l74Var.g = false;
-                l74Var.h = true;
-                l74Var.i = str;
-                l74Var.k = 3;
-                g2.u(b2, l74Var);
+                k74Var.a = httpUrl2.toString();
+                k74Var.f = X();
+                k74Var.g = false;
+                k74Var.h = true;
+                k74Var.i = str;
+                k74Var.k = 3;
+                g2.u(b2, k74Var);
                 HttpRequest build2 = b2.build();
                 if (!optBoolean) {
                 }

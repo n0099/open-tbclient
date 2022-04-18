@@ -110,9 +110,9 @@ public class j82 {
                     if (tg1.a) {
                         Log.e("SwanGameRuntime", "非手百环境依赖注入接口convertSrc()未实现，直接返回");
                     }
-                    ng4.d(byteStream);
-                    ng4.d(null);
-                    ng4.d(response);
+                    mg4.d(byteStream);
+                    mg4.d(null);
+                    mg4.d(response);
                     return;
                 }
                 String str = this.a.c + c.substring(0, c.lastIndexOf("/"));
@@ -144,22 +144,22 @@ public class j82 {
                                 if (this.a.d != null) {
                                     this.a.d.fail(-1, this.a.b);
                                 }
-                                ng4.d(inputStream);
-                                ng4.d(fileOutputStream);
-                                ng4.d(response);
+                                mg4.d(inputStream);
+                                mg4.d(fileOutputStream);
+                                mg4.d(response);
                             } catch (Throwable th3) {
                                 th = th3;
-                                ng4.d(inputStream);
-                                ng4.d(fileOutputStream);
-                                ng4.d(response);
+                                mg4.d(inputStream);
+                                mg4.d(fileOutputStream);
+                                mg4.d(response);
                                 throw th;
                             }
                         } catch (Throwable th4) {
                             th = th4;
                             inputStream = byteStream;
-                            ng4.d(inputStream);
-                            ng4.d(fileOutputStream);
-                            ng4.d(response);
+                            mg4.d(inputStream);
+                            mg4.d(fileOutputStream);
+                            mg4.d(response);
                             throw th;
                         }
                     }
@@ -185,13 +185,13 @@ public class j82 {
                             this.a.d.fail(-1, absolutePath);
                         }
                     }
-                    ng4.d(byteStream);
+                    mg4.d(byteStream);
                 } catch (Exception e4) {
                     e = e4;
                     fileOutputStream = null;
                 }
-                ng4.d(fileOutputStream);
-                ng4.d(response);
+                mg4.d(fileOutputStream);
+                mg4.d(response);
             }
         }
     }

@@ -1,44 +1,33 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.openid.sdk.OnGetOaidListener;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class wq9 implements OnGetOaidListener {
+public class wq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ zq9 a;
+    public int a;
+    public byte[] b;
 
-    public wq9(zq9 zq9Var) {
+    public wq9(int i, byte[] bArr, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zq9Var};
+            Object[] objArr = {Integer.valueOf(i), bArr, map};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = zq9Var;
-    }
-
-    @Override // com.fun.openid.sdk.OnGetOaidListener
-    public void onGetOaid(String str) {
-        Context context;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || !TextUtils.isEmpty(zq9.c) || TextUtils.isEmpty(str) || (context = this.a.a) == null) {
-            return;
-        }
-        zq9.c = str;
-        fr9.z(context, str);
+        this.a = i;
+        this.b = bArr;
     }
 }

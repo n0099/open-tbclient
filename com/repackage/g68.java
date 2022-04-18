@@ -1,74 +1,183 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class g68 extends c45 {
+public class g68 extends tw5<e58> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
-    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext i;
+    public View j;
+    public View k;
+    public TextView l;
+    public HTypeListView m;
+    public c48 n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755725976, "Lcom/repackage/g68;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e58 a;
+        public final /* synthetic */ g68 b;
+
+        public a(g68 g68Var, e58 e58Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g68Var, e58Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755725976, "Lcom/repackage/g68;");
-                return;
+            this.b = g68Var;
+            this.a = e58Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.t(this.a);
             }
         }
-        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
-        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g68(Context context, View.OnClickListener onClickListener) {
-        super(context, onClickListener);
+    public g68(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, onClickListener};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View.OnClickListener) objArr2[1]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g();
+        this.i = tbPageContext;
+        View k = k();
+        this.j = k;
+        this.k = k.findViewById(R.id.obfuscated_res_0x7f090812);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090cc6);
+        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f090cb2);
+        this.m = hTypeListView;
+        this.n = new c48(this.i, hTypeListView);
     }
 
-    public final void g() {
-        TbImageView tbImageView;
+    @Override // com.repackage.tw5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            int i = j;
-            layoutParams.width = i;
-            layoutParams.height = i;
-            layoutParams.topMargin = k;
-            this.c.setLayoutParams(layoutParams);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0198 : invokeV.intValue;
+    }
+
+    @Override // com.repackage.tw5
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
         }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    public final void t(e58 e58Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, e58Var) == null) {
+            if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
+                this.i.showToast(R.string.obfuscated_res_0x7f0f079e);
+            } else if (ViewHelper.checkUpIsLogin(this.i.getPageActivity())) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.i.getPageActivity(), e58Var.c, e58Var.d, e58Var.e, e58Var.f)));
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.tw5
+    /* renamed from: u */
+    public void l(e58 e58Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, e58Var) == null) {
+            if (e58Var != null && e58Var.isValid()) {
+                a aVar = new a(this, e58Var);
+                this.n.a(aVar);
+                this.j.setOnClickListener(aVar);
+                this.n.b(aVar);
+                this.m.setData(v(e58Var.g));
+                if (e58Var.a) {
+                    this.l.setText(R.string.obfuscated_res_0x7f0f07a2);
+                } else if (e58Var.b) {
+                    this.l.setText(R.string.obfuscated_res_0x7f0f07a1);
+                } else {
+                    this.l.setText(R.string.obfuscated_res_0x7f0f07a0);
+                }
+                m(this.i, TbadkCoreApplication.getInst().getSkinType());
+                return;
+            }
+            this.j.setVisibility(8);
+        }
+    }
+
+    public final List<uo> v(List<uo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
+            int count = ListUtils.getCount(list);
+            if (count <= 0) {
+                return list;
+            }
+            List<uo> arrayList = new ArrayList<>(list);
+            int f = oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07019a);
+            int f2 = oi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
+            if (count > 7) {
+                arrayList = arrayList.subList(0, 7);
+                f58 f58Var = new f58();
+                f58Var.b = f;
+                f58Var.a = f;
+                ListUtils.add(arrayList, f58Var);
+            }
+            b18 b18Var = new b18(f2, f);
+            ListUtils.add(arrayList, 0, b18Var);
+            ListUtils.add(arrayList, b18Var);
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

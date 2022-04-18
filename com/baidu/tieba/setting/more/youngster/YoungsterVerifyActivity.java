@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bm4;
+import com.repackage.am4;
 /* loaded from: classes4.dex */
 public class YoungsterVerifyActivity extends TbWebViewActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -155,9 +155,9 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            bm4 bm4Var = this.mView;
-            if (bm4Var != null) {
-                bm4Var.H();
+            am4 am4Var = this.mView;
+            if (am4Var != null) {
+                am4Var.H();
             }
         }
     }
@@ -167,9 +167,9 @@ public class YoungsterVerifyActivity extends TbWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            bm4 bm4Var = this.mView;
-            if (bm4Var != null) {
-                bm4Var.H();
+            am4 am4Var = this.mView;
+            if (am4Var != null) {
+                am4Var.H();
             }
             BridgeWebView bridgeWebView = this.mWebView;
             if (bridgeWebView != null) {

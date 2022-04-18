@@ -28,8 +28,8 @@ public class n05 extends u05 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f080967;
+        this.d = R.drawable.obfuscated_res_0x7f08096b;
         this.g = true;
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1315);
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1314);
     }
 }

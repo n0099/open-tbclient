@@ -139,7 +139,7 @@ public abstract class qr0 extends sr0 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Context context = getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
-            String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0b49);
+            String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0b48);
             Intrinsics.checkNotNullExpressionValue(string, "context.resources.getStr…eo_switch_fullscreen_tip)");
             return string;
         }

@@ -1,116 +1,56 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.BookThread;
 /* loaded from: classes6.dex */
-public class ho4 extends ThreadData {
+public class ho4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public int d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755641532, "Lcom/repackage/ho4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755641532, "Lcom/repackage/ho4;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
+    public String a;
+    public long b;
 
     public ho4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d = i;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optString("book_id", "0");
+            this.b = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
+            jSONObject.optInt("book_type", 0);
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
     }
 
-    public void q(boolean z) {
+    public void b(BookThread bookThread) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bookThread) == null) || bookThread == null) {
+            return;
         }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.b = z;
-        }
+        this.a = bookThread.book_id;
+        this.b = bookThread.chapter_id.longValue();
+        bookThread.book_type.intValue();
     }
 }

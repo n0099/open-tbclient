@@ -8,17 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipSpecialItem;
-import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes6.dex */
 public class jj7 implements uo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public zi7 a;
-    public List<kj7> b;
 
     static {
         InterceptResult invokeClinit;
@@ -33,38 +27,20 @@ public class jj7 implements uo {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
-    public jj7(VipSpecialList vipSpecialList) {
-        List<VipSpecialItem> list;
+    public jj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
-            return;
-        }
-        String str = vipSpecialList.card_id;
-        zi7 zi7Var = new zi7();
-        this.a = zi7Var;
-        zi7Var.e(1);
-        this.a.d(vipSpecialList.class_name);
-        this.a.f(vipSpecialList.class_url_name);
-        this.a.g(vipSpecialList.class_url);
-        this.b = new ArrayList();
-        for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
-            this.b.add(new kj7(vipSpecialItem));
         }
     }
 
@@ -72,6 +48,6 @@ public class jj7 implements uo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

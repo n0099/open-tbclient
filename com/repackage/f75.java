@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class f75 extends io implements sj8 {
+public class f75 extends io implements zj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContextSupport b;
@@ -72,11 +72,11 @@ public class f75 extends io implements sj8 {
                 layoutParams.height = this.j;
                 this.f.setLayoutParams(layoutParams);
             }
-            this.c = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0916ea);
-            View findViewById = this.f.findViewById(R.id.obfuscated_res_0x7f0916ed);
+            this.c = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0916eb);
+            View findViewById = this.f.findViewById(R.id.obfuscated_res_0x7f0916ee);
             this.g = findViewById;
             findViewById.setVisibility(8);
-            this.d = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f09191c);
+            this.d = (ProgressBar) this.f.findViewById(R.id.obfuscated_res_0x7f09191d);
             onChangeSkinType(this.b.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.g.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             return this.f;
@@ -136,7 +136,7 @@ public class f75 extends io implements sj8 {
         }
     }
 
-    @Override // com.repackage.sj8
+    @Override // com.repackage.zj8
     public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

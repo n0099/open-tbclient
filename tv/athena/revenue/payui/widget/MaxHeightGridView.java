@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c6a;
+import com.repackage.j6a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import kotlin.Metadata;
 import kotlin.jvm.JvmOverloads;
@@ -136,7 +136,7 @@ public final class MaxHeightGridView extends GridView {
         int integer = obtainStyledAttributes.getInteger(0, 536870911);
         this.a = integer;
         if (integer != 536870911) {
-            this.a = c6a.a(integer);
+            this.a = j6a.a(integer);
         }
         obtainStyledAttributes.recycle();
     }

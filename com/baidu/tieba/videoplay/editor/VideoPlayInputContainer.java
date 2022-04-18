@@ -29,13 +29,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ax4;
-import com.repackage.dz8;
 import com.repackage.i05;
+import com.repackage.kz8;
 import com.repackage.oi;
-import com.repackage.r86;
-import com.repackage.s86;
+import com.repackage.t86;
+import com.repackage.u86;
 import com.repackage.v05;
+import com.repackage.zw4;
 import java.util.regex.Matcher;
 /* loaded from: classes4.dex */
 public class VideoPlayInputContainer extends LinearLayout implements v05 {
@@ -220,7 +220,7 @@ public class VideoPlayInputContainer extends LinearLayout implements v05 {
     }
 
     /* loaded from: classes4.dex */
-    public class e implements s86.g {
+    public class e implements u86.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayInputContainer a;
@@ -243,7 +243,7 @@ public class VideoPlayInputContainer extends LinearLayout implements v05 {
             this.a = videoPlayInputContainer;
         }
 
-        @Override // com.repackage.s86.g
+        @Override // com.repackage.u86.g
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -364,11 +364,11 @@ public class VideoPlayInputContainer extends LinearLayout implements v05 {
             this.b.setGravity(16);
             this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
             this.b.setBackgroundResource(R.color.common_color_10022);
-            dz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b6);
+            kz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b6);
             this.b.setPadding(0, oi.f(context, R.dimen.obfuscated_res_0x7f0701e8), oi.f(context, R.dimen.obfuscated_res_0x7f0702dd), oi.f(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
-            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f0f9c));
+            this.b.setHint(context.getString(R.string.obfuscated_res_0x7f0f0f9b));
             this.b.setOnTouchListener(new c(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
@@ -385,7 +385,7 @@ public class VideoPlayInputContainer extends LinearLayout implements v05 {
             this.c.setIncludeFontPadding(false);
             this.c.setEnabled(false);
             this.c.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b7));
-            this.c.setText(R.string.obfuscated_res_0x7f0f10ea);
+            this.c.setText(R.string.obfuscated_res_0x7f0f10e9);
             this.c.setOnClickListener(new d(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, 0, oi.f(context, R.dimen.tbds18));
@@ -405,7 +405,7 @@ public class VideoPlayInputContainer extends LinearLayout implements v05 {
         if (i == 3) {
             if (this.b.getSelectionStart() > 0) {
                 String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-                Matcher matcher = r86.b.matcher(substring);
+                Matcher matcher = t86.b.matcher(substring);
                 if (matcher.find()) {
                     this.b.getText().delete(this.b.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.b.getSelectionStart());
                 } else {
@@ -420,7 +420,7 @@ public class VideoPlayInputContainer extends LinearLayout implements v05 {
                 if (TextUtils.isEmpty((String) obj2)) {
                     this.b.setText((CharSequence) null);
                 } else {
-                    s86.e(getContext(), (String) i05Var.c, new e(this));
+                    u86.e(getContext(), (String) i05Var.c, new e(this));
                 }
             }
         } else if (i == 9) {
@@ -429,12 +429,12 @@ public class VideoPlayInputContainer extends LinearLayout implements v05 {
             }
             this.c.setEnabled(false);
             l();
-        } else if (i == 24 && (obj = i05Var.c) != null && (obj instanceof ax4)) {
-            ax4 ax4Var = (ax4) obj;
-            if (ax4Var.getType() == EmotionGroupType.NET_SUG) {
-                r(ax4Var);
+        } else if (i == 24 && (obj = i05Var.c) != null && (obj instanceof zw4)) {
+            zw4 zw4Var = (zw4) obj;
+            if (zw4Var.getType() == EmotionGroupType.NET_SUG) {
+                r(zw4Var);
             } else {
-                q(ax4Var);
+                q(zw4Var);
             }
         }
     }
@@ -448,10 +448,10 @@ public class VideoPlayInputContainer extends LinearLayout implements v05 {
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 2, i);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i);
             if (i == 0) {
-                dz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b6);
+                kz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b6);
                 this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0109));
             } else {
-                dz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b7);
+                kz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b7);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
             }
             l();
@@ -465,30 +465,30 @@ public class VideoPlayInputContainer extends LinearLayout implements v05 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
-    public final void q(ax4 ax4Var) {
+    public final void q(zw4 zw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, ax4Var) == null) {
-            if (!this.e || ax4Var.getType() == EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, zw4Var) == null) {
+            if (!this.e || zw4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
-                if (this.j && r86.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1404);
+                if (this.j && t86.a(obj) >= 10 && getContext() != null) {
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1403);
                 } else {
-                    s86.b(getContext(), ax4Var, this.b);
+                    u86.b(getContext(), zw4Var, this.b);
                 }
             }
         }
     }
 
-    public final void r(ax4 ax4Var) {
+    public final void r(zw4 zw4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, ax4Var) == null) || ax4Var == null || TextUtils.isEmpty(ax4Var.c()) || TextUtils.isEmpty(ax4Var.f())) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, zw4Var) == null) || zw4Var == null || TextUtils.isEmpty(zw4Var.c()) || TextUtils.isEmpty(zw4Var.f())) {
             return;
         }
         String obj = this.b.getText().toString();
-        if (this.j && r86.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1404);
+        if (this.j && t86.a(obj) >= 10 && getContext() != null) {
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1403);
         } else {
-            s86.c(getContext(), ax4Var, this.b);
+            u86.c(getContext(), zw4Var, this.b);
         }
     }
 

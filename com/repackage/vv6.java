@@ -1,67 +1,49 @@
 package com.repackage;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b00;
-import com.repackage.m00;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class vv6 extends ho<dy5, ThreadCardViewHolder<dy5>> {
+public class vv6 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public BdUniqueId j;
-    public zo k;
-    public rx5<dy5> l;
+    public List<dw6> a;
+    public TbPageContext b;
+    public int c;
+    public int d;
+    public BdUniqueId e;
+    public boolean f;
 
     /* loaded from: classes7.dex */
-    public class a extends rx5<dy5> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public a(vv6 vv6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vv6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.rx5
-        /* renamed from: d */
-        public void a(View view2, dy5 dy5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, dy5Var) == null) {
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements dp {
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vv6 a;
+        public TextView a;
+        public BarImageView b;
+        public ImageView c;
 
         public b(vv6 vv6Var) {
             Interceptable interceptable = $ic;
@@ -75,110 +57,136 @@ public class vv6 extends ho<dy5, ThreadCardViewHolder<dy5>> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = vv6Var;
         }
 
-        @Override // com.repackage.dp
-        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof dy5) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                dy5 dy5Var = (dy5) uoVar;
-                dy5Var.f = 1;
-                if (this.a.l != null) {
-                    this.a.l.a(threadCardViewHolder.b(), dy5Var);
-                }
-                ew6.b(dy5Var, view2.getContext(), 18, false, uy.a((zo) viewGroup, view2, i));
-                threadCardViewHolder.c().o(new m00.a(1));
-            }
+        public /* synthetic */ b(vv6 vv6Var, a aVar) {
+            this(vv6Var);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vv6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public vv6(TbPageContext tbPageContext, int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new a(this);
-        this.i = tbPageContext;
+        this.c = -1;
+        this.f = false;
+        this.b = tbPageContext;
+        this.e = bdUniqueId;
+        this.d = i;
+        this.c = vt4.k().l("key_game_video_tab_has_choosed_sub_class_id", -1);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public ThreadCardViewHolder<dy5> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void a(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            b00.b bVar = new b00.b(this.i.getPageActivity(), false);
-            dz dzVar = new dz(this.i.getPageActivity());
-            dzVar.x(true);
-            dzVar.w(ImageViewerConfig.FROM_GAME_VIDEO);
-            bVar.h(dzVar);
-            b00 k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.k);
-            k.r(18);
-            ThreadCardViewHolder<dy5> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.j);
-            V(new b(this));
-            return threadCardViewHolder;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
+            return;
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0107);
+        SkinManager.setImageResource(bVar.c, R.drawable.icon_game_video_tab_choose_select);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: b0 */
-    public View S(int i, View view2, ViewGroup viewGroup, dy5 dy5Var, ThreadCardViewHolder<dy5> threadCardViewHolder) {
-        InterceptResult invokeCommon;
+    public void b(List<dw6> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dy5Var, threadCardViewHolder})) == null) {
-            if (dy5Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || dy5Var.a == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+            if (this.f || ListUtils.isEmpty(list)) {
+                return;
             }
-            dy5Var.I(dy5Var.position + 1);
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(dy5Var);
-            threadCardViewHolder.c().onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.l);
-            return threadCardViewHolder.b();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void c0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            for (dw6 dw6Var : list) {
+                if (!StringUtils.isNull(dw6Var.c)) {
+                    ig.h().m(dw6Var.c, 10, null, this.e);
+                }
+            }
+            this.f = true;
         }
     }
 
-    public void d0(BdUniqueId bdUniqueId) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.j = bdUniqueId;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
         }
     }
 
-    public void e0(zo zoVar) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zoVar) == null) {
-            this.k = zoVar;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.a) : invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? ListUtils.getItem(this.a, i) : invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
         }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                bVar = new b(this, null);
+                view3 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0382, (ViewGroup) null);
+                bVar.a = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090e2f);
+                bVar.b = (BarImageView) view3.findViewById(R.id.obfuscated_res_0x7f090e2d);
+                bVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090e2e);
+                bVar.b.setShowOval(true);
+                bVar.b.setAutoChangeStyle(true);
+                bVar.b.setBorderColor(this.b.getResources().getColor(R.color.black_alpha8));
+                bVar.b.setBorderWidth(this.b.getResources().getDimensionPixelOffset(R.dimen.tbds3));
+                view3.setTag(bVar);
+            } else {
+                view3 = view2;
+                bVar = (b) view2.getTag();
+            }
+            a(bVar);
+            dw6 dw6Var = (dw6) ListUtils.getItem(this.a, i);
+            if (dw6Var != null) {
+                bVar.a.setText(StringUtils.isNull(dw6Var.b) ? "" : dw6Var.b);
+                bVar.b.K(dw6Var.c, 10, false);
+                if (dw6Var.d == 1) {
+                    bVar.b.setAlpha(1);
+                    bVar.a.setAlpha(1.0f);
+                } else {
+                    bVar.b.setAlpha(0.5f);
+                    bVar.a.setAlpha(0.5f);
+                }
+                if (dw6Var.a == this.c && this.d != 101) {
+                    bVar.c.setVisibility(0);
+                } else {
+                    bVar.c.setVisibility(8);
+                }
+            }
+            return view3;
+        }
+        return (View) invokeILL.objValue;
     }
 }

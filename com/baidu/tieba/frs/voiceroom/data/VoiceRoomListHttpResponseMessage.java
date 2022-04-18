@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xr6;
+import com.repackage.zr6;
 import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
 /* loaded from: classes3.dex */
-public class VoiceRoomListHttpResponseMessage extends MvcProtobufHttpResponsedMessage<xr6, VoiceRoomListPageResIdl> {
+public class VoiceRoomListHttpResponseMessage extends MvcProtobufHttpResponsedMessage<zr6, VoiceRoomListPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

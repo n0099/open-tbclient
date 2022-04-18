@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gx7;
 import com.repackage.pg;
-import com.repackage.zw7;
 /* loaded from: classes3.dex */
 public class SuggestEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -150,7 +150,7 @@ public class SuggestEmotionModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(zw7 zw7Var);
+        void a(gx7 gx7Var);
 
         void onFail(int i, String str);
     }

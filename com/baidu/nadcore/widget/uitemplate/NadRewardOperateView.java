@@ -351,14 +351,14 @@ public class NadRewardOperateView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cc, (ViewGroup) this, true);
-            this.c = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914d2);
-            this.d = (SimpleFeedAdInfoView) findViewById(R.id.obfuscated_res_0x7f091a6a);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6b);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6c);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a6e);
+            this.c = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914d3);
+            this.d = (SimpleFeedAdInfoView) findViewById(R.id.obfuscated_res_0x7f091a6b);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6c);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6d);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091a6f);
             this.e = relativeLayout;
             f(relativeLayout);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6d);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6e);
             this.h = textView;
             f(textView);
         }
@@ -459,7 +459,7 @@ public class NadRewardOperateView extends FrameLayout {
             ((GradientDrawable) this.h.getBackground()).setColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602d8));
             ((GradientDrawable) this.h.getBackground()).setStroke(2, getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602d9));
         } else {
-            this.h.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd4));
+            this.h.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd8));
         }
         if (!TextUtils.isEmpty(adBaseModel.h.c)) {
             this.h.setText(adBaseModel.h.c);

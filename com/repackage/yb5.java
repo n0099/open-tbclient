@@ -44,7 +44,7 @@ public class yb5 {
     public ArrayList<WeakReference<Activity>> b;
     public int c;
     public final CustomMessageListener d;
-    public final mm4 e;
+    public final lm4 e;
 
     /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
@@ -88,7 +88,7 @@ public class yb5 {
     }
 
     /* loaded from: classes7.dex */
-    public class b extends mm4 {
+    public class b extends lm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yb5 a;
@@ -111,7 +111,7 @@ public class yb5 {
             this.a = yb5Var;
         }
 
-        @Override // com.repackage.mm4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityCreated(Activity activity, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
@@ -119,7 +119,7 @@ public class yb5 {
             }
         }
 
-        @Override // com.repackage.mm4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
@@ -134,7 +134,7 @@ public class yb5 {
             }
         }
 
-        @Override // com.repackage.mm4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && yb5.f) {
@@ -145,7 +145,7 @@ public class yb5 {
             }
         }
 
-        @Override // com.repackage.mm4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStopped(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && yb5.f) {
@@ -257,7 +257,7 @@ public class yb5 {
                 return false;
             }
             try {
-                Object tag = frameLayout.getTag(R.id.obfuscated_res_0x7f091e91);
+                Object tag = frameLayout.getTag(R.id.obfuscated_res_0x7f091e92);
                 ViewGroup viewGroup = 0;
                 ViewGroup viewGroup2 = tag instanceof ViewGroup ? (ViewGroup) tag : null;
                 if (viewGroup2 == null || viewGroup2.getParent() == null) {
@@ -265,7 +265,7 @@ public class yb5 {
                 } else if (viewGroup2.getParent() == frameLayout) {
                     return false;
                 } else {
-                    frameLayout.setTag(R.id.obfuscated_res_0x7f091e91, null);
+                    frameLayout.setTag(R.id.obfuscated_res_0x7f091e92, null);
                 }
                 if (viewGroup == null) {
                     viewGroup = n(frameLayout.getContext());
@@ -274,7 +274,7 @@ public class yb5 {
                     return false;
                 }
                 frameLayout.addView(viewGroup);
-                frameLayout.setTag(R.id.obfuscated_res_0x7f091e91, viewGroup);
+                frameLayout.setTag(R.id.obfuscated_res_0x7f091e92, viewGroup);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds339), oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds89));
                 layoutParams.gravity = 83;
                 layoutParams.bottomMargin = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds442) + UtilHelper.getNavigationBarHeight(frameLayout.getContext());
@@ -336,11 +336,11 @@ public class yb5 {
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, viewGroup, context) == null) || viewGroup == null || context == null) {
             return;
         }
-        SkinManager.setViewTextColor((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09216e), (int) R.color.CAM_X0101);
+        SkinManager.setViewTextColor((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09216f), (int) R.color.CAM_X0101);
         float f2 = oi.f(context, R.dimen.tbds424);
         TBSelector.makeDrawableSelector().setShape(0).setType(1).trRadius(f2).brRadius(f2).defaultColor(R.color.topic_disagree_des_color).into(viewGroup);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091cdd), R.drawable.obfuscated_res_0x7f080609, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091cde), R.drawable.obfuscated_res_0x7f0805e8, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091cde), R.drawable.obfuscated_res_0x7f080609, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091cdf), R.drawable.obfuscated_res_0x7f0805e8, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     public final boolean p(View view2) {
@@ -388,7 +388,7 @@ public class yb5 {
             while (it.hasNext()) {
                 WeakReference<Activity> next = it.next();
                 if (next != null && next.get() != null && !next.get().isFinishing() && (l = l(next.get())) != null) {
-                    Object tag = l.getTag(R.id.obfuscated_res_0x7f091e91);
+                    Object tag = l.getTag(R.id.obfuscated_res_0x7f091e92);
                     if (tag instanceof ViewGroup) {
                         o((ViewGroup) tag, l.getContext());
                     }
@@ -417,11 +417,11 @@ public class yb5 {
                 return false;
             }
             try {
-                Object tag = frameLayout.getTag(R.id.obfuscated_res_0x7f091e91);
+                Object tag = frameLayout.getTag(R.id.obfuscated_res_0x7f091e92);
                 ViewGroup viewGroup = tag instanceof ViewGroup ? (ViewGroup) tag : null;
                 if (viewGroup != null && viewGroup.getParent() != null && viewGroup.getParent() == frameLayout && p(frameLayout) && p(viewGroup)) {
                     frameLayout.removeView(viewGroup);
-                    frameLayout.setTag(R.id.obfuscated_res_0x7f091e91, null);
+                    frameLayout.setTag(R.id.obfuscated_res_0x7f091e92, null);
                     return true;
                 }
             } catch (Exception unused) {
@@ -463,7 +463,7 @@ public class yb5 {
     public final void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            oi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0c76);
+            oi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f0c75);
         }
     }
 

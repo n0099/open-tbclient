@@ -63,14 +63,14 @@ public class gw2 {
         return (String) invokeCommon.objValue;
     }
 
-    public static String b(j94 j94Var) {
+    public static String b(i94 i94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, j94Var)) == null) {
-            if (j94Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, i94Var)) == null) {
+            if (i94Var == null) {
                 return "";
             }
-            String str = j94Var.p;
+            String str = i94Var.p;
             JSONObject jSONObject = new JSONObject();
             String uuid = UUID.randomUUID().toString();
             long currentTimeMillis = System.currentTimeMillis() / 1000;
@@ -86,13 +86,13 @@ public class gw2 {
         return (String) invokeL.objValue;
     }
 
-    public static boolean c(String str, String str2, j94 j94Var) {
+    public static boolean c(String str, String str2, i94 i94Var) {
         InterceptResult invokeLLL;
         int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, j94Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j94Var != null) {
-                String str3 = j94Var.q;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, i94Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && i94Var != null) {
+                String str3 = i94Var.q;
                 if (TextUtils.isEmpty(str3)) {
                     return false;
                 }

@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.i05;
 import com.repackage.j05;
-import com.repackage.lz5;
 import com.repackage.n05;
+import com.repackage.nz5;
 import com.repackage.o05;
 import com.repackage.oi;
 import com.repackage.p05;
@@ -31,8 +31,8 @@ import com.repackage.pg;
 import com.repackage.r05;
 import com.repackage.u05;
 import com.repackage.v05;
-import com.repackage.wr4;
-import com.repackage.wt4;
+import com.repackage.vr4;
+import com.repackage.vt4;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -379,18 +379,18 @@ public class EditorTools extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             BaseActivity baseActivity = (BaseActivity) this.r;
-            lz5 lz5Var = new lz5(baseActivity.getPageContext(), view2);
-            lz5Var.g0(R.drawable.obfuscated_res_0x7f0802ec);
-            lz5Var.O(48);
-            lz5Var.U(true);
-            lz5Var.L(2);
-            lz5Var.h0(true);
-            lz5Var.k0(oi.f(baseActivity, R.dimen.tbds_21));
-            lz5Var.j0(oi.f(baseActivity, R.dimen.tbds0));
-            lz5Var.d0(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds26));
-            lz5Var.a0(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds44));
-            lz5Var.N((int) 3000);
-            lz5Var.n0(baseActivity.getString(R.string.obfuscated_res_0x7f0f14a6), "write_associate_item_hint_tip_key", true);
+            nz5 nz5Var = new nz5(baseActivity.getPageContext(), view2);
+            nz5Var.g0(R.drawable.obfuscated_res_0x7f0802ec);
+            nz5Var.O(48);
+            nz5Var.U(true);
+            nz5Var.L(2);
+            nz5Var.h0(true);
+            nz5Var.k0(oi.f(baseActivity, R.dimen.tbds_21));
+            nz5Var.j0(oi.f(baseActivity, R.dimen.tbds0));
+            nz5Var.d0(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds26));
+            nz5Var.a0(baseActivity.getResources().getDimensionPixelSize(R.dimen.tbds44));
+            nz5Var.N((int) 3000);
+            nz5Var.n0(baseActivity.getString(R.string.obfuscated_res_0x7f0f14a5), "write_associate_item_hint_tip_key", true);
         }
     }
 
@@ -443,7 +443,7 @@ public class EditorTools extends LinearLayout {
             if (view2 == null || view2.getParent() != null) {
                 View view3 = new View(getContext());
                 this.c = view3;
-                wr4 d2 = wr4.d(view3);
+                vr4 d2 = vr4.d(view3);
                 d2.n(R.string.J_X02);
                 d2.f(R.color.CAM_X0210);
                 this.c.setLayoutParams(new RelativeLayout.LayoutParams(-1, oi.f(getContext(), R.dimen.L_X01)));
@@ -494,7 +494,7 @@ public class EditorTools extends LinearLayout {
             if (i2 > 0 && (v05Var = r05Var.k) != null && (v05Var instanceof CommonTabHost)) {
                 ((CommonTabHost) v05Var).setBackgroundColorId(i2);
             }
-            if (!wt4.k().h("key_write_more_tool_point", false)) {
+            if (!vt4.k().h("key_write_more_tool_point", false)) {
                 r05Var.o = true;
             } else {
                 r05Var.o = false;
@@ -914,7 +914,7 @@ public class EditorTools extends LinearLayout {
             this.b.t(i);
             View view2 = this.c;
             if (view2 != null) {
-                wr4 d2 = wr4.d(view2);
+                vr4 d2 = vr4.d(view2);
                 d2.n(R.string.J_X02);
                 d2.f(R.color.CAM_X0210);
             }
@@ -930,8 +930,8 @@ public class EditorTools extends LinearLayout {
             if (n.a()) {
                 A(new i05(31, 0, Integer.valueOf(p05Var.getToolId())));
                 this.a.n(n);
-                if (p05Var.getToolId() == 2 && !wt4.k().h("key_write_more_tool_point", false)) {
-                    wt4.k().u("key_write_more_tool_point", true);
+                if (p05Var.getToolId() == 2 && !vt4.k().h("key_write_more_tool_point", false)) {
+                    vt4.k().u("key_write_more_tool_point", true);
                     p05Var.e();
                 }
                 if (p05Var.getToolId() == 1) {

@@ -83,8 +83,8 @@ import com.repackage.ol2;
 import com.repackage.ot2;
 import com.repackage.pa3;
 import com.repackage.pc3;
+import com.repackage.pc4;
 import com.repackage.q52;
-import com.repackage.qc4;
 import com.repackage.qj2;
 import com.repackage.qz2;
 import com.repackage.r63;
@@ -98,10 +98,10 @@ import com.repackage.tg1;
 import com.repackage.tx1;
 import com.repackage.u33;
 import com.repackage.v53;
+import com.repackage.wc4;
 import com.repackage.wl2;
 import com.repackage.wz1;
 import com.repackage.x63;
-import com.repackage.xc4;
 import com.repackage.xl2;
 import com.repackage.yb3;
 import com.repackage.zm1;
@@ -824,7 +824,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
     private boolean hasHostFailUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? !TextUtils.isEmpty(xc4.e().b()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) ? !TextUtils.isEmpty(wc4.e().b()) : invokeV.booleanValue;
     }
 
     private boolean hasLoadingView() {
@@ -948,13 +948,13 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
                 onWebModeUrlStart(str);
             } else if (isDestroyed()) {
                 jx1.i(TAG, "onAppWebModeStart: swan activity isDestroyed.");
-            } else if (wz1.b.a() && i03.J().r().y0() && qc4.d()) {
+            } else if (wz1.b.a() && i03.J().r().y0() && pc4.d()) {
                 updateFrame(true);
                 d72.U().a1();
             } else if (hasHostFailUrl() && !isForceWebMode()) {
                 updateFrame(true);
-                openWebViewFragment(xc4.e().b());
-            } else if (i03.J().r().y0() && qc4.d()) {
+                openWebViewFragment(wc4.e().b());
+            } else if (i03.J().r().y0() && pc4.d()) {
                 updateFrame(true);
                 d72.U().a1();
             } else {
@@ -1446,7 +1446,7 @@ public class SwanAppActivity extends SwanAppBaseActivity implements ActivityResu
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.yd4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.xd4, android.app.Activity
     @DebugTrace
     public void onCreate(Bundle bundle) {
         Bundle bundle2;

@@ -54,7 +54,7 @@ public class uh5 {
     public TbPageContext b;
     public PopupWindow c;
     public ViewGroup d;
-    public mp4 e;
+    public lp4 e;
     public SparseArray<String> f;
     public List<th5.b> g;
     public int h;
@@ -70,7 +70,7 @@ public class uh5 {
     public View r;
     public TextView s;
     public TBSpecificationBtn t;
-    public mu4 u;
+    public lu4 u;
     public th5 v;
     public boolean w;
     public int x;
@@ -401,12 +401,12 @@ public class uh5 {
                 if (!ni.isEmpty(G)) {
                     this.s.setText(G);
                 } else {
-                    this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1388));
+                    this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1387));
                 }
             }
             TBSpecificationBtn tBSpecificationBtn2 = this.t;
             if (tBSpecificationBtn2 != null) {
-                tBSpecificationBtn2.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c77));
+                tBSpecificationBtn2.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c76));
             }
         }
     }
@@ -473,17 +473,17 @@ public class uh5 {
             if (this.d == null) {
                 ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ee, (ViewGroup) null);
                 this.d = viewGroup;
-                this.s = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090d2e);
+                this.s = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090d2f);
                 if (!ni.isEmpty(G)) {
                     this.s.setText(G);
                 }
-                this.t = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f092251);
-                mu4 mu4Var = new mu4();
-                this.u = mu4Var;
-                mu4Var.r(R.color.CAM_X0304);
+                this.t = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f092252);
+                lu4 lu4Var = new lu4();
+                this.u = lu4Var;
+                lu4Var.r(R.color.CAM_X0304);
                 this.t.setConfig(this.u);
                 this.t.setOnClickListener(this.D);
-                this.t.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c77));
+                this.t.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c76));
                 this.t.setTextSize(R.dimen.T_X08);
                 ViewGroup viewGroup2 = this.d;
                 int i = this.n;
@@ -630,8 +630,8 @@ public class uh5 {
             }
         }
         l();
-        new au4().a = 1500L;
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f66);
+        new zt4().a = 1500L;
+        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f65);
         if (o != null && "7".equals(o.optString("dislike_ids"))) {
             string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f063b);
         }
@@ -657,20 +657,20 @@ public class uh5 {
         }
     }
 
-    public void v(mp4 mp4Var) {
+    public void v(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, mp4Var) == null) || mp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, lp4Var) == null) || lp4Var == null) {
             return;
         }
-        this.e = mp4Var;
-        SparseArray<String> b2 = mp4Var.b();
+        this.e = lp4Var;
+        SparseArray<String> b2 = lp4Var.b();
         this.f = b2;
         if (b2 != null && b2.size() > 9) {
             for (int size = this.f.size() - 1; size >= 9; size--) {
                 this.f.removeAt(size);
             }
         }
-        this.v.j(mp4Var);
+        this.v.j(lp4Var);
     }
 
     public void w(String[] strArr) {

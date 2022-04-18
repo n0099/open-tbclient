@@ -1,43 +1,152 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tieba.R;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ng9 {
+public class ng9 extends zg9<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static com.fun.module.csj.f0 a(TTNativeAd tTNativeAd) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tTNativeAd)) == null) {
-            int imageMode = tTNativeAd.getImageMode();
-            if (imageMode == 15) {
-                i = R.layout.obfuscated_res_0x7f0d036e;
-            } else if (imageMode == 16) {
-                i = R.layout.obfuscated_res_0x7f0d036d;
-            } else if (imageMode == 2) {
-                i = R.layout.obfuscated_res_0x7f0d036c;
-            } else if (imageMode == 3) {
-                i = R.layout.obfuscated_res_0x7f0d036a;
-            } else if (imageMode == 4) {
-                i = R.layout.obfuscated_res_0x7f0d0369;
-            } else if (imageMode != 5) {
-                return null;
-            } else {
-                i = R.layout.obfuscated_res_0x7f0d036b;
+    /* loaded from: classes6.dex */
+    public class a implements TTAdNative.NativeExpressAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FunAdSlot a;
+        public final /* synthetic */ ng9 b;
+
+        public a(ng9 ng9Var, FunAdSlot funAdSlot) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ng9Var, funAdSlot};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            com.fun.module.csj.f0 f0Var = (com.fun.module.csj.f0) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(i, (ViewGroup) null);
-            f0Var.a(tTNativeAd);
-            return f0Var;
+            this.b = ng9Var;
+            this.a = funAdSlot;
         }
-        return (com.fun.module.csj.f0) invokeL.objValue;
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
+        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.e("CSJBannerExpressAd onNativeExpressAdLoad", new Object[0]);
+                if (list != null && !list.isEmpty()) {
+                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
+                    ng9 ng9Var = this.b;
+                    this.a.getSid();
+                    ng9Var.getClass();
+                    tTNativeExpressAd.setExpressInteractionListener(new qg9(ng9Var, tTNativeExpressAd));
+                    tTNativeExpressAd.render();
+                    return;
+                }
+                LogPrinter.e("CSJBannerExpressAd onError: adList is null or empty", new Object[0]);
+                this.b.onError(0, "NoFill");
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ng9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        TTNativeExpressAd tTNativeExpressAd;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (tTNativeExpressAd = (TTNativeExpressAd) obj) == null) {
+            return;
+        }
+        tTNativeExpressAd.destroy();
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            if (this.i == null) {
+                this.i = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+            }
+            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
+            onLoadStart(funAdSlot);
+            this.i.loadBannerExpressAd(build, new a(this, funAdSlot));
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
+            TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
+            onShowStart();
+            tTNativeExpressAd.setSlideIntervalTime(this.mPid.interval);
+            View expressAdView = tTNativeExpressAd.getExpressAdView();
+            if (expressAdView.getParent() != null) {
+                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
+            }
+            tTNativeExpressAd.setDislikeCallback(activity, new sg9(this, expressAdView));
+            tTNativeExpressAd.setDownloadListener(new rg9(null));
+            viewGroup.removeAllViews();
+            viewGroup.addView(expressAdView);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

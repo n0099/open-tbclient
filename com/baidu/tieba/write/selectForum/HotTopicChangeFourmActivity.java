@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vz8;
+import com.repackage.c09;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -32,7 +32,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIMIT_COUNT = 20;
     public transient /* synthetic */ FieldHolder $fh;
-    public vz8 mAdapter;
+    public c09 mAdapter;
     public List<HotTopicBussinessData> mList;
     public BdListView mListView;
     public NavigationBar mNavigationBar;
@@ -96,12 +96,12 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
     private void initUi() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             SkinManager.setViewTextColor(this.mNavigationBar.setTitleText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f038e)), (int) R.color.CAM_X0106);
-            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f090de8);
-            this.mAdapter = new vz8(this);
+            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f090de9);
+            this.mAdapter = new c09(this);
             if (!this.mUseOriginList) {
                 int size = this.mList.size();
                 ArrayList arrayList = null;

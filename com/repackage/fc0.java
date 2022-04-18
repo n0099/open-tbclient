@@ -288,11 +288,11 @@ public class fc0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (SkinManager.SKIN_TYPE_STR_NIGHT.equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d1d;
+                return R.drawable.obfuscated_res_0x7f080d21;
             }
             if ("dark".equals(this.b)) {
             }
-            return R.drawable.obfuscated_res_0x7f080d1c;
+            return R.drawable.obfuscated_res_0x7f080d20;
         }
         return invokeV.intValue;
     }

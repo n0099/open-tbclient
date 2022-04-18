@@ -55,12 +55,12 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
     private void initViewById() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mRootView = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091ad5);
+            this.mRootView = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091ad6);
             this.mFragmentContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906da);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091514);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091515);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f1319));
+            this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f1318));
         }
     }
 

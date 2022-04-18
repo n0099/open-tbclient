@@ -1,20 +1,34 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.setting.forbiddenforum.CancelForbiddenForumResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes7.dex */
 public class td8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public String j;
+    public String k;
+    public long l;
+    public long m;
+    public boolean n;
+    public boolean o;
+    public int p;
+    public String q;
+    public String r;
+    public long s;
+    public long t;
 
     public td8() {
         Interceptable interceptable = $ic;
@@ -29,25 +43,40 @@ public class td8 {
                 return;
             }
         }
-        b();
+        this.k = "";
     }
 
-    public void a(String str) {
+    public static void a(td8 td8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CANCEL_FORBIDDEN_FORUM);
-            httpMessage.addParam("forum_id", str);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || interceptable.invokeL(65538, null, td8Var) == null) {
+            td8Var.i = 0;
+            td8Var.g = 4;
+            td8Var.h = 4;
+            td8Var.l = System.currentTimeMillis();
+            td8Var.n = true;
         }
     }
 
-    public final void b() {
+    public td8(MsgContent msgContent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANCEL_FORBIDDEN_FORUM, TbConfig.SERVER_ADDRESS + TbConfig.URL_CANCEL_FORBIDDEN_FORUM);
-            tbHttpMessageTask.setResponsedClass(CancelForbiddenForumResMsg.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {msgContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.k = "";
+        this.d = msgContent.title;
+        this.q = msgContent.url;
+        this.f = msgContent.src;
+        this.e = msgContent.text;
+        a(this);
     }
 }

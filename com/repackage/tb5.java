@@ -14,7 +14,7 @@ public class tb5 {
     public static /* synthetic */ Interceptable $ic;
     public static tb5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public gw4 a;
+    public fw4 a;
     public ABTestExtraData b;
 
     public tb5() {
@@ -47,11 +47,11 @@ public class tb5 {
         return (tb5) invokeV.objValue;
     }
 
-    public final void a(gw4 gw4Var) {
+    public final void a(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gw4Var) == null) {
-            boolean z = gw4Var == null || this.a == null || gw4Var.a() != this.a.a();
-            this.a = gw4Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, fw4Var) == null) {
+            boolean z = fw4Var == null || this.a == null || fw4Var.a() != this.a.a();
+            this.a = fw4Var;
             if (z) {
                 b("zan_or_cai_smallflow");
             }
@@ -79,10 +79,10 @@ public class tb5 {
         return (String) invokeV.objValue;
     }
 
-    public void e(gw4 gw4Var) {
+    public void e(fw4 fw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gw4Var) == null) {
-            a(gw4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, fw4Var) == null) {
+            a(fw4Var);
         }
     }
 

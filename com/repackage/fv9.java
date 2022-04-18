@@ -1,61 +1,69 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.PBError;
+import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public class fv9 {
+public class fv9 implements eu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public final /* synthetic */ zo9 a;
 
-    public fv9(int i) {
+    public fv9(zo9 zo9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {zo9Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        if (i == 0) {
-            this.b = "成功";
-        } else if (i == 1) {
-            this.b = "未能找到可用的授权APP";
-        } else if (i == 2) {
-            this.b = "授权APP版本太低，请先升级";
-        } else if (i != 3) {
-            this.b = "未知错误";
-        } else {
-            this.b = "App配置错误，请在AndroidManifest.xml加上BridgeActivity声明";
+        this.a = zo9Var;
+    }
+
+    @Override // com.repackage.eu9
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public fv9(int i, String str) {
+    @Override // com.repackage.eu9
+    public void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            Info info = (Info) obj;
+            try {
+                this.a.c = info;
+                if (this.a.f != null) {
+                    if (info == null || info.getType() != 51) {
+                        this.a.f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.a.f()) {
+                        this.a.f.onLoaded();
+                    }
+                }
+            } catch (Exception unused) {
             }
         }
-        this.a = i;
-        this.b = str;
+    }
+
+    @Override // com.repackage.eu9
+    public void onFail(PBError pBError) {
+        xo9 xo9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (xo9Var = this.a.f) == null) {
+            return;
+        }
+        xo9Var.onFail(pBError);
     }
 }

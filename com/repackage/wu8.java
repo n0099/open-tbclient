@@ -1,74 +1,41 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.switchs.ShareSwitch;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class wu8 implements vu8 {
+public class wu8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public tu8 a;
-    public su8 b;
-    public TbPageContext<?> c;
+    public HashMap<String, String> a;
+    public List<DownloadData> b;
+    public b c;
+    public String d;
+    public d05 e;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ wu8 b;
-
-        public a(wu8 wu8Var, ShareItem shareItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wu8Var, shareItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wu8Var;
-            this.a = shareItem;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                di.a(this.a.t);
-                oi.N(this.b.c.getPageActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f043f));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements DialogInterface.OnDismissListener {
+    public class a implements d05 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wu8 a;
 
-        public b(wu8 wu8Var) {
+        public a(wu8 wu8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,148 +53,240 @@ public class wu8 implements vu8 {
             this.a = wu8Var;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        @Override // com.repackage.d05
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.a.h();
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                this.a.i(downloadData);
+                if (this.a.c == null || !this.a.d.equals(downloadData.getUrl())) {
+                    return;
+                }
+                this.a.c.a(str);
             }
+        }
+
+        @Override // com.repackage.d05
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath()) || StringUtils.isNull(wu8.f)) {
+                return;
+            }
+            this.a.i(downloadData);
+            if (this.a.c == null || !this.a.d.equals(downloadData.getUrl())) {
+                return;
+            }
+            this.a.a.put(downloadData.getPath().substring(wu8.f.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+            this.a.c.c(this.a.d, downloadData.getPath());
+        }
+
+        @Override // com.repackage.d05
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.repackage.d05
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                this.a.i(downloadData);
+                if (this.a.c == null || !this.a.d.equals(downloadData.getUrl())) {
+                    return;
+                }
+                this.a.c.b();
+            }
+        }
+
+        @Override // com.repackage.d05
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    public wu8(TbPageContext<?> tbPageContext, su8 su8Var, Intent intent) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(String str);
+
+        void b();
+
+        void c(String str, String str2);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755188777, "Lcom/repackage/wu8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755188777, "Lcom/repackage/wu8;");
+                return;
+            }
+        }
+        f = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
+    }
+
+    public wu8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, su8Var, intent};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = tbPageContext;
-        this.b = su8Var;
-        uu8 uu8Var = new uu8();
-        this.a = uu8Var;
-        uu8Var.b(intent);
-        this.a.e(tbPageContext.getUniqueId());
+        this.e = new a(this);
     }
 
-    @Override // com.repackage.vu8
-    public void a() {
-        su8 su8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (su8Var = this.b) == null) {
-            return;
-        }
-        su8Var.showErrorView();
-    }
-
-    @Override // com.repackage.vu8
-    public void b() {
-        tu8 tu8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tu8Var = this.a) == null) {
-            return;
-        }
-        wt4.k().u(wt4.o(tu8Var.c()), false);
-    }
-
-    @Override // com.repackage.vu8
-    public void c() {
-        tu8 tu8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tu8Var = this.a) == null || this.b == null) {
-            return;
-        }
-        this.b.rePlayVideo(tu8Var.getVideoUrl());
-    }
-
-    @Override // com.repackage.vu8
-    public void d() {
-        su8 su8Var;
-        tu8 tu8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (su8Var = this.b) == null || (tu8Var = this.a) == null) {
-            return;
-        }
-        su8Var.showDialog(tu8Var.a(), this.a.g());
-    }
-
-    @Override // com.repackage.vu8
     public void e() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || StringUtils.isNull(f)) {
             return;
         }
-        if (ShareSwitch.isOn() || ViewHelper.checkUpIsLogin(this.c.getPageActivity())) {
-            i();
+        HashMap<String, String> hashMap = this.a;
+        if (hashMap == null) {
+            this.a = new HashMap<>();
+        } else {
+            hashMap.clear();
+        }
+        File file = new File(f);
+        if (file.exists()) {
+            for (File file2 : file.listFiles()) {
+                if (file2.isFile()) {
+                    this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                }
+            }
         }
     }
 
-    public final void h() {
-        tu8 tu8Var;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (tu8Var = this.a) == null || this.b == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (!TextUtils.isEmpty(str) && !StringUtils.isNull(f)) {
+                String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+                if (nameMd5FromUrl == null) {
+                    return;
+                }
+                File file = new File(f);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
+                if (this.b == null) {
+                    this.b = new ArrayList();
+                }
+                if (h(str)) {
+                    return;
+                }
+                DownloadData downloadData = new DownloadData();
+                downloadData.setType(10);
+                downloadData.setUrl(str);
+                downloadData.setPath(f + "/" + nameMd5FromUrl + str2);
+                downloadData.setCallback(this.e);
+                this.b.add(downloadData);
+                e05.k().l(downloadData);
+                return;
+            }
+            b bVar = this.c;
+            if (bVar != null) {
+                bVar.a("");
+            }
+        }
+    }
+
+    public String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+            if (nameMd5FromUrl == null) {
+                return null;
+            }
+            if (this.a == null) {
+                this.a = new HashMap<>();
+                e();
+            }
+            return this.a.get(nameMd5FromUrl);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!ListUtils.isEmpty(this.b) && str != null) {
+                for (DownloadData downloadData : this.b) {
+                    if (downloadData != null && str.equals(downloadData.getUrl())) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void i(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) || ListUtils.isEmpty(this.b) || downloadData == null) {
             return;
         }
-        this.b.startPlayVideo(tu8Var.getVideoUrl());
+        int i = -1;
+        int i2 = 0;
+        while (true) {
+            if (i2 < this.b.size()) {
+                if (this.b.get(i2) != null && this.b.get(i2).getUrl() != null && this.b.get(i2).getUrl().equals(downloadData.getUrl())) {
+                    i = i2;
+                    break;
+                }
+                i2++;
+            } else {
+                break;
+            }
+        }
+        this.b.remove(i);
     }
 
-    public final void i() {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a == null || this.c == null) {
-            return;
-        }
-        ShareItem shareItem = new ShareItem();
-        shareItem.r = this.a.d();
-        shareItem.s = this.a.i();
-        shareItem.t = this.a.f();
-        shareItem.u = this.a.f();
-        if (!ni.isEmpty(this.a.h())) {
-            shareItem.v = Uri.parse(this.a.h());
-        }
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.c.getPageActivity(), shareItem, true, true);
-        shareDialogConfig.setIsCopyLink(true);
-        shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
-        shareDialogConfig.setOnDismissListener(new b(this));
-        this.c.sendMessage(new CustomMessage(2001276, shareDialogConfig));
-    }
-
-    @Override // com.repackage.vu8
-    public void onClose() {
-        su8 su8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (su8Var = this.b) == null) {
-            return;
-        }
-        su8Var.finishActivity();
-    }
-
-    @Override // com.repackage.vu8
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            if (str == null) {
+                this.d = "";
+            } else {
+                this.d = str;
+            }
         }
     }
 
-    @Override // com.repackage.vu8
-    public void onPause() {
+    public void k(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.vu8
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            h();
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 }

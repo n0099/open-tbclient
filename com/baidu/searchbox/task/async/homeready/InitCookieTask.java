@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vl4;
+import com.repackage.ul4;
 /* loaded from: classes2.dex */
 public class InitCookieTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -32,7 +32,7 @@ public class InitCookieTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vl4.f(TbadkCoreApplication.getInst());
+            ul4.f(TbadkCoreApplication.getInst());
         }
     }
 

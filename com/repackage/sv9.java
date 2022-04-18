@@ -1,50 +1,72 @@
 package com.repackage;
 
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class sv9 {
+public class sv9 {
     public static /* synthetic */ Interceptable $ic;
+    public static sv9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int[] b;
-    public int[] c;
+    public kv9 a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755306949, "Lcom/repackage/sv9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755306949, "Lcom/repackage/sv9;");
+        }
+    }
 
     public sv9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    public static void a(sv9 sv9Var, mv9 mv9Var) {
+    public static sv9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, sv9Var, mv9Var) == null) {
-            int length = sv9Var.c.length;
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                sv9Var.c[i2] = i;
-                pv9.n(sv9Var.a, sv9Var.b, i, mv9Var);
-                i += 1080;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                b = new sv9();
             }
+            return b;
         }
+        return (sv9) invokeV.objValue;
     }
 
-    public static void b(sv9 sv9Var, int i, int i2) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, null, sv9Var, i, i2) == null) {
-            sv9Var.a = i;
-            sv9Var.b = new int[i2 * 1080];
-            sv9Var.c = new int[i2];
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            kv9 kv9Var = this.a;
+            if (kv9Var != null) {
+                kv9Var.info("authsdk", str);
+            } else {
+                Log.i("authsdk", str);
+            }
         }
     }
 }

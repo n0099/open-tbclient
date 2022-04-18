@@ -83,7 +83,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 @ViewPager.DecorView
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TabLayout extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_DURATION = 300;
@@ -765,7 +765,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class TabView extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1403,7 +1403,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ViewPagerOnTabSelectedListener implements OnTabSelectedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fv5;
+import com.repackage.hv5;
 import com.repackage.uo;
 import java.util.LinkedList;
 import java.util.List;
@@ -79,9 +79,9 @@ public class AlaGetEnterEffectResponsedMessage extends JsonHttpResponsedMessage 
             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                 JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                 if (optJSONObject2 != null) {
-                    fv5 fv5Var = new fv5();
-                    fv5Var.a(optJSONObject2);
-                    this.mEffectList.add(fv5Var);
+                    hv5 hv5Var = new hv5();
+                    hv5Var.a(optJSONObject2);
+                    this.mEffectList.add(hv5Var);
                     JSONArray optJSONArray2 = optJSONObject2.optJSONArray("effect_list");
                     if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                         for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {

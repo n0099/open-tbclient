@@ -1,96 +1,67 @@
 package com.repackage;
 
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.forumMember.member.FrsEmpertyItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lb6 implements uo {
+public class lb6 extends kd6<nd6, FrsEmpertyItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public vj8 a;
-    public String b;
-    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755534799, "Lcom/repackage/lb6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755534799, "Lcom/repackage/lb6;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
-
-    public lb6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lb6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    @Override // com.repackage.kd6, com.repackage.ho
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        m0(i, view2, viewGroup, (nd6) obj, (FrsEmpertyItemViewHolder) viewHolder);
+        return view2;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: l0 */
+    public FrsEmpertyItemViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new FrsEmpertyItemViewHolder(new View(this.a)) : (FrsEmpertyItemViewHolder) invokeL.objValue;
     }
 
-    public vj8 e() {
-        InterceptResult invokeV;
+    public View m0(int i, View view2, ViewGroup viewGroup, nd6 nd6Var, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (vj8) invokeV.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nd6Var, frsEmpertyItemViewHolder})) == null) {
+            super.S(i, view2, viewGroup, nd6Var, frsEmpertyItemViewHolder);
+            frsEmpertyItemViewHolder.d(nd6Var.b());
+            frsEmpertyItemViewHolder.c(nd6Var.a());
+            return view2;
         }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void i(vj8 vj8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, vj8Var) == null) {
-            this.a = vj8Var;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

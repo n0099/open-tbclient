@@ -1,21 +1,24 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.PBError;
+import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public class pt9 implements Runnable {
+public class pt9 implements eu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ tt9 a;
+    public final /* synthetic */ xt9 a;
 
-    public pt9(tt9 tt9Var) {
+    public pt9(xt9 xt9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tt9Var};
+            Object[] objArr = {xt9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,16 +28,29 @@ public class pt9 implements Runnable {
                 return;
             }
         }
-        this.a = tt9Var;
+        this.a = xt9Var;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        xt9 xt9Var;
+    @Override // com.repackage.eu9
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (xt9Var = this.a.g) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        xt9Var.a();
+    }
+
+    @Override // com.repackage.eu9
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            xt9.b(this.a, (Info) obj);
+        }
+    }
+
+    @Override // com.repackage.eu9
+    public void onFail(PBError pBError) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
+            this.a.h.onFail(pBError);
+        }
     }
 }

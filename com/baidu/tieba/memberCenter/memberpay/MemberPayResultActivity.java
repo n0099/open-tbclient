@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ak7;
+import com.repackage.dk7;
 /* loaded from: classes3.dex */
 public class MemberPayResultActivity extends BaseActivity<MemberPayResultActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ak7 memberPayResultView;
+    public dk7 memberPayResultView;
     public String payContent;
 
     public MemberPayResultActivity() {
@@ -33,9 +33,9 @@ public class MemberPayResultActivity extends BaseActivity<MemberPayResultActivit
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            ak7 ak7Var = new ak7(getPageContext());
-            this.memberPayResultView = ak7Var;
-            ak7Var.b(this.payContent);
+            dk7 dk7Var = new dk7(getPageContext());
+            this.memberPayResultView = dk7Var;
+            dk7Var.b(this.payContent);
         }
     }
 
@@ -44,9 +44,9 @@ public class MemberPayResultActivity extends BaseActivity<MemberPayResultActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            ak7 ak7Var = this.memberPayResultView;
-            if (ak7Var != null) {
-                ak7Var.d(i);
+            dk7 dk7Var = this.memberPayResultView;
+            if (dk7Var != null) {
+                dk7Var.d(i);
             }
         }
     }

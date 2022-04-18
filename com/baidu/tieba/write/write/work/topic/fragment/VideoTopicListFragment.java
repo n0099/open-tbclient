@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n47;
 import com.repackage.q47;
+import com.repackage.t47;
 /* loaded from: classes4.dex */
 public class VideoTopicListFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -63,10 +63,10 @@ public class VideoTopicListFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(q47 q47Var) {
+        public void a(t47 t47Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, q47Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, q47Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, t47Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, t47Var));
             }
         }
     }
@@ -127,13 +127,13 @@ public class VideoTopicListFragment extends BaseFragment {
         }
     }
 
-    public void E0(n47 n47Var) {
+    public void E0(q47 q47Var) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n47Var) == null) || (videoHotTopicSearchAdapter = this.d) == null || n47Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, q47Var) == null) || (videoHotTopicSearchAdapter = this.d) == null || q47Var == null) {
             return;
         }
-        videoHotTopicSearchAdapter.d("", n47Var.c());
+        videoHotTopicSearchAdapter.d("", q47Var.c());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

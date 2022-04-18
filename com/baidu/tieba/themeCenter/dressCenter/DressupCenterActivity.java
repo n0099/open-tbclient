@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.br8;
-import com.repackage.dr8;
-import com.repackage.er8;
-import com.repackage.fr8;
+import com.repackage.ir8;
+import com.repackage.kr8;
+import com.repackage.lr8;
+import com.repackage.mr8;
 import com.repackage.y75;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -21,7 +21,7 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public DressupCenterModel.b mCallback;
     public DressupCenterModel mModel;
-    public dr8 mView;
+    public kr8 mView;
 
     /* loaded from: classes4.dex */
     public class a implements DressupCenterModel.b {
@@ -48,13 +48,13 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.dressCenter.DressupCenterModel.b
-        public void a(int i, String str, List<br8> list, fr8 fr8Var, List<er8> list2) {
+        public void a(int i, String str, List<ir8> list, mr8 mr8Var, List<lr8> list2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, list, fr8Var, list2}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, list, mr8Var, list2}) == null) {
                 DressupCenterActivity dressupCenterActivity = this.a;
                 dressupCenterActivity.hideLoadingView(dressupCenterActivity.mView.e());
                 if (i == 0) {
-                    this.a.mView.m(list, fr8Var, list2, this.a.mModel.F());
+                    this.a.mView.m(list, mr8Var, list2, this.a.mModel.F());
                     return;
                 }
                 this.a.showToast(str);
@@ -105,9 +105,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            dr8 dr8Var = this.mView;
-            if (dr8Var != null) {
-                dr8Var.f();
+            kr8 kr8Var = this.mView;
+            if (kr8Var != null) {
+                kr8Var.f();
             }
         }
     }
@@ -120,9 +120,9 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
             DressupCenterModel dressupCenterModel = new DressupCenterModel(this);
             this.mModel = dressupCenterModel;
             dressupCenterModel.G(this.mCallback);
-            dr8 dr8Var = new dr8(this);
-            this.mView = dr8Var;
-            showLoadingView(dr8Var.e());
+            kr8 kr8Var = new kr8(this);
+            this.mView = kr8Var;
+            showLoadingView(kr8Var.e());
             this.mModel.loadData();
         }
     }
@@ -141,12 +141,12 @@ public class DressupCenterActivity extends BaseActivity<DressupCenterActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        dr8 dr8Var;
+        kr8 kr8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.mModel == null || (dr8Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.mModel == null || (kr8Var = this.mView) == null) {
             return;
         }
-        hideNetRefreshView(dr8Var.e());
+        hideNetRefreshView(kr8Var.e());
         showLoadingView(this.mView.e());
         this.mModel.loadData();
     }

@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.wp4;
+import com.repackage.vp4;
 /* loaded from: classes3.dex */
 public class PersonFriendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static final String c;
     public static TbHttpMessageTask d;
     public transient /* synthetic */ FieldHolder $fh;
-    public wp4 a;
+    public vp4 a;
     public String b;
 
     static {
@@ -68,7 +68,7 @@ public class PersonFriendModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = new wp4();
+        this.a = new vp4();
     }
 
     public void A(boolean z, String str, int i, int i2) {
@@ -86,10 +86,10 @@ public class PersonFriendModel extends BdBaseModel {
         }
     }
 
-    public void B(wp4 wp4Var) {
+    public void B(vp4 vp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wp4Var) == null) {
-            this.a = wp4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vp4Var) == null) {
+            this.a = vp4Var;
         }
     }
 
@@ -132,10 +132,10 @@ public class PersonFriendModel extends BdBaseModel {
         }
     }
 
-    public wp4 y() {
+    public vp4 y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (wp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (vp4) invokeV.objValue;
     }
 
     public void z() {

@@ -73,8 +73,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.et7;
-import com.repackage.ls4;
+import com.repackage.ks4;
+import com.repackage.lt7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -112,7 +112,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new InitVersionTask());
                 arrayList.add(new InitGlobalDataTask());
                 arrayList.add(new InitLokiTask());
-                if (!et7.a().b() || !ls4.a().a) {
+                if (!lt7.a().b() || !ks4.a().a) {
                     arrayList.add(new InitPrologueAdTask());
                 }
                 arrayList.add(new InitCmdRouterAndStaticTask());
@@ -152,13 +152,13 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new InitAccountChangeTask());
                 arrayList.add(new InitArTask());
                 arrayList.add(new InitAbi64WebViewCompatTask());
-                if (et7.a().b() && ls4.a().b == 1) {
+                if (lt7.a().b() && ks4.a().b == 1) {
                     arrayList.add(new InitPbNetRequestTask());
                 }
             } else if (i == 1) {
                 arrayList.add(new InitAppSettingTask());
                 arrayList.add(new InitViewConfigTask());
-                if (!et7.a().b() || !ls4.a().a) {
+                if (!lt7.a().b() || !ks4.a().a) {
                     arrayList.add(new InitBearTask());
                 }
                 arrayList.add(new InitCertVerifyTask());
@@ -199,7 +199,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
                     arrayList.add(new SyncAccountTask());
                 }
             } else if (i == 3) {
-                if (!et7.a().b() || !ls4.a().a) {
+                if (!lt7.a().b() || !ks4.a().a) {
                     arrayList.add(new MainTabLoadFinishTask());
                     arrayList.add(new GetYYCloudTask());
                     arrayList.add(new InitCookieTask());
@@ -213,7 +213,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 if (DelayInitNightPluginSwitch.isOn()) {
                     arrayList.add(new NightPluginTask());
                 }
-                if (!et7.a().b() || !ls4.a().a) {
+                if (!lt7.a().b() || !ks4.a().a) {
                     arrayList.add(new InitCyberPlayerTask());
                     arrayList.add(new InitSwanAppTask());
                 }

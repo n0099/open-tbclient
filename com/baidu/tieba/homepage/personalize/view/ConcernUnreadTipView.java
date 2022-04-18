@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mz6;
 import com.repackage.oi;
-import com.repackage.wt4;
+import com.repackage.oz6;
+import com.repackage.vt4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ConcernUnreadTipView extends RelativeLayout {
@@ -104,27 +104,27 @@ public class ConcernUnreadTipView extends RelativeLayout {
         }
     }
 
-    public void setData(mz6 mz6Var) {
+    public void setData(oz6 oz6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, mz6Var) == null) || mz6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, oz6Var) == null) || oz6Var == null) {
             return;
         }
-        if (!mz6Var.a()) {
+        if (!oz6Var.a()) {
             setVisibility(8);
             return;
         }
-        if (mz6Var.c > 0) {
-            wt4.k().x(wt4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + mz6Var.c);
+        if (oz6Var.c > 0) {
+            vt4.k().x(vt4.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + oz6Var.c);
         }
-        if (this.d != null && !StringUtils.isNull(mz6Var.d)) {
-            this.d.setText(mz6Var.d);
+        if (this.d != null && !StringUtils.isNull(oz6Var.d)) {
+            this.d.setText(oz6Var.d);
         }
         LinearLayout linearLayout = this.c;
-        if (linearLayout == null || mz6Var.b == null) {
+        if (linearLayout == null || oz6Var.b == null) {
             return;
         }
         linearLayout.removeAllViews();
-        List<String> list = mz6Var.b;
+        List<String> list = oz6Var.b;
         for (int i = 0; i < list.size(); i++) {
             String str = list.get(i);
             if (!StringUtils.isNull(str)) {
@@ -135,10 +135,10 @@ public class ConcernUnreadTipView extends RelativeLayout {
                     layoutParams.leftMargin = this.i;
                 }
                 frameLayout.setLayoutParams(layoutParams);
-                HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090ef6);
+                HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090ef7);
                 headImageView.setIsRound(true);
                 headImageView.setDrawBorder(false);
-                SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091623), R.drawable.bg_unread_tip_head_border);
+                SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091624), R.drawable.bg_unread_tip_head_border);
                 this.c.addView(frameLayout);
                 headImageView.setPageId(this.g);
                 headImageView.K(str, 12, false);

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubs.analytics.SampleResult;
-import com.repackage.a69;
+import com.repackage.h69;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
@@ -75,7 +75,7 @@ public class ni5 {
             if (ni.isEmpty(e)) {
                 return 0;
             }
-            SampleResult a = z59.a(e);
+            SampleResult a = g69.a(e);
             return (a == SampleResult.T1 || a == SampleResult.T2 || a == SampleResult.T3 || a == SampleResult.T4 || a == SampleResult.T5) ? 1 : 0;
         }
         return invokeI.intValue;
@@ -86,7 +86,7 @@ public class ni5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             String f = f(i);
-            return (!ni.isEmpty(f) && wt4.k().l(f, 0) == 1) ? 1 : 0;
+            return (!ni.isEmpty(f) && vt4.k().l(f, 0) == 1) ? 1 : 0;
         }
         return invokeI.intValue;
     }
@@ -130,7 +130,7 @@ public class ni5 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
                 try {
-                    a69.a aVar = new a69.a();
+                    h69.a aVar = new h69.a();
                     aVar.e(TbadkCoreApplication.getInst());
                     aVar.j(false);
                     aVar.n(30L);
@@ -138,7 +138,7 @@ public class ni5 {
                     aVar.l(false);
                     aVar.o(15L);
                     aVar.k(1000);
-                    z59.b(aVar.c());
+                    g69.b(aVar.c());
                     return true;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -153,7 +153,7 @@ public class ni5 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a = wt4.k().l("key_abtest_channel", 0);
+            this.a = vt4.k().l("key_abtest_channel", 0);
             j();
         }
     }
@@ -175,7 +175,7 @@ public class ni5 {
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             if (i == 1 || i == 0) {
                 this.a = i;
-                wt4.k().w("key_abtest_channel", this.a);
+                vt4.k().w("key_abtest_channel", this.a);
                 j();
             }
         }

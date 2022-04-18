@@ -66,7 +66,7 @@ public class jv3 extends g23 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 File c = kv3.c();
                 File b = kv3.b();
-                if (!c.exists() || !ng4.U(c.getPath(), b.getPath())) {
+                if (!c.exists() || !mg4.U(c.getPath(), b.getPath())) {
                     this.a.l(R.string.obfuscated_res_0x7f0f015d);
                 } else {
                     this.a.l(R.string.obfuscated_res_0x7f0f015e);

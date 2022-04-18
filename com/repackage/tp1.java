@@ -35,12 +35,12 @@ public class tp1 {
 
         /* renamed from: com.repackage.tp1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0523a implements Runnable {
+        public class RunnableC0521a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0523a(a aVar) {
+            public RunnableC0521a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public class tp1 {
         public void onReceiveValue(Long l) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                this.a.runOnJSThread(new RunnableC0523a(this));
+                this.a.runOnJSThread(new RunnableC0521a(this));
             }
         }
     }

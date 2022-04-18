@@ -27,10 +27,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.gi8;
+import com.repackage.ck8;
+import com.repackage.cn8;
 import com.repackage.mg;
-import com.repackage.vj8;
-import com.repackage.vm8;
+import com.repackage.ni8;
 import com.repackage.zb5;
 /* loaded from: classes4.dex */
 public class LikeModel extends BdBaseModel {
@@ -170,7 +170,7 @@ public class LikeModel extends BdBaseModel {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<Object, Integer, vj8> {
+    public class b extends BdAsyncTask<Object, Integer, ck8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile NetWork a;
@@ -198,7 +198,7 @@ public class LikeModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public vj8 doInBackground(Object... objArr) {
+        public ck8 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
@@ -227,60 +227,60 @@ public class LikeModel extends BdBaseModel {
                     this.b.setErrorString(errorString);
                     AuthTokenData.parse(postNetData);
                     if (postNetData != null) {
-                        vj8 vj8Var = new vj8();
-                        vj8Var.r(postNetData);
+                        ck8 ck8Var = new ck8();
+                        ck8Var.r(postNetData);
                         if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                            vj8Var.t(null);
+                            ck8Var.t(null);
                         }
-                        this.b.j = vj8Var.a();
-                        vj8Var.v(this.b.b);
-                        return vj8Var;
+                        this.b.j = ck8Var.a();
+                        ck8Var.v(this.b.b);
+                        return ck8Var;
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
                 }
-                vj8 vj8Var2 = new vj8();
-                vj8Var2.y(0);
-                vj8Var2.v(this.b.b);
-                return vj8Var2;
+                ck8 ck8Var2 = new ck8();
+                ck8Var2.y(0);
+                ck8Var2.v(this.b.b);
+                return ck8Var2;
             }
-            return (vj8) invokeL.objValue;
+            return (ck8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(vj8 vj8Var) {
+        public void onPostExecute(ck8 ck8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vj8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ck8Var) == null) {
                 this.b.i = null;
-                if (this.a == null || vj8Var == null || AntiHelper.a(this.b.getContext(), this.b.getErrorCode(), vj8Var.b())) {
+                if (this.a == null || ck8Var == null || AntiHelper.a(this.b.getContext(), this.b.getErrorCode(), ck8Var.b())) {
                     return;
                 }
-                vm8 vm8Var = new vm8();
-                vm8Var.a = mg.g(vj8Var.g(), 0L);
-                vj8Var.j();
-                if (vj8Var != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(mg.g(vj8Var.g(), 0L))));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new zb5.a(this.b.a, vj8Var.m())));
+                cn8 cn8Var = new cn8();
+                cn8Var.a = mg.g(ck8Var.g(), 0L);
+                ck8Var.j();
+                if (ck8Var != null && this.a.getNetContext().getResponse().isRequestSuccess()) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(mg.g(ck8Var.g(), 0L))));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001610, new zb5.a(this.b.a, ck8Var.m())));
                     TbadkCoreApplication.getInst().addLikeForum(this.b.a);
-                    vm8Var.b = true;
-                    vm8Var.c = this.b.getErrorString();
+                    cn8Var.b = true;
+                    cn8Var.c = this.b.getErrorString();
                     if (TbadkCoreApplication.isLogin()) {
                         if (TbSingleton.getInstance().showStampMissionDialog && UbsABTestHelper.isStampMissionDialogABTestB()) {
-                            gi8.r().A(0, 3);
-                            gi8.r().G();
+                            ni8.r().A(0, 3);
+                            ni8.r().G();
                         }
-                        gi8.r().z(StampMission.Type.FOLLOW_FORUM);
+                        ni8.r().z(StampMission.Type.FOLLOW_FORUM);
                     }
                 } else {
-                    vm8Var.b = false;
-                    vm8Var.c = this.b.getErrorString();
+                    cn8Var.b = false;
+                    cn8Var.c = this.b.getErrorString();
                 }
                 if (this.b.mLoadDataCallBack != null) {
-                    this.b.mLoadDataCallBack.c(vj8Var);
+                    this.b.mLoadDataCallBack.c(ck8Var);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, vm8Var));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, cn8Var));
             }
         }
 

@@ -30,33 +30,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aw8;
-import com.repackage.bv8;
-import com.repackage.bw8;
-import com.repackage.cv8;
-import com.repackage.du4;
-import com.repackage.hv8;
+import com.repackage.cu4;
+import com.repackage.db8;
+import com.repackage.hw8;
 import com.repackage.iv8;
+import com.repackage.iw8;
+import com.repackage.jv8;
 import com.repackage.ng5;
 import com.repackage.oi;
-import com.repackage.s68;
-import com.repackage.wa8;
+import com.repackage.ov8;
+import com.repackage.pv8;
+import com.repackage.z68;
 /* loaded from: classes4.dex */
-public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnClickListener, s68.c, bv8, bw8 {
+public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnClickListener, z68.c, iv8, iw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e A;
-    public aw8 B;
+    public hw8 B;
     public int a;
     public boolean b;
     public View c;
     public BdSwipeRefreshLayout d;
-    public du4 e;
+    public cu4 e;
     public VerticalViewPager f;
     public VideoPlayFragmentAdapter g;
     public int h;
     public int i;
-    public cv8 j;
+    public jv8 j;
     public f k;
     public FragmentActivity l;
     public TBLottieAnimationView m;
@@ -66,8 +66,8 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public float q;
     public int r;
     public int s;
-    public hv8 t;
-    public iv8 u;
+    public ov8 t;
+    public pv8 u;
     public g v;
     public h w;
     public boolean x;
@@ -227,7 +227,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     }
 
     /* loaded from: classes4.dex */
-    public class d implements wa8.a {
+    public class d implements db8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayView a;
@@ -250,7 +250,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             this.a = videoPlayView;
         }
 
-        @Override // com.repackage.wa8.a
+        @Override // com.repackage.db8.a
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -299,20 +299,20 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.h = 0;
         this.r = UtilHelper.getDimenPixelSize(R.dimen.tbds35);
         this.s = 2049;
-        this.u = new iv8();
+        this.u = new pv8();
         this.y = "from_no_sub_fragment";
         this.z = 0.0f;
         this.l = fragmentActivity;
         this.a = i2;
         this.b = z;
         this.n = str;
-        this.m = (TBLottieAnimationView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f090d07);
-        this.c = baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f091ad5);
-        VerticalViewPager verticalViewPager = (VerticalViewPager) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f092347);
+        this.m = (TBLottieAnimationView) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f090d08);
+        this.c = baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f091ad6);
+        VerticalViewPager verticalViewPager = (VerticalViewPager) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f092348);
         this.f = verticalViewPager;
         verticalViewPager.setStrictSlide(false);
-        this.t = new hv8(this.m, this.f);
-        this.d = (BdSwipeRefreshLayout) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f091a1e);
+        this.t = new ov8(this.m, this.f);
+        this.d = (BdSwipeRefreshLayout) baseFragment.getView().findViewById(R.id.obfuscated_res_0x7f091a1f);
         if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
             this.d.setBackground(null);
             this.f.setBackground(null);
@@ -320,9 +320,9 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.d.setUseSlideAngleToPullRefresh(true);
         this.d.setNoMoveTargetView(true);
         this.d.setLimitDragDistance(true);
-        du4 du4Var = new du4(fragmentActivity);
-        this.e = du4Var;
-        this.d.setProgressView(du4Var);
+        cu4 cu4Var = new cu4(fragmentActivity);
+        this.e = cu4Var;
+        this.d.setProgressView(cu4Var);
         this.d.setOnChildScrollUpCallback(new a(this));
         if (this.g == null) {
             this.g = new VideoPlayFragmentAdapter(bdUniqueId, baseFragment, fragmentActivity, bdUniqueId2, i, this.a, this.b);
@@ -361,7 +361,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             if (videoPlayFragmentAdapter == null || videoPlayFragmentAdapter.e(this.h) == null) {
                 return;
             }
-            this.g.e(this.h).F2(i);
+            this.g.e(this.h).G2(i);
         }
     }
 
@@ -415,17 +415,17 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    public void J(aw8 aw8Var) {
+    public void J(hw8 hw8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aw8Var) == null) {
-            this.B = aw8Var;
-            if (aw8Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, hw8Var) == null) {
+            this.B = hw8Var;
+            if (hw8Var == null) {
                 return;
             }
-            aw8Var.n(new d(this));
+            hw8Var.n(new d(this));
             VideoPlayFragmentAdapter videoPlayFragmentAdapter = this.g;
             if (videoPlayFragmentAdapter != null) {
-                videoPlayFragmentAdapter.m(aw8Var);
+                videoPlayFragmentAdapter.m(hw8Var);
             }
         }
     }
@@ -521,14 +521,14 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    public void U(cv8 cv8Var, int i, Rect rect) {
+    public void U(jv8 jv8Var, int i, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048596, this, cv8Var, i, rect) == null) {
-            this.j = cv8Var;
-            this.u.d(cv8Var);
-            cv8Var.E(this);
+        if (interceptable == null || interceptable.invokeLIL(1048596, this, jv8Var, i, rect) == null) {
+            this.j = jv8Var;
+            this.u.d(jv8Var);
+            jv8Var.E(this);
             this.i = i;
-            this.g.l(cv8Var, rect);
+            this.g.l(jv8Var, rect);
             this.g.notifyDataSetChanged();
             this.f.setCurrentItem(i);
         }
@@ -541,7 +541,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    @Override // com.repackage.s68.c
+    @Override // com.repackage.z68.c
     public void a(int i, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) || i - i2 >= 3500 || this.y.equals("from_attention_sub_fragment") || y()) {
@@ -550,7 +550,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         this.t.c();
     }
 
-    @Override // com.repackage.bv8
+    @Override // com.repackage.iv8
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
@@ -558,7 +558,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    @Override // com.repackage.bw8
+    @Override // com.repackage.iw8
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -566,14 +566,14 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    @Override // com.repackage.bv8
+    @Override // com.repackage.iv8
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
         }
     }
 
-    @Override // com.repackage.bv8
+    @Override // com.repackage.iv8
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
@@ -584,7 +584,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048603, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090d07) {
+        if ((interceptable == null || interceptable.invokeL(1048603, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f090d08) {
             this.t.onClick(view2);
         }
     }
@@ -666,9 +666,9 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
                 this.f.computeScroll();
             }
             this.t.g();
-            aw8 aw8Var = this.B;
-            if (aw8Var != null) {
-                aw8Var.m(i);
+            hw8 hw8Var = this.B;
+            if (hw8Var != null) {
+                hw8Var.m(i);
             }
             g gVar = this.v;
             if (gVar != null) {
@@ -739,7 +739,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (videoPlayFragmentAdapter = this.g) == null || this.h != 0 || (e2 = videoPlayFragmentAdapter.e(0)) == null) {
             return;
         }
-        e2.f3();
+        e2.g3();
     }
 
     public final boolean y() {

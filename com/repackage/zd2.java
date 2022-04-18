@@ -118,7 +118,7 @@ public class zd2 {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.reset();
                 messageDigest.update(bArr);
-                return ng4.T(messageDigest.digest(), "", false);
+                return mg4.T(messageDigest.digest(), "", false);
             } catch (NoSuchAlgorithmException e) {
                 if (a) {
                     e.printStackTrace();

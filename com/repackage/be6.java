@@ -1,6 +1,6 @@
 package com.repackage;
 
-import android.util.SparseArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class be6 {
+public class be6 implements uo {
     public static /* synthetic */ Interceptable $ic;
-    public static be6 b;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<ce6> a;
 
     static {
         InterceptResult invokeClinit;
@@ -28,7 +27,7 @@ public class be6 {
                 return;
             }
         }
-        b = new be6();
+        a = BdUniqueId.gen();
     }
 
     public be6() {
@@ -41,21 +40,14 @@ public class be6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new SparseArray<>();
     }
 
-    public static be6 a() {
+    @Override // com.repackage.uo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (be6) invokeV.objValue;
-    }
-
-    public ce6 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a.get(i) : (ce6) invokeI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.m00;
 /* loaded from: classes6.dex */
-public class g00 extends qy<qn4> {
+public class g00 extends qy<pn4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class g00 extends qy<qn4> {
     public TextView g;
     public TextView h;
     public OriginalThreadCardView i;
-    public qn4 j;
+    public pn4 j;
     public boolean k;
     public OriginalThreadCardView.b l;
 
@@ -67,7 +67,7 @@ public class g00 extends qy<qn4> {
                 this.a.d().a(this.a.i, this.a.j);
             }
             String id = this.a.j.getThreadData().getId();
-            cx5.a(id);
+            ex5.a(id);
             this.a.s(id);
             this.a.a.o(new m00.a(1));
         }
@@ -114,9 +114,9 @@ public class g00 extends qy<qn4> {
         } else {
             this.f = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01c6, (ViewGroup) null, false);
         }
-        this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091f87);
-        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091f79);
-        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f.findViewById(R.id.obfuscated_res_0x7f09161c);
+        this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091f88);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f091f7a);
+        OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) this.f.findViewById(R.id.obfuscated_res_0x7f09161d);
         this.i = originalThreadCardView;
         originalThreadCardView.setSubClickListener(this.l);
     }
@@ -129,10 +129,10 @@ public class g00 extends qy<qn4> {
     }
 
     @Override // com.repackage.qy
-    public void l(rx5<qn4> rx5Var) {
+    public void l(tx5<pn4> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rx5Var) == null) {
-            super.l(rx5Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tx5Var) == null) {
+            super.l(tx5Var);
         }
     }
 
@@ -147,23 +147,23 @@ public class g00 extends qy<qn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: r */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, qn4Var) == null) || qn4Var == null || qn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, pn4Var) == null) || pn4Var == null || pn4Var.getThreadData() == null) {
             return;
         }
-        this.j = qn4Var;
-        ThreadCardUtils.setTitle(this.g, qn4Var.getThreadData(), this.k);
-        ThreadCardUtils.setAbstract(this.h, this.g, qn4Var.getThreadData(), m, this.k);
-        this.i.g(qn4Var.getThreadData().originalThreadData);
+        this.j = pn4Var;
+        ThreadCardUtils.setTitle(this.g, pn4Var.getThreadData(), this.k);
+        ThreadCardUtils.setAbstract(this.h, this.g, pn4Var.getThreadData(), m, this.k);
+        this.i.g(pn4Var.getThreadData().originalThreadData);
     }
 
     public final void s(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            cx5.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            cx5.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.setReadState(cx5.k(str));
+            ex5.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            ex5.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.i.setReadState(ex5.k(str));
         }
     }
 

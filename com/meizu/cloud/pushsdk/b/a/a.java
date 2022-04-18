@@ -1,6 +1,6 @@
 package com.meizu.cloud.pushsdk.b.a;
 
-import com.repackage.rm9;
+import com.repackage.ym9;
 /* loaded from: classes5.dex */
 public class a {
     public static boolean a = false;
@@ -12,13 +12,13 @@ public class a {
 
     public static void a(String str) {
         if (a) {
-            rm9.a(b, str);
+            ym9.a(b, str);
         }
     }
 
     public static void b(String str) {
         if (a) {
-            rm9.d(b, str);
+            ym9.d(b, str);
         }
     }
 }

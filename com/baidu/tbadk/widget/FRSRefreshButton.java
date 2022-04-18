@@ -88,7 +88,7 @@ public class FRSRefreshButton extends ImageView {
             paint.setAntiAlias(true);
             this.c.setStyle(Paint.Style.FILL);
             this.c.setAntiAlias(true);
-            this.g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080982, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+            this.g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080986, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
             setLayerType(1, null);
         }
     }
@@ -99,7 +99,7 @@ public class FRSRefreshButton extends ImageView {
             return;
         }
         this.h = i;
-        this.g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080982, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+        this.g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080986, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
         invalidate();
     }
 

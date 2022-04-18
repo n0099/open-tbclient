@@ -162,7 +162,7 @@ public class KsRefluxNativeView extends FrameLayout {
 
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0459, this);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0910d5);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0910d6);
         this.a = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
         b bVar = new b(getContext());

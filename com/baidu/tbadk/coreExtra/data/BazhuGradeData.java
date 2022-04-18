@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.go4;
+import com.repackage.fo4;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.BazhuSign;
 /* loaded from: classes3.dex */
-public class BazhuGradeData extends go4 implements Serializable {
+public class BazhuGradeData extends fo4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mDesc;
@@ -47,7 +47,7 @@ public class BazhuGradeData extends go4 implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLevel : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.go4
+    @Override // com.repackage.fo4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {

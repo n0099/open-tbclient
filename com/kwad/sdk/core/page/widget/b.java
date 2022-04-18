@@ -35,24 +35,24 @@ public class b extends Dialog {
 
     private View a() {
         View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d0483, (ViewGroup) null, false);
-        inflate.findViewById(R.id.obfuscated_res_0x7f09107c).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.1
+        inflate.findViewById(R.id.obfuscated_res_0x7f09107d).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 b.this.a.c(b.this);
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f09107b).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.2
+        inflate.findViewById(R.id.obfuscated_res_0x7f09107c).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f091189).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.3
+        inflate.findViewById(R.id.obfuscated_res_0x7f09118a).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 b.this.a.a(b.this);
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f091188).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.4
+        inflate.findViewById(R.id.obfuscated_res_0x7f091189).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 b.this.a.b(b.this);

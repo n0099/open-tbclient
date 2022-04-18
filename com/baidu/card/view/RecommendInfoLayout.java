@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qn4;
-import com.repackage.wr4;
+import com.repackage.pn4;
+import com.repackage.vr4;
 /* loaded from: classes.dex */
 public class RecommendInfoLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -55,29 +55,29 @@ public class RecommendInfoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d082c, (ViewGroup) this, true);
-            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a03);
-            this.b = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0919f0);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919ff);
+            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a04);
+            this.b = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0919f1);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a00);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            wr4 d = wr4.d(this.a);
+            vr4 d = vr4.d(this.a);
             d.n(R.string.J_X01);
             d.f(R.color.CAM_X0209);
-            wr4 d2 = wr4.d(this.c);
+            vr4 d2 = vr4.d(this.c);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0107);
         }
     }
 
-    public void setData(qn4 qn4Var) {
+    public void setData(pn4 pn4Var) {
         ThreadRecommendInfoData threadRecommendInfoData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn4Var) == null) || qn4Var == null || qn4Var.getThreadData() == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(qn4Var.getThreadData().getThreadRecommendInfoDataList(), 0)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) || pn4Var == null || pn4Var.getThreadData() == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(pn4Var.getThreadData().getThreadRecommendInfoDataList(), 0)) == null) {
             return;
         }
         String str = threadRecommendInfoData.forumAvatar;

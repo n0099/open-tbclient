@@ -777,12 +777,12 @@ public final class SimpleExoPlayerView extends FrameLayout {
         LayoutInflater.from(context).inflate(i8, this);
         this.componentListener = new ComponentListener(this, null);
         setDescendantFocusability(262144);
-        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f090924);
+        AspectRatioFrameLayout aspectRatioFrameLayout = (AspectRatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f090925);
         this.contentFrame = aspectRatioFrameLayout;
         if (aspectRatioFrameLayout != null) {
             setResizeModeRaw(aspectRatioFrameLayout, i2);
         }
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090933);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090934);
         this.shutterView = findViewById;
         if (findViewById != null && z3) {
             findViewById.setBackgroundColor(i3);
@@ -796,21 +796,21 @@ public final class SimpleExoPlayerView extends FrameLayout {
         } else {
             this.surfaceView = null;
         }
-        this.overlayFrameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09092a);
-        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f090923);
+        this.overlayFrameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09092b);
+        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f090924);
         this.artworkView = imageView2;
         this.useArtwork = z4 && imageView2 != null;
         if (i4 != 0) {
             this.defaultArtwork = BitmapFactory.decodeResource(context.getResources(), i4);
         }
-        SubtitleView subtitleView = (SubtitleView) findViewById(R.id.obfuscated_res_0x7f090934);
+        SubtitleView subtitleView = (SubtitleView) findViewById(R.id.obfuscated_res_0x7f090935);
         this.subtitleView = subtitleView;
         if (subtitleView != null) {
             subtitleView.setUserDefaultStyle();
             this.subtitleView.setUserDefaultTextSize();
         }
-        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(R.id.obfuscated_res_0x7f090925);
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090926);
+        PlaybackControlView playbackControlView = (PlaybackControlView) findViewById(R.id.obfuscated_res_0x7f090926);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090927);
         if (playbackControlView != null) {
             this.controller = playbackControlView;
         } else if (findViewById2 != null) {

@@ -51,11 +51,11 @@ public class BasicSeperateBaMemberItemView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03ed, this);
             this.b = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f091357);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ee0);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092228);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092221);
-            this.g = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091900);
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f091358);
+            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091ee1);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092229);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092222);
+            this.g = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091901);
         }
     }
 

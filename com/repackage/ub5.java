@@ -82,42 +82,42 @@ public class ub5 {
     public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? wt4.k().l("key_fun_cjs_init", 1) == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? vt4.k().l("key_fun_cjs_init", 1) == 0 : invokeV.booleanValue;
     }
 
     @Modify(description = "广告-禁止初始化广点通", type = 100)
     public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? wt4.k().l("key_fun_gdt_init", 1) == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? vt4.k().l("key_fun_gdt_init", 1) == 0 : invokeV.booleanValue;
     }
 
     @Modify(description = "广告-禁止初始化快手", type = 100)
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? wt4.k().l("key_fun_ks_init", 1) == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? vt4.k().l("key_fun_ks_init", 1) == 0 : invokeV.booleanValue;
     }
 
     @Modify(description = "广告-FRS页面混排广告条数", type = 100)
     public static int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? wt4.k().l("key_mix_frs_ad_count", 5) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? vt4.k().l("key_mix_frs_ad_count", 5) : invokeV.intValue;
     }
 
     public static String g(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
-            List<bs6> g = cs6.j().g(str);
+            List<ds6> g = es6.j().g(str);
             JSONArray jSONArray = new JSONArray();
-            for (bs6 bs6Var : g) {
-                for (int i2 = 0; i2 < bs6Var.e && jSONArray.length() < i; i2++) {
+            for (ds6 ds6Var : g) {
+                for (int i2 = 0; i2 < ds6Var.e && jSONArray.length() < i; i2++) {
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("id", bs6Var.d + i2);
-                        jSONObject.put("ecpm", String.valueOf(bs6Var.f));
+                        jSONObject.put("id", ds6Var.d + i2);
+                        jSONObject.put("ecpm", String.valueOf(ds6Var.f));
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -213,8 +213,8 @@ public class ub5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
             int i = 0;
-            for (bs6 bs6Var : cs6.j().g(str)) {
-                i += bs6Var.e;
+            for (ds6 ds6Var : es6.j().g(str)) {
+                i += ds6Var.e;
             }
             return i;
         }
@@ -223,20 +223,20 @@ public class ub5 {
 
     public static boolean p(Object obj) {
         InterceptResult invokeL;
-        uk8 uk8Var;
+        bl8 bl8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) {
-            if (obj instanceof ep4) {
+            if (obj instanceof dp4) {
                 return true;
             }
-            if (obj instanceof rq4) {
-                uk8Var = ((rq4) obj).s.funAdData;
+            if (obj instanceof qq4) {
+                bl8Var = ((qq4) obj).s.funAdData;
             } else if (obj instanceof ThreadData) {
-                uk8Var = ((ThreadData) obj).funAdData;
+                bl8Var = ((ThreadData) obj).funAdData;
             } else {
-                uk8Var = obj instanceof PostData ? ((PostData) obj).s0 : null;
+                bl8Var = obj instanceof PostData ? ((PostData) obj).s0 : null;
             }
-            return uk8Var != null;
+            return bl8Var != null;
         }
         return invokeL.booleanValue;
     }
@@ -265,7 +265,7 @@ public class ub5 {
                     z = false;
                     break;
             }
-            return wt4.k().l("splash_origin_ad_strategy_key", 1) != 0 ? ab1.b() && z : z;
+            return vt4.k().l("splash_origin_ad_strategy_key", 1) != 0 ? ab1.b() && z : z;
         }
         return invokeI.booleanValue;
     }
@@ -275,7 +275,7 @@ public class ub5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            return ((wt4.k().l("splash_origin_ad_strategy_key", 1) == 1) || (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1)) ? false : true;
+            return ((vt4.k().l("splash_origin_ad_strategy_key", 1) == 1) || (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1)) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -284,35 +284,35 @@ public class ub5 {
     public static int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? wt4.k().l("key_splash_new_policy_first_timeout", 1000) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? vt4.k().l("key_splash_new_policy_first_timeout", 1000) : invokeV.intValue;
     }
 
     @Modify(description = "广告-开屏广告第二次超时时间(新)", type = 100)
     public static int t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? wt4.k().l("key_splash_new_policy_second_timeout", 1400) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? vt4.k().l("key_splash_new_policy_second_timeout", 1400) : invokeV.intValue;
     }
 
     @Modify(description = "小熊广告-开屏是否展示小熊开关(新)", type = 100)
     public static boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? wt4.k().l("key_splash_new_policy_bear_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? vt4.k().l("key_splash_new_policy_bear_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     @Modify(description = "广告-开屏是否展示序章CPC开关(新)", type = 100)
     public static boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? wt4.k().l("key_splash_new_policy_plg_cpc_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? vt4.k().l("key_splash_new_policy_plg_cpc_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     @Modify(description = "广告-开屏是否展示序章开关(新)", type = 100)
     public static boolean w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? wt4.k().l("key_splash_new_policy_plg_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) ? vt4.k().l("key_splash_new_policy_plg_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     public long b(File file, String str) {

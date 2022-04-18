@@ -241,7 +241,7 @@ public class ScrollItemView extends ListView {
                 }
             }
             this.b = scrollItemView;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fa3);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fa4);
         }
     }
 

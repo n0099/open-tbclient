@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q88;
+import com.repackage.x88;
 import java.io.IOException;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
 /* loaded from: classes3.dex */
 public class PushDialogSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q88 mData;
+    public x88 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushDialogSocketResMsg(int i) {
@@ -37,10 +37,10 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public q88 getData() {
+    public x88 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (q88) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (x88) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -53,9 +53,9 @@ public class PushDialogSocketResMsg extends SocketResponsedMessage {
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {
-                    q88 q88Var = new q88();
-                    this.mData = q88Var;
-                    q88Var.e(getLockWindowMsgResIdl.data);
+                    x88 x88Var = new x88();
+                    this.mData = x88Var;
+                    x88Var.e(getLockWindowMsgResIdl.data);
                 }
             } catch (IOException unused) {
             }

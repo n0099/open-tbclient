@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bz9;
 import com.repackage.jk2;
-import com.repackage.uy9;
 import java.util.concurrent.TimeUnit;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -35,7 +35,7 @@ public abstract class ui3 extends g23 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements iz9<yi3> {
+    public class a implements pz9<yi3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xi3 a;
@@ -67,7 +67,7 @@ public abstract class ui3 extends g23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.iz9
+        @Override // com.repackage.pz9
         public void call(yi3 yi3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, yi3Var) == null) {
@@ -78,7 +78,7 @@ public abstract class ui3 extends g23 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements iz9<Throwable> {
+    public class b implements pz9<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -110,7 +110,7 @@ public abstract class ui3 extends g23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.iz9
+        @Override // com.repackage.pz9
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -121,7 +121,7 @@ public abstract class ui3 extends g23 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements uy9.a<yi3> {
+    public class c implements bz9.a<yi3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,14 +129,14 @@ public abstract class ui3 extends g23 {
         public class a implements jk2.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ az9 a;
+            public final /* synthetic */ hz9 a;
 
-            public a(c cVar, az9 az9Var) {
+            public a(c cVar, hz9 hz9Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, az9Var};
+                    Object[] objArr = {cVar, hz9Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -146,7 +146,7 @@ public abstract class ui3 extends g23 {
                         return;
                     }
                 }
-                this.a = az9Var;
+                this.a = hz9Var;
             }
 
             @Override // com.repackage.jk2.a
@@ -192,11 +192,11 @@ public abstract class ui3 extends g23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.uy9.a, com.repackage.iz9
-        public void call(az9<? super yi3> az9Var) {
+        @Override // com.repackage.bz9.a, com.repackage.pz9
+        public void call(hz9<? super yi3> hz9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, az9Var) == null) {
-                qj2.I().b(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new a(this, az9Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
+                qj2.I().b(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new a(this, hz9Var));
             }
         }
     }
@@ -435,7 +435,7 @@ public abstract class ui3 extends g23 {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cf3Var)) == null) ? new e(this, cf3Var) : (ResponseCallback) invokeL.objValue;
     }
 
-    public final uy9<yi3> q(Context context) {
+    public final bz9<yi3> q(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
@@ -443,11 +443,11 @@ public abstract class ui3 extends g23 {
                 return null;
             }
             if (!qc3.h() || (context.checkSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0 && context.checkSelfPermission("android.permission.ACCESS_COARSE_LOCATION") == 0)) {
-                return uy9.a(new c(this));
+                return bz9.a(new c(this));
             }
             return null;
         }
-        return (uy9) invokeL.objValue;
+        return (bz9) invokeL.objValue;
     }
 
     @NonNull
@@ -458,7 +458,7 @@ public abstract class ui3 extends g23 {
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, callbackHandler, str, jSONObject) == null) {
             jx1.i("recommend", "get request params");
             xi3 xi3Var = new xi3(context, jSONObject);
-            uy9<yi3> q = q(context);
+            bz9<yi3> q = q(context);
             if (q != null) {
                 q.z(60L, TimeUnit.MILLISECONDS).x(new a(this, xi3Var, context, callbackHandler, str), new b(this, context, callbackHandler, str, xi3Var));
                 return;

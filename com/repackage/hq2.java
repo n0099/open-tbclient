@@ -99,16 +99,16 @@ public class hq2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
-        public final /* synthetic */ p64 b;
+        public final /* synthetic */ o64 b;
         public final /* synthetic */ SwanAppActionBar c;
         public final /* synthetic */ String d;
 
-        public c(Context context, p64 p64Var, SwanAppActionBar swanAppActionBar, String str) {
+        public c(Context context, o64 o64Var, SwanAppActionBar swanAppActionBar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, p64Var, swanAppActionBar, str};
+                Object[] objArr = {context, o64Var, swanAppActionBar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -119,7 +119,7 @@ public class hq2 {
                 }
             }
             this.a = context;
-            this.b = p64Var;
+            this.b = o64Var;
             this.c = swanAppActionBar;
             this.d = str;
         }
@@ -138,15 +138,15 @@ public class hq2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ JSONArray a;
-        public final /* synthetic */ p64 b;
+        public final /* synthetic */ o64 b;
         public final /* synthetic */ SwanAppActionBar c;
 
-        public d(JSONArray jSONArray, p64 p64Var, SwanAppActionBar swanAppActionBar) {
+        public d(JSONArray jSONArray, o64 o64Var, SwanAppActionBar swanAppActionBar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jSONArray, p64Var, swanAppActionBar};
+                Object[] objArr = {jSONArray, o64Var, swanAppActionBar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -157,7 +157,7 @@ public class hq2 {
                 }
             }
             this.a = jSONArray;
-            this.b = p64Var;
+            this.b = o64Var;
             this.c = swanAppActionBar;
         }
 
@@ -224,13 +224,13 @@ public class hq2 {
         i03.L().post(new b(c2, swanAppActionBar));
     }
 
-    public static void f(Context context, p64 p64Var, SwanAppActionBar swanAppActionBar, String str) {
+    public static void f(Context context, o64 o64Var, SwanAppActionBar swanAppActionBar, String str) {
         JSONObject c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65542, null, context, p64Var, swanAppActionBar, str) == null) || (c2 = qj2.i().c(context, str)) == null || p64Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(65542, null, context, o64Var, swanAppActionBar, str) == null) || (c2 = qj2.i().c(context, str)) == null || o64Var == null) {
             return;
         }
-        m(c2, p64Var, swanAppActionBar);
+        m(c2, o64Var, swanAppActionBar);
     }
 
     public static int g() {
@@ -272,12 +272,12 @@ public class hq2 {
         j03.a0().T().i("key_unread_counts_message", 0);
     }
 
-    public static void j(q64 q64Var) {
+    public static void j(p64 p64Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, q64Var) == null) || j03.a0() == null) {
+        if (!(interceptable == null || interceptable.invokeL(65546, null, p64Var) == null) || j03.a0() == null) {
             return;
         }
-        j03.a0().T().i("key_unread_counts_message", Integer.valueOf(Math.max((int) (j03.a0().T().d("key_unread_counts_message", 0).intValue() - q64Var.e()), 0)));
+        j03.a0().T().i("key_unread_counts_message", Integer.valueOf(Math.max((int) (j03.a0().T().d("key_unread_counts_message", 0).intValue() - p64Var.e()), 0)));
     }
 
     public static void k(Context context, SwanAppActionBar swanAppActionBar, String str) {
@@ -287,18 +287,18 @@ public class hq2 {
         }
     }
 
-    public static void l(Context context, p64 p64Var, SwanAppActionBar swanAppActionBar, String str) {
+    public static void l(Context context, o64 o64Var, SwanAppActionBar swanAppActionBar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65548, null, context, p64Var, swanAppActionBar, str) == null) {
-            ExecutorUtilsExt.postOnElastic(new c(context, p64Var, swanAppActionBar, str), "getMenuToolRefreshTips", 1);
+        if (interceptable == null || interceptable.invokeLLLL(65548, null, context, o64Var, swanAppActionBar, str) == null) {
+            ExecutorUtilsExt.postOnElastic(new c(context, o64Var, swanAppActionBar, str), "getMenuToolRefreshTips", 1);
         }
     }
 
-    public static void m(JSONObject jSONObject, p64 p64Var, SwanAppActionBar swanAppActionBar) {
+    public static void m(JSONObject jSONObject, o64 o64Var, SwanAppActionBar swanAppActionBar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, null, jSONObject, p64Var, swanAppActionBar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65549, null, jSONObject, o64Var, swanAppActionBar) == null) {
             n(jSONObject);
-            i03.L().post(new d(jSONObject.optJSONArray("un_read_list"), p64Var, swanAppActionBar));
+            i03.L().post(new d(jSONObject.optJSONArray("un_read_list"), o64Var, swanAppActionBar));
         }
     }
 

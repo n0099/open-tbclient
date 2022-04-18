@@ -52,8 +52,8 @@ public class cw0 extends mv0 implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d05bf, (ViewGroup) null);
             this.e = viewGroup;
-            this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092334);
-            this.h = (LineLoadingView) this.e.findViewById(R.id.obfuscated_res_0x7f091257);
+            this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092335);
+            this.h = (LineLoadingView) this.e.findViewById(R.id.obfuscated_res_0x7f091258);
         }
     }
 

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oj4;
+import com.repackage.nj4;
 import com.squareup.wire.Wire;
 import tbclient.ActiveConfig.ActiveConfigResIdl;
 import tbclient.Error;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oj4 mData;
+    public nj4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActiveConfigHTTPResMsg() {
@@ -36,10 +36,10 @@ public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
         }
     }
 
-    public oj4 getData() {
+    public nj4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (oj4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (nj4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
             setErrorString(activeConfigResIdl.error.usermsg);
         }
         if (activeConfigResIdl.data != null) {
-            oj4 oj4Var = new oj4();
-            this.mData = oj4Var;
-            oj4Var.c(activeConfigResIdl.data);
+            nj4 nj4Var = new nj4();
+            this.mData = nj4Var;
+            nj4Var.c(activeConfigResIdl.data);
         }
     }
 }

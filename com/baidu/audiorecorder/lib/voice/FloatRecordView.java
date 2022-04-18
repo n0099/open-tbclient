@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x47;
+import com.repackage.a57;
 /* loaded from: classes.dex */
-public class FloatRecordView implements x47 {
+public class FloatRecordView implements a57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -70,7 +70,7 @@ public class FloatRecordView implements x47 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (LinearLayout) invokeV.objValue;
     }
 
-    @Override // com.repackage.x47
+    @Override // com.repackage.a57
     public void closeRecordCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -78,7 +78,7 @@ public class FloatRecordView implements x47 {
         }
     }
 
-    @Override // com.repackage.x47
+    @Override // com.repackage.a57
     public void closeRecordTooShort() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -91,7 +91,7 @@ public class FloatRecordView implements x47 {
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, viewGroup) == null) {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0295, (ViewGroup) null);
             this.b = linearLayout;
-            this.a = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090ec1);
+            this.a = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090ec2);
             this.c = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029b, (ViewGroup) null);
             this.d = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029a, (ViewGroup) null);
         }
@@ -148,19 +148,19 @@ public class FloatRecordView implements x47 {
                 this.g = 0;
                 int i3 = this.e;
                 if (i3 < 2) {
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806c2);
-                } else if (i3 < 10) {
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806bf);
-                } else if (i3 < 20) {
                     this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806c1);
-                } else if (i3 < 30) {
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806c0);
-                } else if (i3 < 40) {
+                } else if (i3 < 10) {
                     this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806be);
-                } else if (i3 < 50) {
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806bd);
-                } else {
+                } else if (i3 < 20) {
                     this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806c0);
+                } else if (i3 < 30) {
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806bf);
+                } else if (i3 < 40) {
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806bd);
+                } else if (i3 < 50) {
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806bc);
+                } else {
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f0806bf);
                 }
             }
         }
@@ -180,7 +180,7 @@ public class FloatRecordView implements x47 {
         }
     }
 
-    @Override // com.repackage.x47
+    @Override // com.repackage.a57
     public void showRecordCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -188,7 +188,7 @@ public class FloatRecordView implements x47 {
         }
     }
 
-    @Override // com.repackage.x47
+    @Override // com.repackage.a57
     public void startRecordVoice() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -196,7 +196,7 @@ public class FloatRecordView implements x47 {
         }
     }
 
-    @Override // com.repackage.x47
+    @Override // com.repackage.a57
     public void stopRecordVoice() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {

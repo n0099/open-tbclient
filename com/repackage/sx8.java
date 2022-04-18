@@ -1,35 +1,21 @@
 package com.repackage;
+
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 /* loaded from: classes7.dex */
 public interface sx8 {
-    void a();
+    void B(rx8 rx8Var);
 
-    void b(long j);
+    void E(int i);
 
-    void c(double d);
+    void H(int i);
 
-    void d(int i);
+    void S(CloudMusicData.MusicTagList musicTagList);
 
-    void e(int i, int i2);
+    void displayNoDataView(boolean z);
 
-    void f(int i, int i2);
+    void f0(int i);
 
-    void g(int i, int i2, int i3);
+    void s(boolean z);
 
-    void h();
-
-    void i();
-
-    void j(int i, ux8 ux8Var);
-
-    void k();
-
-    void l(double d);
-
-    void m();
-
-    void n(long j, long j2);
-
-    void o(long j, long j2);
-
-    void onClick();
+    void u();
 }

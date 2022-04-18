@@ -43,12 +43,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i58;
-import com.repackage.m48;
 import com.repackage.mg;
-import com.repackage.vl4;
-import com.repackage.w76;
-import com.repackage.yz4;
+import com.repackage.p58;
+import com.repackage.t48;
+import com.repackage.ul4;
+import com.repackage.xz4;
+import com.repackage.y76;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -57,19 +57,19 @@ import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 /* loaded from: classes3.dex */
-public class PersonPolymericEventController extends i58 {
+public class PersonPolymericEventController extends p58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m48 e;
+    public t48 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonPolymericEventController(TbPageContext tbPageContext, m48 m48Var) {
+    public PersonPolymericEventController(TbPageContext tbPageContext, t48 t48Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, m48Var};
+            Object[] objArr = {tbPageContext, t48Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,40 +80,40 @@ public class PersonPolymericEventController extends i58 {
                 return;
             }
         }
-        this.e = m48Var;
+        this.e = t48Var;
     }
 
-    @Override // com.repackage.i58, com.repackage.nw8
-    public void a(View view2, w76 w76Var) {
+    @Override // com.repackage.p58, com.repackage.uw8
+    public void a(View view2, y76 y76Var) {
         String str;
         int i;
         MembershipUserInfo membershipUserInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, w76Var) == null) {
-            super.a(view2, w76Var);
-            if (w76Var == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, y76Var) == null) {
+            super.a(view2, y76Var);
+            if (y76Var == null) {
                 return;
             }
-            Bundle bundle = w76Var.b;
+            Bundle bundle = y76Var.b;
             String str2 = null;
             UserData userData = bundle != null ? (UserData) bundle.getSerializable(UserData.TYPE_USER) : null;
             int i2 = 1;
-            switch (w76Var.a) {
+            switch (y76Var.a) {
                 case 1:
                     if (userData == null) {
                         return;
                     }
-                    yz4 yz4Var = new yz4();
+                    xz4 xz4Var = new xz4();
                     if (!StringUtils.isNull(userData.getPortrait()) && userData.getPortrait().startsWith("http")) {
-                        yz4Var.f(userData.getPortrait());
+                        xz4Var.f(userData.getPortrait());
                     } else {
-                        yz4Var.f(userData.getPortraitH());
+                        xz4Var.f(userData.getPortraitH());
                     }
-                    yz4Var.i(userData.getPortrait());
-                    yz4Var.g(true);
+                    xz4Var.i(userData.getPortrait());
+                    xz4Var.g(true);
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(yz4Var);
-                    this.e.o().s(yz4Var, arrayList, 0);
+                    arrayList.add(xz4Var);
+                    this.e.o().s(xz4Var, arrayList, 0);
                     return;
                 case 2:
                 case 3:
@@ -135,8 +135,8 @@ public class PersonPolymericEventController extends i58 {
                     this.a.getPageActivity().finish();
                     return;
                 case 9:
-                    m48 m48Var = this.e;
-                    if (m48Var == null || m48Var.m() == null) {
+                    t48 t48Var = this.e;
+                    if (t48Var == null || t48Var.m() == null) {
                         return;
                     }
                     TiebaStatic.log("c12207");
@@ -179,7 +179,7 @@ public class PersonPolymericEventController extends i58 {
                         personChangeData.setCanModifyAvatar(userData.canModifyAvatar());
                         personChangeData.setCantModifyAvatarDesc(userData.getCantModifyAvatarDesc());
                         personChangeData.setTiebaId(userData.getmTiebaUid());
-                        Bundle bundle2 = w76Var.b;
+                        Bundle bundle2 = y76Var.b;
                         if (bundle2 != null) {
                             personChangeData.setNickNameLeftDays(bundle2.getInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, -1));
                         }
@@ -267,7 +267,7 @@ public class PersonPolymericEventController extends i58 {
                     return;
                 case 31:
                     b(9);
-                    UrlManager.getInstance().dealOneLink(this.a, new String[]{w76Var.b.getString("book_jump_link")}, true);
+                    UrlManager.getInstance().dealOneLink(this.a, new String[]{y76Var.b.getString("book_jump_link")}, true);
                     return;
                 case 32:
                     if (ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
@@ -303,7 +303,7 @@ public class PersonPolymericEventController extends i58 {
                     StringBuilder sb = new StringBuilder();
                     sb.append("http://tieba.baidu.com/mo/q/hybrid-main-service/uegServiceCenter?is_yy_user=");
                     sb.append(TbSingleton.getInstance().getSyncYYSwitch() ? "1" : "0");
-                    vl4.m(this.a.getPageActivity(), sb.toString());
+                    ul4.m(this.a.getPageActivity(), sb.toString());
                     return;
                 case 40:
                     if (userData == null || !ViewHelper.checkUpIsLogin(this.a.getPageActivity()) || userData == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
@@ -321,14 +321,14 @@ public class PersonPolymericEventController extends i58 {
                     if (userData == null || userData.getBaijiahaoInfo() == null) {
                         return;
                     }
-                    yz4 yz4Var2 = new yz4();
-                    yz4Var2.f(userData.getBaijiahaoInfo().avatar_h);
-                    yz4Var2.i(userData.getBaijiahaoInfo().avatar);
-                    yz4Var2.g(false);
+                    xz4 xz4Var2 = new xz4();
+                    xz4Var2.f(userData.getBaijiahaoInfo().avatar_h);
+                    xz4Var2.i(userData.getBaijiahaoInfo().avatar);
+                    xz4Var2.g(false);
                     ArrayList arrayList2 = new ArrayList();
-                    arrayList2.add(yz4Var2);
+                    arrayList2.add(xz4Var2);
                     if (this.e.o() != null) {
-                        this.e.o().t(yz4Var2, arrayList2, 0, true);
+                        this.e.o().t(xz4Var2, arrayList2, 0, true);
                         return;
                     }
                     return;

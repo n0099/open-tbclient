@@ -1,153 +1,84 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.personExtra.RecommendGodHttpResponseMessage;
-import com.baidu.tieba.personExtra.RecommendGodReqMsg;
-import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class nl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public h58 b;
-    public b c;
-    public int d;
-    public boolean e;
-    public wa f;
 
-    /* loaded from: classes6.dex */
-    public class a extends wa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nl7 a;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? c(d(str)) : (String) invokeL.objValue;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(nl7 nl7Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl7Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(str).trim() : (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f133e));
+            boolean z = false;
+            int i = 0;
+            while (!z && i < 1000) {
+                Matcher matcher = compile.matcher(str);
+                if (matcher.find()) {
+                    str = matcher.replaceAll(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f133f));
+                    i++;
+                } else {
+                    z = true;
                 }
             }
-            this.a = nl7Var;
+            return str;
         }
+        return (String) invokeL.objValue;
+    }
 
-        @Override // com.repackage.wa
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.b = null;
-                if (responsedMessage == null) {
-                    return;
-                }
-                if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == this.a.a) {
-                    if (responsedMessage instanceof RecommendGodSocketResponseMessage) {
-                        this.a.b = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
-                    } else if (responsedMessage instanceof RecommendGodHttpResponseMessage) {
-                        this.a.b = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
-                    }
-                    if (this.a.b != null) {
-                        nl7 nl7Var = this.a;
-                        nl7Var.d = nl7Var.b.a;
-                    }
-                    int error = responsedMessage.getError();
-                    if (error != 0 || this.a.b == null) {
-                        error = 1;
-                    } else if (ListUtils.isEmpty(this.a.b.b)) {
-                        error = this.a.e ? 3 : 2;
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.a(this.a.b, error);
-                    }
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str.trim() : (String) invokeL.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            Matcher matcher = Pattern.compile(TbFaceManager.d).matcher(str);
+            while (matcher.find()) {
+                if (TbFaceManager.e().g(matcher.group()) <= 0) {
+                    return false;
                 }
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(h58 h58Var, int i);
-    }
-
-    public nl7(BdUniqueId bdUniqueId) {
+    public static String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            String c = c(str);
+            if (StringUtils.isNull(c)) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1339);
             }
+            return !e(c) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f133a) : "";
         }
-        this.d = 0;
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, 309684);
-        this.f = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f);
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(this.a);
-            MessageManager.getInstance().unRegisterListener(this.a);
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
-            recommendGodReqMsg.portrait = str;
-            if (this.d == 0) {
-                this.e = false;
-            } else {
-                this.e = true;
-            }
-            recommendGodReqMsg.pageNum = this.d + 1;
-            recommendGodReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(recommendGodReqMsg);
-        }
-    }
-
-    public void i(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            this.d = i;
-            h(str);
-        }
-    }
-
-    public void j(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.c = bVar;
-        }
+        return (String) invokeL.objValue;
     }
 }

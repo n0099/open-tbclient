@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt4;
+import com.repackage.g39;
+import com.repackage.vt4;
 import com.repackage.ya;
-import com.repackage.z29;
-import com.repackage.zx4;
+import com.repackage.yx4;
 /* loaded from: classes4.dex */
 public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -379,7 +379,7 @@ public class PushStatic {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65542, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
-            boolean k = TbadkCoreApplication.isLogin() ? zx4.d().k() : false;
+            boolean k = TbadkCoreApplication.isLogin() ? yx4.d().k() : false;
             if (areNotificationsEnabled && k) {
                 k(true);
             } else {
@@ -423,7 +423,7 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, z29.a(context, Constants.API_KEY));
+            PushManager.startWork(context, 0, g39.a(context, Constants.API_KEY));
             e();
         }
     }
@@ -431,7 +431,7 @@ public class PushStatic {
     public static void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            wt4 k = wt4.k();
+            vt4 k = vt4.k();
             if (k.h(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
                 PushManager.stopWork(context);
             }
@@ -459,7 +459,7 @@ public class PushStatic {
     public static void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65550, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && TbadkCoreApplication.isLogin()) {
-            boolean l = zx4.d().l();
+            boolean l = yx4.d().l();
             PushManager.uploadNotifyStatus(TbadkCoreApplication.getInst(), l ? 1 : 0, new h());
         }
     }

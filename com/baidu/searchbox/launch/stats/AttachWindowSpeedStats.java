@@ -22,6 +22,7 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     public static final String HOME_FRAGMENT_ON_CREATE = "homeFragmentOnCreate";
     public static final String HOME_FRAGMENT_ON_CREATE_VIEW = "homeFragmentOnCreateView";
     public static final String HOME_FRAGMENT_ON_RESUME = "homeFragmentOnResume";
+    public static final String HOME_FRAGMENT_ON_RESUME_2_ON_ACTIVITY_CREATED = "homeFragmentOnR2AC";
     public static final String HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS = "homeFragmentShowConcernTabTips";
     public static final String HOME_FRAGMENT_TOTAL_TIME = "homeFragmentTotal";
     public static final String HOME_TAB_BAR_VIEW_INIT = "HomeTabBarViewInit";
@@ -154,7 +155,7 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:100:0x0236
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:100:0x023f
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -164,7 +165,7 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
         /*
             r50 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.searchbox.launch.stats.AttachWindowSpeedStats.$ic
-            if (r0 != 0) goto L25f
+            if (r0 != 0) goto L268
         L4:
             r1 = r50
             r2 = r51
@@ -255,8 +256,8 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
             if (r0 <= 0) goto Lb0
             long r2 = r2 + r4
             com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
-            long r12 = r1.mHomeFragmentOnActivityCreatedStartStamp
-            long r14 = r1.mHomeFragmentOnResumeEndStamp
+            long r12 = r1.mHomeFragmentOnResumeEndStamp
+            long r14 = r1.mHomeFragmentOnActivityCreatedStartStamp
             long r12 = r0.getDurationWithoutAD(r12, r14)
             goto Lb2
         Lb0:
@@ -268,190 +269,193 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
             r48 = r4
             long r4 = r1.mHomeTabOnAttachStartStamp
             long r4 = r0.getDurationWithoutAD(r14, r4)
-            long r12 = r12 + r4
+            long r4 = r4 + r12
             com.baidu.searchbox.launch.stats.SpeedStatsManager r0 = com.baidu.searchbox.launch.stats.SpeedStatsManager.getInstance()
-            long r4 = r0.getExtraSecondCreateDuration()
-            long r12 = r12 - r4
+            long r14 = r0.getExtraSecondCreateDuration()
+            long r4 = r4 - r14
             int r0 = (r8 > r46 ? 1 : (r8 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            r4 = 60000(0xea60, double:2.9644E-319)
-            int r0 = (r8 > r4 ? 1 : (r8 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            r14 = 60000(0xea60, double:2.9644E-319)
+            int r0 = (r8 > r14 ? 1 : (r8 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r2 > r46 ? 1 : (r2 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r2 > r14 ? 1 : (r2 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r10 > r46 ? 1 : (r10 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r10 > r4 ? 1 : (r10 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r10 > r14 ? 1 : (r10 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r6 > r46 ? 1 : (r6 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r6 > r4 ? 1 : (r6 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r6 > r14 ? 1 : (r6 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r44 > r46 ? 1 : (r44 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r44 > r4 ? 1 : (r44 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r44 > r14 ? 1 : (r44 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r40 > r46 ? 1 : (r40 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r40 > r4 ? 1 : (r40 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r40 > r14 ? 1 : (r40 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r42 > r46 ? 1 : (r42 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r42 > r4 ? 1 : (r42 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r42 > r14 ? 1 : (r42 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r38 > r46 ? 1 : (r38 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r38 > r4 ? 1 : (r38 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r38 > r14 ? 1 : (r38 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r18 > r46 ? 1 : (r18 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r18 > r4 ? 1 : (r18 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r18 > r14 ? 1 : (r18 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r20 > r46 ? 1 : (r20 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r20 > r4 ? 1 : (r20 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r20 > r14 ? 1 : (r20 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r36 > r46 ? 1 : (r36 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r36 > r4 ? 1 : (r36 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r36 > r14 ? 1 : (r36 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r22 > r46 ? 1 : (r22 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r22 > r4 ? 1 : (r22 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r22 > r14 ? 1 : (r22 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r24 > r46 ? 1 : (r24 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r24 > r4 ? 1 : (r24 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r24 > r14 ? 1 : (r24 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r26 > r46 ? 1 : (r26 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r26 > r4 ? 1 : (r26 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r26 > r14 ? 1 : (r26 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r28 > r46 ? 1 : (r28 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r28 > r4 ? 1 : (r28 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r28 > r14 ? 1 : (r28 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r30 > r46 ? 1 : (r30 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r30 > r4 ? 1 : (r30 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r30 > r14 ? 1 : (r30 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r32 > r46 ? 1 : (r32 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r32 > r4 ? 1 : (r32 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r32 > r14 ? 1 : (r32 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r34 > r46 ? 1 : (r34 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r34 > r4 ? 1 : (r34 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r34 > r14 ? 1 : (r34 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r48 > r46 ? 1 : (r48 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r48 > r4 ? 1 : (r48 == r4 ? 0 : -1))
-            if (r0 > 0) goto L25d
+            if (r0 < 0) goto L266
+            int r0 = (r48 > r14 ? 1 : (r48 == r14 ? 0 : -1))
+            if (r0 > 0) goto L266
             int r0 = (r16 > r46 ? 1 : (r16 == r46 ? 0 : -1))
-            if (r0 < 0) goto L25d
-            int r0 = (r16 > r4 ? 1 : (r16 == r4 ? 0 : -1))
+            if (r0 < 0) goto L266
+            int r0 = (r16 > r14 ? 1 : (r16 == r14 ? 0 : -1))
             if (r0 <= 0) goto L175
-            goto L25d
+            goto L266
         L175:
-            java.util.HashMap r4 = new java.util.HashMap
-            r4.<init>()
+            java.util.HashMap r14 = new java.util.HashMap
+            r14.<init>()
             java.lang.String r0 = java.lang.String.valueOf(r8)
-            java.lang.String r5 = "homeFragmentTotal"
-            r4.put(r5, r0)
+            java.lang.String r8 = "homeFragmentTotal"
+            r14.put(r8, r0)
             java.lang.String r0 = java.lang.String.valueOf(r10)
-            java.lang.String r5 = "homeFragmentOnAttach"
-            r4.put(r5, r0)
+            java.lang.String r8 = "homeFragmentOnAttach"
+            r14.put(r8, r0)
             java.lang.String r0 = java.lang.String.valueOf(r6)
-            java.lang.String r5 = "homeFragmentOnCreate"
-            r4.put(r5, r0)
+            java.lang.String r6 = "homeFragmentOnCreate"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r38)
-            java.lang.String r5 = "homeFragmentOnCreateView"
-            r4.put(r5, r0)
+            java.lang.String r6 = "homeFragmentOnCreateView"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r18)
-            java.lang.String r5 = "homeFragmentTabHostInit"
-            r4.put(r5, r0)
+            java.lang.String r6 = "homeFragmentTabHostInit"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r20)
-            java.lang.String r5 = "HomeTabBarViewInit"
-            r4.put(r5, r0)
+            java.lang.String r6 = "HomeTabBarViewInit"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r36)
-            java.lang.String r5 = "CustomViewPagerInit"
-            r4.put(r5, r0)
+            java.lang.String r6 = "CustomViewPagerInit"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r22)
-            java.lang.String r5 = "NestedScrollHeaderInit"
-            r4.put(r5, r0)
+            java.lang.String r6 = "NestedScrollHeaderInit"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r24)
-            java.lang.String r5 = "homeFragmentInitModel"
-            r4.put(r5, r0)
+            java.lang.String r6 = "homeFragmentInitModel"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r26)
-            java.lang.String r5 = "homeFragmentInitTable"
-            r4.put(r5, r0)
+            java.lang.String r6 = "homeFragmentInitTable"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r28)
-            java.lang.String r5 = "homeFragmentInitViewPaper"
-            r4.put(r5, r0)
+            java.lang.String r6 = "homeFragmentInitViewPaper"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r30)
-            java.lang.String r5 = "homeFragmentStartFirstLoad"
-            r4.put(r5, r0)
+            java.lang.String r6 = "homeFragmentStartFirstLoad"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r32)
-            java.lang.String r5 = "homeFragmentCheckConcernRedTip"
-            r4.put(r5, r0)
+            java.lang.String r6 = "homeFragmentCheckConcernRedTip"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r34)
-            java.lang.String r5 = "homeFragmentShowConcernTabTips"
-            r4.put(r5, r0)
+            java.lang.String r6 = "homeFragmentShowConcernTabTips"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r48)
-            java.lang.String r5 = "homeFragmentOnActivityCreated"
-            r4.put(r5, r0)
+            java.lang.String r6 = "homeFragmentOnActivityCreated"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r16)
-            java.lang.String r5 = "homeFragmentOnResume"
-            r4.put(r5, r0)
+            java.lang.String r6 = "homeFragmentOnResume"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r40)
-            java.lang.String r5 = "ConcernTabFragment"
-            r4.put(r5, r0)
+            java.lang.String r6 = "ConcernTabFragment"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r44)
-            java.lang.String r5 = "HotTopicTabFragment"
-            r4.put(r5, r0)
+            java.lang.String r6 = "HotTopicTabFragment"
+            r14.put(r6, r0)
             java.lang.String r0 = java.lang.String.valueOf(r42)
-            java.lang.String r5 = "PersonalizeTabFragment"
-            r4.put(r5, r0)
+            java.lang.String r6 = "PersonalizeTabFragment"
+            r14.put(r6, r0)
+            java.lang.String r0 = java.lang.String.valueOf(r12)
+            java.lang.String r6 = "homeFragmentOnR2AC"
+            r14.put(r6, r0)
             r0 = 0
-            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r12, r0)
-            if (r0 == 0) goto L243
-            java.lang.String r5 = "activity2attach"
-            r6 = r51
-            r6.put(r5, r0)     // Catch: org.json.JSONException -> L234
-            goto L245
-        L234:
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r4, r0)
+            if (r0 == 0) goto L24c
+            java.lang.String r4 = "activity2attach"
+            r5 = r51
+            r5.put(r4, r0)     // Catch: org.json.JSONException -> L23d
+            goto L24e
+        L23d:
             r0 = move-exception
-            goto L239
-        L236:
+            goto L242
+        L23f:
             r0 = move-exception
-            r6 = r51
-        L239:
-            boolean r5 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r5 == 0) goto L245
+            r5 = r51
+        L242:
+            boolean r4 = com.baidu.searchbox.config.AppConfig.isDebug()
+            if (r4 == 0) goto L24e
             r0.printStackTrace()
-            goto L245
-        L243:
-            r6 = r51
-        L245:
-            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r2, r4)
-            if (r0 == 0) goto L25b
+            goto L24e
+        L24c:
+            r5 = r51
+        L24e:
+            org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r2, r14)
+            if (r0 == 0) goto L264
             java.lang.String r2 = "attachWindow"
-            r6.put(r2, r0)     // Catch: org.json.JSONException -> L251
-            goto L25b
-        L251:
+            r5.put(r2, r0)     // Catch: org.json.JSONException -> L25a
+            goto L264
+        L25a:
             r0 = move-exception
             boolean r2 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r2 == 0) goto L25b
+            if (r2 == 0) goto L264
             r0.printStackTrace()
-        L25b:
+        L264:
             r2 = 1
             return r2
-        L25d:
+        L266:
             r0 = 0
             return r0
-        L25f:
+        L268:
             r48 = r0
             r49 = 1048580(0x100004, float:1.469374E-39)
             com.baidu.titan.sdk.runtime.InterceptResult r0 = r48.invokeL(r49, r50, r51)

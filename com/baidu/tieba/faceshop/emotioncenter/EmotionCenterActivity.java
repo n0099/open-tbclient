@@ -194,7 +194,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             bundle2.putString("key_load_url", this.mSingleForumTabUrl);
             forumEmotionFragment.setArguments(bundle2);
             this.fragments.add(forumEmotionFragment);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091514);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091515);
             this.mNavigationBar = navigationBar;
             TextView addTextButtonByDefTextColor = navigationBar.addTextButtonByDefTextColor(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.obfuscated_res_0x7f0f036e));
             this.mBackBtn = addTextButtonByDefTextColor;
@@ -206,13 +206,13 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             this.mSettingImg.setPadding(0, oi.f(this, R.dimen.obfuscated_res_0x7f0701d5), oi.f(this, R.dimen.obfuscated_res_0x7f07029e), oi.f(this, R.dimen.obfuscated_res_0x7f0701d5));
             this.mSettingImg.setLayoutParams(layoutParams);
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0266, (View.OnClickListener) null);
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090877);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090878);
             this.mTabStrip = commonPagerSlidingTabStrip;
             commonPagerSlidingTabStrip.k(oi.f(this, R.dimen.obfuscated_res_0x7f070207), oi.f(this, R.dimen.obfuscated_res_0x7f0701e8), oi.f(this, R.dimen.obfuscated_res_0x7f0701e8), oi.f(this, R.dimen.obfuscated_res_0x7f0701e8), oi.f(this, R.dimen.obfuscated_res_0x7f0701e8), oi.f(this, R.dimen.obfuscated_res_0x7f070224), oi.f(this, R.dimen.obfuscated_res_0x7f070258), R.color.CAM_X0107, R.color.CAM_X0105);
             this.mBackBtn.setOnClickListener(this);
             this.mSettingImg.setOnClickListener(this);
-            this.mEmotionRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908b1);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090878);
+            this.mEmotionRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908b2);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090879);
             this.mViewPager = bdBaseViewPager;
             bdBaseViewPager.setmDisallowSlip(true);
             this.mAdapter = new b(this, getSupportFragmentManager());

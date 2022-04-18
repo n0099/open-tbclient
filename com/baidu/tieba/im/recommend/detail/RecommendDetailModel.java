@@ -75,10 +75,10 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     return;
                 }
                 if (responsedMessage == null) {
-                    this.a.b.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c18));
+                    this.a.b.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c17));
                 } else if (responsedMessage.getError() != 0) {
                     if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                        this.a.b.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c18));
+                        this.a.b.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0c17));
                     } else {
                         this.a.b.onFailed(responsedMessage.getErrorString());
                     }
@@ -143,7 +143,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                         } else {
                             this.a.a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                         }

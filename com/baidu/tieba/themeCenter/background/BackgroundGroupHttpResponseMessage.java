@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr8;
-import com.repackage.iq8;
+import com.repackage.mr8;
+import com.repackage.pq8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +21,8 @@ import tbclient.GetBgByCategory.ThemeBgInMain;
 public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<iq8> mBackgroundGroupList;
-    public fr8 mRecommand;
+    public List<pq8> mBackgroundGroupList;
+    public mr8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundGroupHttpResponseMessage(int i) {
@@ -44,16 +44,16 @@ public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<iq8> getGroupList() {
+    public List<pq8> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBackgroundGroupList : (List) invokeV.objValue;
     }
 
-    public fr8 getRecommand() {
+    public mr8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (fr8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (mr8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,17 +72,17 @@ public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
         DataRes dataRes = getBgByCategoryResIdl.data;
         if (dataRes != null) {
             if (dataRes.recommend != null) {
-                fr8 fr8Var = new fr8();
-                this.mRecommand = fr8Var;
-                fr8Var.d(getBgByCategoryResIdl.data.recommend);
+                mr8 mr8Var = new mr8();
+                this.mRecommand = mr8Var;
+                mr8Var.d(getBgByCategoryResIdl.data.recommend);
             }
             if (getBgByCategoryResIdl.data.bgs != null) {
                 this.mBackgroundGroupList = new ArrayList();
                 for (ThemeBgInMain themeBgInMain : getBgByCategoryResIdl.data.bgs) {
                     if (themeBgInMain != null && !StringUtils.isNull(themeBgInMain.bg_category)) {
-                        iq8 iq8Var = new iq8();
-                        iq8Var.c(themeBgInMain);
-                        this.mBackgroundGroupList.add(iq8Var);
+                        pq8 pq8Var = new pq8();
+                        pq8Var.c(themeBgInMain);
+                        this.mBackgroundGroupList.add(pq8Var);
                     }
                 }
             }

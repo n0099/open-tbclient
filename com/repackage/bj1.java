@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bj1 implements l64 {
+public class bj1 implements k64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<String> a;
@@ -44,7 +44,7 @@ public class bj1 implements l64 {
         }
     }
 
-    @Override // com.repackage.l64
+    @Override // com.repackage.k64
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,68 +54,68 @@ public class bj1 implements l64 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.l64
-    public void b(Activity activity, q64 q64Var) {
+    @Override // com.repackage.k64
+    public void b(Activity activity, p64 p64Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, q64Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, p64Var) == null) {
         }
     }
 
-    @Override // com.repackage.l64
-    public void c(int i, List<q64> list) {
+    @Override // com.repackage.k64
+    public void c(int i, List<p64> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
         }
     }
 
-    @Override // com.repackage.l64
-    public void d(int i, List<q64> list) {
+    @Override // com.repackage.k64
+    public void d(int i, List<p64> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, list) == null) {
         }
     }
 
-    @Override // com.repackage.l64
-    public void e(int i, List<q64> list) {
+    @Override // com.repackage.k64
+    public void e(int i, List<p64> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i, list) == null) {
             l(i, list);
         }
     }
 
-    @Override // com.repackage.l64
-    public void g(Activity activity, q64 q64Var) {
+    @Override // com.repackage.k64
+    public void g(Activity activity, p64 p64Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, q64Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, p64Var) == null) {
         }
     }
 
-    @Override // com.repackage.l64
+    @Override // com.repackage.k64
     public void h(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
         }
     }
 
-    @Override // com.repackage.l64
-    public boolean j(q64 q64Var) {
+    @Override // com.repackage.k64
+    public boolean j(p64 p64Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, q64Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, p64Var)) == null) {
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public final void l(int i, List<q64> list) {
+    public final void l(int i, List<p64> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) || de3.G() || list == null || list.size() <= 0) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (q64 q64Var : list) {
-            if (this.a.get(q64Var.c()) != null) {
-                arrayList.add(q64Var);
+        for (p64 p64Var : list) {
+            if (this.a.get(p64Var.c()) != null) {
+                arrayList.add(p64Var);
             }
         }
         if (arrayList.size() > 0) {

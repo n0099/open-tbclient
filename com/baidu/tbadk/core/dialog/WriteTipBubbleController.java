@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lz5;
 import com.repackage.ni;
+import com.repackage.nz5;
 /* loaded from: classes3.dex */
 public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public lz5 b;
+    public nz5 b;
     public b c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -150,12 +150,12 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        lz5 lz5Var;
+        nz5 nz5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (lz5Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nz5Var = this.b) == null) {
             return;
         }
-        lz5Var.I();
+        nz5Var.I();
     }
 
     public void d(@NonNull View view2, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
@@ -164,9 +164,9 @@ public class WriteTipBubbleController {
             return;
         }
         if (this.b == null) {
-            lz5 lz5Var = new lz5(this.a, view2);
-            this.b = lz5Var;
-            lz5Var.g0(R.drawable.pic_post_findlink);
+            nz5 nz5Var = new nz5(this.a, view2);
+            this.b = nz5Var;
+            nz5Var.g0(R.drawable.pic_post_findlink);
             this.b.S(2);
             this.b.Q(true);
             this.b.f0(19);

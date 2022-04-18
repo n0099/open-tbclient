@@ -9,9 +9,9 @@ public class ef4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, int i) {
-        InterceptResult invokeLI;
+    public static boolean a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, view2, i)) == null) ? view2.canScrollVertically(i) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) ? view2.hasOverlappingRendering() : invokeL.booleanValue;
     }
 }

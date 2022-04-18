@@ -56,7 +56,7 @@ public class g02 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (g02.class) {
-                    ng4.S(this.a, this.b, true);
+                    mg4.S(this.a, this.b, true);
                 }
                 g02.c();
             }
@@ -132,9 +132,9 @@ public class g02 {
             }
             File file = new File(f + File.separator + j);
             if (file.exists()) {
-                ng4.L(file);
+                mg4.L(file);
             }
-            ng4.h(file);
+            mg4.h(file);
             return file;
         }
         return (File) invokeJ.objValue;
@@ -148,7 +148,7 @@ public class g02 {
         }
         File file = new File(fj2.g().getPath() + File.separator + "launch_tips");
         if (file.exists() && file.isDirectory()) {
-            ng4.j(file);
+            mg4.j(file);
         }
     }
 
@@ -165,10 +165,10 @@ public class g02 {
                         if (parseLong == j) {
                             file = file2;
                         } else if (j - parseLong >= 259200000) {
-                            ng4.j(file2);
+                            mg4.j(file2);
                         }
                     } catch (NumberFormatException unused) {
-                        ng4.j(file2);
+                        mg4.j(file2);
                     }
                 }
                 return file == null ? b(j) : file;
@@ -192,15 +192,15 @@ public class g02 {
                 try {
                     long parseLong = Long.parseLong(file.getName());
                     if (i - parseLong >= 259200000) {
-                        ng4.j(file);
+                        mg4.j(file);
                     } else {
-                        List<String> F = ng4.F(file);
+                        List<String> F = mg4.F(file);
                         if (F != null && F.size() > 0) {
                             treeMap.put(Long.valueOf(parseLong), F);
                         }
                     }
                 } catch (NumberFormatException unused) {
-                    ng4.j(file);
+                    mg4.j(file);
                 }
             }
             if (treeMap.size() == 0) {

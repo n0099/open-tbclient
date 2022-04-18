@@ -1,40 +1,24 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class j26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public j26(int i, int i2) {
+    public static final <T extends Comparable<? super T>> h26<T> a(T initial, Function1<? super T, Unit> change) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, initial, change)) == null) {
+            Intrinsics.checkNotNullParameter(initial, "initial");
+            Intrinsics.checkNotNullParameter(change, "change");
+            return new h26<>(initial, change);
         }
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    public final void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
+        return (h26) invokeLL.objValue;
     }
 }

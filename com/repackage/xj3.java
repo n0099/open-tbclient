@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.MimeTypes;
-import com.repackage.l74;
+import com.repackage.k74;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class xj3<T> extends yj3 {
     public String e;
     public ResponseCallback<T> f;
     public int g;
-    public l74.a h;
+    public k74.a h;
 
     /* loaded from: classes7.dex */
     public class a extends ResponseCallback<String> {
@@ -219,8 +219,8 @@ public class xj3<T> extends yj3 {
                 Log.d("BDTLS", "BdtlsPostRequest url=" + str);
             }
             l53 a2 = qj2.q().a();
-            PostByteRequest.PostByteRequestBuilder postByteRequest = m74.g().postByteRequest();
-            l74.a aVar = this.h;
+            PostByteRequest.PostByteRequestBuilder postByteRequest = l74.g().postByteRequest();
+            k74.a aVar = this.h;
             if (aVar != null) {
                 postByteRequest.connectionTimeout(aVar.a).readTimeout(this.h.b).writeTimeout(this.h.c);
             }

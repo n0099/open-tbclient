@@ -33,11 +33,11 @@ public class c22 extends r72 {
 
         /* renamed from: com.repackage.c22$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0387a implements Runnable {
+        public class RunnableC0389a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0387a(a aVar) {
+            public RunnableC0389a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,7 +161,7 @@ public class c22 extends r72 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 jx1.k("SwanAppV8DaemonEngine", "reload");
-                de3.a0(new RunnableC0387a(this));
+                de3.a0(new RunnableC0389a(this));
             }
         }
 

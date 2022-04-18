@@ -1,70 +1,142 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class t59 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static volatile o59 a;
+    public static l59 b;
+    public static n59 c;
+    public static m59 d;
+    public static n49 e;
+    public static r49 f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755339623, "Lcom/repackage/t59;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755339623, "Lcom/repackage/t59;");
-                return;
+    public t59() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = r49.m();
     }
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
+    public static l59 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (a) {
-                Log.d("UBCFileUtils", "delete file:" + file);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            l59 l59Var = b;
+            if (l59Var != null) {
+                return l59Var;
             }
-            if (file == null) {
-                return false;
+            if (a == null) {
+                a = d();
             }
-            boolean z = true;
-            if (file.exists()) {
-                if (file.isFile()) {
-                    return true & file.delete();
-                }
-                if (file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null) {
-                        for (File file2 : listFiles) {
-                            z &= a(file2);
-                        }
-                    }
-                    return z & file.delete();
-                } else if (a) {
-                    Log.d("UBCFileUtils", "a special file:" + file);
-                    return true;
-                } else {
-                    return true;
-                }
-            } else if (a) {
-                Log.d("UBCFileUtils", "not found the file to delete:" + file);
-                return true;
-            } else {
-                return true;
+            if (a != null) {
+                b = a.a();
             }
+            return b;
         }
-        return invokeL.booleanValue;
+        return (l59) invokeV.objValue;
+    }
+
+    public static m59 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            m59 m59Var = d;
+            if (m59Var != null) {
+                return m59Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                d = a.e();
+            }
+            return d;
+        }
+        return (m59) invokeV.objValue;
+    }
+
+    public static n59 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            n59 n59Var = c;
+            if (n59Var != null) {
+                return n59Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                c = a.b();
+            }
+            return c;
+        }
+        return (n59) invokeV.objValue;
+    }
+
+    public static o59 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (t59.class) {
+                if (a == null) {
+                    a = s59.a();
+                }
+            }
+            return a;
+        }
+        return (o59) invokeV.objValue;
+    }
+
+    public static n49 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            n49 n49Var = e;
+            if (n49Var != null) {
+                return n49Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                e = a.c();
+            }
+            return e;
+        }
+        return (n49) invokeV.objValue;
+    }
+
+    public static r49 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            r49 r49Var = f;
+            if (r49Var != null) {
+                return r49Var;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                f = a.d();
+            }
+            return f;
+        }
+        return (r49) invokeV.objValue;
     }
 }

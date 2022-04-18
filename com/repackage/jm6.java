@@ -1,96 +1,64 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.itemtab.card.CardItemRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jm6 extends BaseCardInfo {
+public class jm6 extends qy<pn4> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
-    public static final BdUniqueId d;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public CardItemRecommendLayout f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755583810, "Lcom/repackage/jm6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755583810, "Lcom/repackage/jm6;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-        d = BdUniqueId.gen();
-        e = BdUniqueId.gen();
-    }
-
-    public jm6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jm6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f = new CardItemRecommendLayout(context);
+    }
+
+    @Override // com.repackage.qy
+    public View g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.fz
+    /* renamed from: o */
+    public void a(pn4 pn4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) {
+            this.f.setData(pn4Var);
         }
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    @Override // com.repackage.gz
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public int getPositionInFrsItemTab() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (isSupportTop()) {
-                return c;
-            }
-            if (isSupportBottom()) {
-                return d;
-            }
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void setPositionInFrsItemTab(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
     }
 }

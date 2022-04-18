@@ -380,9 +380,9 @@ public class TaskBuoyView extends er implements sw {
         View view2 = this.d;
         this.f = view2 != null ? (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090462) : null;
         View view3 = this.d;
-        this.g = view3 != null ? (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091ede) : null;
+        this.g = view3 != null ? (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091edf) : null;
         View view4 = this.d;
-        this.h = view4 != null ? (ProgressBar) view4.findViewById(R.id.obfuscated_res_0x7f091ee4) : null;
+        this.h = view4 != null ? (ProgressBar) view4.findViewById(R.id.obfuscated_res_0x7f091ee5) : null;
         this.i = new tw();
         this.k = new ConcurrentLinkedQueue();
         this.l = 1000;

@@ -1,9 +1,8 @@
 package com.repackage;
 
-import androidx.recyclerview.widget.RecyclerView;
+import android.view.ViewGroup;
+import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
 /* loaded from: classes7.dex */
 public interface wr5 {
-    void a(RecyclerView recyclerView, int i, int i2);
-
-    void b(RecyclerView recyclerView, int i);
+    AlaBannerViewHolder a(ViewGroup viewGroup, int i);
 }

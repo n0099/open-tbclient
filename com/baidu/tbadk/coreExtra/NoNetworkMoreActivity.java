@@ -42,21 +42,21 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
     public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
             this.mBack = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
-            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0c4e);
-            this.more1 = (TextView) findViewById(R.id.obfuscated_res_0x7f091441);
-            SpannableString spannableString = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c50));
+            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0c4d);
+            this.more1 = (TextView) findViewById(R.id.obfuscated_res_0x7f091442);
+            SpannableString spannableString = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c4f));
             spannableString.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
             this.more1.setText(spannableString);
-            this.more2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091442);
-            SpannableString spannableString2 = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c51));
+            this.more2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091443);
+            SpannableString spannableString2 = new SpannableString(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c50));
             spannableString2.setSpan(new ForegroundColorSpan(Color.parseColor("#262626")), 4, 15, 33);
             this.more2.setText(spannableString2);
-            ((Button) findViewById(R.id.obfuscated_res_0x7f09153a)).setOnClickListener(this);
+            ((Button) findViewById(R.id.obfuscated_res_0x7f09153b)).setOnClickListener(this);
         }
     }
 
@@ -75,7 +75,7 @@ public class NoNetworkMoreActivity extends BaseActivity<NoNetworkMoreActivity> {
             int id = view2.getId();
             if (view2 == this.mBack) {
                 finish();
-            } else if (id == R.id.obfuscated_res_0x7f09153a) {
+            } else if (id == R.id.obfuscated_res_0x7f09153b) {
                 startActivity(new Intent("android.settings.SETTINGS"));
                 finish();
             }

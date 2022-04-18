@@ -1,292 +1,104 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class pu8 {
+public class pu8<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public List<DownloadData> b;
-    public b c;
-    public String d;
-    public e05 e;
-
-    /* loaded from: classes6.dex */
-    public class a implements e05 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pu8 a;
-
-        public a(pu8 pu8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pu8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pu8Var;
-        }
-
-        @Override // com.repackage.e05
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                this.a.i(downloadData);
-                if (this.a.c == null || !this.a.d.equals(downloadData.getUrl())) {
-                    return;
-                }
-                this.a.c.a(str);
-            }
-        }
-
-        @Override // com.repackage.e05
-        public void onFileDownloadSucceed(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null || StringUtils.isNull(downloadData.getPath()) || StringUtils.isNull(pu8.f)) {
-                return;
-            }
-            this.a.i(downloadData);
-            if (this.a.c == null || !this.a.d.equals(downloadData.getUrl())) {
-                return;
-            }
-            this.a.a.put(downloadData.getPath().substring(pu8.f.length() + 1, downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
-            this.a.c.c(this.a.d, downloadData.getPath());
-        }
-
-        @Override // com.repackage.e05
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.repackage.e05
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                this.a.i(downloadData);
-                if (this.a.c == null || !this.a.d.equals(downloadData.getUrl())) {
-                    return;
-                }
-                this.a.c.b();
-            }
-        }
-
-        @Override // com.repackage.e05
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
-
-        void c(String str, String str2);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755397314, "Lcom/repackage/pu8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755397314, "Lcom/repackage/pu8;");
-                return;
-            }
-        }
-        f = TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers") != null ? TbadkCoreApplication.getInst().getApp().getExternalFilesDir("stickers").getPath() : "";
-    }
+    public int a;
+    public String b;
+    public T c;
+    public int d;
 
     public pu8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public T c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (T) invokeV.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void g(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+            this.c = t;
+        }
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public pu8(int i, String str, T t, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, t, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
-    }
-
-    public void e() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || StringUtils.isNull(f)) {
-            return;
-        }
-        HashMap<String, String> hashMap = this.a;
-        if (hashMap == null) {
-            this.a = new HashMap<>();
-        } else {
-            hashMap.clear();
-        }
-        File file = new File(f);
-        if (file.exists()) {
-            for (File file2 : file.listFiles()) {
-                if (file2.isFile()) {
-                    this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
-                }
-            }
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (!TextUtils.isEmpty(str) && !StringUtils.isNull(f)) {
-                String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-                if (nameMd5FromUrl == null) {
-                    return;
-                }
-                File file = new File(f);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                String str2 = "." + str.substring(str.lastIndexOf(".") + 1);
-                if (this.b == null) {
-                    this.b = new ArrayList();
-                }
-                if (h(str)) {
-                    return;
-                }
-                DownloadData downloadData = new DownloadData();
-                downloadData.setType(10);
-                downloadData.setUrl(str);
-                downloadData.setPath(f + "/" + nameMd5FromUrl + str2);
-                downloadData.setCallback(this.e);
-                this.b.add(downloadData);
-                f05.k().l(downloadData);
-                return;
-            }
-            b bVar = this.c;
-            if (bVar != null) {
-                bVar.a("");
-            }
-        }
-    }
-
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-            if (nameMd5FromUrl == null) {
-                return null;
-            }
-            if (this.a == null) {
-                this.a = new HashMap<>();
-                e();
-            }
-            return this.a.get(nameMd5FromUrl);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.b) && str != null) {
-                for (DownloadData downloadData : this.b) {
-                    if (downloadData != null && str.equals(downloadData.getUrl())) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void i(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) || ListUtils.isEmpty(this.b) || downloadData == null) {
-            return;
-        }
-        int i = -1;
-        int i2 = 0;
-        while (true) {
-            if (i2 < this.b.size()) {
-                if (this.b.get(i2) != null && this.b.get(i2).getUrl() != null && this.b.get(i2).getUrl().equals(downloadData.getUrl())) {
-                    i = i2;
-                    break;
-                }
-                i2++;
-            } else {
-                break;
-            }
-        }
-        this.b.remove(i);
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (str == null) {
-                this.d = "";
-            } else {
-                this.d = str;
-            }
-        }
-    }
-
-    public void k(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.c = bVar;
-        }
+        this.a = i;
+        this.b = str;
+        this.c = t;
+        this.d = i2;
     }
 }

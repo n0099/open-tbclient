@@ -53,7 +53,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
                 }
             }
             this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09084d);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921bf);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921c0);
         }
     }
 

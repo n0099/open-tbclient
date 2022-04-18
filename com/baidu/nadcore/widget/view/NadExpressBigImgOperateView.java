@@ -57,7 +57,7 @@ public class NadExpressBigImgOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914b9);
+            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914ba);
         }
     }
 

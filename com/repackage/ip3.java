@@ -101,9 +101,9 @@ public class ip3 implements zo3 {
             boolean startsWith = str.startsWith("https://");
             this.a = startsWith;
             if (startsWith) {
-                ((PostBodyRequest.PostBodyRequestBuilder) m74.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+                ((PostBodyRequest.PostBodyRequestBuilder) l74.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
             } else {
-                ((PostBodyRequest.PostBodyRequestBuilder) m74.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+                ((PostBodyRequest.PostBodyRequestBuilder) l74.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
             }
         }
     }
@@ -112,7 +112,7 @@ public class ip3 implements zo3 {
     public void b(String str, JSONObject jSONObject, ResponseCallback<ro3> responseCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, responseCallback) == null) {
-            ((PostBodyRequest.PostBodyRequestBuilder) m74.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+            ((PostBodyRequest.PostBodyRequestBuilder) l74.g().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
         }
     }
 
@@ -123,9 +123,9 @@ public class ip3 implements zo3 {
             boolean startsWith = str.startsWith("https://");
             this.a = startsWith;
             if (startsWith) {
-                m74.g().getRequest().url(str).build().executeAsync(responseCallback);
+                l74.g().getRequest().url(str).build().executeAsync(responseCallback);
             } else {
-                m74.g().getRequest().url(str).build().executeAsync(responseCallback);
+                l74.g().getRequest().url(str).build().executeAsync(responseCallback);
             }
         }
     }
@@ -136,11 +136,11 @@ public class ip3 implements zo3 {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        l74 l74Var = new l74();
-        l74Var.b = "POST";
-        l74Var.a = "https://pimlog.baidu.com/mapp/advlog";
-        l74Var.d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
-        m74.g().e(l74Var);
+        k74 k74Var = new k74();
+        k74Var.b = "POST";
+        k74Var.a = "https://pimlog.baidu.com/mapp/advlog";
+        k74Var.d = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
+        l74.g().e(k74Var);
     }
 
     @Override // com.repackage.zo3
@@ -151,9 +151,9 @@ public class ip3 implements zo3 {
             boolean startsWith = str.startsWith("https://");
             this.a = startsWith;
             if (startsWith) {
-                m74.g().getRequest().url(str).build().executeAsync(aVar);
+                l74.g().getRequest().url(str).build().executeAsync(aVar);
             } else {
-                m74.g().getRequest().url(str).build().executeAsync(aVar);
+                l74.g().getRequest().url(str).build().executeAsync(aVar);
             }
         }
     }
@@ -165,9 +165,9 @@ public class ip3 implements zo3 {
             boolean startsWith = str.startsWith("https://");
             this.a = startsWith;
             if (startsWith) {
-                m74.g().getRequest().url(str).build().executeAsync(responseCallback);
+                l74.g().getRequest().url(str).build().executeAsync(responseCallback);
             } else {
-                m74.g().getRequest().url(str).build().executeAsync(responseCallback);
+                l74.g().getRequest().url(str).build().executeAsync(responseCallback);
             }
         }
     }

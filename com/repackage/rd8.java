@@ -1,20 +1,16 @@
 package com.repackage;
 
-import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class rd8 {
+public class rd8 extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
 
     public rd8() {
         Interceptable interceptable = $ic;
@@ -26,33 +22,23 @@ public class rd8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        b();
     }
 
-    public boolean a(Uri uri) {
-        InterceptResult invokeL;
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            if (uri == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            if (action.equals("android.intent.action.SCREEN_ON")) {
+                qd8.j().e = 1;
+            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
+                qd8.j().e = 1;
+                qd8.j().d.d();
+            } else if (action.equals("android.intent.action.USER_PRESENT")) {
+                qd8.j().e = 0;
             }
-            return this.a.contains(uri.getQueryParameter("obj_source"));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            this.a.clear();
-            this.a.add(BdUniDispatchSchemeController.PARAM_SHOUBAI);
-            this.a.add(BdUniDispatchSchemeController.PARAM_WISE);
         }
     }
 }

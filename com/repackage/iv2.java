@@ -300,7 +300,7 @@ public final class iv2 implements nv2.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             Context applicationContext = i03.J().getApplicationContext();
-            return applicationContext.getString(R.string.obfuscated_res_0x7f0f12b3, de3.l(applicationContext), str);
+            return applicationContext.getString(R.string.obfuscated_res_0x7f0f12b2, de3.l(applicationContext), str);
         }
         return (String) invokeL.objValue;
     }
@@ -308,7 +308,7 @@ public final class iv2 implements nv2.a {
     public final String n(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? i03.J().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f12b4, str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? i03.J().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f12b3, str) : (String) invokeL.objValue;
     }
 
     public final lz2 o(Context context, String str, String str2, String str3, String str4, mv2 mv2Var) {
@@ -344,7 +344,7 @@ public final class iv2 implements nv2.a {
                 for (int i2 = 0; i2 < iArr.length; i2++) {
                     String str = strArr[i2];
                     if (iArr[i2] == -1) {
-                        if (!sd4.j((SwanAppBaseActivity) this.f, str)) {
+                        if (!rd4.j((SwanAppBaseActivity) this.f, str)) {
                             q(str, this.e);
                             return;
                         } else {
@@ -362,7 +362,7 @@ public final class iv2 implements nv2.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, mv2Var) == null) {
             Context context = this.f;
-            boolean z = context != null && fh4.a(context, str);
+            boolean z = context != null && eh4.a(context, str);
             this.c = z;
             if (z) {
                 mv2Var.a("permission granted successful");

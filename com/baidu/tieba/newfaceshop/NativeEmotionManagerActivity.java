@@ -28,13 +28,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mo7;
 import com.repackage.oi;
-import com.repackage.oo7;
+import com.repackage.po7;
+import com.repackage.ro7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements oo7<Boolean> {
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements ro7<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragment createEmotionFragment;
@@ -187,7 +187,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             this.isModerator = getIntent().getIntExtra(NativeEmotionManagerActivityConfig.KEY, 0);
-            this.mEmotionRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908b1);
+            this.mEmotionRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908b2);
             this.mTitles.add("我的表情");
             MyEmotionManagerFragment myEmotionManagerFragment = new MyEmotionManagerFragment();
             this.myEmotionManagerFragment = myEmotionManagerFragment;
@@ -208,15 +208,15 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             this.mManager.setText(R.string.obfuscated_res_0x7f0f054b);
             this.mManager.setOnClickListener(this);
             SkinManager.setViewTextColor(this.mManager, (int) R.color.CAM_X0302);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091524);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091525);
             this.mNavigationBar = navigationBar;
             navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.mManager, (View.OnClickListener) null);
             this.mBackImg = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0267, (View.OnClickListener) null);
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.mNavigationBar.findViewById(R.id.obfuscated_res_0x7f0908a6);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.mNavigationBar.findViewById(R.id.obfuscated_res_0x7f0908a7);
             this.mTabStrip = commonPagerSlidingTabStrip;
             commonPagerSlidingTabStrip.k(oi.f(this, R.dimen.obfuscated_res_0x7f070207), oi.f(this, R.dimen.obfuscated_res_0x7f0701e8), oi.f(this, R.dimen.obfuscated_res_0x7f0701e8), oi.f(this, R.dimen.obfuscated_res_0x7f0701e8), oi.f(this, R.dimen.obfuscated_res_0x7f0701e8), oi.f(this, R.dimen.obfuscated_res_0x7f070305), oi.f(this, R.dimen.obfuscated_res_0x7f070261), R.color.CAM_X0107, R.color.CAM_X0105);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f0908a9);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f0908aa);
             this.mViewPager = bdBaseViewPager;
             bdBaseViewPager.setmDisallowSlip(true);
             this.mViewPager.setOffscreenPageLimit(1);
@@ -229,7 +229,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
             Bundle bundle = new Bundle();
             bundle.putInt(NativeEmotionManagerActivityConfig.KEY, this.isModerator);
             this.createEmotionFragment.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0908a5, this.createEmotionFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0908a6, this.createEmotionFragment).commit();
         }
     }
 
@@ -260,8 +260,8 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.mManager) {
-                boolean z = !mo7.b().a();
-                mo7.b().d(z);
+                boolean z = !po7.b().a();
+                po7.b().d(z);
                 if (z) {
                     this.mManager.setText(R.string.obfuscated_res_0x7f0f054c);
                 } else {
@@ -284,7 +284,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.oo7
+    @Override // com.repackage.ro7
     public void onUpdate(Boolean bool) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bool) == null) || bool == null) {

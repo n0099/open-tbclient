@@ -148,8 +148,8 @@ public class bs0 extends sr0 {
             VerticalVolumeBar verticalVolumeBar = new VerticalVolumeBar(getContext(), null, 16842872);
             this.b = verticalVolumeBar;
             verticalVolumeBar.setLayoutParams(x(false));
-            this.b.setProgressDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e18));
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e19);
+            this.b.setProgressDrawable(ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080e1c));
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080e1d);
             int dimension = (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07053f);
             int i = dimension / 2;
             this.b.setPadding(i, dimension, i, dimension);

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jo4;
+import com.repackage.io4;
 /* loaded from: classes3.dex */
 public abstract class ICDNProblemUploader {
     public static /* synthetic */ Interceptable $ic;
@@ -65,11 +65,11 @@ public abstract class ICDNProblemUploader {
         return (ICDNProblemUploader) invokeV.objValue;
     }
 
-    public abstract jo4 getmCdnLogData();
+    public abstract io4 getmCdnLogData();
 
     public abstract void insertErrorData(int i, String str);
 
     public abstract void insertNormalData(long j, String str);
 
-    public abstract void setmCdnLogData(jo4 jo4Var);
+    public abstract void setmCdnLogData(io4 io4Var);
 }

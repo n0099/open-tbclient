@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f99;
+import com.repackage.m99;
 import java.io.Serializable;
 /* loaded from: classes4.dex */
 public class VideoFollowData implements Serializable {
@@ -91,7 +91,7 @@ public class VideoFollowData implements Serializable {
                 return null;
             }
             try {
-                return (VideoFollowData) new f99().b(str, VideoFollowData.class);
+                return (VideoFollowData) new m99().b(str, VideoFollowData.class);
             } catch (Exception unused) {
                 return null;
             }
@@ -107,7 +107,7 @@ public class VideoFollowData implements Serializable {
                 return null;
             }
             try {
-                return new f99().a(videoFollowData);
+                return new m99().a(videoFollowData);
             } catch (Exception unused) {
                 return null;
             }

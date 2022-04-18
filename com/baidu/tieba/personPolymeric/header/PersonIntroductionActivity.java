@@ -104,15 +104,15 @@ public class PersonIntroductionActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d06c5);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f0917e9);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f0917ea);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e1e));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e1d));
             ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d089e, (View.OnClickListener) null);
             this.mBackImg = imageView;
             imageView.setOnClickListener(this.mClickListener);
             SkinManager.setImageResource(this.mBackImg, R.drawable.selector_topbar_return_black);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917e8);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917e9);
             this.mIntroView = textView;
             textView.setText(getIntent().getStringExtra(PERSON_INTRODUCTION));
         }

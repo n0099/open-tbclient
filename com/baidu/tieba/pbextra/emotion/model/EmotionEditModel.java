@@ -26,9 +26,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ii;
-import com.repackage.j08;
 import com.repackage.kb;
 import com.repackage.o35;
+import com.repackage.q08;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -138,9 +138,9 @@ public class EmotionEditModel extends BdBaseModel {
                         return;
                     }
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    j08 j08Var = new j08();
-                    j08Var.i(byteArrayOutputStream);
-                    j08Var.g(0);
+                    q08 q08Var = new q08();
+                    q08Var.i(byteArrayOutputStream);
+                    q08Var.g(0);
                     Bitmap createBitmap = Bitmap.createBitmap(this.a.getWidth(), this.a.getHeight(), Bitmap.Config.ARGB_8888);
                     String str = ii.b + "/" + TbConfig.getTempDirName() + "/emotion.gif";
                     Bitmap bitmap = null;
@@ -155,7 +155,7 @@ public class EmotionEditModel extends BdBaseModel {
                             this.a.c(i);
                             this.a.a(createBitmap, null);
                             bitmap = this.b.d.addTextToImage(createBitmap);
-                            j08Var.a(bitmap);
+                            q08Var.a(bitmap);
                             int b = this.a.b(i);
                             if (b == 100) {
                                 b = 0;
@@ -170,7 +170,7 @@ public class EmotionEditModel extends BdBaseModel {
                         this.b.I(createBitmap, bitmap);
                         return;
                     }
-                    j08Var.d();
+                    q08Var.d();
                     File M = this.b.M(byteArrayOutputStream, str);
                     this.b.I(createBitmap, bitmap);
                     Message obtain = Message.obtain();

@@ -1,37 +1,136 @@
 package com.repackage;
 
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NavigationBarShadowView;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Date;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class v28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ForumData> a;
-    public ArrayList<ForumData> b;
-    public ArrayList<ForumData> c;
-    public ArrayList<ForumData> d;
-    public ArrayList<ForumData> e;
-    public ArrayList<ForumData> f;
-    public qp4 g;
-    public int h;
-    public int i;
-    public int j;
+    public int a;
+    public TbPageContext b;
+    public NoNetworkView c;
+    public NavigationBar d;
+    public NavigationBarShadowView e;
+    public BdTypeListView f;
+    public TextView g;
+    public d28 h;
+    public sw8 i;
+    public View j;
+    public FrameLayout k;
+    public h45 l;
+    public c m;
+    public AbsListView.OnScrollListener n;
 
-    public v28() {
+    /* loaded from: classes7.dex */
+    public class a implements AbsListView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v28 a;
+
+        public a(v28 v28Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v28Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v28Var;
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) && i == 0) {
+                View childAt = absListView.getChildAt(0);
+                if (this.a.e == null || childAt == null || childAt.getTop() != 0) {
+                    return;
+                }
+                this.a.e.a();
+            }
+        }
+
+        @Override // android.widget.AbsListView.OnScrollListener
+        public void onScrollStateChanged(AbsListView absListView, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) && this.a.e != null && i == 1) {
+                this.a.e.c();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v28 a;
+
+        public b(v28 v28Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v28Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v28Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && mi.A()) {
+                this.a.d();
+                if (this.a.m != null) {
+                    this.a.m.a(view2);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(View view2);
+    }
+
+    public v28(View view2, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,296 +140,167 @@ public class v28 {
                 return;
             }
         }
-        this.i = 0;
-        this.j = 0;
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new ArrayList<>();
-        this.d = new ArrayList<>();
-        this.f = new ArrayList<>();
-        this.e = new ArrayList<>();
-        this.g = new qp4();
-        s(false);
-    }
-
-    public void a(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, arrayList, arrayList2) == null) {
-            if (this.d == null) {
-                this.d = new ArrayList<>();
-            }
-            ArrayList<ForumData> arrayList3 = this.e;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.addAll(arrayList);
-            }
-            ArrayList<ForumData> arrayList4 = this.f;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.addAll(arrayList2);
-            }
-            if (this.e == null && this.f == null) {
-                return;
-            }
-            this.d.clear();
-            ArrayList<ForumData> arrayList5 = this.e;
-            if (arrayList5 != null) {
-                this.d.addAll(arrayList5);
-            }
-            ArrayList<ForumData> arrayList6 = this.f;
-            if (arrayList6 != null) {
-                this.d.addAll(arrayList6);
-            }
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.j += i;
-        }
-    }
-
-    public void c(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, arrayList, arrayList2) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            ArrayList<ForumData> arrayList3 = this.b;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.addAll(arrayList);
-            }
-            ArrayList<ForumData> arrayList4 = this.c;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.addAll(arrayList2);
-            }
-            if (this.b == null && this.c == null) {
-                return;
-            }
-            this.a.clear();
-            ArrayList<ForumData> arrayList5 = this.b;
-            if (arrayList5 != null) {
-                this.a.addAll(arrayList5);
-            }
-            ArrayList<ForumData> arrayList6 = this.c;
-            if (arrayList6 != null) {
-                this.a.addAll(arrayList6);
-            }
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.i += i;
-        }
-    }
-
-    public ArrayList<ForumData> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<ForumData> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (ArrayList) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public ArrayList<ForumData> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<ForumData> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<ForumData> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public ArrayList<ForumData> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.h == 1 : invokeV.booleanValue;
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || str == null) {
+        this.a = 3;
+        this.n = new a(this);
+        if (view2 == null) {
             return;
         }
-        try {
-            o(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        this.b = tbPageContext;
+        this.c = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f091794);
+        this.d = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091793);
+        this.e = (NavigationBarShadowView) view2.findViewById(R.id.obfuscated_res_0x7f091507);
+        this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0911c7);
+        this.f = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091789);
+        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070270));
+        View view3 = new View(tbPageContext.getPageActivity());
+        this.j = view3;
+        view3.setLayoutParams(layoutParams);
+        this.f.addFooterView(this.j);
+        this.f.setOnScrollListener(this.n);
+        this.h = new d28(this.f, tbPageContext, bdUniqueId);
+        this.i = new sw8(1);
+    }
+
+    public void c() {
+        d28 d28Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (d28Var = this.h) == null) {
+            return;
+        }
+        d28Var.a();
+    }
+
+    public void d() {
+        h45 h45Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (h45Var = this.l) == null) {
+            return;
+        }
+        h45Var.dettachView(this.k);
+        this.l = null;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g = this.d.setCenterTextTitle(this.b.getString(R.string.mine));
+            this.i.n(this.b.getPageActivity(), this.d);
+            this.i.k();
+            this.i.o(null);
+            h(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void o(JSONObject jSONObject) {
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) {
-            try {
-                this.g.i(jSONObject.optJSONObject("page"));
-                this.h = jSONObject.optInt("has_more", 1);
-                long optLong = jSONObject.optLong("ctime", 0L);
-                if (optLong > 0) {
-                    new Date(optLong);
-                } else {
-                    new Date();
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
-                if (optJSONObject == null) {
-                    return;
-                }
-                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
-                if (optJSONArray != null) {
-                    this.i = optJSONArray.length();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        ForumData forumData = new ForumData();
-                        forumData.parserJson(optJSONArray.getJSONObject(i));
-                        this.b.add(forumData);
-                    }
-                }
-                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        ForumData forumData2 = new ForumData();
-                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.c.add(forumData2);
-                    }
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
-                if (optJSONObject2 == null) {
-                    return;
-                }
-                JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
-                if (optJSONArray3 != null) {
-                    this.j = optJSONArray3.length();
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        ForumData forumData3 = new ForumData();
-                        forumData3.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.e.add(forumData3);
-                    }
-                }
-                JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
-                if (optJSONArray4 != null) {
-                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        ForumData forumData4 = new ForumData();
-                        forumData4.parserJson(optJSONArray4.getJSONObject(i4));
-                        this.f.add(forumData4);
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            h45 h45Var = this.l;
+            if (h45Var != null) {
+                return h45Var.isViewAttached();
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.h.b();
         }
     }
 
-    public void p(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, arrayList, arrayList2) == null) {
-            if (this.d == null) {
-                this.d = new ArrayList<>();
-            }
-            ArrayList<ForumData> arrayList3 = this.e;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.clear();
-                this.e.addAll(arrayList);
-            }
-            ArrayList<ForumData> arrayList4 = this.f;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.clear();
-                this.f.addAll(arrayList2);
-            }
-            if (this.e == null && this.f == null) {
-                return;
-            }
-            this.d.clear();
-            ArrayList<ForumData> arrayList5 = this.e;
-            if (arrayList5 != null) {
-                this.d.addAll(arrayList5);
-            }
-            ArrayList<ForumData> arrayList6 = this.f;
-            if (arrayList6 != null) {
-                this.d.addAll(arrayList6);
-            }
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || this.a == i) {
+            return;
         }
+        SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+        SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0201);
+        this.d.onChangeSkinType(this.b, i);
+        SkinManager.setBackgroundColor(this.d.getBarBgView(), R.color.CAM_X0207, i);
+        this.h.c();
+        this.c.c(this.b, i);
+        this.i.m(i);
+        h45 h45Var = this.l;
+        if (h45Var != null) {
+            h45Var.onChangeSkinType();
+        }
+        SkinManager.setBackgroundResource(this.e, R.drawable.personalize_tab_shadow);
+        this.a = i;
     }
 
-    public void q(int i) {
+    public void i() {
+        d28 d28Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.j = i;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (d28Var = this.h) == null) {
+            return;
         }
+        d28Var.a();
     }
 
-    public void r(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
+    public void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, arrayList, arrayList2) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            ArrayList<ForumData> arrayList3 = this.b;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.clear();
-                this.b.addAll(arrayList);
-            }
-            ArrayList<ForumData> arrayList4 = this.c;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.clear();
-                this.c.addAll(arrayList2);
-            }
-            if (this.b == null && this.c == null) {
-                return;
-            }
-            this.a.clear();
-            ArrayList<ForumData> arrayList5 = this.b;
-            if (arrayList5 != null) {
-                this.a.addAll(arrayList5);
-            }
-            ArrayList<ForumData> arrayList6 = this.c;
-            if (arrayList6 != null) {
-                this.a.addAll(arrayList6);
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (z) {
+                this.f.setVisibility(8);
+            } else {
+                this.f.setVisibility(0);
             }
         }
     }
 
-    public void s(boolean z) {
+    public void k(j28 j28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.h = z ? 1 : 0;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j28Var) == null) || j28Var == null) {
+            return;
+        }
+        this.h.d(j28Var.n());
+    }
+
+    public void l(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
+            this.m = cVar;
         }
     }
 
-    public void t(int i) {
+    public void m(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.i = i;
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {
+            this.b.showToast(str);
+        }
+    }
+
+    public void n() {
+        d28 d28Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (d28Var = this.h) == null) {
+            return;
+        }
+        d28Var.e();
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || f()) {
+            return;
+        }
+        if (this.l == null) {
+            this.l = new h45(this.b.getPageActivity(), new b(this));
+        }
+        this.l.attachView(this.k, false);
+        this.l.p();
+        this.l.onChangeSkinType();
+    }
+
+    public void p(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.i.p(i, z);
         }
     }
 }

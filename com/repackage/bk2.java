@@ -65,7 +65,7 @@ public class bk2 implements bk3 {
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? vg4.b(AppRuntime.getAppContext()).a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ug4.b(AppRuntime.getAppContext()).a() : (String) invokeV.objValue;
     }
 
     @Override // com.repackage.bk3

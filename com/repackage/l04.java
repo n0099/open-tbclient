@@ -1,90 +1,87 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
 /* loaded from: classes6.dex */
 public class l04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public long b;
+    public long c;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Comparator<l04> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(l04 l04Var, l04 l04Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l04Var, l04Var2)) == null) ? (int) (l04Var.a - l04Var2.a) : invokeLL.intValue;
-        }
-    }
-
-    public l04() {
+    public l04(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = j;
+        this.b = j2;
+        this.c = j3;
     }
 
-    public static long[] a(l04 l04Var) {
-        InterceptResult invokeL;
+    @NonNull
+    public static l04 b(long j, double d, double d2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, l04Var)) == null) {
-            if (l04Var == null) {
-                return null;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Double.valueOf(d), Double.valueOf(d2)})) == null) ? new l04(j, (long) (d * 1000.0d), (long) (d2 * 1000.0d)) : (l04) invokeCommon.objValue;
+    }
+
+    public k04 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c()) {
+                k04 k04Var = new k04();
+                k04Var.a = Math.max(this.a - this.b, 0L);
+                k04Var.b = this.a + this.c;
+                return k04Var;
             }
-            return new long[]{l04Var.a, l04Var.b};
+            return null;
         }
-        return (long[]) invokeL.objValue;
+        return (k04) invokeV.objValue;
     }
 
-    public boolean b(l04 l04Var) {
-        InterceptResult invokeL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l04Var)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             long j = this.a;
-            if (j <= l04Var.b) {
+            if (j >= 0) {
                 long j2 = this.b;
-                long j3 = l04Var.a;
-                if (j2 < j3) {
-                    return false;
+                if (j2 >= 0) {
+                    long j3 = this.c;
+                    if (j3 >= 0 && j2 + j3 > 0 && j + j3 > 0) {
+                        return true;
+                    }
                 }
-                this.a = Math.min(j, j3);
-                this.b = Math.max(this.b, l04Var.b);
-                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "[ mBaseline = " + this.a + "; mLeftOffset = " + this.b + "; mRightOffset = " + this.c + " ]";
+        }
+        return (String) invokeV.objValue;
     }
 }

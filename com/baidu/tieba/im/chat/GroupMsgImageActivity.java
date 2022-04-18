@@ -4,8 +4,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s77;
-import com.repackage.u77;
+import com.repackage.v77;
+import com.repackage.x77;
 /* loaded from: classes3.dex */
 public class GroupMsgImageActivity extends AbsMsgImageActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -26,10 +26,10 @@ public class GroupMsgImageActivity extends AbsMsgImageActivity {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
-    public void queryAllBigImageUrls(String str, u77 u77Var) {
+    public void queryAllBigImageUrls(String str, x77 x77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, u77Var) == null) {
-            s77.j().n(str, u77Var);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, x77Var) == null) {
+            v77.j().n(str, x77Var);
         }
     }
 }

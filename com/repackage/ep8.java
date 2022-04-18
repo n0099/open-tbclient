@@ -2,25 +2,26 @@ package com.repackage;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ep8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ep8(MainTabActivity mainTabActivity, pn8 pn8Var) {
-        super(2921414);
+    public ep8(MainTabActivity mainTabActivity, wn8 wn8Var) {
+        super(2921666);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pn8Var};
+            Object[] objArr = {mainTabActivity, wn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,11 +38,21 @@ public class ep8 extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        az8 az8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || (az8Var = this.a.mWriteTab) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                MainTabActivity mainTabActivity = this.a;
+                mainTabActivity.mOnResumeHotForSplashCount = 0;
+                mainTabActivity.mAppBackgroundTime = System.currentTimeMillis();
+                TbSingleton.getInstance().setExceptInsertAdDiaShow(false);
+                return;
+            }
+            qb7.l = false;
+            qb7 k = qb7.k(this.a);
+            int intValue = this.a.mCurrentTabIndex.intValue();
+            MainTabActivity mainTabActivity2 = this.a;
+            k.y("2", intValue, 0, mainTabActivity2.mAppBackgroundTime, new bo8(mainTabActivity2), false);
+            ld5.a(2);
         }
-        az8Var.C();
     }
 }

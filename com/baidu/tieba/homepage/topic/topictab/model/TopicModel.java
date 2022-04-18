@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.repackage.mi;
-import com.repackage.n27;
+import com.repackage.q27;
 import com.repackage.wa;
 /* loaded from: classes3.dex */
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n27 a;
+    public q27 a;
     public wa b;
     public wa c;
     public boolean d;
@@ -66,9 +66,9 @@ public class TopicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (!mi.A()) {
-                n27 n27Var = this.a;
-                if (n27Var != null) {
-                    n27Var.netCallback(-1, null);
+                q27 q27Var = this.a;
+                if (q27Var != null) {
+                    q27Var.netCallback(-1, null);
                 }
             } else if (this.d) {
             } else {
@@ -83,10 +83,10 @@ public class TopicModel extends BdBaseModel {
         }
     }
 
-    public void z(n27 n27Var) {
+    public void z(q27 q27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, n27Var) == null) {
-            this.a = n27Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, q27Var) == null) {
+            this.a = q27Var;
         }
     }
 }

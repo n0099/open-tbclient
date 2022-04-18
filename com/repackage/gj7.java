@@ -1,53 +1,40 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes6.dex */
-public class gj7 implements uo {
+public class gj7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755676035, "Lcom/repackage/gj7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755676035, "Lcom/repackage/gj7;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    public gj7() {
+    public gj7(VipThemeItem vipThemeItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipThemeItem};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        String str = vipThemeItem.img_url;
+        String str2 = vipThemeItem.title;
+        vipThemeItem.props_id.intValue();
+        vipThemeItem.props_category.intValue();
+        String str3 = vipThemeItem.props_category_name;
+        String str4 = vipThemeItem.desc;
+        String str5 = vipThemeItem.link;
+        String str6 = vipThemeItem.tag_img_url;
+        String str7 = vipThemeItem.update_time;
+        vipThemeItem.id.intValue();
+        vipThemeItem.type.intValue();
     }
 }

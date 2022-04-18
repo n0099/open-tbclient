@@ -55,7 +55,7 @@ public class zi5 implements AdAsyncRequestModel.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
             IAdBaseAsyncController.a aVar = this.g.get();
-            if (!z || gd7.e(list)) {
+            if (!z || jd7.e(list)) {
                 if (aVar != null) {
                     aVar.b(null);
                     return;
@@ -85,7 +85,7 @@ public class zi5 implements AdAsyncRequestModel.b {
 
     public void d(int i, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, map) == null) || System.currentTimeMillis() - this.f < this.c * k98.c) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, map) == null) || System.currentTimeMillis() - this.f < this.c * r98.c) {
             return;
         }
         this.e.d(map, i);
@@ -113,12 +113,12 @@ public class zi5 implements AdAsyncRequestModel.b {
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
                 next.k = this.b;
-                if (g98.n(next) && this.d) {
+                if (n98.n(next) && this.d) {
                     it.remove();
                 } else {
                     int q = next.q();
                     if (q != 0) {
-                        tc8.i(next, 0, q);
+                        ad8.i(next, 0, q);
                         it.remove();
                     }
                 }

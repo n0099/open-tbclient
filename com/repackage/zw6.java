@@ -1,25 +1,71 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.RecomTopicList;
 /* loaded from: classes7.dex */
-public class zw6 implements uo {
+public class zw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public long a;
     public String b;
     public int c;
-    public String d;
-    public int e;
-    public ThreadData f;
+    public int d;
+    public boolean e;
+    public int f;
 
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
+    public zw6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = true;
+    }
+
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? vw6.b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f == 1 : invokeV.booleanValue;
+    }
+
+    public zw6(@NonNull RecomTopicList recomTopicList, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {recomTopicList, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = recomTopicList.topic_id.longValue();
+        this.b = recomTopicList.topic_name;
+        this.c = recomTopicList.tag.intValue();
+        this.d = i + 1;
+        this.f = recomTopicList.is_video_topic.intValue();
     }
 }

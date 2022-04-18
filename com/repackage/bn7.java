@@ -1,53 +1,35 @@
 package com.repackage;
 
-import android.view.View;
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface bn7 {
     void a();
 
     void b(boolean z);
 
-    void c(int i);
+    void d();
 
-    void d(x37 x37Var);
+    void e(boolean z, List<uo> list);
 
-    void destroy();
+    void f(String str);
 
-    void e();
+    void g();
 
-    void f(boolean z);
-
-    void g(long j, long j2);
-
-    View getRootView();
-
-    x37 h();
+    void h(int i);
 
     void i();
 
-    void j(boolean z, int i);
+    void j(int i);
 
-    void k(int i);
+    void k(boolean z);
 
-    int l();
+    void l(an7 an7Var);
 
     void m();
 
-    void n(x37 x37Var);
+    void n(String str);
 
-    void o(long j, long j2, int i);
+    void onCreate();
 
-    w37 p(int i);
-
-    void pause();
-
-    void q();
-
-    void r();
-
-    void resume();
-
-    void s(int i);
-
-    void t(w37 w37Var, boolean z, int i);
+    void onDestroy();
 }

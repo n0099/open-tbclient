@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.lu4;
+import com.repackage.ku4;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class NoDataView extends LinearLayout {
@@ -219,19 +219,19 @@ public class NoDataView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0619, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fe1);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fe2);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(0);
             this.c.setDefaultResource(0);
-            this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092022);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921fb);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921f6);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092201);
+            this.d = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092023);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921fc);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921f7);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092202);
             this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09041c);
-            lu4 lu4Var = new lu4();
+            ku4 ku4Var = new ku4();
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(lu4Var);
-            this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092217);
+            this.h.setConfig(ku4Var);
+            this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092218);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
             h();
@@ -351,11 +351,11 @@ public class NoDataView extends LinearLayout {
             if (bVar2 != null && bVar != null) {
                 this.i = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090424);
                 this.j = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f09043e);
-                lu4 lu4Var = new lu4();
+                ku4 ku4Var = new ku4();
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(lu4Var);
+                this.i.setConfig(ku4Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(lu4Var);
+                this.j.setConfig(ku4Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);

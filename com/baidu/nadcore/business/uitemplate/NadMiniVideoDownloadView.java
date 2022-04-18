@@ -136,15 +136,15 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
                             if (i != 6) {
                                 return -1;
                             }
-                            return R.drawable.obfuscated_res_0x7f080dc1;
+                            return R.drawable.obfuscated_res_0x7f080dc5;
                         }
-                        return R.drawable.obfuscated_res_0x7f080dc3;
+                        return R.drawable.obfuscated_res_0x7f080dc7;
                     }
-                    return R.drawable.obfuscated_res_0x7f080dc2;
+                    return R.drawable.obfuscated_res_0x7f080dc6;
                 }
-                return R.drawable.obfuscated_res_0x7f080dc4;
+                return R.drawable.obfuscated_res_0x7f080dc8;
             }
-            return R.drawable.obfuscated_res_0x7f080dc1;
+            return R.drawable.obfuscated_res_0x7f080dc5;
         }
         return invokeL.intValue;
     }
@@ -153,10 +153,10 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(getContext()).inflate(getLayoutId(), (ViewGroup) this, true);
-            this.h = (NadRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f09141d);
-            this.i = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09141c);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09141e);
-            this.g = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f09141b);
+            this.h = (NadRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f09141e);
+            this.i = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09141d);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09141f);
+            this.g = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f09141c);
             g();
         }
     }

@@ -104,7 +104,9 @@ public class se5 implements ImageAssetDelegate {
             if (foVar != null && foVar.p() != null) {
                 Bitmap p = foVar.p();
                 try {
-                    return p.copy(p.getConfig(), false);
+                    if (p.getConfig() != null) {
+                        return p.copy(p.getConfig(), false);
+                    }
                 } catch (OutOfMemoryError e) {
                     TbadkCoreApplication.getInst().onAppMemoryLow();
                     BdLog.e(e);

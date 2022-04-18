@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.handler;
 
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.c.f.e;
-import com.repackage.rm9;
+import com.repackage.ym9;
 import java.io.Serializable;
 import java.util.Map;
 /* loaded from: classes5.dex */
@@ -37,7 +37,7 @@ public class MzPushMessage implements Serializable {
                 str = null;
             }
         }
-        rm9.b(TAG, "self json " + str);
+        ym9.b(TAG, "self json " + str);
         return str;
     }
 

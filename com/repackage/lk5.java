@@ -151,9 +151,9 @@ public class lk5 {
         this.h = new a(this);
         this.g = tbPageContext;
         this.f = tbPageContext.getPageActivity();
-        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091551);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091555);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091550);
+        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091552);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091556);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091551);
         this.b.setOnClickListener(this.h);
         this.c.setOnClickListener(this.h);
         b bVar = new b(this);

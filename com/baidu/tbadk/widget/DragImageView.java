@@ -50,7 +50,7 @@ import com.repackage.he5;
 import com.repackage.ie5;
 import com.repackage.jb;
 import com.repackage.kb;
-import com.repackage.lt4;
+import com.repackage.kt4;
 import com.repackage.oi;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -1198,7 +1198,7 @@ public class DragImageView extends ImageView {
                         this.A = 0;
                     }
                 } else {
-                    lt4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "DragImageView.play", -1, "decode error", new Object[0]);
+                    kt4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "DragImageView.play", -1, "decode error", new Object[0]);
                     return;
                 }
             }

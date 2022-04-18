@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c77;
+import com.repackage.f77;
 /* loaded from: classes3.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -58,8 +58,8 @@ public class OfficialFeedItemBottom extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d063c, (ViewGroup) this, true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0913ff);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0913fb);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091400);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0913fc);
             c();
         }
     }
@@ -72,7 +72,7 @@ public class OfficialFeedItemBottom extends LinearLayout {
         }
     }
 
-    public void setData(c77.a aVar, boolean z) {
+    public void setData(f77.a aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, aVar, z) == null) {
             int i = TextUtils.isEmpty(aVar.b) ? 8 : 0;

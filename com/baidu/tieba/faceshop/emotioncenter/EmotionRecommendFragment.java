@@ -27,18 +27,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aa6;
 import com.repackage.ca6;
-import com.repackage.du4;
-import com.repackage.ho7;
+import com.repackage.cu4;
+import com.repackage.ea6;
+import com.repackage.ko7;
 import com.repackage.mi;
 import com.repackage.oi;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class EmotionRecommendFragment extends BaseFragment implements aa6 {
+public class EmotionRecommendFragment extends BaseFragment implements ca6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ca6 a;
+    public ea6 a;
     public EmotionCenterModel b;
     public boolean c;
     public boolean d;
@@ -47,7 +47,7 @@ public class EmotionRecommendFragment extends BaseFragment implements aa6 {
     public final CustomMessageListener g;
     public CustomMessageListener h;
     public CustomMessageListener i;
-    public du4.g j;
+    public cu4.g j;
     public BdListView.p k;
 
     /* loaded from: classes3.dex */
@@ -193,7 +193,7 @@ public class EmotionRecommendFragment extends BaseFragment implements aa6 {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements du4.g {
+    public class d implements cu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionRecommendFragment a;
@@ -216,7 +216,7 @@ public class EmotionRecommendFragment extends BaseFragment implements aa6 {
             this.a = emotionRecommendFragment;
         }
 
-        @Override // com.repackage.du4.g
+        @Override // com.repackage.cu4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -295,17 +295,17 @@ public class EmotionRecommendFragment extends BaseFragment implements aa6 {
     public final void F0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (ho7.l().r()) {
-                ca6 ca6Var = this.a;
-                if (ca6Var != null) {
-                    ca6Var.s();
+            if (ko7.l().r()) {
+                ea6 ea6Var = this.a;
+                if (ea6Var != null) {
+                    ea6Var.s();
                     return;
                 }
                 return;
             }
-            ca6 ca6Var2 = this.a;
-            if (ca6Var2 != null) {
-                ca6Var2.n();
+            ea6 ea6Var2 = this.a;
+            if (ea6Var2 != null) {
+                ea6Var2.n();
             }
         }
     }
@@ -314,16 +314,16 @@ public class EmotionRecommendFragment extends BaseFragment implements aa6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ca6 ca6Var = this.a;
-            if (ca6Var != null) {
-                return ca6Var.f();
+            ea6 ea6Var = this.a;
+            if (ea6Var != null) {
+                return ea6Var.f();
             }
             return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.aa6
+    @Override // com.repackage.ca6
     public void Q(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, emotionCenterData) == null) {
@@ -336,14 +336,14 @@ public class EmotionRecommendFragment extends BaseFragment implements aa6 {
         }
     }
 
-    @Override // com.repackage.aa6
+    @Override // com.repackage.ca6
     public void Z(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, emotionCenterData) == null) {
         }
     }
 
-    @Override // com.repackage.aa6
+    @Override // com.repackage.ca6
     public void i0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, emotionCenterData) == null) {
@@ -378,9 +378,9 @@ public class EmotionRecommendFragment extends BaseFragment implements aa6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            ca6 ca6Var = this.a;
-            if (ca6Var != null) {
-                ca6Var.m(i);
+            ea6 ea6Var = this.a;
+            if (ea6Var != null) {
+                ea6Var.m(i);
             }
         }
     }
@@ -400,9 +400,9 @@ public class EmotionRecommendFragment extends BaseFragment implements aa6 {
         EmotionCenterModel emotionCenterModel2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            ca6 ca6Var = new ca6(getPageContext(), getUniqueId());
-            this.a = ca6Var;
-            ca6Var.p(this.j);
+            ea6 ea6Var = new ea6(getPageContext(), getUniqueId());
+            this.a = ea6Var;
+            ea6Var.p(this.j);
             this.a.r(this.k);
             registerListener(this.g);
             registerListener(this.h);

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gt7;
-import com.repackage.ls4;
+import com.repackage.ks4;
+import com.repackage.nt7;
 /* loaded from: classes2.dex */
 public class InitPbNetRequestTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gt7 schemeStartPbMessageSender;
+    public final nt7 schemeStartPbMessageSender;
 
     public InitPbNetRequestTask() {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class InitPbNetRequestTask extends LaunchTask {
                 return;
             }
         }
-        this.schemeStartPbMessageSender = new gt7();
+        this.schemeStartPbMessageSender = new nt7();
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.schemeStartPbMessageSender.i(ls4.a().c);
+            this.schemeStartPbMessageSender.i(ks4.a().c);
         }
     }
 

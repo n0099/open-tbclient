@@ -97,9 +97,9 @@ public class FeedBackTopListView extends LinearLayout {
                 return null;
             }
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0359, (ViewGroup) null);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090bf9);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bfb);
-            inflate.findViewById(R.id.obfuscated_res_0x7f090bf6);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090bfa);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090bfc);
+            inflate.findViewById(R.id.obfuscated_res_0x7f090bf7);
             String tid = threadData.getTid();
             textView.setText(threadData.getTitle());
             this.c.getLayoutMode().k(this.d == 1);

@@ -1,78 +1,228 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ol4;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class nl4 {
+public class nl4 {
     public static /* synthetic */ Interceptable $ic;
+    public static ol4 a;
+    public static nl4 b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(boolean z, boolean z2, String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755465669, "Lcom/repackage/nl4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755465669, "Lcom/repackage/nl4;");
+                return;
+            }
+        }
+        new ArrayList(5);
     }
 
     public nl4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static nl4 b(BaseActivity baseActivity) {
+    public static nl4 a(BaseFragmentActivity baseFragmentActivity) {
         InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, nl4.class, baseActivity);
-            if (runTask == null || runTask.getData() == null) {
-                return null;
-            }
-            return (nl4) runTask.getData();
-        }
-        return (nl4) invokeL.objValue;
-    }
-
-    public static nl4 c(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
+        ol4 ol4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, nl4.class, baseFragmentActivity);
-            if (runTask == null || runTask.getData() == null) {
-                return null;
+            if (b == null) {
+                synchronized (nl4.class) {
+                    if (b == null) {
+                        b = new nl4();
+                        a = ol4.a(baseFragmentActivity);
+                    }
+                }
+            } else {
+                ol4 ol4Var2 = a;
+                if (ol4Var2 != null) {
+                    ol4Var2.j(baseFragmentActivity.getPageContext());
+                }
             }
-            return (nl4) runTask.getData();
+            if (c && (ol4Var = a) != null) {
+                ol4Var.d();
+                a.c();
+                c = false;
+            }
+            return b;
         }
         return (nl4) invokeL.objValue;
     }
 
-    public abstract void a();
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            try {
+                if (a != null) {
+                    if (b != null) {
+                        b.j();
+                    }
+                    a.e();
+                    a.i();
+                    a = null;
+                }
+                if (b != null) {
+                    b = null;
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+    }
 
-    public abstract void d();
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
+        }
+    }
 
-    public abstract boolean e();
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b();
+            ol4 ol4Var = a;
+            if (ol4Var != null) {
+                ol4Var.d();
+                c = false;
+            }
+        }
+    }
 
-    public abstract MarkData f();
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b();
+            ol4 ol4Var = a;
+            if (ol4Var != null) {
+                ol4Var.c();
+                c = false;
+            }
+        }
+    }
 
-    public abstract String g();
+    public void e(boolean z, boolean z2, boolean z3, ol4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
+            b();
+            if (z) {
+                c();
+            }
+            if (z2) {
+                d();
+            }
+            l(z3);
+            k(aVar);
+        }
+    }
 
-    public abstract void h(boolean z);
+    public void f(ol4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            b();
+            ol4 ol4Var = a;
+            if (ol4Var != null) {
+                if (ol4Var.b()) {
+                    a.k(aVar);
+                }
+                a.f();
+            }
+        }
+    }
 
-    public abstract void i(MarkData markData);
+    public void g(int i, ol4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
+            b();
+            ol4 ol4Var = a;
+            if (ol4Var != null) {
+                if (ol4Var.b()) {
+                    a.k(aVar);
+                }
+                a.g(i);
+            }
+        }
+    }
 
-    public abstract void j(a aVar);
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b();
+            ol4 ol4Var = a;
+            if (ol4Var != null) {
+                ol4Var.h();
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            b();
+            i();
+            m();
+        }
+    }
+
+    public void k(ol4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            b();
+            ol4 ol4Var = a;
+            if (ol4Var != null) {
+                ol4Var.k(aVar);
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            b();
+            ol4 ol4Var = a;
+            if (ol4Var != null) {
+                ol4Var.l(z);
+            }
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            b();
+            ol4 ol4Var = a;
+            if (ol4Var != null) {
+                ol4Var.m();
+                c = true;
+            }
+        }
+    }
 }

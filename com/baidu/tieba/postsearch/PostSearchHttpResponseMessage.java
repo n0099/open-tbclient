@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h88;
+import com.repackage.o88;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PostSearchHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h88 mSearchData;
+    public o88 mSearchData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PostSearchHttpResponseMessage(int i) {
@@ -39,15 +39,15 @@ public class PostSearchHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
-            h88 h88Var = new h88();
-            this.mSearchData = h88Var;
-            h88Var.c(jSONObject);
+            o88 o88Var = new o88();
+            this.mSearchData = o88Var;
+            o88Var.c(jSONObject);
         }
     }
 
-    public h88 getSearchData() {
+    public o88 getSearchData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchData : (h88) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchData : (o88) invokeV.objValue;
     }
 }

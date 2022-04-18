@@ -25,15 +25,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.as7;
+import com.repackage.ay7;
+import com.repackage.cn8;
+import com.repackage.ds7;
 import com.repackage.ho;
-import com.repackage.mu4;
+import com.repackage.lu4;
 import com.repackage.oi;
-import com.repackage.tx7;
 import com.repackage.u75;
-import com.repackage.vm8;
 /* loaded from: classes3.dex */
-public class PbFirstFloorEnterForumAdapter extends ho<as7, PbFirstFloorEnterForumViewHolder> {
+public class PbFirstFloorEnterForumAdapter extends ho<ds7, PbFirstFloorEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragment i;
@@ -49,7 +49,7 @@ public class PbFirstFloorEnterForumAdapter extends ho<as7, PbFirstFloorEnterForu
         public View b;
         public View c;
         public ImageView d;
-        public as7 e;
+        public ds7 e;
         public TBSpecificationBtn f;
         public String g;
         public String h;
@@ -96,21 +96,21 @@ public class PbFirstFloorEnterForumAdapter extends ho<as7, PbFirstFloorEnterForu
             }
         }
 
-        public void e(as7 as7Var) {
+        public void e(ds7 ds7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, as7Var) == null) {
-                if (as7Var != null) {
-                    this.e = as7Var;
-                    this.g = as7Var.f;
-                    this.h = as7Var.a;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ds7Var) == null) {
+                if (ds7Var != null) {
+                    this.e = ds7Var;
+                    this.g = ds7Var.f;
+                    this.h = ds7Var.a;
                     if (!this.i.k) {
-                        this.i.k = as7Var.h;
+                        this.i.k = ds7Var.h;
                     }
-                    this.c.setVisibility(as7Var.e ? 0 : 8);
+                    this.c.setVisibility(ds7Var.e ? 0 : 8);
                     if (b() != null) {
-                        b().setPadding(0, 0, 0, as7Var.e ? oi.f(this.i.a, R.dimen.tbds42) : 0);
+                        b().setPadding(0, 0, 0, ds7Var.e ? oi.f(this.i.a, R.dimen.tbds42) : 0);
                     }
-                    this.a.setData(as7Var.a, as7Var.b, as7Var.c, as7Var.d);
+                    this.a.setData(ds7Var.a, ds7Var.b, ds7Var.c, ds7Var.d);
                 }
                 if (this.f == null || this.i.k) {
                     return;
@@ -124,12 +124,12 @@ public class PbFirstFloorEnterForumAdapter extends ho<as7, PbFirstFloorEnterForu
 
         public final void f(String str) {
             TbPageTag l;
-            as7 as7Var;
+            ds7 ds7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (l = u75.l(this.i.i.getContext())) == null || (as7Var = this.e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (l = u75.l(this.i.i.getContext())) == null || (ds7Var = this.e) == null) {
                 return;
             }
-            tx7.a(str, as7Var.f, as7Var.g, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
+            ay7.a(str, ds7Var.f, ds7Var.g, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
         }
 
         public final void g() {
@@ -140,7 +140,7 @@ public class PbFirstFloorEnterForumAdapter extends ho<as7, PbFirstFloorEnterForu
             if (this.i.k) {
                 this.f.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f062e));
                 this.f.setClickable(false);
-                ((mu4) this.f.getStyleConfig()).t(R.color.CAM_X0109);
+                ((lu4) this.f.getStyleConfig()).t(R.color.CAM_X0109);
                 return;
             }
             this.f.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f029c));
@@ -186,7 +186,7 @@ public class PbFirstFloorEnterForumAdapter extends ho<as7, PbFirstFloorEnterForu
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof vm8) && ((vm8) customResponsedMessage.getData()).b) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof cn8) && ((cn8) customResponsedMessage.getData()).b) {
                 this.a.k = true;
                 this.a.j.g();
             }
@@ -220,8 +220,8 @@ public class PbFirstFloorEnterForumAdapter extends ho<as7, PbFirstFloorEnterForu
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, as7 as7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
-        f0(i, view2, viewGroup, as7Var, pbFirstFloorEnterForumViewHolder);
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ds7 ds7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
+        f0(i, view2, viewGroup, ds7Var, pbFirstFloorEnterForumViewHolder);
         return view2;
     }
 
@@ -263,12 +263,12 @@ public class PbFirstFloorEnterForumAdapter extends ho<as7, PbFirstFloorEnterForu
         return (PbFirstFloorEnterForumViewHolder) invokeL.objValue;
     }
 
-    public View f0(int i, View view2, ViewGroup viewGroup, as7 as7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
+    public View f0(int i, View view2, ViewGroup viewGroup, ds7 ds7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, as7Var, pbFirstFloorEnterForumViewHolder})) == null) {
-            if (as7Var != null) {
-                pbFirstFloorEnterForumViewHolder.e(as7Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ds7Var, pbFirstFloorEnterForumViewHolder})) == null) {
+            if (ds7Var != null) {
+                pbFirstFloorEnterForumViewHolder.e(ds7Var);
             }
             pbFirstFloorEnterForumViewHolder.d();
             return view2;

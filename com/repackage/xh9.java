@@ -1,113 +1,37 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.NativeExpressADView;
-import com.qq.e.ads.nativ.NativeExpressMediaListener;
-import com.qq.e.comm.util.AdError;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xh9 implements NativeExpressMediaListener {
+public class xh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xh9(vh9 vh9Var) {
+    public static RippedAd a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vh9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            if (optJSONObject != null) {
+                str2 = optJSONObject.optString("appname");
+                str3 = optJSONObject.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+                str = optJSONObject.optString("pkgurl");
+            } else {
+                str = null;
+                str2 = null;
+                str3 = null;
             }
+            RippedAd.Builder builder = new RippedAd.Builder();
+            builder.setCorporation(jSONObject.optString("corporation_name")).setTitle(jSONObject.optString("txt")).setDescription(jSONObject.optString("desc")).setAppName(str2).setAppPkg(str3).setAppUrl(str).setIconUrl(jSONObject.optString("img2")).setImageUrl(jSONObject.optString("img")).setVideoImageUrl(null).setVideoUrl(jSONObject.optString("video")).setClickUrl(jSONObject.optString("rl")).setDeepLinkUrl(jSONObject.optString("customized_invoke_url")).setConvUrl(null);
+            return builder.build();
         }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoCached(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoComplete(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoError(NativeExpressADView nativeExpressADView, AdError adError) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressADView, adError) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoInit(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoLoading(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPageClose(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPageOpen(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPause(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoReady(NativeExpressADView nativeExpressADView, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, nativeExpressADView, j) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoStart(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, nativeExpressADView) == null) {
-            LogPrinter.d();
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

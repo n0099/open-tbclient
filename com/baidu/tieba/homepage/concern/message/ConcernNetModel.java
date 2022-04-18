@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.dk8;
+import com.repackage.kk8;
 import com.repackage.l95;
 import com.repackage.ni;
 import com.repackage.vb5;
@@ -209,11 +209,11 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, dk8.a(TbConfig.URL_CONCERN_PAGE, 309474));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_PAGE, kk8.a(TbConfig.URL_CONCERN_PAGE, 309474));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, dk8.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY, kk8.a(TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, 309476));
             tbHttpMessageTask2.setIsNeedAddCommenParam(true);
             tbHttpMessageTask2.setResponsedClass(CheckRedNotifyHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask2);

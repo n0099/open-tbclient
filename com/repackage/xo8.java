@@ -1,27 +1,33 @@
 package com.repackage;
 
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
 /* loaded from: classes7.dex */
 public class xo8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
+    public final jo8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xo8(MainTabActivity mainTabActivity, pn8 pn8Var) {
-        super(2921666);
+    public xo8(MainTabActivity mainTabActivity) {
+        super(2001011);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pn8Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,6 +39,7 @@ public class xo8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = mainTabActivity.mLogicController;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,19 +47,45 @@ public class xo8 extends CustomMessageListener {
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            boolean z = false;
             if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                el.e();
+                el.i();
+                this.a.lastDay = UtilHelper.getCurrentDay();
+                vt4.k().x("last_resume_time", TbSingleton.getInstance().getLastResumeTime());
                 MainTabActivity mainTabActivity = this.a;
-                mainTabActivity.mOnResumeHotForSplashCount = 0;
-                mainTabActivity.mAppBackgroundTime = System.currentTimeMillis();
-                TbSingleton.getInstance().setExceptInsertAdDiaShow(false);
+                if (!mainTabActivity.isEnterImageViewActivity) {
+                    jo8 jo8Var = this.b;
+                    if (jo8Var == null || jo8Var.k() == null) {
+                        return;
+                    }
+                    this.b.k().b();
+                    return;
+                }
+                mainTabActivity.isEnterImageViewActivity = false;
                 return;
             }
-            nb7.l = false;
-            nb7 k = nb7.k(this.a);
-            int intValue = this.a.mCurrentTabIndex.intValue();
+            String currentDay = UtilHelper.getCurrentDay();
+            if (!StringUtils.isNull(currentDay) && !currentDay.equals(this.a.lastDay)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
+            }
             MainTabActivity mainTabActivity2 = this.a;
-            k.y("2", intValue, 0, mainTabActivity2.mAppBackgroundTime, new un8(mainTabActivity2), false);
-            ld5.a(2);
+            if (mainTabActivity2.mCancelController == null) {
+                mainTabActivity2.mCancelController = new sr8();
+            }
+            sr8 sr8Var = this.a.mCancelController;
+            sr8Var.c(sr8Var.c);
+            this.a.mCancelController.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_HOT_BOOT;
+            if (qg5.d()) {
+                int i = Calendar.getInstance().get(11);
+                qg5.a = (i >= 23 || i < 7) ? true : true;
+                jo8 jo8Var2 = this.b;
+                if (jo8Var2 == null || jo8Var2.k() == null) {
+                    return;
+                }
+                this.b.k().b();
+                this.b.k().a();
+            }
         }
     }
 }

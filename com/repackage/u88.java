@@ -1,106 +1,142 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Point;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.os.Build;
-import android.util.TypedValue;
-import android.view.Display;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
+import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
+import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class u88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PushDialogActivity a;
+    public String b;
+    public long c;
 
-    public static Bitmap a(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
-        float height;
-        float width;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bitmap, i)) == null) {
-            if (bitmap == null) {
-                return null;
+    /* loaded from: classes7.dex */
+    public class a extends wa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u88 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(u88 u88Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u88Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            Matrix matrix = new Matrix();
-            matrix.setRotate(i, bitmap.getWidth() / 2.0f, bitmap.getHeight() / 2.0f);
-            if (i == 90) {
-                height = bitmap.getHeight();
-                width = 0.0f;
-            } else {
-                height = bitmap.getHeight();
-                width = bitmap.getWidth();
+            this.a = u88Var;
+        }
+
+        @Override // com.repackage.wa
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage instanceof PushDialogHttpResMsg) {
+                    this.a.f((PushDialogHttpResMsg) responsedMessage);
+                } else if (responsedMessage instanceof PushDialogSocketResMsg) {
+                    this.a.g((PushDialogSocketResMsg) responsedMessage);
+                }
             }
-            float[] fArr = new float[9];
-            matrix.getValues(fArr);
-            matrix.postTranslate(height - fArr[2], width - fArr[5]);
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.ARGB_8888);
-            new Canvas(createBitmap).drawBitmap(bitmap, matrix, new Paint());
-            return createBitmap;
         }
-        return (Bitmap) invokeLI.objValue;
     }
 
-    public static int b(Context context, float f) {
-        InterceptResult invokeLF;
+    public u88(PushDialogActivity pushDialogActivity) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) ? (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
-    }
-
-    public static final int c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Point d = d(context);
-            return d.x > d.y ? 1 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static Point d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
-            Point point = new Point();
-            if (Build.VERSION.SDK_INT >= 13) {
-                defaultDisplay.getSize(point);
-            } else {
-                point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pushDialogActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return point;
         }
-        return (Point) invokeL.objValue;
-    }
-
-    public static Bitmap e(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap, i)) == null) {
-            if (bitmap == null) {
-                return null;
+        this.a = pushDialogActivity;
+        pushDialogActivity.registerListener(new a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
+        Intent intent = this.a.getIntent();
+        if (intent != null) {
+            this.b = intent.getStringExtra("thread_id");
+            this.c = intent.getLongExtra("task_id", 0L);
+            if (StringUtils.isNull(this.b)) {
+                this.a.finish();
             }
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-            Canvas canvas = new Canvas(createBitmap);
-            Paint paint = new Paint();
-            paint.setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
-            canvas.drawBitmap(bitmap, 0.0f, 0.0f, paint);
-            return createBitmap;
         }
-        return (Bitmap) invokeLI.objValue;
     }
 
-    public static int f(Context context, float f) {
-        InterceptResult invokeLF;
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, context, f)) == null) ? (int) TypedValue.applyDimension(2, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long g = mg.g(this.b, 0L);
+            if (g == 0) {
+                PushDialogActivity pushDialogActivity = this.a;
+                if (pushDialogActivity != null) {
+                    pushDialogActivity.onNetCallback(false, null);
+                    return;
+                }
+                return;
+            }
+            PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
+            pushDialogReqNetMsg.setTask_id(this.c);
+            pushDialogReqNetMsg.setTid(g);
+            MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
+        }
+    }
+
+    public final void f(PushDialogHttpResMsg pushDialogHttpResMsg) {
+        PushDialogActivity pushDialogActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, pushDialogHttpResMsg) == null) || (pushDialogActivity = this.a) == null) {
+            return;
+        }
+        pushDialogActivity.onNetCallback(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
+    }
+
+    public final void g(PushDialogSocketResMsg pushDialogSocketResMsg) {
+        PushDialogActivity pushDialogActivity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, pushDialogSocketResMsg) == null) || (pushDialogActivity = this.a) == null) {
+            return;
+        }
+        pushDialogActivity.onNetCallback(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
     }
 }

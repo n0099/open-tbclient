@@ -49,12 +49,12 @@ public class j60 extends e60 {
 
         /* renamed from: com.repackage.j60$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0449a implements Runnable {
+        public class RunnableC0451a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0449a(a aVar) {
+            public RunnableC0451a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class j60 extends e60 {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
-                this.b.b.d.submit(new RunnableC0449a(this));
+                this.b.b.d.submit(new RunnableC0451a(this));
             }
         }
     }
@@ -171,13 +171,13 @@ public class j60 extends e60 {
 
         /* renamed from: com.repackage.j60$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0450b implements Runnable {
+        public class RunnableC0452b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Throwable a;
             public final /* synthetic */ b b;
 
-            public RunnableC0450b(b bVar, Throwable th) {
+            public RunnableC0452b(b bVar, Throwable th) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -245,7 +245,7 @@ public class j60 extends e60 {
                     }
                     this.d.m(this.c, this.a, this.d.h ? MdidSdkHelper.InitSdk(this.b, false, new a(this, elapsedRealtime)) : InfoCode.INIT_ERROR_CERT_ERROR, 0);
                 } catch (Throwable th) {
-                    this.d.b.d.submit(new RunnableC0450b(this, th));
+                    this.d.b.d.submit(new RunnableC0452b(this, th));
                 }
             }
         }

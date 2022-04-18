@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r56;
+import com.repackage.t56;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RecommendForumRespondedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r56 recommendForumData;
+    public t56 recommendForumData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendForumRespondedMessage(int i) {
@@ -40,13 +40,13 @@ public class RecommendForumRespondedMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
-            this.recommendForumData = r56.b(jSONObject);
+            this.recommendForumData = t56.b(jSONObject);
         }
     }
 
-    public r56 getRecommendForumData() {
+    public t56 getRecommendForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.recommendForumData : (r56) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.recommendForumData : (t56) invokeV.objValue;
     }
 }

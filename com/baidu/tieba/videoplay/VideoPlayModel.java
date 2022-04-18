@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.kl4;
+import com.repackage.jl4;
 import com.repackage.mi;
 import com.repackage.oi;
 import com.repackage.xb5;
@@ -151,7 +151,7 @@ public class VideoPlayModel extends BdBaseModel {
                 return;
             }
             if (!mi.z()) {
-                oi.K(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18));
+                oi.K(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -210,13 +210,13 @@ public class VideoPlayModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<kl4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<jl4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<kl4> it = videoRecordList.iterator();
+                        Iterator<jl4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            kl4 next = it.next();
+                            jl4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());

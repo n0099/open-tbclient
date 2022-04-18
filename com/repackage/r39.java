@@ -1,519 +1,228 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.turbonet.net.UploadDataProvider;
+import com.baidu.turbonet.net.UploadDataSink;
+import java.io.IOException;
+import java.net.HttpRetryException;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public class r39 {
+public final class r39 extends v39 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final t39 d;
+    public final w39 e;
+    public final ByteBuffer f;
+    public final UploadDataProvider g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755401127, "Lcom/repackage/r39;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755401127, "Lcom/repackage/r39;");
-                return;
-            }
-        }
-        b = r49.m();
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public r39(Context context) {
+    /* loaded from: classes7.dex */
+    public class b extends UploadDataProvider {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r39 a;
+
+        public b(r39 r39Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r39Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = r39Var;
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return -1L;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
+                if (byteBuffer.remaining() >= this.a.f.remaining()) {
+                    byteBuffer.put(this.a.f);
+                    this.a.f.clear();
+                    uploadDataSink.c(this.a.h);
+                    if (!this.a.h) {
+                        this.a.e.quit();
+                        return;
+                    } else if (this.a.i) {
+                        this.a.e.quit();
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                int limit = this.a.f.limit();
+                this.a.f.limit(this.a.f.position() + byteBuffer.remaining());
+                byteBuffer.put(this.a.f);
+                this.a.f.limit(limit);
+                uploadDataSink.c(false);
+            }
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void c(UploadDataSink uploadDataSink) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
+                uploadDataSink.b(new HttpRetryException("Cannot retry streamed Http body", -1));
+            }
+        }
+
+        public /* synthetic */ b(r39 r39Var, a aVar) {
+            this(r39Var);
+        }
+    }
+
+    public r39(t39 t39Var, int i, w39 w39Var, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {t39Var, Integer.valueOf(i), w39Var, Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-    }
-
-    public final boolean a(b59 b59Var) {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Throwable th;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b59Var)) == null) {
-            File file = new File(this.a.getFilesDir() + File.separator + "ubcdir", "proc");
-            if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
-                return false;
-            }
-            for (File file2 : listFiles) {
-                BufferedReader bufferedReader = null;
-                try {
-                    try {
-                        BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
-                        long j = Long.MAX_VALUE;
-                        int i = 0;
-                        long j2 = 0;
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                                if (jSONObject.has("abtest")) {
-                                    b59Var.K("1");
-                                }
-                                long j3 = jSONObject.getLong("timestamp");
-                                if (j3 > 0) {
-                                    if (j3 < j) {
-                                        j = j3;
-                                    }
-                                    if (j3 > j2) {
-                                        j2 = j3;
-                                    }
-                                }
-                                if (b) {
-                                    Log.d("UBCFileData", jSONObject.toString());
-                                }
-                                b59Var.b(jSONObject);
-                                i++;
-                                if (i >= 10) {
-                                    break;
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                bufferedReader = bufferedReader2;
-                                e.printStackTrace();
-                                if (bufferedReader != null) {
-                                    bufferedReader.close();
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                bufferedReader = bufferedReader2;
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
-                                    }
-                                }
-                                throw th;
-                            }
-                        }
-                        b59Var.J(j, j2);
-                        if (b) {
-                            Log.d("UBCFileData", "line num " + i + " delete file ");
-                        }
-                        try {
-                            bufferedReader2.close();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                    } catch (Exception e4) {
-                        e = e4;
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
-                }
-            }
-            return true;
+        this.g = new b(this, null);
+        this.h = false;
+        this.i = false;
+        this.j = false;
+        if (t39Var == null) {
+            throw null;
         }
-        return invokeL.booleanValue;
-    }
-
-    public final File b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            if (!TextUtils.isEmpty(str)) {
-                File file2 = new File(file, "proc");
-                if (!file2.exists()) {
-                    file2.mkdirs();
-                }
-                return new File(file2, str);
-            }
-            return new File(file, z ? "filereal" : "filedata");
+        if (i > 0) {
+            this.f = ByteBuffer.allocate(i);
+            this.d = t39Var;
+            this.e = w39Var;
+            this.i = z;
+            this.j = z2;
+            return;
         }
-        return (File) invokeLZ.objValue;
+        throw new IllegalArgumentException("chunkLength should be greater than 0");
     }
 
-    public void c(boolean z) {
-        File[] listFiles;
+    @Override // com.repackage.v39, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (file.exists()) {
-                File file2 = new File(file, z ? "filereal" : "filedata");
-                if (file2.exists()) {
-                    file2.delete();
-                }
-                File file3 = new File(file, "proc");
-                if (!file3.exists() || !file3.isDirectory() || (listFiles = file3.listFiles()) == null || listFiles.length == 0) {
-                    return;
-                }
-                for (File file4 : listFiles) {
-                    if (file4.isFile()) {
-                        file4.delete();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.close();
+            if (this.h) {
+                return;
+            }
+            this.h = true;
+            this.f.flip();
+            if (this.i) {
+                this.e.b(this.d.getReadTimeout());
             }
         }
     }
 
-    public void d(d49 d49Var, File file) {
-        FileOutputStream fileOutputStream;
+    @Override // com.repackage.v39
+    public void e() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, d49Var, file) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("id", d49Var.l());
-                jSONObject.put("timestamp", d49Var.p());
-                jSONObject.put("type", "0");
-                if (!TextUtils.isEmpty(d49Var.f())) {
-                    jSONObject.put("content", d49Var.f());
-                } else if (d49Var.m() != null) {
-                    jSONObject.put("content", d49Var.m().toString());
-                }
-                if (!TextUtils.isEmpty(d49Var.h())) {
-                    jSONObject.put("abtest", d49Var.h());
-                }
-                if (!TextUtils.isEmpty(d49Var.e())) {
-                    jSONObject.put("c", d49Var.e());
-                }
-                if (d49Var.q()) {
-                    jSONObject.put("of", "1");
-                }
-                jSONObject.put(Constant.ID_TYPE, w39.o().z(d49Var.l()));
-                JSONObject d = d49Var.d();
-                if (d != null) {
-                    jSONObject.put("bizInfo", d);
-                }
-            } catch (JSONException e) {
-                if (b) {
-                    Log.d("UBCFileData", e.getMessage());
-                }
-            }
-            if (b) {
-                Log.d("UBCFileData", "saveEvent:" + jSONObject.toString());
-            }
-            byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file, true);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-            }
-            try {
-                fileOutputStream.write(encode);
-                fileOutputStream.write("\n".getBytes());
-                fileOutputStream.flush();
-                try {
-                    fileOutputStream.close();
-                } catch (Exception e3) {
-                    e = e3;
-                    e.printStackTrace();
-                    n49.f().a(d49Var.l(), false);
-                }
-            } catch (Exception e4) {
-                e = e4;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Exception e5) {
-                        e = e5;
-                        e.printStackTrace();
-                        n49.f().a(d49Var.l(), false);
-                    }
-                }
-                n49.f().a(d49Var.l(), false);
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                n49.f().a(d49Var.l(), false);
-                throw th;
-            }
-            n49.f().a(d49Var.l(), false);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x009a, code lost:
-        if (r5.exists() != false) goto L39;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x009c, code lost:
-        r5.delete();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x00c8, code lost:
-        if (r5.exists() != false) goto L39;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean e(b59 b59Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.v39
+    public UploadDataProvider f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, b59Var)) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(file, "filequality");
-            boolean z = false;
-            if (file2.exists()) {
-                BufferedReader bufferedReader = null;
-                try {
-                    try {
-                        BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
-                        long j = Long.MAX_VALUE;
-                        long j2 = 0;
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                                if (jSONObject.has("abtest")) {
-                                    b59Var.K("1");
-                                }
-                                long j3 = jSONObject.getLong("timestamp");
-                                if (j3 > 0) {
-                                    if (j3 < j) {
-                                        j = j3;
-                                    }
-                                    if (j3 > j2) {
-                                        j2 = j3;
-                                    }
-                                }
-                                b59Var.b(jSONObject);
-                                z = true;
-                            } catch (Exception e) {
-                                e = e;
-                                bufferedReader = bufferedReader2;
-                                if (b) {
-                                    Log.d("UBCFileData", "getExceptionList read fail:", e);
-                                }
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (Exception e2) {
-                                        if (b) {
-                                            Log.d("UBCFileData", "getExceptionList close fail:", e2);
-                                        }
-                                    }
-                                }
-                                if (z) {
-                                }
-                                return z;
-                            } catch (Throwable th) {
-                                th = th;
-                                bufferedReader = bufferedReader2;
-                                Throwable th2 = th;
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (Exception e3) {
-                                        if (b) {
-                                            Log.d("UBCFileData", "getExceptionList close fail:", e3);
-                                        }
-                                    }
-                                }
-                                if (z && file2.exists()) {
-                                    file2.delete();
-                                }
-                                throw th2;
-                            }
-                        }
-                        b59Var.J(j, j2);
-                        try {
-                            bufferedReader2.close();
-                        } catch (Exception e4) {
-                            if (b) {
-                                Log.d("UBCFileData", "getExceptionList close fail:", e4);
-                            }
-                        }
-                        if (z) {
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                    }
-                } catch (Exception e5) {
-                    e = e5;
-                }
-                return z;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (UploadDataProvider) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0078, code lost:
-        if (com.repackage.r39.b == false) goto L67;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x007a, code lost:
-        android.util.Log.d("UBCFileData", "getExceptionList close fail:", r14);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0099, code lost:
-        if (com.repackage.r39.b == false) goto L67;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean f(b59 b59Var, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // java.io.OutputStream, java.io.Flushable
+    public void flush() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, b59Var, z)) == null) {
-            boolean a = !z ? a(b59Var) : false;
-            File b2 = b("", z);
-            if (b2.exists()) {
-                BufferedReader bufferedReader = null;
-                try {
-                    try {
-                        BufferedReader bufferedReader2 = new BufferedReader(new FileReader(b2));
-                        long j = Long.MAX_VALUE;
-                        long j2 = 0;
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                                if (jSONObject.has("abtest")) {
-                                    b59Var.K("1");
-                                }
-                                long j3 = jSONObject.getLong("timestamp");
-                                if (j3 > 0) {
-                                    if (j3 < j) {
-                                        j = j3;
-                                    }
-                                    if (j3 > j2) {
-                                        j2 = j3;
-                                    }
-                                }
-                                b59Var.b(jSONObject);
-                                a = true;
-                            } catch (Exception e) {
-                                e = e;
-                                bufferedReader = bufferedReader2;
-                                if (b) {
-                                    Log.d("UBCFileData", "getExceptionList read fail:", e);
-                                }
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                    }
-                                }
-                                return a;
-                            } catch (Throwable th) {
-                                th = th;
-                                bufferedReader = bufferedReader2;
-                                if (bufferedReader != null) {
-                                    try {
-                                        bufferedReader.close();
-                                    } catch (Exception e3) {
-                                        if (b) {
-                                            Log.d("UBCFileData", "getExceptionList close fail:", e3);
-                                        }
-                                    }
-                                }
-                                throw th;
-                            }
-                        }
-                        b59Var.J(j, j2);
-                        try {
-                            bufferedReader2.close();
-                        } catch (Exception e4) {
-                            e = e4;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                } catch (Exception e5) {
-                    e = e5;
-                }
-            }
-            return a;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public void g(d49 d49Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, d49Var, z) == null) {
-            d(d49Var, b(d49Var.i(), z));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.j && this.f.position() > 0) {
+            n();
         }
     }
 
-    public void h(Exception exc) {
+    @Override // com.repackage.v39
+    public void g() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
-            if (b) {
-                exc.printStackTrace();
-            }
-            t49.a().h(Log.getStackTraceString(exc));
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    public void i(d49 d49Var) {
+    public final void m() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d49Var) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f.hasRemaining()) {
+            return;
+        }
+        n();
+    }
+
+    public final void n() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            c();
+            this.f.flip();
+            this.e.b(this.d.getReadTimeout());
+            a();
+        }
+    }
+
+    @Override // java.io.OutputStream
+    public void write(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            m();
+            this.f.put((byte) i);
+        }
+    }
+
+    @Override // java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr, i, i2) == null) {
+            c();
+            if (bArr.length - i < i2 || i < 0 || i2 < 0) {
+                throw new IndexOutOfBoundsException();
             }
-            File file2 = new File(file, "filequality");
-            if (file2.length() > w39.o().p()) {
-                if (!file2.delete()) {
-                    return;
-                }
-                file2 = new File(file, "filequality");
+            int i3 = i2;
+            while (i3 > 0) {
+                int min = Math.min(i3, this.f.remaining());
+                this.f.put(bArr, (i + i2) - i3, min);
+                i3 -= min;
+                m();
             }
-            d(d49Var, file2);
         }
     }
 }

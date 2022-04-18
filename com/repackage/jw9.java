@@ -1,30 +1,40 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public class jw9 extends lw9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface jw9 {
+    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jw9() {
-        super(Framedata.Opcode.CONTINUOUS);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
+
+    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
+
+    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
+
+    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
+
+    void onWebsocketError(WebSocket webSocket, Exception exc);
+
+    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, xw9 xw9Var, ex9 ex9Var) throws InvalidDataException;
+
+    fx9 onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, xw9 xw9Var) throws InvalidDataException;
+
+    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, xw9 xw9Var) throws InvalidDataException;
+
+    void onWebsocketMessage(WebSocket webSocket, String str);
+
+    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
+
+    void onWebsocketOpen(WebSocket webSocket, cx9 cx9Var);
+
+    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
+
+    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
+
+    void onWriteDemand(WebSocket webSocket);
 }

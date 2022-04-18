@@ -41,9 +41,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni4;
 import com.repackage.oi;
 import com.repackage.oi4;
-import com.repackage.pi4;
 import com.repackage.sh5;
 import com.repackage.x8;
 import java.util.ArrayList;
@@ -266,7 +266,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.mVideoDataList)) {
-                oi.M(this, R.string.obfuscated_res_0x7f0f0c15);
+                oi.M(this, R.string.obfuscated_res_0x7f0f0c14);
                 finish();
                 return;
             }
@@ -274,7 +274,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             this.mFragment = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092379, this.mFragment);
+            beginTransaction.add(R.id.obfuscated_res_0x7f09237a, this.mFragment);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             ImageView imageView = new ImageView(getPageContext().getPageActivity());
@@ -413,7 +413,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            WebPManager.setPureDrawable(this.mBackImage, R.drawable.obfuscated_res_0x7f0809c3, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.mBackImage, R.drawable.obfuscated_res_0x7f0809c7, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.onChangeSkinType(i);
@@ -520,7 +520,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 videoVerticalPageFragment.setPrimary(false);
                 this.mFragment.setUserVisibleHint(false);
             }
-            pi4.y().G();
+            oi4.y().G();
         }
     }
 
@@ -533,7 +533,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.mFragment.setUserVisibleHint(true);
-                pi4.y().R(oi4.a0, this.mFragment.X());
+                oi4.y().R(ni4.a0, this.mFragment.X());
             }
         }
     }

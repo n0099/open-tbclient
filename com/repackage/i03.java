@@ -33,7 +33,7 @@ public abstract class i03 extends f03 {
     public volatile int c;
     public final Queue<Runnable> d;
     public Runnable e;
-    public r94 f;
+    public q94 f;
     public t23 g;
     public boolean h;
 
@@ -46,13 +46,13 @@ public abstract class i03 extends f03 {
 
         /* renamed from: com.repackage.i03$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0437a implements Runnable {
+        public class RunnableC0442a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ cf3 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0437a(a aVar, cf3 cf3Var) {
+            public RunnableC0442a(a aVar, cf3 cf3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public abstract class i03 extends f03 {
                     if (z && !this.a.e("event_flag_force_post", false)) {
                         cf3Var.onCallback(this.a);
                     } else {
-                        i03.L().post(new RunnableC0437a(this, cf3Var));
+                        i03.L().post(new RunnableC0442a(this, cf3Var));
                     }
                 }
             }
@@ -310,11 +310,11 @@ public abstract class i03 extends f03 {
         return (t23) invokeV.objValue;
     }
 
-    public abstract r94 H();
+    public abstract q94 H();
 
     public abstract t23 I();
 
-    public r94 M() {
+    public q94 M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -323,7 +323,7 @@ public abstract class i03 extends f03 {
             }
             return this.f;
         }
-        return (r94) invokeV.objValue;
+        return (q94) invokeV.objValue;
     }
 
     public final void N() {

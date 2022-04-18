@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.dk8;
-import com.repackage.i29;
+import com.repackage.kk8;
+import com.repackage.p29;
 /* loaded from: classes4.dex */
 public class WorkVideoGuideModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i29 a;
+    public p29 a;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -62,13 +62,13 @@ public class WorkVideoGuideModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WorkVideoGuideModel(TbPageContext<?> tbPageContext, i29 i29Var) {
+    public WorkVideoGuideModel(TbPageContext<?> tbPageContext, p29 p29Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, i29Var};
+            Object[] objArr = {tbPageContext, p29Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,7 +79,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = i29Var;
+        this.a = p29Var;
         z();
     }
 
@@ -117,7 +117,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             registerListener(new a(this, CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE));
-            dk8.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
+            kk8.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
         }
     }
 }

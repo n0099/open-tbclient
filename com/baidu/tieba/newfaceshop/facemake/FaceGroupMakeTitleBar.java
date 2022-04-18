@@ -83,12 +83,12 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d028b, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092201);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921e9);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fbf);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092202);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ea);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc0);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.b, (int) R.color.common_color_10140);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080623, R.color.CAM_X0105, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080622, R.color.CAM_X0105, null);
             this.c.setOnClickListener(new a(this));
         }
     }

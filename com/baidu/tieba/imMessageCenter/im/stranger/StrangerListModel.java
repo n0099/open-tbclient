@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a87;
 import com.repackage.b9;
-import com.repackage.f57;
+import com.repackage.d87;
+import com.repackage.i57;
 import java.util.ArrayList;
 import java.util.ListIterator;
 /* loaded from: classes3.dex */
@@ -87,9 +87,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         }
     }
 
-    public void y(f57 f57Var) {
+    public void y(i57 i57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, f57Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, i57Var) == null) {
             ListIterator<ImMessageCenterShowItemData> listIterator = this.mList.listIterator();
             ArrayList arrayList = new ArrayList();
             while (listIterator.hasNext()) {
@@ -98,7 +98,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
                     arrayList.add(next);
                 }
             }
-            asyncDeleteMsgList(arrayList, 2, f57Var);
+            asyncDeleteMsgList(arrayList, 2, i57Var);
         }
     }
 
@@ -110,7 +110,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
         buildNormalItem.setOwnerName(String.valueOf(7));
-        PersonalSettingItemData a = a87.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+        PersonalSettingItemData a = d87.j().a(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         if (a != null) {
             buildNormalItem.setGroupSetting(a);
         }

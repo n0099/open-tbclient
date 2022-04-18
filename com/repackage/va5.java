@@ -249,7 +249,7 @@ public class va5<Q extends oa5, P extends pa5> {
     public final void o(int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, str) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, dk8.a(str, i2));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, kk8.a(str, i2));
             tbHttpMessageTask.setIsNeedLogin(true);
             tbHttpMessageTask.setIsNeedTbs(true);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);

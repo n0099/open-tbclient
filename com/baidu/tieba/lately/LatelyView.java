@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a56;
+import com.repackage.c56;
 import com.repackage.g45;
 import com.repackage.h45;
 import com.repackage.mi;
@@ -147,7 +147,7 @@ public class LatelyView extends FrameLayout implements xg5<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0758, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c60);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091c61);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.k(1);
@@ -184,7 +184,7 @@ public class LatelyView extends FrameLayout implements xg5<String> {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            RecentlyVisitedForumData j = a56.l().j();
+            RecentlyVisitedForumData j = c56.l().j();
             if (j == null) {
                 i(false, false);
                 return;

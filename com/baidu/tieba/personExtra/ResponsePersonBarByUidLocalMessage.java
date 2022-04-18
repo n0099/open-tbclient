@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v28;
+import com.repackage.c38;
 /* loaded from: classes3.dex */
 public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v28 mData;
+    public c38 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonBarByUidLocalMessage() {
@@ -32,16 +32,16 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<S
         }
     }
 
-    public v28 getPersonBarData() {
+    public c38 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (v28) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (c38) invokeV.objValue;
     }
 
-    public void setPersonBarData(v28 v28Var) {
+    public void setPersonBarData(c38 c38Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, v28Var) == null) {
-            this.mData = v28Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, c38Var) == null) {
+            this.mData = c38Var;
         }
     }
 
@@ -70,9 +70,9 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<S
     public void decodeInBackGround(int i, String str) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            v28 v28Var = new v28();
-            this.mData = v28Var;
-            v28Var.n(str);
+            c38 c38Var = new c38();
+            this.mData = c38Var;
+            c38Var.n(str);
         }
     }
 }

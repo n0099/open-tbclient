@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class m84 extends i84<h94> {
+public class m84 extends h84<h94> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +29,7 @@ public class m84 extends i84<h94> {
         }
     }
 
-    @Override // com.repackage.i84
+    @Override // com.repackage.h84
     public List<h94> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -39,10 +39,7 @@ public class m84 extends i84<h94> {
                 return arrayList;
             }
             do {
-                h94 h94Var = new h94();
-                if (b(cursor, h94Var)) {
-                    arrayList.add(h94Var);
-                }
+                arrayList.add(h(cursor));
             } while (cursor.moveToNext());
             return arrayList;
         }
@@ -50,21 +47,23 @@ public class m84 extends i84<h94> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.i84
+    @Override // com.repackage.h84
     /* renamed from: f */
     public ContentValues c(h94 h94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, h94Var)) == null) {
             ContentValues a = super.a(h94Var);
-            a.put("pkg_type", Integer.valueOf(h94Var.o));
+            a.put("independent", Integer.valueOf(h94Var.r ? 1 : 0));
+            a.put("sub_pkg_name", h94Var.p);
+            a.put("app_id", h94Var.o);
             return a;
         }
         return (ContentValues) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.i84
+    @Override // com.repackage.h84
     /* renamed from: g */
     public h94 d(Cursor cursor) {
         InterceptResult invokeL;
@@ -73,9 +72,27 @@ public class m84 extends i84<h94> {
             if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
                 return null;
             }
-            h94 h94Var = new h94();
-            if (b(cursor, h94Var)) {
-                return h94Var;
+            return h(cursor);
+        }
+        return (h94) invokeL.objValue;
+    }
+
+    public final h94 h(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
+            if (cursor != null) {
+                int columnIndex = cursor.getColumnIndex("independent");
+                int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
+                int columnIndex3 = cursor.getColumnIndex("app_id");
+                h94 h94Var = new h94();
+                if (b(cursor, h94Var)) {
+                    h94Var.r = cursor.getInt(columnIndex) == 1;
+                    h94Var.p = cursor.getString(columnIndex2);
+                    h94Var.o = cursor.getString(columnIndex3);
+                    return h94Var;
+                }
+                return null;
             }
             return null;
         }

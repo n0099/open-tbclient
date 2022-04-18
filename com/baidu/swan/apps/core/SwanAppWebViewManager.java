@@ -81,18 +81,18 @@ import com.repackage.h53;
 import com.repackage.ha2;
 import com.repackage.i03;
 import com.repackage.ic3;
+import com.repackage.ii4;
 import com.repackage.iz1;
 import com.repackage.j03;
-import com.repackage.ji4;
 import com.repackage.jx1;
 import com.repackage.jz1;
 import com.repackage.kz1;
 import com.repackage.l42;
 import com.repackage.lv2;
 import com.repackage.m53;
+import com.repackage.mg4;
 import com.repackage.mh2;
 import com.repackage.mv2;
-import com.repackage.ng4;
 import com.repackage.o53;
 import com.repackage.qj2;
 import com.repackage.rm1;
@@ -1126,8 +1126,8 @@ public abstract class SwanAppWebViewManager implements rm1<NgWebView>, iz1, jz1,
                 if (SwanAppWebViewManager.v) {
                     Log.d("SwanAppWebViewManager", "SwanAppWebViewClient::shouldInterceptRequest");
                 }
-                ji4 ji4Var = ji4.b;
-                com.baidu.webkit.sdk.WebResourceResponse webResourceResponse = (com.baidu.webkit.sdk.WebResourceResponse) ji4Var.c(ji4Var.b(webResourceRequest.getUrl()), new a(this));
+                ii4 ii4Var = ii4.b;
+                com.baidu.webkit.sdk.WebResourceResponse webResourceResponse = (com.baidu.webkit.sdk.WebResourceResponse) ii4Var.c(ii4Var.b(webResourceRequest.getUrl()), new a(this));
                 if (webResourceResponse != null) {
                     return webResourceResponse;
                 }
@@ -2181,7 +2181,7 @@ public abstract class SwanAppWebViewManager implements rm1<NgWebView>, iz1, jz1,
                 Log.d("SwanAppWebViewManager", "isUseWebCompatLoadUrl: " + z);
             }
             if (z && !BdZeusUtil.isWebkitLoaded()) {
-                String a2 = ji4.b.a(str);
+                String a2 = ii4.b.a(str);
                 g1(a2);
                 this.b.loadUrl(a2);
                 return;
@@ -2348,7 +2348,7 @@ public abstract class SwanAppWebViewManager implements rm1<NgWebView>, iz1, jz1,
                         }
                     }
                 } finally {
-                    ng4.d(jsonReader);
+                    mg4.d(jsonReader);
                 }
             }
         }

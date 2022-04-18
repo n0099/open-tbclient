@@ -10,7 +10,7 @@ public class ey3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String value;
+    public String errMsg;
 
     public ey3() {
         Interceptable interceptable = $ic;

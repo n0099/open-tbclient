@@ -86,7 +86,7 @@ public class b {
         this.d.removeAllViews();
         this.d.setVisibility(4);
         this.a = com.kwad.sdk.a.kwai.a.a((ViewGroup) this.d, a(), true);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.d.findViewById(R.id.obfuscated_res_0x7f091184);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.d.findViewById(R.id.obfuscated_res_0x7f091185);
         this.e = ksAdWebView;
         ksAdWebView.setBackgroundColor(0);
         this.e.getBackground().setAlpha(0);

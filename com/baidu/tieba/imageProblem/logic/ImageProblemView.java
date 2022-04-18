@@ -48,12 +48,12 @@ public class ImageProblemView extends z8 {
         }
         this.a = imageProblemActivity;
         imageProblemActivity.setContentView(R.layout.obfuscated_res_0x7f0d03d2);
-        this.d = this.a.findViewById(R.id.obfuscated_res_0x7f091641);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ab);
+        this.d = this.a.findViewById(R.id.obfuscated_res_0x7f091642);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
         this.b = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.b.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08ab));
-        this.c = (ScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f091bf8);
+        this.c = (ScrollView) this.a.findViewById(R.id.obfuscated_res_0x7f091bf9);
         Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f09060b);
         this.e = button;
         button.setOnClickListener(imageProblemActivity);
@@ -109,7 +109,7 @@ public class ImageProblemView extends z8 {
                     imageProblemItemView.displayArrow();
                     if (arrayList.get(i2).b == 0) {
                         imageProblemItemView.setHelpText("");
-                        imageProblemItemView.setArrowImg(R.drawable.obfuscated_res_0x7f0806e6);
+                        imageProblemItemView.setArrowImg(R.drawable.obfuscated_res_0x7f0806e5);
                     } else {
                         imageProblemItemView.setHelpText(arrayList.get(i2).c);
                         imageProblemItemView.setArrowImg(R.drawable.icon_error);

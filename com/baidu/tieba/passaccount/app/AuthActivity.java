@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qq7;
+import com.repackage.tq7;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -222,13 +222,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(65539, this, z, str) == null) {
             int i = this.type;
             if (i == 0) {
-                qq7.f().b(z, str);
+                tq7.f().b(z, str);
             } else if (i == 1) {
-                qq7.f().e(z);
+                tq7.f().e(z);
             } else if (i == 2) {
-                qq7.f().c(z);
+                tq7.f().c(z);
             } else {
-                qq7.f().a(null);
+                tq7.f().a(null);
             }
             finish();
         }
@@ -398,7 +398,7 @@ public class AuthActivity extends BaseActivity {
                 this.sapiWebView.setWebviewClientCallback(new c(this));
                 this.sapiWebView.loadUrl(getAuthUrl());
             } else if (i == 1) {
-                setTitleText(R.string.obfuscated_res_0x7f0f105d);
+                setTitleText(R.string.obfuscated_res_0x7f0f105c);
                 SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
                 this.sapiWebView.loadUrl(getModifyPwdUrl(), getBindBdussCookies());
                 this.sapiWebView.setChangePwdCallback(new d(this));

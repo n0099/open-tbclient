@@ -3,23 +3,26 @@ package com.repackage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBInterstitial;
-import com.win.opensdk.PBInterstitialListener;
+import java.nio.BufferUnderflowException;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.Arrays;
 /* loaded from: classes7.dex */
-public class vt9 implements PBInterstitialListener {
+public class vt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ PBInterstitial a;
+    public final byte[] a;
+    public ByteBuffer b;
+    public rt9 c;
+    public int d;
 
-    public vt9(PBInterstitial pBInterstitial) {
+    public vt9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pBInterstitial};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,66 +32,121 @@ public class vt9 implements PBInterstitialListener {
                 return;
             }
         }
-        this.a = pBInterstitial;
+        this.a = new byte[256];
+        this.d = 0;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onClicked() {
-        PBInterstitialListener pBInterstitialListener;
+    public vt9 a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pBInterstitialListener = this.a.c) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr != null) {
+                ByteBuffer wrap = ByteBuffer.wrap(bArr);
+                this.b = null;
+                Arrays.fill(this.a, (byte) 0);
+                this.c = new rt9();
+                this.d = 0;
+                ByteBuffer asReadOnlyBuffer = wrap.asReadOnlyBuffer();
+                this.b = asReadOnlyBuffer;
+                asReadOnlyBuffer.position(0);
+                this.b.order(ByteOrder.LITTLE_ENDIAN);
+            } else {
+                this.b = null;
+                this.c.b = 2;
+            }
+            return this;
         }
-        pBInterstitialListener.onClicked();
+        return (vt9) invokeL.objValue;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onFail(PBError pBError) {
-        PBInterstitialListener pBInterstitialListener;
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) || (pBInterstitialListener = this.a.c) == null) {
-            return;
-        }
-        pBInterstitialListener.onFail(pBError);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.b != 0 : invokeV.booleanValue;
     }
 
-    @Override // com.win.opensdk.PBInterstitialListener
-    public void onInterstitialDismissed() {
-        PBInterstitialListener pBInterstitialListener;
+    public final int[] c(int i) {
+        InterceptResult invokeI;
+        int[] iArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (pBInterstitialListener = this.a.c) == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            byte[] bArr = new byte[i * 3];
+            try {
+                this.b.get(bArr);
+                iArr = new int[256];
+                int i2 = 0;
+                int i3 = 0;
+                while (i2 < i) {
+                    int i4 = i3 + 1;
+                    try {
+                        int i5 = i4 + 1;
+                        int i6 = i5 + 1;
+                        int i7 = i2 + 1;
+                        iArr[i2] = ((bArr[i3] & 255) << 16) | (-16777216) | ((bArr[i4] & 255) << 8) | (bArr[i5] & 255);
+                        i3 = i6;
+                        i2 = i7;
+                    } catch (BufferUnderflowException unused) {
+                        this.c.b = 1;
+                        return iArr;
+                    }
+                }
+            } catch (BufferUnderflowException unused2) {
+                iArr = null;
+            }
+            return iArr;
         }
-        pBInterstitialListener.onInterstitialDismissed();
+        return (int[]) invokeI.objValue;
     }
 
-    @Override // com.win.opensdk.PBInterstitialListener
-    public void onInterstitialDisplayed() {
-        PBInterstitialListener pBInterstitialListener;
+    public final int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pBInterstitialListener = this.a.c) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                return this.b.get() & 255;
+            } catch (Exception unused) {
+                this.c.b = 1;
+                return 0;
+            }
         }
-        pBInterstitialListener.onInterstitialDisplayed();
+        return invokeV.intValue;
     }
 
-    @Override // com.win.opensdk.PBInterstitialListener
-    public void onInterstitialShowFail(String str) {
-        PBInterstitialListener pBInterstitialListener;
+    public final int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (pBInterstitialListener = this.a.c) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int d = d();
+            this.d = d;
+            int i = 0;
+            if (d > 0) {
+                while (i < this.d) {
+                    try {
+                        int i2 = this.d - i;
+                        this.b.get(this.a, i, i2);
+                        i += i2;
+                    } catch (Exception unused) {
+                        this.c.b = 1;
+                    }
+                }
+            }
+            return i;
         }
-        pBInterstitialListener.onInterstitialShowFail(str);
+        return invokeV.intValue;
     }
 
-    @Override // com.win.opensdk.PBListener
-    public void onLoaded() {
-        PBInterstitialListener pBInterstitialListener;
+    public final void f() {
+        int d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (pBInterstitialListener = this.a.c) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            do {
+                try {
+                    d = d();
+                    this.b.position(this.b.position() + d);
+                } catch (IllegalArgumentException unused) {
+                    return;
+                }
+            } while (d > 0);
         }
-        pBInterstitialListener.onLoaded();
     }
 }

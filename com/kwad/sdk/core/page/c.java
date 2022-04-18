@@ -246,14 +246,14 @@ public class c implements p.b {
     }
 
     private void k() {
-        LinearLayout linearLayout = (LinearLayout) a(R.id.obfuscated_res_0x7f09118a);
+        LinearLayout linearLayout = (LinearLayout) a(R.id.obfuscated_res_0x7f09118b);
         this.o = linearLayout;
         if (this.B) {
             linearLayout.setVisibility(8);
             return;
         }
-        this.p = (TextView) a(R.id.obfuscated_res_0x7f09118b);
-        ImageView imageView = (ImageView) a(R.id.obfuscated_res_0x7f09118c);
+        this.p = (TextView) a(R.id.obfuscated_res_0x7f09118c);
+        ImageView imageView = (ImageView) a(R.id.obfuscated_res_0x7f09118d);
         this.q = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.c.6
             @Override // android.view.View.OnClickListener
@@ -328,9 +328,9 @@ public class c implements p.b {
         AdInfo.AdBaseInfo adBaseInfo;
         String str;
         this.B = (TextUtils.isEmpty(bVar.d) || TextUtils.isEmpty(bVar.c)) ? false : true;
-        this.e = (KsAdWebView) a(R.id.obfuscated_res_0x7f091181);
-        TextView textView = (TextView) a(R.id.obfuscated_res_0x7f0910a5);
-        this.f = (ImageView) a(R.id.obfuscated_res_0x7f0910a6);
+        this.e = (KsAdWebView) a(R.id.obfuscated_res_0x7f091182);
+        TextView textView = (TextView) a(R.id.obfuscated_res_0x7f0910a6);
+        this.f = (ImageView) a(R.id.obfuscated_res_0x7f0910a7);
         a((WebView) this.e);
         c(this.e);
         this.e.setTemplateData(this.b);
@@ -362,8 +362,8 @@ public class c implements p.b {
                 }
             }
         });
-        this.g = (ImageView) a(R.id.obfuscated_res_0x7f0910a7);
-        this.r = (ViewGroup) a(R.id.obfuscated_res_0x7f0910ac);
+        this.g = (ImageView) a(R.id.obfuscated_res_0x7f0910a8);
+        this.r = (ViewGroup) a(R.id.obfuscated_res_0x7f0910ad);
         if (this.B) {
             str = bVar.d;
         } else {
@@ -405,11 +405,11 @@ public class c implements p.b {
                     b(this.e);
                 }
                 b(bVar);
-                this.h = (LinearLayout) a(R.id.obfuscated_res_0x7f091105);
-                this.i = (TextView) a(R.id.obfuscated_res_0x7f091102);
-                this.j = (TextView) a(R.id.obfuscated_res_0x7f091103);
-                this.k = (TextView) a(R.id.obfuscated_res_0x7f091101);
-                this.l = (TextView) a(R.id.obfuscated_res_0x7f091104);
+                this.h = (LinearLayout) a(R.id.obfuscated_res_0x7f091106);
+                this.i = (TextView) a(R.id.obfuscated_res_0x7f091103);
+                this.j = (TextView) a(R.id.obfuscated_res_0x7f091104);
+                this.k = (TextView) a(R.id.obfuscated_res_0x7f091102);
+                this.l = (TextView) a(R.id.obfuscated_res_0x7f091105);
                 if (com.kwad.sdk.core.response.a.d.v(this.b)) {
                     this.h.setVisibility(0);
                     if (!this.b.mRewardVerifyCalled) {

@@ -121,7 +121,7 @@ public class lj5 {
                 qj5Var.g();
             }
         }
-        h98.b(str);
+        o98.b(str);
         mj5.g().j(context, adDownloadData);
     }
 
@@ -240,9 +240,9 @@ public class lj5 {
         DownloadCacheKey downloadCacheKey2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, context, downloadCacheKey, str)) == null) {
-            boolean b2 = ga8.b(str);
+            boolean b2 = na8.b(str);
             if (!b2) {
-                h98.c(new File(str));
+                o98.c(new File(str));
             }
             if (downloadCacheKey != null && (a2 = ij5.c().a(downloadCacheKey)) != null) {
                 if (TextUtils.isEmpty(a2.pkgName())) {

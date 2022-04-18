@@ -204,11 +204,11 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         if (p90Var.a) {
             h(viewHolder);
             if (this.e) {
-                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d0f);
+                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d13);
             } else if (!SkinManager.SKIN_TYPE_STR_NIGHT.equals(fc0.e().o()) && !"dark".equals(fc0.e().o())) {
-                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d0e);
+                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d12);
             } else {
-                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d10);
+                viewHolder.e.setImageResource(R.drawable.obfuscated_res_0x7f080d14);
             }
             viewHolder.e.setVisibility(0);
             viewHolder.b.setVisibility(8);
@@ -264,9 +264,9 @@ public class LiveFeedPageConcernAdapter extends RecyclerView.Adapter<ViewHolder>
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
             View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d050f, viewGroup, false);
             ViewHolder viewHolder = new ViewHolder(inflate);
-            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ab);
+            viewHolder.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ac);
             viewHolder.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f8);
-            viewHolder.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a03);
+            viewHolder.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a04);
             viewHolder.b = (LottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f3);
             viewHolder.c = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0902f2);
             viewHolder.f = this.f;

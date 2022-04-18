@@ -62,9 +62,9 @@ public class LiveStatusAnimView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d051b, this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a6);
-            this.c = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0912a7);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a8);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a7);
+            this.c = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0912a8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a9);
             this.c.loop(true);
         }
     }
@@ -174,12 +174,12 @@ public class LiveStatusAnimView extends FrameLayout {
                 gradientDrawable2.setColors(new int[]{fc0.e().a(this.a, this.f, "color_768CAE"), fc0.e().a(this.a, this.f, "color_768CAE")});
                 if (!Config.TRACE_VISIT_RECENT_DAY.equals(fc0.e().o()) && !this.f) {
                     if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d21);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d25);
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d22);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d26);
                     }
                 } else {
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d21);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d25);
                 }
                 this.b.setBackgroundDrawable(gradientDrawable2);
                 this.b.setVisibility(0);
@@ -188,12 +188,12 @@ public class LiveStatusAnimView extends FrameLayout {
                 gradientDrawable2.setColors(new int[]{fc0.e().a(this.a, this.f, "color_4E6EF2"), fc0.e().a(this.a, this.f, "color_4E6EF2")});
                 if (!Config.TRACE_VISIT_RECENT_DAY.equals(fc0.e().o()) && !this.f) {
                     if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d23);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d27);
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d24);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d28);
                     }
                 } else {
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d23);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d27);
                 }
                 this.b.setBackgroundDrawable(gradientDrawable2);
                 this.b.setVisibility(0);
@@ -203,7 +203,7 @@ public class LiveStatusAnimView extends FrameLayout {
                     this.b.setVisibility(4);
                 } else {
                     gradientDrawable2.setColors(new int[]{fc0.e().a(this.a, this.f, "color_FF3333"), fc0.e().a(this.a, this.f, "color_FF3333")});
-                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d26);
+                    this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d2a);
                     this.b.setBackgroundDrawable(gradientDrawable2);
                     this.b.setVisibility(0);
                 }

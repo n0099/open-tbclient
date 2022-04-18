@@ -163,7 +163,7 @@ public class ak3 {
             HashMap hashMap = new HashMap();
             hashMap.put("Content-Type", "application/octet-stream");
             hashMap.put("Bdtls", "Bdtls");
-            m74.g().postByteRequest().url(fj3.b).cookieManager(qj2.q().a()).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
+            l74.g().postByteRequest().url(fj3.b).cookieManager(qj2.q().a()).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
         }
     }
 }

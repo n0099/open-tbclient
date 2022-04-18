@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a9;
-import com.repackage.du4;
-import com.repackage.h96;
+import com.repackage.cu4;
+import com.repackage.j96;
 import com.repackage.mi;
 /* loaded from: classes3.dex */
 public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecordsActivity> {
@@ -27,10 +27,10 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
     public FacePurchaseRecordsModel mModel;
     public NoNetworkView.b mNetworkChangeListener;
     public String mStType;
-    public h96 mView;
+    public j96 mView;
 
     /* loaded from: classes3.dex */
-    public class a implements du4.g {
+    public class a implements cu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FacePurchaseRecordsActivity a;
@@ -53,7 +53,7 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
             this.a = facePurchaseRecordsActivity;
         }
 
-        @Override // com.repackage.du4.g
+        @Override // com.repackage.cu4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -107,7 +107,7 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
             }
         }
     }
@@ -189,9 +189,9 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            h96 h96Var = new h96(getPageContext());
-            this.mView = h96Var;
-            h96Var.i(new a(this));
+            j96 j96Var = new j96(getPageContext());
+            this.mView = j96Var;
+            j96Var.i(new a(this));
             this.mView.h(this);
             addNetWorkStateChangeListener();
         }
@@ -221,12 +221,12 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        h96 h96Var;
+        j96 j96Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (h96Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (j96Var = this.mView) == null) {
             return;
         }
-        h96Var.e(i);
+        j96Var.e(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -255,10 +255,10 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        h96 h96Var;
+        j96 j96Var;
         FacePurchasePackageData facePurchasePackageData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (h96Var = this.mView) == null || h96Var.d() == null || (facePurchasePackageData = (FacePurchasePackageData) this.mView.d().getItem(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (j96Var = this.mView) == null || j96Var.d() == null || (facePurchasePackageData = (FacePurchasePackageData) this.mView.d().getItem(i)) == null) {
             return;
         }
         sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(getPageContext().getPageActivity(), String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));

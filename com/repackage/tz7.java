@@ -1,164 +1,143 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ItemClickJumpUtil;
+import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AlaLiveInfo;
-import tbclient.AlaUserInfo;
-import tbclient.Promotion;
+import com.repackage.b00;
 /* loaded from: classes7.dex */
-public class tz7 extends BaseCardInfo {
+public class tz7 extends ho<qq4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId n;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public Long f;
-    public boolean g;
-    public boolean h;
-    public String i;
-    public String j;
-    public long k;
-    public boolean l;
-    public YyExtData m;
+    public BdUniqueId i;
+    public TbPageContext<?> j;
+    public BdTypeRecyclerView k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755273376, "Lcom/repackage/tz7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements dp {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iz a;
+
+        public a(tz7 tz7Var, iz izVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tz7Var, izVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755273376, "Lcom/repackage/tz7;");
-                return;
+            this.a = izVar;
+        }
+
+        @Override // com.repackage.dp
+        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            qq4 qq4Var;
+            ThreadData threadData;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof qq4) && (threadData = (qq4Var = (qq4) uoVar).s) != null && qq4Var.n && threadData.getItem() != null) {
+                int a = uu4.a(qq4Var.s.getItem().button_link_type.intValue(), qq4Var.s.getItem().apk_detail != null ? qq4Var.s.getItem().apk_detail.pkg_source.intValue() : 0);
+                ItemData itemData = new ItemData();
+                itemData.parseProto(qq4Var.s.getItem());
+                ItemCardHelper.q(this.a.u(), qq4Var.s.getItem().item_id.longValue(), this.a.t(itemData), qq4Var.s.getTid(), a, "", 2);
+                ItemClickJumpUtil.itemClickJump(qq4Var.s.getItem().forum_name, String.valueOf(qq4Var.s.getItem().item_id), 3, 3);
             }
         }
-        n = BdUniqueId.gen();
     }
 
-    public tz7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tz7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = false;
-        this.l = false;
+        this.j = tbPageContext;
+        this.i = bdUniqueId2;
     }
 
-    public Long e() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: Z */
+    public ThreadCardViewHolder<ThreadData> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (Long) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? n : (BdUniqueId) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    public void r(@NonNull AlaLiveInfo alaLiveInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, alaLiveInfo) == null) {
-            this.a = alaLiveInfo.first_headline;
-            this.b = alaLiveInfo.second_headline;
-            String str = alaLiveInfo.cover_wide;
-            this.c = str;
-            if (str == null || TextUtils.isEmpty(str)) {
-                this.c = alaLiveInfo.cover;
-            }
-            alaLiveInfo.live_id.longValue();
-            YyExtData yyExtData = new YyExtData();
-            this.m = yyExtData;
-            yyExtData.parseProtoBuf(alaLiveInfo.yy_ext);
-            AlaUserInfo alaUserInfo = alaLiveInfo.user_info;
-            this.k = alaUserInfo != null ? alaUserInfo.user_id.longValue() : 0L;
-            this.h = alaLiveInfo.live_from.intValue() == 1;
-            this.i = alaLiveInfo.third_live_type;
-            this.j = alaLiveInfo.third_room_id;
-            String str2 = alaLiveInfo.router_type;
-            this.d = "";
-            this.e = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d92);
-            this.f = 1L;
-            this.g = true;
-            this.l = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            b00.b bVar = new b00.b(this.j.getPageActivity(), false);
+            bVar.l().i(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds36));
+            iz izVar = new iz(this.j.getPageActivity());
+            izVar.w(true);
+            izVar.s();
+            bVar.h(izVar);
+            b00 k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.k);
+            k.r(2);
+            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.k(this.i);
+            V(new a(this, izVar));
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public void s(Promotion promotion) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, promotion) == null) {
-            this.a = promotion.title;
-            this.b = promotion.sub_title;
-            this.c = promotion.image;
-            this.d = promotion.link;
-            this.e = promotion.link_text;
-            this.f = promotion.appear_time;
-            this.g = false;
-            this.l = false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
+            if (qq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = qq4Var.s) == null) {
+                return null;
+            }
+            threadData.statFloor = C(i) + 1;
+            threadCardViewHolder.c().q(i);
+            threadCardViewHolder.g(qq4Var.s);
+            threadCardViewHolder.c().onChangeSkinType(this.j, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.b();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void b0(BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdTypeRecyclerView) == null) {
+            this.k = bdTypeRecyclerView;
         }
     }
 }

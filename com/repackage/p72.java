@@ -14,15 +14,15 @@ public class p72 {
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
     public int b;
-    public final vc4 c;
+    public final uc4 c;
     public long d;
 
-    public p72(@NonNull String str, @NonNull vc4 vc4Var) {
+    public p72(@NonNull String str, @NonNull uc4 uc4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, vc4Var};
+            Object[] objArr = {str, uc4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +35,7 @@ public class p72 {
         this.b = 0;
         this.d = 0L;
         this.a = str;
-        this.c = vc4Var;
+        this.c = uc4Var;
     }
 
     public boolean a(int i) {

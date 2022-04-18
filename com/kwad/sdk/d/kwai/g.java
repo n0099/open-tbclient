@@ -222,9 +222,9 @@ public class g extends b implements com.kwad.sdk.widget.d {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.e = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091052);
-        this.f = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091157);
-        this.l = (ImageView) m().findViewById(R.id.obfuscated_res_0x7f091167);
+        this.e = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091053);
+        this.f = (KSFrameLayout) m().findViewById(R.id.obfuscated_res_0x7f091158);
+        this.l = (ImageView) m().findViewById(R.id.obfuscated_res_0x7f091168);
         this.f.setVisibility(4);
         this.a = q();
     }

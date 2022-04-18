@@ -1,73 +1,143 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.forumSquare.ForumSquareActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
-public class fc6 {
+public class fc6 extends ho<gc6, CardViewHolder<jc6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<uo> a;
-    public List<RecommendForumInfo> b;
-    public Page c;
-    public boolean d;
-    public int e;
-    public int f;
-    public int g;
+    public TbPageContext<?> i;
+    public tx5<gc6> j;
 
-    public fc6() {
+    /* loaded from: classes6.dex */
+    public class a extends tx5<gc6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fc6 b;
+
+        public a(fc6 fc6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fc6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fc6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.tx5
+        /* renamed from: d */
+        public void a(View view2, gc6 gc6Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, gc6Var) == null) && gc6Var != null && (this.b.i.getPageActivity() instanceof ForumSquareActivity)) {
+                String i = ((ForumSquareActivity) this.b.i.getPageActivity()).getDelegate().i();
+                if (!"推荐".equals(i)) {
+                    StatisticItem statisticItem = new StatisticItem("c13652");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", gc6Var.a);
+                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, i);
+                    TiebaStatic.log(statisticItem);
+                    return;
+                }
+                StatisticItem statisticItem2 = new StatisticItem("c13643");
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem2.param("fid", gc6Var.a);
+                statisticItem2.param("obj_locate", 3);
+                TiebaStatic.log(statisticItem2);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fc6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), gc6.h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
+        this.j = new a(this);
+        this.i = tbPageContext;
     }
 
-    public List<uo> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: a0 */
+    public CardViewHolder<jc6> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            jc6 jc6Var = new jc6(this.i);
+            jc6Var.o(this.e);
+            return new CardViewHolder<>(jc6Var);
+        }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void b(t46 t46Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: b0 */
+    public View S(int i, View view2, ViewGroup viewGroup, gc6 gc6Var, CardViewHolder<jc6> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t46Var) == null) {
-            String str = t46Var.d;
-            this.c = t46Var.c;
-            List<RecommendForumInfo> list = t46Var.a;
-            this.b = list;
-            if (!ListUtils.isEmpty(list)) {
-                for (RecommendForumInfo recommendForumInfo : this.b) {
-                    ec6 ec6Var = new ec6();
-                    ec6Var.r(recommendForumInfo);
-                    this.a.add(ec6Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gc6Var, cardViewHolder})) == null) {
+            if (gc6Var == null || cardViewHolder == null || cardViewHolder.c() == null) {
+                return null;
+            }
+            cardViewHolder.c().l(gc6Var);
+            cardViewHolder.c().n(this.j);
+            if (this.i.getPageActivity() instanceof ForumSquareActivity) {
+                String i2 = ((ForumSquareActivity) this.i.getPageActivity()).getDelegate().i();
+                if (!"推荐".equals(i2)) {
+                    StatisticItem statisticItem = new StatisticItem("c13651");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", gc6Var.a);
+                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, i2);
+                    TiebaStatic.log(statisticItem);
+                } else {
+                    StatisticItem statisticItem2 = new StatisticItem("c13642");
+                    statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem2.param("fid", gc6Var.g());
+                    statisticItem2.param("obj_locate", 3);
+                    TiebaStatic.log(statisticItem2);
                 }
             }
-            Page page = this.c;
-            if (page != null) {
-                this.d = page.has_more.intValue() == 1;
-                this.e = this.c.current_page.intValue();
-            }
+            return cardViewHolder.b();
         }
+        return (View) invokeCommon.objValue;
     }
 }

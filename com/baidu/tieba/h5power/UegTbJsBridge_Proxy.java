@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ml8;
 import com.repackage.ni;
-import com.repackage.ol8;
-import com.repackage.ql8;
+import com.repackage.tl8;
+import com.repackage.vl8;
+import com.repackage.xl8;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class UegTbJsBridge_Proxy extends ml8 {
+public class UegTbJsBridge_Proxy extends tl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public UegTbJsBridge mJsBridge;
@@ -43,64 +43,64 @@ public class UegTbJsBridge_Proxy extends ml8 {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.repackage.ml8
-    public ol8 dispatch(ql8 ql8Var, ol8 ol8Var) {
+    @Override // com.repackage.tl8
+    public vl8 dispatch(xl8 xl8Var, vl8 vl8Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ql8Var, ol8Var)) == null) {
-            if (ol8Var == null) {
-                ol8Var = new ol8();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, xl8Var, vl8Var)) == null) {
+            if (vl8Var == null) {
+                vl8Var = new vl8();
             }
-            String b = ql8Var.b();
-            JSONObject e = ql8Var.e();
+            String b = xl8Var.b();
+            JSONObject e = xl8Var.e();
             if (b.equals("host/callNativeSMS")) {
-                ol8Var.r(true);
-                ol8 callNativeSMS = this.mJsBridge.callNativeSMS(e.optString("phoneNumber"), e.optString("content"));
+                vl8Var.r(true);
+                vl8 callNativeSMS = this.mJsBridge.callNativeSMS(e.optString("phoneNumber"), e.optString("content"));
                 if (callNativeSMS != null) {
-                    ol8Var.x(callNativeSMS.f());
-                    ol8Var.t(callNativeSMS.b());
-                    ol8Var.o(callNativeSMS.a());
-                    ol8Var.w(callNativeSMS.e());
+                    vl8Var.x(callNativeSMS.f());
+                    vl8Var.t(callNativeSMS.b());
+                    vl8Var.o(callNativeSMS.a());
+                    vl8Var.w(callNativeSMS.e());
                 }
-                ol8Var.y(0);
+                vl8Var.y(0);
             } else if (b.equals("device/setBlockPopInfo")) {
-                ol8Var.r(true);
-                ol8 blockPopInfo = this.mJsBridge.setBlockPopInfo(e.optInt("canPost"), e.optString("blockInfo"), e.optString("aheadInfo"), e.optString("aheadUrl"), e.optString("okInfo"), e.optInt("aheadType"));
+                vl8Var.r(true);
+                vl8 blockPopInfo = this.mJsBridge.setBlockPopInfo(e.optInt("canPost"), e.optString("blockInfo"), e.optString("aheadInfo"), e.optString("aheadUrl"), e.optString("okInfo"), e.optInt("aheadType"));
                 if (blockPopInfo != null) {
-                    ol8Var.x(blockPopInfo.f());
-                    ol8Var.t(blockPopInfo.b());
-                    ol8Var.o(blockPopInfo.a());
-                    ol8Var.w(blockPopInfo.e());
+                    vl8Var.x(blockPopInfo.f());
+                    vl8Var.t(blockPopInfo.b());
+                    vl8Var.o(blockPopInfo.a());
+                    vl8Var.w(blockPopInfo.e());
                 }
-                ol8Var.y(0);
+                vl8Var.y(0);
             } else if (b.equals("account/bindMobileNumber")) {
-                ol8Var.r(true);
-                ol8 bindingMobileNumber = this.mJsBridge.bindingMobileNumber();
+                vl8Var.r(true);
+                vl8 bindingMobileNumber = this.mJsBridge.bindingMobileNumber();
                 if (bindingMobileNumber != null) {
-                    ol8Var.x(bindingMobileNumber.f());
-                    ol8Var.t(bindingMobileNumber.b());
-                    ol8Var.o(bindingMobileNumber.a());
-                    ol8Var.w(bindingMobileNumber.e());
+                    vl8Var.x(bindingMobileNumber.f());
+                    vl8Var.t(bindingMobileNumber.b());
+                    vl8Var.o(bindingMobileNumber.a());
+                    vl8Var.w(bindingMobileNumber.e());
                 }
-                ol8Var.y(0);
+                vl8Var.y(0);
             } else if (b.equals("host/recordNovelInfo")) {
-                ol8Var.r(true);
-                ol8 recordNovelInfo = this.mJsBridge.recordNovelInfo(e.optString("bookProgress"), e.optString("gid"), e.optString("lastReadChapterId"), e.optString("lastReadChapterIndex"), e.optString("lastReadChapterName"));
+                vl8Var.r(true);
+                vl8 recordNovelInfo = this.mJsBridge.recordNovelInfo(e.optString("bookProgress"), e.optString("gid"), e.optString("lastReadChapterId"), e.optString("lastReadChapterIndex"), e.optString("lastReadChapterName"));
                 if (recordNovelInfo != null) {
-                    ol8Var.x(recordNovelInfo.f());
-                    ol8Var.t(recordNovelInfo.b());
-                    ol8Var.o(recordNovelInfo.a());
-                    ol8Var.w(recordNovelInfo.e());
+                    vl8Var.x(recordNovelInfo.f());
+                    vl8Var.t(recordNovelInfo.b());
+                    vl8Var.o(recordNovelInfo.a());
+                    vl8Var.w(recordNovelInfo.e());
                 }
-                ol8Var.y(0);
+                vl8Var.y(0);
             }
-            return ol8Var;
+            return vl8Var;
         }
-        return (ol8) invokeLL.objValue;
+        return (vl8) invokeLL.objValue;
     }
 
-    @Override // com.repackage.ml8
-    public List<ol8> processNotification(String str, HashMap hashMap) {
+    @Override // com.repackage.tl8
+    public List<vl8> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap)) == null) {

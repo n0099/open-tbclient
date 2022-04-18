@@ -24,7 +24,7 @@ public class dz extends xy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadGodReplyLayout h;
-    public qn4 i;
+    public pn4 i;
     public StatisticItem j;
 
     /* loaded from: classes5.dex */
@@ -131,7 +131,7 @@ public class dz extends xy {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                cx5.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                ex5.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -203,16 +203,16 @@ public class dz extends xy {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: v */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, qn4Var) == null) {
-            this.i = qn4Var;
-            PostData topAgreePost = qn4Var.getThreadData().getTopAgreePost();
+        if (interceptable == null || interceptable.invokeL(1048581, this, pn4Var) == null) {
+            this.i = pn4Var;
+            PostData topAgreePost = pn4Var.getThreadData().getTopAgreePost();
             if (this.j != null && topAgreePost != null && topAgreePost.s() != null && topAgreePost.s().getUserId() != null) {
-                this.j.param("tid", qn4Var.getThreadData().tid).param("post_id", topAgreePost.I()).param("uid", topAgreePost.s().getUserId());
-                kx5.b().a(this.j);
+                this.j.param("tid", pn4Var.getThreadData().tid).param("post_id", topAgreePost.I()).param("uid", topAgreePost.s().getUserId());
+                mx5.b().a(this.j);
             }
-            this.h.setData(qn4Var.getThreadData());
+            this.h.setData(pn4Var.getThreadData());
         }
     }
 

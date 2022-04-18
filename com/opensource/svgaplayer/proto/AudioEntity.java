@@ -8,9 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pn9;
-import com.repackage.qn9;
-import com.repackage.un9;
+import com.repackage.bo9;
+import com.repackage.wn9;
+import com.repackage.xn9;
 import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
@@ -150,62 +150,62 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public AudioEntity decode(pn9 pn9Var) throws IOException {
+        public AudioEntity decode(wn9 wn9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, pn9Var)) != null) {
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, wn9Var)) != null) {
                 return (AudioEntity) invokeL.objValue;
             }
             Builder builder = new Builder();
-            long c = pn9Var.c();
+            long c = wn9Var.c();
             while (true) {
-                int f = pn9Var.f();
+                int f = wn9Var.f();
                 if (f == -1) {
-                    pn9Var.d(c);
+                    wn9Var.d(c);
                     return builder.build();
                 } else if (f == 1) {
-                    builder.audioKey(ProtoAdapter.STRING.decode(pn9Var));
+                    builder.audioKey(ProtoAdapter.STRING.decode(wn9Var));
                 } else if (f == 2) {
-                    builder.startFrame(ProtoAdapter.INT32.decode(pn9Var));
+                    builder.startFrame(ProtoAdapter.INT32.decode(wn9Var));
                 } else if (f == 3) {
-                    builder.endFrame(ProtoAdapter.INT32.decode(pn9Var));
+                    builder.endFrame(ProtoAdapter.INT32.decode(wn9Var));
                 } else if (f == 4) {
-                    builder.startTime(ProtoAdapter.INT32.decode(pn9Var));
+                    builder.startTime(ProtoAdapter.INT32.decode(wn9Var));
                 } else if (f != 5) {
-                    FieldEncoding g = pn9Var.g();
-                    builder.addUnknownField(f, g, g.rawProtoAdapter().decode(pn9Var));
+                    FieldEncoding g = wn9Var.g();
+                    builder.addUnknownField(f, g, g.rawProtoAdapter().decode(wn9Var));
                 } else {
-                    builder.totalTime(ProtoAdapter.INT32.decode(pn9Var));
+                    builder.totalTime(ProtoAdapter.INT32.decode(wn9Var));
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(qn9 qn9Var, AudioEntity audioEntity) throws IOException {
+        public void encode(xn9 xn9Var, AudioEntity audioEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, qn9Var, audioEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, xn9Var, audioEntity) == null) {
                 String str = audioEntity.audioKey;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(qn9Var, 1, str);
+                    ProtoAdapter.STRING.encodeWithTag(xn9Var, 1, str);
                 }
                 Integer num = audioEntity.startFrame;
                 if (num != null) {
-                    ProtoAdapter.INT32.encodeWithTag(qn9Var, 2, num);
+                    ProtoAdapter.INT32.encodeWithTag(xn9Var, 2, num);
                 }
                 Integer num2 = audioEntity.endFrame;
                 if (num2 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(qn9Var, 3, num2);
+                    ProtoAdapter.INT32.encodeWithTag(xn9Var, 3, num2);
                 }
                 Integer num3 = audioEntity.startTime;
                 if (num3 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(qn9Var, 4, num3);
+                    ProtoAdapter.INT32.encodeWithTag(xn9Var, 4, num3);
                 }
                 Integer num4 = audioEntity.totalTime;
                 if (num4 != null) {
-                    ProtoAdapter.INT32.encodeWithTag(qn9Var, 5, num4);
+                    ProtoAdapter.INT32.encodeWithTag(xn9Var, 5, num4);
                 }
-                qn9Var.k(audioEntity.unknownFields());
+                xn9Var.k(audioEntity.unknownFields());
             }
         }
 
@@ -293,7 +293,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
             }
             if (obj instanceof AudioEntity) {
                 AudioEntity audioEntity = (AudioEntity) obj;
-                return unknownFields().equals(audioEntity.unknownFields()) && un9.f(this.audioKey, audioEntity.audioKey) && un9.f(this.startFrame, audioEntity.startFrame) && un9.f(this.endFrame, audioEntity.endFrame) && un9.f(this.startTime, audioEntity.startTime) && un9.f(this.totalTime, audioEntity.totalTime);
+                return unknownFields().equals(audioEntity.unknownFields()) && bo9.f(this.audioKey, audioEntity.audioKey) && bo9.f(this.startFrame, audioEntity.startFrame) && bo9.f(this.endFrame, audioEntity.endFrame) && bo9.f(this.startTime, audioEntity.startTime) && bo9.f(this.totalTime, audioEntity.totalTime);
             }
             return false;
         }

@@ -26,28 +26,28 @@ public class y35 {
     public static void a(DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) {
-            xu4.a(downloadData, 400);
-            db8.l().g(downloadData.getUrl(), downloadData.getId());
+            wu4.a(downloadData, 400);
+            kb8.l().g(downloadData.getUrl(), downloadData.getId());
         }
     }
 
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? db8.l().p(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? kb8.l().p(str) : invokeL.booleanValue;
     }
 
     public static int c(@NonNull DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, downloadData)) == null) {
-            if (db8.l().o(downloadData.getId())) {
+            if (kb8.l().o(downloadData.getId())) {
                 return 5;
             }
-            if (db8.l().q(downloadData.getId())) {
+            if (kb8.l().q(downloadData.getId())) {
                 return 1;
             }
-            return db8.l().n(downloadData.getId(), downloadData.getName()) ? 7 : 6;
+            return kb8.l().n(downloadData.getId(), downloadData.getName()) ? 7 : 6;
         }
         return invokeL.intValue;
     }
@@ -56,13 +56,13 @@ public class y35 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (c05.q().t(str)) {
+            if (b05.q().t(str)) {
                 return 1;
             }
-            if (c05.q().r(str)) {
+            if (b05.q().r(str)) {
                 return 5;
             }
-            File m = c05.q().m(str, str2);
+            File m = b05.q().m(str, str2);
             return (m == null || !m.exists()) ? 6 : 7;
         }
         return invokeLL.intValue;
@@ -120,7 +120,7 @@ public class y35 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, downloadData)) == null) {
-            int i = db8.l().i(downloadData.getId(), downloadData.getName());
+            int i = kb8.l().i(downloadData.getId(), downloadData.getName());
             if (i < 0 || i > 100) {
                 return 0;
             }
@@ -132,7 +132,7 @@ public class y35 {
     public static void i(DownloadData downloadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, downloadData) == null) {
-            xu4.a(downloadData, 800);
+            wu4.a(downloadData, 800);
             Application app = TbadkCoreApplication.getInst().getApp();
             UtilHelper.install_apk(app, downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
         }
@@ -148,7 +148,7 @@ public class y35 {
             downloadData.setId(str);
             downloadData.setName(itemData.mTitle);
             downloadData.setUrl(itemData.buttonLink);
-            downloadData.setNotifyId(db8.m(str).intValue());
+            downloadData.setNotifyId(kb8.m(str).intValue());
             downloadData.setNeedInvokeApk(true);
             downloadData.setNeedNotify(false);
             ItemDownloadExtraData itemDownloadExtraData = new ItemDownloadExtraData(itemData.apkDetail.pkg_source.intValue());
@@ -178,9 +178,9 @@ public class y35 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, downloadData)) == null) {
             if (oi.C()) {
-                return db8.l().s(downloadData);
+                return kb8.l().s(downloadData);
             }
-            b05.b(downloadData);
+            a05.b(downloadData);
             return false;
         }
         return invokeL.booleanValue;

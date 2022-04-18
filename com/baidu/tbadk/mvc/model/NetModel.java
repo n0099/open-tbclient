@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.cr4;
+import com.repackage.br4;
 import com.repackage.l65;
 import com.repackage.l95;
 import com.repackage.o65;
@@ -199,11 +199,11 @@ public abstract class NetModel<T extends o65, D extends p65, ActivityType> exten
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int i = a.a[this.a.d.ordinal()];
                 if (i == 1) {
-                    this.a.U(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18));
+                    this.a.U(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
                 } else if (i == 2) {
-                    this.a.V(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18));
+                    this.a.V(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
                 } else if (i == 3 || i == 4) {
-                    this.a.T(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18));
+                    this.a.T(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
                 }
             }
         }
@@ -237,7 +237,7 @@ public abstract class NetModel<T extends o65, D extends p65, ActivityType> exten
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.U(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18));
+                this.a.U(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
             }
         }
     }
@@ -270,7 +270,7 @@ public abstract class NetModel<T extends o65, D extends p65, ActivityType> exten
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.T(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18));
+                this.a.T(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
             }
         }
     }
@@ -303,7 +303,7 @@ public abstract class NetModel<T extends o65, D extends p65, ActivityType> exten
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.V(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18));
+                this.a.V(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
             }
         }
     }
@@ -336,7 +336,7 @@ public abstract class NetModel<T extends o65, D extends p65, ActivityType> exten
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.T(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18));
+                this.a.T(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
             }
         }
     }
@@ -578,8 +578,8 @@ public abstract class NetModel<T extends o65, D extends p65, ActivityType> exten
                         String x = l65Var.x();
                         String currentAccount = l65Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
                         if (cacheKey != null && !TextUtils.isEmpty(x) && b != null) {
-                            cr4.f();
-                            qe<String> h = cr4.h(x, currentAccount);
+                            br4.f();
+                            qe<String> h = br4.h(x, currentAccount);
                             if (h == null) {
                                 return b;
                             }

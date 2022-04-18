@@ -204,17 +204,17 @@ public class s31 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d059e, null);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922c7);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09165e);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922c8);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09165f);
             this.f = textView;
             textView.setOnEditorActionListener(new a(this));
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f0bc8, this.b, this.c);
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f0bc7, this.b, this.c);
             x41.a aVar = new x41.a(this.a);
             aVar.r(string);
             aVar.i(17301543);
             aVar.s(inflate);
-            aVar.o(R.string.obfuscated_res_0x7f0f0b91, new d(this));
-            aVar.l(R.string.obfuscated_res_0x7f0f0b90, new c(this));
+            aVar.o(R.string.obfuscated_res_0x7f0f0b90, new d(this));
+            aVar.l(R.string.obfuscated_res_0x7f0f0b8f, new c(this));
             aVar.n(new b(this));
             x41 a2 = aVar.a();
             this.d = a2;

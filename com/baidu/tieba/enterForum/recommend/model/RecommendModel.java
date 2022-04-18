@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b66;
 import com.repackage.b9;
-import com.repackage.e66;
+import com.repackage.g66;
 import com.repackage.mi;
 import com.repackage.wa;
-import com.repackage.z56;
 /* loaded from: classes3.dex */
 public class RecommendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z56 a;
+    public b66 a;
     public wa b;
     public boolean c;
 
@@ -64,7 +64,7 @@ public class RecommendModel extends BdBaseModel {
                 if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
                     return;
                 }
-                e66 recommendData = responsedMessage instanceof ResponseHttpRecommendMessage ? ((ResponseHttpRecommendMessage) responsedMessage).getRecommendData() : null;
+                g66 recommendData = responsedMessage instanceof ResponseHttpRecommendMessage ? ((ResponseHttpRecommendMessage) responsedMessage).getRecommendData() : null;
                 if (responsedMessage instanceof ResponseSocketRecommendMessage) {
                     recommendData = ((ResponseSocketRecommendMessage) responsedMessage).getRecommendData();
                 }
@@ -98,9 +98,9 @@ public class RecommendModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!mi.A()) {
-                z56 z56Var = this.a;
-                if (z56Var != null) {
-                    z56Var.l(-1, null);
+                b66 b66Var = this.a;
+                if (b66Var != null) {
+                    b66Var.l(-1, null);
                 }
             } else if (this.c) {
             } else {
@@ -114,10 +114,10 @@ public class RecommendModel extends BdBaseModel {
         }
     }
 
-    public void C(z56 z56Var) {
+    public void C(b66 b66Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z56Var) == null) {
-            this.a = z56Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b66Var) == null) {
+            this.a = b66Var;
         }
     }
 

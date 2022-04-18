@@ -1,206 +1,68 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Locale;
 /* loaded from: classes6.dex */
 public class gs6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gs6 b;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ArrayList<FunAdHistoryData>> a;
 
-    public gs6() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755667417, "Lcom/repackage/gs6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.clear();
-        this.a.putAll(d());
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755667417, "Lcom/repackage/gs6;");
+        }
     }
 
-    public static gs6 f() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (gs6.class) {
-                    if (b == null) {
-                        b = new gs6();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            a++;
+            StatisticItem.make(TbadkCoreStatisticKey.KEY_FRS_REQUEST_PAGE).eventStat();
         }
-        return (gs6) invokeV.objValue;
     }
 
-    public void a(String str, FunAdHistoryData funAdHistoryData) {
+    public static String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, funAdHistoryData) == null) || !UbsABTestHelper.isDuplicateRemovalFunAdABTest() || TextUtils.isEmpty(str) || funAdHistoryData == null) {
-            return;
-        }
-        ArrayList<FunAdHistoryData> c = c(str);
-        if (c == null) {
-            c = new ArrayList<>();
-        }
-        c.add(funAdHistoryData);
-        g(c);
-        is6.e().a(str);
-        j(str);
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? String.format(Locale.CHINA, "%s%d", "#FunAd#", Integer.valueOf(String.format(Locale.CHINA, "%d%d", Long.valueOf(System.currentTimeMillis()), Integer.valueOf(i)).hashCode())) : (String) invokeI.objValue;
     }
 
-    public final ArrayList<FunAdHistoryData> b(JSONArray jSONArray) {
+    public static int c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            ArrayList<FunAdHistoryData> arrayList = new ArrayList<>();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
-                try {
-                    funAdHistoryData.parserJson(jSONArray.getJSONObject(i));
-                    arrayList.add(funAdHistoryData);
-                } catch (JSONException e) {
-                    BdLog.detailException(e);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return (System.currentTimeMillis() + str).hashCode() & Integer.MAX_VALUE;
         }
-        return (ArrayList) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public ArrayList<FunAdHistoryData> c(String str) {
+    public static boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
             }
-            return this.a.get(str);
+            return str.startsWith("#FunAd#");
         }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final Map<String, ArrayList<FunAdHistoryData>> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str : is6.e().c()) {
-                if (!TextUtils.isEmpty(str)) {
-                    ArrayList<FunAdHistoryData> e = e(str);
-                    if (e == null) {
-                        e = new ArrayList<>();
-                    }
-                    hashMap.put(str, e);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final ArrayList<FunAdHistoryData> e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            JSONArray jSONArray = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            SharedPreferences g = is6.g();
-            String string = g.getString(str + "_fun_ad_history_key_suffix", "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                jSONArray = new JSONArray(string);
-            } catch (JSONException e) {
-                BdLog.detailException(e);
-            }
-            return b(jSONArray);
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void g(ArrayList<FunAdHistoryData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) || arrayList == null) {
-            return;
-        }
-        h(arrayList);
-        i(arrayList);
-    }
-
-    public final void h(ArrayList<FunAdHistoryData> arrayList) {
-        int size;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) || arrayList == null || (size = arrayList.size()) <= 600) {
-            return;
-        }
-        ListUtils.removeSubList(arrayList, 0, size - 600);
-    }
-
-    public final void i(ArrayList<FunAdHistoryData> arrayList) {
-        FunAdHistoryData next;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) || arrayList == null) {
-            return;
-        }
-        Iterator<FunAdHistoryData> it = arrayList.iterator();
-        long currentTimeMillis = System.currentTimeMillis() / 1000;
-        while (it.hasNext() && (next = it.next()) != null && currentTimeMillis - next.getShowTime() > 86400) {
-            it.remove();
-        }
-    }
-
-    public final void j(String str) {
-        ArrayList<FunAdHistoryData> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (arrayList = this.a.get(str)) == null) {
-            return;
-        }
-        JSONArray jSONArray = new JSONArray();
-        Iterator<FunAdHistoryData> it = arrayList.iterator();
-        while (it.hasNext()) {
-            JSONObject json = it.next().toJson();
-            if (json != null) {
-                jSONArray.put(json);
-            }
-        }
-        SharedPreferences g = is6.g();
-        EditorHelper.putString(g, str + "_fun_ad_history_key_suffix", jSONArray.toString());
+        return invokeL.booleanValue;
     }
 }

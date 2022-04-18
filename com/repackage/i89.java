@@ -1,68 +1,55 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class i89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioPlayData a;
-    public j89 b;
 
-    public i89(AudioPlayData audioPlayData) {
+    public static void a(String str, m89 m89Var, l89 l89Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {audioPlayData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, m89Var, l89Var) == null) {
+            if (ac9.a) {
+                ac9.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + l89Var.toString());
+            }
+            g89 g = d89.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (l89Var != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", l89Var.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", l89Var.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", l89Var.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", l89Var.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", l89Var.d + ""));
+                }
+                g.a("perf_record_arperf", str, m89Var.a, m89Var.b, m89Var.c, m89Var.d, m89Var.e, null, arrayList);
             }
         }
-        this.a = audioPlayData;
-        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
-            return;
-        }
-        this.b = new j89(audioPlayData.audioPath);
     }
 
-    public j89 a() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (j89) invokeV.objValue;
-    }
-
-    public AudioPlayData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            j89 j89Var = this.b;
-            return j89Var != null && j89Var.i();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(j89 j89Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, j89Var) == null) {
-            this.b = j89Var;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (ac9.a) {
+                ac9.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
+            }
+            g89 g = d89.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", yb9.a(d89.c().getContext())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(yb9.b(d89.c().getContext()))));
+                }
+                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
+            }
         }
     }
 }

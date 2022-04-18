@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt4;
+import com.repackage.vt4;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class MainTabDataSwitch extends BaseNormalSwitch {
@@ -60,7 +60,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             if (type > 2) {
-                type = wt4.k().l("key_launch_up_main_tab_data", 1);
+                type = vt4.k().l("key_launch_up_main_tab_data", 1);
             }
             if (UbsABTestHelper.isMainTabDataCache()) {
                 type = 2;

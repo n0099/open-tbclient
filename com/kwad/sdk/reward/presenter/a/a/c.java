@@ -42,7 +42,7 @@ public class c extends g implements View.OnClickListener {
 
     private void a(final WebpAnimationImageView webpAnimationImageView, final String str) {
         if (at.a(str) || !FrameSequence.isEnable()) {
-            webpAnimationImageView.setImageResource(R.drawable.obfuscated_res_0x7f080c96);
+            webpAnimationImageView.setImageResource(R.drawable.obfuscated_res_0x7f080c9a);
         } else if (str.equals(webpAnimationImageView.getTag())) {
         } else {
             KSImageLoader.loadImage(str, ((g) this).a.g, KSImageLoader.IMGOPTION_ENTRY, new SimpleImageLoadingListener() { // from class: com.kwad.sdk.reward.presenter.a.a.c.3
@@ -165,10 +165,10 @@ public class c extends g implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f091077);
-        this.c = (ImageView) a(R.id.obfuscated_res_0x7f091076);
-        this.d = (WebpAnimationImageView) a(R.id.obfuscated_res_0x7f091078);
-        this.e = (WebpAnimationImageView) a(R.id.obfuscated_res_0x7f091079);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f091078);
+        this.c = (ImageView) a(R.id.obfuscated_res_0x7f091077);
+        this.d = (WebpAnimationImageView) a(R.id.obfuscated_res_0x7f091079);
+        this.e = (WebpAnimationImageView) a(R.id.obfuscated_res_0x7f09107a);
     }
 
     @Override // android.view.View.OnClickListener

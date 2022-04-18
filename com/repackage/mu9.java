@@ -1,27 +1,23 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.views.CloseParentView;
 /* loaded from: classes6.dex */
-public class mu9 {
+public class mu9 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public jq9 d;
+    public final /* synthetic */ CloseParentView a;
 
-    public mu9(Context context) {
+    public mu9(CloseParentView closeParentView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {closeParentView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,64 +27,14 @@ public class mu9 {
                 return;
             }
         }
-        this.a = context;
+        this.a = closeParentView;
     }
 
-    public mu9 a(jq9 jq9Var) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jq9Var)) == null) {
-            this.d = jq9Var;
-            return this;
-        }
-        return (mu9) invokeL.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = qu9.d + qu9.f;
-            qu9.b(this);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = qu9.d + qu9.j;
-            qu9.b(this);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c = qu9.d + qu9.g;
-            qu9.b(this);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c = qu9.d + qu9.e;
-            qu9.b(this);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = qu9.d + qu9.i;
-            qu9.b(this);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c = qu9.d + qu9.h;
-            qu9.b(this);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            this.a.a();
         }
     }
 }

@@ -6,15 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetThemeList.ThemeList;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetCardByCategory.ThemeCardInMain;
+import tbclient.ThemeCardPropMain;
+/* loaded from: classes6.dex */
 public class er8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public long c;
-    public String d;
+    public ArrayList<hq8> b;
 
     public er8() {
         Interceptable interceptable = $ic;
@@ -30,10 +31,10 @@ public class er8 {
         }
     }
 
-    public String a() {
+    public ArrayList<hq8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
     }
 
     public String b() {
@@ -42,26 +43,23 @@ public class er8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    public void c(ThemeCardInMain themeCardInMain) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public void d(ThemeList themeList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, themeList) == null) || themeList == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeCardInMain) == null) || themeCardInMain == null) {
             return;
         }
-        this.a = themeList.name;
-        this.b = themeList.icon;
-        this.c = themeList.last_update_time.longValue();
-        this.d = themeList.type;
-    }
-
-    public String getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
+        this.a = themeCardInMain.card_category;
+        List<ThemeCardPropMain> list = themeCardInMain.props;
+        if (list == null || list.size() <= 0) {
+            return;
+        }
+        this.b = new ArrayList<>();
+        for (ThemeCardPropMain themeCardPropMain : list) {
+            if (themeCardPropMain != null) {
+                hq8 hq8Var = new hq8();
+                hq8Var.k(themeCardPropMain);
+                this.b.add(hq8Var);
+            }
+        }
     }
 }

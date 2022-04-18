@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a87;
+import com.repackage.b77;
 import com.repackage.ic5;
-import com.repackage.x77;
-import com.repackage.y67;
 /* loaded from: classes3.dex */
 public final class Invite2GroupView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -252,7 +252,7 @@ public final class Invite2GroupView extends LinearLayout {
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090609);
             this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905ff);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fe);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090f4c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090f4d);
             this.b.setIsRound(false);
         }
     }
@@ -270,7 +270,7 @@ public final class Invite2GroupView extends LinearLayout {
             this.b.K(this.e.getPortrait(), 10, false);
             this.c.setText(this.e.getNotice());
             setOnClickListener(new b(this, tbPageContext));
-            if (y67.p().j(String.valueOf(this.e.getGroupId()), 1) != null) {
+            if (b77.p().j(String.valueOf(this.e.getGroupId()), 1) != null) {
                 if (String.valueOf(this.e.getGroupId()).equals(this.d.getTag())) {
                     this.d.setText(R.string.obfuscated_res_0x7f0f0894);
                     this.d.setOnClickListener(new c(this));
@@ -278,7 +278,7 @@ public final class Invite2GroupView extends LinearLayout {
                 }
                 return;
             }
-            x77.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), 60000L, new d(this, tbPageContext));
+            a87.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), 60000L, new d(this, tbPageContext));
         }
     }
 

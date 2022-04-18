@@ -1,25 +1,98 @@
 package com.repackage;
 
-import android.view.MotionEvent;
-import android.view.View;
-import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.videoplay.VideoPlayView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: lambda */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class pv8 implements View.OnTouchListener {
+public class pv8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ pv8 a = new pv8();
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public jv8 c;
+    public VideoPlayView.f d;
+    public int e;
+    public Set<String> f;
 
-    private /* synthetic */ pv8() {
+    public pv8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 0;
+        this.b = 0;
+        this.f = new HashSet();
     }
 
-    @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) ? VideoVerticalPageFragment.t1(view2, motionEvent) : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = Math.min(7, TbConfig.PREFETCH_NEXT_VIDEO_NUM);
+            this.b = this.a + 1;
+            b();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c == null || this.e <= 0) {
+            return;
+        }
+        while (this.b < this.c.k()) {
+            VideoItemData s = this.c.s(this.b);
+            this.b++;
+            if (s != null && !TextUtils.isEmpty(s.video_url)) {
+                this.e--;
+                if (!this.f.contains(s.video_url)) {
+                    CyberPlayerManager.prefetch(s.video_url, null, null, TbConfig.PREFETCH_NEXT_VIDEO_SIZE, null);
+                    this.f.add(s.video_url);
+                }
+                if (this.e <= 0) {
+                    break;
+                }
+            }
+        }
+        if (this.e <= 0 || this.d == null || this.c.k() - this.a >= 10) {
+            return;
+        }
+        this.d.a();
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void d(jv8 jv8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jv8Var) == null) {
+            this.c = jv8Var;
+        }
+    }
+
+    public void e(VideoPlayView.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
+            this.d = fVar;
+        }
     }
 }

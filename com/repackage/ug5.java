@@ -29,7 +29,7 @@ public class ug5 {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public boolean b;
-    public tl4 c;
+    public sl4 c;
     public CustomMessageListener d;
     public CustomMessageListener e;
     public CustomMessageListener f;
@@ -64,10 +64,10 @@ public class ug5 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016522 || fa8.q().n() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016522 || ma8.q().n() == null) {
                 return;
             }
-            fa8.q().n().b();
+            ma8.q().n().b();
         }
     }
 
@@ -151,9 +151,9 @@ public class ug5 {
             boolean f = this.a.f();
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             if (currentTimeMillis - this.a.a > 5) {
-                new StatisticItem(TbadkCoreStatisticKey.HOT_SPLASH_APP_START).param("obj_param1", f ? 1 : 0).param(TiebaStatic.Params.OBJ_PARAM2, currentTimeMillis - this.a.a).param(TiebaStatic.Params.OBJ_PARAM3, ks4.b ? 1 : 0).eventStat();
-                if (ks4.b) {
-                    ks4.b = false;
+                new StatisticItem(TbadkCoreStatisticKey.HOT_SPLASH_APP_START).param("obj_param1", f ? 1 : 0).param(TiebaStatic.Params.OBJ_PARAM2, currentTimeMillis - this.a.a).param(TiebaStatic.Params.OBJ_PARAM3, js4.b ? 1 : 0).eventStat();
+                if (js4.b) {
+                    js4.b = false;
                 }
             }
             if (f) {
@@ -244,8 +244,8 @@ public class ug5 {
         MessageManager.getInstance().registerListener(this.f);
         MessageManager.getInstance().registerListener(this.d);
         MessageManager.getInstance().registerListener(this.g);
-        if (fa8.q().n() != null) {
-            fa8.q().n().c();
+        if (ma8.q().n() != null) {
+            ma8.q().n().c();
         }
     }
 
@@ -285,7 +285,7 @@ public class ug5 {
             }
             long j = this.a;
             if (currentTimeMillis - j > 2 && currentTimeMillis - j > h2) {
-                z98 n = fa8.q().n();
+                ga8 n = ma8.q().n();
                 int a2 = n != null ? n.a() : i;
                 PrintStream printStream = System.out;
                 printStream.println("TestTest => hotSplashMaxTime: " + i + " currentTime: " + a2 + " interval: " + h2);
@@ -304,14 +304,14 @@ public class ug5 {
             if (ub5.a()) {
                 return 3;
             }
-            if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921564, tl4.class)) != null) {
-                this.c = (tl4) runTask.getData();
+            if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921564, sl4.class)) != null) {
+                this.c = (sl4) runTask.getData();
             }
-            tl4 tl4Var = this.c;
-            if (tl4Var != null) {
-                return (int) (tl4Var.a() * 60.0f);
+            sl4 sl4Var = this.c;
+            if (sl4Var != null) {
+                return (int) (sl4Var.a() * 60.0f);
             }
-            iw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            hw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
             if (adAdSense != null) {
                 int b2 = adAdSense.b();
                 if (b2 <= 0) {
@@ -332,12 +332,12 @@ public class ug5 {
             if (ub5.a()) {
                 return 1000000;
             }
-            if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921564, tl4.class)) != null) {
-                this.c = (tl4) runTask.getData();
+            if (this.c == null && (runTask = MessageManager.getInstance().runTask(2921564, sl4.class)) != null) {
+                this.c = (sl4) runTask.getData();
             }
-            tl4 tl4Var = this.c;
-            if (tl4Var != null) {
-                return tl4Var.b();
+            sl4 sl4Var = this.c;
+            if (sl4Var != null) {
+                return sl4Var.b();
             }
             return 3;
         }

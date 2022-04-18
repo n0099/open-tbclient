@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r5a;
-import com.repackage.r6a;
+import com.repackage.y5a;
+import com.repackage.y6a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
 @Keep
 /* loaded from: classes9.dex */
-public interface IYYPayAmountView extends r6a {
+public interface IYYPayAmountView extends y6a {
 
     @Keep
     /* loaded from: classes9.dex */
@@ -25,7 +25,7 @@ public interface IYYPayAmountView extends r6a {
 
         void showInputNumberDialog(Activity activity, List<PayWayInfo> list);
 
-        void toPayWayDialog(r5a r5aVar, List<PayWayInfo> list);
+        void toPayWayDialog(y5a y5aVar, List<PayWayInfo> list);
     }
 
     @Keep
@@ -66,10 +66,10 @@ public interface IYYPayAmountView extends r6a {
         }
     }
 
-    @Override // com.repackage.r6a
+    @Override // com.repackage.y6a
     /* synthetic */ View getContentView();
 
-    @Override // com.repackage.r6a
+    @Override // com.repackage.y6a
     /* synthetic */ void refreshView();
 
     void setCallback(Callback callback);

@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mi;
 import com.repackage.oi;
-import com.repackage.to5;
-import com.repackage.tp5;
 import com.repackage.uo;
+import com.repackage.vo5;
+import com.repackage.vp5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaLiveYYSubTabModel extends BdBaseModel {
@@ -33,7 +33,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean b;
     public boolean c;
     public BdUniqueId d;
-    public tp5 e;
+    public vp5 e;
     public long f;
     public int g;
     public String h;
@@ -80,16 +80,16 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                         this.a.k.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.c);
                     }
                 } else {
-                    to5 to5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    vo5 vo5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.c) {
-                        this.a.e.a(to5Var);
+                        this.a.e.a(vo5Var);
                     } else {
                         AlaLiveTabFragment.I0(this.a.g);
                         if (this.a.e != null) {
                             this.a.e.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.e = new tp5(to5Var, alaLiveYYSubTabModel.h, this.a.i);
+                        alaLiveYYSubTabModel.e = new vp5(vo5Var, alaLiveYYSubTabModel.h, this.a.i);
                     }
                     AlaLiveYYSubTabModel alaLiveYYSubTabModel2 = this.a;
                     alaLiveYYSubTabModel2.b = alaLiveYYSubTabModel2.e.f();
@@ -173,8 +173,8 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            tp5 tp5Var = this.e;
-            return (tp5Var == null || ListUtils.isEmpty(tp5Var.d())) ? false : true;
+            vp5 vp5Var = this.e;
+            return (vp5Var == null || ListUtils.isEmpty(vp5Var.d())) ? false : true;
         }
         return invokeV.booleanValue;
     }

@@ -243,7 +243,7 @@ public class uz1 extends pz1 implements qz2.a {
             I2(false);
             s2(-1);
             B2(-16777216);
-            u2(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1236));
+            u2(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1235));
             w2(true);
             a3();
         }
@@ -259,7 +259,7 @@ public class uz1 extends pz1 implements qz2.a {
                 return true;
             }
             for (File file : listFiles) {
-                if (!ng4.L(file)) {
+                if (!mg4.L(file)) {
                     return false;
                 }
             }
@@ -273,7 +273,7 @@ public class uz1 extends pz1 implements qz2.a {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || j03.a0() == null) {
             return;
         }
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091af4);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091af5);
         textView.setTextIsSelectable(true);
         StringBuilder sb = new StringBuilder();
         sb.append(cd3.l(this.i0));
@@ -299,7 +299,7 @@ public class uz1 extends pz1 implements qz2.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             TextView textView = new TextView(getContext());
-            textView.setText(R.string.obfuscated_res_0x7f0f1235);
+            textView.setText(R.string.obfuscated_res_0x7f0f1234);
             textView.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060241));
             textView.setOnClickListener(new b(this));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);

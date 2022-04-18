@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z47;
+import com.repackage.c57;
 /* loaded from: classes3.dex */
-public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<z47> {
+public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<c57> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a extends MsgCommonItemAdapter.MsgViewHolder<z47> {
+    public class a extends MsgCommonItemAdapter.MsgViewHolder<c57> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(MsgMidViewItemAdapter msgMidViewItemAdapter, View view2, z47 z47Var) {
-            super(view2, z47Var);
+        public a(MsgMidViewItemAdapter msgMidViewItemAdapter, View view2, c57 c57Var) {
+            super(view2, c57Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {msgMidViewItemAdapter, view2, z47Var};
+                Object[] objArr = {msgMidViewItemAdapter, view2, c57Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,7 +75,7 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<z47> {
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<z47> msgViewHolder) {
+    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<c57> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
@@ -91,12 +91,12 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<z47> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: l0 */
-    public MsgCommonItemAdapter.MsgViewHolder<z47> M(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<c57> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            z47 z47Var = new z47(this.i);
-            return new a(this, z47Var.f(), z47Var);
+            c57 c57Var = new c57(this.i);
+            return new a(this, c57Var.f(), c57Var);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }

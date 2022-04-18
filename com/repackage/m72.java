@@ -51,7 +51,7 @@ public class m72 implements da2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements iz9<Cursor> {
+    public static class a implements pz9<Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ x23.c a;
@@ -75,7 +75,7 @@ public class m72 implements da2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.iz9
+        @Override // com.repackage.pz9
         public void call(Cursor cursor) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cursor) == null) {
@@ -93,7 +93,7 @@ public class m72 implements da2 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b implements mz9<String, Cursor> {
+    public static class b implements tz9<String, Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -112,7 +112,7 @@ public class m72 implements da2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mz9
+        @Override // com.repackage.tz9
         public Cursor call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -490,7 +490,7 @@ public class m72 implements da2 {
                         sb.append(cursor.getCount());
                         Log.d("SwanAppHistoryHelper", sb.toString());
                     }
-                    ng4.d(cursor);
+                    mg4.d(cursor);
                     return hashSet;
                 }
                 if (a && cursor != null) {
@@ -499,13 +499,13 @@ public class m72 implements da2 {
                     sb.append(cursor.getCount());
                     Log.d("SwanAppHistoryHelper", sb.toString());
                 }
-                ng4.d(cursor);
+                mg4.d(cursor);
                 return hashSet;
             } catch (Throwable th) {
                 if (a && cursor != null) {
                     Log.d("SwanAppHistoryHelper", "getAllHistoryIdsSet: Cursor count: " + cursor.getCount());
                 }
-                ng4.d(cursor);
+                mg4.d(cursor);
                 throw th;
             }
         }
@@ -517,7 +517,7 @@ public class m72 implements da2 {
         if (!(interceptable == null || interceptable.invokeL(65546, null, cVar) == null) || cVar == null) {
             return;
         }
-        uy9.f("").y(Schedulers.io()).h(new b()).k(ez9.b()).w(new a(cVar));
+        bz9.f("").y(Schedulers.io()).h(new b()).k(lz9.b()).w(new a(cVar));
     }
 
     @NonNull
@@ -687,14 +687,14 @@ public class m72 implements da2 {
                         }
                     }
                 } while (p.moveToNext());
-                ng4.d(p);
+                mg4.d(p);
                 if (a) {
                 }
                 query = AppRuntime.getAppContext().getContentResolver().query(l72.a(), null, null, null, null);
                 HashMap hashMap2 = new HashMap();
                 if (query == null) {
                 }
-                ng4.d(query);
+                mg4.d(query);
                 if (a) {
                 }
                 ArrayList<d> arrayList2 = new ArrayList();
@@ -716,7 +716,7 @@ public class m72 implements da2 {
                 }
                 return matrixCursor;
             }
-            ng4.d(p);
+            mg4.d(p);
             if (a) {
                 Log.d("history_migrate_pms", "^ Aps & History 查询到 " + hashMap.size() + " 个历史记录");
             }
@@ -738,7 +738,7 @@ public class m72 implements da2 {
                         Log.v("history_migrate_pms", "History == " + vd2Var2.a);
                     }
                 } while (query.moveToNext());
-                ng4.d(query);
+                mg4.d(query);
                 if (a) {
                 }
                 ArrayList<d> arrayList22 = new ArrayList();
@@ -763,12 +763,12 @@ public class m72 implements da2 {
                 }
                 return matrixCursor2;
             }
-            ng4.d(query);
+            mg4.d(query);
             if (a) {
                 Log.d("history_migrate_pms", "^ History 库查询到 " + hashMap22.size() + " 个历史记录");
             }
             ArrayList<d> arrayList222 = new ArrayList();
-            for (PMSAppInfo pMSAppInfo : new ArrayList(f84.i().v().values())) {
+            for (PMSAppInfo pMSAppInfo : new ArrayList(e84.i().v().values())) {
                 if (a) {
                     Log.v("history_migrate_pms", "Pms == " + pMSAppInfo.appId);
                 }
@@ -928,7 +928,7 @@ public class m72 implements da2 {
             try {
                 String a2 = ls1.a(str);
                 if (TextUtils.isEmpty(a2)) {
-                    ng4.d(null);
+                    mg4.d(null);
                     return null;
                 }
                 cursor = contentResolver.query(l72.a(), null, "app_id LIKE ? AND app_id != ?", new String[]{a2 + "_dev%", str}, "visit_time desc  LIMIT 200");
@@ -942,7 +942,7 @@ public class m72 implements da2 {
                                     arrayList.add(string);
                                 }
                             } while (cursor.moveToNext());
-                            ng4.d(cursor);
+                            mg4.d(cursor);
                             return arrayList;
                         }
                     } catch (Exception e2) {
@@ -950,18 +950,18 @@ public class m72 implements da2 {
                         if (a) {
                             e.printStackTrace();
                         }
-                        ng4.d(cursor);
+                        mg4.d(cursor);
                         return null;
                     }
                 }
-                ng4.d(cursor);
+                mg4.d(cursor);
                 return null;
             } catch (Exception e3) {
                 e = e3;
                 cursor = null;
             } catch (Throwable th) {
                 th = th;
-                ng4.d(r1);
+                mg4.d(r1);
                 throw th;
             }
         } catch (Throwable th2) {
@@ -1003,7 +1003,7 @@ public class m72 implements da2 {
                     Log.i("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp size=" + arrayList.size() + ", appId=" + str);
                 }
                 if (arrayList.isEmpty()) {
-                    ng4.d(query);
+                    mg4.d(query);
                     return;
                 }
                 t82 d2 = v82.c().d();
@@ -1025,18 +1025,18 @@ public class m72 implements da2 {
                 if (a) {
                     Log.i("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp delete result=" + delete + ", query=" + str2);
                 }
-                ng4.d(query);
+                mg4.d(query);
             } catch (Exception e3) {
                 e = e3;
                 cursor = query;
                 if (a) {
                     Log.e("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp error", e);
                 }
-                ng4.d(cursor);
+                mg4.d(cursor);
             } catch (Throwable th2) {
                 th = th2;
                 cursor = query;
-                ng4.d(cursor);
+                mg4.d(cursor);
                 throw th;
             }
         }
@@ -1057,7 +1057,7 @@ public class m72 implements da2 {
             sQLiteDatabase.beginTransaction();
             try {
                 for (String str : q(sQLiteDatabase)) {
-                    PMSAppInfo u = f84.i().u(str);
+                    PMSAppInfo u = e84.i().u(str);
                     if (u != null) {
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("app_name", u.appName);

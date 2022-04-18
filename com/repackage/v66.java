@@ -3,6 +3,7 @@ package com.repackage;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.ThreadCardViewHolder;
@@ -19,17 +20,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b00;
 import com.repackage.m00;
 /* loaded from: classes7.dex */
-public class v66 extends ho<rq4, ThreadCardViewHolder<ThreadData>> {
+public class v66 extends ho<qq4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId i;
     public String j;
     public TbPageContext<?> k;
-    public zo l;
-    public rx5<ThreadData> m;
+    public boolean l;
+    public zo m;
+    public tx5<ThreadData> n;
 
     /* loaded from: classes7.dex */
-    public class a extends rx5<ThreadData> {
+    public class a extends tx5<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v66 b;
@@ -53,13 +55,13 @@ public class v66 extends ho<rq4, ThreadCardViewHolder<ThreadData>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.rx5
+        @Override // com.repackage.tx5
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                kx5.b().d(true);
-                e46.a(view2, threadData, this.b.j);
+                mx5.b().d(true);
+                g46.a(view2, threadData, this.b.j);
             }
         }
     }
@@ -91,14 +93,14 @@ public class v66 extends ho<rq4, ThreadCardViewHolder<ThreadData>> {
         @Override // com.repackage.dp
         public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof rq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof qq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((rq4) uoVar).s;
+                ThreadData threadData = ((qq4) uoVar).s;
                 threadData.objType = 1;
-                if (this.a.m != null) {
-                    this.a.m.a(threadCardViewHolder.b(), threadData);
+                if (this.a.n != null) {
+                    this.a.n.a(threadCardViewHolder.b(), threadData);
                 }
-                ThreadCardUtils.jumpToPB((qn4) threadData, view2.getContext(), 2, false);
+                ThreadCardUtils.jumpToPB((pn4) threadData, view2.getContext(), 2, false);
                 threadCardViewHolder.c().o(new m00.a(1));
             }
         }
@@ -123,7 +125,8 @@ public class v66 extends ho<rq4, ThreadCardViewHolder<ThreadData>> {
                 return;
             }
         }
-        this.m = new a(this);
+        this.l = true;
+        this.n = new a(this);
         this.k = tbPageContext;
         this.i = bdUniqueId2;
         this.j = str;
@@ -137,8 +140,11 @@ public class v66 extends ho<rq4, ThreadCardViewHolder<ThreadData>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
             b00.b bVar = new b00.b(this.k.getPageActivity(), false);
-            bVar.h(new az(this.k.getPageActivity()));
-            b00 k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.l);
+            oz ozVar = new oz(this.k.getPageActivity());
+            ozVar.q("index");
+            ozVar.r(this.l);
+            bVar.n(ozVar);
+            b00 k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.m);
             k.r(2);
             ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
             threadCardViewHolder.k(this.i);
@@ -151,19 +157,27 @@ public class v66 extends ho<rq4, ThreadCardViewHolder<ThreadData>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: c0 */
-    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
         InterceptResult invokeCommon;
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, threadCardViewHolder})) == null) {
-            if (rq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = rq4Var.s) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
+            if (qq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null || (threadData = qq4Var.s) == null) {
                 return null;
             }
             threadData.statFloor = C(i) + 1;
             threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(rq4Var.s);
+            threadCardViewHolder.g(qq4Var.s);
             threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            threadCardViewHolder.c().p(this.m);
+            threadCardViewHolder.c().p(this.n);
+            g46.b(qq4Var, this.j);
+            oz ozVar = (oz) threadCardViewHolder.c().g();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) ozVar.f.d.getLayoutParams();
+            layoutParams.width = qq4Var.t;
+            layoutParams.height = qq4Var.u;
+            if (ozVar.f.d.getVisibility() != 8) {
+                ozVar.f.d.setLayoutParams(layoutParams);
+            }
             return threadCardViewHolder.b();
         }
         return (View) invokeCommon.objValue;
@@ -172,7 +186,14 @@ public class v66 extends ho<rq4, ThreadCardViewHolder<ThreadData>> {
     public void d0(zo zoVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, zoVar) == null) {
-            this.l = zoVar;
+            this.m = zoVar;
+        }
+    }
+
+    public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.l = z;
         }
     }
 }

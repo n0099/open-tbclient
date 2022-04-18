@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
-import com.repackage.my9;
+import com.repackage.ty9;
 import java.nio.ByteBuffer;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -484,11 +484,11 @@ public class EglRenderer implements VideoSink {
     public /* synthetic */ void c(EglBase.Context context, int[] iArr) {
         if (context == null) {
             logD("EglBase10.create context");
-            this.eglBase = my9.d(iArr);
+            this.eglBase = ty9.d(iArr);
             return;
         }
         logD("EglBase.create shared context");
-        this.eglBase = my9.c(context, iArr);
+        this.eglBase = ty9.c(context, iArr);
     }
 
     public void clearImage() {
@@ -598,7 +598,7 @@ public class EglRenderer implements VideoSink {
                         }
                     });
                     this.renderThreadHandler = handlerWithExceptionCallback;
-                    ThreadUtils.invokeAtFrontUninterruptibly(handlerWithExceptionCallback, new Runnable() { // from class: com.repackage.mx9
+                    ThreadUtils.invokeAtFrontUninterruptibly(handlerWithExceptionCallback, new Runnable() { // from class: com.repackage.tx9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -640,7 +640,7 @@ public class EglRenderer implements VideoSink {
                     }
                     this.pendingFrame = videoFrame;
                     videoFrame.retain();
-                    this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.rx9
+                    this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.yx9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -698,7 +698,7 @@ public class EglRenderer implements VideoSink {
                     return;
                 }
                 this.renderThreadHandler.removeCallbacks(this.logStatisticsRunnable);
-                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.repackage.nx9
+                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.repackage.ux9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -711,7 +711,7 @@ public class EglRenderer implements VideoSink {
                     }
                 });
                 final Looper looper = this.renderThreadHandler.getLooper();
-                this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.kx9
+                this.renderThreadHandler.post(new Runnable() { // from class: com.repackage.rx9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -743,7 +743,7 @@ public class EglRenderer implements VideoSink {
             synchronized (this.handlerLock) {
                 if (this.renderThreadHandler != null) {
                     this.renderThreadHandler.removeCallbacks(this.eglSurfaceCreationRunnable);
-                    this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.repackage.px9
+                    this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.repackage.wx9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -771,7 +771,7 @@ public class EglRenderer implements VideoSink {
                     return;
                 }
                 if (Thread.currentThread() != this.renderThreadHandler.getLooper().getThread()) {
-                    postToRenderThread(new Runnable() { // from class: com.repackage.lx9
+                    postToRenderThread(new Runnable() { // from class: com.repackage.sx9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -843,7 +843,7 @@ public class EglRenderer implements VideoSink {
                 if (this.renderThreadHandler == null) {
                     return;
                 }
-                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.repackage.qx9
+                this.renderThreadHandler.postAtFrontOfQueue(new Runnable() { // from class: com.repackage.xx9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -869,7 +869,7 @@ public class EglRenderer implements VideoSink {
     public void addFrameListener(final FrameListener frameListener, final float f, @Nullable final RendererCommon.GlDrawer glDrawer, final boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{frameListener, Float.valueOf(f), glDrawer, Boolean.valueOf(z)}) == null) {
-            postToRenderThread(new Runnable() { // from class: com.repackage.ox9
+            postToRenderThread(new Runnable() { // from class: com.repackage.vx9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

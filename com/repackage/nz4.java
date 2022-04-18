@@ -1,21 +1,19 @@
 package com.repackage;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
+import tbclient.Lbs;
 /* loaded from: classes6.dex */
 public class nz4 {
     public static /* synthetic */ Interceptable $ic;
-    public static nz4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public HashMap<String, String> b;
-    public HashMap<String, String> c;
+    public String a;
+    public String b;
 
     public nz4() {
         Interceptable interceptable = $ic;
@@ -30,91 +28,31 @@ public class nz4 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
+        this.a = null;
     }
 
-    public static synchronized nz4 a() {
+    public String a() {
         InterceptResult invokeV;
-        nz4 nz4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (nz4.class) {
-                if (d == null) {
-                    d = new nz4();
-                }
-                nz4Var = d;
-            }
-            return nz4Var;
-        }
-        return (nz4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void c(Lbs lbs) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lbs) == null) || lbs == null) {
             return;
         }
         try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("2g");
-                String optString2 = optJSONObject.optString("3g");
-                String optString3 = optJSONObject.optString("4g");
-                String optString4 = optJSONObject.optString("wifi");
-                if (optString != null) {
-                    this.a.put("2g", optString);
-                }
-                if (optString2 != null) {
-                    this.a.put("3g", optString2);
-                }
-                if (optString3 != null) {
-                    this.a.put("4g", optString3);
-                }
-                if (optString4 != null) {
-                    this.a.put("wifi", optString4);
-                }
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
-            if (optJSONObject2 != null) {
-                String optString5 = optJSONObject2.optString("2g");
-                String optString6 = optJSONObject2.optString("3g");
-                String optString7 = optJSONObject2.optString("4g");
-                String optString8 = optJSONObject2.optString("wifi");
-                if (optString5 != null) {
-                    this.b.put("2g", optString5);
-                }
-                if (optString6 != null) {
-                    this.b.put("3g", optString6);
-                }
-                if (optString7 != null) {
-                    this.b.put("4g", optString7);
-                }
-                if (optString8 != null) {
-                    this.b.put("wifi", optString8);
-                }
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
-            if (optJSONObject3 != null) {
-                String optString9 = optJSONObject3.optString("2g");
-                String optString10 = optJSONObject3.optString("3g");
-                String optString11 = optJSONObject3.optString("4g");
-                String optString12 = optJSONObject3.optString("wifi");
-                if (optString9 != null) {
-                    this.c.put("2g", optString9);
-                }
-                if (optString10 != null) {
-                    this.c.put("3g", optString10);
-                }
-                if (optString11 != null) {
-                    this.c.put("4g", optString11);
-                }
-                if (optString12 != null) {
-                    this.c.put("wifi", optString12);
-                }
-            }
-            jSONObject.optString("is_on");
+            this.a = lbs.name;
+            String str = lbs.lat;
+            String str2 = lbs.lng;
+            this.b = lbs.distance;
         } catch (Exception e) {
             BdLog.detailException(e);
         }

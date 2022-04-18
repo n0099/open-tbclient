@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.repackage.f44;
-import com.repackage.s34;
-import com.repackage.u34;
+import com.repackage.e44;
+import com.repackage.r34;
+import com.repackage.t34;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.OnClickListener {
@@ -30,7 +30,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public List<RecommendItemModel> b;
-    public s34 c;
+    public r34 c;
 
     /* loaded from: classes2.dex */
     public class a extends RecyclerView.ViewHolder {
@@ -58,7 +58,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
                 }
             }
             this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09084d);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921bf);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921c0);
         }
     }
 
@@ -79,7 +79,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
         }
         this.a = context;
         this.b = list;
-        this.c = new s34();
+        this.c = new r34();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -106,7 +106,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
             a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07e3, (ViewGroup) null));
             aVar.itemView.setOnClickListener(this);
-            f44.a(aVar.itemView);
+            e44.a(aVar.itemView);
             return aVar;
         }
         return (a) invokeLI.objValue;
@@ -131,7 +131,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
             return;
         }
         SchemeRouter.invokeSchemeForInner(this.a, Uri.parse(recommendItemModel.getScheme()));
-        u34.d(4, recommendItemModel.getAppKey());
+        t34.d(4, recommendItemModel.getAppKey());
         this.c.b(3, "popview", recommendItemModel.getAppKey(), String.valueOf(intValue + 1));
     }
 }

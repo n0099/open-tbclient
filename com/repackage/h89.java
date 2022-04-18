@@ -1,23 +1,15 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface h89 {
-    boolean available();
+    void a();
 
-    int availableBytes();
+    void b(int i);
 
-    void clearQueues();
+    void c();
 
-    void close();
+    void d(String str);
 
-    void flush();
+    void e(String str);
 
-    int getBytes(byte[] bArr, int i);
-
-    void initVoiceChanger(int i, int i2, int i3, int i4);
-
-    boolean putBytes(byte[] bArr, int i);
-
-    void setVoiceChangeType(int[] iArr);
-
-    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
+    void f();
 }

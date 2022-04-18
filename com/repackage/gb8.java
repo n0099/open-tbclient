@@ -1,88 +1,88 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.nps.utils.Constant;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.os.Handler;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.recapp.report.DownloadStaticsData;
+import com.baidu.tbadk.core.util.INetWorkCore;
+import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
+import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class gb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public INetWorkCore a;
+    public HttpNetContext b;
 
-    public static final void a(AdvertAppInfo advertAppInfo) {
+    public gb8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, advertAppInfo) == null) {
-            iw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-            if (adAdSense != null && !adAdSense.f()) {
-                ga8.a(advertAppInfo);
-            } else {
-                hb8.j().f(advertAppInfo.r, advertAppInfo.getDownloadId(), true);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        d();
     }
 
-    public static final boolean b(Context context, AdvertAppInfo advertAppInfo, int i, DownloadStaticsData downloadStaticsData) {
-        InterceptResult invokeLLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65537, null, context, advertAppInfo, i, downloadStaticsData)) == null) {
-            iw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-            if (adAdSense == null || adAdSense.f()) {
-                if (context == null || advertAppInfo == null) {
-                    return false;
-                }
-                String str = advertAppInfo.n;
-                if (StringUtils.isNull(str)) {
-                    str = "";
-                }
-                return c(context, advertAppInfo, i, str, downloadStaticsData);
-            }
-            return ga8.j(context, advertAppInfo, i, downloadStaticsData);
-        }
-        return invokeLLIL.booleanValue;
-    }
-
-    public static final boolean c(Context context, AdvertAppInfo advertAppInfo, int i, String str, DownloadStaticsData downloadStaticsData) {
+    public boolean a(String str, Handler handler, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, advertAppInfo, Integer.valueOf(i), str, downloadStaticsData})) == null) {
-            if (context == null || advertAppInfo == null) {
-                return false;
-            }
-            zz4.k().h(advertAppInfo);
-            String str2 = advertAppInfo.n;
-            hb8.j().v(advertAppInfo.getDownloadId(), advertAppInfo.r, StringUtils.isNull(str2) ? str : str2, i, hb8.k(advertAppInfo.s).intValue(), null, true, false, true, advertAppInfo.o, downloadStaticsData, advertAppInfo.n);
-            return true;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, handler, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? b(str, handler, i, i2, i3, false) : invokeCommon.booleanValue;
+    }
+
+    public boolean b(String str, Handler handler, int i, int i2, int i3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, handler, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+            c().getRequest().addBdussData(this.a);
+            return this.a.downloadFile(str, handler, i, i2, i3, z);
         }
         return invokeCommon.booleanValue;
     }
 
-    public static final void d(Context context, String str) {
+    public HttpNetContext c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                oi.M(context, R.string.obfuscated_res_0x7f0f04ee);
-                return;
-            }
-            File GetFile = FileHelper.GetFile(str.replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-            if (GetFile != null) {
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(UtilHelper.getUriFromFile(GetFile, intent, context), "application/vnd.android.package-archive");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                context.startActivity(intent);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (HttpNetContext) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = new HttpNetContext();
+            this.a = new hb8(this.b);
+            this.b.getRequest().getNetWorkParam().mNetType = NetWorkUtil.getNetType();
+            ag.o(TbadkCoreApplication.getInst().getCuid());
+            ag.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
+            ag.r(TbadkCoreApplication.getInst().getCuidGid());
+        }
+    }
+
+    public void e() {
+        INetWorkCore iNetWorkCore;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (iNetWorkCore = this.a) == null) {
+            return;
+        }
+        iNetWorkCore.setCancel();
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b.getRequest().getNetWorkParam().mUrl = str;
         }
     }
 }

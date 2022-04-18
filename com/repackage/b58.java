@@ -1,6 +1,7 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,15 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class b58 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public String d;
+    public int e;
+    public List<UserData> f;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +36,7 @@ public class b58 extends BaseCardInfo {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        g = BdUniqueId.gen();
     }
 
     public b58() {
@@ -53,6 +57,6 @@ public class b58 extends BaseCardInfo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
     }
 }

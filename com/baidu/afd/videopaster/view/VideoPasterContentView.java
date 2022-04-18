@@ -19,17 +19,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d78;
 import com.repackage.dc5;
-import com.repackage.e78;
-import com.repackage.f78;
 import com.repackage.fo;
 import com.repackage.hg;
 import com.repackage.ig;
 import com.repackage.k78;
+import com.repackage.l78;
+import com.repackage.m78;
 import com.repackage.pg;
-import com.repackage.s68;
+import com.repackage.r78;
 import com.repackage.xp;
+import com.repackage.z68;
 /* loaded from: classes.dex */
 public class VideoPasterContentView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class VideoPasterContentView extends FrameLayout {
     public TbImageView b;
     public TbImageView c;
     public TbVideoViewContainer d;
-    public s68 e;
+    public z68 e;
     public g f;
     public boolean g;
     public dc5 h;
@@ -54,7 +54,7 @@ public class VideoPasterContentView extends FrameLayout {
     public Runnable r;
 
     /* loaded from: classes.dex */
-    public class a implements k78 {
+    public class a implements r78 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPasterContentView a;
@@ -77,14 +77,14 @@ public class VideoPasterContentView extends FrameLayout {
             this.a = videoPasterContentView;
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public void changeRenderViewMode(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public int getCurrentPosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class VideoPasterContentView extends FrameLayout {
             return invokeV.intValue;
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public View getMainView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -104,7 +104,7 @@ public class VideoPasterContentView extends FrameLayout {
             return (View) invokeV.objValue;
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public boolean isFullScreen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public class VideoPasterContentView extends FrameLayout {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public boolean isPlaying() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -124,7 +124,7 @@ public class VideoPasterContentView extends FrameLayout {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public boolean onBackPress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -134,7 +134,7 @@ public class VideoPasterContentView extends FrameLayout {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public boolean onBackground(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -200,7 +200,7 @@ public class VideoPasterContentView extends FrameLayout {
             }
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public void onScroll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -221,7 +221,7 @@ public class VideoPasterContentView extends FrameLayout {
             }
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public boolean onVolumeUp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -231,63 +231,63 @@ public class VideoPasterContentView extends FrameLayout {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public void setAfterClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public void setData(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) {
             }
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public void setFrom(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public void setStageType(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.k78
-        public void setStatistic(f78 f78Var) {
+        @Override // com.repackage.r78
+        public void setStatistic(m78 m78Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, f78Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048597, this, m78Var) == null) {
             }
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public void setUniqueId(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
             }
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public void startPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             }
         }
 
-        @Override // com.repackage.k78
+        @Override // com.repackage.r78
         public void stopPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -331,7 +331,7 @@ public class VideoPasterContentView extends FrameLayout {
     }
 
     /* loaded from: classes.dex */
-    public class c implements s68.b {
+    public class c implements z68.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPasterContentView a;
@@ -354,7 +354,7 @@ public class VideoPasterContentView extends FrameLayout {
             this.a = videoPasterContentView;
         }
 
-        @Override // com.repackage.s68.b
+        @Override // com.repackage.z68.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -561,11 +561,11 @@ public class VideoPasterContentView extends FrameLayout {
             addView(this.c);
             addView(this.a.getRootView(), layoutParams);
             this.c.K(this.l.i, 10, false);
-            d78 d78Var = new d78();
-            d78Var.e = "ad_paster";
-            d78Var.d = d78Var.a("ad_paster");
-            d78Var.f = d78Var.c("1");
-            this.d.getControl().setVideoModel(d78Var);
+            k78 k78Var = new k78();
+            k78Var.e = "ad_paster";
+            k78Var.d = k78Var.a("ad_paster");
+            k78Var.f = k78Var.c("1");
+            this.d.getControl().setVideoModel(k78Var);
             this.d.getControl().setVideoPath(this.l.h);
             this.d.getControl().start();
             pg.a().removeCallbacks(this.r);
@@ -635,9 +635,9 @@ public class VideoPasterContentView extends FrameLayout {
             this.d.getControl().setContinuePlayEnable(true);
             this.d.getControl().setOperableVideoContainer(new a(this));
             this.d.getControl().setOnSurfaceDestroyedListener(new b(this));
-            s68 s68Var = new s68();
-            this.e = s68Var;
-            s68Var.l(this.d.getControl());
+            z68 z68Var = new z68();
+            this.e = z68Var;
+            z68Var.l(this.d.getControl());
             this.e.i(new c(this));
             setBackgroundColor(-16777216);
         }
@@ -732,7 +732,7 @@ public class VideoPasterContentView extends FrameLayout {
         xp xpVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (xpVar = this.l) != null && xpVar.a() == 1) {
-            e78.d().e(this.l.h);
+            l78.d().e(this.l.h);
             TbVideoViewContainer tbVideoViewContainer = this.d;
             if (tbVideoViewContainer != null) {
                 tbVideoViewContainer.getControl().seekTo(0);
@@ -753,16 +753,16 @@ public class VideoPasterContentView extends FrameLayout {
             }
         } else if (this.l.a() == 1) {
             this.c.setVisibility(0);
-            d78 d78Var = new d78();
-            d78Var.e = "ad_paster";
-            d78Var.d = d78Var.a("ad_paster");
-            d78Var.f = d78Var.c("1");
-            this.d.getControl().setVideoModel(d78Var);
+            k78 k78Var = new k78();
+            k78Var.e = "ad_paster";
+            k78Var.d = k78Var.a("ad_paster");
+            k78Var.f = k78Var.c("1");
+            this.d.getControl().setVideoModel(k78Var);
             this.d.getControl().setVideoPath(this.l.h);
             this.d.getControl().start();
-            s68 s68Var = this.e;
-            if (s68Var != null) {
-                s68Var.m();
+            z68 z68Var = this.e;
+            if (z68Var != null) {
+                z68Var.m();
             }
             dc5 dc5Var2 = this.h;
             if (dc5Var2 != null) {
@@ -770,7 +770,7 @@ public class VideoPasterContentView extends FrameLayout {
             }
             int i = 100;
             if (this.g) {
-                int c2 = e78.d().c(this.l.h);
+                int c2 = l78.d().c(this.l.h);
                 this.k = c2;
                 if (c2 > 100 && this.q > c2) {
                     i = c2;
@@ -819,9 +819,9 @@ public class VideoPasterContentView extends FrameLayout {
         } else if (this.l.a() == 1) {
             this.c.setVisibility(0);
             this.d.getControl().stopPlayback();
-            s68 s68Var = this.e;
-            if (s68Var != null) {
-                s68Var.n();
+            z68 z68Var = this.e;
+            if (z68Var != null) {
+                z68Var.n();
             }
             dc5 dc5Var2 = this.h;
             if (dc5Var2 != null) {

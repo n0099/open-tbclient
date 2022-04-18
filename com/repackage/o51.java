@@ -92,14 +92,14 @@ public class o51 extends Dialog implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
             lo0.b bVar = (adBaseModel == null || (lo0Var = adBaseModel.p) == null) ? null : lo0Var.f;
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05cd, (ViewGroup) null);
-            String string = (bVar == null || TextUtils.isEmpty(bVar.a)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bbb) : bVar.a;
-            String string2 = (bVar == null || TextUtils.isEmpty(bVar.b)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bba) : bVar.b;
-            String string3 = (bVar == null || TextUtils.isEmpty(bVar.c)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bb9) : bVar.c;
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914d6)).setText(string);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914d7);
+            String string = (bVar == null || TextUtils.isEmpty(bVar.a)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bba) : bVar.a;
+            String string2 = (bVar == null || TextUtils.isEmpty(bVar.b)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bb9) : bVar.b;
+            String string3 = (bVar == null || TextUtils.isEmpty(bVar.c)) ? getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0bb8) : bVar.c;
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914d7)).setText(string);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914d8);
             textView.setText(string2);
             textView.setOnClickListener(this);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914d5);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914d6);
             textView2.setText(string3);
             textView2.setOnClickListener(this);
             setContentView(inflate);
@@ -128,9 +128,9 @@ public class o51 extends Dialog implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0914d7) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0914d8) {
                 this.a.a(false);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0914d5) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0914d6) {
                 this.a.a(true);
             }
         }

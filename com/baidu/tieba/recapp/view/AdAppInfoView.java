@@ -24,12 +24,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ga8;
+import com.repackage.bd8;
+import com.repackage.dd8;
+import com.repackage.na8;
 import com.repackage.oi;
-import com.repackage.sc8;
-import com.repackage.sn4;
-import com.repackage.uc8;
-import com.repackage.wc8;
+import com.repackage.rn4;
+import com.repackage.zc8;
 /* loaded from: classes3.dex */
 public class AdAppInfoView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -42,7 +42,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public sn4 i;
+    public rn4 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -158,9 +158,9 @@ public class AdAppInfoView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.j == null || TextUtils.isEmpty(str)) {
             return;
         }
-        sc8 b = wc8.b(this.j, 102, 0);
+        zc8 b = dd8.b(this.j, 102, 0);
         b.c(str);
-        uc8.b().d(b);
+        bd8.b().d(b);
     }
 
     public RelativeLayout getDownloadButtonContainer() {
@@ -194,60 +194,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(sn4 sn4Var) {
+    public void setAppInfo(rn4 rn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sn4Var) == null) {
-            if (sn4Var != null && sn4.c(sn4Var)) {
-                this.i = sn4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, rn4Var) == null) {
+            if (rn4Var != null && rn4.c(rn4Var)) {
+                this.i = rn4Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(sn4Var.c)) {
+                    if (!TextUtils.isEmpty(rn4Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(sn4Var.c);
+                        this.a.setText(rn4Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = sn4Var.e;
+                    float f = rn4Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(sn4Var.e);
+                        this.b.setRating(rn4Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(sn4Var.f)) {
+                    if (!TextUtils.isEmpty(rn4Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(sn4Var.f);
+                        this.c.setText(rn4Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(sn4Var.d)) {
+                    if (!TextUtils.isEmpty(rn4Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(sn4Var.d);
+                        this.d.setText(rn4Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    sn4.b bVar = sn4Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(sn4Var.g.a)) {
+                    rn4.b bVar = rn4Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(rn4Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(sn4Var.g.a);
+                        this.e.setText(rn4Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    sn4.a aVar = sn4Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(sn4Var.h.a)) {
+                    rn4.a aVar = rn4Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(rn4Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(sn4Var.h.a);
+                        this.f.setText(rn4Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }
@@ -354,7 +354,7 @@ public class AdAppInfoView extends FrameLayout {
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.obfuscated_res_0x7f0900e2) {
-                    sn4.b bVar = this.a.i.g;
+                    rn4.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -364,7 +364,7 @@ public class AdAppInfoView extends FrameLayout {
                     str2 = str;
                 } else {
                     if (id == R.id.obfuscated_res_0x7f0900df) {
-                        sn4.a aVar = this.a.i.h;
+                        rn4.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
@@ -377,7 +377,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                ga8.d(this.a.getContext(), str3, null, null, str);
+                na8.d(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };

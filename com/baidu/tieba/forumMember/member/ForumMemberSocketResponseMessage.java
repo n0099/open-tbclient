@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gb6;
-import com.repackage.vj8;
+import com.repackage.ck8;
+import com.repackage.ib6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -30,7 +30,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public vj8 mUserInfo;
+    public ck8 mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberSocketResponseMessage() {
@@ -75,10 +75,10 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPrivateMgrApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public vj8 getUserInfo() {
+    public ck8 getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUserInfo : (vj8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUserInfo : (ck8) invokeV.objValue;
     }
 
     public boolean isBawuShow() {
@@ -110,8 +110,8 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                 forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
             }
             if (forumMemberRequestMessage != null) {
-                gb6 gb6Var = new gb6();
-                gb6Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
+                ib6 ib6Var = new ib6();
+                ib6Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
             }
         }
     }
@@ -134,9 +134,9 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                 DataRes dataRes = getMemberInfoResIdl.data;
                 if (dataRes != null) {
                     if (dataRes.forum_member_info != null) {
-                        vj8 vj8Var = new vj8();
-                        this.mUserInfo = vj8Var;
-                        vj8Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        ck8 ck8Var = new ck8();
+                        this.mUserInfo = ck8Var;
+                        ck8Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.x(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.z(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());

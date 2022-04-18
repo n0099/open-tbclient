@@ -1,129 +1,90 @@
 package com.repackage;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.games.screenrecord.GameRecorderController;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
 /* loaded from: classes6.dex */
 public class k04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile k04 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public GameRecorderController a;
-    public boolean b;
+    public long a;
+    public long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755612702, "Lcom/repackage/k04;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a implements Comparator<k04> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755612702, "Lcom/repackage/k04;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        c = tg1.a;
-        d = null;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(k04 k04Var, k04 k04Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, k04Var, k04Var2)) == null) ? (int) (k04Var.a - k04Var2.a) : invokeLL.intValue;
+        }
     }
 
     public k04() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static k04 a() {
-        InterceptResult invokeV;
+    public static long[] a(k04 k04Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (k04.class) {
-                    if (d == null) {
-                        d = new k04();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, k04Var)) == null) {
+            if (k04Var == null) {
+                return null;
+            }
+            return new long[]{k04Var.a, k04Var.b};
+        }
+        return (long[]) invokeL.objValue;
+    }
+
+    public boolean b(k04 k04Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k04Var)) == null) {
+            long j = this.a;
+            if (j <= k04Var.b) {
+                long j2 = this.b;
+                long j3 = k04Var.a;
+                if (j2 < j3) {
+                    return false;
                 }
+                this.a = Math.min(j, j3);
+                this.b = Math.max(this.b, k04Var.b);
+                return true;
             }
-            return d;
+            return false;
         }
-        return (k04) invokeV.objValue;
-    }
-
-    @NonNull
-    public GameRecorderController b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c) {
-                Log.i("GameRecorderManager", "getRecorderController:" + this.a);
-            }
-            GameRecorderController gameRecorderController = this.a;
-            return gameRecorderController == null ? GameRecorderController.j() : gameRecorderController;
-        }
-        return (GameRecorderController) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (c) {
-                Log.i("GameRecorderManager", "isGamePause:" + this.b);
-            }
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = false;
-        }
-    }
-
-    public void f(GameRecorderController gameRecorderController) {
-        GameRecorderController gameRecorderController2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, gameRecorderController) == null) && (gameRecorderController2 = this.a) != null && gameRecorderController2 == gameRecorderController) {
-            gameRecorderController2.p();
-            this.a = null;
-        }
-    }
-
-    public void g(GameRecorderController gameRecorderController) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gameRecorderController) == null) {
-            GameRecorderController gameRecorderController2 = this.a;
-            if (gameRecorderController2 != null && gameRecorderController2 != gameRecorderController) {
-                gameRecorderController2.p();
-            }
-            this.a = gameRecorderController;
-        }
+        return invokeL.booleanValue;
     }
 }

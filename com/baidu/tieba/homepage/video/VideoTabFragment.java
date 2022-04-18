@@ -21,15 +21,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.me6;
-import com.repackage.v27;
+import com.repackage.oe6;
+import com.repackage.y27;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class VideoTabFragment extends BaseFragment implements me6 {
+public class VideoTabFragment extends BaseFragment implements oe6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public v27 a;
+    public y27 a;
     public boolean b;
 
     public VideoTabFragment() {
@@ -48,14 +48,14 @@ public class VideoTabFragment extends BaseFragment implements me6 {
         this.b = false;
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -89,14 +89,14 @@ public class VideoTabFragment extends BaseFragment implements me6 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void m() {
-        v27 v27Var;
+        y27 y27Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (v27Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (y27Var = this.a) == null) {
             return;
         }
-        v27Var.o();
+        y27Var.o();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -104,9 +104,9 @@ public class VideoTabFragment extends BaseFragment implements me6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            v27 v27Var = this.a;
-            if (v27Var != null) {
-                v27Var.g();
+            y27 y27Var = this.a;
+            if (y27Var != null) {
+                y27Var.g();
             }
         }
     }
@@ -118,7 +118,7 @@ public class VideoTabFragment extends BaseFragment implements me6 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             if (this.a == null) {
-                this.a = new v27(getPageContext(), getUniqueId());
+                this.a = new y27(getPageContext(), getUniqueId());
             }
             this.a.k();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_END_STAMP_KEY);
@@ -132,8 +132,8 @@ public class VideoTabFragment extends BaseFragment implements me6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_VIEW_START_STAMP_KEY);
-            v27 v27Var = this.a;
-            if (v27Var != null && v27Var.j() != null) {
+            y27 y27Var = this.a;
+            if (y27Var != null && y27Var.j() != null) {
                 if (this.a.j().getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.a.j().getParent()).removeView(this.a.j());
                 }
@@ -151,9 +151,9 @@ public class VideoTabFragment extends BaseFragment implements me6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            v27 v27Var = this.a;
-            if (v27Var != null) {
-                v27Var.m();
+            y27 y27Var = this.a;
+            if (y27Var != null) {
+                y27Var.m();
             }
             TbadkCoreApplication.getInst().getPersonalizeViewData().a();
         }
@@ -164,9 +164,9 @@ public class VideoTabFragment extends BaseFragment implements me6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onLazyLoad();
-            v27 v27Var = this.a;
-            if (v27Var != null) {
-                v27Var.l();
+            y27 y27Var = this.a;
+            if (y27Var != null) {
+                y27Var.l();
             }
         }
     }
@@ -176,9 +176,9 @@ public class VideoTabFragment extends BaseFragment implements me6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            v27 v27Var = this.a;
-            if (v27Var != null) {
-                v27Var.n();
+            y27 y27Var = this.a;
+            if (y27Var != null) {
+                y27Var.n();
             }
         }
     }
@@ -195,14 +195,14 @@ public class VideoTabFragment extends BaseFragment implements me6 {
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            v27 v27Var = this.a;
-            if (v27Var != null) {
-                v27Var.p(isPrimary());
+            y27 y27Var = this.a;
+            if (y27Var != null) {
+                y27Var.p(isPrimary());
             }
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {

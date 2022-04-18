@@ -39,14 +39,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
+import com.repackage.a98;
+import com.repackage.cr4;
 import com.repackage.oi;
 import com.repackage.pg;
 import com.repackage.rg;
-import com.repackage.s88;
-import com.repackage.t88;
+import com.repackage.z88;
 /* loaded from: classes3.dex */
-public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> implements s88, View.OnClickListener {
+public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> implements z88, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View mBackButton;
@@ -57,14 +57,14 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     public ScanLoadingView mLoadingView;
     public NavigationBar mNavigationBar;
     public PermissionJudgePolicy mPermissionJudgePolicy;
-    public t88 mQRCodeScanPresenter;
+    public a98 mQRCodeScanPresenter;
     public QRCodeView mQRCodeView;
     public Runnable mResetTipRunnable;
     public int skinTypeRecord;
     public WriteImagesInfo writeImagesInfo;
 
     /* loaded from: classes3.dex */
-    public class a implements dr4.e {
+    public class a implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -89,18 +89,18 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             this.a = str;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
-                dr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
                 this.b.mQRCodeScanPresenter.j(this.a);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements dr4.e {
+    public class b implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ QRCodeScanActivity a;
@@ -123,18 +123,18 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             this.a = qRCodeScanActivity;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 this.a.mQRCodeView.j();
-                dr4Var.dismiss();
+                cr4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements dr4.e {
+    public class c implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ QRCodeScanActivity a;
@@ -157,12 +157,12 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             this.a = qRCodeScanActivity;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 this.a.mQRCodeView.j();
-                dr4Var.dismiss();
+                cr4Var.dismiss();
             }
         }
     }
@@ -232,7 +232,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.isFinishing() || this.a.mQRCodeView.getScanBoxView() == null) {
                 return;
             }
-            this.a.mQRCodeView.getScanBoxView().setQRCodeTipText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f18));
+            this.a.mQRCodeView.getScanBoxView().setQRCodeTipText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f17));
             this.a.mQRCodeView.getScanBoxView().setTipTextColor(this.a.getResources().getColor(R.color.CAM_X0201));
             this.a.mQRCodeView.getScanBoxView().m();
         }
@@ -423,9 +423,9 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mNavigationBar.setBackgroundResource(R.drawable.obfuscated_res_0x7f081207);
+            this.mNavigationBar.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120b);
             if (this.mNavigationBar.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mNavigationBar.getBackImageView(), R.drawable.obfuscated_res_0x7f080623, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mNavigationBar.getBackImageView(), R.drawable.obfuscated_res_0x7f080622, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             this.mCenterTtileTv.setTextColor(getResources().getColor(R.color.CAM_X0101));
             if (UtilHelper.isFlyMeOs() && !UtilHelper.isMeizuE3() && !UtilHelper.isMeizuPro7Plus()) {
@@ -464,16 +464,16 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             if (getIntent() != null) {
                 this.mIsAiapp = getIntent().getBooleanExtra(QRCodeScanActivityConfig.IS_AIAPP, false);
             }
-            this.mLoadingView = (ScanLoadingView) findViewById(R.id.obfuscated_res_0x7f09130e);
-            ZXingView zXingView = (ZXingView) findViewById(R.id.obfuscated_res_0x7f0924ba);
+            this.mLoadingView = (ScanLoadingView) findViewById(R.id.obfuscated_res_0x7f09130f);
+            ZXingView zXingView = (ZXingView) findViewById(R.id.obfuscated_res_0x7f0924bb);
             this.mQRCodeView = zXingView;
             if (zXingView.getScanBoxView() != null) {
                 this.mQRCodeView.getScanBoxView().setToolbarHeight(UtilHelper.getStatusBarHeight());
                 this.mQRCodeView.getScanBoxView().requestLayout();
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09198b);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09198c);
             this.mNavigationBar = navigationBar;
-            this.mCenterTtileTv = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f20));
+            this.mCenterTtileTv = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f1f));
             View addSystemImageButton = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBackButton = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
@@ -481,12 +481,12 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
             marginLayoutParams.rightMargin = oi.f(this, R.dimen.tbds18);
             this.mGalleryButton.setLayoutParams(marginLayoutParams);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mGalleryButton, R.drawable.obfuscated_res_0x7f0809bd, R.color.white_alpha100, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mGalleryButton, R.drawable.obfuscated_res_0x7f0809c1, R.color.white_alpha100, null);
             this.mGalleryButton.setScaleType(ImageView.ScaleType.FIT_XY);
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.mGalleryButton, this);
-            t88 t88Var = new t88(this, getPageContext());
-            this.mQRCodeScanPresenter = t88Var;
-            t88Var.o(this.mIsAiapp);
+            a98 a98Var = new a98(this, getPageContext());
+            this.mQRCodeScanPresenter = a98Var;
+            a98Var.o(this.mIsAiapp);
             this.mQRCodeView.setDelegate(this.mQRCodeScanPresenter);
             this.mQRCodeScanPresenter.g();
         }
@@ -537,13 +537,13 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    @Override // com.repackage.s88
+    @Override // com.repackage.z88
     public void setErrorView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             viewHideLoading();
             if (this.mQRCodeView.getScanBoxView() != null) {
-                this.mQRCodeView.getScanBoxView().setQRCodeTipText(getResources().getString(R.string.obfuscated_res_0x7f0f0f1f));
+                this.mQRCodeView.getScanBoxView().setQRCodeTipText(getResources().getString(R.string.obfuscated_res_0x7f0f0f1e));
                 this.mQRCodeView.getScanBoxView().setTipTextColor(getResources().getColor(R.color.CAM_X0301));
                 this.mQRCodeView.getScanBoxView().m();
             }
@@ -556,7 +556,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    @Override // com.repackage.s88
+    @Override // com.repackage.z88
     public void showGalleryLastImageTip(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
@@ -564,21 +564,21 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    @Override // com.repackage.s88
+    @Override // com.repackage.z88
     public void showJumpExternalDialog(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            dr4 dr4Var = new dr4(getPageContext().getPageActivity());
-            dr4Var.setTitleShowCenter(true);
-            dr4Var.setTitle(getString(R.string.obfuscated_res_0x7f0f0f1c));
-            dr4Var.setMessageShowCenter(true);
-            dr4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f1b));
-            dr4Var.setNegativeTextColor(R.color.CAM_X0105);
-            dr4Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0421), new a(this, str));
-            dr4Var.setNegativeButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f036e), new b(this));
-            dr4Var.setCancelable(false);
-            dr4Var.setCanceledOnTouchOutside(false);
-            dr4Var.create(getPageContext()).show();
+            cr4 cr4Var = new cr4(getPageContext().getPageActivity());
+            cr4Var.setTitleShowCenter(true);
+            cr4Var.setTitle(getString(R.string.obfuscated_res_0x7f0f0f1b));
+            cr4Var.setMessageShowCenter(true);
+            cr4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f1a));
+            cr4Var.setNegativeTextColor(R.color.CAM_X0105);
+            cr4Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0421), new a(this, str));
+            cr4Var.setNegativeButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f036e), new b(this));
+            cr4Var.setCancelable(false);
+            cr4Var.setCanceledOnTouchOutside(false);
+            cr4Var.create(getPageContext()).show();
         }
     }
 
@@ -592,13 +592,13 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             this.mGalleryTipPopupWindow.dismiss();
         }
         View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d06f2, (ViewGroup) null);
-        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091986);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091987);
         tbImageView.setDrawBorder(true);
         tbImageView.setBorderWidth(1);
         tbImageView.setDrawCorner(true);
         tbImageView.setRadius(oi.f(this, R.dimen.tbds5));
         tbImageView.setConrers(15);
-        SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091987), (int) R.color.CAM_X0106);
+        SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091988), (int) R.color.CAM_X0106);
         tbImageView.K(str, 36, false);
         inflate.setOnClickListener(new f(this, str2));
         inflate.measure(0, 0);
@@ -607,29 +607,29 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         popupWindow2.setContentView(inflate);
         this.mGalleryTipPopupWindow.setWidth(-2);
         this.mGalleryTipPopupWindow.setHeight(-2);
-        this.mGalleryTipPopupWindow.setBackgroundDrawable(getPageContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f8f));
+        this.mGalleryTipPopupWindow.setBackgroundDrawable(getPageContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f93));
         this.mGalleryTipPopupWindow.setOutsideTouchable(true);
         this.mGalleryTipPopupWindow.setFocusable(false);
         this.mGalleryTipPopupWindow.setTouchable(true);
-        pg.a().post(new g(this, view2, (ArrowView) inflate.findViewById(R.id.obfuscated_res_0x7f091ff5)));
+        pg.a().post(new g(this, view2, (ArrowView) inflate.findViewById(R.id.obfuscated_res_0x7f091ff6)));
     }
 
-    @Override // com.repackage.s88
+    @Override // com.repackage.z88
     public void showRiskForbidDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            dr4 dr4Var = new dr4(getPageContext().getPageActivity());
-            dr4Var.setTitle((String) null);
-            dr4Var.setMessageShowCenter(true);
-            dr4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f1d));
-            dr4Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f1e), new c(this));
-            dr4Var.setCancelable(false);
-            dr4Var.setCanceledOnTouchOutside(false);
-            dr4Var.create(getPageContext()).show();
+            cr4 cr4Var = new cr4(getPageContext().getPageActivity());
+            cr4Var.setTitle((String) null);
+            cr4Var.setMessageShowCenter(true);
+            cr4Var.setMessage(getString(R.string.obfuscated_res_0x7f0f0f1c));
+            cr4Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f1d), new c(this));
+            cr4Var.setCancelable(false);
+            cr4Var.setCanceledOnTouchOutside(false);
+            cr4Var.create(getPageContext()).show();
         }
     }
 
-    @Override // com.repackage.s88
+    @Override // com.repackage.z88
     public void viewHideLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
@@ -637,7 +637,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    @Override // com.repackage.s88
+    @Override // com.repackage.z88
     public void viewShowLoading() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {

@@ -20,7 +20,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class lq1 extends kq1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile lg4 f;
+    public static volatile kg4 f;
     public static long g;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -100,7 +100,7 @@ public class lq1 extends kq1 {
                     try {
                         f = new a93("swan_js_global_storage", 2, fj2.g().getAbsolutePath());
                     } catch (NoClassDefFoundError | UnsatisfiedLinkError unused) {
-                        f = new tg4("swan_js_global_storage");
+                        f = new sg4("swan_js_global_storage");
                         b93.i(1, "swan_js_global_storage");
                     }
                     b0();
@@ -151,10 +151,10 @@ public class lq1 extends kq1 {
     }
 
     @Override // com.repackage.kq1
-    public lg4 F(@NonNull j03 j03Var) {
+    public kg4 F(@NonNull j03 j03Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, j03Var)) == null) ? f : (lg4) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, j03Var)) == null) ? f : (kg4) invokeL.objValue;
     }
 
     @Override // com.repackage.kq1

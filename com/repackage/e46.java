@@ -1,53 +1,122 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.y05;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class e46 {
+public class e46 extends y05 {
     public static /* synthetic */ Interceptable $ic;
+    public static e46 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedList<a15> a;
 
-    public static void a(View view2, qn4 qn4Var, String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755787542, "Lcom/repackage/e46;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755787542, "Lcom/repackage/e46;");
+                return;
+            }
+        }
+        b = new e46();
+    }
+
+    public e46() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, view2, qn4Var, str) == null) || qn4Var == null || qn4Var.getThreadData() == null) {
-            return;
-        }
-        ThreadData threadData = qn4Var.getThreadData();
-        if (threadData.isVideoThreadType()) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
-            return;
-        }
-        int id = view2.getId();
-        if (view2.getId() == R.id.obfuscated_res_0x7f091f86 || id == R.id.obfuscated_res_0x7f091f98) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f09227a) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f09229c) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f090a6a) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f091f98) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-        } else if (view2 instanceof TbImageView) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static void b(qn4 qn4Var, String str) {
+    public static synchronized e46 f() {
+        InterceptResult invokeV;
+        e46 e46Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, qn4Var, str) == null) || qn4Var == null || qn4Var.getThreadData() == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (e46.class) {
+                e46Var = b;
+            }
+            return e46Var;
         }
-        if (qn4Var.getThreadData().isVideoThreadType()) {
-            kx5.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(qn4Var.getThreadData(), str));
-        } else {
-            kx5.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(qn4Var.getThreadData(), str));
+        return (e46) invokeV.objValue;
+    }
+
+    @Override // com.repackage.y05
+    public void b(y05.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            LinkedList<a15> linkedList = this.a;
+            if (linkedList != null && !linkedList.isEmpty()) {
+                Iterator<a15> it = this.a.iterator();
+                while (it.hasNext()) {
+                    a15 next = it.next();
+                    if (aVar != null) {
+                        aVar.a(next);
+                    }
+                }
+            } else if (TbFaceManager.e().h() > 0) {
+                this.a = new LinkedList<>();
+                d46 d46Var = new d46();
+                this.a.add(d46Var);
+                if (aVar != null) {
+                    aVar.a(d46Var);
+                }
+            }
         }
+    }
+
+    @Override // com.repackage.y05
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.y05
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public List<a15> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LinkedList<a15> linkedList = this.a;
+            return linkedList == null || linkedList.size() == 0;
+        }
+        return invokeV.booleanValue;
     }
 }

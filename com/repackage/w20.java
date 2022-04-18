@@ -47,7 +47,7 @@ public class w20 {
     public static x20 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? sf8.a() : (x20) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? zf8.a() : (x20) invokeV.objValue;
     }
 
     @Inject(force = false)

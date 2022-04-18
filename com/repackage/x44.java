@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class x44 extends v44<vm2> {
+public class x44 extends u44<vm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +51,7 @@ public class x44 extends v44<vm2> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new x44() : (x44) invokeV.objValue;
     }
 
-    @Override // com.repackage.v44
+    @Override // com.repackage.u44
     public boolean b(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
@@ -62,10 +62,10 @@ public class x44 extends v44<vm2> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vm2Var, sm2Var, j03Var)) == null) {
-            jx1.i("map", "MapRemoveAction start");
-            boolean g = s44.b().g(vm2Var);
-            jx1.i("map", "MapRemoveAction end");
-            return g;
+            jx1.i("map", "MapUpdateAction start");
+            boolean update = r44.b().update(context, vm2Var);
+            jx1.i("map", "MapUpdateAction end");
+            return update;
         }
         return invokeLLLL.booleanValue;
     }

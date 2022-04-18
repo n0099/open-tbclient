@@ -1,48 +1,56 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g58 extends r48 {
+public class g58 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g58(boolean z) {
-        super(z);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755726937, "Lcom/repackage/g58;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755726937, "Lcom/repackage/g58;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    public g58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.r48
-    public void b() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.q.clear();
-            z48 z48Var = this.o;
-            if (z48Var != null) {
-                this.q.add(z48Var);
-            }
-            if (ListUtils.isEmpty(this.p)) {
-                return;
-            }
-            this.q.addAll(this.p);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

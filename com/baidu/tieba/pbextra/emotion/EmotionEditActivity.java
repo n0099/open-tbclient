@@ -47,7 +47,7 @@ import com.repackage.ig;
 import com.repackage.ii;
 import com.repackage.mi;
 import com.repackage.oi;
-import com.repackage.yt4;
+import com.repackage.xt4;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class EmotionEditActivity extends BaseActivity implements EmotionEditModel.e {
@@ -75,7 +75,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     public String mLastSendText;
     public EmotionEditModel mModel;
     public PermissionJudgePolicy mPermissionJudgement;
-    public yt4 mProgressDialog;
+    public xt4 mProgressDialog;
     public View mRootView;
     public View mSend;
     public int mSendInStep;
@@ -351,10 +351,10 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ad5);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ad6);
             this.mEditContainer = (EmotionEditLayout) findViewById(R.id.obfuscated_res_0x7f090853);
             this.mClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f09066c);
-            this.mSend = findViewById(R.id.obfuscated_res_0x7f091c82);
+            this.mSend = findViewById(R.id.obfuscated_res_0x7f091c83);
             ChooseColorLayout chooseColorLayout = (ChooseColorLayout) findViewById(R.id.obfuscated_res_0x7f09061c);
             this.mChooseColorLayout = chooseColorLayout;
             chooseColorLayout.setOnChooseColorChangeListener(new b(this));
@@ -401,12 +401,12 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                     this.mModel.K(addTextToImage, ii.b + "/" + TbConfig.getTempDirName() + "/emotion.png");
                     return;
                 }
-                showToast(R.string.obfuscated_res_0x7f0f1499);
+                showToast(R.string.obfuscated_res_0x7f0f1498);
                 this.mSendInStep = 2;
                 hideProgress();
                 return;
             }
-            showToast(R.string.obfuscated_res_0x7f0f1499);
+            showToast(R.string.obfuscated_res_0x7f0f1498);
             this.mSendInStep = 2;
             hideProgress();
         }
@@ -427,7 +427,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             if (!mi.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c18);
+                showToast(R.string.obfuscated_res_0x7f0f0c17);
                 return;
             }
             Activity pageActivity = getPageContext().getPageActivity();
@@ -489,7 +489,7 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             }
             return;
         }
-        showToast(R.string.obfuscated_res_0x7f0f1499);
+        showToast(R.string.obfuscated_res_0x7f0f1498);
     }
 
     private void uploadImage() {
@@ -638,9 +638,9 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
             addGlobalLayoutListener();
             adjustResizeForSoftInput(R.color.black_alpha40, false);
             this.mInputManager = (InputMethodManager) getSystemService("input_method");
-            yt4 yt4Var = new yt4(getPageContext());
-            this.mProgressDialog = yt4Var;
-            yt4Var.i(R.string.obfuscated_res_0x7f0f0534);
+            xt4 xt4Var = new xt4(getPageContext());
+            this.mProgressDialog = xt4Var;
+            xt4Var.i(R.string.obfuscated_res_0x7f0f0534);
             this.mProgressDialog.e(new a(this));
         }
     }
@@ -716,12 +716,12 @@ public class EmotionEditActivity extends BaseActivity implements EmotionEditMode
                     sendEmotion();
                     return;
                 }
-                showToast(R.string.obfuscated_res_0x7f0f1499);
+                showToast(R.string.obfuscated_res_0x7f0f1498);
                 this.mSendInStep = 3;
                 hideProgress();
                 return;
             }
-            showToast(R.string.obfuscated_res_0x7f0f1499);
+            showToast(R.string.obfuscated_res_0x7f0f1498);
             this.mSendInStep = 3;
             hideProgress();
         }

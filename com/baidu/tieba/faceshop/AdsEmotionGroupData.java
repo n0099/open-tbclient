@@ -7,11 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u86;
+import com.repackage.w86;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AdsEmotionGroupData implements Serializable, u86 {
+public class AdsEmotionGroupData implements Serializable, w86 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class AdsEmotionGroupData implements Serializable, u86 {
         }
     }
 
-    @Override // com.repackage.u86
+    @Override // com.repackage.w86
     public boolean IsValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class AdsEmotionGroupData implements Serializable, u86 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.colorCoverUrl : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.u86
+    @Override // com.repackage.w86
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -4,20 +4,25 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveNormalCardView;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveDoubleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fs5 extends ho<is5, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder> {
+public class fs5 extends ho<ws5, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public qn5 j;
+    public TbPageContext<?> i;
+    public sn5 j;
+    public String k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fs5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -44,30 +49,40 @@ public class fs5 extends ho<is5, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalVi
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: Z */
-    public AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder M(ViewGroup viewGroup) {
+    public AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder(new AlaGameFrsLiveNormalCardView(this.i)) : (AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AlaGameFrsLiveDoubleView alaGameFrsLiveDoubleView = new AlaGameFrsLiveDoubleView(this.i);
+            alaGameFrsLiveDoubleView.u(this.k);
+            return new AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder(alaGameFrsLiveDoubleView);
+        }
+        return (AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, is5 is5Var, AlaGameFrsLiveNormalCardView.AlaGameFrsNormalViewHolder alaGameFrsNormalViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, ws5 ws5Var, AlaGameFrsLiveDoubleView.AlaGameFrsLiveDoubleViewHolder alaGameFrsLiveDoubleViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, is5Var, alaGameFrsNormalViewHolder})) == null) {
-            alaGameFrsNormalViewHolder.a.l(is5Var);
-            alaGameFrsNormalViewHolder.a.u(this.j);
-            return alaGameFrsNormalViewHolder.b();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ws5Var, alaGameFrsLiveDoubleViewHolder})) == null) {
+            alaGameFrsLiveDoubleViewHolder.a.l(ws5Var);
+            alaGameFrsLiveDoubleViewHolder.a.v(this.j);
+            rn5.b().a(new StatisticItem("c12115").param("obj_id", ws5Var.a.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, !StringUtils.isNull(ws5Var.a.getThreadAlaInfo().appId) ? ws5Var.a.getThreadAlaInfo().appId : ""));
+            ThreadData threadData = ws5Var.b;
+            if (threadData != null) {
+                rn5.b().a(new StatisticItem("c12115").param("obj_id", ws5Var.b.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, StringUtils.isNull(threadData.getThreadAlaInfo().appId) ? "" : ws5Var.b.getThreadAlaInfo().appId));
+            }
+            return alaGameFrsLiveDoubleViewHolder.b();
         }
         return (View) invokeCommon.objValue;
     }
 
-    public void b0(qn5 qn5Var) {
+    public void b0(sn5 sn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qn5Var) == null) {
-            this.j = qn5Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sn5Var) == null) {
+            this.j = sn5Var;
         }
     }
 }

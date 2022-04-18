@@ -1,190 +1,113 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.animation.ObjectAnimator;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
+import com.baidu.tieba.play.VideoLoadingProgressView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.turbonet.net.OkHttp3Interceptor;
-import com.baidu.turbonet.net.TurbonetConfig;
-import com.baidu.turbonet.net.TurbonetContext;
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-import okhttp3.OkHttpClient;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
 /* loaded from: classes6.dex */
 public class j78 {
     public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient a;
-    public static TurbonetContext b;
-    public static long c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public ViewGroup a;
+    public ImageView b;
+    public VideoLoadingProgressView c;
+    public ObjectAnimator d;
+    public ObjectAnimator e;
+    public ObjectAnimator f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755635642, "Lcom/repackage/j78;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public j78(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755635642, "Lcom/repackage/j78;");
-        }
-    }
-
-    public static OkHttpClient a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            b = g();
-            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(b);
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
-            return builder.build();
-        }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b() {
-        InterceptResult invokeV;
-        String path;
-        boolean equalsIgnoreCase;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
-            return (String) invokeV.objValue;
-        }
-        Context context = TbadkCoreApplication.getInst().getContext();
-        try {
-            String externalStorageState = Environment.getExternalStorageState();
-            equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
-            z = (equalsIgnoreCase || Environment.isExternalStorageRemovable() || externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) ? false : true;
-        } catch (Exception unused) {
-            File cacheDir = context.getCacheDir();
-            if (cacheDir == null) {
-                return null;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            path = cacheDir.getPath();
         }
-        if (!equalsIgnoreCase && !z) {
-            path = context.getCacheDir().getPath();
-            return !path.endsWith(File.separator) ? path.substring(0, path.length() - 1) : path;
-        }
-        path = context.getExternalCacheDir().getPath();
-        if (!path.endsWith(File.separator)) {
+        this.a = viewGroup;
+        this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902ed);
+        this.c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902ee);
+        d();
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.cancel();
+            this.e.cancel();
+            this.f.cancel();
         }
     }
 
-    public static OkHttpClient c() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = a();
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+            this.a.setVisibility(8);
+            this.c.h();
         }
-        return (OkHttpClient) invokeV.objValue;
     }
 
-    public static TurbonetConfig d() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            TurbonetConfig turbonetConfig = new TurbonetConfig();
-            turbonetConfig.j(15);
-            turbonetConfig.c(true);
-            turbonetConfig.b(true);
-            turbonetConfig.e(true);
-            turbonetConfig.a("http://tb-video.bdstatic.com|2");
-            turbonetConfig.f(true);
-            turbonetConfig.i("bdns", "bce_http_dns_account_id", "119799");
-            turbonetConfig.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
-            turbonetConfig.i("bdbus", "min_trigger_interval", 180);
-            turbonetConfig.i("bdns", "dual_stack_bdns_cache_policy", 1);
-            File file = new File(b(), "turbonetcache");
-            if (file.exists()) {
-                if (file.isFile()) {
-                    file.delete();
-                    file.mkdirs();
-                }
-            } else {
-                file.mkdirs();
-            }
-            turbonetConfig.k(file.getAbsolutePath());
-            turbonetConfig.d(3, Config.FULL_TRACE_LOG_LIMIT);
-            turbonetConfig.i(TbConfig.TMP_LOG_DIR_NAME, "lite_log_in_response_header", Boolean.TRUE);
-            turbonetConfig.i("app", "app_package_name", "com.baidu.tieba");
-            turbonetConfig.i("nq", "network_quality_enabled", Boolean.TRUE);
-            turbonetConfig.i("nq", "watch_all", Boolean.TRUE);
-            turbonetConfig.i("nq", "rejudge_interval_sec", 10);
-            turbonetConfig.i("nq", "weak_window_sec", 30);
-            turbonetConfig.i("nq", "weak_min_cnt", 10);
-            turbonetConfig.i("nq", "probe_enabled", Boolean.FALSE);
-            turbonetConfig.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_tcp_retrans_percentage", 30);
-            turbonetConfig.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_percentage", 30);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_percentage", 30);
-            turbonetConfig.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
-            return turbonetConfig;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            this.e.start();
+            this.f.start();
         }
-        return (TurbonetConfig) invokeV.objValue;
     }
 
-    public static long e() {
-        InterceptResult invokeV;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            TurbonetContext turbonetContext = b;
-            if (turbonetContext != null && c == 0) {
-                c = turbonetContext.c();
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d = ObjectAnimator.ofFloat(this.b, AnimationProperty.OPACITY, 1.0f, 0.5f);
+            this.e = ObjectAnimator.ofFloat(this.b, AnimationProperty.OPACITY, 0.5f, 0.0f);
+            this.f = ObjectAnimator.ofFloat(this.c, AnimationProperty.OPACITY, 1.0f, 0.0f);
+            this.d.setDuration(50L);
+            this.e.setDuration(50L);
+            this.f.setDuration(50L);
         }
-        return invokeV.longValue;
     }
 
-    public static void f() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || d) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a();
+            this.c.j();
+        }
+    }
+
+    public void f(VideoLoadingProgressView.c cVar) {
+        VideoLoadingProgressView videoLoadingProgressView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || (videoLoadingProgressView = this.c) == null) {
             return;
         }
-        d = true;
-        try {
-            c();
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
+        videoLoadingProgressView.setLoadingAnimationListener(cVar);
     }
 
-    public static TurbonetContext g() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
-            b = turbonetContext;
-            return turbonetContext;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            a();
+            this.b.setAlpha(1.0f);
+            this.c.setAlpha(1.0f);
+            this.a.setVisibility(0);
+            this.c.l();
+            this.d.start();
         }
-        return (TurbonetContext) invokeV.objValue;
     }
 }

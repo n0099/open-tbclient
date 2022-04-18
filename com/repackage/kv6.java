@@ -1,158 +1,74 @@
 package com.repackage;
 
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.homepage.concern.view.RecommendBarLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kv6 {
+public class kv6 extends qy<fv6> {
     public static /* synthetic */ Interceptable $ic;
-    public static kv6 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public SparseArray<Long> b;
-    public SparseArray<Long> c;
-    public SparseArray<Long> d;
-    public SparseArray<Long> e;
+    public RecommendBarLayout f;
+    public int g;
+    public int h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755545370, "Lcom/repackage/kv6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755545370, "Lcom/repackage/kv6;");
-                return;
-            }
-        }
-        f = new kv6();
-    }
-
-    public kv6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kv6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
-        this.b = new SparseArray<>();
-        this.c = new SparseArray<>();
-        this.d = new SparseArray<>();
-        this.e = new SparseArray<>();
+        this.g = 3;
+        this.f = new RecommendBarLayout(tbPageContext, tbPageContext.getPageActivity(), bdUniqueId, b);
     }
 
-    public static kv6 d() {
+    @Override // com.repackage.qy
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f : (kv6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    public long a(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.fz
+    /* renamed from: o */
+    public void a(fv6 fv6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            Long l = this.c.get(i);
-            if (l == null) {
-                return -1L;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fv6Var) == null) || fv6Var == null || this.h == fv6Var.hashCode()) {
+            return;
+        }
+        this.h = fv6Var.hashCode();
+        this.f.setData(fv6Var);
+    }
+
+    @Override // com.repackage.gz
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.onChangeSkinType(tbPageContext, i);
+                m(this.f, 3);
             }
-            return l.longValue();
-        }
-        return invokeI.longValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public long c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            Long l = this.b.get(i);
-            if (l == null) {
-                return -1L;
-            }
-            return l.longValue();
-        }
-        return invokeI.longValue;
-    }
-
-    public long e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            Long l = this.e.get(i);
-            if (l == null) {
-                return -1L;
-            }
-            return l.longValue();
-        }
-        return invokeI.longValue;
-    }
-
-    public long f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            Long l = this.d.get(i);
-            if (l == null) {
-                return -1L;
-            }
-            return l.longValue();
-        }
-        return invokeI.longValue;
-    }
-
-    public void g(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            this.c.put(i, Long.valueOf(j));
-        }
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public void i(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            this.b.put(i, Long.valueOf(j));
-        }
-    }
-
-    public void j(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            this.e.put(i, Long.valueOf(j));
-        }
-    }
-
-    public void k(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            this.d.put(i, Long.valueOf(j));
+            this.g = i;
         }
     }
 }

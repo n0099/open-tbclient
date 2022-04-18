@@ -23,7 +23,7 @@ import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public class ps2 implements wf4 {
+public class ps2 implements vf4 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,21 +63,21 @@ public class ps2 implements wf4 {
         this.a = AppRuntime.getAppContext();
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? qj2.n().a() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ug1.a() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public boolean c(String str) {
         InterceptResult invokeL;
         int i;
@@ -101,14 +101,14 @@ public class ps2 implements wf4 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public ExecutorService d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? qj2.z0().d() : (ExecutorService) invokeV.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public void e(String str, int i, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, jSONArray) == null) {
@@ -116,7 +116,7 @@ public class ps2 implements wf4 {
         }
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public void f(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
@@ -124,7 +124,7 @@ public class ps2 implements wf4 {
         }
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public void g(String str, String str2, int i, String str3, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
@@ -132,7 +132,7 @@ public class ps2 implements wf4 {
         }
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String getAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class ps2 implements wf4 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -154,14 +154,14 @@ public class ps2 implements wf4 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String getDeviceId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? qj2.h0().i(qj2.c()) : (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -172,7 +172,7 @@ public class ps2 implements wf4 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public void i(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048587, this, str, i, str2) == null) {
@@ -180,14 +180,14 @@ public class ps2 implements wf4 {
         }
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? qj2.g0().j() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -198,28 +198,28 @@ public class ps2 implements wf4 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? i03.J().l() : invokeV.intValue;
     }
 
-    @Override // com.repackage.wf4
-    public xf4 m() {
+    @Override // com.repackage.vf4
+    public wf4 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? qj2.O().m() : (xf4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? qj2.O().m() : (wf4) invokeV.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? o93.h(l()) : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public void o(String str, String str2, int i, String str3, long j, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
@@ -227,14 +227,14 @@ public class ps2 implements wf4 {
         }
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String p(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) ? vg4.b(context).a() : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) ? ug4.b(context).a() : (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -248,14 +248,14 @@ public class ps2 implements wf4 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? iw2.X() && (s() || tg1.b) : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -265,7 +265,7 @@ public class ps2 implements wf4 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -279,14 +279,14 @@ public class ps2 implements wf4 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? dx1.b() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wf4
+    @Override // com.repackage.vf4
     public String v(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

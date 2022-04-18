@@ -589,8 +589,8 @@ public class rz1 extends pz1 implements qz2.a {
             if (Q()) {
                 resume();
             }
-            p64 p64Var = this.m0;
-            if (p64Var != null && p64Var.j()) {
+            o64 o64Var = this.m0;
+            if (o64Var != null && o64Var.j()) {
                 this.m0.C(qj2.M().a());
             }
             if (V0) {
@@ -646,7 +646,7 @@ public class rz1 extends pz1 implements qz2.a {
             if (activity == null || this.m0 != null) {
                 return;
             }
-            this.m0 = new p64(activity, this.l0, o3(), qj2.K(), new sf3());
+            this.m0 = new o64(activity, this.l0, o3(), qj2.K(), new sf3());
             new zp2(this.m0, this, this.n0).z();
             if (fq2.e()) {
                 this.m0.m(50);
@@ -976,7 +976,7 @@ public class rz1 extends pz1 implements qz2.a {
             View b2 = fz2.b();
             if (b2 != null) {
                 b2.setVisibility(0);
-                b2.findViewById(R.id.obfuscated_res_0x7f09203b).setVisibility(8);
+                b2.findViewById(R.id.obfuscated_res_0x7f09203c).setVisibility(8);
             }
             SwanAppActionBar J1 = J1();
             if (J1 != null) {
@@ -986,7 +986,7 @@ public class rz1 extends pz1 implements qz2.a {
             }
             View S = S();
             if (S != null) {
-                S.findViewById(R.id.obfuscated_res_0x7f090ee3).setBackgroundColor(0);
+                S.findViewById(R.id.obfuscated_res_0x7f090ee4).setBackgroundColor(0);
                 FrameLayout frameLayout = (FrameLayout) S.findViewById(R.id.obfuscated_res_0x7f090182);
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
                 layoutParams.topMargin = 0;

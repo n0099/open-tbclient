@@ -144,7 +144,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && view2 == this.mView.getCheckButton()) {
             if (this.mTask == null) {
-                this.mView.getCheckButton().setText(getResources().getText(R.string.obfuscated_res_0x7f0f11e3));
+                this.mView.getCheckButton().setText(getResources().getText(R.string.obfuscated_res_0x7f0f11e2));
                 CheckTask checkTask = new CheckTask(this, null);
                 this.mTask = checkTask;
                 checkTask.execute(new Object[0]);

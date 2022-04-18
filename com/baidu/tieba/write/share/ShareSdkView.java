@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.f09;
 import com.repackage.oi;
-import com.repackage.yz8;
 /* loaded from: classes4.dex */
 public class ShareSdkView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -192,18 +192,18 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             setOrientation(1);
             setGravity(16);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d076c, (ViewGroup) this, true);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091cc6);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc8);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091cc4);
-            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091cc0);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc1);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc3);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091cc9);
-            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f091cc7);
-            this.j = findViewById(R.id.obfuscated_res_0x7f091cc5);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc2);
-            this.l = findViewById(R.id.obfuscated_res_0x7f091cbf);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091cca);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091cc7);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc9);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091cc5);
+            this.e = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f091cc1);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc2);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc4);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091cca);
+            this.i = (EditText) findViewById(R.id.obfuscated_res_0x7f091cc8);
+            this.j = findViewById(R.id.obfuscated_res_0x7f091cc6);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc3);
+            this.l = findViewById(R.id.obfuscated_res_0x7f091cc0);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091ccb);
             setOnClickListener(this);
             this.k.setOnClickListener(this);
             this.m.setOnClickListener(this);
@@ -213,7 +213,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             this.e.setBorderWidth(oi.f(context, R.dimen.tbds1));
             this.e.setDefaultResource(R.color.CAM_X0205);
             this.e.setRadius(oi.f(context, R.dimen.obfuscated_res_0x7f070266));
-            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f53);
+            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f57);
             this.n = (oi.k(getContext()) - oi.f(getContext(), R.dimen.tbds516)) / oi.f(getContext(), R.dimen.tbds45);
             this.q = oi.f(getContext(), R.dimen.tbds27);
             this.r = oi.f(getContext(), R.dimen.tbds11);
@@ -281,23 +281,23 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         }
     }
 
-    public void setData(yz8 yz8Var) {
+    public void setData(f09 f09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yz8Var) == null) {
-            if (yz8Var == null && getParent() != null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, f09Var) == null) {
+            if (f09Var == null && getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
                 return;
             }
-            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f113b), yz8Var.f));
-            this.e.K(yz8Var.d, 10, false);
-            this.f.setText(yz8Var.c);
-            if (StringUtils.isNull(yz8Var.h)) {
+            this.c.setText(String.format(getResources().getString(R.string.obfuscated_res_0x7f0f113a), f09Var.f));
+            this.e.K(f09Var.d, 10, false);
+            this.f.setText(f09Var.c);
+            if (StringUtils.isNull(f09Var.h)) {
                 this.g.setVisibility(8);
             } else {
-                this.g.setText(yz8Var.h);
+                this.g.setText(f09Var.h);
             }
             this.h.setEvent(new b(this));
-            this.h.K(yz8Var.i, 42, false);
+            this.h.K(f09Var.i, 42, false);
         }
     }
 

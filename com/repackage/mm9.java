@@ -1,63 +1,50 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.RemoteException;
-import android.util.Log;
+import android.animation.ValueAnimator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes6.dex */
-public final class mm9 implements Runnable {
+public final class mm9 implements ValueAnimator.AnimatorUpdateListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Activity a;
-    public final /* synthetic */ im9 b;
-    public final /* synthetic */ hm9 c;
+    public final /* synthetic */ int a;
+    public final /* synthetic */ int b;
+    public final /* synthetic */ int c;
+    public final /* synthetic */ InstallActivity d;
 
-    public mm9(hm9 hm9Var, Activity activity, im9 im9Var) {
+    public mm9(InstallActivity installActivity, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hm9Var, activity, im9Var};
+            Object[] objArr = {installActivity, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = hm9Var;
-        this.a = activity;
-        this.b = im9Var;
+        this.d = installActivity;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+    public final void onAnimationUpdate(ValueAnimator valueAnimator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                hm9 hm9Var = this.c;
-                l = hm9.l();
-                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
-                new Handler().postDelayed(new nm9(this, atomicBoolean), 3000L);
-            } catch (RemoteException e) {
-                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-                hm9 hm9Var2 = this.c;
-                hm9.n(this.a, this.b);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+            float animatedFraction = 1.0f - valueAnimator.getAnimatedFraction();
+            float animatedFraction2 = valueAnimator.getAnimatedFraction();
+            int i = this.b;
+            this.d.getWindow().setLayout((int) ((this.a * animatedFraction) + (i * animatedFraction2)), (int) ((this.c * animatedFraction) + (i * animatedFraction2)));
+            this.d.getWindow().getDecorView().refreshDrawableState();
         }
     }
 }

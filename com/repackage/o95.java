@@ -36,7 +36,7 @@ public class o95<Q extends oa5, P extends pa5> implements sa5<P> {
     public final va5<Q, P> f;
     public ta5<P> g;
     public final View.OnClickListener h;
-    public final mm4 i;
+    public final lm4 i;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -73,7 +73,7 @@ public class o95<Q extends oa5, P extends pa5> implements sa5<P> {
     }
 
     /* loaded from: classes6.dex */
-    public class b extends mm4 {
+    public class b extends lm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o95 a;
@@ -96,7 +96,7 @@ public class o95<Q extends oa5, P extends pa5> implements sa5<P> {
             this.a = o95Var;
         }
 
-        @Override // com.repackage.mm4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
@@ -106,7 +106,7 @@ public class o95<Q extends oa5, P extends pa5> implements sa5<P> {
             }
         }
 
-        @Override // com.repackage.mm4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityPaused(Activity activity) {
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public class o95<Q extends oa5, P extends pa5> implements sa5<P> {
             }
         }
 
-        @Override // com.repackage.mm4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityResumed(Activity activity) {
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
@@ -153,7 +153,7 @@ public class o95<Q extends oa5, P extends pa5> implements sa5<P> {
         public db5.c s;
         public List<ho> t;
         public List<ho> u;
-        public lm4<qn4> v;
+        public km4<pn4> v;
         public fa5 w;
         public int x;
         public hb5 y;
@@ -206,12 +206,12 @@ public class o95<Q extends oa5, P extends pa5> implements sa5<P> {
             return (c) invokeL.objValue;
         }
 
-        public c d(lm4<qn4> lm4Var) {
+        public c d(km4<pn4> km4Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lm4Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, km4Var)) == null) {
                 this.p = true;
-                this.v = lm4Var;
+                this.v = km4Var;
                 return this;
             }
             return (c) invokeL.objValue;

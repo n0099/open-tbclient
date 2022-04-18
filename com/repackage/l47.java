@@ -1,49 +1,59 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.hottopicselect.HotSelectCacheReqMessage;
-import com.baidu.tieba.hottopicselect.HotSelectCacheResponseMessage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class l47 implements CustomMessageTask.CustomRunnable<Object> {
+public class l47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<ho> a;
 
-    public l47() {
+    public l47(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        kd6 kd6Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, kd6.class, tbPageContext);
+        if (runTask != null && (kd6Var = (kd6) runTask.getData()) != null) {
+            this.a.add(kd6Var);
+        }
+        this.a.add(new m47(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
+        this.a.add(new k47(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
+        bdTypeRecyclerView.a(this.a);
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    public void a(TbPageTag tbPageTag) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof HotSelectCacheReqMessage)) {
-                return null;
-            }
-            HotSelectCacheResponseMessage hotSelectCacheResponseMessage = new HotSelectCacheResponseMessage();
-            try {
-                hotSelectCacheResponseMessage.decodeInBackGround(2016491, (byte[]) null);
-            } catch (Exception unused) {
-            }
-            return hotSelectCacheResponseMessage;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbPageTag) == null) || ListUtils.isEmpty(this.a)) {
+            return;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        for (ho hoVar : this.a) {
+            if (hoVar instanceof kd6) {
+                ((kd6) hoVar).j0(tbPageTag);
+            }
+        }
     }
 }

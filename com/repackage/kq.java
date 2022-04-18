@@ -35,8 +35,8 @@ public class kq extends u05 {
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1316);
-        this.d = R.drawable.obfuscated_res_0x7f080976;
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1315);
+        this.d = R.drawable.obfuscated_res_0x7f08097a;
         this.g = false;
         this.h = true;
         this.m = true;

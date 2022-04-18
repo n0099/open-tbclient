@@ -4,16 +4,21 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
-import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
+import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
+import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class q87 implements CustomMessageTask.CustomRunnable<Object> {
+import com.squareup.wire.Wire;
+import java.util.Date;
+import java.util.LinkedList;
+import protobuf.QueryHistoryMsg.MsgInfo;
+import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
+/* loaded from: classes7.dex */
+public class q87 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,25 +37,40 @@ public class q87 implements CustomMessageTask.CustomRunnable<Object> {
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof GroupsByUidLocalMessage)) {
-                return null;
-            }
-            String str = ResponseGroupsByUidMessage.CACHE_KEY_PREFIX + (TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "");
-            cr4.f();
-            byte[] bArr = cr4.d("tb.im_entergroup").get(str);
-            ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
-            if (bArr != null) {
+            if (customMessage != null && (customMessage instanceof RequestLocalHistoryMessage)) {
+                br4.f();
+                qe<byte[]> d = br4.d("tb.im_official_history");
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                byte[] bArr = d.get(currentAccount + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
+                if (bArr == null) {
+                    return null;
+                }
+                LinkedList linkedList = new LinkedList();
                 try {
-                    responseGroupsByUidLocalMessage.decodeInBackGround(2001106, bArr);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
+                    if (queryHistoryMsgResIdl.data.res != null) {
+                        for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
+                            ResponseHistoryMessage.a aVar = new ResponseHistoryMessage.a();
+                            if (msgInfo != null) {
+                                Date date = new Date();
+                                date.setTime(msgInfo.sendTime.longValue() * 1000);
+                                aVar.a = ni.getDateStringMouth(date);
+                                aVar.b = msgInfo.type.intValue();
+                                aVar.c = msgInfo.content;
+                                aVar.d = msgInfo.id.intValue();
+                                linkedList.add(aVar);
+                            }
+                        }
+                    }
+                    return new ResponseLocalHistoryMessage(linkedList);
+                } catch (Exception unused) {
                 }
             }
-            return responseGroupsByUidLocalMessage;
+            return null;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

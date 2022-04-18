@@ -1,131 +1,191 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ReplacementSpan;
+import android.text.Editable;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ev4;
 /* loaded from: classes6.dex */
-public class ev4 extends ReplacementSpan {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class ev4<T extends ev4> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int h = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+    public final int a;
+    public boolean b;
+    public Editable c;
     public int d;
-    public Drawable e;
-    public Drawable f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public boolean o;
+    public int e;
+    public int f;
+    public a g;
 
-    public ev4(int i, int i2, int i3, int i4, int i5, boolean z) {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(int i, boolean z);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755724178, "Lcom/repackage/ev4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755724178, "Lcom/repackage/ev4;");
+        }
+    }
+
+    public ev4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = R.drawable.icon_pure_evaluation_star24_n;
-        this.b = R.color.CAM_X0112;
-        this.c = R.drawable.icon_pure_evaluation_star24_n;
-        this.d = R.color.CAM_X0305;
-        this.m = 5;
-        this.n = i;
-        this.g = i2;
-        this.h = i3;
-        this.i = i4;
-        this.k = i5;
-        this.o = z;
+        int i3 = h;
+        h = i3 + 1;
+        this.a = i3;
     }
 
-    public final void a() {
+    public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = SvgManager.getInstance().getPureDrawable(this.a, this.b, null);
-            this.f = SvgManager.getInstance().getPureDrawable(this.c, this.d, null);
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            this.c = editable;
+            this.d = i;
+            this.e = i2;
+            this.f = i3;
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        int dimenPixelSize;
-        int i6;
+    public void b(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            a();
-            this.j = (int) paint.getTextSize();
-            int i7 = ((int) f) + this.k;
-            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            int i8 = 0;
-            if (yr4.b(charSequence)) {
-                yr4.a(fontMetricsInt, (int) paint.getTextSize());
-                dimenPixelSize = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
-            } else {
-                dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds3) + 0;
-            }
-            int max = dimenPixelSize + fontMetricsInt.ascent + i4 + Math.max(0, ((this.j - this.h) / 2) + (this.o ? (i5 - i4) / 2 : 0));
-            while (true) {
-                i6 = this.n;
-                if (i8 >= i6) {
-                    break;
-                }
-                Drawable drawable = this.f;
-                if (drawable != null) {
-                    int i9 = this.h;
-                    drawable.setBounds(i7, max, i7 + i9, i9 + max);
-                    this.f.draw(canvas);
-                    i7 += this.g + this.h;
-                }
-                i8++;
-            }
-            while (i6 < this.m) {
-                Drawable drawable2 = this.e;
-                if (drawable2 != null) {
-                    int i10 = this.h;
-                    drawable2.setBounds(i7, max, i7 + i10, i10 + max);
-                    this.e.draw(canvas);
-                    i7 += this.g + this.h;
-                }
-                i6++;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.b = t.h();
+            this.c = t.g();
+            this.d = t.f();
+            this.e = t.c();
+            this.f = t.d();
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            int i3 = this.m;
-            int i4 = (this.h * i3) + (this.g * (i3 - 1)) + this.i + this.k;
-            this.l = i4;
-            return i4;
-        }
-        return invokeCommon.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
     }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public Editable g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (Editable) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public void i(@NonNull CharSequence charSequence) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence) == null) || (editable = this.c) == null || charSequence == null) {
+            return;
+        }
+        try {
+            editable.replace(this.d, this.e, charSequence);
+        } catch (Exception e) {
+            BdLog.e(e);
+        }
+        this.e = this.d + charSequence.length();
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void k(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            this.g = aVar;
+        }
+    }
+
+    public void l(Object obj, int i, int i2, int i3) {
+        Editable editable;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIII(1048587, this, obj, i, i2, i3) == null) || (editable = this.c) == null) {
+            return;
+        }
+        editable.setSpan(obj, i, i2, i3);
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void n(Editable editable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, editable) == null) {
+            this.c = editable;
+        }
+    }
+
+    public void o(boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            boolean z2 = this.b;
+            this.b = z;
+            if (z2 == z || (aVar = this.g) == null) {
+                return;
+            }
+            aVar.a(this.a, z);
+        }
+    }
+
+    public abstract void p(Editable editable);
+
+    public abstract void q(Editable editable, int i);
 }
