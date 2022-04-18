@@ -1,14 +1,14 @@
 package com.repackage;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
+import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qg7 extends fc1<BrowserProxyService> {
+/* loaded from: classes7.dex */
+public class qg7 extends fc1<LiveRealAuthService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,9 +29,9 @@ public class qg7 extends fc1<BrowserProxyService> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fc1
     /* renamed from: a */
-    public BrowserProxyService createService() throws ServiceNotFoundException {
+    public LiveRealAuthService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new rg7() : (BrowserProxyService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new rg7() : (LiveRealAuthService) invokeV.objValue;
     }
 }

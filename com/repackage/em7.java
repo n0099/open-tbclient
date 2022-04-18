@@ -1,21 +1,15 @@
 package com.repackage;
 
-import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes5.dex */
-public abstract class em7 extends BaseAdapter {
+/* loaded from: classes6.dex */
+public class em7 implements dm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<UserData> a;
-    public boolean b;
-    public boolean c;
 
     public em7() {
         Interceptable interceptable = $ic;
@@ -27,47 +21,21 @@ public abstract class em7 extends BaseAdapter {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = false;
-        this.c = false;
     }
 
-    public abstract void a(xp4 xp4Var);
-
-    public void b() {
+    @Override // com.repackage.dm7
+    public am7 a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = false;
-            ArrayList<UserData> arrayList = this.a;
-            if (arrayList == null || arrayList.size() != 0) {
-                return;
-            }
-            this.b = true;
-        }
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) ? new bm7(str, str2, str3) : (am7) invokeLLL.objValue;
     }
 
-    public boolean c() {
+    @Override // com.repackage.dm7
+    public zl7 get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public abstract boolean d(long j);
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? i88.m() : (zl7) invokeV.objValue;
     }
 }

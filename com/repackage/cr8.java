@@ -4,12 +4,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,17 +19,17 @@ import java.util.List;
 public class cr8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<er8> a;
+    public List<List<DressItemData>> a;
     public TbPageContext<?> b;
+    public yq8 c;
 
     /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public HeadImageView a;
-        public TextView b;
-        public View c;
-        public View d;
+        public View a;
+        public BubbleItemView b;
+        public BubbleItemView c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -47,12 +46,12 @@ public class cr8 extends BaseAdapter {
         }
     }
 
-    public cr8(TbPageContext<?> tbPageContext) {
+    public cr8(TbPageContext<?> tbPageContext, yq8 yq8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, yq8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,25 +62,26 @@ public class cr8 extends BaseAdapter {
             }
         }
         this.b = tbPageContext;
+        this.c = yq8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public er8 getItem(int i) {
+    public List<DressItemData> getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<er8> list = this.a;
+            List<List<DressItemData>> list = this.a;
             if (list == null || list.size() <= 0 || i < 0 || i >= this.a.size()) {
                 return null;
             }
             return this.a.get(i);
         }
-        return (er8) invokeI.objValue;
+        return (List) invokeI.objValue;
     }
 
-    public void b(List<er8> list) {
+    public void b(List<List<DressItemData>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.a = list;
@@ -93,7 +93,7 @@ public class cr8 extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<er8> list = this.a;
+            List<List<DressItemData>> list = this.a;
             if (list != null) {
                 return list.size();
             }
@@ -118,34 +118,32 @@ public class cr8 extends BaseAdapter {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            er8 item = getItem(i);
+            List<DressItemData> item = getItem(i);
             if (view2 != null) {
                 aVar = (a) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0247, viewGroup, false);
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d016d, viewGroup, false);
                 aVar = new a();
-                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090844);
-                aVar.a = headImageView;
-                headImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f080b76);
-                aVar.a.setDefaultBgResource(R.color.CAM_X0204);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090843);
-                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09200c);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907fd);
+                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f0920b8);
+                aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f09036e);
+                aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f09036f);
                 view2.setTag(aVar);
             }
             if (item != null) {
-                aVar.a.K(item.a(), 10, false);
-                aVar.b.setText(item.b());
-                wt4 k = wt4.k();
-                if (item.c() - k.m("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
-                    aVar.c.setVisibility(0);
+                if (i == 0) {
+                    aVar.a.setVisibility(0);
                 } else {
-                    aVar.c.setVisibility(4);
+                    aVar.a.setVisibility(8);
                 }
-                if (i == getCount() - 1) {
-                    aVar.d.setVisibility(8);
+                aVar.b.d(item.get(0));
+                aVar.b.setController(this.c);
+                aVar.b.setFromBubbleGroup(false);
+                if (item.size() > 1) {
+                    aVar.c.d(item.get(1));
+                    aVar.c.setController(this.c);
+                    aVar.c.setFromBubbleGroup(false);
                 } else {
-                    aVar.d.setVisibility(0);
+                    aVar.c.e();
                 }
             }
             this.b.getLayoutMode().j(view2);

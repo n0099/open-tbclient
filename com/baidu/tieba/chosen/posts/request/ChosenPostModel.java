@@ -11,21 +11,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.o65;
-import com.repackage.uy5;
-import com.repackage.vy5;
+import com.repackage.wy5;
+import com.repackage.xy5;
 /* loaded from: classes3.dex */
-public class ChosenPostModel extends NetAutoModel<uy5, vy5, ChosenPostActivity> {
+public class ChosenPostModel extends NetAutoModel<wy5, xy5, ChosenPostActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChosenPostModel(TbPageContext<ChosenPostActivity> tbPageContext, uy5 uy5Var) {
-        super(tbPageContext, uy5Var);
+    public ChosenPostModel(TbPageContext<ChosenPostActivity> tbPageContext, wy5 wy5Var) {
+        super(tbPageContext, wy5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, uy5Var};
+            Object[] objArr = {tbPageContext, wy5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,10 +78,10 @@ public class ChosenPostModel extends NetAutoModel<uy5, vy5, ChosenPostActivity> 
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<vy5> getResponseDataClass() {
+    public Class<xy5> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? vy5.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? xy5.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel

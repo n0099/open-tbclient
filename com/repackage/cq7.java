@@ -1,7 +1,9 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface cq7 {
-    public static final BdUniqueId a = BdUniqueId.gen();
+    void loadData();
+
+    void netCallback(int i, List<uo> list);
 }

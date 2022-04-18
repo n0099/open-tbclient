@@ -22,12 +22,12 @@ public class il5 extends fc1<z21> {
 
         /* renamed from: com.repackage.il5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0441a implements View.OnClickListener {
+        public class View$OnClickListenerC0447a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AbsContainer a;
 
-            public View$OnClickListenerC0441a(a aVar, AbsContainer absContainer) {
+            public View$OnClickListenerC0447a(a aVar, AbsContainer absContainer) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class il5 extends fc1<z21> {
         public int[] a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e1a} : (int[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e1e} : (int[]) invokeV.objValue;
         }
 
         @Override // com.repackage.z21
@@ -119,9 +119,9 @@ public class il5 extends fc1<z21> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, absContainer) == null) {
                 int intValue = ((Integer) view2.getTag()).intValue();
-                if (intValue == R.drawable.obfuscated_res_0x7f080e1a) {
-                    view2.setOnClickListener(new View$OnClickListenerC0441a(this, absContainer));
-                } else if (intValue == R.drawable.obfuscated_res_0x7f080e1b) {
+                if (intValue == R.drawable.obfuscated_res_0x7f080e1e) {
+                    view2.setOnClickListener(new View$OnClickListenerC0447a(this, absContainer));
+                } else if (intValue == R.drawable.obfuscated_res_0x7f080e1f) {
                     view2.setOnClickListener(new b(this, absContainer));
                 }
             }
@@ -131,7 +131,7 @@ public class il5 extends fc1<z21> {
         public int[] c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e1b} : (int[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.obfuscated_res_0x7f080e1f} : (int[]) invokeV.objValue;
         }
     }
 

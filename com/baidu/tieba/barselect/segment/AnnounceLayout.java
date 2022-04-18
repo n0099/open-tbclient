@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dw5;
 import com.repackage.ff5;
+import com.repackage.fw5;
 import com.repackage.oi;
-import com.repackage.wv5;
 import com.repackage.xi;
+import com.repackage.yv5;
 /* loaded from: classes3.dex */
 public class AnnounceLayout extends CardBasicLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -141,17 +141,17 @@ public class AnnounceLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, wv5 wv5Var) {
+    public void setData(int i, yv5 yv5Var) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, wv5Var) == null) {
-            super.setData(i, wv5Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, yv5Var) == null) {
+            super.setData(i, yv5Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == dw5.b) {
+                if (i2 == fw5.b) {
                     this.d = oi.q((Activity) getContext()).widthPixels - (oi.f(getContext(), R.dimen.tbds120) * 2);
                 }
                 int i3 = this.a;
-                if (i3 == dw5.c || i3 == dw5.d) {
+                if (i3 == fw5.c || i3 == fw5.d) {
                     this.d = oi.q((Activity) getContext()).widthPixels - (oi.f(getContext(), R.dimen.tbds96) * 2);
                 }
                 c(new SpannableStringBuilder(this.c.b()));

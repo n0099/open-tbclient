@@ -1,86 +1,109 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y08 extends ho<u08, PersonCenterIntervalHolder> {
+public class y08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y08(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public c b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ImageUploadResult doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? new o35("user_pics").l(FileHelper.getFileDireciory(this.a), false) : (ImageUploadResult) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUploadResult) == null) {
+                super.onPostExecute(imageUploadResult);
+                if (this.b != null) {
+                    int i = 0;
+                    if (imageUploadResult != null) {
+                        i = imageUploadResult.error_code;
+                        str = imageUploadResult.error_msg;
+                    } else {
+                        str = "";
+                    }
+                    this.b.a(i, str, imageUploadResult);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(int i, String str, ImageUploadResult imageUploadResult);
+    }
+
+    public y08() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, u08 u08Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
-        a0(i, view2, viewGroup, u08Var, personCenterIntervalHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public PersonCenterIntervalHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(String str, c cVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCenterIntervalHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d040a, viewGroup, false)) : (PersonCenterIntervalHolder) invokeL.objValue;
-    }
-
-    public View a0(int i, View view2, ViewGroup viewGroup, u08 u08Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, u08Var, personCenterIntervalHolder})) == null) {
-            if (u08Var != null && personCenterIntervalHolder != null) {
-                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                if (personCenterIntervalHolder.a != skinType) {
-                    personCenterIntervalHolder.a = skinType;
-                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, u08Var.c);
-                }
-                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
-                int i2 = u08Var.a;
-                if (i2 > 0) {
-                    layoutParams.height = i2;
-                }
-                int i3 = u08Var.b;
-                if (i3 > 0) {
-                    layoutParams.width = i3;
-                }
-                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
-                personCenterIntervalHolder.b.setOnClickListener(null);
-            }
-            return view2;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        b bVar = new b(null);
+        bVar.a = str;
+        bVar.b = cVar;
+        bVar.execute("");
     }
 }

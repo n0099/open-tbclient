@@ -113,7 +113,7 @@ public class mm3 implements dl1 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, outputStream)) == null) {
-                return Boolean.valueOf(ng4.g(this.a, outputStream) > 0);
+                return Boolean.valueOf(mg4.g(this.a, outputStream) > 0);
             }
             return (Boolean) invokeL.objValue;
         }
@@ -166,7 +166,7 @@ public class mm3 implements dl1 {
         public final void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                b03.f(this.a, z ? R.string.obfuscated_res_0x7f0f121c : R.string.obfuscated_res_0x7f0f1219).v();
+                b03.f(this.a, z ? R.string.obfuscated_res_0x7f0f121b : R.string.obfuscated_res_0x7f0f1218).v();
             }
         }
 
@@ -192,7 +192,7 @@ public class mm3 implements dl1 {
                     c(mm3.m(this.a, pooledByteBufferInputStream));
                 } finally {
                     CloseableReference.closeSafely(result);
-                    ng4.d(pooledByteBufferInputStream);
+                    mg4.d(pooledByteBufferInputStream);
                 }
             }
         }
@@ -254,7 +254,7 @@ public class mm3 implements dl1 {
                 e.printStackTrace();
                 return false;
             } finally {
-                ng4.d(pooledByteBufferInputStream);
+                mg4.d(pooledByteBufferInputStream);
             }
         }
         return invokeLL.booleanValue;
@@ -282,7 +282,7 @@ public class mm3 implements dl1 {
         try {
             OutputStream openOutputStream = context.getContentResolver().openOutputStream(insert);
             if (openOutputStream == null) {
-                ng4.d(openOutputStream);
+                mg4.d(openOutputStream);
                 return false;
             }
             byte[] bArr = new byte[4096];
@@ -291,15 +291,15 @@ public class mm3 implements dl1 {
                 if (read != -1) {
                     openOutputStream.write(bArr, 0, read);
                 } else {
-                    ng4.d(openOutputStream);
+                    mg4.d(openOutputStream);
                     return true;
                 }
             }
         } catch (IOException unused) {
-            ng4.d(null);
+            mg4.d(null);
             return false;
         } catch (Throwable th) {
-            ng4.d(null);
+            mg4.d(null);
             throw th;
         }
     }

@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dk8;
+import com.repackage.kk8;
 import com.repackage.l45;
 import com.repackage.m45;
 import com.repackage.n45;
@@ -44,7 +44,7 @@ import com.repackage.oi;
 import com.repackage.p45;
 import com.repackage.q45;
 import com.repackage.t45;
-import com.repackage.wt4;
+import com.repackage.vt4;
 /* loaded from: classes3.dex */
 public class PersonInfoDelegateStatic extends m45 {
     public static /* synthetic */ Interceptable $ic;
@@ -136,7 +136,7 @@ public class PersonInfoDelegateStatic extends m45 {
                 }
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (!this.a.d.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                    wt4.k().u("member_close_ad_mine_clicked", true);
+                    vt4.k().u("member_close_ad_mine_clicked", true);
                 }
             }
         }
@@ -184,8 +184,8 @@ public class PersonInfoDelegateStatic extends m45 {
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            dk8.h(303012, ProfileSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, dk8.a("c/u/user/profile", 303012));
+            kk8.h(303012, ProfileSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, kk8.a("c/u/user/profile", 303012));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -232,7 +232,7 @@ public class PersonInfoDelegateStatic extends m45 {
             aVar.c = oi.d(context, 10.0f);
             aVar.a = this.c;
             this.b.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-            boolean h = wt4.k().h("key_feedback_tip_tab_show", false);
+            boolean h = vt4.k().h("key_feedback_tip_tab_show", false);
             if (!this.d.booleanValue() && !h) {
                 this.c.setVisibility(8);
             } else {

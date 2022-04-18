@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class k00 extends qy<qn4> {
+public class k00 extends qy<pn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dx5 f;
+    public fx5 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k00(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -34,7 +34,7 @@ public class k00 extends qy<qn4> {
                 return;
             }
         }
-        this.f = new dx5(tbPageContext, bdUniqueId);
+        this.f = new fx5(tbPageContext, bdUniqueId);
     }
 
     @Override // com.repackage.qy
@@ -47,10 +47,10 @@ public class k00 extends qy<qn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: o */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn4Var) == null) && (qn4Var instanceof fy5)) {
-            this.f.a((fy5) qn4Var);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) && (pn4Var instanceof hy5)) {
+            this.f.a((hy5) pn4Var);
         }
     }
 

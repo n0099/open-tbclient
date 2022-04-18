@@ -1,13 +1,11 @@
 package com.repackage;
 
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.lego.activity.LegoListFragment;
 /* loaded from: classes5.dex */
 public interface ec7 {
-    void a(ICardInfo iCardInfo);
+    qd7 getFloatVideoContainer();
 
-    ec7 b(String str, int i);
+    LegoListFragment getLegoListFragment();
 
-    ec7 c(String str, long j);
-
-    ec7 d(String str, String str2);
+    xd7 getPlaySwitchController();
 }

@@ -1,24 +1,29 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Build;
+import android.os.Looper;
+import android.os.Process;
+import android.text.TextUtils;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class kp9 {
+public class kp9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static kp9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap a;
+    public final /* synthetic */ Context a;
 
-    public kp9() {
+    public kp9(np9 np9Var, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {np9Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,43 +33,49 @@ public class kp9 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.a = context;
     }
 
-    public static kp9 a() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public void run() {
+        String str;
+        String userAgentString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (kp9.class) {
-                    if (b == null) {
-                        b = new kp9();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Context context = this.a;
+            try {
+                if (Build.VERSION.SDK_INT >= 28) {
+                    try {
+                        Process.myPid();
+                        if (context != null) {
+                            try {
+                                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                                    if (runningAppProcessInfo.pid == Process.myPid()) {
+                                        str = runningAppProcessInfo.processName;
+                                        break;
+                                    }
+                                }
+                            } catch (Exception unused) {
+                            }
+                        }
+                        str = null;
+                        if (!TextUtils.equals(context.getPackageName(), str)) {
+                            WebView.setDataDirectorySuffix(str);
+                        }
+                    } catch (Exception unused2) {
                     }
                 }
-            }
-            return b;
-        }
-        return (kp9) invokeV.objValue;
-    }
-
-    public Info b(String str) {
-        InterceptResult invokeL;
-        Info info;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (kp9.class) {
-                info = (Info) this.a.remove(str);
-            }
-            return info;
-        }
-        return (Info) invokeL.objValue;
-    }
-
-    public void c(String str, Info info) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, info) == null) {
-            synchronized (kp9.class) {
-                this.a.put(str, info);
+                ds9.a = System.getProperty("http.agent");
+                if (Build.VERSION.SDK_INT >= 17) {
+                    userAgentString = WebSettings.getDefaultUserAgent(context);
+                } else if (Looper.myLooper() != Looper.getMainLooper()) {
+                    wr9.a.post(new zr9(context));
+                    return;
+                } else {
+                    userAgentString = new WebView(context).getSettings().getUserAgentString();
+                }
+                ds9.a = userAgentString;
+            } catch (Exception unused3) {
             }
         }
     }

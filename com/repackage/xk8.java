@@ -1,24 +1,21 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.DetailInfo;
 /* loaded from: classes7.dex */
 public class xk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Bitmap c;
-    public String d;
-    public String e;
 
-    public xk8() {
+    public xk8(DetailInfo detailInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {detailInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,6 +25,10 @@ public class xk8 {
                 return;
             }
         }
-        this.a = 0;
+        if (detailInfo == null) {
+            return;
+        }
+        String str = detailInfo.text;
+        String str2 = detailInfo.url;
     }
 }

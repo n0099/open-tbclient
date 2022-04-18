@@ -12,31 +12,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdNative;
 import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ih9 extends sg9<TTRewardVideoAd> {
+public class ih9 extends zg9<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements TTAdNative.RewardVideoAdListener {
+    public class a implements TTAdNative.NativeExpressAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ih9 c;
+        public final /* synthetic */ FunAdSlot a;
+        public final /* synthetic */ ih9 b;
 
-        public a(ih9 ih9Var, String str) {
+        public a(ih9 ih9Var, FunAdSlot funAdSlot) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ih9Var, str};
+                Object[] objArr = {ih9Var, funAdSlot};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,59 +46,42 @@ public class ih9 extends sg9<TTRewardVideoAd> {
                     return;
                 }
             }
-            this.c = ih9Var;
-            this.b = str;
+            this.b = ih9Var;
+            this.a = funAdSlot;
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJRewardVideoAd onError code: " + i + ", message: " + str, new Object[0]);
-                if (this.a) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
+        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list != null && !list.isEmpty()) {
+                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
+                    ih9 ih9Var = this.b;
+                    this.a.getSid();
+                    ih9Var.getClass();
+                    tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.AdInteractionListener) new jh9(ih9Var, tTNativeExpressAd));
+                    tTNativeExpressAd.render();
                     return;
                 }
-                this.c.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTRewardVideoAd) == null) {
-                this.a = true;
-                LogPrinter.d();
-                ih9 ih9Var = this.c;
-                String str = this.b;
-                ih9Var.getClass();
-                tTRewardVideoAd.setRewardPlayAgainInteractionListener(new jh9(ih9Var, tTRewardVideoAd, str));
-                ih9 ih9Var2 = this.c;
-                String str2 = this.b;
-                ih9Var2.getClass();
-                tTRewardVideoAd.setRewardAdInteractionListener(new cg9(ih9Var2, tTRewardVideoAd, str2));
-                this.c.onAdLoaded((ih9) tTRewardVideoAd);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoCached() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoCached(TTRewardVideoAd tTRewardVideoAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, tTRewardVideoAd) == null) {
+                LogPrinter.e("onNativeExpressAdLoad error: adList is null or empty", new Object[0]);
+                this.b.onError(0, "NoFill");
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ih9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,10 +102,12 @@ public class ih9 extends sg9<TTRewardVideoAd> {
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void destroyInternal(Object obj) {
+        TTNativeExpressAd tTNativeExpressAd;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            TTRewardVideoAd tTRewardVideoAd = (TTRewardVideoAd) obj;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (tTNativeExpressAd = (TTNativeExpressAd) obj) == null) {
+            return;
         }
+        tTNativeExpressAd.destroy();
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
@@ -132,11 +117,14 @@ public class ih9 extends sg9<TTRewardVideoAd> {
             if (this.i == null) {
                 this.i = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
             }
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String tid = getTid(valueOf);
-            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setUserID(FunAdSdk.getFunAdConfig().userId).setOrientation(this.mPid.isHorizontal ? 2 : 1).setMediaExtra(buildExtra(context, tid, valueOf)).build();
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+            }
+            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setDownloadType(FunAdSdk.getFunAdConfig().downLoadType).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
             onLoadStart(funAdSlot);
-            this.i.loadRewardVideoAd(build, new a(this, tid));
+            this.i.loadInteractionExpressAd(build, new a(this, funAdSlot));
         }
     }
 
@@ -145,10 +133,10 @@ public class ih9 extends sg9<TTRewardVideoAd> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
-            TTRewardVideoAd tTRewardVideoAd = (TTRewardVideoAd) obj;
+            TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) obj;
             onShowStart();
-            tTRewardVideoAd.setDownloadListener(new kg9(null));
-            tTRewardVideoAd.showRewardVideoAd(activity);
+            tTNativeExpressAd.setDownloadListener(new rg9(null));
+            tTNativeExpressAd.showInteractionExpressAd(activity);
             return true;
         }
         return invokeLLLL.booleanValue;

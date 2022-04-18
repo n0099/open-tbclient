@@ -133,7 +133,7 @@ public class db2 extends g23 {
                 try {
                     File c = ab2.c();
                     File b = ab2.b();
-                    if (c.exists() && ng4.U(c.getPath(), b.getPath())) {
+                    if (c.exists() && mg4.U(c.getPath(), b.getPath())) {
                         jx1.c("ExtCore-DebugDownload", "download success");
                         b03.f(qj2.c(), R.string.obfuscated_res_0x7f0f0123).G();
                         this.b.put("status", 0);

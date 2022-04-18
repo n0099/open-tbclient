@@ -4,11 +4,12 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public abstract class qb4 implements tb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,17 +28,61 @@ public abstract class qb4 implements tb4 {
         }
     }
 
-    @Override // com.repackage.tb4
-    public void a(JSONArray jSONArray, d84 d84Var, @Nullable d84 d84Var2, @Nullable d84 d84Var3) {
+    public static <T> T e(@Nullable T t, @Nullable rb4<T> rb4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, d84Var, d84Var2, d84Var3) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, rb4Var)) == null) {
+            if (t != null && rb4Var != null) {
+                rb4Var.a(t);
+            }
+            return t;
         }
+        return (T) invokeLL.objValue;
     }
 
     @Override // com.repackage.tb4
-    public void b(JSONObject jSONObject, d84 d84Var, @Nullable d84 d84Var2, @Nullable d84 d84Var3) {
+    @Nullable
+    public JSONObject a(@Nullable rb4<JSONObject> rb4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, d84Var, d84Var2, d84Var3) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rb4Var)) == null) {
+            JSONObject d = d();
+            e(d, rb4Var);
+            return d;
         }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.repackage.tb4
+    @Nullable
+    public JSONArray b(@Nullable rb4<JSONArray> rb4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rb4Var)) == null) {
+            JSONArray c = c();
+            e(c, rb4Var);
+            return c;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    @Nullable
+    public JSONArray c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    @Nullable
+    public JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

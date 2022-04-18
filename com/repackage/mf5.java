@@ -170,7 +170,7 @@ public class mf5 extends Dialog {
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090297);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090823);
             this.k = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f090820);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f092467);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f092468);
             this.c.setPlaceHolder(2);
             this.c.setConrers(15);
             e();
@@ -201,19 +201,19 @@ public class mf5 extends Dialog {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wr4 d = wr4.d(this.a);
+            vr4 d = vr4.d(this.a);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            wr4 d2 = wr4.d(this.d);
+            vr4 d2 = vr4.d(this.d);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            wr4.d(this.e).v(R.color.CAM_X0108);
-            wr4.d(this.f).v(R.color.CAM_X0108);
-            wr4.d(this.g).v(R.color.CAM_X0304);
-            wr4.d(this.h).v(R.color.CAM_X0304);
-            wr4.d(this.i).v(R.color.CAM_X0107);
-            wr4.d(this.b).f(R.color.CAM_X0107);
-            WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f0808fd, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
+            vr4.d(this.e).v(R.color.CAM_X0108);
+            vr4.d(this.f).v(R.color.CAM_X0108);
+            vr4.d(this.g).v(R.color.CAM_X0304);
+            vr4.d(this.h).v(R.color.CAM_X0304);
+            vr4.d(this.i).v(R.color.CAM_X0107);
+            vr4.d(this.b).f(R.color.CAM_X0107);
+            WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080901, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
             this.k.i();
         }
     }

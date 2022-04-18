@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d57;
+import com.repackage.b57;
+import com.repackage.g57;
 import com.repackage.jc5;
-import com.repackage.y47;
 /* loaded from: classes3.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements y47 {
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements b57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    public abstract boolean first(y47 y47Var);
+    public abstract boolean first(b57 b57Var);
 
     public abstract boolean initData(Bundle bundle);
 
@@ -76,7 +76,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             if (first(this)) {
                 loadDraft();
                 regReceiver();
-                d57.a = jc5.e();
+                g57.a = jc5.e();
             }
         }
     }
@@ -90,7 +90,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // com.repackage.y47
+    @Override // com.repackage.b57
     public void onFirstHistoryPageLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {

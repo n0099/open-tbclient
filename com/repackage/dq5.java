@@ -1,28 +1,100 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class dq5 {
     public static /* synthetic */ Interceptable $ic;
-    public static dq5 b;
+    public static dq5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StatisticItem> a;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final dq5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-434698005, "Lcom/repackage/dq5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-434698005, "Lcom/repackage/dq5$b;");
+                    return;
+                }
+            }
+            a = new dq5(null);
+        }
+    }
+
+    public /* synthetic */ dq5(a aVar) {
+        this();
+    }
+
+    public static dq5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                a = b.a;
+            }
+            return a;
+        }
+        return (dq5) invokeV.objValue;
+    }
+
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 1 ? SkinManager.SKIN_TYPE_STR_NIGHT : i == 4 ? "dark" : Config.TRACE_VISIT_RECENT_DAY : (String) invokeI.objValue;
+    }
+
+    public void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            if (!LiveFeedPageSdk.f().l()) {
+                u90.a().d(R.raw.lottie_common_pull_refresh, R.raw.obfuscated_res_0x7f11002c, R.raw.obfuscated_res_0x7f11002d, R.raw.obfuscated_res_0x7f11002c, 15, 15, 30, 30);
+                u90.a().b("live_feed_page_load_more.json", "live_feed_page_load_more.json", "live_feed_page_load_more.json", "live_feed_page_load_more.json");
+                u90.a().c(R.raw.lottie_full_screen_refresh, R.raw.obfuscated_res_0x7f110039, R.raw.obfuscated_res_0x7f11003a, R.raw.obfuscated_res_0x7f110039, "", 67.0f, 67.0f);
+                fa0.a().b(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
+                fa0.a().c(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
+                fa0.a().d(R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, 125.0f, 125.0f);
+                fa0.a().e(R.drawable.obfuscated_res_0x7f080d1a, R.drawable.obfuscated_res_0x7f080d1b, R.drawable.obfuscated_res_0x7f080d19, R.drawable.obfuscated_res_0x7f080d1a);
+                LiveFeedPageSdk.f().k(new oh7());
+                LiveFeedPageSdk.f().i("tieba", b(TbadkCoreApplication.getInst().getSkinType()));
+                LiveFeedPageSdk.f().j(new eq5());
+                LiveFeedPageSdk.f().p();
+            }
+            LiveFeedPageSdk.f().o(context);
+            if (LiveFeedPageSdk.f().g() == null || TextUtils.isEmpty(LiveFeedPageSdk.f().g().c())) {
+                return;
+            }
+            LiveFeedPageSdk.f().r(LiveFeedPageSdk.f().g().c());
+        }
+    }
 
     public dq5() {
         Interceptable interceptable = $ic;
@@ -36,138 +108,5 @@ public class dq5 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static dq5 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (dq5.class) {
-                    if (b == null) {
-                        b = new dq5();
-                    }
-                }
-            }
-            return b;
-        }
-        return (dq5) invokeV.objValue;
-    }
-
-    public void a(StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
-            return;
-        }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        List<StatisticItem> list = this.a;
-        if (list != null) {
-            list.add(statisticItem);
-        }
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
-            return;
-        }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        List<StatisticItem> list = this.a;
-        if (list != null) {
-            list.add(new StatisticItem(str));
-        }
-    }
-
-    public final long d(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData)) == null) {
-            if (threadData == null || threadData.getThreadAlaInfo() == null) {
-                return -1L;
-            }
-            return threadData.getThreadAlaInfo().live_id;
-        }
-        return invokeL.longValue;
-    }
-
-    public StatisticItem e(int i, String str, int i2, String str2, ThreadData threadData) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, threadData})) == null) {
-            if (threadData == null) {
-                return null;
-            }
-            String str3 = (threadData.getThreadAlaInfo() == null || StringUtils.isNull(threadData.getThreadAlaInfo().appId)) ? "" : threadData.getThreadAlaInfo().appId;
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", 1);
-            statisticItem.param("obj_id", d(threadData));
-            statisticItem.param("tid", threadData.getId());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
-            statisticItem.param("entryid", i2);
-            statisticItem.param("name", str2);
-            statisticItem.param("is_small_follow", i);
-            return statisticItem;
-        }
-        return (StatisticItem) invokeCommon.objValue;
-    }
-
-    public void f(String str, int i, int i2, String str2, long j, String str3, AlaInfoData alaInfoData) {
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, Long.valueOf(j), str3, alaInfoData}) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_source", i);
-            statisticItem.param("obj_type", i2);
-            statisticItem.param("tid", str2);
-            if (j > 0) {
-                statisticItem.param("fid", j);
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                statisticItem.param("fname", str3);
-            }
-            int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfoData);
-            if (alaInfoData == null || !alaInfoData.isLegalYYLiveData()) {
-                str4 = "";
-            } else {
-                TiebaStaticHelper.addYYParam(statisticItem, alaInfoData.mYyExtData);
-                str4 = TiebaStatic.YYValues.YY_LIVE;
-            }
-            statisticItem.param("obj_param1", calculateLiveType);
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str4);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ListUtils.getCount(this.a) == 0) {
-            return;
-        }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                TiebaStatic.log(statisticItem);
-            }
-        }
-        this.a.clear();
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || ListUtils.getCount(this.a) == 0) {
-            return;
-        }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                if (!statisticItem.getParams().contains(TiebaStatic.Params.OBJ_PARAM2)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, z ? 1 : 0);
-                }
-                TiebaStatic.log(statisticItem);
-            }
-        }
-        this.a.clear();
     }
 }

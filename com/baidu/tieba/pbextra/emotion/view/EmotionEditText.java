@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dz8;
+import com.repackage.kz8;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class EmotionEditText extends FrameLayout {
@@ -334,7 +334,7 @@ public class EmotionEditText extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             ImageView imageView = new ImageView(getContext());
             this.b = imageView;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080711);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080710);
             this.b.setOnClickListener(new b(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             ImageView imageView2 = this.b;
@@ -349,7 +349,7 @@ public class EmotionEditText extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ImageView imageView = new ImageView(getContext());
             this.c = imageView;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080712);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080711);
             this.c.setOnTouchListener(new a(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
@@ -379,7 +379,7 @@ public class EmotionEditText extends FrameLayout {
             this.a.setIncludeFontPadding(false);
             this.a.getPaint().setFakeBoldText(true);
             this.a.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
-            dz8.l(this.a, R.drawable.obfuscated_res_0x7f0804bc);
+            kz8.l(this.a, R.drawable.obfuscated_res_0x7f0804bc);
             this.a.addTextChangedListener(new c(this));
             return layoutParams;
         }

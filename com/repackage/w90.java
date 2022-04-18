@@ -314,7 +314,7 @@ public class w90 extends t90 {
             }
             View inflate = LayoutInflater.from(getContext()).inflate(i2, (ViewGroup) null);
             this.d = inflate;
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091959);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09195a);
             ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.d.findViewById(R.id.obfuscated_res_0x7f0906f7);
             this.j = continuousAnimationView;
             continuousAnimationView.setOnClickListener(this.s);

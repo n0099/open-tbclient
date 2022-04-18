@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cq8;
-import com.repackage.dk8;
+import com.repackage.jq8;
+import com.repackage.kk8;
 import com.repackage.wa;
 /* loaded from: classes4.dex */
 public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
@@ -78,9 +78,9 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                     this.a.c = setPendantSocketResponse.getFreeUseLevel();
                 }
                 if (this.a.e != null) {
-                    int i = cq8.b;
-                    if (responsedMessage.getError() == cq8.c) {
-                        i = cq8.a;
+                    int i = jq8.b;
+                    if (responsedMessage.getError() == jq8.c) {
+                        i = jq8.a;
                     }
                     this.a.e.onSetPendantCallback(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
                 }
@@ -108,8 +108,8 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        dk8.h(309412, SetPendantSocketResponse.class, false, false);
-        dk8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        kk8.h(309412, SetPendantSocketResponse.class, false, false);
+        kk8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.f);
     }
 

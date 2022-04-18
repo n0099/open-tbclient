@@ -2,23 +2,22 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xy9;
-import java.util.concurrent.ThreadFactory;
+import com.repackage.bz9;
+import com.repackage.fz9;
 /* loaded from: classes7.dex */
-public final class u0a extends xy9 {
+public final class u0a<T> implements bz9.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThreadFactory a;
+    public final fz9.c<T> a;
 
-    public u0a(ThreadFactory threadFactory) {
+    public u0a(fz9.c<T> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
+            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,13 +27,20 @@ public final class u0a extends xy9 {
                 return;
             }
         }
-        this.a = threadFactory;
+        this.a = cVar;
     }
 
-    @Override // com.repackage.xy9
-    public xy9.a createWorker() {
-        InterceptResult invokeV;
+    @Override // com.repackage.bz9.a, com.repackage.pz9
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((hz9) ((hz9) obj));
+    }
+
+    public void call(hz9<? super T> hz9Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new v0a(this.a) : (xy9.a) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
+            s0a s0aVar = new s0a(hz9Var);
+            hz9Var.b(s0aVar);
+            this.a.call(s0aVar);
+        }
     }
 }

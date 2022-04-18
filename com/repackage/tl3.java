@@ -199,7 +199,7 @@ public class tl3 implements cm1 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            int[] iArr = {R.string.obfuscated_res_0x7f0f1218, R.string.obfuscated_res_0x7f0f121a, R.string.obfuscated_res_0x7f0f121e};
+            int[] iArr = {R.string.obfuscated_res_0x7f0f1217, R.string.obfuscated_res_0x7f0f1219, R.string.obfuscated_res_0x7f0f121d};
             if (ld3.a(context, "android.permission.SET_WALLPAPER")) {
                 return iArr;
             }

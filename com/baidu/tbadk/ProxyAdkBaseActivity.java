@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.compatible.menukey.MenuKeyUtils;
-import com.repackage.bu4;
+import com.repackage.au4;
 import com.repackage.g45;
 import com.repackage.h45;
 import com.repackage.oi;
+import com.repackage.qm4;
 import com.repackage.rg;
-import com.repackage.rm4;
-import com.repackage.tm4;
+import com.repackage.sm4;
 import com.repackage.xo;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -74,8 +74,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public final GuidPageView mGuidPage;
     public boolean mIsLogin;
     public boolean mLayoutHasInit;
-    public rm4 mLayoutInflateFactory;
-    public tm4 mLayoutMode;
+    public qm4 mLayoutInflateFactory;
+    public sm4 mLayoutMode;
     public AlertDialog mListMenu;
     public int mMaxHeight;
     public int mPreHeight;
@@ -385,7 +385,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public void adjustResizeForSoftInput() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.mUseStyleImmersiveSticky) {
-            bu4.c(getPageContext().getPageActivity());
+            au4.c(getPageContext().getPageActivity());
         }
     }
 
@@ -595,16 +595,16 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? TbadkCoreApplication.getInst().isGpuOpen() : invokeV.booleanValue;
     }
 
-    public rm4 getLayoutInflate() {
+    public qm4 getLayoutInflate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mLayoutInflateFactory : (rm4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mLayoutInflateFactory : (qm4) invokeV.objValue;
     }
 
-    public tm4 getLayoutMode() {
+    public sm4 getLayoutMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mLayoutMode : (tm4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.mLayoutMode : (sm4) invokeV.objValue;
     }
 
     public AlertDialog getListMenu() {
@@ -706,7 +706,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048614, this, strArr, onClickListener)) == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cdb));
+            builder.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cda));
             builder.setItems(strArr, onClickListener);
             AlertDialog create = builder.create();
             this.mListMenu = create;
@@ -752,10 +752,10 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             MenuKeyUtils.hideSmartBarMenu(getActivity());
             this.customToast = CustomToast.newInstance();
             super.onCreate(bundle);
-            this.mLayoutMode = new tm4();
-            rm4 rm4Var = new rm4();
-            this.mLayoutInflateFactory = rm4Var;
-            rm4Var.a(this.mLayoutMode);
+            this.mLayoutMode = new sm4();
+            qm4 qm4Var = new qm4();
+            this.mLayoutInflateFactory = qm4Var;
+            qm4Var.a(this.mLayoutMode);
             getLayoutInflater().setFactory(this.mLayoutInflateFactory);
             if (getGpuSwitch()) {
                 CompatibleUtile.getInstance().openGpu(getActivity());
@@ -780,9 +780,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (guidPageView != null) {
                 guidPageView.b();
             }
-            tm4 tm4Var = this.mLayoutMode;
-            if (tm4Var != null) {
-                tm4Var.c();
+            sm4 sm4Var = this.mLayoutMode;
+            if (sm4Var != null) {
+                sm4Var.c();
             }
             View view2 = this.loadingRootView;
             if (view2 != null) {
@@ -931,17 +931,17 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void setLayoutInflate(rm4 rm4Var) {
+    public void setLayoutInflate(qm4 qm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, rm4Var) == null) {
-            this.mLayoutInflateFactory = rm4Var;
+        if (interceptable == null || interceptable.invokeL(1048631, this, qm4Var) == null) {
+            this.mLayoutInflateFactory = qm4Var;
         }
     }
 
-    public void setLayoutMode(tm4 tm4Var) {
+    public void setLayoutMode(sm4 sm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, tm4Var) == null) {
-            this.mLayoutMode = tm4Var;
+        if (interceptable == null || interceptable.invokeL(1048632, this, sm4Var) == null) {
+            this.mLayoutMode = sm4Var;
         }
     }
 
@@ -1282,7 +1282,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public void adjustResizeForSoftInput(int i, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && this.mUseStyleImmersiveSticky) {
-            bu4.d(getPageContext().getPageActivity(), i, z);
+            au4.d(getPageContext().getPageActivity(), i, z);
         }
     }
 
@@ -1293,7 +1293,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             if (this.mProgressBar == null) {
                 ProgressBar progressBar2 = new ProgressBar(getActivity());
                 this.mProgressBar = progressBar2;
-                progressBar2.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f97));
+                progressBar2.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f9b));
                 FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
                 frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(-2, -2, 17));
             }

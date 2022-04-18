@@ -83,7 +83,7 @@ public class f73 {
         UbcFlowEvent g;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, hybridUbcFlow) == null) && "670".equals(hybridUbcFlow.l())) {
-            hybridUbcFlow.D("networkStatus", String.valueOf(wr2.a()));
+            hybridUbcFlow.D("networkStatus", String.valueOf(wr2.b()));
             if (hu2.f || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
                 return;
             }

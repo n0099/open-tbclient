@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.constants.Constants;
-import com.repackage.jo4;
+import com.repackage.io4;
 import com.repackage.ug;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,7 +32,7 @@ public class CDNProblemUploader extends ICDNProblemUploader {
     public static Object m;
     public static volatile CDNProblemUploader n;
     public transient /* synthetic */ FieldHolder $fh;
-    public jo4 a;
+    public io4 a;
     public int b;
     public boolean c;
     public long d;
@@ -162,10 +162,10 @@ public class CDNProblemUploader extends ICDNProblemUploader {
                             this.h.d = System.currentTimeMillis();
                         }
                         String optString = jSONObject.optString("photo_strategy");
-                        jo4 jo4Var = new jo4();
-                        jo4Var.h(optString);
-                        if (jo4Var.g() != this.h.getmCdnLogData().g() || jo4Var.a() != this.h.getmCdnLogData().a() || jo4Var.c() != this.h.getmCdnLogData().c() || jo4Var.f() != this.h.getmCdnLogData().f()) {
-                            this.h.setmCdnLogData(jo4Var);
+                        io4 io4Var = new io4();
+                        io4Var.h(optString);
+                        if (io4Var.g() != this.h.getmCdnLogData().g() || io4Var.a() != this.h.getmCdnLogData().a() || io4Var.c() != this.h.getmCdnLogData().c() || io4Var.f() != this.h.getmCdnLogData().f()) {
+                            this.h.setmCdnLogData(io4Var);
                         }
                     }
                 } finally {
@@ -436,10 +436,10 @@ public class CDNProblemUploader extends ICDNProblemUploader {
     }
 
     @Override // com.baidu.tbadk.core.util.ICDNProblemUploader
-    public jo4 getmCdnLogData() {
+    public io4 getmCdnLogData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (jo4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (io4) invokeV.objValue;
     }
 
     public final void h(int i, int i2, int i3, String str, int i4, String str2) {
@@ -478,11 +478,11 @@ public class CDNProblemUploader extends ICDNProblemUploader {
     }
 
     @Override // com.baidu.tbadk.core.util.ICDNProblemUploader
-    public void setmCdnLogData(jo4 jo4Var) {
+    public void setmCdnLogData(io4 io4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jo4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, io4Var) == null) {
             synchronized (m) {
-                this.a = jo4Var;
+                this.a = io4Var;
             }
         }
     }

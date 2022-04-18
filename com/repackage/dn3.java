@@ -56,7 +56,7 @@ public final class dn3 {
 
     /* loaded from: classes5.dex */
     public interface b {
-        hd4 a();
+        gd4 a();
 
         void b(boolean z, l62 l62Var);
 
@@ -98,6 +98,6 @@ public final class dn3 {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? gn5.a() : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? in5.a() : (b) invokeV.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
 import android.text.TextUtils;
-import com.repackage.rm9;
+import com.repackage.ym9;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +23,7 @@ public abstract class BasicPushStatus implements Serializable {
         try {
             parseValueData(parse.getJSONObject("value"));
         } catch (JSONException e) {
-            rm9.b(TAG, "parse value data error " + e.getMessage() + " json " + str);
+            ym9.b(TAG, "parse value data error " + e.getMessage() + " json " + str);
         }
     }
 
@@ -53,7 +53,7 @@ public abstract class BasicPushStatus implements Serializable {
             } catch (JSONException e) {
                 e = e;
                 jSONObject = jSONObject2;
-                rm9.b(TAG, "covert json error " + e.getMessage());
+                ym9.b(TAG, "covert json error " + e.getMessage());
                 return jSONObject;
             }
         } catch (JSONException e2) {

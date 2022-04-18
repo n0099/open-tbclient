@@ -80,7 +80,7 @@ public class d extends Dialog {
         setContentView(LayoutInflater.from(this.f.getApplicationContext()).inflate(a(), (ViewGroup) null));
         this.a = (TextView) findViewById(b());
         this.b = (TextView) findViewById(c());
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091406);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091407);
         if (!TextUtils.isEmpty(this.h)) {
             this.a.setText(this.h);
         }

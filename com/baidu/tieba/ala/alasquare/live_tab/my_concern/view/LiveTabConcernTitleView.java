@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rw5;
-import com.repackage.wq5;
+import com.repackage.tw5;
+import com.repackage.yq5;
 /* loaded from: classes3.dex */
-public class LiveTabConcernTitleView extends rw5<wq5> {
+public class LiveTabConcernTitleView extends tw5<yq5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
@@ -52,7 +52,7 @@ public class LiveTabConcernTitleView extends rw5<wq5> {
             this.a = liveTabConcernTitleView;
             View k = liveTabConcernTitleView.k();
             this.b = k;
-            this.c = (TextView) k.findViewById(R.id.obfuscated_res_0x7f091e39);
+            this.c = (TextView) k.findViewById(R.id.obfuscated_res_0x7f091e3a);
         }
     }
 
@@ -79,14 +79,14 @@ public class LiveTabConcernTitleView extends rw5<wq5> {
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07fb : invokeV.intValue;
     }
 
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -103,14 +103,14 @@ public class LiveTabConcernTitleView extends rw5<wq5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     /* renamed from: s */
-    public void l(wq5 wq5Var) {
+    public void l(yq5 yq5Var) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, wq5Var) == null) || wq5Var == null || StringUtils.isNull(wq5Var.b) || (viewHolder = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, yq5Var) == null) || yq5Var == null || StringUtils.isNull(yq5Var.b) || (viewHolder = this.i) == null) {
             return;
         }
-        viewHolder.c.setText(wq5Var.b);
+        viewHolder.c.setText(yq5Var.b);
     }
 }

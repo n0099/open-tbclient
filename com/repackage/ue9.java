@@ -1,23 +1,66 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ue9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean d;
+    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
+    public ve9 a;
+    public JSONObject b;
+    public JSONObject c;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ue9 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(41034474, "Lcom/repackage/ue9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(41034474, "Lcom/repackage/ue9$b;");
+                    return;
+                }
+            }
+            a = new ue9(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,202 +75,230 @@ public class ue9 {
                 return;
             }
         }
-        a = AppConfig.isDebug();
+        d = AppConfig.isDebug();
+        e = AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + "yalog/";
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0049 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x004b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00b4 */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x008a, code lost:
-        if (com.repackage.ue9.a == false) goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x008c, code lost:
-        r5.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x00b0, code lost:
-        if (com.repackage.ue9.a == false) goto L49;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x00bf A[Catch: IOException -> 0x00bb, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x00c4 A[Catch: IOException -> 0x00bb, TRY_LEAVE, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r2v10 */
-    /* JADX WARN: Type inference failed for: r2v2 */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5 */
-    /* JADX WARN: Type inference failed for: r2v6, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v7, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v9, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r3v0 */
-    /* JADX WARN: Type inference failed for: r3v12 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v5 */
-    /* JADX WARN: Type inference failed for: r3v6, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r3v9 */
-    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Object, java.io.File] */
-    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r5v14 */
-    /* JADX WARN: Type inference failed for: r5v15 */
-    /* JADX WARN: Type inference failed for: r5v16, types: [java.io.BufferedInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r5v2 */
-    /* JADX WARN: Type inference failed for: r5v3 */
-    /* JADX WARN: Type inference failed for: r5v5 */
-    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r5v8, types: [java.io.BufferedInputStream] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(File file) {
-        ?? r2;
-        ?? r3;
-        BufferedReader bufferedReader;
+    public /* synthetic */ ue9(a aVar) {
+        this();
+    }
+
+    public static ue9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (ue9) invokeV.objValue;
+    }
+
+    public Map<String, we9> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.c() : (Map) invokeV.objValue;
+    }
+
+    public float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.d() : invokeV.floatValue;
+    }
+
+    public float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.e() : invokeV.floatValue;
+    }
+
+    public List<xe9> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.f() : (List) invokeV.objValue;
+    }
+
+    public float f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.g() : invokeV.floatValue;
+    }
+
+    public float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.h() : invokeV.floatValue;
+    }
+
+    public float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.i() : invokeV.floatValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.a == null) {
+                this.a = new ve9();
+            }
+            j();
+            k();
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (!new File(e).exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "dir not exists.");
+                    return;
+                }
+                return;
+            }
+            File file = new File(e, "yalog_cloud.txt");
+            if (!file.exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "yalog_cloud.txt not exists, use default value.");
+                }
+                this.a.l();
+                return;
+            }
+            String a2 = bf9.a(file);
+            if (d) {
+                Log.d("YaLogConfigManager", "read from local: " + a2);
+            }
+            if (TextUtils.isEmpty(a2)) {
+                this.a.l();
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(a2);
+                this.b = jSONObject;
+                this.a.p(jSONObject.optString(TbConfig.SW_APID));
+                this.a.m(this.b.optString("cl"));
+                this.a.w((float) this.b.optDouble("tosize"));
+                this.a.s((float) this.b.optDouble("sisize"));
+                this.a.u((float) this.b.optDouble("spsize"));
+                this.a.v((float) this.b.optDouble("sptime"));
+                this.a.r((float) this.b.optDouble("idsize"));
+                if (this.b.has("spdelist")) {
+                    List<String> asList = Arrays.asList(this.b.optString("spdelist"));
+                    if (asList.size() > 0) {
+                        this.a.o(asList);
+                    }
+                }
+                if (this.b.has("splist")) {
+                    JSONObject optJSONObject = this.b.optJSONObject("splist");
+                    ArrayList arrayList = new ArrayList();
+                    if (optJSONObject != null && optJSONObject.length() > 0) {
+                        Iterator<String> keys = optJSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
+                            if (optJSONObject2 != null) {
+                                arrayList.add(new xe9(next, !TextUtils.equals("0", optJSONObject2.optString(TbConfig.SW_APID)), (float) optJSONObject2.optDouble("size"), (float) optJSONObject2.optDouble("time")));
+                            }
+                        }
+                    }
+                    if (arrayList.size() > 0) {
+                        this.a.t(arrayList);
+                    }
+                }
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void k() {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (!new File(e).exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "dir not exists.");
+                    return;
+                }
+                return;
+            }
+            File file = new File(e, "yalog_id_cloud.txt");
+            if (!file.exists()) {
+                if (d) {
+                    Log.d("YaLogConfigManager", "yalog_id_cloud.txt not exists.");
+                    return;
+                }
+                return;
+            }
+            String a2 = bf9.a(file);
+            if (d) {
+                Log.d("YaLogConfigManager", "read from local: " + a2);
+            }
+            if (TextUtils.isEmpty(a2)) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(a2);
+                this.c = jSONObject;
+                if (jSONObject.has("iddemap") && (optJSONObject = this.c.optJSONObject("iddemap")) != null && optJSONObject.length() > 0) {
+                    HashMap hashMap = new HashMap();
+                    Iterator<String> keys = optJSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        hashMap.put(next, optJSONObject.optString(next));
+                    }
+                    if (hashMap.size() > 0) {
+                        this.a.n(hashMap);
+                    }
+                }
+                if (this.c.has("idlist")) {
+                    JSONObject optJSONObject2 = this.c.optJSONObject("idlist");
+                    HashMap hashMap2 = new HashMap();
+                    if (optJSONObject2 != null && optJSONObject2.length() > 0) {
+                        Iterator<String> keys2 = optJSONObject2.keys();
+                        while (keys2.hasNext()) {
+                            String next2 = keys2.next();
+                            JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next2);
+                            if (optJSONObject3 != null) {
+                                hashMap2.put(next2, new we9(next2, optJSONObject3.optLong("v"), !TextUtils.equals("0", optJSONObject3.optString(TbConfig.SW_APID)), (float) optJSONObject3.optDouble("size")));
+                            }
+                        }
+                    }
+                    if (hashMap2.size() > 0) {
+                        this.a.q(hashMap2);
+                    }
+                }
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.j() : invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a.k() : invokeV.booleanValue;
+    }
+
+    public ue9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            r2 = interceptable;
-            r3 = 65537;
-            InterceptResult invokeL = r2.invokeL(65537, null, file);
-            if (invokeL != null) {
-                return (String) invokeL.objValue;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        if (file == 0 || !file.exists()) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        try {
-            try {
-                r2 = new FileInputStream((File) file);
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (FileNotFoundException e) {
-            e = e;
-            file = 0;
-            r2 = 0;
-            bufferedReader = null;
-        } catch (IOException e2) {
-            e = e2;
-            file = 0;
-            r2 = 0;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            r2 = 0;
-            r3 = 0;
-        }
-        try {
-            file = new BufferedInputStream(r2);
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(file));
-                while (true) {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine);
-                    } catch (FileNotFoundException e3) {
-                        e = e3;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e4) {
-                                e = e4;
-                            }
-                        }
-                        if (file != 0) {
-                            file.close();
-                        }
-                        if (r2 != 0) {
-                            r2.close();
-                        }
-                        return null;
-                    } catch (IOException e5) {
-                        e = e5;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e6) {
-                                e = e6;
-                            }
-                        }
-                        if (file != 0) {
-                            file.close();
-                        }
-                        if (r2 != 0) {
-                            r2.close();
-                        }
-                        return null;
-                    }
-                }
-                String sb2 = sb.toString();
-                try {
-                    bufferedReader.close();
-                    file.close();
-                    r2.close();
-                } catch (IOException e7) {
-                    if (a) {
-                        e7.printStackTrace();
-                    }
-                }
-                return sb2;
-            } catch (FileNotFoundException e8) {
-                e = e8;
-                bufferedReader = null;
-            } catch (IOException e9) {
-                e = e9;
-                bufferedReader = null;
-            } catch (Throwable th3) {
-                r3 = 0;
-                th = th3;
-                if (r3 != 0) {
-                    try {
-                        r3.close();
-                    } catch (IOException e10) {
-                        if (a) {
-                            e10.printStackTrace();
-                        }
-                        throw th;
-                    }
-                }
-                if (file != 0) {
-                    file.close();
-                }
-                if (r2 != 0) {
-                    r2.close();
-                }
-                throw th;
-            }
-        } catch (FileNotFoundException e11) {
-            e = e11;
-            file = 0;
-            bufferedReader = null;
-        } catch (IOException e12) {
-            e = e12;
-            file = 0;
-            bufferedReader = null;
-        } catch (Throwable th4) {
-            th = th4;
-            r3 = 0;
-            r2 = r2;
-            th = th;
-            file = r3;
-            if (r3 != 0) {
-            }
-            if (file != 0) {
-            }
-            if (r2 != 0) {
-            }
-            throw th;
-        }
+        i();
     }
 }

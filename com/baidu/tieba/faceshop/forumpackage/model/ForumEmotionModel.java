@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.ia6;
+import com.repackage.ka6;
 /* loaded from: classes3.dex */
 public class ForumEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -29,7 +29,7 @@ public class ForumEmotionModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public final ia6 c;
+    public final ka6 c;
     public final HttpMessageListener d;
 
     /* loaded from: classes3.dex */
@@ -122,7 +122,7 @@ public class ForumEmotionModel extends BdBaseModel {
         }
         this.a = 1;
         this.b = true;
-        this.c = new ia6();
+        this.c = new ka6();
         this.d = new a(this, CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
         registerTask();
         this.d.setTag(getUniqueId());
@@ -130,10 +130,10 @@ public class ForumEmotionModel extends BdBaseModel {
         registerListener(this.d);
     }
 
-    public ia6 A() {
+    public ka6 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ia6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ka6) invokeV.objValue;
     }
 
     public void B(b bVar) {

@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lv4;
 import com.repackage.mg;
-import com.repackage.mv4;
 import com.repackage.ni;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ import tbclient.TbVipInfo;
 import tbclient.TshowInfo;
 import tbclient.User;
 /* loaded from: classes3.dex */
-public class MetaData extends OrmObject implements Serializable, mv4 {
+public class MetaData extends OrmObject implements Serializable, lv4 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2658065756886586092L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -279,7 +279,7 @@ public class MetaData extends OrmObject implements Serializable, mv4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.fansNickName : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.lv4
     public int getFansNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -353,7 +353,7 @@ public class MetaData extends OrmObject implements Serializable, mv4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.is_god_user : invokeV.intValue;
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.lv4
     public boolean getIsLike() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -426,7 +426,7 @@ public class MetaData extends OrmObject implements Serializable, mv4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.likeNum : invokeV.intValue;
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.lv4
     public int getLikeStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -469,7 +469,7 @@ public class MetaData extends OrmObject implements Serializable, mv4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.pendantData : (UserPendantData) invokeV.objValue;
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.lv4
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -536,7 +536,7 @@ public class MetaData extends OrmObject implements Serializable, mv4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.uk : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.lv4
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -603,7 +603,7 @@ public class MetaData extends OrmObject implements Serializable, mv4 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.lv4
     public boolean isGod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -885,7 +885,7 @@ public class MetaData extends OrmObject implements Serializable, mv4 {
         }
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.lv4
     public void setFansNum(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048659, this, i) == null) {
@@ -978,7 +978,7 @@ public class MetaData extends OrmObject implements Serializable, mv4 {
         }
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.lv4
     public void setIsFromNetWork(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048672, this, z) == null) {
@@ -1064,7 +1064,7 @@ public class MetaData extends OrmObject implements Serializable, mv4 {
         }
     }
 
-    @Override // com.repackage.mv4
+    @Override // com.repackage.lv4
     public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048683, this, i) == null) {

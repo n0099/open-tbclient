@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mg;
 import com.repackage.oi;
 import com.repackage.p05;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -440,16 +440,16 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             super.initPersonalHeader(talkableActivity, z);
             PersonalChatActivity personalChatActivity = (PersonalChatActivity) talkableActivity;
             this.b = personalChatActivity;
-            String string = personalChatActivity.isReportSelect() ? talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0421) : talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0acc);
+            String string = personalChatActivity.isReportSelect() ? talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0421) : talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0acb);
             if (string != null) {
                 View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d06de, talkableActivity);
                 this.mBtnGroupInfo = addCustomView;
-                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090cfd);
+                TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090cfe);
                 this.a = textView;
                 textView.setText(string);
             }
             if (!this.b.isFriend()) {
-                LinearLayout linearLayout = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f091da1)).inflate();
+                LinearLayout linearLayout = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f091da2)).inflate();
                 this.c = linearLayout;
                 this.d = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f090117);
                 this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090118);
@@ -467,22 +467,22 @@ public class PersonalChatView extends CommonPersonalMsglistView {
                     this.a.setEnabled(false);
                     this.mBtnGroupInfo.setEnabled(false);
                 }
-                this.mNavigationBar.setCenterTextTitle(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ed2));
+                this.mNavigationBar.setCenterTextTitle(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0ed1));
                 if (!this.b.checkUid()) {
                     KeyboardLayout keyboardLayout = this.mRootView;
                     NoDataViewFactory.d.a aVar = new NoDataViewFactory.d.a();
                     aVar.i(NoDataViewFactory.ImgType.LOCAL);
                     aVar.h(R.drawable.new_pic_emotion_01);
                     aVar.j(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0702c2));
-                    NoDataView a2 = NoDataViewFactory.a(talkableActivity, keyboardLayout, aVar.f(), NoDataViewFactory.e.d(null, talkableActivity.getString(R.string.obfuscated_res_0x7f0f0c2f)), null);
+                    NoDataView a2 = NoDataViewFactory.a(talkableActivity, keyboardLayout, aVar.f(), NoDataViewFactory.e.d(null, talkableActivity.getString(R.string.obfuscated_res_0x7f0f0c2e)), null);
                     this.k = a2;
                     a2.setVisibility(0);
                     this.k.f(talkableActivity.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
                 } else {
-                    LinearLayout linearLayout2 = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f09179e)).inflate();
+                    LinearLayout linearLayout2 = (LinearLayout) ((ViewStub) talkableActivity.findViewById(R.id.obfuscated_res_0x7f09179f)).inflate();
                     this.j = linearLayout2;
                     linearLayout2.setVisibility(0);
-                    EMTextView eMTextView = (EMTextView) this.j.findViewById(R.id.obfuscated_res_0x7f091c70);
+                    EMTextView eMTextView = (EMTextView) this.j.findViewById(R.id.obfuscated_res_0x7f091c71);
                     this.i = eMTextView;
                     eMTextView.setVisibility(0);
                     EMTextView eMTextView2 = this.i;
@@ -525,11 +525,11 @@ public class PersonalChatView extends CommonPersonalMsglistView {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             LinearLayout linearLayout = this.j;
             if (linearLayout != null) {
-                wr4.d(linearLayout).f(R.color.CAM_X0201);
+                vr4.d(linearLayout).f(R.color.CAM_X0201);
             }
             EMTextView eMTextView = this.i;
             if (eMTextView != null) {
-                wr4 d2 = wr4.d(eMTextView);
+                vr4 d2 = vr4.d(eMTextView);
                 d2.v(R.color.CAM_X0107);
                 d2.z(R.dimen.T_X05);
             }

@@ -120,7 +120,7 @@ public class z23 {
         if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
             this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f01d9);
         } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
-            this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1217);
+            this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1216);
         }
         this.b.setFloatButtonText(this.c);
     }
@@ -153,7 +153,7 @@ public class z23 {
                     this.b = a(activity, (ViewGroup) activity.findViewById(16908290));
                 }
                 this.b.setFloatButtonText(this.c);
-                this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081117));
+                this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08111b));
                 this.b.setFloatButtonDefaultPosition();
                 this.b.setFloatButtonStyle(this.d);
                 this.b.setVisibility(0);
@@ -179,7 +179,7 @@ public class z23 {
         if (de3.F(activity, optString)) {
             string = activity.getString(R.string.obfuscated_res_0x7f0f01d9);
         } else {
-            string = activity.getString(R.string.obfuscated_res_0x7f0f1217);
+            string = activity.getString(R.string.obfuscated_res_0x7f0f1216);
         }
         this.c = string;
         this.d = jSONObject.optJSONObject("style");

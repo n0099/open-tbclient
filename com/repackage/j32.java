@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bz9;
 import com.repackage.f32;
 import com.repackage.n03;
 import com.repackage.t93;
-import com.repackage.uy9;
 import java.io.File;
 import java.io.IOException;
 import java.nio.channels.ReadableByteChannel;
@@ -35,47 +35,47 @@ public abstract class j32 extends n32 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean C;
     public transient /* synthetic */ FieldHolder $fh;
-    public c84 A;
-    public az9<g94> B;
+    public b84 A;
+    public hz9<f94> B;
     public String c;
-    public az9<? super h94> d;
-    public az9<? super i94> e;
-    public az9<? super f94> f;
-    public az9<? super d94> g;
-    public az9<? super j94> h;
-    public qd4 i;
-    public h94 j;
-    public List<i94> k;
-    public f94 l;
-    public d94 m;
+    public hz9<? super g94> d;
+    public hz9<? super h94> e;
+    public hz9<? super e94> f;
+    public hz9<? super c94> g;
+    public hz9<? super i94> h;
+    public pd4 i;
+    public g94 j;
+    public List<h94> k;
+    public e94 l;
+    public c94 m;
     public PMSAppInfo n;
     public String o;
     public List<UbcFlowEvent> p;
-    public i94 q;
+    public h94 q;
     public long r;
     public final Set<s32> s;
     public final Set<cf3<PMSAppInfo>> t;
     public final me3 u;
-    public z74<h94> v;
-    public z74<i94> w;
-    public final z74<j94> x;
-    public z74<f94> y;
-    public z74<d94> z;
+    public y74<g94> v;
+    public y74<h94> w;
+    public final y74<i94> x;
+    public y74<e94> y;
+    public y74<c94> z;
 
     /* loaded from: classes6.dex */
-    public class a extends w74<h94> {
+    public class a extends v74<g94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j32 a;
 
         /* renamed from: com.repackage.j32$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0448a implements cf3<n03.a> {
+        public class C0450a implements cf3<n03.a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0448a(a aVar) {
+            public C0450a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public abstract class j32 extends n32 {
                     Bundle bundle = new Bundle();
                     bundle.putString("performance_ubc_event_id", "670");
                     bundle.putString("performance_ubc_extra_key_for_event", "na_stream_bump_end");
-                    e84.a(this.a.a, bundle, "event_performance_ubc");
+                    d84.a(this.a.a, bundle, "event_performance_ubc");
                 }
             }
         }
@@ -125,7 +125,7 @@ public abstract class j32 extends n32 {
             this.a = j32Var;
         }
 
-        @Override // com.repackage.w74
+        @Override // com.repackage.v74
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -133,13 +133,13 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.z74
+        @Override // com.repackage.y74
         /* renamed from: l */
-        public String d(h94 h94Var) {
+        public String d(g94 g94Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, h94Var)) == null) {
-                int i = h94Var.h;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, g94Var)) == null) {
+                int i = g94Var.h;
                 if (i == 0) {
                     return b42.g();
                 }
@@ -151,7 +151,7 @@ public abstract class j32 extends n32 {
             return (String) invokeL.objValue;
         }
 
-        @Override // com.repackage.b84
+        @Override // com.repackage.a84
         @NonNull
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
@@ -160,129 +160,129 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: o */
-        public void e(h94 h94Var, c94 c94Var) {
+        public void e(g94 g94Var, b94 b94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048585, this, h94Var, c94Var) == null) {
-                super.e(h94Var, c94Var);
-                jx1.k("SwanAppPkgDownloadCallback", "onDownloadError：" + c94Var.toString());
-                this.a.i.l(h94Var);
+            if (interceptable == null || interceptable.invokeLL(1048585, this, g94Var, b94Var) == null) {
+                super.e(g94Var, b94Var);
+                jx1.k("SwanAppPkgDownloadCallback", "onDownloadError：" + b94Var.toString());
+                this.a.i.l(g94Var);
                 cc3 cc3Var = new cc3();
                 cc3Var.k(11L);
-                cc3Var.i(c94Var.a);
+                cc3Var.i(b94Var.a);
                 cc3Var.d("主包下载失败");
-                cc3Var.f(c94Var.toString());
+                cc3Var.f(b94Var.toString());
                 if (this.a.d != null) {
-                    this.a.d.onError(new PkgDownloadError(h94Var, cc3Var));
+                    this.a.d.onError(new PkgDownloadError(g94Var, cc3Var));
                 }
-                f32.c().a(h94Var, this.a.l0(), cc3Var);
-                ng4.k(h94Var.a);
+                f32.c().a(g94Var, this.a.l0(), cc3Var);
+                mg4.k(g94Var.a);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: p */
-        public void i(h94 h94Var) {
+        public void i(g94 g94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, h94Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048586, this, g94Var) == null) {
                 String m0 = this.a.m0();
                 if (j32.C) {
                     ol2.d(m0).e().d(1);
                 }
-                super.i(h94Var);
+                super.i(g94Var);
                 this.a.p.add(new UbcFlowEvent("na_pms_end_download"));
-                cc3 A0 = this.a.A0(h94Var);
-                jx1.k("SwanAppPkgDownloadCallback", "main onFileDownloaded: pmsPkgMain=" + h94Var.i);
+                cc3 A0 = this.a.A0(g94Var);
+                jx1.k("SwanAppPkgDownloadCallback", "main onFileDownloaded: pmsPkgMain=" + g94Var.i);
                 if (A0 == null) {
                     j32 j32Var = this.a;
-                    j32Var.j = h94Var;
-                    j32Var.i.m(h94Var);
+                    j32Var.j = g94Var;
+                    j32Var.i.m(g94Var);
                     if (this.a.d != null) {
-                        this.a.d.onNext(h94Var);
+                        this.a.d.onNext(g94Var);
                         if (j32.C) {
                             Log.d("SwanAppPkgDownloadCallback", this.a.j0() + ": main onFileDownloaded: onCompleted");
                         }
                         this.a.d.onCompleted();
                     }
-                    f32.c().b(h94Var, this.a.l0());
+                    f32.c().b(g94Var, this.a.l0());
                     return;
                 }
-                this.a.i.l(h94Var);
+                this.a.i.l(g94Var);
                 if (this.a.d != null) {
-                    this.a.d.onError(new PkgDownloadError(h94Var, A0));
+                    this.a.d.onError(new PkgDownloadError(g94Var, A0));
                 }
-                f32.c().a(h94Var, this.a.l0(), A0);
+                f32.c().a(g94Var, this.a.l0(), A0);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: q */
-        public void c(h94 h94Var) {
+        public void c(g94 g94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, h94Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048587, this, g94Var) == null) {
                 String m0 = this.a.m0();
                 if (j32.C) {
                     ol2.d(m0).e().d(1);
                 }
-                super.c(h94Var);
+                super.c(g94Var);
                 jx1.k("SwanAppPkgDownloadCallback", "main onDownloadStart");
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: r */
-        public void f(h94 h94Var) {
+        public void f(g94 g94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, h94Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048588, this, g94Var) == null) {
                 String m0 = this.a.m0();
                 if (j32.C) {
                     ol2.d(m0).e().d(1);
                 }
-                super.f(h94Var);
+                super.f(g94Var);
                 if (j32.C) {
                     Log.i("SwanAppPkgDownloadCallback", this.a.j0() + ": main onDownloading");
                 }
-                this.a.E0(h94Var);
+                this.a.E0(g94Var);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: s */
-        public c94 h(h94 h94Var, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
+        public b94 h(g94 g94Var, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{h94Var, file, Long.valueOf(j), readableByteChannel})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{g94Var, file, Long.valueOf(j), readableByteChannel})) == null) {
                 String m0 = this.a.m0();
                 if (j32.C) {
-                    ol2.d(m0).f(h94Var.toString()).d(1);
+                    ol2.d(m0).f(g94Var.toString()).d(1);
                 }
-                C0448a c0448a = new C0448a(this);
+                C0450a c0450a = new C0450a(this);
                 Bundle bundle = new Bundle();
                 bundle.putLong("length", j);
                 bundle.putFloat("progress_granularity", 0.1f);
                 hj2 hj2Var = new hj2();
-                hj2Var.v(c0448a);
+                hj2Var.v(c0450a);
                 hj2Var.J(bundle);
-                hj2Var.I(new gj2(h94Var, this.a));
-                hj2Var.I(new ej2(h94Var.m, this.a));
+                hj2Var.I(new gj2(g94Var, this.a));
+                hj2Var.I(new ej2(g94Var.m, this.a));
                 hj2Var.L(readableByteChannel);
                 boolean M = hj2Var.M();
-                hj2Var.p(c0448a);
+                hj2Var.p(c0450a);
                 if (j32.C) {
                     Log.i("SwanAppPkgDownloadCallback", this.a.j0() + ": onProcessStream: installOk=" + M);
                 }
                 if (M) {
                     jx1.k("SwanAppPkgDownloadCallback", "#onProcessStream del: " + file.getAbsolutePath());
-                    ng4.L(file);
+                    mg4.L(file);
                 }
-                return M ? new c94(2300, "业务层处理下载流成功") : new c94(2301, "业务层处理下载流失败");
+                return M ? new b94(2300, "业务层处理下载流成功") : new b94(2301, "业务层处理下载流失败");
             }
-            return (c94) invokeCommon.objValue;
+            return (b94) invokeCommon.objValue;
         }
     }
 
@@ -438,15 +438,15 @@ public abstract class j32 extends n32 {
     public class f implements f32.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h94 a;
+        public final /* synthetic */ g94 a;
         public final /* synthetic */ j32 b;
 
-        public f(j32 j32Var, h94 h94Var) {
+        public f(j32 j32Var, g94 g94Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j32Var, h94Var};
+                Object[] objArr = {j32Var, g94Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -457,7 +457,7 @@ public abstract class j32 extends n32 {
                 }
             }
             this.b = j32Var;
-            this.a = h94Var;
+            this.a = g94Var;
         }
 
         @Override // com.repackage.f32.c
@@ -465,9 +465,9 @@ public abstract class j32 extends n32 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
                 j32 j32Var = this.b;
-                h94 h94Var = this.a;
-                j32Var.j = h94Var;
-                j32Var.i.m(h94Var);
+                g94 g94Var = this.a;
+                j32Var.j = g94Var;
+                j32Var.i.m(g94Var);
                 if (this.b.d != null) {
                     this.b.d.onNext(this.a);
                     this.b.d.onCompleted();
@@ -491,15 +491,15 @@ public abstract class j32 extends n32 {
     public class g implements f32.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i94 a;
+        public final /* synthetic */ h94 a;
         public final /* synthetic */ j32 b;
 
-        public g(j32 j32Var, i94 i94Var) {
+        public g(j32 j32Var, h94 h94Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j32Var, i94Var};
+                Object[] objArr = {j32Var, h94Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -510,7 +510,7 @@ public abstract class j32 extends n32 {
                 }
             }
             this.b = j32Var;
-            this.a = i94Var;
+            this.a = h94Var;
         }
 
         @Override // com.repackage.f32.c
@@ -521,10 +521,10 @@ public abstract class j32 extends n32 {
                 if (j32Var.k == null) {
                     j32Var.k = new ArrayList();
                 }
-                i94 i94Var = this.a;
+                h94 h94Var = this.a;
                 j32 j32Var2 = this.b;
-                i94Var.o = j32Var2.o;
-                j32Var2.k.add(i94Var);
+                h94Var.o = j32Var2.o;
+                j32Var2.k.add(h94Var);
                 this.b.i.m(this.a);
                 if (this.b.e != null) {
                     this.b.e.onNext(this.a);
@@ -552,15 +552,15 @@ public abstract class j32 extends n32 {
     public class h implements f32.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f94 a;
+        public final /* synthetic */ e94 a;
         public final /* synthetic */ j32 b;
 
-        public h(j32 j32Var, f94 f94Var) {
+        public h(j32 j32Var, e94 e94Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j32Var, f94Var};
+                Object[] objArr = {j32Var, e94Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -571,7 +571,7 @@ public abstract class j32 extends n32 {
                 }
             }
             this.b = j32Var;
-            this.a = f94Var;
+            this.a = e94Var;
         }
 
         @Override // com.repackage.f32.c
@@ -579,9 +579,9 @@ public abstract class j32 extends n32 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
                 j32 j32Var = this.b;
-                f94 f94Var = this.a;
-                j32Var.l = f94Var;
-                j32Var.i.m(f94Var);
+                e94 e94Var = this.a;
+                j32Var.l = e94Var;
+                j32Var.i.m(e94Var);
                 if (this.b.f != null) {
                     this.b.f.onNext(this.a);
                     this.b.f.onCompleted();
@@ -605,15 +605,15 @@ public abstract class j32 extends n32 {
     public class i implements f32.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d94 a;
+        public final /* synthetic */ c94 a;
         public final /* synthetic */ j32 b;
 
-        public i(j32 j32Var, d94 d94Var) {
+        public i(j32 j32Var, c94 c94Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j32Var, d94Var};
+                Object[] objArr = {j32Var, c94Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -624,7 +624,7 @@ public abstract class j32 extends n32 {
                 }
             }
             this.b = j32Var;
-            this.a = d94Var;
+            this.a = c94Var;
         }
 
         @Override // com.repackage.f32.c
@@ -633,9 +633,9 @@ public abstract class j32 extends n32 {
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSDownloadType) == null) {
                 jx1.k("SwanAppPkgDownloadCallback", "Extension Repeat: onSuccess ：" + pMSDownloadType);
                 j32 j32Var = this.b;
-                d94 d94Var = this.a;
-                j32Var.m = d94Var;
-                j32Var.i.m(d94Var);
+                c94 c94Var = this.a;
+                j32Var.m = c94Var;
+                j32Var.i.m(c94Var);
                 this.b.r0(this.a);
             }
         }
@@ -652,7 +652,7 @@ public abstract class j32 extends n32 {
     }
 
     /* loaded from: classes6.dex */
-    public class j extends az9<g94> {
+    public class j extends hz9<f94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j32 e;
@@ -676,16 +676,16 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.vy9
+        @Override // com.repackage.cz9
         /* renamed from: g */
-        public void onNext(g94 g94Var) {
+        public void onNext(f94 f94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, g94Var) == null) {
-                jx1.k("SwanAppPkgDownloadCallback", this.e.l0() + " : 单个包下载、业务层处理完成：" + g94Var.i);
+            if (interceptable == null || interceptable.invokeL(1048576, this, f94Var) == null) {
+                jx1.k("SwanAppPkgDownloadCallback", this.e.l0() + " : 单个包下载、业务层处理完成：" + f94Var.i);
             }
         }
 
-        @Override // com.repackage.vy9
+        @Override // com.repackage.cz9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -694,7 +694,7 @@ public abstract class j32 extends n32 {
             }
         }
 
-        @Override // com.repackage.vy9
+        @Override // com.repackage.cz9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -705,7 +705,7 @@ public abstract class j32 extends n32 {
     }
 
     /* loaded from: classes6.dex */
-    public class k implements uy9.a<h94> {
+    public class k implements bz9.a<g94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j32 a;
@@ -729,17 +729,17 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.uy9.a, com.repackage.iz9
-        public void call(az9<? super h94> az9Var) {
+        @Override // com.repackage.bz9.a, com.repackage.pz9
+        public void call(hz9<? super g94> hz9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, az9Var) == null) {
-                this.a.d = az9Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
+                this.a.d = hz9Var;
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class l implements uy9.a<i94> {
+    public class l implements bz9.a<h94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j32 a;
@@ -763,17 +763,17 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.uy9.a, com.repackage.iz9
-        public void call(az9<? super i94> az9Var) {
+        @Override // com.repackage.bz9.a, com.repackage.pz9
+        public void call(hz9<? super h94> hz9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, az9Var) == null) {
-                this.a.e = az9Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
+                this.a.e = hz9Var;
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class m implements uy9.a<f94> {
+    public class m implements bz9.a<e94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j32 a;
@@ -797,17 +797,17 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.uy9.a, com.repackage.iz9
-        public void call(az9<? super f94> az9Var) {
+        @Override // com.repackage.bz9.a, com.repackage.pz9
+        public void call(hz9<? super e94> hz9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, az9Var) == null) {
-                this.a.f = az9Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
+                this.a.f = hz9Var;
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class n implements uy9.a<d94> {
+    public class n implements bz9.a<c94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j32 a;
@@ -831,17 +831,17 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.uy9.a, com.repackage.iz9
-        public void call(az9<? super d94> az9Var) {
+        @Override // com.repackage.bz9.a, com.repackage.pz9
+        public void call(hz9<? super c94> hz9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, az9Var) == null) {
-                this.a.g = az9Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
+                this.a.g = hz9Var;
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class o implements uy9.a<j94> {
+    public class o implements bz9.a<i94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j32 a;
@@ -865,11 +865,11 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.uy9.a, com.repackage.iz9
-        public void call(az9<? super j94> az9Var) {
+        @Override // com.repackage.bz9.a, com.repackage.pz9
+        public void call(hz9<? super i94> hz9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, az9Var) == null) {
-                this.a.h = az9Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
+                this.a.h = hz9Var;
             }
         }
     }
@@ -901,7 +901,7 @@ public abstract class j32 extends n32 {
             this.c = j32Var;
         }
 
-        @Override // com.repackage.q32, com.repackage.w74
+        @Override // com.repackage.q32, com.repackage.v74
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -916,27 +916,27 @@ public abstract class j32 extends n32 {
         }
 
         @Override // com.repackage.q32
-        public void p(@NonNull i94 i94Var, @Nullable cc3 cc3Var) {
+        public void p(@NonNull h94 h94Var, @Nullable cc3 cc3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, i94Var, cc3Var) == null) {
-                super.p(i94Var, cc3Var);
-                jx1.k("SwanAppPkgDownloadCallback", "sub onFileDownloaded: " + i94Var.i);
+            if (interceptable == null || interceptable.invokeLL(1048581, this, h94Var, cc3Var) == null) {
+                super.p(h94Var, cc3Var);
+                jx1.k("SwanAppPkgDownloadCallback", "sub onFileDownloaded: " + h94Var.i);
                 j32 j32Var = this.c;
                 if (j32Var.k == null) {
                     j32Var.k = new ArrayList();
                 }
                 j32 j32Var2 = this.c;
-                i94Var.o = j32Var2.o;
+                h94Var.o = j32Var2.o;
                 if (cc3Var == null) {
-                    j32Var2.k.add(i94Var);
-                    this.c.i.m(i94Var);
-                    f32.c().b(i94Var, this.c.l0());
+                    j32Var2.k.add(h94Var);
+                    this.c.i.m(h94Var);
+                    f32.c().b(h94Var, this.c.l0());
                 } else {
-                    j32Var2.i.l(i94Var);
-                    f32.c().a(i94Var, this.c.l0(), cc3Var);
+                    j32Var2.i.l(h94Var);
+                    f32.c().a(h94Var, this.c.l0(), cc3Var);
                 }
                 if (this.c.e != null) {
-                    this.c.e.onNext(i94Var);
+                    this.c.e.onNext(h94Var);
                     if (this.c.i.i()) {
                         return;
                     }
@@ -946,45 +946,45 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: q */
-        public void e(i94 i94Var, c94 c94Var) {
+        public void e(h94 h94Var, b94 b94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, i94Var, c94Var) == null) {
-                super.q(i94Var, c94Var);
-                jx1.k("SwanAppPkgDownloadCallback", "sub onDownloadError：" + c94Var.toString());
-                this.c.i.l(i94Var);
+            if (interceptable == null || interceptable.invokeLL(1048582, this, h94Var, b94Var) == null) {
+                super.q(h94Var, b94Var);
+                jx1.k("SwanAppPkgDownloadCallback", "sub onDownloadError：" + b94Var.toString());
+                this.c.i.l(h94Var);
                 cc3 cc3Var = new cc3();
                 cc3Var.k(12L);
-                cc3Var.i(c94Var.a);
+                cc3Var.i(b94Var.a);
                 cc3Var.d("分包下载失败");
-                cc3Var.f(c94Var.toString());
+                cc3Var.f(b94Var.toString());
                 if (this.c.e != null) {
-                    this.c.e.onError(new PkgDownloadError(i94Var, cc3Var));
+                    this.c.e.onError(new PkgDownloadError(h94Var, cc3Var));
                 }
-                f32.c().a(i94Var, this.c.l0(), cc3Var);
+                f32.c().a(h94Var, this.c.l0(), cc3Var);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.q32, com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.q32, com.repackage.v74, com.repackage.y74
         /* renamed from: s */
-        public void c(i94 i94Var) {
+        public void c(h94 h94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, i94Var) == null) {
-                super.c(i94Var);
+            if (interceptable == null || interceptable.invokeL(1048583, this, h94Var) == null) {
+                super.c(h94Var);
                 jx1.k("SwanAppPkgDownloadCallback", "sub onDownloadStart");
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: u */
-        public void f(i94 i94Var) {
+        public void f(h94 h94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i94Var) == null) {
-                super.f(i94Var);
-                this.c.F0(i94Var);
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h94Var) == null) {
+                super.f(h94Var);
+                this.c.F0(h94Var);
             }
         }
     }
@@ -1016,7 +1016,7 @@ public abstract class j32 extends n32 {
             this.b = j32Var;
         }
 
-        @Override // com.repackage.w74
+        @Override // com.repackage.v74
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1031,12 +1031,12 @@ public abstract class j32 extends n32 {
         }
 
         @Override // com.repackage.o32
-        public void r(@NonNull j94 j94Var) {
+        public void r(@NonNull i94 i94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, j94Var) == null) {
-                this.b.i.m(j94Var);
+            if (interceptable == null || interceptable.invokeL(1048580, this, i94Var) == null) {
+                this.b.i.m(i94Var);
                 if (this.b.h != null) {
-                    this.b.h.onNext(j94Var);
+                    this.b.h.onNext(i94Var);
                     if (this.b.i.c()) {
                         return;
                     }
@@ -1046,35 +1046,35 @@ public abstract class j32 extends n32 {
         }
 
         @Override // com.repackage.o32
-        public void u(j94 j94Var, cc3 cc3Var) {
+        public void u(i94 i94Var, cc3 cc3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, j94Var, cc3Var) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048581, this, i94Var, cc3Var) == null) {
                 jx1.k("SwanAppPkgDownloadCallback", "dependent onDownloadOrUnzipFail：" + cc3Var);
-                this.b.i.l(j94Var);
+                this.b.i.l(i94Var);
                 if (this.b.h != null) {
-                    this.b.h.onError(new PkgDownloadError(j94Var, cc3Var));
+                    this.b.h.onError(new PkgDownloadError(i94Var, cc3Var));
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.o32, com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.o32, com.repackage.v74, com.repackage.y74
         /* renamed from: v */
-        public void c(j94 j94Var) {
+        public void c(i94 i94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, j94Var) == null) {
-                super.c(j94Var);
+            if (interceptable == null || interceptable.invokeL(1048582, this, i94Var) == null) {
+                super.c(i94Var);
                 jx1.k("SwanAppPkgDownloadCallback", "dependent onDownloadStart");
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.o32, com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.o32, com.repackage.v74, com.repackage.y74
         /* renamed from: w */
-        public void f(j94 j94Var) {
+        public void f(i94 i94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, j94Var) == null) {
-                super.f(j94Var);
+            if (interceptable == null || interceptable.invokeL(1048583, this, i94Var) == null) {
+                super.f(i94Var);
                 if (j32.C) {
                     Log.i("SwanAppPkgDownloadCallback", this.b.j0() + ": dependent onDownloading");
                 }
@@ -1083,7 +1083,7 @@ public abstract class j32 extends n32 {
     }
 
     /* loaded from: classes6.dex */
-    public class r extends w74<f94> {
+    public class r extends v74<e94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j32 a;
@@ -1106,7 +1106,7 @@ public abstract class j32 extends n32 {
             this.a = j32Var;
         }
 
-        @Override // com.repackage.w74
+        @Override // com.repackage.v74
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1114,13 +1114,13 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.z74
+        @Override // com.repackage.y74
         /* renamed from: l */
-        public String d(f94 f94Var) {
+        public String d(e94 e94Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, f94Var)) == null) {
-                int i = f94Var.h;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, e94Var)) == null) {
+                int i = e94Var.h;
                 if (i == 0) {
                     return b42.h();
                 }
@@ -1132,7 +1132,7 @@ public abstract class j32 extends n32 {
             return (String) invokeL.objValue;
         }
 
-        @Override // com.repackage.b84
+        @Override // com.repackage.a84
         @NonNull
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
@@ -1141,83 +1141,83 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: o */
-        public void e(f94 f94Var, c94 c94Var) {
+        public void e(e94 e94Var, b94 b94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, f94Var, c94Var) == null) {
-                super.e(f94Var, c94Var);
-                jx1.k("SwanAppPkgDownloadCallback", "framework onDownloadError：" + c94Var.toString());
-                this.a.i.l(f94Var);
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, e94Var, b94Var) == null) {
+                super.e(e94Var, b94Var);
+                jx1.k("SwanAppPkgDownloadCallback", "framework onDownloadError：" + b94Var.toString());
+                this.a.i.l(e94Var);
                 cc3 cc3Var = new cc3();
                 cc3Var.k(13L);
-                cc3Var.i(c94Var.a);
+                cc3Var.i(b94Var.a);
                 cc3Var.d("Framework包下载失败");
-                cc3Var.f(c94Var.toString());
+                cc3Var.f(b94Var.toString());
                 if (this.a.f != null) {
-                    this.a.f.onError(new PkgDownloadError(f94Var, cc3Var));
+                    this.a.f.onError(new PkgDownloadError(e94Var, cc3Var));
                 }
-                f32.c().a(f94Var, this.a.l0(), cc3Var);
-                ng4.k(f94Var.a);
+                f32.c().a(e94Var, this.a.l0(), cc3Var);
+                mg4.k(e94Var.a);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: p */
-        public void i(f94 f94Var) {
+        public void i(e94 e94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, f94Var) == null) {
-                super.i(f94Var);
-                jx1.k("SwanAppPkgDownloadCallback", "framework onFileDownloaded: " + f94Var.i);
-                cc3 z0 = this.a.z0(f94Var);
+            if (interceptable == null || interceptable.invokeL(1048585, this, e94Var) == null) {
+                super.i(e94Var);
+                jx1.k("SwanAppPkgDownloadCallback", "framework onFileDownloaded: " + e94Var.i);
+                cc3 z0 = this.a.z0(e94Var);
                 if (z0 == null) {
                     j32 j32Var = this.a;
-                    j32Var.l = f94Var;
-                    j32Var.i.m(f94Var);
+                    j32Var.l = e94Var;
+                    j32Var.i.m(e94Var);
                     if (this.a.f != null) {
-                        this.a.f.onNext(f94Var);
+                        this.a.f.onNext(e94Var);
                         this.a.f.onCompleted();
                     }
-                    f32.c().b(f94Var, this.a.l0());
+                    f32.c().b(e94Var, this.a.l0());
                     return;
                 }
-                this.a.i.l(f94Var);
+                this.a.i.l(e94Var);
                 if (this.a.f != null) {
-                    this.a.f.onError(new PkgDownloadError(f94Var, z0));
+                    this.a.f.onError(new PkgDownloadError(e94Var, z0));
                 }
-                f32.c().a(f94Var, this.a.l0(), z0);
+                f32.c().a(e94Var, this.a.l0(), z0);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: q */
-        public void c(f94 f94Var) {
+        public void c(e94 e94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, f94Var) == null) {
-                super.c(f94Var);
+            if (interceptable == null || interceptable.invokeL(1048586, this, e94Var) == null) {
+                super.c(e94Var);
                 jx1.k("SwanAppPkgDownloadCallback", "framework onDownloadStart");
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: r */
-        public void f(f94 f94Var) {
+        public void f(e94 e94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, f94Var) == null) {
-                super.f(f94Var);
+            if (interceptable == null || interceptable.invokeL(1048587, this, e94Var) == null) {
+                super.f(e94Var);
                 if (j32.C) {
                     Log.i("SwanAppPkgDownloadCallback", this.a.j0() + ": framework onDownloading");
                 }
-                this.a.D0(f94Var);
+                this.a.D0(e94Var);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class s extends w74<d94> {
+    public class s extends v74<c94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j32 a;
@@ -1240,7 +1240,7 @@ public abstract class j32 extends n32 {
             this.a = j32Var;
         }
 
-        @Override // com.repackage.w74
+        @Override // com.repackage.v74
         public int g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -1248,13 +1248,13 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.z74
+        @Override // com.repackage.y74
         /* renamed from: l */
-        public String d(d94 d94Var) {
+        public String d(c94 c94Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, d94Var)) == null) {
-                int i = d94Var.h;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, c94Var)) == null) {
+                int i = c94Var.h;
                 if (i == 0) {
                     return b42.d();
                 }
@@ -1266,7 +1266,7 @@ public abstract class j32 extends n32 {
             return (String) invokeL.objValue;
         }
 
-        @Override // com.repackage.b84
+        @Override // com.repackage.a84
         @NonNull
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
@@ -1275,82 +1275,82 @@ public abstract class j32 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: o */
-        public void e(d94 d94Var, c94 c94Var) {
+        public void e(c94 c94Var, b94 b94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, d94Var, c94Var) == null) {
-                super.e(d94Var, c94Var);
-                jx1.k("SwanAppPkgDownloadCallback", "extension onDownloadError：" + c94Var.toString());
-                this.a.i.l(d94Var);
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, c94Var, b94Var) == null) {
+                super.e(c94Var, b94Var);
+                jx1.k("SwanAppPkgDownloadCallback", "extension onDownloadError：" + b94Var.toString());
+                this.a.i.l(c94Var);
                 cc3 cc3Var = new cc3();
                 cc3Var.k(14L);
-                cc3Var.i(c94Var.a);
+                cc3Var.i(b94Var.a);
                 cc3Var.d("Extension下载失败");
-                cc3Var.f(c94Var.toString());
+                cc3Var.f(b94Var.toString());
                 if (j32.C) {
                     Log.e("SwanAppPkgDownloadCallback", cc3Var.toString());
                 }
-                this.a.r0(d94Var);
-                f32.c().a(d94Var, this.a.l0(), cc3Var);
-                ng4.k(d94Var.a);
+                this.a.r0(c94Var);
+                f32.c().a(c94Var, this.a.l0(), cc3Var);
+                mg4.k(c94Var.a);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: p */
-        public void i(d94 d94Var) {
+        public void i(c94 c94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, d94Var) == null) {
-                super.i(d94Var);
-                jx1.k("SwanAppPkgDownloadCallback", "extension onFileDownloaded: " + d94Var.i);
-                cc3 y0 = this.a.y0(d94Var);
+            if (interceptable == null || interceptable.invokeL(1048585, this, c94Var) == null) {
+                super.i(c94Var);
+                jx1.k("SwanAppPkgDownloadCallback", "extension onFileDownloaded: " + c94Var.i);
+                cc3 y0 = this.a.y0(c94Var);
                 if (y0 != null) {
                     if (j32.C) {
-                        Log.e("SwanAppPkgDownloadCallback", "Extension 业务处理失败：" + d94Var.toString());
+                        Log.e("SwanAppPkgDownloadCallback", "Extension 业务处理失败：" + c94Var.toString());
                     }
-                    this.a.i.l(d94Var);
-                    this.a.r0(d94Var);
-                    f32.c().a(d94Var, this.a.l0(), y0);
+                    this.a.i.l(c94Var);
+                    this.a.r0(c94Var);
+                    f32.c().a(c94Var, this.a.l0(), y0);
                     return;
                 }
                 j32 j32Var = this.a;
-                j32Var.m = d94Var;
-                j32Var.i.m(d94Var);
-                this.a.r0(d94Var);
-                f32.c().b(d94Var, this.a.l0());
+                j32Var.m = c94Var;
+                j32Var.i.m(c94Var);
+                this.a.r0(c94Var);
+                f32.c().b(c94Var, this.a.l0());
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: q */
-        public void c(d94 d94Var) {
+        public void c(c94 c94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, d94Var) == null) {
-                super.c(d94Var);
+            if (interceptable == null || interceptable.invokeL(1048586, this, c94Var) == null) {
+                super.c(c94Var);
                 jx1.k("SwanAppPkgDownloadCallback", "extension onDownloadStart");
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: r */
-        public void f(d94 d94Var) {
+        public void f(c94 c94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, d94Var) == null) {
-                super.f(d94Var);
+            if (interceptable == null || interceptable.invokeL(1048587, this, c94Var) == null) {
+                super.f(c94Var);
                 if (j32.C) {
                     Log.i("SwanAppPkgDownloadCallback", this.a.j0() + ": extension onDownloading");
                 }
-                this.a.C0(d94Var);
+                this.a.C0(c94Var);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class t implements c84 {
+    public class t implements b84 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ j32 a;
@@ -1373,7 +1373,7 @@ public abstract class j32 extends n32 {
             this.a = j32Var;
         }
 
-        @Override // com.repackage.c84
+        @Override // com.repackage.b84
         public void a(PMSAppInfo pMSAppInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pMSAppInfo) == null) {
@@ -1542,11 +1542,11 @@ public abstract class j32 extends n32 {
         this.p = new ArrayList();
     }
 
-    public cc3 A0(h94 h94Var) {
+    public cc3 A0(g94 g94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h94Var)) == null) {
-            if (h94Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, g94Var)) == null) {
+            if (g94Var == null) {
                 cc3 cc3Var = new cc3();
                 cc3Var.k(11L);
                 cc3Var.i(2310L);
@@ -1559,11 +1559,11 @@ public abstract class j32 extends n32 {
         return (cc3) invokeL.objValue;
     }
 
-    @Override // com.repackage.d84
-    public z74<i94> B() {
+    @Override // com.repackage.c84
+    public y74<h94> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.w : (z74) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.w : (y74) invokeV.objValue;
     }
 
     public void B0(String str, String str2) {
@@ -1574,33 +1574,33 @@ public abstract class j32 extends n32 {
         }
     }
 
-    public final void C0(d94 d94Var) {
+    public final void C0(c94 c94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, d94Var) == null) {
-            f32.c().d(d94Var, new i(this, d94Var));
+        if (interceptable == null || interceptable.invokeL(1048579, this, c94Var) == null) {
+            f32.c().d(c94Var, new i(this, c94Var));
         }
     }
 
-    @Override // com.repackage.d84
-    public void D(c94 c94Var) {
+    @Override // com.repackage.c84
+    public void D(b94 b94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c94Var) == null) {
-            jx1.k("SwanAppPkgDownloadCallback", "onFetchError: error=" + c94Var);
-            if (c94Var != null && c94Var.a == 1010) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, b94Var) == null) {
+            jx1.k("SwanAppPkgDownloadCallback", "onFetchError: error=" + b94Var);
+            if (b94Var != null && b94Var.a == 1010) {
                 H0();
             }
             this.p.add(new UbcFlowEvent("na_pms_end_req"));
         }
     }
 
-    public final void D0(f94 f94Var) {
+    public final void D0(e94 e94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, f94Var) == null) {
-            f32.c().d(f94Var, new h(this, f94Var));
+        if (interceptable == null || interceptable.invokeL(1048581, this, e94Var) == null) {
+            f32.c().d(e94Var, new h(this, e94Var));
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -1608,14 +1608,14 @@ public abstract class j32 extends n32 {
         }
     }
 
-    public final void E0(h94 h94Var) {
+    public final void E0(g94 g94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, h94Var) == null) {
-            f32.c().d(h94Var, new f(this, h94Var));
+        if (interceptable == null || interceptable.invokeL(1048583, this, g94Var) == null) {
+            f32.c().d(g94Var, new f(this, g94Var));
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -1623,10 +1623,10 @@ public abstract class j32 extends n32 {
         }
     }
 
-    public final void F0(i94 i94Var) {
+    public final void F0(h94 h94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, i94Var) == null) {
-            f32.c().d(i94Var, new g(this, i94Var));
+        if (interceptable == null || interceptable.invokeL(1048585, this, h94Var) == null) {
+            f32.c().d(h94Var, new g(this, h94Var));
         }
     }
 
@@ -1643,7 +1643,7 @@ public abstract class j32 extends n32 {
                     cc3Var.d("Server未返回主包&AppInfo");
                     return cc3Var;
                 }
-                PMSAppInfo u2 = f84.i().u(this.o);
+                PMSAppInfo u2 = e84.i().u(this.o);
                 if (u2 == null) {
                     cc3 cc3Var2 = new cc3();
                     cc3Var2.k(10L);
@@ -1655,7 +1655,7 @@ public abstract class j32 extends n32 {
                 b42.k(u2, this.j);
                 this.n.initMaxAgeInfo();
                 this.n.updateInstallSrc(K());
-                if (f84.i().b(this.j, this.k, this.l, this.m, this.n)) {
+                if (e84.i().b(this.j, this.k, this.l, this.m, this.n)) {
                     return null;
                 }
                 cc3 cc3Var3 = new cc3();
@@ -1664,16 +1664,16 @@ public abstract class j32 extends n32 {
                 cc3Var3.d("更新DB失败");
                 return cc3Var3;
             }
-            h94 h94Var = this.j;
-            if (h94Var != null) {
-                b42.k(pMSAppInfo, h94Var);
+            g94 g94Var = this.j;
+            if (g94Var != null) {
+                b42.k(pMSAppInfo, g94Var);
             } else if (c42.f(this.k)) {
-                i94 i94Var = this.k.get(0);
-                this.q = i94Var;
-                i94Var.o = this.o;
-                b42.l(this.n, i94Var);
+                h94 h94Var = this.k.get(0);
+                this.q = h94Var;
+                h94Var.o = this.o;
+                b42.l(this.n, h94Var);
             } else {
-                PMSAppInfo u3 = f84.i().u(this.o);
+                PMSAppInfo u3 = e84.i().u(this.o);
                 if (u3 == null) {
                     cc3 cc3Var4 = new cc3();
                     cc3Var4.k(10L);
@@ -1687,7 +1687,7 @@ public abstract class j32 extends n32 {
             }
             this.n.initMaxAgeInfo();
             this.n.updateInstallSrc(K());
-            if (f84.i().b(this.j, this.k, this.l, this.m, this.n)) {
+            if (e84.i().b(this.j, this.k, this.l, this.m, this.n)) {
                 b42.o(this.n);
                 return null;
             }
@@ -1700,24 +1700,24 @@ public abstract class j32 extends n32 {
         return (cc3) invokeV.objValue;
     }
 
-    @Override // com.repackage.d84
-    public void H(qd4 qd4Var) {
+    @Override // com.repackage.c84
+    public void H(pd4 pd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, qd4Var) == null) {
-            super.H(qd4Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, pd4Var) == null) {
+            super.H(pd4Var);
             this.r = System.currentTimeMillis();
             if (C) {
                 Log.e("SwanAppPkgDownloadCallback", "mStartDownload=" + this.r);
             }
-            if (qd4Var == null) {
+            if (pd4Var == null) {
                 return;
             }
             if (C) {
-                Log.i("SwanAppPkgDownloadCallback", j0() + ": onPrepareDownload: countSet=" + qd4Var.n());
+                Log.i("SwanAppPkgDownloadCallback", j0() + ": onPrepareDownload: countSet=" + pd4Var.n());
             }
             this.p.add(new UbcFlowEvent("na_pms_start_download"));
-            this.i = qd4Var;
-            if (qd4Var.k()) {
+            this.i = pd4Var;
+            if (pd4Var.k()) {
                 return;
             }
             o0();
@@ -1727,21 +1727,21 @@ public abstract class j32 extends n32 {
     public final void H0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            PMSAppInfo u2 = f84.i().u(this.o);
+            PMSAppInfo u2 = e84.i().u(this.o);
             jx1.k("SwanAppPkgDownloadCallback", "updateMainMaxAgeTime: createTime=" + u2.createTime + " lastLaunchTime=" + u2.getLastLaunchTime() + " maxAge=" + u2.maxAge);
             if (u2 != null) {
                 u2.initMaxAgeInfo();
                 u2.updateInstallSrc(K());
-                h94 h94Var = this.j;
-                if (h94Var != null) {
-                    h94Var.c = u2.createTime;
+                g94 g94Var = this.j;
+                if (g94Var != null) {
+                    g94Var.c = u2.createTime;
                 }
                 PMSAppInfo pMSAppInfo = this.n;
                 if (pMSAppInfo != null) {
                     pMSAppInfo.createTime = u2.createTime;
                     pMSAppInfo.updateInstallSrc(K());
                 }
-                f84.i().l(u2);
+                e84.i().l(u2);
             }
         }
     }
@@ -1822,16 +1822,16 @@ public abstract class j32 extends n32 {
     public final String m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? e84.b(this, "get_launch_id").getString("launch_id", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? d84.b(this, "get_launch_id").getString("launch_id", "") : (String) invokeV.objValue;
     }
 
     public void n0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
             if (i2 == 1013) {
-                f84.i().z(this.o, i2);
+                e84.i().z(this.o, i2);
             } else {
-                f84.i().z(this.o, 0);
+                e84.i().z(this.o, 0);
             }
         }
     }
@@ -1841,24 +1841,24 @@ public abstract class j32 extends n32 {
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.i.f()) {
-                arrayList.add(uy9.a(new k(this)));
+                arrayList.add(bz9.a(new k(this)));
             }
             if (this.i.h()) {
-                arrayList.add(uy9.a(new l(this)));
+                arrayList.add(bz9.a(new l(this)));
             }
             if (this.i.e()) {
-                arrayList.add(uy9.a(new m(this)));
+                arrayList.add(bz9.a(new m(this)));
             }
             if (this.i.d()) {
-                arrayList.add(uy9.a(new n(this)));
+                arrayList.add(bz9.a(new n(this)));
             }
             if (this.i.b()) {
-                arrayList.add(uy9.a(new o(this)));
+                arrayList.add(bz9.a(new o(this)));
             }
             if (arrayList.isEmpty()) {
                 return;
             }
-            uy9.i(arrayList).u(this.B);
+            bz9.i(arrayList).u(this.B);
         }
     }
 
@@ -1872,11 +1872,11 @@ public abstract class j32 extends n32 {
         return (j32) invokeL.objValue;
     }
 
-    @Override // com.repackage.d84
-    public c84 q() {
+    @Override // com.repackage.c84
+    public b84 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.A : (c84) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.A : (b84) invokeV.objValue;
     }
 
     public final synchronized <CallbackT> j32 q0(@NonNull Collection<CallbackT> collection, @NonNull cf3<CallbackT> cf3Var) {
@@ -1891,28 +1891,28 @@ public abstract class j32 extends n32 {
         return (j32) invokeLL.objValue;
     }
 
-    @Override // com.repackage.d84
-    public z74<j94> r() {
+    @Override // com.repackage.c84
+    public y74<i94> r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.x : (z74) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.x : (y74) invokeV.objValue;
     }
 
-    public final void r0(d94 d94Var) {
-        az9<? super d94> az9Var;
+    public final void r0(c94 c94Var) {
+        hz9<? super c94> hz9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, d94Var) == null) || (az9Var = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, c94Var) == null) || (hz9Var = this.g) == null) {
             return;
         }
-        az9Var.onNext(d94Var);
+        hz9Var.onNext(c94Var);
         this.g.onCompleted();
     }
 
-    @Override // com.repackage.d84
-    public z74<d94> s() {
+    @Override // com.repackage.c84
+    public y74<c94> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.z : (z74) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.z : (y74) invokeV.objValue;
     }
 
     public j32 s0(@NonNull cf3<s32> cf3Var) {
@@ -1925,11 +1925,11 @@ public abstract class j32 extends n32 {
         return (j32) invokeL.objValue;
     }
 
-    @Override // com.repackage.d84
-    public z74<f94> t() {
+    @Override // com.repackage.c84
+    public y74<e94> t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.y : (z74) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.y : (y74) invokeV.objValue;
     }
 
     public void t0(PMSAppInfo pMSAppInfo) {
@@ -1946,11 +1946,11 @@ public abstract class j32 extends n32 {
         }
     }
 
-    @Override // com.repackage.d84
-    public z74<h94> v() {
+    @Override // com.repackage.c84
+    public y74<g94> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.v : (z74) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.v : (y74) invokeV.objValue;
     }
 
     public void v0() {
@@ -1958,7 +1958,7 @@ public abstract class j32 extends n32 {
         if (!(interceptable == null || interceptable.invokeV(1048610, this) == null) || this.n == null) {
             return;
         }
-        PMSAppInfo u2 = f84.i().u(this.o);
+        PMSAppInfo u2 = e84.i().u(this.o);
         if (u2 == null) {
             jx1.k("SwanAppPkgDownloadCallback", "Server未返回包数据，本地也没查到");
             return;
@@ -1967,7 +1967,7 @@ public abstract class j32 extends n32 {
         u2.updateInstallSrc(K());
         this.n.copyLocalAppInfoData(u2);
         this.n.initMaxAgeInfo();
-        if (f84.i().l(this.n)) {
+        if (e84.i().l(this.n)) {
             b42.o(this.n);
         }
     }
@@ -1982,16 +1982,16 @@ public abstract class j32 extends n32 {
 
     public abstract void x0(Throwable th);
 
-    public cc3 y0(d94 d94Var) {
+    public cc3 y0(c94 c94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, d94Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, c94Var)) == null) {
             pb2 pb2Var = new pb2();
-            pb2Var.b = d94Var.i;
-            pb2Var.a = d94Var.j;
-            pb2Var.c = d94Var.a;
-            pb2Var.d = d94Var.m;
-            if (sa2.b(d94Var.h, pb2Var) == null) {
+            pb2Var.b = c94Var.i;
+            pb2Var.a = c94Var.j;
+            pb2Var.c = c94Var.a;
+            pb2Var.d = c94Var.m;
+            if (sa2.b(c94Var.h, pb2Var) == null) {
                 return null;
             }
             cc3 cc3Var = new cc3();
@@ -2003,17 +2003,17 @@ public abstract class j32 extends n32 {
         return (cc3) invokeL.objValue;
     }
 
-    public cc3 z0(f94 f94Var) {
+    public cc3 z0(e94 e94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, f94Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, e94Var)) == null) {
             if (C) {
-                Log.d("SwanAppPkgDownloadCallback", "onFrameworkPkgDownload framework = " + f94Var);
+                Log.d("SwanAppPkgDownloadCallback", "onFrameworkPkgDownload framework = " + e94Var);
             }
-            t93.b c2 = t93.c(f94Var, f94Var.h);
-            if (!TextUtils.isEmpty(f94Var.a)) {
-                jx1.k("SwanAppPkgDownloadCallback", "#onFrameworkPkgDownload del: " + f94Var.a);
-                ng4.k(f94Var.a);
+            t93.b c2 = t93.c(e94Var, e94Var.h);
+            if (!TextUtils.isEmpty(e94Var.a)) {
+                jx1.k("SwanAppPkgDownloadCallback", "#onFrameworkPkgDownload del: " + e94Var.a);
+                mg4.k(e94Var.a);
             }
             if (c2.c()) {
                 return null;

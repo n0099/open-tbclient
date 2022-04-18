@@ -54,11 +54,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f9;
 import com.repackage.gz;
-import com.repackage.mc8;
 import com.repackage.mg;
 import com.repackage.oi;
-import com.repackage.vl4;
-import com.repackage.wr4;
+import com.repackage.tc8;
+import com.repackage.ul4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
@@ -196,8 +196,8 @@ public class CardUserInfoLayout extends LinearLayout implements gz {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.y == null || this.a.y.getAuthor() == null || StringUtils.isNull(this.a.y.getAuthor().getName_show()) || StringUtils.isNull(this.a.y.getAuthor().getUserId()) || this.a.y.getForum_name() == null) {
                 return;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f091e7c) != null && (view2.getTag(R.id.obfuscated_res_0x7f091e7c) instanceof String)) {
-                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f091e7c);
+            if (view2.getTag(R.id.obfuscated_res_0x7f091e7d) != null && (view2.getTag(R.id.obfuscated_res_0x7f091e7d) instanceof String)) {
+                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f091e7d);
                 if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, str, true)));
                     return;
@@ -254,7 +254,7 @@ public class CardUserInfoLayout extends LinearLayout implements gz {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.y == null || this.a.y.getAuthor() == null) {
                 return;
             }
-            vl4.q(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ad), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.y.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            ul4.q(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ac), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.y.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.v != null) {
                 this.a.u.onClick(view2);
             }
@@ -534,7 +534,7 @@ public class CardUserInfoLayout extends LinearLayout implements gz {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f09227a);
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f09227b);
             this.c = headPendantClickableView;
             headPendantClickableView.setHasPendantStyle();
             this.c.getHeadView().setIsRound(true);
@@ -542,31 +542,31 @@ public class CardUserInfoLayout extends LinearLayout implements gz {
             this.c.getHeadView().setDefaultResource(17170445);
             this.c.getHeadView().setPlaceHolder(1);
             this.c.setAfterClickListener(new e(this));
-            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09229a);
-            this.z = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ec3);
-            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0922bd);
+            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09229b);
+            this.z = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ec4);
+            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0922be);
             this.h = userIconBox;
             userIconBox.setOnClickListener(this.C);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09229c);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09229d);
             this.e = textView;
             textView.setOnClickListener(this.D);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e53);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091fb0);
-            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f091fba);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e54);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091fb1);
+            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f091fbb);
             this.g = userIconBox2;
             userIconBox2.setOnClickListener(this.E);
             this.g.setAutoChangedStyle(false);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091f93);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091f94);
             if (DeviceInfoUtil.isMi5X()) {
                 this.i.setPadding(0, -F, 0, 0);
             }
             this.j = (LocationExtendLayout) findViewById(R.id.obfuscated_res_0x7f0905f5);
             this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f090203);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090202);
-            this.w = findViewById(R.id.obfuscated_res_0x7f09229e);
+            this.w = findViewById(R.id.obfuscated_res_0x7f09229f);
             this.x = findViewById(R.id.obfuscated_res_0x7f090549);
-            this.n = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091dca);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b30);
+            this.n = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091dcb);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b31);
         }
     }
 
@@ -669,7 +669,7 @@ public class CardUserInfoLayout extends LinearLayout implements gz {
             this.l.setVisibility(z ? 0 : 8);
             if (z) {
                 this.l.setText(str);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f08096a, R.color.CAM_X0109, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f08096e, R.color.CAM_X0109, null);
                 SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
             }
         }
@@ -713,7 +713,7 @@ public class CardUserInfoLayout extends LinearLayout implements gz {
             boolean z2 = UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(longtitude);
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z2 && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = mc8.e().c();
+                AppPosInfo c2 = tc8.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {
@@ -886,7 +886,7 @@ public class CardUserInfoLayout extends LinearLayout implements gz {
         }
         this.f.setOnClickListener(null);
         if (author.getIs_bawu() == 1) {
-            wr4 d2 = wr4.d(this.f);
+            vr4 d2 = vr4.d(this.f);
             d2.v(R.color.CAM_X0101);
             d2.e(R.string.A_X04);
             d2.n(R.string.J_X04);
@@ -1019,7 +1019,7 @@ public class CardUserInfoLayout extends LinearLayout implements gz {
                 }
                 this.e.setText(cutChineseAndEnglishWithEmoji);
             } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f14b4);
+                this.e.setText(R.string.obfuscated_res_0x7f0f14b3);
             }
         } else {
             ViewGroup.LayoutParams layoutParams = this.w.getLayoutParams();
@@ -1035,7 +1035,7 @@ public class CardUserInfoLayout extends LinearLayout implements gz {
             if (threadData.getAuthor() != null && !StringUtils.isNull(threadData.getAuthor().getName_show())) {
                 this.e.setText(threadData.getAuthor().getName_show());
             } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f14b4);
+                this.e.setText(R.string.obfuscated_res_0x7f0f14b3);
             }
         }
         HomeGroupUbsUIHelper.handleHeadSegmentTitleView(this.e);

@@ -18,11 +18,11 @@ public class hk5 {
     public static hk5 c;
     public transient /* synthetic */ FieldHolder $fh;
     public List<a> a;
-    public List<jy4> b;
+    public List<iy4> b;
 
     /* loaded from: classes6.dex */
     public interface a {
-        void j(List<jy4> list);
+        void j(List<iy4> list);
     }
 
     public hk5() {
@@ -57,27 +57,27 @@ public class hk5 {
         return (hk5) invokeV.objValue;
     }
 
-    public void a(jy4 jy4Var) {
+    public void a(iy4 iy4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jy4Var) == null) || this.b == null || jy4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, iy4Var) == null) || this.b == null || iy4Var == null) {
             return;
         }
-        String a2 = jy4Var.a();
+        String a2 = iy4Var.a();
         if (TextUtils.isEmpty(a2)) {
             a2 = "#";
-            jy4Var.k("#");
+            iy4Var.k("#");
         }
-        String f = jy4Var.f();
+        String f = iy4Var.f();
         if (f == null) {
             f = "";
         }
         boolean z = false;
         boolean z2 = false;
-        for (jy4 jy4Var2 : this.b) {
-            if (f.equals(jy4Var2.f())) {
+        for (iy4 iy4Var2 : this.b) {
+            if (f.equals(iy4Var2.f())) {
                 z = true;
             }
-            if (a2.equals(jy4Var2.a())) {
+            if (a2.equals(iy4Var2.a())) {
                 z2 = true;
             }
         }
@@ -85,28 +85,28 @@ public class hk5 {
             return;
         }
         if (!z2) {
-            jy4 jy4Var3 = new jy4();
-            jy4Var3.k(a2);
-            this.b.add(jy4Var3);
+            iy4 iy4Var3 = new iy4();
+            iy4Var3.k(a2);
+            this.b.add(iy4Var3);
         }
-        this.b.add(jy4Var);
+        this.b.add(iy4Var);
         Collections.sort(this.b, new ContactComparator());
         e();
     }
 
     public void b(long j) {
-        List<jy4> list;
+        List<iy4> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || (list = this.b) == null) {
             return;
         }
         String str = null;
-        Iterator<jy4> it = list.iterator();
+        Iterator<iy4> it = list.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
-            jy4 next = it.next();
+            iy4 next = it.next();
             if (next.e() == j) {
                 str = next.a();
                 this.b.remove(next);
@@ -115,9 +115,9 @@ public class hk5 {
         }
         if (str != null) {
             ArrayList arrayList = new ArrayList();
-            for (jy4 jy4Var : this.b) {
-                if (str.equals(jy4Var.a())) {
-                    arrayList.add(jy4Var);
+            for (iy4 iy4Var : this.b) {
+                if (str.equals(iy4Var.a())) {
+                    arrayList.add(iy4Var);
                 }
             }
             if (arrayList.size() <= 1) {
@@ -127,7 +127,7 @@ public class hk5 {
         e();
     }
 
-    public List<jy4> c() {
+    public List<iy4> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
@@ -150,7 +150,7 @@ public class hk5 {
         this.a.add(aVar);
     }
 
-    public void g(List<jy4> list) {
+    public void g(List<iy4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.b = list;

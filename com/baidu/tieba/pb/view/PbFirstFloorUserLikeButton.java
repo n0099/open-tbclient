@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mu4;
-import com.repackage.nv4;
+import com.repackage.lu4;
+import com.repackage.mv4;
 /* loaded from: classes3.dex */
-public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements nv4 {
+public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements mv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String o;
     public String p;
-    public mu4 q;
-    public mu4 r;
+    public lu4 q;
+    public lu4 r;
     public View.OnClickListener s;
     public View.OnClickListener t;
     public boolean u;
@@ -51,16 +51,16 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements nv
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.o = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d);
+            this.o = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c);
             this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c);
             setTextSize(R.dimen.T_X08);
             setText(this.p);
-            mu4 mu4Var = new mu4();
-            this.q = mu4Var;
-            mu4Var.r(R.color.CAM_X0304);
-            mu4 mu4Var2 = new mu4();
-            this.r = mu4Var2;
-            mu4Var2.t(R.color.CAM_X0109);
+            lu4 lu4Var = new lu4();
+            this.q = lu4Var;
+            lu4Var.r(R.color.CAM_X0304);
+            lu4 lu4Var2 = new lu4();
+            this.r = lu4Var2;
+            lu4Var2.t(R.color.CAM_X0109);
             setConfig(this.q);
         }
     }
@@ -74,7 +74,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements nv
         onClickListener.onClick(view2);
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -82,7 +82,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements nv
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void c(boolean z, int i, boolean z2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -96,14 +96,14 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements nv
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.nv4
+    @Override // com.repackage.mv4
     public void e(boolean z, int i) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;

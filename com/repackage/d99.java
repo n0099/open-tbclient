@@ -1,7 +1,9 @@
 package com.repackage;
 
-import android.media.MediaFormat;
+import java.io.IOException;
 /* loaded from: classes5.dex */
 public interface d99 {
-    void a(MediaFormat mediaFormat);
+    void close() throws IOException;
+
+    int write(byte[] bArr, int i, int i2) throws IOException;
 }

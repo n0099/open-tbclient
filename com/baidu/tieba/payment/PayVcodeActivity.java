@@ -34,11 +34,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.jl8;
-import com.repackage.kl8;
-import com.repackage.ll8;
-import com.repackage.tq7;
-import com.repackage.uq7;
+import com.repackage.ql8;
+import com.repackage.rl8;
+import com.repackage.sl8;
+import com.repackage.wq7;
+import com.repackage.xq7;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -55,8 +55,8 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public static final int MSG_VCODE_CHANGE = 1;
     public static final String VCODE_JS_INTERFACE = "VcodeJsInterface";
     public transient /* synthetic */ FieldHolder $fh;
-    public jl8 jsBridge;
-    public ll8 jsCallback;
+    public ql8 jsBridge;
+    public sl8 jsCallback;
     public Handler mHandler;
     public boolean mHasShowAnim;
     public PayVcodeModel mModel;
@@ -69,7 +69,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     public String mVcodeResult;
     public String mVcodeType;
     public String mVcodeUrl;
-    public tq7 mView;
+    public wq7 mView;
 
     public PayVcodeActivity() {
         Interceptable interceptable = $ic;
@@ -132,12 +132,12 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                         }
                         String errorString = responsePayNewVcodeInfoMessage.getErrorString();
                         if (StringUtils.isNull(errorString)) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d7c);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d7b);
                         }
                         this.a.showToast(errorString);
                         return;
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         };
@@ -218,7 +218,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                         if (i == 1) {
                             this.a.changeVcode();
                         } else if (i == 2) {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d7b);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d7a);
                         } else if (i != 3) {
                         } else {
                             this.a.doNext();
@@ -232,9 +232,9 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65564, this) == null) {
-            tq7 tq7Var = new tq7(this);
-            this.mView = tq7Var;
-            tq7Var.g().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
+            wq7 wq7Var = new wq7(this);
+            this.mView = wq7Var;
+            wq7Var.g().setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayVcodeActivity a;
@@ -299,9 +299,9 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     this.a.mView.i().loadUrl(this.a.mUrl);
                 }
             });
-            uq7 uq7Var = new uq7(this);
-            uq7Var.a(this.jsCallback);
-            this.mView.i().setWebChromeClient(uq7Var);
+            xq7 xq7Var = new xq7(this);
+            xq7Var.a(this.jsCallback);
+            this.mView.i().setWebChromeClient(xq7Var);
             this.mView.i().setWebViewClient(new WebViewClient(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -386,12 +386,12 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         }
     }
 
-    public void addJsPromptInterface(kl8 kl8Var) {
+    public void addJsPromptInterface(rl8 rl8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, kl8Var) == null) || kl8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, rl8Var) == null) || rl8Var == null) {
             return;
         }
-        this.jsBridge.a(kl8Var);
+        this.jsBridge.a(rl8Var);
     }
 
     public void hideAnimation(boolean z) {
@@ -479,9 +479,9 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            jl8 jl8Var = new jl8();
-            this.jsBridge = jl8Var;
-            jl8Var.a(new kl8(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.1
+            ql8 ql8Var = new ql8();
+            this.jsBridge = ql8Var;
+            ql8Var.a(new rl8(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayVcodeActivity this$0;
@@ -504,7 +504,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     this.this$0 = this;
                 }
 
-                @Override // com.repackage.kl8
+                @Override // com.repackage.rl8
                 public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                     InterceptResult invokeLLLL;
                     Interceptable interceptable2 = $ic;
@@ -570,7 +570,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     return invokeLLLL.booleanValue;
                 }
             });
-            this.jsCallback = new ll8(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.2
+            this.jsCallback = new sl8(this) { // from class: com.baidu.tieba.payment.PayVcodeActivity.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PayVcodeActivity a;
@@ -593,7 +593,7 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
                     this.a = this;
                 }
 
-                @Override // com.repackage.ll8
+                @Override // com.repackage.sl8
                 public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
@@ -620,9 +620,9 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
             this.mHandler.removeMessages(1);
             this.mHandler.removeMessages(2);
             this.mHandler.removeMessages(3);
-            jl8 jl8Var = this.jsBridge;
-            if (jl8Var != null) {
-                jl8Var.g();
+            ql8 ql8Var = this.jsBridge;
+            if (ql8Var != null) {
+                ql8Var.g();
             }
         }
     }
@@ -653,12 +653,12 @@ public class PayVcodeActivity extends BaseActivity<PayVcodeActivity> {
         }
     }
 
-    public void removePromptInterface(kl8 kl8Var) {
+    public void removePromptInterface(rl8 rl8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, kl8Var) == null) || kl8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, rl8Var) == null) || rl8Var == null) {
             return;
         }
-        this.jsBridge.h(kl8Var);
+        this.jsBridge.h(rl8Var);
     }
 
     public void showAnimation() {

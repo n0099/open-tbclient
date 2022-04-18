@@ -1,249 +1,402 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ListAdapter;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.support.v4.media.session.MediaSessionCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pbextra.praise.PraiseListActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
-public class q08 extends z8<PraiseListActivity> {
+public class q08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o08 a;
-    public PraiseListActivity b;
-    public View c;
-    public NavigationBar d;
-    public View e;
-    public NoDataView f;
-    public View g;
-    public TextView h;
-    public BdListView i;
-    public View j;
-    public TextView k;
-    public TextView l;
-    public ProgressBar m;
-    public ProgressBar n;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public boolean i;
+    public OutputStream j;
+    public Bitmap k;
+    public byte[] l;
+    public byte[] m;
+    public int n;
+    public byte[] o;
+    public boolean[] p;
+    public int q;
+    public int r;
+    public boolean s;
+    public boolean t;
+    public boolean u;
+    public int v;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q08(PraiseListActivity praiseListActivity, String str) {
-        super(praiseListActivity.getPageContext());
+    public q08() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {praiseListActivity, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = null;
-        this.b = praiseListActivity;
-        praiseListActivity.setContentView(R.layout.obfuscated_res_0x7f0d08e2);
-        this.c = praiseListActivity.findViewById(R.id.obfuscated_res_0x7f0924b5);
-        this.d = (NavigationBar) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f0924b4);
-        this.e = praiseListActivity.findViewById(R.id.obfuscated_res_0x7f0924b2);
-        this.f = NoDataViewFactory.a(this.b.getPageContext().getContext(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, oi.f(this.b.getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0eaa), null);
-        this.i = (BdListView) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f0924b3);
-        TextView textView = new TextView(this.b.getActivity());
-        textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.i.x(textView, 0);
-        this.m = (ProgressBar) praiseListActivity.findViewById(R.id.obfuscated_res_0x7f0924b6);
-        o08 o08Var = new o08(praiseListActivity);
-        this.a = o08Var;
-        this.i.setAdapter((ListAdapter) o08Var);
-        this.i.setOnScrollListener(this.a);
-        this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText("");
-        View inflate = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e4, (ViewGroup) null);
-        this.g = inflate;
-        inflate.setOnClickListener(praiseListActivity);
-        TextView textView2 = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0924ad);
-        this.h = textView2;
-        textView2.setText(str);
-        this.g.setVisibility(8);
-        this.i.addHeaderView(this.g);
-        View inflate2 = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e3, (ViewGroup) null);
-        this.j = inflate2;
-        this.k = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f0924ab);
-        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f0924ac);
-        this.n = (ProgressBar) this.j.findViewById(R.id.obfuscated_res_0x7f0924aa);
-        this.j.setVisibility(8);
-        this.k.setOnClickListener(praiseListActivity);
-        this.i.addFooterView(this.j);
-        this.i.setOnItemClickListener(praiseListActivity);
+        this.c = 0;
+        this.d = 0;
+        this.e = -1;
+        this.g = -1;
+        this.h = 0;
+        this.i = false;
+        this.p = new boolean[256];
+        this.q = 7;
+        this.r = -1;
+        this.s = false;
+        this.t = true;
+        this.u = false;
+        this.v = 10;
     }
 
-    public void e(tm4 tm4Var, int i) {
+    public boolean a(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, tm4Var, i) == null) || tm4Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
+            if (bitmap == null || !this.i) {
+                return false;
+            }
+            try {
+                if (!this.u) {
+                    h(bitmap.getWidth(), bitmap.getHeight());
+                }
+                this.k = bitmap;
+                f();
+                b();
+                if (this.t) {
+                    l();
+                    n();
+                    if (this.g >= 0) {
+                        m();
+                    }
+                }
+                j();
+                k();
+                if (!this.t) {
+                    n();
+                }
+                o();
+                this.t = false;
+                return true;
+            } catch (IOException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            byte[] bArr = this.l;
+            int length = bArr.length;
+            int i = length / 3;
+            this.m = new byte[i];
+            s08 s08Var = new s08(bArr, length, this.v);
+            this.o = s08Var.h();
+            int i2 = 0;
+            int i3 = 0;
+            while (true) {
+                byte[] bArr2 = this.o;
+                if (i3 >= bArr2.length) {
+                    break;
+                }
+                byte b = bArr2[i3];
+                int i4 = i3 + 2;
+                bArr2[i3] = bArr2[i4];
+                bArr2[i4] = b;
+                this.p[i3 / 3] = false;
+                i3 += 3;
+            }
+            int i5 = 0;
+            while (i2 < i) {
+                byte[] bArr3 = this.l;
+                int i6 = i5 + 1;
+                int i7 = i6 + 1;
+                int g = s08Var.g(bArr3[i5] & 255, bArr3[i6] & 255, bArr3[i7] & 255);
+                this.p[g] = true;
+                this.m[i2] = (byte) g;
+                i2++;
+                i5 = i7 + 1;
+            }
+            this.l = null;
+            this.n = 8;
+            this.q = 7;
+            int i8 = this.e;
+            if (i8 != -1) {
+                this.f = c(i8);
+            }
+        }
+    }
+
+    public int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            byte[] bArr = this.o;
+            if (bArr == null) {
+                return -1;
+            }
+            int i2 = (i >> 16) & 255;
+            int i3 = (i >> 8) & 255;
+            int i4 = 0;
+            int i5 = (i >> 0) & 255;
+            int length = bArr.length;
+            int i6 = 0;
+            int i7 = 16777216;
+            while (i4 < length) {
+                byte[] bArr2 = this.o;
+                int i8 = i4 + 1;
+                int i9 = i2 - (bArr2[i4] & 255);
+                int i10 = i8 + 1;
+                int i11 = i3 - (bArr2[i8] & 255);
+                int i12 = i5 - (bArr2[i10] & 255);
+                int i13 = (i9 * i9) + (i11 * i11) + (i12 * i12);
+                int i14 = i10 / 3;
+                if (this.p[i14] && i13 < i7) {
+                    i7 = i13;
+                    i6 = i14;
+                }
+                i4 = i10 + 1;
+            }
+            return i6;
+        }
+        return invokeI.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.i) {
+                this.i = false;
+                try {
+                    this.j.write(59);
+                    this.j.flush();
+                    if (this.s) {
+                        this.j.close();
+                    }
+                    z = true;
+                } catch (IOException unused) {
+                    z = false;
+                }
+                this.f = 0;
+                this.j = null;
+                this.k = null;
+                this.l = null;
+                this.m = null;
+                this.o = null;
+                this.s = false;
+                this.t = true;
+                return z;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int[] e(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bitmap)) == null) {
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            int[] iArr = new int[width * height];
+            bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            int width = this.k.getWidth();
+            int height = this.k.getHeight();
+            if (width != this.a || height != this.b) {
+                Bitmap createBitmap = Bitmap.createBitmap(this.a, this.b, Bitmap.Config.RGB_565);
+                new Canvas(createBitmap).drawBitmap(this.k, 0.0f, 0.0f, new Paint());
+                this.k = createBitmap;
+            }
+            int[] e = e(this.k);
+            this.l = new byte[e.length * 3];
+            for (int i = 0; i < e.length; i++) {
+                int i2 = e[i];
+                int i3 = i * 3;
+                byte[] bArr = this.l;
+                int i4 = i3 + 1;
+                bArr[i3] = (byte) ((i2 >> 0) & 255);
+                bArr[i4] = (byte) ((i2 >> 8) & 255);
+                bArr[i4 + 1] = (byte) ((i2 >> 16) & 255);
+            }
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || i < 0) {
             return;
         }
-        tm4Var.k(i == 1);
-        tm4Var.j(this.c);
-        tm4Var.j(this.g);
-        tm4Var.j(this.j);
-        this.d.onChangeSkinType(this.b.getPageContext(), i);
-        SkinManager.setBackgroundResource(this.j, R.drawable.bg_pack);
-        NoDataView noDataView = this.f;
-        if (noDataView != null) {
-            noDataView.f(this.b.getPageContext(), i);
+        this.g = i;
+    }
+
+    public void h(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            this.a = i;
+            this.b = i2;
+            if (i < 1) {
+                this.a = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
+            }
+            if (this.b < 1) {
+                this.b = 240;
+            }
+            this.u = true;
         }
     }
 
-    public View f() {
-        InterceptResult invokeV;
+    public boolean i(OutputStream outputStream) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (View) invokeV.objValue;
-    }
-
-    public View g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (View) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m.getVisibility() == 0 || this.n.getVisibility() == 0 : invokeV.booleanValue;
-    }
-
-    public void i() {
-        o08 o08Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (o08Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, outputStream)) == null) {
+            boolean z = false;
+            if (outputStream == null) {
+                return false;
+            }
+            this.s = false;
+            this.j = outputStream;
+            try {
+                q("GIF89a");
+                z = true;
+            } catch (IOException unused) {
+            }
+            this.i = z;
+            return z;
         }
-        o08Var.notifyDataSetChanged();
+        return invokeL.booleanValue;
     }
 
-    public void j(String str, int i) {
+    public void j() throws IOException {
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            this.m.setVisibility(8);
-            this.n.setVisibility(8);
-            this.e.setVisibility(8);
-            this.f.setVisibility(0);
-            if (!StringUtils.isNull(str)) {
-                this.f.setTextOption(NoDataViewFactory.e.c(str));
-            } else if (1 == i) {
-                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f07d0));
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.j.write(33);
+            this.j.write(249);
+            this.j.write(4);
+            if (this.e == -1) {
+                i = 0;
+                i2 = 0;
             } else {
-                this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0eaa));
+                i = 1;
+                i2 = 2;
             }
+            int i3 = this.r;
+            if (i3 >= 0) {
+                i2 = i3 & 7;
+            }
+            this.j.write(i | (i2 << 2) | 0 | 0);
+            p(this.h);
+            this.j.write(this.f);
+            this.j.write(0);
         }
     }
 
-    public void k(boolean z) {
+    public void k() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                this.n.setVisibility(0);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.j.write(44);
+            p(this.c);
+            p(this.d);
+            p(this.a);
+            p(this.b);
+            if (this.t) {
+                this.j.write(0);
             } else {
-                this.m.setVisibility(0);
+                this.j.write(this.q | 128);
             }
         }
     }
 
-    public void l() {
+    public void l() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.m.setVisibility(8);
-            this.n.setVisibility(8);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            p(this.a);
+            p(this.b);
+            this.j.write(this.q | 240);
+            this.j.write(0);
+            this.j.write(0);
         }
     }
 
-    public void m(int i, List<m08> list, int i2, int i3) {
-        String format;
-        String format2;
+    public void m() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), list, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            this.m.setVisibility(8);
-            this.n.setVisibility(8);
-            this.g.setVisibility(0);
-            if (i > 0) {
-                PraiseListActivity praiseListActivity = this.b;
-                if (praiseListActivity.pageType != 1) {
-                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0eab), StringHelper.numFormatOverWan(i));
-                } else {
-                    format2 = String.format(praiseListActivity.getResources().getString(R.string.obfuscated_res_0x7f0f07d1), StringHelper.numFormatOverWan(i));
-                }
-                this.d.setTitleText(format2);
-            } else {
-                this.d.setTitleText("");
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.j.write(33);
+            this.j.write(255);
+            this.j.write(11);
+            q("NETSCAPE2.0");
+            this.j.write(3);
+            this.j.write(1);
+            p(this.g);
+            this.j.write(0);
+        }
+    }
+
+    public void n() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            OutputStream outputStream = this.j;
+            byte[] bArr = this.o;
+            outputStream.write(bArr, 0, bArr.length);
+            int length = 768 - this.o.length;
+            for (int i = 0; i < length; i++) {
+                this.j.write(0);
             }
-            if (list != null && list.size() >= 1) {
-                this.e.setVisibility(0);
-                this.f.setVisibility(8);
-                this.a.c(list);
-                this.a.notifyDataSetChanged();
-                switch (i2) {
-                    case 1001:
-                        this.j.setVisibility(0);
-                        this.k.setVisibility(0);
-                        this.l.setVisibility(8);
-                        return;
-                    case 1002:
-                        this.j.setVisibility(8);
-                        return;
-                    case 1003:
-                        this.j.setVisibility(0);
-                        SkinManager.setBackgroundResource(this.j, R.drawable.bg_pack);
-                        this.k.setVisibility(8);
-                        this.l.setVisibility(0);
-                        PraiseListActivity praiseListActivity2 = this.b;
-                        if (praiseListActivity2.pageType != 1) {
-                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0ea9), StringHelper.numFormatOverWan(i));
-                        } else {
-                            format = String.format(praiseListActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f07d1), StringHelper.numFormatOverWan(i));
-                        }
-                        this.l.setText(format);
-                        return;
-                    default:
-                        this.j.setVisibility(8);
-                        return;
-                }
+        }
+    }
+
+    public void o() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            new r08(this.a, this.b, this.m, this.n).f(this.j);
+        }
+    }
+
+    public void p(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.j.write(i & 255);
+            this.j.write((i >> 8) & 255);
+        }
+    }
+
+    public void q(String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            for (int i = 0; i < str.length(); i++) {
+                this.j.write((byte) str.charAt(i));
             }
-            j(null, this.b.pageType);
         }
     }
 }

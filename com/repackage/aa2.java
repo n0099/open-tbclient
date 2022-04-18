@@ -23,14 +23,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class aa2 implements sb4<JSONArray> {
+public final class aa2 implements rb4<JSONArray> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
     public final ba2 a;
     public final String b;
-    public k94 c;
-    public k94 d;
+    public j94 c;
+    public j94 d;
     public cc3 e;
     public boolean f;
     public boolean g;
@@ -134,12 +134,12 @@ public final class aa2 implements sb4<JSONArray> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.sb4
+    @Override // com.repackage.rb4
     /* renamed from: f */
     public void a(@NonNull JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
-            k94 l = l();
+            j94 l = l();
             if (k) {
                 Log.i("SoUpdating", "decorateParams libName=" + this.b + " localSo=" + l);
             }
@@ -151,7 +151,7 @@ public final class aa2 implements sb4<JSONArray> {
                         Log.i("SoUpdating", "decorateParams loop abi=" + next);
                     }
                     if (next != null) {
-                        gd4 d = gd4.d(this.b, next);
+                        fd4 d = fd4.d(this.b, next);
                         if (k) {
                             Log.i("SoUpdating", "decorateParams loop bundleId=" + d);
                         }
@@ -232,10 +232,10 @@ public final class aa2 implements sb4<JSONArray> {
         return (aa2) invokeL.objValue;
     }
 
-    public k94 j() {
+    public j94 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (k94) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (j94) invokeV.objValue;
     }
 
     public String k() {
@@ -244,16 +244,16 @@ public final class aa2 implements sb4<JSONArray> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public k94 l() {
+    public j94 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             if (this.c == null && !TextUtils.isEmpty(this.b)) {
-                this.c = f84.i().t(this.b);
+                this.c = e84.i().t(this.b);
             }
             return this.c;
         }
-        return (k94) invokeV.objValue;
+        return (j94) invokeV.objValue;
     }
 
     public z92.b m() {
@@ -278,8 +278,8 @@ public final class aa2 implements sb4<JSONArray> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            k94 k94Var = this.d;
-            return (k94Var == null || k94Var == this.c) ? false : true;
+            j94 j94Var = this.d;
+            return (j94Var == null || j94Var == this.c) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -355,12 +355,12 @@ public final class aa2 implements sb4<JSONArray> {
         return (aa2) invokeL.objValue;
     }
 
-    public aa2 w(ba2 ba2Var, k94 k94Var) {
+    public aa2 w(ba2 ba2Var, j94 j94Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, ba2Var, k94Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, ba2Var, j94Var)) == null) {
             if (r(ba2Var)) {
-                this.d = k94Var;
+                this.d = j94Var;
             }
             return this;
         }

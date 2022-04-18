@@ -1,11 +1,13 @@
 package com.repackage;
 
-import com.baidu.tieba.video.VideoItemModel;
+import android.content.Intent;
 /* loaded from: classes6.dex */
 public interface gw8 {
-    void M(int i);
+    void T();
 
-    VideoItemModel W();
+    long X();
 
-    int k();
+    void m0(int i, int i2, Intent intent);
+
+    boolean u0();
 }

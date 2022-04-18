@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cs6;
+import com.repackage.es6;
 import com.repackage.yi5;
 import java.io.PrintStream;
 import java.lang.ref.WeakReference;
@@ -40,22 +40,22 @@ public class xk5 implements ml5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String m = "6021002119-1732188456";
     public static volatile boolean n;
-    public static volatile cs6.h o;
+    public static volatile es6.h o;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference<ViewGroup> b;
     public ViewGroup c;
     public FrameLayout d;
     public ViewGroup e;
     public AdLoadState f;
-    public rl4 g;
+    public ql4 g;
     public ViewGroup.OnHierarchyChangeListener h;
     public boolean i;
     public long j;
     public final SplashNativePolicy k;
-    public final cs6.i l;
+    public final es6.i l;
 
     /* loaded from: classes7.dex */
-    public class a extends cs6.k {
+    public class a extends es6.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xk5 a;
@@ -78,7 +78,7 @@ public class xk5 implements ml5 {
             this.a = xk5Var;
         }
 
-        @Override // com.repackage.cs6.i
+        @Override // com.repackage.es6.i
         public void onAdClicked(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
@@ -93,7 +93,7 @@ public class xk5 implements ml5 {
             }
         }
 
-        @Override // com.repackage.cs6.i
+        @Override // com.repackage.es6.i
         public void onAdClose(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -109,7 +109,7 @@ public class xk5 implements ml5 {
             }
         }
 
-        @Override // com.repackage.cs6.i
+        @Override // com.repackage.es6.i
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -125,7 +125,7 @@ public class xk5 implements ml5 {
             }
         }
 
-        @Override // com.repackage.cs6.i
+        @Override // com.repackage.es6.i
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
@@ -141,7 +141,7 @@ public class xk5 implements ml5 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements cs6.h {
+    public class b implements es6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xk5 a;
@@ -164,7 +164,7 @@ public class xk5 implements ml5 {
             this.a = xk5Var;
         }
 
-        @Override // com.repackage.cs6.h
+        @Override // com.repackage.es6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
@@ -176,7 +176,7 @@ public class xk5 implements ml5 {
                     this.a.g.f(rl5.c);
                 }
                 FunAdRecordHttpMessage.uploadRequestRecord("a064", "0", null, null, null);
-                if (cs6.j().o(str)) {
+                if (es6.j().o(str)) {
                     this.a.f = AdLoadState.SUCCEED;
                     rl5.i(rl5.c, "0", null, null, 0, i, this.a.i, this.a.j);
                 } else {
@@ -192,7 +192,7 @@ public class xk5 implements ml5 {
             }
         }
 
-        @Override // com.repackage.cs6.h
+        @Override // com.repackage.es6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -216,7 +216,7 @@ public class xk5 implements ml5 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements cs6.h {
+    public class c implements es6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xk5 a;
@@ -309,7 +309,7 @@ public class xk5 implements ml5 {
             this.a = xk5Var;
         }
 
-        @Override // com.repackage.cs6.h
+        @Override // com.repackage.es6.h
         public void a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
@@ -326,7 +326,7 @@ public class xk5 implements ml5 {
             }
         }
 
-        @Override // com.repackage.cs6.h
+        @Override // com.repackage.es6.h
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -421,7 +421,7 @@ public class xk5 implements ml5 {
         this.j = -1L;
         this.l = new a(this);
         this.k = splashNativePolicy;
-        int l = wt4.k().l("splash_bear_sid_type_key", 0);
+        int l = vt4.k().l("splash_bear_sid_type_key", 0);
         if (UbsABTestHelper.isClickEyeSplashFunAdABTest()) {
             m = l == 1 ? "6021002538-255943035" : "6021002533-210422477";
         } else {
@@ -437,7 +437,7 @@ public class xk5 implements ml5 {
             } else {
                 m = i == 1 ? "6021002118-283136489" : "6021002119-1732188456";
             }
-            wt4.k().w("splash_bear_sid_type_key", i);
+            vt4.k().w("splash_bear_sid_type_key", i);
         }
     }
 
@@ -447,7 +447,7 @@ public class xk5 implements ml5 {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
             c cVar = new c(this);
-            cs6.j().p(context, m, (int) (oi.i(context) * 0.8125d), cVar, cs6.b("spalsh", ll5.e().d() + ""));
+            es6.j().p(context, m, (int) (oi.i(context) * 0.8125d), cVar, es6.b("spalsh", ll5.e().d() + ""));
             n = true;
         }
     }
@@ -484,30 +484,30 @@ public class xk5 implements ml5 {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            cs6.j().d(m);
+            es6.j().d(m);
             o = null;
         }
     }
 
     @Override // com.repackage.ml5
-    public void e(ul4 ul4Var) {
+    public void e(tl4 tl4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ul4Var) == null) {
-            Context context = ul4Var.b().getContext();
-            if (!(context instanceof Activity) || ul4Var.b() == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, tl4Var) == null) {
+            Context context = tl4Var.b().getContext();
+            if (!(context instanceof Activity) || tl4Var.b() == null) {
                 return;
             }
-            this.i = ul4Var.d();
-            this.j = ul4Var.c();
-            this.b = new WeakReference<>(ul4Var.b());
+            this.i = tl4Var.d();
+            this.j = tl4Var.c();
+            this.b = new WeakReference<>(tl4Var.b());
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d078d, (ViewGroup) null, false);
             this.c = viewGroup;
             if (viewGroup == null) {
                 return;
             }
-            this.d = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091d4b);
+            this.d = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091d4c);
             p();
-            this.g = ul4Var.a();
+            this.g = tl4Var.a();
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(oi.k(context), (int) (oi.i(this.b.get().getContext()) * 0.8125d));
             layoutParams.addRule(14, -1);
             this.b.get().addView(this.c, layoutParams);
@@ -521,8 +521,8 @@ public class xk5 implements ml5 {
             } else {
                 String str = m;
                 int i = (int) (oi.i(context) * 0.8125d);
-                cs6.h hVar = o;
-                cs6.j().p((Activity) context, str, i, hVar, cs6.b("spalsh", ll5.e().d() + ""));
+                es6.h hVar = o;
+                es6.j().p((Activity) context, str, i, hVar, es6.b("spalsh", ll5.e().d() + ""));
             }
             if (this.f == AdLoadState.INIT) {
                 this.f = AdLoadState.LOADING;
@@ -541,15 +541,15 @@ public class xk5 implements ml5 {
     public final void p() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.c != null && FunAdSplashClickRegionSwitch.isOpen()) {
-            ViewGroup viewGroup = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f091d4a);
+            ViewGroup viewGroup = (ViewGroup) this.c.findViewById(R.id.obfuscated_res_0x7f091d4b);
             this.e = viewGroup;
-            wr4 d2 = wr4.d(this.e);
+            vr4 d2 = vr4.d(this.e);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0608);
-            wr4 d3 = wr4.d((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091d4d));
+            vr4 d3 = vr4.d((TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091d4e));
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0101);
-            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091d4c), R.drawable.obfuscated_res_0x7f080910, R.color.CAM_X0201, null);
+            WebPManager.setPureDrawable((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091d4d), R.drawable.obfuscated_res_0x7f080914, R.color.CAM_X0201, null);
         }
     }
 
@@ -612,12 +612,12 @@ public class xk5 implements ml5 {
                 if (this.b.get() != null) {
                     Context context = this.b.get().getContext();
                     if (context instanceof Activity) {
-                        lt4.a("homePage", -1L, 0, "logo_splash", 0, "", "bear show");
+                        kt4.a("homePage", -1L, 0, "logo_splash", 0, "", "bear show");
                         if (ml5.a) {
                             PrintStream printStream = System.out;
                             printStream.println("IAdSdkSplash BEAR ad showSplash: " + m);
                         }
-                        cs6.j().A((Activity) context, m, this.d, this.l, cs6.b("spalsh", ll5.e().d() + ""));
+                        es6.j().A((Activity) context, m, this.d, this.l, es6.b("spalsh", ll5.e().d() + ""));
                         SkinManager.setBackgroundColor(this.c, R.color.CAM_X0101, 0);
                         return true;
                     }

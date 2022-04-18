@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bs8;
+import com.repackage.a57;
 import com.repackage.i05;
+import com.repackage.is8;
 import com.repackage.v05;
-import com.repackage.x47;
 /* loaded from: classes.dex */
-public class SendVoiceView extends LinearLayout implements v05, x47, ISendVoiceView {
+public class SendVoiceView extends LinearLayout implements v05, a57, ISendVoiceView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -56,7 +56,7 @@ public class SendVoiceView extends LinearLayout implements v05, x47, ISendVoiceV
             return;
         }
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0764, this);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091f05);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091f06);
         setFocusable(true);
         setFocusableInTouchMode(true);
         a();
@@ -69,7 +69,7 @@ public class SendVoiceView extends LinearLayout implements v05, x47, ISendVoiceV
             this.e = (WindowManager) TbadkCoreApplication.getInst().getContext().getSystemService("window");
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
             this.f = layoutParams;
-            layoutParams.type = bs8.a(2002);
+            layoutParams.type = is8.a(2002);
             WindowManager.LayoutParams layoutParams2 = this.f;
             layoutParams2.format = 1;
             layoutParams2.flags = 56;
@@ -100,7 +100,7 @@ public class SendVoiceView extends LinearLayout implements v05, x47, ISendVoiceV
         this.d.e();
     }
 
-    @Override // com.repackage.x47
+    @Override // com.repackage.a57
     public void closeRecordCancel() {
         FloatRecordView floatRecordView;
         Interceptable interceptable = $ic;
@@ -115,7 +115,7 @@ public class SendVoiceView extends LinearLayout implements v05, x47, ISendVoiceV
         this.e.removeView(a);
     }
 
-    @Override // com.repackage.x47
+    @Override // com.repackage.a57
     public void closeRecordTooShort() {
         FloatRecordView floatRecordView;
         Interceptable interceptable = $ic;
@@ -242,11 +242,11 @@ public class SendVoiceView extends LinearLayout implements v05, x47, ISendVoiceV
         if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
             if (z) {
                 this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080429);
-                this.a.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0ae0));
+                this.a.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0adf));
                 return;
             }
             this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080428);
-            this.a.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0ae1));
+            this.a.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0ae0));
         }
     }
 
@@ -266,7 +266,7 @@ public class SendVoiceView extends LinearLayout implements v05, x47, ISendVoiceV
         }
     }
 
-    @Override // com.repackage.x47
+    @Override // com.repackage.a57
     public void showRecordCancel() {
         FloatRecordView floatRecordView;
         LinearLayout a;
@@ -278,7 +278,7 @@ public class SendVoiceView extends LinearLayout implements v05, x47, ISendVoiceV
         this.d.showRecordCancel();
     }
 
-    @Override // com.repackage.x47
+    @Override // com.repackage.a57
     public void startRecordVoice() {
         FloatRecordView floatRecordView;
         LinearLayout c;
@@ -290,7 +290,7 @@ public class SendVoiceView extends LinearLayout implements v05, x47, ISendVoiceV
         this.d.startRecordVoice();
     }
 
-    @Override // com.repackage.x47
+    @Override // com.repackage.a57
     public void stopRecordVoice() {
         FloatRecordView floatRecordView;
         Interceptable interceptable = $ic;

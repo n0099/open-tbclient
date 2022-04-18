@@ -48,16 +48,16 @@ public class ChatImageWithTailView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01da, this);
-            ChatClipImageItemView chatClipImageItemView = (ChatClipImageItemView) findViewById(R.id.obfuscated_res_0x7f090ebe);
+            ChatClipImageItemView chatClipImageItemView = (ChatClipImageItemView) findViewById(R.id.obfuscated_res_0x7f090ebf);
             this.a = chatClipImageItemView;
             chatClipImageItemView.setContentDescription(getContext().getString(R.string.obfuscated_res_0x7f0f0522));
             this.a.setDefaultResource(R.drawable.pic_image_h_not);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d20);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ec9);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091d21);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091eca);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081833);
             this.c.setAutoChangeStyle(false);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ec8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ec9);
         }
     }
 

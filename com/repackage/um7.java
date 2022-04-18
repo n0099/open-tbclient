@@ -1,306 +1,405 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.nearby.viewholder.NearbyForumFriendItemViewHolder;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class um7 extends ho<qz4, NearbyForumFriendItemViewHolder> {
+public class um7 implements m65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context i;
-    public int j;
-    public boolean k;
+    public String a;
+    public String b;
+    public String c;
+    public long d;
+    public String e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public boolean i;
+    public long j;
+    public int k;
+    public boolean l;
+    public String m;
+    public String n;
+    public String o;
+    public boolean p;
 
-    /* loaded from: classes7.dex */
-    public class a implements dp {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ um7 a;
-
-        public a(um7 um7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {um7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = um7Var;
-        }
-
-        @Override // com.repackage.dp
-        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof qz4)) {
-                qz4 qz4Var = (qz4) uoVar;
-                String str = qz4Var.a;
-                boolean z = !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str);
-                o07.h(i + 1, this.a.j, 2, qz4Var.a);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.i).createNormalConfig(mg.g(str, 0L), z, false)));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ qz4 b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ um7 d;
-
-        public b(um7 um7Var, ViewGroup viewGroup, qz4 qz4Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {um7Var, viewGroup, qz4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = um7Var;
-            this.a = viewGroup;
-            this.b = qz4Var;
-            this.c = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.d.k) {
-                    PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
-                    personChangeActivityConfig.setIsCompleteLocalInfo(true);
-                    personChangeActivityConfig.start();
-                } else {
-                    qz4 qz4Var = this.b;
-                    um7 um7Var = this.d;
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921654, new o15(qz4Var, um7Var.d0(um7Var.j))));
-                }
-                o07.h(this.c + 1, this.d.j, 1, this.b.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public um7(Context context, BdUniqueId bdUniqueId, int i) {
-        super(context, bdUniqueId);
+    public um7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = context;
-        this.j = i;
-        V(new a(this));
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = System.currentTimeMillis();
+        this.e = "";
+        this.f = false;
+        this.g = false;
+        this.h = 0;
+        this.i = false;
+        this.m = "";
+        this.n = "";
+        this.o = "";
+        this.p = true;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, qz4 qz4Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
-        f0(i, view2, viewGroup, qz4Var, nearbyForumFriendItemViewHolder);
-        return view2;
-    }
-
-    public final int d0(int i) {
-        InterceptResult invokeI;
+    public void A(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i != 1) {
-                return i != 2 ? -1 : 1;
-            }
-            return 0;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.o = str;
         }
-        return invokeI.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: e0 */
-    public NearbyForumFriendItemViewHolder M(ViewGroup viewGroup) {
+    public void B(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void C(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void D(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void E(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.p = z;
+        }
+    }
+
+    public void F(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.m = str;
+        }
+    }
+
+    public void G(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void H(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void I(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void J(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void K(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void L(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void M(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.n = str;
+        }
+    }
+
+    public JSONObject N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("forum_name", this.c);
+                jSONObject.put("thread_id", this.a);
+                jSONObject.put("thread_time", this.d);
+                jSONObject.put("thread_name", this.b);
+                jSONObject.put("post_id", this.e);
+                jSONObject.put("host_only", this.f);
+                jSONObject.put("squence", this.g);
+                jSONObject.put("thread_type", this.h);
+                jSONObject.put("is_manga", this.i);
+                jSONObject.put("cartoon_id", this.j);
+                jSONObject.put(MangaBrowserActivityConfig.CHAPTER_ID, this.k);
+                jSONObject.put(VideoPlayActivityConfig.IS_SHARE_THREAD, this.l);
+                jSONObject.put("live_id", this.m);
+                jSONObject.put("user_name", this.n);
+                jSONObject.put("live_description", this.o);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.j : invokeV.longValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.k : invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.o : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.m : (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new NearbyForumFriendItemViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d05eb, viewGroup, false), this.i) : (NearbyForumFriendItemViewHolder) invokeL.objValue;
-    }
-
-    public View f0(int i, View view2, ViewGroup viewGroup, qz4 qz4Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qz4Var, nearbyForumFriendItemViewHolder})) == null) {
-            if (qz4Var != null && nearbyForumFriendItemViewHolder != null) {
-                j0(qz4Var, nearbyForumFriendItemViewHolder);
-                h0(qz4Var, nearbyForumFriendItemViewHolder);
-                o07.n(i + 1, this.j);
-                nearbyForumFriendItemViewHolder.k.setOnClickListener(new b(this, viewGroup, qz4Var, i));
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void g0(NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, nearbyForumFriendItemViewHolder, i) == null) {
-            nearbyForumFriendItemViewHolder.p.setVisibility(0);
-            if (i == 1) {
-                nearbyForumFriendItemViewHolder.p.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0c0e));
-                nearbyForumFriendItemViewHolder.c.setShowActiveStatus(true);
-            } else if (i == 2) {
-                nearbyForumFriendItemViewHolder.p.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0c0c));
-                nearbyForumFriendItemViewHolder.c.setShowActiveStatus(true);
-            } else if (i != 3) {
-                nearbyForumFriendItemViewHolder.p.setVisibility(8);
-                nearbyForumFriendItemViewHolder.c.setShowActiveStatus(false);
-            } else {
-                nearbyForumFriendItemViewHolder.p.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0c0d));
-                nearbyForumFriendItemViewHolder.c.setShowActiveStatus(false);
-            }
-        }
-    }
-
-    public final void h0(qz4 qz4Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, qz4Var, nearbyForumFriendItemViewHolder) == null) {
-            nearbyForumFriendItemViewHolder.c.K(qz4Var.c, 25, false);
-            nearbyForumFriendItemViewHolder.d.setText(qz4Var.b);
-            int i = qz4Var.d;
-            boolean z2 = true;
-            if ((i != 1 && i != 2) || qz4Var.e <= 0) {
-                nearbyForumFriendItemViewHolder.e.setVisibility(8);
-                z = false;
-            } else {
-                nearbyForumFriendItemViewHolder.e.setVisibility(0);
-                nearbyForumFriendItemViewHolder.g.setText(String.valueOf(qz4Var.e));
-                z = true;
-            }
-            if (StringUtils.isNull(qz4Var.f)) {
-                nearbyForumFriendItemViewHolder.h.setVisibility(8);
-            } else {
-                nearbyForumFriendItemViewHolder.h.setVisibility(0);
-                nearbyForumFriendItemViewHolder.h.setText(qz4Var.f);
-                z = true;
-            }
-            if (StringUtils.isNull(qz4Var.g)) {
-                nearbyForumFriendItemViewHolder.i.setVisibility(8);
-                z2 = z;
-            } else {
-                nearbyForumFriendItemViewHolder.i.setVisibility(0);
-                nearbyForumFriendItemViewHolder.i.setText(qz4Var.g);
-            }
-            g0(nearbyForumFriendItemViewHolder, qz4Var.k);
-            if (z2 && nearbyForumFriendItemViewHolder.p.getVisibility() == 0) {
-                nearbyForumFriendItemViewHolder.o.setVisibility(0);
-            } else {
-                nearbyForumFriendItemViewHolder.o.setVisibility(8);
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0663));
-            if (!ListUtils.isEmpty(qz4Var.h)) {
-                List<pz4> list = qz4Var.h;
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    if (i2 > 0) {
-                        sb.append("/");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, obj)) == null) {
+            if (obj != null && (obj instanceof um7)) {
+                um7 um7Var = (um7) obj;
+                if (this.h == 49) {
+                    String str3 = this.m;
+                    if (str3 != null && (str2 = um7Var.m) != null && str3.equals(str2)) {
+                        return true;
                     }
-                    sb.append(list.get(i2).a);
-                    sb.append(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0643));
+                } else {
+                    String str4 = this.a;
+                    if (str4 != null && (str = um7Var.a) != null && str4.equals(str)) {
+                        return true;
+                    }
                 }
             }
-            nearbyForumFriendItemViewHolder.j.setText(sb);
-            nearbyForumFriendItemViewHolder.n.setText(qz4Var.i);
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void i0(boolean z) {
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.k = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    public final void j0(qz4 qz4Var, NearbyForumFriendItemViewHolder nearbyForumFriendItemViewHolder) {
+    @Override // com.repackage.k65
+    public String getCacheKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qz4Var, nearbyForumFriendItemViewHolder) == null) {
-            nearbyForumFriendItemViewHolder.c.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            wr4.d(nearbyForumFriendItemViewHolder.d).v(R.color.CAM_X0105);
-            int i = qz4Var.d;
-            if (i == 1) {
-                WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.f, R.drawable.obfuscated_res_0x7f0807ca, R.color.CAM_X0330, null);
-                wr4.d(nearbyForumFriendItemViewHolder.g).v(R.color.CAM_X0330);
-                wr4 d = wr4.d(nearbyForumFriendItemViewHolder.e);
-                d.e(R.string.A_X11);
-                d.n(R.string.J_X01);
-                d.f(R.color.CAM_X0330);
-            } else if (i == 2) {
-                WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.f, R.drawable.obfuscated_res_0x7f0807e4, R.color.CAM_X0308, null);
-                wr4.d(nearbyForumFriendItemViewHolder.g).v(R.color.CAM_X0308);
-                wr4 d2 = wr4.d(nearbyForumFriendItemViewHolder.e);
-                d2.e(R.string.A_X11);
-                d2.n(R.string.J_X01);
-                d2.f(R.color.CAM_X0308);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            if (this.h == 49) {
+                return this.m + "_ala";
             }
-            wr4 d3 = wr4.d(nearbyForumFriendItemViewHolder.h);
-            d3.n(R.string.J_X01);
-            d3.v(R.color.CAM_X0107);
-            d3.f(R.color.CAM_X0202);
-            wr4.d(nearbyForumFriendItemViewHolder.i).v(R.color.CAM_X0109);
-            wr4.d(nearbyForumFriendItemViewHolder.o).v(R.color.CAM_X0109);
-            wr4.d(nearbyForumFriendItemViewHolder.p).v(R.color.CAM_X0109);
-            WebPManager.setPureDrawable(nearbyForumFriendItemViewHolder.l, R.drawable.obfuscated_res_0x7f080983, R.color.CAM_X0302, null);
-            wr4.d(nearbyForumFriendItemViewHolder.m).v(R.color.CAM_X0302);
-            wr4 d4 = wr4.d(nearbyForumFriendItemViewHolder.k);
-            d4.n(R.string.J_X01);
-            d4.f(R.color.CAM_X0905);
-            wr4.d(nearbyForumFriendItemViewHolder.j).v(R.color.CAM_X0109);
-            wr4.d(nearbyForumFriendItemViewHolder.n).v(R.color.CAM_X0107);
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            int hashCode = TextUtils.isEmpty(this.a) ? 120 : 119 + this.a.hashCode();
+            int hashCode2 = TextUtils.isEmpty(this.b) ? (hashCode * 7) + 1 : (hashCode * 7) + this.b.hashCode();
+            int hashCode3 = ((TextUtils.isEmpty(this.c) ? (hashCode2 * 7) + 1 : (hashCode2 * 7) + this.c.hashCode()) * 7) + ((int) this.d);
+            int hashCode4 = TextUtils.isEmpty(this.e) ? (hashCode3 * 7) + 1 : (hashCode3 * 7) + this.e.hashCode();
+            int hashCode5 = TextUtils.isEmpty(this.m) ? (hashCode4 * 7) + 1 : (hashCode4 * 7) + this.m.hashCode();
+            return ((((TextUtils.isEmpty(this.o) ? (hashCode5 * 7) + 1 : (hashCode5 * 7) + this.o.hashCode()) * 7) + (this.f ? 1 : 0)) * 7) + (this.g ? 1 : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.m65
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? N().toString() : (String) invokeV.objValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public long l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.d : invokeV.longValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.n : (String) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.m65
+    public boolean p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
+            if (str != null) {
+                try {
+                    return v(new JSONObject(str));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.p : invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.i : invokeV.booleanValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.l : invokeV.booleanValue;
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public boolean v(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, jSONObject)) == null) {
+            String optString = jSONObject.optString("forum_name");
+            String optString2 = jSONObject.optString("thread_id");
+            String optString3 = jSONObject.optString("thread_name");
+            long optLong = jSONObject.optLong("thread_time");
+            this.e = jSONObject.optString("post_id");
+            this.f = jSONObject.optBoolean("host_only");
+            this.g = jSONObject.optBoolean("squence");
+            this.i = jSONObject.optBoolean("is_manga");
+            this.j = jSONObject.optLong("cartoon_id");
+            this.k = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+            this.l = jSONObject.optBoolean(VideoPlayActivityConfig.IS_SHARE_THREAD, false);
+            if (!TextUtils.isEmpty(optString)) {
+                this.c = optString;
+            }
+            if (!TextUtils.isEmpty(optString2)) {
+                this.a = optString2;
+            }
+            if (!TextUtils.isEmpty(optString3)) {
+                this.b = optString3;
+            }
+            if (optLong > 2000) {
+                this.d = optLong;
+            }
+            this.h = jSONObject.optInt("thread_type");
+            this.m = jSONObject.optString("live_id", "");
+            this.n = jSONObject.optString("user_name", "");
+            this.o = jSONObject.optString("live_description", "");
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void y(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048612, this, j) == null) {
+            this.j = j;
+        }
+    }
+
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.k = i;
         }
     }
 }

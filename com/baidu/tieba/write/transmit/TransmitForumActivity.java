@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c09;
-import com.repackage.e09;
 import com.repackage.ho;
+import com.repackage.j09;
+import com.repackage.l09;
 import com.repackage.oi;
 import com.repackage.uo;
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     public TransmitSelectAdapter mSelectAdapter;
     public View mTopView;
     public TextView mTransmitConfirmButton;
-    public c09 mTransmitForumCallback;
+    public j09 mTransmitForumCallback;
     public TextView mTransmitSubTitle;
     public TextView mTransmitTipsView;
     public TextView mTransmitTitle;
@@ -101,7 +101,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements c09 {
+    public class b implements j09 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TransmitForumActivity a;
@@ -124,7 +124,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             this.a = transmitForumActivity;
         }
 
-        @Override // com.repackage.c09
+        @Override // com.repackage.j09
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -132,15 +132,15 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             }
         }
 
-        @Override // com.repackage.c09
+        @Override // com.repackage.j09
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f141e);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f141d);
             }
         }
 
-        @Override // com.repackage.c09
+        @Override // com.repackage.j09
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -241,7 +241,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             int count = ListUtils.getCount(getSelectedList());
             if (count > 0) {
-                this.mTransmitConfirmButton.setText(getResources().getString(R.string.obfuscated_res_0x7f0f141b, Integer.valueOf(count), 3));
+                this.mTransmitConfirmButton.setText(getResources().getString(R.string.obfuscated_res_0x7f0f141a, Integer.valueOf(count), 3));
             } else {
                 this.mTransmitConfirmButton.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0421));
             }
@@ -310,7 +310,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                 if (this.mTransmitForumCallback.c()) {
                     List<uo> list = this.mDataList;
                     list.add(list.size() - 1, new TransmitForumData(j0.mForumId, j0.mForumName, false, 0));
-                    showToast(R.string.obfuscated_res_0x7f0f141e);
+                    showToast(R.string.obfuscated_res_0x7f0f141d);
                 } else {
                     List<uo> list2 = this.mDataList;
                     list2.add(list2.size() - 1, new TransmitForumData(j0.mForumId, j0.mForumName, true, 0));
@@ -339,18 +339,18 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0844);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092131);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092132);
             this.mBackView = findViewById;
             findViewById.setOnClickListener(this.mOnClickListener);
-            this.mTransmitConfirmButton = (TextView) findViewById(R.id.obfuscated_res_0x7f09212b);
-            this.mTransmitTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092130);
-            this.mTransmitSubTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09212f);
-            this.mBackImageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092131);
+            this.mTransmitConfirmButton = (TextView) findViewById(R.id.obfuscated_res_0x7f09212c);
+            this.mTransmitTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092131);
+            this.mTransmitSubTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092130);
+            this.mBackImageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092132);
             this.mTransmitConfirmButton.setOnClickListener(this.mOnClickListener);
-            this.mListView = (BdTypeListView) findViewById(R.id.obfuscated_res_0x7f092132);
+            this.mListView = (BdTypeListView) findViewById(R.id.obfuscated_res_0x7f092133);
             this.mListView.setMaxHeight(oi.i(getPageContext().getPageActivity()) - getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e3));
             this.mListView.setOverScrollMode(2);
-            this.mTransmitTipsView = (TextView) findViewById(R.id.obfuscated_res_0x7f09212f);
+            this.mTransmitTipsView = (TextView) findViewById(R.id.obfuscated_res_0x7f092130);
             this.mDataList = new ArrayList();
             if (getIntent() != null) {
                 arrayList = getIntent().getParcelableArrayListExtra(TransmitForumActivityConfig.KEY_RECOMMEND_FORUM_LIST);
@@ -358,9 +358,9 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
                     TransmitForumData transmitForumData = (TransmitForumData) arrayList.get(0);
                     if (transmitForumData != null) {
                         if (transmitForumData.checked) {
-                            this.mTransmitTipsView.setText(R.string.obfuscated_res_0x7f0f141c);
+                            this.mTransmitTipsView.setText(R.string.obfuscated_res_0x7f0f141b);
                         } else {
-                            this.mTransmitTipsView.setText(R.string.obfuscated_res_0x7f0f141d);
+                            this.mTransmitTipsView.setText(R.string.obfuscated_res_0x7f0f141c);
                         }
                     }
                     this.mDataList.addAll(arrayList);
@@ -368,19 +368,19 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             } else {
                 arrayList = null;
             }
-            this.mDataList.add(new e09());
+            this.mDataList.add(new l09());
             this.mForumAdapter = new TransmitForumAdapter(getPageContext().getPageActivity(), TransmitForumData.ID_TRANSMIT_SELECT_DATA);
-            this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), e09.a, getUniqueId(), arrayList);
+            this.mSelectAdapter = new TransmitSelectAdapter(getPageContext().getPageActivity(), l09.a, getUniqueId(), arrayList);
             this.mForumAdapter.c0(this.mTransmitForumCallback);
             this.mAdapters.add(this.mForumAdapter);
             this.mAdapters.add(this.mSelectAdapter);
             this.mListView.a(this.mAdapters);
             this.mListView.setData(this.mDataList);
             setTransmitConfirmButtonText();
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0923b9);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0923ba);
             this.mTopView = findViewById2;
             findViewById2.setOnClickListener(this.mOnClickListener);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0911e4);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0911e5);
             this.mLayoutOperate = findViewById3;
             findViewById3.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.obfuscated_res_0x7f01008a));
             SkinManager.setBackgroundColor(this.mLayoutOperate, R.color.CAM_X0201);

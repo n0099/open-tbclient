@@ -1,93 +1,1369 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
+import android.location.Location;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.funad.adapter.FunAdEmptyHolder;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.CsjPrivacySwitch;
+import com.baidu.tbadk.switchs.GdtPrivacySwitch;
+import com.baidu.tbadk.switchs.KsPrivacySwitch;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTCustomController;
+import com.bytedance.sdk.openadsdk.TTLocation;
+import com.fun.ad.sdk.CacheStatistic;
+import com.fun.ad.sdk.FunAdCallback;
+import com.fun.ad.sdk.FunAdConfig;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdLoadListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import com.kwad.sdk.api.KsCustomController;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import com.qq.e.comm.managers.setting.GlobalSetting;
+import com.repackage.es6;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ns6 extends ho<uo, FunAdEmptyHolder> implements aa8, v98 {
+public class ns6 implements es6.f {
     public static /* synthetic */ Interceptable $ic;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity i;
+    public q a;
+    public HashMap<String, Long> b;
+    public final FunAdCallback c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ns6(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        super(baseFragmentActivity, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public class a implements FunAdLoadListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ es6.h a;
+        public final /* synthetic */ es6.g b;
+        public final /* synthetic */ ns6 c;
+
+        public a(ns6 ns6Var, es6.h hVar, es6.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, hVar, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ns6Var;
+            this.a = hVar;
+            this.b = gVar;
+        }
+
+        @Override // com.fun.ad.sdk.FunAdLoadListener
+        public void onAdLoaded(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                es6.h hVar = this.a;
+                if (hVar != null) {
+                    hVar.a(str, 0);
+                }
+                this.c.z("advert_load", str, 1, this.b);
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdLoadListener
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                es6.h hVar = this.a;
+                if (hVar != null) {
+                    hVar.onError(str);
+                }
+                this.c.z("advert_load", str, 0, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements es6.l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ FunAdSlot b;
+        public final /* synthetic */ FunAdLoadListener c;
+
+        public b(ns6 ns6Var, Activity activity, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, activity, funAdSlot, funAdLoadListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+            this.b = funAdSlot;
+            this.c = funAdLoadListener;
+        }
+
+        @Override // com.repackage.es6.l
+        public void initComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    FunAdSdk.getAdFactory().loadAd(this.a, this.b, this.c);
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements FunAdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ es6.i a;
+        public final /* synthetic */ es6.g b;
+        public final /* synthetic */ ns6 c;
+
+        public c(ns6 ns6Var, es6.i iVar, es6.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, iVar, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ns6Var;
+            this.a = iVar;
+            this.b = gVar;
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdClicked(String str, String str2, String str3) {
+            es6.i iVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || (iVar = this.a) == null) {
+                return;
+            }
+            iVar.onAdClicked(str, str2, str3);
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdClose(String str) {
+            es6.i iVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (iVar = this.a) == null) {
+                return;
+            }
+            iVar.onAdClose(str);
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                es6.i iVar = this.a;
+                if (iVar != null) {
+                    iVar.onAdError(str);
+                }
+                this.c.z("advert_show", str, 0, this.b);
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdShow(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+                es6.i iVar = this.a;
+                if (iVar != null) {
+                    iVar.onAdShow(str, str2, str3);
+                }
+                this.c.z("advert_show", str, 1, this.b);
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onRewardedVideo(String str) {
+            es6.i iVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iVar = this.a) == null) {
+                return;
+            }
+            iVar.onRewardedVideo(str);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements es6.l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FunNativeAd a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ ViewGroup c;
+        public final /* synthetic */ List d;
+        public final /* synthetic */ List e;
+        public final /* synthetic */ FunAdInteractionListener f;
+
+        public d(ns6 ns6Var, FunNativeAd funNativeAd, Activity activity, ViewGroup viewGroup, List list, List list2, FunAdInteractionListener funAdInteractionListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, funNativeAd, activity, viewGroup, list, list2, funAdInteractionListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = funNativeAd;
+            this.b = activity;
+            this.c = viewGroup;
+            this.d = list;
+            this.e = list2;
+            this.f = funAdInteractionListener;
+        }
+
+        @Override // com.repackage.es6.l
+        public void initComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.show(this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements FunAdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ es6.i a;
+        public final /* synthetic */ es6.g b;
+        public final /* synthetic */ ns6 c;
+
+        public e(ns6 ns6Var, es6.i iVar, es6.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, iVar, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ns6Var;
+            this.a = iVar;
+            this.b = gVar;
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdClicked(String str, String str2, String str3) {
+            es6.i iVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || (iVar = this.a) == null) {
+                return;
+            }
+            iVar.onAdClicked(str, str2, str3);
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdClose(String str) {
+            es6.i iVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (iVar = this.a) == null) {
+                return;
+            }
+            iVar.onAdClose(str);
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                es6.i iVar = this.a;
+                if (iVar != null) {
+                    iVar.onAdError(str);
+                }
+                this.c.z("advert_show", str, 0, this.b);
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdShow(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+                es6.i iVar = this.a;
+                if (iVar != null) {
+                    iVar.onAdShow(str, str2, str3);
+                }
+                if (this.c.a != null) {
+                    this.c.a.b = str;
+                    this.c.a.c = str2;
+                }
+                if (TbadkCoreApplication.getInst().isDebugMode()) {
+                    Log.d("IAdSdkSplash", "BEAR ad sspType=" + str2 + ", sid=" + str + " ,pid=" + str3);
+                }
+                this.c.z("advert_show", str, 1, this.b);
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onRewardedVideo(String str) {
+            es6.i iVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iVar = this.a) == null) {
+                return;
+            }
+            iVar.onRewardedVideo(str);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements es6.l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ ViewGroup b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ FunAdInteractionListener d;
+        public final /* synthetic */ ns6 e;
+
+        public f(ns6 ns6Var, Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, activity, viewGroup, str, funAdInteractionListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = ns6Var;
+            this.a = activity;
+            this.b = viewGroup;
+            this.c = str;
+            this.d = funAdInteractionListener;
+        }
+
+        @Override // com.repackage.es6.l
+        public void initComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                FunSplashAd showSplash = FunAdSdk.getAdFactory().showSplash(this.a, this.b, this.c, this.d);
+                if (showSplash != null) {
+                    this.e.a = new q();
+                    this.e.a.a = showSplash;
+                }
+                if (TbadkCoreApplication.getInst().isDebugMode()) {
+                    Log.d("IAdSdkSplash", "BEAR ad showSplash:" + this.e.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g implements FunSplashAdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ns6 a;
+
+        public g(ns6 ns6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ns6Var;
+        }
+
+        @Override // com.fun.ad.sdk.FunSplashAdInteractionListener
+        public void onAdClicked(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.w(CommonStatisticKey.KEY_EYE_SPLASH_BEAR_CLICK);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class h implements FunAdCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ns6 a;
+
+        public h(ns6 ns6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ns6Var;
+        }
+
+        @Override // com.fun.ad.sdk.FunAdCallback
+        public void onAdClicked(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdCallback
+        public void onAdClose(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdCallback
+        public void onAdLoad(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
+                this.a.b.put(str, Long.valueOf(System.currentTimeMillis()));
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdCallback
+        public void onAdLoadError(String str, String str2, String str3, int i, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4}) == null) {
+                this.a.y(str);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW_ERROR).param("obj_locate", i).param("obj_source", str).param("obj_param1", str4).param(TiebaStatic.Params.OBJ_PARAM2, str2).param(TiebaStatic.Params.OBJ_PARAM3, str3));
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdCallback
+        public void onAdLoaded(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, str3) == null) {
+                this.a.y(str);
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdCallback
+        public void onAdShow(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) {
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdCallback
+        public void onAdShowError(String str, String str2, String str3, int i, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4}) == null) {
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdCallback
+        public void onRewardedVideo(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class i extends KsCustomController {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public i(ns6 ns6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public boolean canReadInstalledPackages() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? KsPrivacySwitch.isOpen() : invokeV.booleanValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public boolean canReadLocation() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? KsPrivacySwitch.isOpen() : invokeV.booleanValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public boolean canUseMacAddress() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? KsPrivacySwitch.isOpen() : invokeV.booleanValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public boolean canUseNetworkState() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? KsPrivacySwitch.isOpen() : invokeV.booleanValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public boolean canUseOaid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public boolean canUsePhoneState() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public boolean canUseStoragePermission() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? KsPrivacySwitch.isOpen() : invokeV.booleanValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public String getAndroidId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? TbadkCoreApplication.getInst().getAndroidId() : (String) invokeV.objValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public String getImei() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? TbadkCoreApplication.getInst().getImei() : (String) invokeV.objValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public String[] getImeis() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new String[]{TbadkCoreApplication.getInst().getImei(), TbadkCoreApplication.getInst().getImei()} : (String[]) invokeV.objValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public Location getLocation() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                Location location = new Location("");
+                location.setLatitude(mg.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d));
+                location.setLongitude(mg.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d));
+                return location;
+            }
+            return (Location) invokeV.objValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public String getMacAddress() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()) : (String) invokeV.objValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsCustomController
+        public String getOaid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst()) : (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class j extends TTCustomController {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public j(ns6 ns6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.bytedance.sdk.openadsdk.TTCustomController
+        /* renamed from: a */
+        public TTLocation getTTLocation() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new TTLocation(mg.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d), mg.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d)) : (TTLocation) invokeV.objValue;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTCustomController
+        public boolean alist() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CsjPrivacySwitch.isOpen() : invokeV.booleanValue;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTCustomController
+        public String getDevImei() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreApplication.getInst().getImei() : (String) invokeV.objValue;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTCustomController
+        public boolean isCanUseLocation() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? CsjPrivacySwitch.isOpen() : invokeV.booleanValue;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTCustomController
+        public boolean isCanUsePhoneState() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? CsjPrivacySwitch.isOpen() : invokeV.booleanValue;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTCustomController
+        public boolean isCanUseWifiState() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? CsjPrivacySwitch.isOpen() : invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class k implements FunAdSdk.SdkInitializeCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ es6.l a;
+
+        public k(ns6 ns6Var, es6.l lVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, lVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lVar;
+        }
+
+        @Override // com.fun.ad.sdk.FunAdSdk.SdkInitializeCallback
+        public void onComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                GlobalSetting.setAgreePrivacyStrategy(GdtPrivacySwitch.isOpen());
+                es6.l lVar = this.a;
+                if (lVar != null) {
+                    lVar.initComplete();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class l implements FunAdLoadListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ es6.h a;
+        public final /* synthetic */ es6.g b;
+        public final /* synthetic */ ns6 c;
+
+        public l(ns6 ns6Var, es6.h hVar, es6.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, hVar, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ns6Var;
+            this.a = hVar;
+            this.b = gVar;
+        }
+
+        @Override // com.fun.ad.sdk.FunAdLoadListener
+        public void onAdLoaded(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                es6.h hVar = this.a;
+                if (hVar != null) {
+                    hVar.a(str, 0);
+                }
+                this.c.z("advert_load", str, 1, this.b);
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdLoadListener
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                es6.h hVar = this.a;
+                if (hVar != null) {
+                    hVar.onError(str);
+                }
+                this.c.z("advert_load", str, 0, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class m implements es6.l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ FunAdSlot b;
+        public final /* synthetic */ FunAdLoadListener c;
+
+        public m(ns6 ns6Var, Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, context, funAdSlot, funAdLoadListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = funAdSlot;
+            this.c = funAdLoadListener;
+        }
+
+        @Override // com.repackage.es6.l
+        public void initComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                FunAdSdk.getAdFactory().loadAd(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class n implements FunAdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ es6.i a;
+        public final /* synthetic */ es6.g b;
+        public final /* synthetic */ ns6 c;
+
+        public n(ns6 ns6Var, es6.i iVar, es6.g gVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, iVar, gVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ns6Var;
+            this.a = iVar;
+            this.b = gVar;
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdClicked(String str, String str2, String str3) {
+            es6.i iVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || (iVar = this.a) == null) {
+                return;
+            }
+            iVar.onAdClicked(str, str2, str3);
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdClose(String str) {
+            es6.i iVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (iVar = this.a) == null) {
+                return;
+            }
+            iVar.onAdClose(str);
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                es6.i iVar = this.a;
+                if (iVar != null) {
+                    iVar.onAdError(str);
+                }
+                this.c.z("advert_show", str, 0, this.b);
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onAdShow(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
+                es6.i iVar = this.a;
+                if (iVar != null) {
+                    iVar.onAdShow(str, str2, str3);
+                }
+                this.c.z("advert_show", str, 1, this.b);
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunAdInteractionListener
+        public void onRewardedVideo(String str) {
+            es6.i iVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (iVar = this.a) == null) {
+                return;
+            }
+            iVar.onRewardedVideo(str);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class o implements es6.l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ ViewGroup b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ FunAdInteractionListener d;
+
+        public o(ns6 ns6Var, Activity activity, ViewGroup viewGroup, String str, FunAdInteractionListener funAdInteractionListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, activity, viewGroup, str, funAdInteractionListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+            this.b = viewGroup;
+            this.c = str;
+            this.d = funAdInteractionListener;
+        }
+
+        @Override // com.repackage.es6.l
+        public void initComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                FunAdSdk.getAdFactory().showAd(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class p implements es6.l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public p(ns6 ns6Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ns6Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        @Override // com.repackage.es6.l
+        public void initComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                FunAdSdk.getAdFactory().destroyAd(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class q {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public FunSplashAd a;
+        public String b;
+        public String c;
+        public boolean d;
+
+        public q() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = null;
+            this.c = "cjs";
+            this.d = false;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755458880, "Lcom/repackage/ns6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755458880, "Lcom/repackage/ns6;");
                 return;
             }
         }
-        this.i = baseFragmentActivity;
+        d = um4.a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public FunAdEmptyHolder M(ViewGroup viewGroup) {
+    public ns6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new HashMap<>();
+        this.c = new h(this);
+    }
+
+    @Override // com.repackage.es6.f
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            destroyAd(str);
+        }
+    }
+
+    @Override // com.repackage.es6.f
+    public void b(Activity activity, String str, int i2, es6.h hVar, es6.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, str, Integer.valueOf(i2), hVar, gVar}) == null) {
+            x(new b(this, activity, new FunAdSlot.Builder().setSid(str).setAdCount(i2).setExpressWidth(oi.k(activity)).build(), new a(this, hVar, gVar)));
+        }
+    }
+
+    @Override // com.repackage.es6.f
+    public void c(ImageView imageView, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageView, obj) == null) && (obj instanceof FunNativeAd) && imageView != null) {
+            ms6.B(imageView, (FunNativeAd) obj);
+        }
+    }
+
+    @Override // com.repackage.es6.f
+    public void d(Activity activity, @NonNull Object obj, es6.i iVar, ViewGroup viewGroup, List<View> list, List<View> list2, es6.g gVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{activity, obj, iVar, viewGroup, list, list2, gVar}) == null) && !activity.isDestroyed() && (obj instanceof FunNativeAd)) {
+            x(new d(this, (FunNativeAd) obj, activity, viewGroup, list, list2, new c(this, iVar, gVar)));
+        }
+    }
+
+    @Override // com.repackage.es6.f
+    public void destroyAd(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            x(new p(this, str));
+        }
+    }
+
+    @Override // com.repackage.es6.f
+    public void e(Context context, String str, int i2, int i3, es6.h hVar, es6.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, str, Integer.valueOf(i2), Integer.valueOf(i3), hVar, gVar}) == null) {
+            FunAdSlot.Builder builder = new FunAdSlot.Builder();
+            builder.setSid(str).setAdCount(i2).setExpressWidth(oi.k(context));
+            if (i3 > 0) {
+                builder.setExpressHeight(i3);
+            }
+            x(new m(this, context, builder.build(), new l(this, hVar, gVar)));
+        }
+    }
+
+    @Override // com.repackage.es6.f
+    public ViewGroup f(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View view2 = new View(this.i.getPageContext().getPageActivity());
-            view2.setVisibility(8);
-            return new FunAdEmptyHolder(view2);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? new NativeAdContainer(context) : (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // com.repackage.es6.f
+    public View g(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+            if (obj instanceof FunNativeAd) {
+                FunNativeAd funNativeAd = (FunNativeAd) obj;
+                ms6.t(funNativeAd);
+                ms6.u(funNativeAd);
+                return funNativeAd.getVideoView();
+            }
+            return null;
         }
-        return (FunAdEmptyHolder) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, uo uoVar, FunAdEmptyHolder funAdEmptyHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.es6.f
+    public boolean h(Activity activity) {
+        InterceptResult invokeL;
+        FunSplashAd funSplashAd;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uoVar, funAdEmptyHolder})) == null) ? funAdEmptyHolder.b() : (View) invokeCommon.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity)) == null) {
+            q qVar = this.a;
+            if (qVar == null || (funSplashAd = qVar.a) == null || qVar.d) {
+                return false;
+            }
+            boolean showMiniWindow = funSplashAd.showMiniWindow(activity, false, new g(this));
+            if (TbadkCoreApplication.getInst().isDebugMode()) {
+                Log.d("IAdSdkSplash", "BEAR ad showMiniWindow: " + this.a + ", isSucceed=" + showMiniWindow);
+            }
+            if (showMiniWindow) {
+                this.a.d = true;
+                w(CommonStatisticKey.KEY_EYE_SPLASH_BEAR_SHOW);
+            }
+            return showMiniWindow;
+        }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.aa8
-    public void j(boolean z) {
+    @Override // com.repackage.es6.f
+    public void i(Activity activity, String str, ViewGroup viewGroup, es6.i iVar, es6.g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048585, this, activity, str, viewGroup, iVar, gVar) == null) || viewGroup == null) {
+            return;
+        }
+        x(new f(this, activity, viewGroup, str, new e(this, iVar, gVar)));
+    }
+
+    @Override // com.repackage.es6.f
+    public boolean isAdReady(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            x(null);
+            return FunAdSdk.isSdkInitializeComplete() && FunAdSdk.getAdFactory().isAdReady(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.es6.f
+    public boolean j(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
+            if (obj instanceof FunNativeAd) {
+                return ms6.C((FunNativeAd) obj);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.es6.f
+    public Object k(@NonNull Activity activity, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, activity, str)) == null) {
+            x(null);
+            return FunAdSdk.getAdFactory().getNativeAd(activity, str);
+        }
+        return invokeLL.objValue;
+    }
+
+    @Override // com.repackage.es6.f
+    public void l(Object obj, es6.j jVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048589, this, obj, jVar) == null) && (obj instanceof FunNativeAd)) {
+            FunNativeAd funNativeAd = (FunNativeAd) obj;
+            ms6.A(funNativeAd, ms6.i(funNativeAd), jVar);
         }
     }
 
-    @Override // com.repackage.v98
-    public void onDestroy() {
+    @Override // com.repackage.es6.f
+    public void m(Application application, es6.l lVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048590, this, application, lVar) == null) {
+            if (FunAdSdk.isSdkInitializeComplete()) {
+                if (lVar != null) {
+                    lVar.initComplete();
+                    return;
+                }
+                return;
+            }
+            FunAdConfig.Builder builder = new FunAdConfig.Builder(application);
+            if (ub5.c()) {
+                builder.forbiddenPlatform(FunAdSdk.PLATFORM_CSJ);
+            }
+            if (ub5.d()) {
+                builder.forbiddenPlatform(FunAdSdk.PLATFORM_GDT);
+            }
+            if (ub5.e()) {
+                builder.forbiddenPlatform(FunAdSdk.PLATFORM_KS);
+            }
+            boolean z = true;
+            FunAdConfig.Builder ttSupportMultiProcess = builder.setAppName(application.getString(R.string.obfuscated_res_0x7f0f029e)).setAppId(d).setUserId("").setUseTextureView(true).setTitleBarTheme(1).setVideoSoundEnable(false).setVideoDataFlowAutoStart(false).setTtSupportMultiProcess(true);
+            if (!um4.g() && !um4.h() && !TbadkCoreApplication.getInst().isDebugMode()) {
+                z = false;
+            }
+            ttSupportMultiProcess.setLogEnabled(z).setTTCustomController(new j(this)).setKsCustomController(new i(this)).setKsCanReadICCID(KsPrivacySwitch.isOpen()).setKsCanReadNearbyWifiList(KsPrivacySwitch.isOpen()).setKsCanReadMacAddress(KsPrivacySwitch.isOpen());
+            GlobalSetting.setAgreePrivacyStrategy(GdtPrivacySwitch.isOpen());
+            FunAdSdk.init(builder.build(), this.c, new k(this, lVar));
         }
     }
 
-    @Override // com.repackage.v98
-    public void onPause() {
+    @Override // com.repackage.es6.f
+    public List<ds6> n(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            if (!FunAdSdk.isSdkInitializeComplete()) {
+                return new ArrayList();
+            }
+            List<CacheStatistic> cacheStatistics = FunAdSdk.getAdFactory().getCacheStatistics(str);
+            ArrayList arrayList = new ArrayList(cacheStatistics.size());
+            for (CacheStatistic cacheStatistic : cacheStatistics) {
+                FunAdType funAdType = cacheStatistic.adType;
+                String str2 = funAdType != null ? funAdType.getAdType().toString() : "";
+                FunAdType funAdType2 = cacheStatistic.adType;
+                arrayList.add(new ds6(str2, funAdType2 != null ? funAdType2.getPlatform() : "", cacheStatistic.pid, cacheStatistic.hashCode(), cacheStatistic.count, cacheStatistic.basePrice));
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.repackage.es6.f
+    public void o(Activity activity, String str, ViewGroup viewGroup, es6.i iVar, es6.g gVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048592, this, activity, str, viewGroup, iVar, gVar) == null) || viewGroup == null) {
+            return;
+        }
+        x(new o(this, activity, viewGroup, str, new n(this, iVar, gVar)));
+    }
+
+    @Override // com.repackage.es6.f
+    public zs8 p(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, obj)) == null) {
+            zs8 zs8Var = null;
+            if (obj instanceof FunNativeAd) {
+                FunNativeAd funNativeAd = (FunNativeAd) obj;
+                int i2 = ms6.i(funNativeAd);
+                if (i2 == -1) {
+                    return null;
+                }
+                zs8Var = new zs8();
+                String c2 = ms6.c(funNativeAd, i2);
+                if (ni.isEmpty(c2)) {
+                    c2 = "推广";
+                }
+                zs8Var.k(c2);
+                zs8Var.l(ms6.l(funNativeAd, i2));
+                zs8Var.j(ms6.g(funNativeAd, i2));
+                zs8Var.g(ms6.d(funNativeAd));
+                zs8Var.h(ms6.b(funNativeAd));
+                zs8Var.i(i2);
+            }
+            return zs8Var;
+        }
+        return (zs8) invokeL.objValue;
+    }
+
+    @Override // com.repackage.es6.f
+    public void removeMiniWindow() {
+        FunSplashAd funSplashAd;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            q qVar = this.a;
+            if (qVar != null && (funSplashAd = qVar.a) != null) {
+                funSplashAd.removeMiniWindow();
+            }
+            this.a = null;
         }
     }
 
-    @Override // com.repackage.v98
-    public void onResume() {
+    public final void w(String str) {
+        q qVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, str) == null) || (qVar = this.a) == null || TextUtils.isEmpty(qVar.b) || str == null) {
+            return;
+        }
+        TiebaStatic.log(new StatisticItem(str).param("obj_source", 6).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_PARAM2, this.a.b).param(TiebaStatic.Params.OBJ_TO, this.a.c));
+    }
+
+    public final void x(es6.l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, lVar) == null) {
+            m(TbadkCoreApplication.getInst(), lVar);
+        }
+    }
+
+    public final void y(String str) {
+        Long l2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, str) == null) || (l2 = this.b.get(str)) == null) {
+            return;
+        }
+        SpeedStatsManager speedStatsManager = SpeedStatsManager.getInstance();
+        speedStatsManager.setTaskRunTime("Ad_load" + str, System.currentTimeMillis() - l2.longValue());
+        this.b.remove(str);
+    }
+
+    public final void z(String str, String str2, int i2, es6.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(1048598, this, str, str2, i2, gVar) == null) {
+            ug a2 = r85.a();
+            a2.b("type", "bear");
+            a2.b("locate", gVar.a);
+            a2.b("switch", gVar.b);
+            a2.b("sid", str2);
+            a2.c("isSuccess", Integer.valueOf(i2));
+            BdStatisticsManager.getInstance().debug(str, a2);
         }
     }
 }

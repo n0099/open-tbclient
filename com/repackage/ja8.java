@@ -1,168 +1,49 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.Cmatch;
+import com.repackage.hl8;
 import java.util.HashMap;
+import java.util.List;
+import tbclient.App;
 /* loaded from: classes6.dex */
-public class ja8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, qk4> a;
+public interface ja8 {
+    ho<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    ea8 b();
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-        public HashMap<String, String> c;
+    App c(App app, Cmatch cmatch);
 
-        public b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-            Uri parse = Uri.parse(str);
-            boolean z = !TextUtils.isEmpty(parse.getScheme());
-            this.a = z;
-            if (z) {
-                this.b = parse.getAuthority() + parse.getPath();
-                this.c = new HashMap<>();
-                for (String str2 : parse.getQueryParameterNames()) {
-                    this.c.put(str2, parse.getQueryParameter(str2));
-                }
-                return;
-            }
-            this.b = "";
-            this.c = new HashMap<>();
-        }
+    void d(boolean z, String str, String str2, String str3, String str4, List<hl8.c> list, String str5);
 
-        public static b a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new b(str) : (b) invokeL.objValue;
-        }
+    y98 e();
 
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
+    ho<?, ?> f(ia8 ia8Var, BdUniqueId bdUniqueId);
 
-        public HashMap<String, String> c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (HashMap) invokeV.objValue;
-        }
+    void g();
 
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
-        }
-    }
+    List<AdvertAppInfo> h();
 
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static ja8 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    void i(AdvertAppInfo advertAppInfo, Context context);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-277610031, "Lcom/repackage/ja8$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-277610031, "Lcom/repackage/ja8$c;");
-                    return;
-                }
-            }
-            a = new ja8(null);
-        }
-    }
+    ho<?, ?> j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
 
-    public /* synthetic */ ja8(a aVar) {
-        this();
-    }
+    IAdBaseAsyncController k(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
 
-    public static ja8 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (ja8) invokeV.objValue;
-    }
+    aj8 l();
 
-    public void b(nk4 nk4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nk4Var) == null) {
-            c(nk4Var.c(), nk4Var);
-        }
-    }
+    void m(boolean z, String str, String str2, String str3, List<hl8.c> list, String str4);
 
-    public void c(String str, qk4 qk4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, qk4Var) == null) {
-            this.a.put(str, qk4Var);
-        }
-    }
+    ga8 n();
 
-    public void d(Object obj, String str, HashMap<String, String> hashMap, a9 a9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, obj, str, hashMap, a9Var) == null) || str == null) {
-            return;
-        }
-        b a2 = b.a(str);
-        qk4 qk4Var = this.a.get(a2.b());
-        if (qk4Var == null || !a2.d()) {
-            return;
-        }
-        if (hashMap != null && !hashMap.isEmpty()) {
-            a2.c().putAll(hashMap);
-        }
-        qk4Var.a(obj, a2.c(), str, a9Var);
-    }
+    void o(AdvertAppInfo advertAppInfo);
 
-    public ja8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-    }
+    void p(HashMap<String, String> hashMap, Context context);
 }

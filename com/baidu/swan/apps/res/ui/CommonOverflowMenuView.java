@@ -101,8 +101,8 @@ public class CommonOverflowMenuView extends LinearLayout implements tz2.g {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c2, (ViewGroup) this, true);
             this.g = inflate;
-            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913e9);
-            this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f0913ec);
+            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913ea);
+            this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f0913ed);
             setFocusable(true);
             setFocusableInTouchMode(true);
             b();

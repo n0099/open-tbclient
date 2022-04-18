@@ -38,6 +38,6 @@ public class g extends com.kwad.sdk.f.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ImageView) a(R.id.obfuscated_res_0x7f091163);
+        this.b = (ImageView) a(R.id.obfuscated_res_0x7f091164);
     }
 }

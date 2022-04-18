@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cv6;
+import com.repackage.ev6;
 import com.repackage.ho;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
-public class ConcernTipAdapter extends ho<cv6, ConcernTipViewHolder> {
+public class ConcernTipAdapter extends ho<ev6, ConcernTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public static int i;
     public static int j;
@@ -70,7 +70,7 @@ public class ConcernTipAdapter extends ho<cv6, ConcernTipViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernTipAdapter(Context context) {
-        super(context, cv6.f);
+        super(context, ev6.f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,16 +113,16 @@ public class ConcernTipAdapter extends ho<cv6, ConcernTipViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: a0 */
-    public View S(int i2, View view2, ViewGroup viewGroup, cv6 cv6Var, ConcernTipViewHolder concernTipViewHolder) {
+    public View S(int i2, View view2, ViewGroup viewGroup, ev6 ev6Var, ConcernTipViewHolder concernTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view2, viewGroup, cv6Var, concernTipViewHolder})) == null) {
-            concernTipViewHolder.a.setText(cv6Var.b);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view2, viewGroup, ev6Var, concernTipViewHolder})) == null) {
+            concernTipViewHolder.a.setText(ev6Var.b);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.a.getLayoutParams();
-            if (cv6Var.c) {
+            if (ev6Var.c) {
                 layoutParams.height = j;
                 concernTipViewHolder.b.setVisibility(0);
-            } else if (cv6Var.d) {
+            } else if (ev6Var.d) {
                 layoutParams.height = i;
             }
             concernTipViewHolder.a.setLayoutParams(layoutParams);

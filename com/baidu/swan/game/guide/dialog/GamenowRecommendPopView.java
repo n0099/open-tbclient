@@ -28,8 +28,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.repackage.e44;
 import com.repackage.er3;
-import com.repackage.f44;
 import com.repackage.hq3;
 import com.repackage.j03;
 import com.repackage.jo3;
@@ -338,15 +338,15 @@ public class GamenowRecommendPopView extends RelativeLayout {
             int i2 = this.m;
             if (i2 == 0 || i2 == 1) {
                 LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00b1, this);
-                this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091af6);
+                this.e = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091af7);
                 this.e.setLayoutManager(new GridLayoutManager(this.a, 3));
             } else if (i2 == 2) {
                 LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00b3, this);
-                this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090c8f);
+                this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090c90);
                 this.h = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f09006d);
             }
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090c8e);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c8c);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090c8f);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c8d);
             int parseColor = Color.parseColor("#333333");
             GradientDrawable gradientDrawable = null;
             try {
@@ -365,8 +365,8 @@ public class GamenowRecommendPopView extends RelativeLayout {
                             e.printStackTrace();
                         }
                         this.b.setTextColor(parseColor);
-                        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c8b);
-                        this.d = findViewById(R.id.obfuscated_res_0x7f091aba);
+                        this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c8c);
+                        this.d = findViewById(R.id.obfuscated_res_0x7f091abb);
                         this.j = new a(this);
                         i = this.m;
                         str = "2";
@@ -380,15 +380,15 @@ public class GamenowRecommendPopView extends RelativeLayout {
                         simpleDraweeView = this.h;
                         if (simpleDraweeView != null) {
                         }
-                        f44.b(this.b, gradientDrawable);
+                        e44.b(this.b, gradientDrawable);
                     }
                 }
             } catch (IllegalArgumentException e3) {
                 e = e3;
             }
             this.b.setTextColor(parseColor);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c8b);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091aba);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090c8c);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091abb);
             this.j = new a(this);
             i = this.m;
             str = "2";
@@ -403,7 +403,7 @@ public class GamenowRecommendPopView extends RelativeLayout {
             if (simpleDraweeView != null) {
                 simpleDraweeView.setOnClickListener(new c(this));
             }
-            f44.b(this.b, gradientDrawable);
+            e44.b(this.b, gradientDrawable);
         }
     }
 

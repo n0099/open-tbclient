@@ -1,23 +1,23 @@
 package com.repackage;
 
+import android.content.Context;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
 /* loaded from: classes7.dex */
-public class zr9 {
+public final class zr9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Info b;
+    public final /* synthetic */ Context a;
 
-    public zr9(Info info) {
+    public zr9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {info};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,9 +27,14 @@ public class zr9 {
                 return;
             }
         }
-        this.b = info;
-        if (info != null) {
-            this.a = info.getPid();
+        this.a = context;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ds9.a = new WebView(this.a).getSettings().getUserAgentString();
         }
     }
 }

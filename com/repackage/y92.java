@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import com.repackage.hd4;
+import com.repackage.gd4;
 import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -34,7 +34,7 @@ public final class y92 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class a implements hd4.a {
+    public static final class a implements gd4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -61,7 +61,7 @@ public final class y92 {
             this.c = function1;
         }
 
-        @Override // com.repackage.hd4.a
+        @Override // com.repackage.gd4.a
         public final void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -70,15 +70,15 @@ public final class y92 {
                     Log.i("SoLibManager", "tryInstallUpdatePkg: return by install=" + z + " libname=" + this.a);
                 }
                 if (z) {
-                    y92.d.A(this.a, ((k94) this.b.element).i);
+                    y92.d.A(this.a, ((j94) this.b.element).i);
                     y92 y92Var2 = y92.d;
                     String str = this.a;
-                    String str2 = ((k94) this.b.element).j;
+                    String str2 = ((j94) this.b.element).j;
                     Intrinsics.checkNotNullExpressionValue(str2, "soPkg.versionName");
                     y92Var2.B(str, str2);
                     y92 y92Var3 = y92.d;
                     String str3 = this.a;
-                    AbiType abiType = ((k94) this.b.element).q;
+                    AbiType abiType = ((j94) this.b.element).q;
                     Intrinsics.checkNotNullExpressionValue(abiType, "soPkg.abi");
                     y92Var3.y(str3, abiType);
                     y92.d.z(this.a, true);
@@ -204,11 +204,11 @@ public final class y92 {
                 Log.i("SoLibManager", "main updatePmsPkg start args: " + config);
             }
             config.e(b.a);
-            ba2 ba2Var = new ba2(new pb4(5), config);
+            ba2 ba2Var = new ba2(new ob4(5), config);
             if (a) {
                 Log.i("SoLibManager", "main updatePmsPkg pmsUpdateSo start requester: " + ba2Var);
             }
-            s74.o(ba2Var);
+            r74.o(ba2Var);
         }
     }
 
@@ -220,18 +220,18 @@ public final class y92 {
         }
     }
 
-    public final String g(k94 k94Var) {
+    public final String g(j94 j94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k94Var)) == null) {
-            if ((k94Var != null ? k94Var.q : null) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, j94Var)) == null) {
+            if ((j94Var != null ? j94Var.q : null) == null) {
                 return "";
             }
-            String str = k94Var.p;
+            String str = j94Var.p;
             Intrinsics.checkNotNullExpressionValue(str, "so.libName");
-            AbiType abiType = k94Var.q;
+            AbiType abiType = j94Var.q;
             Intrinsics.checkNotNullExpressionValue(abiType, "so.abi");
-            return h(str, abiType, k94Var.i);
+            return h(str, abiType, j94Var.i);
         }
         return (String) invokeL.objValue;
     }
@@ -389,7 +389,7 @@ public final class y92 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048595, this, libName, j) == null) {
             Intrinsics.checkNotNullParameter(libName, "libName");
-            SharedPreferences.Editor edit = rd4.a().edit();
+            SharedPreferences.Editor edit = qd4.a().edit();
             edit.putLong("swan_so_latest_update_time_" + libName, j).apply();
         }
     }
@@ -400,7 +400,7 @@ public final class y92 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? !r(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) : invokeV.booleanValue;
     }
 
-    /* JADX WARN: Type inference failed for: r6v1, types: [T, com.repackage.k94] */
+    /* JADX WARN: Type inference failed for: r6v1, types: [T, com.repackage.j94] */
     public final void x(String libName, Function1<? super cc3, Unit> callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, libName, callback) == null) {
@@ -426,27 +426,27 @@ public final class y92 {
                 callback.invoke(null);
             } else {
                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
-                ?? t = f84.i().t(libName);
+                ?? t = e84.i().t(libName);
                 objectRef.element = t;
-                if (((k94) t) != null && ((k94) t).a() && AbiType.currentAbi().compat(((k94) objectRef.element).q)) {
+                if (((j94) t) != null && ((j94) t).a() && AbiType.currentAbi().compat(((j94) objectRef.element).q)) {
                     AbiType q = q(libName);
-                    if (l(libName, ((k94) objectRef.element).i) && q != null && q.compat(((k94) objectRef.element).q)) {
+                    if (l(libName, ((j94) objectRef.element).i) && q != null && q.compat(((j94) objectRef.element).q)) {
                         if (a) {
-                            Log.i("SoLibManager", "tryInstallUpdatePkg: return by current so better then soPkg update libname=" + libName + " soPkg=" + ((k94) objectRef.element));
+                            Log.i("SoLibManager", "tryInstallUpdatePkg: return by current so better then soPkg update libname=" + libName + " soPkg=" + ((j94) objectRef.element));
                         }
                         callback.invoke(null);
                         return;
                     }
-                    a2.a(((k94) objectRef.element).a, new a(libName, objectRef, callback));
+                    a2.a(((j94) objectRef.element).a, new a(libName, objectRef, callback));
                     return;
                 }
                 if (a) {
-                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soPkg unavailable update libname=" + libName + " soPkg=" + ((k94) objectRef.element));
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soPkg unavailable update libname=" + libName + " soPkg=" + ((j94) objectRef.element));
                 }
                 cc3 cc3Var2 = new cc3();
                 cc3Var2.k(16);
                 cc3Var2.b(2900);
-                cc3Var2.f("invalid: pkg=" + ((k94) objectRef.element));
+                cc3Var2.f("invalid: pkg=" + ((j94) objectRef.element));
                 callback.invoke(cc3Var2);
             }
         }

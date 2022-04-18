@@ -1,94 +1,345 @@
 package com.repackage;
 
-import com.baidu.searchbox.pms.constants.PmsConstant;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
+import android.app.Activity;
+import android.os.Handler;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.heytap.mcssdk.mode.CommandMessage;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.w69;
+import com.repackage.z69;
+import java.util.UUID;
 /* loaded from: classes6.dex */
-public final class i79 {
+public final class i79 implements w69.a {
     public static /* synthetic */ Interceptable $ic;
+    public static com.baidu.ubs.analytics.a.n f;
+    public static long g;
+    public static long h;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public Handler c;
+    public Runnable d;
+    public e e;
 
-    public static String a(com.baidu.ubs.analytics.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            JSONArray jSONArray2 = new JSONArray();
-            JSONArray jSONArray3 = new JSONArray();
-            JSONArray jSONArray4 = new JSONArray();
-            try {
-                jSONObject2.put("cuid", bVar.n().l());
-                jSONObject2.put("imei", bVar.n().getImei());
-                jSONObject2.put("osVersion", bVar.n().getOsVersion());
-                jSONObject2.put("brandName", bVar.n().r());
-                jSONObject2.put("deviceType", bVar.n().s());
-                jSONObject2.put("mac", bVar.n().t());
-                jSONObject2.put(CommandMessage.SDK_VERSION, bVar.n().u());
-                jSONObject2.put("testEnable", bVar.n().v());
-                jSONObject2.put("appVersion", bVar.n().w());
-                jSONObject2.put("appVersionName", bVar.n().w());
-                jSONObject2.put("screenWidth", bVar.n().y());
-                jSONObject2.put("screenHeight", bVar.n().z());
-                jSONObject2.put("screenDensity", bVar.n().A());
-                jSONObject2.put("netType", bVar.n().x());
-                jSONObject2.put("appName", bVar.n().C());
-                jSONObject2.put("expInfo", bVar.n().B());
-                jSONObject2.put("phone", bVar.n().getPhone());
-                for (com.baidu.ubs.analytics.a.n nVar : bVar.o()) {
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(FetchLog.START_TIME, nVar.N());
-                    jSONObject3.put(FetchLog.END_TIME, nVar.O());
-                    jSONObject3.put("keepTime", nVar.P());
-                    jSONObject3.put("sessionId", nVar.I());
-                    jSONArray.put(jSONObject3);
+    /* loaded from: classes6.dex */
+    public class a implements e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i79 a;
+
+        /* renamed from: com.repackage.i79$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0444a extends l79 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public C0444a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
                 }
-                for (com.baidu.ubs.analytics.a.l lVar : bVar.p()) {
-                    JSONObject jSONObject4 = new JSONObject();
-                    jSONObject4.put("pagerName", lVar.E());
-                    jSONObject4.put("sessionId", lVar.I());
-                    jSONObject4.put(FetchLog.END_TIME, lVar.O());
-                    jSONObject4.put(FetchLog.START_TIME, lVar.N());
-                    jSONObject4.put("path", lVar.getPath());
-                    jSONArray2.put(jSONObject4);
-                }
-                for (com.baidu.ubs.analytics.a.a aVar : bVar.getEvents()) {
-                    JSONObject jSONObject5 = new JSONObject();
-                    jSONObject5.put("type", aVar.G());
-                    jSONObject5.put("sessionId", aVar.I());
-                    jSONObject5.put("ext", aVar.H());
-                    jSONObject5.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, aVar.F());
-                    jSONObject5.put("page", aVar.E());
-                    jSONObject5.put("from", aVar.D());
-                    jSONArray3.put(jSONObject5);
-                }
-                for (com.baidu.ubs.analytics.a.i iVar : bVar.q()) {
-                    JSONObject jSONObject6 = new JSONObject();
-                    jSONObject6.put("url", iVar.getUrl());
-                    jSONObject6.put("sessionId", iVar.I());
-                    jSONObject6.put("method", iVar.getType());
-                    jSONObject6.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, iVar.F());
-                    jSONObject6.put(PushConstants.PARAMS, iVar.M());
-                    jSONArray4.put(jSONObject6);
-                }
-                jSONObject.put("deviceinfo", jSONObject2);
-                jSONObject.put("sessions", jSONArray);
-                jSONObject.put("events", jSONArray3);
-                jSONObject.put("pagers", jSONArray2);
-                jSONObject.put("nets", jSONArray4);
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
-            return jSONObject.toString();
+
+            @Override // com.repackage.l79
+            public final void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    j79.b("记录一次app启动事件");
+                    g69.c("power_on", "", "", null);
+                    i69.h().d(false);
+                }
+            }
         }
-        return (String) invokeL.objValue;
+
+        public a(i79 i79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i79Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i79Var;
+        }
+
+        @Override // com.repackage.i79.e
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                j79.b("app   went foreground ");
+                if (currentTimeMillis - i79.h > i79.g) {
+                    this.a.n(currentTimeMillis);
+                }
+                if (i69.h().g()) {
+                    k79.a(new C0444a(this));
+                }
+            }
+        }
+
+        @Override // com.repackage.i79.e
+        public final void b() {
+            z69 z69Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                z69Var = z69.a.a;
+                if (z69Var.a().size() == 0) {
+                    j79.b("后台应用退出了 了               ");
+                    i69.h().d(true);
+                    long unused = i79.h = 0L;
+                    return;
+                }
+                j79.b("进入后台但没退出                  ");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i79 a;
+
+        public b(i79 i79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i79Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i79Var;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a && this.a.b) {
+                this.a.a = false;
+                try {
+                    this.a.e.b();
+                } catch (Exception e) {
+                    r79.b("Listener threw exception!:" + e.toString());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends l79 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(i79 i79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i79Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.l79
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                i79.f.z(String.valueOf(currentTimeMillis));
+                try {
+                    i79.f.A(String.valueOf(currentTimeMillis - Long.parseLong(i79.f.N())));
+                } catch (NumberFormatException e) {
+                    j79.b(e.getLocalizedMessage());
+                }
+                t69 t69Var = new t69();
+                if (t69Var.b(i79.f.I())) {
+                    t69Var.e(i79.f);
+                } else {
+                    t69Var.f(i79.f);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends l79 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(i79 i79Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i79Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.l79
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                j79.b("超时了……………… 一个新的session");
+                new t69().f(i79.f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a();
+
+        void b();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755665402, "Lcom/repackage/i79;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755665402, "Lcom/repackage/i79;");
+                return;
+            }
+        }
+        g = b79.a();
+    }
+
+    public i79() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = true;
+        this.c = new Handler();
+        this.e = new a(this);
+        long currentTimeMillis = System.currentTimeMillis();
+        h = currentTimeMillis;
+        n(currentTimeMillis);
+    }
+
+    public static com.baidu.ubs.analytics.a.n f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f : (com.baidu.ubs.analytics.a.n) invokeV.objValue;
+    }
+
+    @Override // com.repackage.w69.a
+    public final void a(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+        }
+    }
+
+    @Override // com.repackage.w69.a
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = false;
+            boolean z = !this.a;
+            this.a = true;
+            Runnable runnable = this.d;
+            if (runnable != null) {
+                this.c.removeCallbacks(runnable);
+            }
+            if (z) {
+                try {
+                    this.e.a();
+                } catch (Exception e2) {
+                    r79.b("Listener threw exception!:" + e2.toString());
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.w69.a
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
+            Runnable runnable = this.d;
+            if (runnable != null) {
+                this.c.removeCallbacks(runnable);
+                this.d = null;
+            }
+            h = System.currentTimeMillis();
+            k79.c(new c(this));
+            Handler handler = this.c;
+            b bVar = new b(this);
+            this.d = bVar;
+            handler.postDelayed(bVar, 1000L);
+        }
+    }
+
+    public final void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
+            f = nVar;
+            nVar.setStartTime(String.valueOf(j));
+            f.x(UUID.randomUUID().toString().replace("-", ""));
+            k79.c(new d(this));
+        }
+    }
+
+    @Override // com.repackage.w69.a
+    public final void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+        }
     }
 }

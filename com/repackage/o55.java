@@ -37,7 +37,7 @@ public class o55 {
     public final Handler d;
     public k55 e;
     public final j55 f;
-    public final mm4 g;
+    public final lm4 g;
 
     /* loaded from: classes6.dex */
     public class a implements j55 {
@@ -108,7 +108,7 @@ public class o55 {
     }
 
     /* loaded from: classes6.dex */
-    public class c extends mm4 {
+    public class c extends lm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o55 a;
@@ -131,7 +131,7 @@ public class o55 {
             this.a = o55Var;
         }
 
-        @Override // com.repackage.mm4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && (activity instanceof TbPageContextSupport)) {

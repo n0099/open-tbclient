@@ -48,12 +48,12 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ab, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a29);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a2a);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090a2b);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a2a);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091003);
-            this.c.setText(R.string.obfuscated_res_0x7f0f11f6);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090a2c);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a2b);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091004);
+            this.c.setText(R.string.obfuscated_res_0x7f0f11f5);
             this.d.setText(R.string.obfuscated_res_0x7f0f064b);
             this.e.setText(R.string.obfuscated_res_0x7f0f0984);
             SkinManager.setBackgroundResource(this.a, R.drawable.bg_frs_private_dialog);

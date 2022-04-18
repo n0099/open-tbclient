@@ -30,13 +30,13 @@ public class zp2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public p64 a;
+    public o64 a;
     public SwanAppMenuHeaderView b;
     public pz1 c;
     public Context d;
 
     /* loaded from: classes7.dex */
-    public class a implements o64 {
+    public class a implements n64 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zp2 a;
@@ -59,11 +59,11 @@ public class zp2 {
             this.a = zp2Var;
         }
 
-        @Override // com.repackage.o64
-        public boolean b(View view2, q64 q64Var) {
+        @Override // com.repackage.n64
+        public boolean b(View view2, p64 p64Var) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, q64Var)) == null) ? this.a.v(q64Var) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, p64Var)) == null) ? this.a.v(p64Var) : invokeLL.booleanValue;
         }
     }
 
@@ -199,7 +199,7 @@ public class zp2 {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b03 f = b03.f(this.a.d, R.string.obfuscated_res_0x7f0f12e5);
+                b03 f = b03.f(this.a.d, R.string.obfuscated_res_0x7f0f12e4);
                 f.l(2);
                 f.G();
             }
@@ -258,7 +258,7 @@ public class zp2 {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b03 f = b03.f(this.b.d, R.string.obfuscated_res_0x7f0f12e5);
+                b03 f = b03.f(this.b.d, R.string.obfuscated_res_0x7f0f12e4);
                 f.l(2);
                 f.G();
             }
@@ -323,7 +323,7 @@ public class zp2 {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b03 f = b03.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f12e5);
+                b03 f = b03.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f12e4);
                 f.l(2);
                 f.G();
                 h hVar = this.b;
@@ -399,19 +399,19 @@ public class zp2 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public zp2(p64 p64Var, pz1 pz1Var) {
-        this(p64Var, pz1Var, null);
+    public zp2(o64 o64Var, pz1 pz1Var) {
+        this(o64Var, pz1Var, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p64Var, pz1Var};
+            Object[] objArr = {o64Var, pz1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((p64) objArr2[0], (pz1) objArr2[1], (SwanAppMenuHeaderView) objArr2[2]);
+                this((o64) objArr2[0], (pz1) objArr2[1], (SwanAppMenuHeaderView) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -666,14 +666,14 @@ public class zp2 {
         }
     }
 
-    public boolean v(q64 q64Var) {
+    public boolean v(p64 p64Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, q64Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, p64Var)) == null) {
             if (this.c == null || this.d == null) {
                 return false;
             }
-            int c2 = q64Var.c();
+            int c2 = p64Var.c();
             if (c2 == 4) {
                 n();
                 return true;
@@ -701,7 +701,7 @@ public class zp2 {
                         x();
                         return true;
                     default:
-                        return qj2.K().j(q64Var);
+                        return qj2.K().j(p64Var);
                 }
             } else {
                 de3.d();
@@ -720,9 +720,9 @@ public class zp2 {
                 return false;
             }
             if (D()) {
-                string = this.d.getString(R.string.obfuscated_res_0x7f0f1306);
-            } else {
                 string = this.d.getString(R.string.obfuscated_res_0x7f0f1305);
+            } else {
+                string = this.d.getString(R.string.obfuscated_res_0x7f0f1304);
             }
             b03 g2 = b03.g(this.d, string);
             g2.l(2);
@@ -775,12 +775,12 @@ public class zp2 {
         }
     }
 
-    public zp2(p64 p64Var, pz1 pz1Var, SwanAppMenuHeaderView swanAppMenuHeaderView) {
+    public zp2(o64 o64Var, pz1 pz1Var, SwanAppMenuHeaderView swanAppMenuHeaderView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {p64Var, pz1Var, swanAppMenuHeaderView};
+            Object[] objArr = {o64Var, pz1Var, swanAppMenuHeaderView};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -790,7 +790,7 @@ public class zp2 {
                 return;
             }
         }
-        this.a = p64Var;
+        this.a = o64Var;
         this.b = swanAppMenuHeaderView;
         this.c = pz1Var;
         if (pz1Var != null) {

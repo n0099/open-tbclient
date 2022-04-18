@@ -1,16 +1,16 @@
 package com.repackage;
 
-import com.baidu.searchbox.retrieve.upload.AcUploadResultObserver;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class be9 implements pb1 {
+public class be9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public tb1<he9> a;
 
     public be9() {
         Interceptable interceptable = $ic;
@@ -22,19 +22,18 @@ public class be9 implements pb1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        a();
     }
 
-    @Override // com.repackage.pb1
-    public Object get() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AcUploadResultObserver());
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            rb1 b = rb1.b();
+            this.a = b;
+            b.a(new ie9());
         }
-        return invokeV.objValue;
     }
 }

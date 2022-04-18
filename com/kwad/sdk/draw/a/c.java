@@ -189,12 +189,12 @@ public class c extends com.kwad.sdk.draw.kwai.a implements View.OnClickListener 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09101c);
-        this.c = (TextView) a(R.id.obfuscated_res_0x7f091020);
-        this.d = (TextView) a(R.id.obfuscated_res_0x7f09101e);
-        this.n = (KsLogoView) a(R.id.obfuscated_res_0x7f09101f);
-        this.e = (TextView) a(R.id.obfuscated_res_0x7f09101d);
-        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) a(R.id.obfuscated_res_0x7f09101b);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09101d);
+        this.c = (TextView) a(R.id.obfuscated_res_0x7f091021);
+        this.d = (TextView) a(R.id.obfuscated_res_0x7f09101f);
+        this.n = (KsLogoView) a(R.id.obfuscated_res_0x7f091020);
+        this.e = (TextView) a(R.id.obfuscated_res_0x7f09101e);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) a(R.id.obfuscated_res_0x7f09101c);
         this.f = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(16);
     }

@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xw8;
+import com.repackage.ex8;
 /* loaded from: classes4.dex */
 public class BubbleLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static float j = -1.0f;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrowDirection a;
-    public xw8 b;
+    public ex8 b;
     public float c;
     public float d;
     public float e;
@@ -119,7 +119,7 @@ public class BubbleLayout extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) || i2 < i || i4 < i3) {
             return;
         }
-        this.b = new xw8(new RectF(i, i3, i2, i4), this.c, this.d, this.e, this.f, this.h, this.i, this.g, this.a);
+        this.b = new ex8(new RectF(i, i3, i2, i4), this.c, this.d, this.e, this.f, this.h, this.i, this.g, this.a);
     }
 
     public final void c() {
@@ -165,9 +165,9 @@ public class BubbleLayout extends FrameLayout {
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            xw8 xw8Var = this.b;
-            if (xw8Var != null) {
-                xw8Var.draw(canvas);
+            ex8 ex8Var = this.b;
+            if (ex8Var != null) {
+                ex8Var.draw(canvas);
             }
             super.dispatchDraw(canvas);
         }

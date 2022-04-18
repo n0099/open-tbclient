@@ -1,60 +1,28 @@
 package com.repackage;
 
+import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ala.gamefrslivetab.video.AlaGameFrsLiveTabVideoFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class ts5 extends BaseAdapter {
+public class ts5 extends m45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ArrayList<AlaSquareTabInfo> b;
+    public AlaGameFrsLiveTabVideoFragment c;
 
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TextView b;
-
-        public a(ts5 ts5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ts5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public ts5(TbPageContext tbPageContext) {
+    public ts5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -64,83 +32,71 @@ public class ts5 extends BaseAdapter {
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.c = new AlaGameFrsLiveTabVideoFragment();
+        b().a = this.c;
     }
 
-    public ArrayList<AlaSquareTabInfo> a() {
+    @Override // com.repackage.m45
+    public n45 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
-    }
-
-    public void b(ArrayList<AlaSquareTabInfo> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            n45 n45Var = new n45();
+            n45Var.e = 3;
+            n45Var.b = R.string.obfuscated_res_0x7f0f021c;
+            n45Var.i = n45.l;
+            return n45Var;
         }
+        return (n45) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.repackage.m45
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
+        }
+        return (TbFragmentTabIndicator) invokeL.objValue;
+    }
+
+    @Override // com.repackage.m45
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.isEmpty(this.b)) {
-                return 0;
-            }
-            return this.b.size();
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public void g(String str) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (ListUtils.isEmpty(this.b)) {
-                return null;
-            }
-            return this.b.get(i);
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
+            return;
         }
-        return invokeI.objValue;
+        alaGameFrsLiveTabVideoFragment.E0(str);
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void h(String str) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
+            return;
+        }
+        alaGameFrsLiveTabVideoFragment.F0(str);
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        View view3;
-        a aVar;
+    public void i(boolean z) {
+        AlaGameFrsLiveTabVideoFragment alaGameFrsLiveTabVideoFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                aVar = new a(this);
-                view3 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ec, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f09070e);
-                aVar.a = tbImageView;
-                tbImageView.setDrawerType(1);
-                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0801ce);
-                aVar.a.setDefaultBgResource(R.color.transparent);
-                aVar.a.setRadius(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
-                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f092012);
-                aVar.b = textView;
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
-                view3.setTag(aVar);
-            } else {
-                view3 = view2;
-                aVar = (a) view2.getTag();
-            }
-            aVar.a.K(this.b.get(i).iconUrl, 10, false);
-            aVar.b.setText(this.b.get(i).name);
-            return view3;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alaGameFrsLiveTabVideoFragment = this.c) == null) {
+            return;
         }
-        return (View) invokeILL.objValue;
+        alaGameFrsLiveTabVideoFragment.G0(z);
     }
 }

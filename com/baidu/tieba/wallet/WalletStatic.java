@@ -42,14 +42,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c85;
-import com.repackage.dk8;
-import com.repackage.e85;
 import com.repackage.f85;
 import com.repackage.g85;
+import com.repackage.kk8;
 import com.repackage.ni;
 import com.repackage.oi;
 import com.repackage.pg;
-import com.repackage.wk4;
+import com.repackage.vk4;
 import com.repackage.x8;
 import com.tencent.mm.opensdk.modelpay.PayReq;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
@@ -62,6 +61,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatProxyCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy;
 import java.util.HashMap;
 import java.util.Map;
+import kotlin.jvm.functions.Function1;
 import tbclient.UserBfbInfo;
 import tv.athena.revenue.payui.YYPayUIKit;
 /* loaded from: classes4.dex */
@@ -180,7 +180,7 @@ public class WalletStatic {
     public static void registerAliPayTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            CustomMessageTask customMessageTask = new CustomMessageTask(2921539, new CustomMessageTask.CustomRunnable<wk4>() { // from class: com.baidu.tieba.wallet.WalletStatic.9
+            CustomMessageTask customMessageTask = new CustomMessageTask(2921539, new CustomMessageTask.CustomRunnable<vk4>() { // from class: com.baidu.tieba.wallet.WalletStatic.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -199,7 +199,7 @@ public class WalletStatic {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<String> run(CustomMessage<wk4> customMessage) {
+                public CustomResponsedMessage<String> run(CustomMessage<vk4> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
@@ -337,7 +337,7 @@ public class WalletStatic {
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
                         if (strArr != null && strArr.length > 0) {
                             String str = strArr[0];
-                            if (!StringUtils.isNull(str) && str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_FINANCIAL_FRS_SDK_TAB) && (indexOf = str.indexOf("://")) >= 0 && (i = indexOf + 3) <= str.length() && (indexOf2 = (substring = str.substring(i)).indexOf("url=")) >= 0 && (i2 = indexOf2 + 4) <= substring.length() && e85.c().d()) {
+                            if (!StringUtils.isNull(str) && str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_FINANCIAL_FRS_SDK_TAB) && (indexOf = str.indexOf("://")) >= 0 && (i = indexOf + 3) <= str.length() && (indexOf2 = (substring = str.substring(i)).indexOf("url=")) >= 0 && (i2 = indexOf2 + 4) <= substring.length()) {
                                 WalletPluginManager.getInstance().openH5Module(TbadkApplication.getInst().getContext(), substring.substring(i2));
                                 return 0;
                             }
@@ -353,8 +353,8 @@ public class WalletStatic {
     public static void registerHttpAndSocketTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            dk8.f(303043, ResponsedGetOrderSocketMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, dk8.a(TbConfig.GET_ORDER, 303043));
+            kk8.f(303043, ResponsedGetOrderSocketMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, kk8.a(TbConfig.GET_ORDER, 303043));
             tbHttpMessageTask.setResponsedClass(ResponsedGetOrderHttpMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -470,7 +470,7 @@ public class WalletStatic {
                         }
                         String str = strArr[0];
                         if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_WALLET_SDK_ICACH) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_WALLET_SDK_DUXIAOMAN)) {
-                            if (oi.B() && e85.c().d()) {
+                            if (oi.B()) {
                                 WalletPluginManager.getInstance().openH5Module(TbadkApplication.getInst().getContext(), str);
                             } else {
                                 BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
@@ -503,7 +503,7 @@ public class WalletStatic {
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         Interceptable interceptable3 = $ic;
-                                        if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && e85.c().d()) {
+                                        if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                             WalletPluginManager.getInstance().openH5Module(TbadkApplication.getInst().getContext(), this.val$link);
                                         }
                                     }
@@ -886,11 +886,43 @@ public class WalletStatic {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), activity, str, iAlipayProxyCallback}) == null) {
                         try {
-                            wk4 wk4Var = new wk4();
-                            wk4Var.a = activity;
-                            wk4Var.b = str;
-                            wk4Var.c = false;
-                            iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, wk4Var).getData());
+                            WalletPluginManager.getInstance().doAliPayWithCallback(activity, str, false, new Function1<String, Void>(this, iAlipayProxyCallback) { // from class: com.baidu.tieba.wallet.WalletStatic.13.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ AnonymousClass13 this$0;
+                                public final /* synthetic */ IAlipayProxyCallback val$iAlipayProxyCallback;
+
+                                {
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {this, iAlipayProxyCallback};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
+                                        }
+                                    }
+                                    this.this$0 = this;
+                                    this.val$iAlipayProxyCallback = iAlipayProxyCallback;
+                                }
+
+                                /* JADX DEBUG: Method merged with bridge method */
+                                @Override // kotlin.jvm.functions.Function1
+                                public Void invoke(String str2) {
+                                    InterceptResult invokeL;
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || (invokeL = interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2)) == null) {
+                                        this.val$iAlipayProxyCallback.onSuccess(str2);
+                                        return null;
+                                    }
+                                    return (Void) invokeL.objValue;
+                                }
+                            });
                         } catch (Exception e) {
                             iAlipayProxyCallback.onFail(e.getMessage());
                         }

@@ -21,8 +21,8 @@ import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.baidu.ugc.editvideo.sticker.a;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
+import com.repackage.fc9;
 import com.repackage.pf0;
-import com.repackage.yb9;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -74,7 +74,7 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
 
     private void releaseTempStickerItemList() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || yb9.e(this.mTempStickerItemList)) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || fc9.e(this.mTempStickerItemList)) {
             return;
         }
         for (a aVar : this.mTempStickerItemList) {
@@ -212,7 +212,7 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                     if (j == 0 || j <= this.mCurrentPos) {
                         long j2 = mediaSegment.end;
                         if ((j2 == 0 || j2 >= this.mCurrentPos) && multiMediaData.textureId != 0 && TextUtils.equals(this.mEditTrackType, mediaSegment.type)) {
-                            this.mVisibleStickerItems.add((a) yb9.c(this.mStickerItems, i));
+                            this.mVisibleStickerItems.add((a) fc9.c(this.mStickerItems, i));
                         }
                     }
                 }
@@ -230,16 +230,16 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
             super.setCurrentItem(aVar);
             List<a> list = this.mStickerItems;
             int indexOf = list.indexOf(aVar);
-            yb9.h(list, indexOf, list.size() - 1);
+            fc9.h(list, indexOf, list.size() - 1);
             MultiMediaDataTrack multiMediaDataTrack = this.mMultiMediaDataTrack;
             if (multiMediaDataTrack != null) {
                 List<MultiMediaData> list2 = multiMediaDataTrack.multiMediaDataList;
-                yb9.h(list2, indexOf, list2.size() - 1);
+                fc9.h(list2, indexOf, list2.size() - 1);
             }
             MediaTrack mediaTrack = this.mSubtitleAndStickerTrack;
             if (mediaTrack != null) {
                 List<MediaSegment> list3 = mediaTrack.mediaSegments;
-                yb9.h(list3, indexOf, list3.size() - 1);
+                fc9.h(list3, indexOf, list3.size() - 1);
             }
             if (z) {
                 notifyStickerDataChange(StickerDataChangeType.SWAP);
@@ -255,10 +255,10 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
             return;
         }
         List<MediaSegment> stickerSegmentsDataByType = MultiDataSourceUtil.getStickerSegmentsDataByType(this.mSubtitleAndStickerTrack, str);
-        if (yb9.e(stickerSegmentsDataByType) || (mediaSegment = (MediaSegment) yb9.c(stickerSegmentsDataByType, i)) == null || (indexOf = this.mSubtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0) {
+        if (fc9.e(stickerSegmentsDataByType) || (mediaSegment = (MediaSegment) fc9.c(stickerSegmentsDataByType, i)) == null || (indexOf = this.mSubtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0) {
             return;
         }
-        a aVar = (a) yb9.c(this.mStickerItems, indexOf);
+        a aVar = (a) fc9.c(this.mStickerItems, indexOf);
         if (aVar != null) {
             setCurrentItem(aVar);
         }

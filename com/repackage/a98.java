@@ -1,204 +1,122 @@
 package com.repackage;
 
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.Build;
+import android.provider.MediaStore;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.quickWebView.message.WebViewCacheReqMsg;
-import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
-import com.baidu.tieba.quickWebView.message.WebViewCacheResSocketMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tieba.R;
+import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
+import com.repackage.tr8;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a98 {
+public class a98 implements QRCodeView.c {
     public static /* synthetic */ Interceptable $ic;
-    public static a98 f;
-    public static final String g;
-    public static int h;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public Map<String, String> c;
-    public CustomMessageListener d;
-    public wa e;
+    public final z88 a;
+    public final TbPageContext b;
+    public f c;
+    public tr8 d;
+    public e e;
+    public boolean f;
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public class a implements tr8.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ a98 b;
+
+        public a(a98 a98Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a98Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = a98Var;
+            this.a = str;
+        }
+
+        @Override // com.repackage.tr8.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.a.viewHideLoading();
+                this.b.a.showRiskForbidDialog();
+            }
+        }
+
+        @Override // com.repackage.tr8.a
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.b.a.viewHideLoading();
+                this.b.a.showJumpExternalDialog(this.a);
+            }
+        }
+
+        @Override // com.repackage.tr8.a
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.b.a.viewHideLoading();
+                this.b.j(this.a);
+            }
+        }
+
+        @Override // com.repackage.tr8.a
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.b.a.viewHideLoading();
+                this.b.a.setErrorView();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements e.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a98 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(a98 a98Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a98Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a98Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001371 || this.a.a) {
-                return;
-            }
-            this.a.a = true;
-            if (QuickWebViewSwitch.getInOn()) {
-                if (!TbSingleton.getInstance().isUploadOffPack() && !TbSingleton.getInstance().isClearOffPack()) {
-                    f fVar = new f(this.a);
-                    fVar.setPriority(4);
-                    fVar.execute(new Void[0]);
-                    return;
-                }
-                c cVar = new c(this.a, null);
-                cVar.setPriority(4);
-                cVar.execute(new Void[0]);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends wa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(a98 a98Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a98Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:20:0x003d, code lost:
-            com.repackage.vl4.i(r0.get(r2));
-         */
-        @Override // com.repackage.wa
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage instanceof WebViewCacheResHttpMsg) {
-                WebViewCacheResHttpMsg webViewCacheResHttpMsg = (WebViewCacheResHttpMsg) responsedMessage;
-                try {
-                    List<String> header = webViewCacheResHttpMsg.getHeader("Set-Cookie");
-                    if (header != null && header.size() > 0) {
-                        int i = 0;
-                        while (true) {
-                            if (i >= header.size()) {
-                                break;
-                            }
-                            if (!TextUtils.isEmpty(header.get(i)) && header.get(i).contains("BAIDUID=")) {
-                                break;
-                            }
-                            i++;
-                        }
-                    }
-                } catch (NullPointerException e) {
-                    e.printStackTrace();
-                }
-                Map<String, e98> moduleInfos = webViewCacheResHttpMsg.getModuleInfos();
-                if (moduleInfos != null && moduleInfos.size() > 0) {
-                    for (String str : moduleInfos.keySet()) {
-                        a98.o(str, moduleInfos.get(str));
-                    }
-                    return;
-                }
-                b98.a().e(true);
-            } else if (responsedMessage instanceof WebViewCacheResSocketMsg) {
-                Map<String, e98> moduleInfos2 = ((WebViewCacheResSocketMsg) responsedMessage).getModuleInfos();
-                if (moduleInfos2 != null && moduleInfos2.size() > 0) {
-                    for (String str2 : moduleInfos2.keySet()) {
-                        a98.o(str2, moduleInfos2.get(str2));
-                    }
-                    return;
-                }
-                b98.a().e(true);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask<Void, Void, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public NetWork a;
-        public final /* synthetic */ a98 b;
-
-        public c(a98 a98Var) {
+        public b(a98 a98Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -213,30 +131,109 @@ public class a98 {
                     return;
                 }
             }
+            this.a = a98Var;
+        }
+
+        @Override // com.repackage.a98.e.a
+        public void a(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str)) {
+                return;
+            }
+            vt4.k().y("key_gallery_last_image_path", str);
+            if (TextUtils.isEmpty(str2)) {
+                return;
+            }
+            this.a.a.showGalleryLastImageTip(str, str2);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements PermissionJudgePolicy.OnPermissionsGrantedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ a98 b;
+
+        public c(a98 a98Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a98Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
             this.b = a98Var;
-            this.a = null;
+            this.a = str;
+        }
+
+        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
+        public void onPermissionsGranted() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, URLDecoder.decode(this.a, "UTF-8")));
+                    this.b.b.getPageActivity().finish();
+                } catch (UnsupportedEncodingException unused) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d extends BdAsyncTask<String, Void, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a98 a;
+
+        public d(a98 a98Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a98Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a98Var;
+        }
+
+        public /* synthetic */ d(a98 a98Var, a aVar) {
+            this(a98Var);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public String doInBackground(Void... voidArr) {
+        public String doInBackground(String... strArr) {
             InterceptResult invokeL;
-            e B;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                String modName = TbSingleton.getInstance().getModName();
-                if (TextUtils.isEmpty(modName) || (B = this.b.B(modName)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+                String str = strArr[0];
+                if (StringUtils.isNull(str)) {
                     return null;
                 }
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK_STATUS);
-                this.a = netWork;
-                netWork.addPostData("cuid", TbadkCoreApplication.getInst().getCuid());
-                this.a.addPostData("mod_name", modName);
-                this.a.addPostData("status", B.a ? "1" : "2");
-                this.a.addPostData("fail_reason", B.a ? "" : B.b);
-                this.a.postNetData();
-                return null;
+                String postNetData = new NetWork(str).postNetData();
+                if (StringUtils.isNull(postNetData)) {
+                    return null;
+                }
+                try {
+                    return new JSONObject(postNetData).optString("data");
+                } catch (JSONException unused) {
+                    return null;
+                }
             }
             return (String) invokeL.objValue;
         }
@@ -246,35 +243,30 @@ public class a98 {
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                f fVar = new f(this.b);
-                fVar.setPriority(4);
-                fVar.execute(new Void[0]);
+                super.onPostExecute((d) str);
+                this.a.p(str);
             }
-        }
-
-        public /* synthetic */ c(a98 a98Var, a aVar) {
-            this(a98Var);
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class d extends BdAsyncTask<Void, Void, h> {
+    public static class e extends BdAsyncTask<String, Void, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final e98 b;
-        public final String c;
-        public final String d;
-        public final String e;
-        public final boolean f;
-        public NetWork g;
+        public String a;
+        public a b;
 
-        public d(String str, e98 e98Var, boolean z) {
+        /* loaded from: classes5.dex */
+        public interface a {
+            void a(String str, String str2);
+        }
+
+        public e(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, e98Var, Boolean.valueOf(z)};
+                Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -284,169 +276,41 @@ public class a98 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = e98Var;
-            this.d = e98Var.c();
-            this.c = this.b.a();
-            this.e = this.b.b();
-            this.f = z;
+            this.b = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Removed duplicated region for block: B:31:0x016e  */
-        /* JADX WARN: Removed duplicated region for block: B:34:0x01ca  */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public h doInBackground(Void... voidArr) {
+        public String doInBackground(String... strArr) {
             InterceptResult invokeL;
-            h r;
-            HashMap<String, c98> hashMap;
-            InputStream inputStream;
-            FileInputStream fileInputStream;
-            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                a98.m(this.a);
-                a98.q().k(this.a);
-                if (this.f) {
-                    if (!TextUtils.isEmpty(a98.q().s(this.a))) {
-                        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", this.d));
-                    }
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+                if (strArr == null || strArr.length <= 0) {
                     return null;
                 }
-                NetWork netWork = new NetWork();
-                this.g = netWork;
-                netWork.setUrl(this.c);
-                new File(a98.g + "bdtbWCacheTemp/" + this.a + "/").mkdirs();
-                String str2 = a98.g + "bdtbWCacheTemp/" + this.a + "/bdtbNWCache.zip";
-                if (this.g.downloadFile(str2, null, 0, 3, 0, true)) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "1"));
-                    try {
-                        try {
-                            fileInputStream = new FileInputStream(str2);
-                            try {
-                                String b = ui.b(fileInputStream);
-                                if (StringUtils.isNull(b) || !b.toLowerCase().equals(this.e.toLowerCase())) {
-                                    a98.h = 2;
-                                    lt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "md5 error");
-                                    a98.m(this.a);
-                                    pi.e(fileInputStream);
-                                    return null;
-                                }
-                            } catch (FileNotFoundException e) {
-                                e = e;
-                                e.printStackTrace();
-                                pi.e(fileInputStream);
-                                str = a98.g + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
-                                new File(str).mkdirs();
-                                if (!et4.b(str2, str)) {
-                                }
-                                a98.m(this.a);
-                                r = a98.r(this.a, this.d);
-                                if (r == null) {
-                                }
-                                a98.h = 5;
-                                lt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
-                                a98.q().k(this.a);
-                                return null;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            inputStream = "obj_type";
-                            pi.e(inputStream);
-                            throw th;
-                        }
-                    } catch (FileNotFoundException e2) {
-                        e = e2;
-                        fileInputStream = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        inputStream = null;
-                        pi.e(inputStream);
-                        throw th;
-                    }
-                    pi.e(fileInputStream);
-                    str = a98.g + "bdtbWCacheTemp/" + this.a + "/" + this.d + "/";
-                    new File(str).mkdirs();
-                    if (!et4.b(str2, str)) {
-                        String str3 = a98.g + "bdtbNWCache/" + this.a + "/" + this.d + "/";
-                        new File(str3).mkdirs();
-                        if (!FileHelper.CopyDir(str, str3, true)) {
-                            a98.h = 4;
-                            lt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "write error");
-                        }
-                    } else {
-                        a98.h = 3;
-                        lt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "unzip error");
-                    }
-                } else {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_H5_OFFLINE_PACKAGE_DOWNLOAD).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", "2"));
-                    a98.h = 1;
-                    lt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "download error");
-                }
-                a98.m(this.a);
-                r = a98.r(this.a, this.d);
-                if (r == null && !TextUtils.isEmpty(r.a) && (hashMap = r.b) != null && hashMap.size() != 0) {
-                    a98.l(r.c, this.a);
-                    return r;
-                }
-                a98.h = 5;
-                lt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", this.a, "hybridVersion", this.d, "hybridResult", "bundle incomplete");
-                a98.q().k(this.a);
-                return null;
+                String str = strArr[0];
+                this.a = str;
+                return e98.c(str);
             }
-            return (h) invokeL.objValue;
+            return (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(h hVar) {
+        public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
-                super.onPostExecute(hVar);
-                if (hVar != null) {
-                    a98.q().A(this.a, hVar.c);
-                    a98.q().y();
-                    b98.a().h(this.a, hVar.b);
-                    b98.a().f(true, this.a);
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", this.a).param("obj_id", hVar.c));
-                    return;
-                }
-                a98.q().j(this.a);
-                a98.q().y();
-                b98.a().d(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                super.onPostExecute((e) str);
+                a aVar = this.b;
+                if (aVar != null) {
+                    aVar.a(this.a, str);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f extends BdAsyncTask<Void, Void, g> {
+    public class f extends BdAsyncTask<String, Void, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a98 a;
@@ -469,658 +333,315 @@ public class a98 {
             this.a = a98Var;
         }
 
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                super.onPreExecute();
+                this.a.a.viewShowLoading();
+            }
+        }
+
+        public /* synthetic */ f(a98 a98Var, a aVar) {
+            this(a98Var);
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public g doInBackground(Void... voidArr) {
+        public String doInBackground(String... strArr) {
             InterceptResult invokeL;
-            HashMap<String, c98> hashMap;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                g gVar = new g(null);
-                for (String str : a98.q().t()) {
-                    String s = a98.q().s(str);
-                    h r = a98.r(str, s);
-                    if (r != null && !TextUtils.isEmpty(r.a) && (hashMap = r.b) != null && hashMap.size() != 0) {
-                        if (gVar.a == null) {
-                            gVar.a = new HashMap();
-                        }
-                        gVar.a.put(str, r);
-                        if (gVar.b == null) {
-                            gVar.b = new HashMap<>();
-                        }
-                        gVar.b.putAll(r.b);
-                        a98.l(r.c, str);
-                    } else {
-                        a98.h = 5;
-                        lt4.a("OfflineCache", -1L, -1, "downloadCache", -1, "", "hybridName", str, "hybridVersion", s, "hybridResult", "bundle incomplete");
-                        this.a.k(str);
-                    }
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
+                if (strArr == null || strArr.length <= 0) {
+                    return null;
                 }
-                return gVar;
+                return e98.c(strArr[0]);
             }
-            return (g) invokeL.objValue;
+            return (String) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(g gVar) {
+        public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar) == null) {
-                if (gVar == null) {
-                    lt4.a("OfflineCache", -1L, -1, "readFile", -1, "read error", new Object[0]);
-                } else {
-                    b98.a().g(gVar.b);
-                }
-                MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg("0.0.0.0"));
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                super.onPostExecute((f) str);
+                this.a.a.viewHideLoading();
+                this.a.b(str);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Map<String, h> a;
-        public HashMap<String, c98> b;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ g(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public HashMap<String, c98> b;
-        public String c;
-
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ h(a aVar) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755901839, "Lcom/repackage/a98;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755901839, "Lcom/repackage/a98;");
-                return;
-            }
-        }
-        r0 = a98.class.getSimpleName() + " TestActivity";
-        g = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
-        h = 0;
-    }
-
-    public a98() {
+    public a98(z88 z88Var, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {z88Var, tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.d = new a(this, 2001371);
-        this.e = new b(this, CmdConfigHttp.WEBVIEW_CACHE_INFO, 309485);
+        this.a = z88Var;
+        this.b = tbPageContext;
     }
 
-    public static void l(String str, String str2) {
-        String[] list;
+    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.c
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            oi.M(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f04e0);
+            this.b.getPageActivity().finish();
         }
-        String str3 = g + "bdtbNWCache/" + str2;
-        File file = new File(str3);
-        if (!file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length == 0) {
-            return;
-        }
-        for (String str4 : list) {
-            if (!StringUtils.isNull(str4) && !str4.equals(str)) {
-                FileHelper.deleteFileOrDir(new File(str3 + "/" + str4));
+    }
+
+    @Override // com.baidu.tieba.qrcode.lib.core.QRCodeView.c
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (StringUtils.isNull(str)) {
+                this.a.viewHideLoading();
+                this.a.setErrorView();
+            } else if (this.f) {
+                Intent intent = new Intent();
+                intent.putExtra(QRCodeScanActivityConfig.RESULT_SCAN_CODE, str);
+                this.b.getPageActivity().setResult(-1, intent);
+                this.b.getPageActivity().finish();
+            } else if (k(str)) {
+                this.a.viewHideLoading();
+            } else if (!StringUtils.isNull(str) && str.contains("feedavatar.baidu.com")) {
+                this.a.viewHideLoading();
+                i(str);
+            } else if (l(str)) {
+                this.a.viewHideLoading();
+                this.b.getPageActivity().finish();
+            } else if (!StringHelper.isNetworkUrl(str)) {
+                this.a.viewHideLoading();
+                this.a.setErrorView();
+            } else {
+                m(str);
             }
         }
     }
 
-    public static void m(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        FileHelper.deleteFileOrDir(new File(g + "bdtbWCacheTemp/" + str));
-    }
-
-    public static void o(String str, e98 e98Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, e98Var) == null) {
-            if (e98Var != null && !StringUtils.isNull(e98Var.c()) && !StringUtils.isNull(e98Var.b()) && !StringUtils.isNull(e98Var.a())) {
-                String s = q().s(str);
-                String c2 = e98Var.c();
-                String a2 = e98Var.a();
-                boolean d2 = e98Var.d();
-                if (StringUtils.isNull(s)) {
-                    s = "0.0.0.0";
-                }
-                if (d2 && c2.equals(s)) {
-                    b98.a().f(true, str);
-                    return;
-                }
-                lt4.a("OfflineCache", -1L, 0, "downloadCache", 0, "", "url", a2, "hybridVersion", c2, "lastVersion", s, "type", "start", "hybridName", str, "hybridResult", "success");
-                new d(str, e98Var, true ^ d2).execute(new Void[0]);
-                return;
-            }
-            b98.a().f(true, str);
-        }
-    }
-
-    public static a98 q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f == null) {
-                synchronized (a98.class) {
-                    if (f == null) {
-                        f = new a98();
-                    }
-                }
-            }
-            return f;
-        }
-        return (a98) invokeV.objValue;
-    }
-
-    public static h r(String str, String str2) {
-        InterceptResult invokeLL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65550, null, str, str2)) != null) {
-            return (h) invokeLL.objValue;
-        }
-        File file = new File(g + "bdtbNWCache");
-        FileInputStream fileInputStream2 = null;
-        if (!file.exists() || TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        h hVar = new h(null);
-        File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
-        hVar.a = file.getAbsolutePath();
-        hVar.c = str2;
-        File file3 = new File(file2, "router.json");
-        try {
-            if (file3.exists()) {
-                try {
-                    fileInputStream = new FileInputStream(file3);
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                }
-                try {
-                    hVar.b = x(fileInputStream);
-                    pi.e(fileInputStream);
-                } catch (FileNotFoundException e3) {
-                    e = e3;
-                    fileInputStream2 = fileInputStream;
-                    e.printStackTrace();
-                    pi.e(fileInputStream2);
-                    return hVar;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    pi.e(fileInputStream2);
-                    throw th;
-                }
-                return hVar;
-            }
-            return null;
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    public static HashMap<String, c98> x(InputStream inputStream) {
+    public final String f(ContentResolver contentResolver) {
         InterceptResult invokeL;
-        BufferedReader bufferedReader;
-        HashMap<String, c98> hashMap;
-        StringBuffer stringBuffer;
-        InputStreamReader inputStreamReader;
-        JSONObject jSONObject;
-        JSONObject optJSONObject;
-        Iterator<String> keys;
-        JSONObject jSONObject2;
-        JSONArray optJSONArray;
-        JSONArray optJSONArray2;
+        Throwable th;
+        Cursor cursor;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65551, null, inputStream)) != null) {
-            return (HashMap) invokeL.objValue;
-        }
-        InputStreamReader inputStreamReader2 = null;
-        try {
-            if (inputStream == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, contentResolver)) == null) {
+            Cursor cursor2 = null;
+            if (contentResolver == null) {
+                return null;
+            }
+            try {
+                cursor = contentResolver.query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_display_name", "_data", "_size", "bucket_display_name", "date_modified"}, null, null, null);
+            } catch (Exception unused) {
+                str = null;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
+            }
+            if (cursor == null) {
+                if (cursor != null) {
+                    cursor.close();
+                }
                 return null;
             }
             try {
                 try {
-                    hashMap = new HashMap<>();
+                    cursor.moveToLast();
+                    str = cursor.getString(cursor.getColumnIndex("_data"));
                     try {
-                        stringBuffer = new StringBuffer();
-                        inputStreamReader = new InputStreamReader(inputStream);
-                        try {
-                            bufferedReader = new BufferedReader(inputStreamReader);
-                        } catch (IOException e2) {
-                            e = e2;
-                            bufferedReader = null;
-                        } catch (JSONException e3) {
-                            e = e3;
-                            bufferedReader = null;
-                        } catch (Exception e4) {
-                            e = e4;
-                            bufferedReader = null;
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedReader = null;
+                    } catch (Exception unused2) {
+                        cursor2 = cursor;
+                        if (cursor2 != null) {
+                            cursor2.close();
                         }
-                    } catch (IOException e5) {
-                        e = e5;
-                        bufferedReader = null;
-                    } catch (JSONException e6) {
-                        e = e6;
-                        bufferedReader = null;
-                    } catch (Exception e7) {
-                        e = e7;
-                        bufferedReader = null;
+                        return str;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    bufferedReader = null;
+                } catch (Exception unused3) {
+                    str = null;
                 }
-            } catch (IOException e8) {
-                e = e8;
-                hashMap = null;
-                bufferedReader = null;
-            } catch (JSONException e9) {
-                e = e9;
-                hashMap = null;
-                bufferedReader = null;
-            } catch (Exception e10) {
-                e = e10;
-                hashMap = null;
-                bufferedReader = null;
-            }
-            try {
-                for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                    stringBuffer.append(readLine);
+                if (TextUtils.isEmpty(str)) {
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return null;
+                } else if (!new File(str).exists()) {
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return null;
+                } else {
+                    cursor.close();
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+                    return str;
                 }
-                bufferedReader.close();
-                jSONObject = new JSONObject(stringBuffer.toString());
-            } catch (IOException e11) {
-                e = e11;
-                inputStreamReader2 = inputStreamReader;
-                e.printStackTrace();
-                pi.g(inputStreamReader2);
-                pi.g(bufferedReader);
-                return hashMap;
-            } catch (JSONException e12) {
-                e = e12;
-                inputStreamReader2 = inputStreamReader;
-                e.printStackTrace();
-                pi.g(inputStreamReader2);
-                pi.g(bufferedReader);
-                return hashMap;
-            } catch (Exception e13) {
-                e = e13;
-                inputStreamReader2 = inputStreamReader;
-                e.printStackTrace();
-                pi.g(inputStreamReader2);
-                pi.g(bufferedReader);
-                return hashMap;
             } catch (Throwable th3) {
                 th = th3;
-                inputStreamReader2 = inputStreamReader;
-                pi.g(inputStreamReader2);
-                pi.g(bufferedReader);
+                if (cursor != null) {
+                    cursor.close();
+                }
                 throw th;
             }
-            if (jSONObject.has(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME) && (optJSONObject = jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME)) != null && (keys = optJSONObject.keys()) != null) {
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    JSONObject jSONObject3 = optJSONObject.getJSONObject(next);
-                    ArrayList<String> arrayList = new ArrayList<>();
-                    if (jSONObject3.has("data_urls") && (optJSONArray2 = jSONObject3.optJSONArray("data_urls")) != null) {
-                        for (int i = 0; i < optJSONArray2.length(); i++) {
-                            arrayList.add(optJSONArray2.optString(i));
-                        }
-                    }
-                    String optString = jSONObject3.has("module") ? jSONObject3.optString("module") : "";
-                    String optString2 = jSONObject3.has("path") ? jSONObject3.optString("path") : "";
-                    ArrayList<String> arrayList2 = new ArrayList<>();
-                    if (!jSONObject3.has("source") || (optJSONArray = jSONObject3.optJSONArray("source")) == null) {
-                        jSONObject2 = optJSONObject;
-                    } else {
-                        jSONObject2 = optJSONObject;
-                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                            arrayList2.add(optJSONArray.optString(i2));
-                        }
-                    }
-                    c98 c98Var = new c98();
-                    c98Var.a = arrayList;
-                    c98Var.b = optString;
-                    c98Var.c = optString2;
-                    c98Var.d = arrayList2;
-                    hashMap.put(next, c98Var);
-                    optJSONObject = jSONObject2;
-                }
-                pi.g(inputStreamReader);
-                pi.g(bufferedReader);
-                return hashMap;
-            }
-            pi.g(inputStreamReader);
-            pi.g(bufferedReader);
-            return null;
-        } catch (Throwable th4) {
-            th = th4;
-        }
-    }
-
-    @NonNull
-    public static String z(boolean z, @Nullable String str) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(65552, null, z, str)) == null) {
-            return TextUtils.isEmpty(str) ? z ? "none" : "0.0.0.0" : str;
-        }
-        return (String) invokeZL.objValue;
-    }
-
-    public void A(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (this.c == null) {
-            this.c = new ConcurrentHashMap();
-        }
-        this.c.put(str, str2);
-    }
-
-    public final e B(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            e eVar = new e();
-            if (TextUtils.isEmpty(str)) {
-                eVar.b = "module not exit";
-                return eVar;
-            }
-            File file = new File(g + "bdtbNWCache", str);
-            String s = q().s(str);
-            if (TbSingleton.getInstance().isUploadOffPack()) {
-                eVar.a = false;
-                if (!file.exists()) {
-                    eVar.b = "bundle not exist";
-                    return eVar;
-                } else if (TextUtils.isEmpty(s)) {
-                    eVar.b = "the local has no valid version name";
-                    return eVar;
-                } else {
-                    String str2 = file.getAbsolutePath() + "/" + s + "/";
-                    if (!new File(str2).exists()) {
-                        eVar.b = "bundle not exist";
-                        return eVar;
-                    }
-                    String str3 = file.getAbsolutePath() + "/" + s + ".zip";
-                    File file2 = new File(str3);
-                    if (file2.exists()) {
-                        FileHelper.deleteFileOrDir(file2);
-                    }
-                    if (et4.e(str2, str3)) {
-                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_OFFLINE_PACK);
-                        netWork.addPostData("offline_pack_version", s);
-                        netWork.addPostData("mod_name", str);
-                        netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
-                        netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                        v(netWork.uploadFile("offline_pack_file_stream", str3), eVar);
-                        if (!eVar.a) {
-                            return eVar;
-                        }
-                    } else {
-                        eVar.b = "zip bundle error";
-                        return eVar;
-                    }
-                }
-            } else {
-                eVar.a = true;
-            }
-            if (TbSingleton.getInstance().isClearOffPack()) {
-                k(str);
-                if (!TextUtils.isEmpty(s)) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_name", str).param("obj_id", s));
-                }
-                if (!file.exists() || StringUtils.isNull(s) || !new File(file.getAbsolutePath(), s).exists()) {
-                    return eVar;
-                }
-                eVar.b = "delete fail";
-                eVar.a = false;
-            }
-            return eVar;
-        }
-        return (e) invokeL.objValue;
-    }
-
-    public JSONObject C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Map<String, String> map = this.c;
-            if (map == null || map.isEmpty()) {
-                return null;
-            }
-            return new JSONObject(this.c);
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Map<String, String> map = this.c;
-            if (map == null || map.isEmpty()) {
-                return null;
-            }
-            return new JSONObject(this.c).toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void i() {
-        String[] list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            n();
-            wt4.k().y("pref_key_quick_webview_versions", "");
-            String str = g + "bdtbNWCache";
-            File file = new File(str);
-            if (!file.exists() || !file.isDirectory() || (list = file.list()) == null || list.length == 0) {
-                return;
-            }
-            for (String str2 : list) {
-                if (!StringUtils.isNull(str2)) {
-                    FileHelper.deleteFileOrDir(new File(str + "/" + str2));
-                }
-            }
-        }
-    }
-
-    public void j(String str) {
-        Map<String, String> map;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || TextUtils.isEmpty(str) || (map = this.c) == null) {
-            return;
-        }
-        map.remove(str);
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        j(str);
-        wt4.k().y("pref_key_quick_webview_versions", D());
-        File file = new File(g + "bdtbNWCache/" + str);
-        if (file.exists() && file.isDirectory()) {
-            FileHelper.deleteFileOrDir(file);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.c == null) {
-                this.c = new ConcurrentHashMap();
-            }
-            this.c.clear();
-        }
-    }
-
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (this.c == null || TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return this.c.get(str);
         }
         return (String) invokeL.objValue;
     }
 
-    public Set<String> t() {
-        InterceptResult invokeV;
+    public void g() {
+        TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.c == null) {
-                this.c = new ConcurrentHashMap();
-            }
-            return this.c.keySet();
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            System.currentTimeMillis();
-            MessageManager.getInstance().registerListener(this.e);
-            MessageManager.getInstance().registerListener(this.d);
-            this.b = new File(g + "bdtbNWCache").getAbsolutePath();
-            w(wt4.k().q("pref_key_quick_webview_versions", ""));
-        }
-    }
-
-    public final e v(String str, e eVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, eVar)) == null) {
-            if (StringUtils.isNull(str)) {
-                eVar.b = "serve return is null";
-                return eVar;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                eVar.a = jSONObject.optInt("error_code") == 0;
-                eVar.b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            } catch (JSONException e2) {
-                eVar.b = "parse json exception";
-                BdLog.e(e2);
-            }
-            return eVar;
-        }
-        return (e) invokeLL.objValue;
-    }
-
-    public void w(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = this.b) == null || tbPageContext.getPageActivity() == null) {
             return;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            Iterator<String> keys = jSONObject.keys();
-            if (keys == null) {
+        if (Build.VERSION.SDK_INT < 23 || (this.b.getPageActivity().checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0 && this.b.getPageActivity().checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0)) {
+            String f2 = f(this.b.getPageActivity().getContentResolver());
+            if (TextUtils.isEmpty(f2) || f2.endsWith(".gif") || f2.endsWith(".GIF") || f2.equals(vt4.k().q("key_gallery_last_image_path", null))) {
                 return;
             }
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                if (!TextUtils.isEmpty(optString)) {
-                    if (this.c == null) {
-                        this.c = new ConcurrentHashMap();
-                    }
-                    this.c.put(next, optString);
-                }
+            e eVar = this.e;
+            if (eVar != null) {
+                eVar.cancel();
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+            e eVar2 = new e(new b(this));
+            this.e = eVar2;
+            eVar2.execute(f2);
         }
     }
 
-    public void y() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            String D = D();
-            if (TextUtils.isEmpty(D)) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            tr8 tr8Var = this.d;
+            if (tr8Var != null && !tr8Var.isCancelled()) {
+                this.d.cancel();
+            }
+            f fVar = this.c;
+            if (fVar != null) {
+                fVar.cancel();
+                this.c = null;
+            }
+            e eVar = this.e;
+            if (eVar != null) {
+                eVar.cancel();
+                this.e = null;
+            }
+        }
+    }
+
+    public final void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            CookieSyncManager.createInstance(this.b.getPageActivity());
+            CookieManager cookieManager = CookieManager.getInstance();
+            cookieManager.setAcceptCookie(true);
+            cookieManager.setCookie("feedavatar.baidu.com", "cuid=" + TbadkCoreApplication.getInst().getCuid() + ";");
+            cookieManager.setCookie("feedavatar.baidu.com", "tiebaapp=1;");
+            CookieSyncManager.getInstance().sync();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.b.getPageActivity(), null, str, false)));
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            UrlManager.getInstance().dealOneLink(this.b, new String[]{str});
+            this.b.getPageActivity().finish();
+        }
+    }
+
+    public final boolean k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (StringUtils.isNULL(str)) {
+                return false;
+            }
+            if (str.startsWith("tiebaclient:")) {
+                p(str);
+                return true;
+            } else if (str.contains("smartapp.baidu.com/mappconsole/api/packagescheme") || str.contains("mappconsole/api/packagescheme")) {
+                new d(this, null).execute(str);
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921339, null, str);
+            return runTask != null && runTask.getData() != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            if (!oi.C()) {
+                this.a.viewHideLoading();
+                oi.N(this.b.getPageActivity(), this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c18));
                 return;
             }
-            wt4.k().y("pref_key_quick_webview_versions", D);
+            tr8 tr8Var = this.d;
+            if (tr8Var != null && !tr8Var.isCancelled()) {
+                this.d.cancel();
+            }
+            tr8 tr8Var2 = new tr8(str, new a(this, str));
+            this.d = tr8Var2;
+            tr8Var2.setPriority(3);
+            this.d.execute(new String[0]);
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || StringUtils.isNull(str)) {
+            return;
+        }
+        this.a.viewShowLoading();
+        f fVar = this.c;
+        if (fVar != null) {
+            fVar.cancel();
+        }
+        f fVar2 = new f(this, null);
+        this.c = fVar2;
+        fVar2.execute(str);
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public final void p(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, str) == null) && !StringUtils.isNull(str) && str.startsWith("tiebaclient:")) {
+            if (Build.VERSION.SDK_INT <= 21) {
+                oi.M(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f00e2);
+                return;
+            }
+            PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
+            permissionJudgePolicy.clearRequestPermissionList();
+            permissionJudgePolicy.appendRequestPermission(this.b.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
+            permissionJudgePolicy.setOnPermissionsGrantedListener(new c(this, str));
+            permissionJudgePolicy.startRequestPermission(this.b.getPageActivity());
         }
     }
 }

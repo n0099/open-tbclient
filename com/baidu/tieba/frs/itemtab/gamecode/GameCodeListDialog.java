@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.qm6;
+import com.repackage.sm6;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes3.dex */
@@ -77,7 +77,7 @@ public class GameCodeListDialog extends FrameLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921640 || this.a.a == null) {
                 return;
             }
-            this.a.a.b((qm6) customResponsedMessage.getData());
+            this.a.a.b((sm6) customResponsedMessage.getData());
         }
     }
 

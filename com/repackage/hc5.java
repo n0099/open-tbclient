@@ -132,10 +132,10 @@ public class hc5 {
         return invokeLI.booleanValue;
     }
 
-    public static void h(xz4 xz4Var) {
+    public static void h(wz4 wz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, xz4Var) == null) {
-            int i = xz4Var.b;
+        if (interceptable == null || interceptable.invokeL(65544, null, wz4Var) == null) {
+            int i = wz4Var.b;
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? "" : "1" : TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM : "pb" : "frs" : "index"));
         }
     }
@@ -192,9 +192,9 @@ public class hc5 {
         }
         SpanGroupManager spanGroupManager = spanGroupEditText.getSpanGroupManager();
         if (spanGroupManager.G().size() > 0) {
-            kv4 kv4Var = spanGroupManager.G().get(0);
-            i2 = kv4Var.f();
-            i = kv4Var.c();
+            jv4 jv4Var = spanGroupManager.G().get(0);
+            i2 = jv4Var.f();
+            i = jv4Var.c();
         } else {
             i = 0;
             i2 = 0;

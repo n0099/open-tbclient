@@ -295,7 +295,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 } else if (compoundButton == this.a.mBtnRotate) {
                     this.a.mBeautifyView.setVisibility(8);
                     this.a.mRotateView.setVisibility(0);
-                    this.a.mTitleText.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0fca));
+                    this.a.mTitleText.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0fc9));
                 }
             }
         }
@@ -735,25 +735,25 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            this.mParent = findViewById(R.id.obfuscated_res_0x7f09247c);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09191c);
+            this.mParent = findViewById(R.id.obfuscated_res_0x7f09247d);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09191d);
             this.mProgress = progressBar;
             progressBar.setVisibility(8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e67);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e68);
             this.mImage = imageView;
             imageView.setOnClickListener(new a(this));
             Bitmap bitmap = this.mBitmap;
             if (bitmap != null) {
                 this.mImage.setImageBitmap(bitmap);
             }
-            this.mBeautifyView = (HorizontalScrollView) findViewById(R.id.obfuscated_res_0x7f09099f);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            this.mBeautifyView = (HorizontalScrollView) findViewById(R.id.obfuscated_res_0x7f0909a0);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
             this.mTitleLeftBtn = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
             View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03d0, (View.OnClickListener) null);
             this.mTitleRightBtn = addCustomView;
             addCustomView.setOnClickListener(new c(this));
-            this.mDelete = (TextView) this.mTitleRightBtn.findViewById(R.id.obfuscated_res_0x7f091bd8);
+            this.mDelete = (TextView) this.mTitleRightBtn.findViewById(R.id.obfuscated_res_0x7f091bd9);
             if (TextUtils.isEmpty(this.mFinishText)) {
                 if (!this.isFromFrs && this.requestCode == 12003) {
                     this.mDelete.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0495));
@@ -766,18 +766,18 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
             this.BOUND = oi.d(getPageContext().getPageActivity(), 2.0f);
             this.mTitleText = this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f02f3));
             this.mBeautifyRotateView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09035b);
-            this.mRotateView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091adf);
+            this.mRotateView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ae0);
             this.mBtnBeautify = (RadioButton) findViewById(R.id.obfuscated_res_0x7f09035a);
-            this.mBtnRotate = (RadioButton) findViewById(R.id.obfuscated_res_0x7f091ae0);
+            this.mBtnRotate = (RadioButton) findViewById(R.id.obfuscated_res_0x7f091ae1);
             this.mRadioGroup = (RadioGroup) findViewById(R.id.obfuscated_res_0x7f09035c);
             d dVar = new d(this);
             this.mBtnBeautify.setOnCheckedChangeListener(dVar);
             this.mBtnRotate.setOnCheckedChangeListener(dVar);
             this.mBtnBeautify.setChecked(true);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091ae2);
-            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f091ae4);
-            Button button3 = (Button) findViewById(R.id.obfuscated_res_0x7f091ae3);
-            Button button4 = (Button) findViewById(R.id.obfuscated_res_0x7f091ae5);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091ae3);
+            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f091ae5);
+            Button button3 = (Button) findViewById(R.id.obfuscated_res_0x7f091ae4);
+            Button button4 = (Button) findViewById(R.id.obfuscated_res_0x7f091ae6);
             button.setTag(0);
             button2.setTag(1);
             button3.setTag(2);

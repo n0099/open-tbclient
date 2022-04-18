@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hi8;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.oi8;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class SingleStampView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class SingleStampView extends LinearLayout {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void a(hi8 hi8Var);
+        void a(oi8 oi8Var);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -58,13 +58,13 @@ public class SingleStampView extends LinearLayout {
         }
     }
 
-    private void setClickListener(final hi8 hi8Var) {
+    private void setClickListener(final oi8 oi8Var) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, hi8Var) == null) || (tbImageView = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, this, oi8Var) == null) || (tbImageView = this.a) == null) {
             return;
         }
-        tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.oi8
+        tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.vi8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,19 +72,19 @@ public class SingleStampView extends LinearLayout {
             public final void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                    SingleStampView.this.e(hi8Var, view2);
+                    SingleStampView.this.e(oi8Var, view2);
                 }
             }
         });
     }
 
-    private void setStampDescData(hi8 hi8Var) {
+    private void setStampDescData(oi8 oi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, hi8Var) == null) {
-            String str = hi8Var.c() + hi8Var.a() + "/" + hi8Var.b();
-            if (hi8Var.a() > 0) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, oi8Var) == null) {
+            String str = oi8Var.c() + oi8Var.a() + "/" + oi8Var.b();
+            if (oi8Var.a() > 0) {
                 SpannableString spannableString = new SpannableString(str);
-                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302)), hi8Var.c().length(), hi8Var.c().length() + String.valueOf(hi8Var.a()).length(), 33);
+                spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0302)), oi8Var.c().length(), oi8Var.c().length() + String.valueOf(oi8Var.a()).length(), 33);
                 this.b.setText(spannableString);
                 return;
             }
@@ -92,10 +92,10 @@ public class SingleStampView extends LinearLayout {
         }
     }
 
-    private void setStampImgData(hi8 hi8Var) {
+    private void setStampImgData(oi8 oi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, hi8Var) == null) {
-            String d = hi8Var.d();
+        if (interceptable == null || interceptable.invokeL(65541, this, oi8Var) == null) {
+            String d = oi8Var.d();
             if (TextUtils.isEmpty(d)) {
                 return;
             }
@@ -110,7 +110,7 @@ public class SingleStampView extends LinearLayout {
                 this.b = new EMTextView(getContext());
             }
             this.b.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            wr4 d = wr4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X08);
             addView(this.b);
@@ -150,22 +150,22 @@ public class SingleStampView extends LinearLayout {
         }
     }
 
-    public /* synthetic */ void e(hi8 hi8Var, View view2) {
+    public /* synthetic */ void e(oi8 oi8Var, View view2) {
         a aVar = this.c;
         if (aVar != null) {
-            aVar.a(hi8Var);
+            aVar.a(oi8Var);
         }
     }
 
-    public void setData(hi8 hi8Var, a aVar) {
+    public void setData(oi8 oi8Var, a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, hi8Var, aVar) == null) || hi8Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, oi8Var, aVar) == null) || oi8Var == null) {
             return;
         }
         this.c = aVar;
-        setStampImgData(hi8Var);
-        setStampDescData(hi8Var);
-        setClickListener(hi8Var);
+        setStampImgData(oi8Var);
+        setStampDescData(oi8Var);
+        setClickListener(oi8Var);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

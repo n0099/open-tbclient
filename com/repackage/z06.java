@@ -1,78 +1,56 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.Set;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class z06<T> extends u06 {
+public final class z06 extends w06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean b;
-    public final Set<T> c;
-    public boolean d;
-
-    public /* synthetic */ z06(int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(i, (i2 & 2) != 0 ? false : z);
-    }
-
-    @Override // com.repackage.u06
-    public boolean b(d06 item, g26 timer, xz5 config) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            if (this.d) {
-                boolean contains = this.c.contains(c(item.e()));
-                return this.b ? !contains : contains;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public abstract T c(e06 e06Var);
-
-    public final Set<T> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Set<T> mFilterSet = this.c;
-            Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
-            return mFilterSet;
-        }
-        return (Set) invokeV.objValue;
-    }
+    public boolean b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z06(int i, boolean z) {
-        super(i);
+    public z06() {
+        super(4096);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = z;
-        this.c = Collections.synchronizedSet(new LinkedHashSet());
-        this.d = true;
+    }
+
+    @Override // com.repackage.w06
+    public boolean b(f06 item, i26 timer, zz5 config) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            g06 e = item.e();
+            if (e.i() == 0) {
+                return false;
+            }
+            if (this.b) {
+                if (e.i() != 1) {
+                    return false;
+                }
+            } else if (e.i() != 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

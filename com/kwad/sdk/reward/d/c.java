@@ -183,14 +183,14 @@ public class c implements com.kwad.sdk.widget.d {
     }
 
     private void c() {
-        this.c = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0910e0);
-        this.d = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0910e2);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f0910e1);
-        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910df);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910e3);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910dd);
-        this.i = (KSRatingBar) this.a.findViewById(R.id.obfuscated_res_0x7f0910e4);
-        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0910e6);
+        this.c = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0910e1);
+        this.d = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f0910e3);
+        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f0910e2);
+        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910e0);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910e4);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910de);
+        this.i = (KSRatingBar) this.a.findViewById(R.id.obfuscated_res_0x7f0910e5);
+        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0910e7);
     }
 
     private void d() {
@@ -236,7 +236,7 @@ public class c implements com.kwad.sdk.widget.d {
 
     public void a(View view2, boolean z) {
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f0910e1 || id == R.id.obfuscated_res_0x7f0910e0 || id == R.id.obfuscated_res_0x7f0910e2) {
+        if (id == R.id.obfuscated_res_0x7f0910e2 || id == R.id.obfuscated_res_0x7f0910e1 || id == R.id.obfuscated_res_0x7f0910e3) {
             com.kwai.sodler.lib.a.b("ApkInfoCardViewHelper", "onClick install");
             this.o = true;
             a aVar = this.k;
@@ -274,7 +274,7 @@ public class c implements com.kwad.sdk.widget.d {
         List<String> list = a2.d;
         if (z && list.size() == 0) {
             this.g.setVisibility(8);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910de);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910df);
             this.h = textView;
             textView.setVisibility(0);
             this.h.setText(a2.e);

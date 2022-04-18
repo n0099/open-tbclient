@@ -198,10 +198,10 @@ public class y41 extends v41 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d05df, viewGroup, false);
             this.i = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091afc);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091afd);
             this.j = textView;
             textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06083d));
-            SelectorTextView selectorTextView = (SelectorTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091afd);
+            SelectorTextView selectorTextView = (SelectorTextView) this.i.findViewById(R.id.obfuscated_res_0x7f091afe);
             this.k = selectorTextView;
             selectorTextView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06083c));
             o();

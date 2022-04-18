@@ -8,6 +8,7 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -314,6 +315,10 @@ public class FeedData implements Serializable, i65 {
             this.thread_type = jSONObject.optInt("thread_type");
             this.threadImgUrl = jSONObject.optString("thread_img_url");
             this.isNew = jSONObject.optInt("unread") == 1;
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("new_floor_info");
+            if (optJSONArray2 != null) {
+                this.newReplayInfo = DataExt.toEntityList(optJSONArray2.toString(), NewFloorInfo.class);
+            }
             this.isBjh = jSONObject.optInt(ImageViewerConfig.IS_BJH) == 1;
             if (jSONObject.optJSONObject(Constants.PAGE_BAIJIAHAO_NAME) != null) {
                 BaijiahaoData baijiahaoData = new BaijiahaoData();

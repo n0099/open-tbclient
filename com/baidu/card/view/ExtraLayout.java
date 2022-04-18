@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mu4;
+import com.repackage.lu4;
 import com.repackage.oi;
-import com.repackage.qn4;
+import com.repackage.pn4;
 /* loaded from: classes.dex */
 public class ExtraLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -89,25 +89,25 @@ public class ExtraLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d019c, (ViewGroup) this, true);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09094f);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090950);
             this.b = textView;
             textView.setCompoundDrawablePadding(oi.f(context, R.dimen.tbds10));
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09094e);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09094c);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09094f);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f09094d);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setOnClickListener(this.e);
-            mu4 mu4Var = new mu4();
-            mu4Var.r(R.color.CAM_X0302);
-            this.a.setConfig(mu4Var);
+            lu4 lu4Var = new lu4();
+            lu4Var.r(R.color.CAM_X0302);
+            this.a.setConfig(lu4Var);
             this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f04f9));
         }
     }
 
-    public void setData(qn4 qn4Var) {
+    public void setData(pn4 pn4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qn4Var) == null) {
-            ThreadData threadData = qn4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pn4Var) == null) {
+            ThreadData threadData = pn4Var.getThreadData();
             boolean z2 = true;
             if (!TextUtils.isEmpty(threadData.extraText)) {
                 this.b.setVisibility(0);

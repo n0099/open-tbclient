@@ -1,254 +1,110 @@
 package com.repackage;
 
-import android.location.Location;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hz5;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class mz5 implements hz5.a {
+public class mz5 {
     public static /* synthetic */ Interceptable $ic;
-    public static mz5 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public hz5 a;
-    public hz5 b;
-    public ArrayList<TransmitForumData> c;
-    public ArrayList<TransmitForumData> d;
-    public boolean e;
-    public ArrayList<TransmitForumData> f;
-    public boolean g;
-    public int h;
-    public boolean i;
+    public Context a;
+    public View b;
+    public RelativeLayout c;
+    public ImageView d;
+    public MessageRedDotView e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755481975, "Lcom/repackage/mz5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755481975, "Lcom/repackage/mz5;");
-        }
-    }
-
-    public mz5() {
+    public mz5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList<>();
-        this.e = false;
-        this.g = false;
-        this.i = false;
-        e();
+        this.a = context;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08bf, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091409);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ebc);
+        MessageRedDotView messageRedDotView = (MessageRedDotView) this.b.findViewById(R.id.obfuscated_res_0x7f090eca);
+        this.e = messageRedDotView;
+        messageRedDotView.setShadowEnabled(false);
     }
 
-    public static Location b() {
+    public MessageRedDotView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return null;
-        }
-        return (Location) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (MessageRedDotView) invokeV.objValue;
     }
 
-    public static mz5 c() {
+    public ImageView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (j == null) {
-                synchronized (mz5.class) {
-                    if (j == null) {
-                        j = new mz5();
-                    }
-                }
-            }
-            return j;
-        }
-        return (mz5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (ImageView) invokeV.objValue;
     }
 
-    @Override // com.repackage.hz5.a
-    public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            if (i == 1) {
-                if (z) {
-                    this.f = arrayList;
-                }
-                this.g = true;
-            } else if (i == 2) {
-                if (z) {
-                    this.d = arrayList;
-                    this.h = i2;
-                }
-                this.e = true;
-            }
-            j();
-        }
-    }
-
-    public final Location d() {
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() : (Location) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    public final void e() {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            g();
-            f();
-            this.i = false;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.e.e();
+            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809c2, SkinManager.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
-    public final void f() {
+    public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), hz5.class);
-            if (runTask != null) {
-                this.b = (hz5) runTask.getData();
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            if (z) {
+                this.e.f(i);
+                this.e.setVisibility(0);
+                return;
             }
-            hz5 hz5Var = this.b;
-            if (hz5Var != null) {
-                hz5Var.a(this);
-            }
+            this.e.setVisibility(8);
         }
     }
 
-    public final void g() {
+    public void f(NavigationBar.ControlAlign controlAlign, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), hz5.class);
-            if (runTask != null) {
-                this.a = (hz5) runTask.getData();
-            }
-            hz5 hz5Var = this.a;
-            if (hz5Var != null) {
-                hz5Var.a(this);
-            }
+        if ((interceptable == null || interceptable.invokeLZ(1048581, this, controlAlign, z) == null) && !z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
+            ((RelativeLayout.LayoutParams) this.d.getLayoutParams()).rightMargin = -oi.f(this.a, R.dimen.tbds10);
+            ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = -oi.f(this.a, R.dimen.tbds10);
+            this.c.getLayoutParams().width = oi.f(this.a, R.dimen.obfuscated_res_0x7f070309);
         }
     }
 
-    public final boolean h(long j2) {
-        InterceptResult invokeJ;
+    public void g(int i) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            ArrayList<TransmitForumData> arrayList = this.c;
-            if (arrayList == null) {
-                return false;
-            }
-            Iterator<TransmitForumData> it = arrayList.iterator();
-            while (it.hasNext()) {
-                TransmitForumData next = it.next();
-                if (next != null && next.forumId == j2) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.i = true;
-            hz5 hz5Var = this.a;
-            if (hz5Var != null) {
-                hz5Var.b();
-            }
-            hz5 hz5Var2 = this.b;
-            if (hz5Var2 != null) {
-                hz5Var2.b();
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.a == null || this.e) {
-                if (this.b == null || this.g) {
-                    this.e = false;
-                    this.g = false;
-                    this.i = false;
-                    this.c.clear();
-                    if (!ListUtils.isEmpty(this.d)) {
-                        Iterator<TransmitForumData> it = this.d.iterator();
-                        while (it.hasNext()) {
-                            TransmitForumData next = it.next();
-                            if (!h(next.forumId)) {
-                                this.c.add(next);
-                            }
-                        }
-                    }
-                    if (!ListUtils.isEmpty(this.f)) {
-                        Iterator<TransmitForumData> it2 = this.f.iterator();
-                        while (it2.hasNext()) {
-                            TransmitForumData next2 = it2.next();
-                            if (!h(next2.forumId)) {
-                                this.c.add(next2);
-                            }
-                        }
-                    }
-                    this.d = null;
-                    this.f = null;
-                    k();
-                }
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.c));
-        }
-    }
-
-    public void l(ShareDialogConfig shareDialogConfig) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, shareDialogConfig) == null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || fc5.a()) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (view2 = this.b) == null) {
             return;
         }
-        if (shareDialogConfig.showLocation) {
-            shareDialogConfig.shareItem.B = d();
-        }
-        if (oi.C() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.i && !shareDialogConfig.shareItem.f()) {
-            i();
-        }
-        shareDialogConfig.setIsShowTransmitShare(true);
-        shareDialogConfig.setTransmitForumList(this.c);
-        shareDialogConfig.setPrivateThread(this.h);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        view2.setVisibility(i);
     }
 }

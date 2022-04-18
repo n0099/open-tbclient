@@ -156,7 +156,7 @@ public class ac2 {
                         if (a) {
                             Log.d("ExtCore-Utils", "deleteOldExtensionCores deleteFolder: " + file2);
                         }
-                        ng4.L(file2);
+                        mg4.L(file2);
                     }
                 }
             }

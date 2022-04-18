@@ -131,7 +131,7 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
                 if (mi.z()) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new EmotionCenterActivityConfig(this.a.getContext())));
                 } else {
-                    oi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c18);
+                    oi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         }
@@ -630,7 +630,7 @@ public class EmotionTabHorizonScrollView extends HorizontalCustomScrollView {
             scrollBy(i3, 0);
         }
         if (getParent() instanceof ViewGroup) {
-            View findViewById = ((ViewGroup) getParent()).findViewById(R.id.obfuscated_res_0x7f090962);
+            View findViewById = ((ViewGroup) getParent()).findViewById(R.id.obfuscated_res_0x7f090963);
             int width2 = getResources().getDisplayMetrics().widthPixels - ((findViewById == null || findViewById.getVisibility() != 0) ? 0 : findViewById.getWidth() + 0);
             if (width > width2) {
                 scrollBy(width - width2, 0);

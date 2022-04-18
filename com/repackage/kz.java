@@ -109,16 +109,16 @@ public class kz extends sy implements gz, fz<ThreadData> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.j == null || this.a.l == null || this.a.k == null || this.a.l.isTransportThread() || !this.a.n) {
                 return;
             }
-            if (this.a.l.isMarkToDel() || !zc6.f().i()) {
-                if (this.a.l.isMarkToMove() || !yc6.h().j()) {
-                    zc6.f().l(this.a.l);
+            if (this.a.l.isMarkToDel() || !bd6.f().i()) {
+                if (this.a.l.isMarkToMove() || !ad6.h().j()) {
+                    bd6.f().l(this.a.l);
                     this.a.l.setMarkToDel(false);
-                    yc6.h().l(this.a.l);
+                    ad6.h().l(this.a.l);
                     this.a.l.setMarkToMove(false);
-                } else if (yc6.h().a(this.a.l)) {
+                } else if (ad6.h().a(this.a.l)) {
                     this.a.l.setMarkToMove(true);
                 }
-            } else if (zc6.f().a(this.a.l)) {
+            } else if (bd6.f().a(this.a.l)) {
                 this.a.l.setMarkToDel(true);
             }
             this.a.r();
@@ -146,15 +146,15 @@ public class kz extends sy implements gz, fz<ThreadData> {
         this.o = new a(this, 2921402);
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0586, (ViewGroup) null);
         this.g = inflate;
-        this.h = inflate.findViewById(R.id.obfuscated_res_0x7f091478);
-        this.f = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f091472);
+        this.h = inflate.findViewById(R.id.obfuscated_res_0x7f091479);
+        this.f = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f091473);
         this.h.setAlpha(0.5f);
-        View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f091477);
+        View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f091478);
         this.i = findViewById;
         findViewById.setAlpha(0.5f);
-        this.j = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f09137e);
-        this.e = (RelativeLayout) this.g.findViewById(R.id.obfuscated_res_0x7f091473);
-        this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091380);
+        this.j = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f09137f);
+        this.e = (RelativeLayout) this.g.findViewById(R.id.obfuscated_res_0x7f091474);
+        this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091381);
         g(this.g);
         this.g.setFocusable(true);
         this.g.setOnClickListener(new b(this));
@@ -185,19 +185,19 @@ public class kz extends sy implements gz, fz<ThreadData> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
             if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
-                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08090b, R.color.CAM_X0107, null);
+                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08090f, R.color.CAM_X0107, null);
             } else {
-                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080908, R.color.CAM_X0304, null);
+                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08090c, R.color.CAM_X0304, null);
             }
-            wr4 d = wr4.d(this.h);
+            vr4 d = vr4.d(this.h);
             d.n(R.string.J_X06);
             d.m(this.m ? 2 : 1);
             d.f(R.color.CAM_X0201);
-            wr4 d2 = wr4.d(this.i);
+            vr4 d2 = vr4.d(this.i);
             d2.n(R.string.J_X06);
             d2.m(2);
             d2.f(R.color.CAM_X0201);
-            wr4.d(this.k).A(R.string.F_X01);
+            vr4.d(this.k).A(R.string.F_X01);
             SkinManager.setViewTextColor(this.k, (this.l.isMarkToDel() || this.l.isMarkToMove()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
         }
     }
@@ -210,7 +210,7 @@ public class kz extends sy implements gz, fz<ThreadData> {
         if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
             this.l = threadData;
             this.n = threadData.getType() != ThreadData.TYPE_FAKE_VIDEO && (threadData == null || threadData.getAuthor() == null || !threadData.getAuthor().isForumBusinessAccount() || threadData.isSelf()) && threadData != null && (!threadData.isTiePlusCantDeleteUnion() || threadData.isSelf());
-            if (!zc6.f().i() && !yc6.h().j()) {
+            if (!bd6.f().i() && !ad6.h().j()) {
                 this.d.o(new m00.a(4, Boolean.TRUE));
                 this.g.setVisibility(8);
                 return;
@@ -245,9 +245,9 @@ public class kz extends sy implements gz, fz<ThreadData> {
                 boolean isMarkToDel = this.l.isMarkToDel();
                 int i2 = R.color.CAM_X0304;
                 if (!isMarkToDel && !this.l.isMarkToMove()) {
-                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08090b, R.color.CAM_X0107, null);
+                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08090f, R.color.CAM_X0107, null);
                 } else {
-                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080908, R.color.CAM_X0304, null);
+                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f08090c, R.color.CAM_X0304, null);
                 }
                 TextView textView = this.k;
                 if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {

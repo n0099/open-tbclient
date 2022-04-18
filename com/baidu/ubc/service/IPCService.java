@@ -19,13 +19,13 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.IRemoteUBCService;
 import com.baidu.ubc.UBC;
 import com.baidu.ubc.UBCManager;
-import com.repackage.g59;
-import com.repackage.r49;
+import com.repackage.n59;
 import com.repackage.ub1;
+import com.repackage.y49;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class IPCService implements g59 {
+public class IPCService implements n59 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class IPCService implements g59 {
                 return;
             }
         }
-        a = r49.m();
+        a = y49.m();
     }
 
     public IPCService() {
@@ -60,14 +60,14 @@ public class IPCService implements g59 {
         }
     }
 
-    @Override // com.repackage.g59
+    @Override // com.repackage.n59
     public IBinder a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? IPCServiceManager.f(str, true) : (IBinder) invokeL.objValue;
     }
 
-    @Override // com.repackage.g59
+    @Override // com.repackage.n59
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

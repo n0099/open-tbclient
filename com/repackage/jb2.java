@@ -311,11 +311,11 @@ public class jb2 extends g23 {
     public final void t(String str, String str2, j03 j03Var, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, j03Var, callbackHandler) == null) {
-            l74 l74Var = new l74(qj2.o().m(str), new c(this, str2, callbackHandler));
-            l74Var.f = true;
-            l74Var.g = false;
-            l74Var.h = true;
-            m74.g().d(l74Var);
+            k74 k74Var = new k74(qj2.o().m(str), new c(this, str2, callbackHandler));
+            k74Var.f = true;
+            k74Var.g = false;
+            k74Var.h = true;
+            l74.g().d(k74Var);
         }
     }
 
@@ -355,7 +355,7 @@ public class jb2 extends g23 {
                     InputStream byteStream = response.body().byteStream();
                     File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_cts");
                     File file2 = new File(file, str + ".js");
-                    if (qg4.a(byteStream, file2)) {
+                    if (pg4.a(byteStream, file2)) {
                         JSONArray jSONArray = new JSONArray();
                         jSONArray.put(file2);
                         char c2 = 65535;
@@ -400,11 +400,11 @@ public class jb2 extends g23 {
     public final void w(j03 j03Var, String str, CallbackHandler callbackHandler, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, j03Var, str, callbackHandler, str2) == null) {
-            l74 l74Var = new l74(str, new b(this, j03Var, str2, callbackHandler));
-            l74Var.f = true;
-            l74Var.g = false;
-            l74Var.h = true;
-            m74.g().d(l74Var);
+            k74 k74Var = new k74(str, new b(this, j03Var, str2, callbackHandler));
+            k74Var.f = true;
+            k74Var.g = false;
+            k74Var.h = true;
+            l74.g().d(k74Var);
         }
     }
 

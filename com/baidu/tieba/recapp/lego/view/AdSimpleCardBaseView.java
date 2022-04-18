@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import com.repackage.ga8;
 import com.repackage.mi;
+import com.repackage.na8;
 import com.repackage.oi;
 import tbclient.AdCloseInfo;
 /* loaded from: classes3.dex */
@@ -103,7 +103,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         public final void a(AdvertAppInfo advertAppInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, advertAppInfo) == null) {
-                int d = ga8.d(this.b.i.getPageActivity(), this.a.getScheme(), this.a.getDownloadId(), this.a.getExtInfo(), this.a.cmdScheme);
+                int d = na8.d(this.b.i.getPageActivity(), this.a.getScheme(), this.a.getDownloadId(), this.a.getExtInfo(), this.a.cmdScheme);
                 if (this.b.k != null) {
                     this.b.k.a(d, null);
                 }
@@ -115,7 +115,7 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
                 if (!mi.A()) {
-                    this.b.i.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                    this.b.i.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 AdCard adCard = this.a;

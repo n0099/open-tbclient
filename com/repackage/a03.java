@@ -179,17 +179,17 @@ public class a03 {
             }
             try {
                 String readLine = bufferedReader.readLine();
-                ng4.d(bufferedReader);
+                mg4.d(bufferedReader);
                 return readLine == null ? "" : readLine;
             } catch (IOException unused2) {
                 bufferedReader2 = bufferedReader;
-                ng4.d(bufferedReader2);
-                ng4.d(bufferedReader2);
+                mg4.d(bufferedReader2);
+                mg4.d(bufferedReader2);
                 return "";
             } catch (Throwable th2) {
                 th = th2;
                 bufferedReader2 = bufferedReader;
-                ng4.d(bufferedReader2);
+                mg4.d(bufferedReader2);
                 throw th;
             }
         }

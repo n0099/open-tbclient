@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt4;
+import com.repackage.vt4;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class AiAppsLazyInitSwitch extends BaseNormalSwitch {
@@ -58,7 +58,7 @@ public class AiAppsLazyInitSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                type = wt4.k().l("key_ai_apps_lazy_init", 0);
+                type = vt4.k().l("key_ai_apps_lazy_init", 0);
             }
             return type == 1;
         }

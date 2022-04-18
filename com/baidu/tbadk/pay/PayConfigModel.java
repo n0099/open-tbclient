@@ -75,7 +75,7 @@ public class PayConfigModel extends BdBaseModel {
                     }
                 }
                 String errorString = responsedMessage.getErrorString();
-                String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18);
+                String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17);
                 if (StringUtils.isNull(errorString)) {
                     errorString = string;
                 }
@@ -146,7 +146,7 @@ public class PayConfigModel extends BdBaseModel {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!e85.c().e()) {
+            if (!e85.c().d()) {
                 b85 b85Var = this.a;
                 if (b85Var != null) {
                     b85Var.a();

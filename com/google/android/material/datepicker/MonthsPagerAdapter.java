@@ -55,10 +55,10 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091430);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091431);
             this.monthTitle = textView;
             ViewCompat.setAccessibilityHeading(textView, true);
-            this.monthGrid = (MaterialCalendarGridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09142a);
+            this.monthGrid = (MaterialCalendarGridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09142b);
             if (z) {
                 return;
             }
@@ -139,7 +139,7 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
         if (interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) {
             Month monthsLater = this.calendarConstraints.getStart().monthsLater(i);
             viewHolder.monthTitle.setText(monthsLater.getLongName());
-            MaterialCalendarGridView materialCalendarGridView = (MaterialCalendarGridView) viewHolder.monthGrid.findViewById(R.id.obfuscated_res_0x7f09142a);
+            MaterialCalendarGridView materialCalendarGridView = (MaterialCalendarGridView) viewHolder.monthGrid.findViewById(R.id.obfuscated_res_0x7f09142b);
             if (materialCalendarGridView.getAdapter2() != null && monthsLater.equals(materialCalendarGridView.getAdapter2().month)) {
                 materialCalendarGridView.getAdapter2().notifyDataSetChanged();
             } else {

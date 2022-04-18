@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l7a;
-import com.repackage.u3a;
+import com.repackage.b4a;
+import com.repackage.s7a;
 import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -18,20 +18,20 @@ import java.util.List;
 import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 @Keep
-/* loaded from: classes8.dex */
-public class RevenueManager implements u3a {
+/* loaded from: classes9.dex */
+public class RevenueManager implements b4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
-    public u3a revenueService;
+    public b4a revenueService;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final RevenueManager a;
@@ -64,7 +64,7 @@ public class RevenueManager implements u3a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (RevenueManager) invokeV.objValue;
     }
 
-    @Override // com.repackage.u3a
+    @Override // com.repackage.b4a
     public void addLogDelegate(IRLogDelegate iRLogDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iRLogDelegate) == null) {
@@ -73,7 +73,7 @@ public class RevenueManager implements u3a {
         }
     }
 
-    @Override // com.repackage.u3a
+    @Override // com.repackage.b4a
     public void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, middleRevenueConfig) == null) {
@@ -83,7 +83,7 @@ public class RevenueManager implements u3a {
         }
     }
 
-    @Override // com.repackage.u3a
+    @Override // com.repackage.b4a
     public List<IRevenue> getAllRevenue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class RevenueManager implements u3a {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.u3a
+    @Override // com.repackage.b4a
     public IMiddleRevenue getMiddleRevenue(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -105,14 +105,14 @@ public class RevenueManager implements u3a {
         return (IMiddleRevenue) invokeII.objValue;
     }
 
-    @Override // com.repackage.u3a
+    @Override // com.repackage.b4a
     public IRevenue getRevenue(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) ? this.revenueService.getRevenue(i, i2) : (IRevenue) invokeII.objValue;
     }
 
-    @Override // com.repackage.u3a
+    @Override // com.repackage.b4a
     public void removeRevenueConfig(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
@@ -121,7 +121,7 @@ public class RevenueManager implements u3a {
         }
     }
 
-    @Override // com.repackage.u3a
+    @Override // com.repackage.b4a
     public void updateMiddleRevenueConfig(int i, int i2, Long l, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), l, str}) == null) {
@@ -145,6 +145,6 @@ public class RevenueManager implements u3a {
         }
         this.TAG = "RevenueManager";
         RLog.info("RevenueManager", "create RevenueManager");
-        this.revenueService = new l7a();
+        this.revenueService = new s7a();
     }
 }

@@ -65,12 +65,12 @@ public class z05 implements f35 {
                 BdLog.e(th);
             }
             try {
-                Class.forName("com.repackage.w36");
+                Class.forName("com.repackage.y36");
             } catch (Throwable th2) {
                 BdLog.e(th2);
             }
             try {
-                Class.forName("com.repackage.x36");
+                Class.forName("com.repackage.z36");
             } catch (Throwable th3) {
                 BdLog.e(th3);
             }

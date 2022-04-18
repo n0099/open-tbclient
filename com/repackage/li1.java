@@ -30,6 +30,6 @@ public class li1 implements ok1 {
     public InputStream a(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) ? new nv9(inputStream) : (InputStream) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) ? new uv9(inputStream) : (InputStream) invokeL.objValue;
     }
 }

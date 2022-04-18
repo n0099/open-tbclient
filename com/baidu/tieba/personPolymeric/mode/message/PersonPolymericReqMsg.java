@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn4;
+import com.repackage.bn4;
 import com.repackage.oi;
 import com.repackage.rc5;
-import com.repackage.s08;
+import com.repackage.z08;
 import tbclient.Personal.DataReq;
 import tbclient.Personal.PersonalReqIdl;
 /* loaded from: classes3.dex */
@@ -52,7 +52,7 @@ public class PersonPolymericReqMsg extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst().getApp()));
             builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst().getApp()));
-            builder.q_type = Integer.valueOf(cn4.c().e());
+            builder.q_type = Integer.valueOf(bn4.c().e());
             builder.scr_dip = Double.valueOf(oi.h(TbadkCoreApplication.getInst().getApp()));
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
                 rc5.a(builder, true);
@@ -64,13 +64,13 @@ public class PersonPolymericReqMsg extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public s08 getPersonCenterData() {
+    public z08 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (s08) invokeV.objValue;
+        return (z08) invokeV.objValue;
     }
 
     public int getPn() {

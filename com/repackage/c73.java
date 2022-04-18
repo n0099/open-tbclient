@@ -205,14 +205,14 @@ public final class c73 {
             j73 j73Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int a = wr2.a();
+                int b = wr2.b();
                 if (c73.a) {
-                    Log.d("SwanAppUBCStatistic", "get NetworkQuality: " + a);
+                    Log.d("SwanAppUBCStatistic", "get NetworkQuality: " + b);
                 }
                 if (TextUtils.equals(this.a, "1")) {
-                    j73Var = new j73(this.b, this.c, this.d, a);
+                    j73Var = new j73(this.b, this.c, this.d, b);
                 } else {
-                    j73Var = new j73(this.c, a, 0L, 0L);
+                    j73Var = new j73(this.c, b, 0L, 0L);
                 }
                 new f73.a(j73Var, "downloadFile");
                 if (!TextUtils.isEmpty(this.e)) {
@@ -1472,14 +1472,14 @@ public final class c73 {
         j73 j73Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65573, null, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), str2, str3, str4, str5, Long.valueOf(j2), Long.valueOf(j3), networkStatRecord}) == null) {
-            int a2 = wr2.a();
+            int b2 = wr2.b();
             if (a) {
-                Log.d("SwanAppUBCStatistic", "get NetworkQuality: " + a2);
+                Log.d("SwanAppUBCStatistic", "get NetworkQuality: " + b2);
             }
             if (TextUtils.equals(str5, "1")) {
-                j73Var = new j73(i2, str, str2, a2, j2, j3);
+                j73Var = new j73(i2, str, str2, b2, j2, j3);
             } else {
-                j73Var = new j73(str, a2, j2, j3);
+                j73Var = new j73(str, b2, j2, j3);
             }
             f73.a aVar = new f73.a(j73Var, "request");
             if (!TextUtils.isEmpty(str3)) {

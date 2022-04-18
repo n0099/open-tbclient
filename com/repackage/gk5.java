@@ -28,7 +28,7 @@ public class gk5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List<jy4> b;
+    public List<iy4> b;
     public int c;
     public int d;
     public int e;
@@ -132,12 +132,12 @@ public class gk5 extends BaseAdapter {
         }
     }
 
-    public gk5(Context context, tm4 tm4Var) {
+    public gk5(Context context, sm4 sm4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, tm4Var};
+            Object[] objArr = {context, sm4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -193,7 +193,7 @@ public class gk5 extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: d */
-    public jy4 getItem(int i) {
+    public iy4 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -203,10 +203,10 @@ public class gk5 extends BaseAdapter {
             }
             return this.b.get(i - i2);
         }
-        return (jy4) invokeI.objValue;
+        return (iy4) invokeI.objValue;
     }
 
-    public void e(List<jy4> list) {
+    public void e(List<iy4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.b = list;
@@ -227,7 +227,7 @@ public class gk5 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             int i = this.j ? 3 : 2;
-            List<jy4> list = this.b;
+            List<iy4> list = this.b;
             return list == null ? i : list.size() + i;
         }
         return invokeV.intValue;
@@ -245,7 +245,7 @@ public class gk5 extends BaseAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            jy4 item = getItem(i);
+            iy4 item = getItem(i);
             if (i == 0) {
                 return 0;
             }
@@ -326,7 +326,7 @@ public class gk5 extends BaseAdapter {
                 SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
                 return view2;
             } else {
-                jy4 item = getItem(i);
+                iy4 item = getItem(i);
                 if (getItemViewType(i) == 2) {
                     if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof c)) {
                         cVar = (c) view2.getTag();
@@ -400,7 +400,7 @@ public class gk5 extends BaseAdapter {
                     }
                     SkinManager.setViewTextColor(bVar.b, this.d, 1);
                     String a2 = item.a();
-                    jy4 item2 = getItem(i + 1);
+                    iy4 item2 = getItem(i + 1);
                     if ((TextUtils.isEmpty(a2) || item2 == null || a2.equals(item2.a())) ? false : true) {
                         bVar.c.setVisibility(4);
                     } else {

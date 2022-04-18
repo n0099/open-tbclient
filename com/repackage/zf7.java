@@ -1,67 +1,111 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.Item;
-import tbclient.RecommendForumInfo;
-import tbclient.SearchSug.DataRes;
-import tbclient.SugLiveInfo;
-import tbclient.SugRankingInfo;
 /* loaded from: classes7.dex */
-public class zf7 {
+public class zf7 implements uo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
+    public Long a;
+    public String b;
+    public String c;
+    public List<String> d;
+    public Double e;
+    public Integer f;
 
-    public static List<uo> a(DataRes dataRes, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
-            if (dataRes == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755113850, "Lcom/repackage/zf7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            ArrayList arrayList = new ArrayList();
-            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
-            if (recommendForumInfo != null) {
-                vf7 vf7Var = new vf7();
-                vf7Var.j(recommendForumInfo);
-                arrayList.add(vf7Var);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755113850, "Lcom/repackage/zf7;");
+                return;
             }
-            Item item = dataRes.item_card;
-            if (item != null) {
-                wf7 wf7Var = new wf7();
-                wf7Var.j(item);
-                arrayList.add(wf7Var);
-            }
-            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
-                xf7 xf7Var = new xf7();
-                xf7Var.p(str);
-                xf7Var.n(sugLiveInfo);
-                arrayList.add(xf7Var);
-            }
-            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
-            if (sugRankingInfo != null) {
-                yf7 yf7Var = new yf7();
-                yf7Var.i(str);
-                yf7Var.g(sugRankingInfo);
-                arrayList.add(yf7Var);
-            }
-            int size = arrayList.size();
-            for (String str2 : dataRes.list) {
-                uf7 uf7Var = new uf7();
-                uf7Var.e(str);
-                uf7Var.f(str2);
-                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
-                    arrayList.add(size, uf7Var);
-                } else {
-                    arrayList.add(uf7Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+        g = BdUniqueId.gen();
+    }
+
+    public zf7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public Long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Long) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public Double f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (Double) invokeV.objValue;
+    }
+
+    public Integer g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (Integer) invokeV.objValue;
+    }
+
+    @Override // com.repackage.uo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
+    }
+
+    public List<String> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (List) invokeV.objValue;
+    }
+
+    public void j(Item item) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, item) == null) {
+            this.a = item.item_id;
+            this.b = item.item_name;
+            Double d = item.icon_size;
+            this.c = item.icon_url;
+            this.d = item.tags;
+            this.e = item.score;
+            this.f = item.star;
+        }
     }
 }

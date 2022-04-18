@@ -21,8 +21,8 @@ public class b extends a {
 
     @Override // com.kwad.sdk.reward.presenter.b.a, com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
-        m().findViewById(R.id.obfuscated_res_0x7f0910b8).setVisibility(8);
         m().findViewById(R.id.obfuscated_res_0x7f0910b9).setVisibility(8);
+        m().findViewById(R.id.obfuscated_res_0x7f0910ba).setVisibility(8);
         super.a();
         ((g) this).a.a(this.e);
     }
@@ -68,13 +68,13 @@ public class b extends a {
 
     @Override // com.kwad.sdk.reward.presenter.b.a
     public int i() {
-        return R.id.obfuscated_res_0x7f0910a3;
+        return R.id.obfuscated_res_0x7f0910a4;
     }
 
     @Override // com.kwad.sdk.reward.presenter.b.a
     public void r() {
         this.d = true;
-        m().findViewById(R.id.obfuscated_res_0x7f0910b8).setVisibility(0);
+        m().findViewById(R.id.obfuscated_res_0x7f0910b9).setVisibility(0);
         this.c.a(((g) this).a);
         this.b.a(((g) this).a);
     }

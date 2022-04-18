@@ -66,13 +66,13 @@ public final class sw3 {
     public static float d(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i)) == null) ? z24.b(motionEvent.getX(i) * d) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i)) == null) ? y24.b(motionEvent.getX(i) * d) : invokeLI.floatValue;
     }
 
     public static float e(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, motionEvent, i)) == null) ? z24.b(motionEvent.getY(i) * e) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, motionEvent, i)) == null) ? y24.b(motionEvent.getY(i) * e) : invokeLI.floatValue;
     }
 
     public static boolean f(EventTarget eventTarget) {

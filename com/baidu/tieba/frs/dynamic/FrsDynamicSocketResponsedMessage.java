@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xg6;
+import com.repackage.zg6;
 import tbclient.Error;
 import tbclient.StarTrends.StarTrendsResIdl;
 /* loaded from: classes3.dex */
-public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<xg6, StarTrendsResIdl> {
+public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<zg6, StarTrendsResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xg6 responseData;
+    public zg6 responseData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsDynamicSocketResponsedMessage() {
@@ -47,9 +47,9 @@ public class FrsDynamicSocketResponsedMessage extends MvcSocketResponsedMessage<
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            xg6 xg6Var = new xg6();
-            this.responseData = xg6Var;
-            StarTrendsResIdl a = xg6Var.a(bArr);
+            zg6 zg6Var = new zg6();
+            this.responseData = zg6Var;
+            StarTrendsResIdl a = zg6Var.a(bArr);
             if (a != null && (error = a.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {

@@ -239,12 +239,12 @@ public final class l02 {
 
         /* renamed from: com.repackage.l02$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0459b implements cf3<String> {
+        public class C0460b implements cf3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ cf3 a;
 
-            public C0459b(b bVar, cf3 cf3Var) {
+            public C0460b(b bVar, cf3 cf3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -343,7 +343,7 @@ public final class l02 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                StringBuilder sb = new StringBuilder(qj2.c().getText(R.string.obfuscated_res_0x7f0f12e3));
+                StringBuilder sb = new StringBuilder(qj2.c().getText(R.string.obfuscated_res_0x7f0f12e2));
                 sb.append(str);
                 String e = g02.e();
                 if (!TextUtils.isEmpty(e)) {
@@ -357,7 +357,7 @@ public final class l02 {
         public void e(@NonNull cf3<String> cf3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cf3Var) == null) {
-                this.e.e(new C0459b(this, cf3Var));
+                this.e.e(new C0460b(this, cf3Var));
             }
         }
 

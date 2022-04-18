@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bq5;
+import com.repackage.dq5;
 import com.repackage.ja0;
-import com.repackage.me6;
 import com.repackage.na0;
+import com.repackage.oe6;
 /* loaded from: classes3.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements me6 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements oe6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public na0 a;
@@ -44,7 +44,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements me6 {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -59,7 +59,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements me6 {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -79,7 +79,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements me6 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -113,7 +113,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements me6 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
             B0("onCreate");
-            bq5.a().c(TbadkCoreApplication.getInst());
+            dq5.a().c(TbadkCoreApplication.getInst());
             this.a = new ja0();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
         }
@@ -240,7 +240,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements me6 {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {

@@ -1,221 +1,176 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 /* loaded from: classes7.dex */
-public abstract class r79 {
-    public static /* synthetic */ Interceptable $ic;
+public final class r79 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1000;
+    public static boolean b = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public final int c;
-    public final int d;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public long b;
-        public byte[] c;
-        public int d;
-        public int e;
-        public boolean f;
-        public int g;
-        public int h;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755397283, "Lcom/repackage/r79;")) == null) {
+            return;
         }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", a.class.getSimpleName(), Arrays.toString(this.c), Integer.valueOf(this.g), Boolean.valueOf(this.f), Integer.valueOf(this.a), Long.valueOf(this.b), Integer.valueOf(this.h), Integer.valueOf(this.d), Integer.valueOf(this.e)) : (String) invokeV.objValue;
-        }
-    }
-
-    public r79(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
-        this.d = i4;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755397283, "Lcom/repackage/r79;");
+        }
     }
 
-    public int a(a aVar) {
-        InterceptResult invokeL;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (aVar.c != null) {
-                return aVar.d - aVar.e;
-            }
-            return 0;
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && b) {
+            c(2, "BaiDuAbSDK", str, null);
         }
-        return invokeL.intValue;
     }
 
-    public boolean b(byte[] bArr) {
-        InterceptResult invokeL;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr == null) {
-                return false;
-            }
-            for (byte b : bArr) {
-                if (61 == b || k(b)) {
-                    return true;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && b) {
+            c(5, "BaiDuAbSDK", str, null);
+        }
+    }
+
+    public static void c(int i, String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            if (!TextUtils.isEmpty(str2)) {
+                int length = str2.length();
+                int i2 = a;
+                if (length >= i2) {
+                    if (i == 1) {
+                        Log.v(str, str2.substring(0, i2));
+                    } else if (i == 2) {
+                        Log.d(str, str2.substring(0, i2));
+                    } else if (i == 3) {
+                        Log.i(str, str2.substring(0, i2));
+                    } else if (i == 4) {
+                        Log.w(str, str2.substring(0, i2));
+                    } else if (i == 5) {
+                        Log.e(str, str2.substring(0, i2));
+                    }
+                } else if (i == 1) {
+                    Log.v(str, str2);
+                } else if (i == 2) {
+                    Log.d(str, str2);
+                } else if (i == 3) {
+                    Log.i(str, str2);
+                } else if (i == 4) {
+                    Log.w(str, str2);
+                } else if (i != 5) {
+                    Log.d(str, str2);
+                } else {
+                    Log.e(str, str2);
                 }
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public abstract void c(byte[] bArr, int i, int i2, a aVar);
-
-    public byte[] d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? e(t79.b(str)) : (byte[]) invokeL.objValue;
-    }
-
-    public byte[] e(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return bArr;
+            if (th != null) {
+                String f = f(th);
+                if (TextUtils.isEmpty(f)) {
+                    return;
+                }
+                if (i == 1) {
+                    Log.v(str, f);
+                } else if (i == 2) {
+                    Log.d(str, f);
+                } else if (i == 3) {
+                    Log.i(str, f);
+                } else if (i == 4) {
+                    Log.w(str, f);
+                } else if (i != 5) {
+                    Log.d(str, str2);
+                } else {
+                    Log.e(str, f);
+                }
             }
-            a aVar = new a();
-            c(bArr, 0, bArr.length, aVar);
-            c(bArr, 0, -1, aVar);
-            int i = aVar.d;
-            byte[] bArr2 = new byte[i];
-            l(bArr2, 0, i, aVar);
-            return bArr2;
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public abstract void f(byte[] bArr, int i, int i2, a aVar);
+    public static void d(Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) && b) {
+            c(2, "BaiDuAbSDK", "", th);
+        }
+    }
 
-    public byte[] g(byte[] bArr) {
+    public static void e(Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, th) == null) && b) {
+            c(4, "BaiDuAbSDK", "", th);
+        }
+    }
+
+    public static String f(Throwable th) {
         InterceptResult invokeL;
+        PrintWriter printWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return bArr;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, th)) != null) {
+            return (String) invokeL.objValue;
+        }
+        StringWriter stringWriter = null;
+        try {
+            StringWriter stringWriter2 = new StringWriter();
+            try {
+                printWriter = new PrintWriter(stringWriter2);
+                try {
+                    th.printStackTrace(printWriter);
+                    printWriter.flush();
+                    stringWriter2.flush();
+                    String stringWriter3 = stringWriter2.toString();
+                    try {
+                        stringWriter2.close();
+                    } catch (Throwable th2) {
+                        th2.printStackTrace();
+                    }
+                    printWriter.close();
+                    return stringWriter3;
+                } catch (Throwable th3) {
+                    th = th3;
+                    stringWriter = stringWriter2;
+                    try {
+                        th.printStackTrace();
+                        return "";
+                    } finally {
+                        if (stringWriter != null) {
+                            try {
+                                stringWriter.close();
+                            } catch (Throwable th4) {
+                                th4.printStackTrace();
+                            }
+                        }
+                        if (printWriter != null) {
+                            printWriter.close();
+                        }
+                    }
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                printWriter = null;
             }
-            a aVar = new a();
-            f(bArr, 0, bArr.length, aVar);
-            f(bArr, 0, -1, aVar);
-            int i = aVar.d - aVar.e;
-            byte[] bArr2 = new byte[i];
-            l(bArr2, 0, i, aVar);
-            return bArr2;
+        } catch (Throwable th6) {
+            th = th6;
+            printWriter = null;
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public byte[] h(int i, a aVar) {
-        InterceptResult invokeIL;
+    public static void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, aVar)) == null) {
-            byte[] bArr = aVar.c;
-            return (bArr == null || bArr.length < aVar.d + i) ? m(aVar) : bArr;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            b = z;
         }
-        return (byte[]) invokeIL.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 8192;
-        }
-        return invokeV.intValue;
-    }
-
-    public long j(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, bArr)) == null) {
-            int length = bArr.length;
-            int i = this.a;
-            long j = (((length + i) - 1) / i) * this.b;
-            int i2 = this.c;
-            return i2 > 0 ? j + ((((i2 + j) - 1) / i2) * this.d) : j;
-        }
-        return invokeL.longValue;
-    }
-
-    public abstract boolean k(byte b);
-
-    public int l(byte[] bArr, int i, int i2, a aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), aVar})) == null) {
-            if (aVar.c == null) {
-                return aVar.f ? -1 : 0;
-            }
-            int min = Math.min(a(aVar), i2);
-            System.arraycopy(aVar.c, aVar.e, bArr, i, min);
-            int i3 = aVar.e + min;
-            aVar.e = i3;
-            if (i3 >= aVar.d) {
-                aVar.c = null;
-            }
-            return min;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public final byte[] m(a aVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, aVar)) == null) {
-            byte[] bArr = aVar.c;
-            if (bArr == null) {
-                aVar.c = new byte[i()];
-                aVar.d = 0;
-                aVar.e = 0;
-            } else {
-                byte[] bArr2 = new byte[bArr.length * 2];
-                System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
-                aVar.c = bArr2;
-            }
-            return aVar.c;
-        }
-        return (byte[]) invokeL.objValue;
     }
 }

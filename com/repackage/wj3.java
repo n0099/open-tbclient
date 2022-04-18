@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l94;
+import com.repackage.k94;
 import java.io.IOException;
 import java.util.HashMap;
 /* loaded from: classes7.dex */
@@ -18,7 +18,7 @@ public class wj3<T> extends yj3 {
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
     public String e;
-    public l94.c f;
+    public k94.c f;
     public String g;
     public int h;
 
@@ -83,7 +83,7 @@ public class wj3<T> extends yj3 {
         }
     }
 
-    public void k(String str, String str2, l94.c cVar) {
+    public void k(String str, String str2, k94.c cVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, cVar) == null) || TextUtils.isEmpty(str)) {
             return;

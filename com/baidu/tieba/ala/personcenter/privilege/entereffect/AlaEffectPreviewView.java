@@ -28,8 +28,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dv5;
 import com.repackage.fo;
+import com.repackage.fv5;
 import com.repackage.gi;
 import com.repackage.hg;
 import com.repackage.ig;
@@ -43,7 +43,7 @@ public class AlaEffectPreviewView extends LinearLayout {
     public View c;
     public ImageView d;
     public TextView e;
-    public dv5.c f;
+    public fv5.c f;
     public ObjectAnimator g;
     public LinearLayout h;
     public ImageView i;
@@ -317,7 +317,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
     }
 
-    public void setAnimCompleteCallback(dv5.c cVar) {
+    public void setAnimCompleteCallback(fv5.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.f = cVar;

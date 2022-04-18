@@ -1,163 +1,125 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zq7;
 /* loaded from: classes5.dex */
-public class bt7 extends ys7<CustomDialogData> implements View.OnClickListener {
+public class bt7 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomDialogData c;
-    public ct7 d;
-    public TbImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public View j;
-    public View k;
-    public LinearLayout l;
+    public int a;
+    public long b;
+    public long c;
+    public b d;
+    public long e;
+    public Handler f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bt7(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    /* loaded from: classes5.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bt7 a;
+
+        public a(bt7 bt7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bt7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bt7Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i == 2) {
+                    this.a.a = 0;
+                    this.a.b = 0L;
+                    this.a.c = 0L;
+                } else if (i == 1 && this.a.a == 1) {
+                    if (this.a.d != null) {
+                        this.a.d.a();
+                    }
+                    this.a.a = 0;
+                    this.a.b = 0L;
+                    this.a.c = 0L;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a();
+
+        void b();
+    }
+
+    public bt7(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 0;
+        this.b = 0L;
+        this.c = 0L;
+        this.e = 500L;
+        this.f = new a(this);
+        this.d = bVar;
     }
 
-    @Override // com.repackage.dt7
-    public void a() {
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TbImageView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907b0);
-            this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907bf);
-            this.g = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f09079c);
-            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f092492);
-            this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091578);
-            this.j = getViewGroup().findViewById(R.id.obfuscated_res_0x7f090342);
-            this.k = getViewGroup().findViewById(R.id.obfuscated_res_0x7f090816);
-            this.l = (LinearLayout) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0919ba);
-            this.h.setOnClickListener(this);
-            this.i.setOnClickListener(this);
-            SkinManager.setBackgroundResource(this.h, R.drawable.dialog_single_button_bg_selector);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.g, (int) R.color.common_color_10122);
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.l, R.drawable.dialog_background);
-        }
-    }
-
-    @Override // com.repackage.dt7
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0211 : invokeV.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.dt7
-    /* renamed from: e */
-    public void b(CustomDialogData customDialogData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, customDialogData) == null) || customDialogData == null) {
-            return;
-        }
-        this.c = customDialogData;
-        CustomDialogData.Head head = customDialogData.head;
-        if (!TextUtils.isEmpty(head.imageUrl)) {
-            this.e.K(head.imageUrl, 10, false);
-        }
-        if (!TextUtils.isEmpty(head.text)) {
-            this.f.setText(head.text);
-        }
-        if (!TextUtils.isEmpty(customDialogData.body)) {
-            this.g.setText(customDialogData.body);
-        }
-        CustomDialogData.Button button = customDialogData.leftButton;
-        if (button != null && !StringUtils.isNull(button.text)) {
-            this.i.setText(customDialogData.leftButton.text);
-        }
-        CustomDialogData.Button button2 = customDialogData.rightButton;
-        if (button2 == null || StringUtils.isNull(button2.text)) {
-            return;
-        }
-        this.h.setText(customDialogData.rightButton.text);
-    }
-
-    public void f(ct7 ct7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ct7Var) == null) {
-            this.d = ct7Var;
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        CustomDialogData.Button button;
-        CustomDialogData.Button button2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            if (view2 == this.h) {
-                CustomDialogData customDialogData = this.c;
-                if (customDialogData != null && (button2 = customDialogData.rightButton) != null && !StringUtils.isNull(button2.action)) {
-                    UrlManager.getInstance().dealOneLink(d(), new String[]{this.c.rightButton.action});
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                if (this.d == null) {
+                    return false;
                 }
-                ct7 ct7Var = this.d;
-                if (ct7Var != null) {
-                    ct7Var.dismiss();
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b = System.currentTimeMillis();
+                    this.f.sendEmptyMessageDelayed(1, this.e);
+                } else if (i == 2) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    this.c = currentTimeMillis;
+                    if (currentTimeMillis - this.b < this.e) {
+                        this.d.b();
+                    }
+                    this.f.sendEmptyMessage(2);
                 }
-                StatisticItem statisticItem = new StatisticItem(zq7.a.b);
-                statisticItem.param("obj_locate", 2);
-                TiebaStatic.log(statisticItem);
-            } else if (view2 == this.i) {
-                CustomDialogData customDialogData2 = this.c;
-                if (customDialogData2 != null && (button = customDialogData2.leftButton) != null && !StringUtils.isNull(button.action)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.getPageActivity(), null, this.c.leftButton.action, true)));
-                }
-                ct7 ct7Var2 = this.d;
-                if (ct7Var2 != null) {
-                    ct7Var2.dismiss();
-                }
-                StatisticItem statisticItem2 = new StatisticItem(zq7.a.b);
-                statisticItem2.param("obj_locate", 1);
-                TiebaStatic.log(statisticItem2);
             }
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 }

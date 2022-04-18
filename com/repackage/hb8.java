@@ -1,19 +1,23 @@
 package com.repackage;
 
+import android.content.Context;
+import android.os.Build;
+import android.os.Handler;
 import android.text.TextUtils;
+import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.util.INetWorkCore;
+import com.baidu.tbadk.core.util.NetWorkState;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpNetContext;
+import com.baidu.tbadk.core.util.httpNet.HttpResponse;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad.download.state.StopStatus;
-import com.baidu.tieba.recapp.report.DownloadStaticsData;
+import com.baidu.tieba.recapp.download.http.BdHttpCancelException;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,156 +26,97 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes6.dex */
-public class hb8 {
-    public static /* synthetic */ Interceptable $ic;
-    public static hb8 c;
-    public static DownloadData d;
-    public static List<DownloadData> e;
-    public static HashMap<String, Integer> f;
+public class hb8 implements INetWorkCore {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int d = 2097152;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public HashMap<String, jb8> b;
+    public final HttpNetContext a;
+    public Context b;
+    public wb8 c;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements cc8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public int a;
+        public int b;
+        public int c;
+        public final /* synthetic */ Handler d;
+        public final /* synthetic */ int e;
 
-    /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<DownloadData, DownloadData, DownloadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hb8 a;
-
-        public b(hb8 hb8Var) {
+        public a(hb8 hb8Var, Handler handler, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hb8Var};
+                Object[] objArr = {hb8Var, handler, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = hb8Var;
+            this.d = handler;
+            this.e = i;
+            this.a = 0;
+            this.b = 0;
+            this.c = 0;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public DownloadData doInBackground(DownloadData... downloadDataArr) {
-            InterceptResult invokeL;
+        @Override // com.repackage.cc8
+        public void onProgress(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, downloadDataArr)) == null) {
-                DownloadData downloadData = downloadDataArr[0];
-                if (downloadData == null) {
-                    return downloadData;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                if (i2 > 0) {
+                    this.a = i2 / 50;
                 }
-                String id = downloadData.getId();
-                String name = downloadData.getName();
-                if (ni.isEmpty(id) || ni.isEmpty(name)) {
-                    return downloadData;
-                }
-                boolean isForceDownload = downloadData.isForceDownload();
-                String f = h98.f(id);
-                String h = h98.h(id);
-                File e = h98.e(f);
-                if (!isForceDownload && e != null) {
-                    DownloadData downloadData2 = new DownloadData(id);
-                    downloadData2.setName(f);
-                    downloadData2.setPath(h);
-                    downloadData2.setStatus(3);
-                    return downloadData2;
-                }
-                downloadData.setCallback(new ib8());
-                downloadData.setStatusMsg(TbadkCoreApplication.getCurrentAccount());
-                downloadData.setType(12);
-                downloadData.setPath(h);
-                return downloadData;
-            }
-            return (DownloadData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-                super.onPostExecute(downloadData);
-                this.a.a = null;
-                if (downloadData != null) {
-                    if (downloadData.getStatus() == 3) {
-                        String a = hj5.a(TbadkCoreApplication.getInst(), downloadData.getPath());
-                        uj5.a.get().c().onSuccess(downloadData.getId(), downloadData.getPath());
-                        this.a.p(downloadData);
-                        if (downloadData.isNeedInvokeApk() && !hj5.b(TbadkCoreApplication.getInst(), a) && !ga8.b(h98.h(downloadData.getId()))) {
-                            h98.c(new File(h98.h(downloadData.getId())));
-                        }
-                    } else {
-                        uj5.a.get().c().c(downloadData.getId());
-                        xa8.j().l(downloadData, 5);
-                        if (this.a.h(downloadData.getId(), downloadData.getName()) <= 0) {
-                            if (downloadData.getDownloadStaticsData() != null) {
-                                downloadData.getDownloadStaticsData().setDa_range("0");
-                            }
-                            if (downloadData.isNeedNotify()) {
-                                TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0500);
-                                this.a.b.put(downloadData.getUrl(), new jb8(downloadData, 0));
-                            }
-                        } else {
-                            if (downloadData.getDownloadStaticsData() != null) {
-                                downloadData.getDownloadStaticsData().setDa_range("1");
-                            }
-                            this.a.t(downloadData);
-                        }
+                int i3 = this.b + (i - this.c);
+                this.b = i3;
+                this.c = i;
+                if (this.d != null) {
+                    if (i3 > this.a || i == i2) {
+                        this.b = 0;
+                        Handler handler = this.d;
+                        handler.sendMessage(handler.obtainMessage(this.e, i, i2));
                     }
-                    DownloadData unused = hb8.d = null;
-                    if (gd7.e(hb8.e)) {
-                        return;
-                    }
-                    gd7.i(hb8.e, 0);
-                    this.a.w();
                 }
             }
-        }
-
-        public /* synthetic */ b(hb8 hb8Var, a aVar) {
-            this(hb8Var);
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755653901, "Lcom/repackage/hb8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755653901, "Lcom/repackage/hb8;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755653901, "Lcom/repackage/hb8;")) == null) {
+            return;
         }
-        e = new LinkedList();
-        f = new HashMap<>();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755653901, "Lcom/repackage/hb8;");
+        }
     }
 
-    public hb8() {
+    public hb8(HttpNetContext httpNetContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpNetContext};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -181,296 +126,806 @@ public class hb8 {
                 return;
             }
         }
-        this.a = null;
-        this.b = new HashMap<>();
+        this.c = new wb8();
+        this.b = TbadkCoreApplication.getInst().getApp();
+        this.a = httpNetContext;
+        wb8.n("bdtb for Android " + TbConfig.getVersion());
+        if (Integer.parseInt(Build.VERSION.SDK) < 8) {
+            System.setProperty("http.keepAlive", "false");
+        }
+        String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
+        wb8.l((TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) ? ul4.a : cookie);
     }
 
-    public static hb8 j() {
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x002d, code lost:
+        if (r2 < r1) goto L18;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x0031, code lost:
+        return r3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:?, code lost:
+        return r1;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final int a(ArrayList<BasicNameValuePair> arrayList, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(1048576, this, arrayList, str)) != null) {
+            return invokeLL.intValue;
+        }
+        if (arrayList == null || str == null) {
+            return -1;
+        }
+        int size = arrayList.size();
+        int i = 0;
+        int i2 = 0;
+        while (true) {
+            if (i >= size) {
+                break;
+            }
+            int compareTo = str.compareTo(arrayList.get(i).getName());
+            if (compareTo < 0) {
+                i2 = i;
+                break;
+            } else if (compareTo == 0) {
+                return -1;
+            } else {
+                i2 = i;
+                i++;
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public void addPostData(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            addPostData(new BasicNameValuePair(str, str2));
+        }
+    }
+
+    public final LinkedList<BasicNameValuePair> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            synchronized (hb8.class) {
-                if (c == null) {
-                    c = new hb8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a != null) {
+                LinkedList<BasicNameValuePair> linkedList = new LinkedList<>();
+                if (!TextUtils.isEmpty(this.a.getRequest().getNetWorkParam().mSeqId)) {
+                    linkedList.add(new BasicNameValuePair("sid", this.a.getRequest().getNetWorkParam().mSeqId));
+                }
+                if (!TextUtils.isEmpty(this.a.getRequest().getNetWorkParam().mNetType)) {
+                    linkedList.add(new BasicNameValuePair("net", this.a.getRequest().getNetWorkParam().mNetType));
+                }
+                return linkedList;
+            }
+            return null;
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public final int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i != 1) {
+                if (i == 2) {
+                    return 2;
+                }
+                if (i == 3) {
+                    return 3;
                 }
             }
-            return c;
+            return 1;
         }
-        return (hb8) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public static Integer k(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public void cancelNetConnect() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (f.containsKey(str)) {
-                return f.get(str);
-            }
-            Integer valueOf = Integer.valueOf(BdUniqueId.gen().getId());
-            f.put(str, valueOf);
-            return valueOf;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c.c();
         }
-        return (Integer) invokeL.objValue;
     }
 
-    public static int l(DownloadData downloadData) {
-        InterceptResult invokeL;
-        int i;
-        String id;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, downloadData)) == null) {
-            if (h98.j(downloadData.getId())) {
-                i = 3;
-            } else if (j().m(downloadData.getId())) {
-                i = 5;
-            } else if (j().n(downloadData.getId())) {
-                i = 1;
-            } else {
-                i = h98.k(downloadData.getId(), downloadData.getName()) ? 7 : 6;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.a.getResponse().mServerErrorCode = -1;
+            if (str != null) {
+                try {
+                    ErrorData errorData = new ErrorData();
+                    errorData.parserJson(str);
+                    this.a.getResponse().mServerErrorCode = errorData.getError_code();
+                    if (this.a.getResponse().mServerErrorCode == -1) {
+                        this.a.getResponse().mErrorString = this.b.getString(R.string.obfuscated_res_0x7f0f059f);
+                    } else if (this.a.getResponse().mServerErrorCode != 0) {
+                        this.a.getResponse().mErrorString = errorData.getError_msg();
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    this.a.getResponse().mErrorString = this.b.getString(R.string.obfuscated_res_0x7f0f059f);
+                }
             }
-            DownloadStaticsData downloadStaticsData = downloadData.getDownloadStaticsData();
-            if (downloadStaticsData != null) {
-                id = downloadStaticsData.getApk_name();
-            } else {
-                id = downloadData.getId();
-            }
-            if (!TextUtils.isEmpty(id) && rg5.h().B() && ga8.r(id)) {
-                return 8;
-            }
-            return i;
         }
-        return invokeL.intValue;
     }
 
-    public void f(String str, String str2, boolean z) {
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z) {
+        InterceptResult invokeCommon;
+        File a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, str, str2, z) == null) || StringUtils.isNull(str)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, handler, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+            boolean z2 = false;
+            try {
+                try {
+                } catch (Exception e) {
+                    this.a.getResponse().mNetErrorCode = -10;
+                    HttpResponse response = this.a.getResponse();
+                    response.mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) + " detailException:" + e.getMessage();
+                    BdLog.e(e.getMessage());
+                } catch (OutOfMemoryError e2) {
+                    this.a.getResponse().mNetErrorCode = -15;
+                    this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0ab4);
+                    BdLog.e(e2.getMessage());
+                }
+                if (this.c.i()) {
+                    return false;
+                }
+                if (z) {
+                    a2 = new File(str);
+                } else {
+                    a2 = o98.a(str);
+                }
+                z2 = this.c.d(this.a.getRequest().getNetWorkParam().mUrl, a2.getAbsolutePath(), false, i2, i3, -1, -1, b(), new a(this, handler, i), true);
+                return z2;
+            } finally {
+                TiebaStatic.net(this.a);
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:126:0x052f  */
+    /* JADX WARN: Removed duplicated region for block: B:128:0x0532 A[RETURN] */
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public byte[] getNetData() {
+        InterceptResult invokeV;
+        Exception exc;
+        bc8 bc8Var;
+        SocketTimeoutException socketTimeoutException;
+        SocketException socketException;
+        OutOfMemoryError outOfMemoryError;
+        BdHttpCancelException bdHttpCancelException;
+        String str;
+        String str2;
+        boolean z;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            wb8.m(TbadkCoreApplication.getCurrentAccount());
+            try {
+                if (this.a.getRequest().getNetWorkParam().mPostData != null && this.a.getRequest().getNetWorkParam().mPostData.size() > 0 && !this.a.getRequest().mIsFromCDN) {
+                    StringBuilder sb = new StringBuilder(30);
+                    sb.append(this.a.getRequest().getNetWorkParam().mUrl);
+                    if (this.a.getRequest().getNetWorkParam().mUrl.indexOf("?") < 0) {
+                        sb.append("?");
+                    } else if (!this.a.getRequest().getNetWorkParam().mUrl.endsWith("?") && !this.a.getRequest().getNetWorkParam().mUrl.endsWith("&")) {
+                        sb.append("&");
+                    }
+                    for (int i = 0; i < this.a.getRequest().getNetWorkParam().mPostData.size(); i++) {
+                        if (i != 0) {
+                            sb.append("&");
+                        }
+                        sb.append(this.a.getRequest().getNetWorkParam().mPostData.get(i).getName());
+                        sb.append("=");
+                        sb.append(ni.getUrlEncode(this.a.getRequest().getNetWorkParam().mPostData.get(i).getValue()));
+                    }
+                    str = sb.toString();
+                } else {
+                    str = this.a.getRequest().getNetWorkParam().mUrl;
+                }
+                str2 = str;
+                TbConfig.getDebugSwitch();
+                z = (this.a.getRequest().getNetWorkParam().mRequestGzip && !this.a.getRequest().getNetWorkParam().mIsBDImage) || this.a.getRequest().mIsFromCDN;
+            } catch (BdHttpCancelException e) {
+                bdHttpCancelException = e;
+                bc8Var = null;
+            } catch (OutOfMemoryError e2) {
+                outOfMemoryError = e2;
+                bc8Var = null;
+            } catch (SocketException e3) {
+                socketException = e3;
+                bc8Var = null;
+            } catch (SocketTimeoutException e4) {
+                socketTimeoutException = e4;
+                bc8Var = null;
+            } catch (Exception e5) {
+                exc = e5;
+                bc8Var = null;
+            }
+            if (!this.c.i()) {
+                long time = new Date().getTime();
+                this.c.g(str2, z, 5, 100, -1, -1, b());
+                zb8 f = this.c.f();
+                if (f == null) {
+                    return null;
+                }
+                bc8Var = f.b();
+                if (f != null) {
+                    try {
+                        if (f.c() != null) {
+                            f.c().size();
+                        }
+                    } catch (BdHttpCancelException e6) {
+                        bdHttpCancelException = e6;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        HttpResponse response = this.a.getResponse();
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append(this.a.getResponse().mNetErrorCode);
+                        sb2.append("|retryCount:");
+                        sb2.append(this.a.getStat().stat != null ? this.a.getStat().stat.e : -1);
+                        sb2.append("|");
+                        sb2.append(BdHttpCancelException.class);
+                        sb2.append("|");
+                        sb2.append(bdHttpCancelException.getMessage());
+                        response.mException = sb2.toString();
+                        this.a.getResponse().mNetErrorCode = -14;
+                        if (bc8Var == null) {
+                        }
+                    } catch (OutOfMemoryError e7) {
+                        outOfMemoryError = e7;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0ab4);
+                        HttpResponse response2 = this.a.getResponse();
+                        StringBuilder sb3 = new StringBuilder();
+                        sb3.append(this.a.getResponse().mNetErrorCode);
+                        sb3.append("|retryCount:");
+                        sb3.append(this.a.getStat().stat != null ? this.a.getStat().stat.e : -1);
+                        sb3.append("|");
+                        sb3.append(outOfMemoryError.getClass());
+                        sb3.append("|");
+                        sb3.append(outOfMemoryError.getMessage());
+                        response2.mException = sb3.toString();
+                        this.a.getResponse().mNetErrorCode = -15;
+                        BdLog.e(outOfMemoryError.getMessage());
+                        TiebaStatic.net(this.a);
+                        if (bc8Var == null) {
+                        }
+                    } catch (SocketException e8) {
+                        socketException = e8;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        HttpResponse response3 = this.a.getResponse();
+                        StringBuilder sb4 = new StringBuilder();
+                        sb4.append(this.a.getResponse().mNetErrorCode);
+                        sb4.append("|retryCount:");
+                        sb4.append(this.a.getStat().stat != null ? this.a.getStat().stat.e : -1);
+                        sb4.append("|");
+                        sb4.append(socketException.getClass());
+                        sb4.append("|");
+                        sb4.append(socketException.getMessage());
+                        response3.mException = sb4.toString();
+                        this.a.getResponse().mNetErrorCode = -12;
+                        TiebaStatic.net(this.a);
+                        if (bc8Var == null) {
+                        }
+                    } catch (SocketTimeoutException e9) {
+                        socketTimeoutException = e9;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        HttpResponse response4 = this.a.getResponse();
+                        StringBuilder sb5 = new StringBuilder();
+                        sb5.append(this.a.getResponse().mNetErrorCode);
+                        sb5.append("|retryCount:");
+                        sb5.append(this.a.getStat().stat != null ? this.a.getStat().stat.e : -1);
+                        sb5.append("|");
+                        sb5.append(socketTimeoutException.getClass());
+                        sb5.append("|");
+                        sb5.append(socketTimeoutException.getMessage());
+                        response4.mException = sb5.toString();
+                        this.a.getResponse().mNetErrorCode = -13;
+                        TiebaStatic.net(this.a);
+                        if (bc8Var == null) {
+                        }
+                    } catch (Exception e10) {
+                        exc = e10;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) + " detailException:" + exc.getMessage();
+                        HttpResponse response5 = this.a.getResponse();
+                        StringBuilder sb6 = new StringBuilder();
+                        sb6.append(this.a.getResponse().mNetErrorCode);
+                        sb6.append("|retryCount:");
+                        sb6.append(this.a.getStat().stat != null ? this.a.getStat().stat.e : -1);
+                        sb6.append("|");
+                        sb6.append(exc.getClass());
+                        sb6.append("|");
+                        sb6.append(exc.getMessage());
+                        response5.mException = sb6.toString();
+                        this.a.getResponse().mNetErrorCode = -10;
+                        BdLog.e(exc.getMessage());
+                        TiebaStatic.net(this.a);
+                        if (bc8Var == null) {
+                        }
+                    }
+                }
+                if (bc8Var == null) {
+                    return null;
+                }
+                this.a.getResponse().mNetErrorCode = bc8Var.b;
+                if (this.a.getResponse().mNetErrorCode != 200) {
+                    this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                    if (this.a.getStat().stat != null && !TextUtils.isEmpty(this.a.getStat().stat.h)) {
+                        this.a.getResponse().mException = this.a.getStat().stat.h;
+                    } else {
+                        HttpResponse response6 = this.a.getResponse();
+                        StringBuilder sb7 = new StringBuilder();
+                        sb7.append(this.a.getResponse().mNetErrorCode);
+                        sb7.append("|retryCount:");
+                        sb7.append(this.a.getStat().stat == null ? -1 : this.a.getStat().stat.e);
+                        response6.mException = sb7.toString();
+                    }
+                    TiebaStatic.net(this.a);
+                    return null;
+                }
+                if (TbadkCoreApplication.getInst().isMainProcess(true) && (str3 = bc8Var.e) != null) {
+                    try {
+                        int parseInt = Integer.parseInt(str3);
+                        if (parseInt > d) {
+                            this.a.getResponse().mNetErrorCode = -11;
+                            TiebaStatic.net(this.a);
+                            return null;
+                        }
+                        int i2 = parseInt * 10;
+                        if (i2 > 0) {
+                            BdLog.isDebugMode();
+                            if (!h35.k().i(i2)) {
+                                BdLog.d("Image download cacelled. out of memory. url:[" + this.a.getRequest().getNetWorkParam().mUrl + "], size:" + i2);
+                                this.a.getResponse().mNetErrorCode = -16;
+                                TiebaStatic.net(this.a);
+                                return null;
+                            }
+                        }
+                    } catch (Throwable unused) {
+                    }
+                }
+                NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
+                statisticsData.mMode = c(mi.I());
+                statisticsData.mSize = this.a.getStat().stat.b;
+                statisticsData.mTime = new Date().getTime() - time;
+                statisticsData.mTimesNum = this.a.getStat().stat.e;
+                statisticsData.mMethod = 2;
+                NetWorkState.addStatisticsData(statisticsData);
+                NetWorkState.mErrorNums.set(this.a.getStat().stat.e);
+                TiebaStatic.net(this.a);
+                if (bc8Var == null) {
+                    return bc8Var.g;
+                }
+                return null;
+            }
+            throw new BdHttpCancelException();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public String getNetString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048586, this)) != null) {
+            return (String) invokeV.objValue;
+        }
+        byte[] netData = getNetData();
+        String str = null;
+        if (netData == null || this.a.getResponse().mNetErrorCode != 200) {
+            return null;
+        }
+        try {
+            this.a.getRequest().getNetWorkParam().charSet = TextUtils.isEmpty(this.a.getRequest().getNetWorkParam().charSet) ? "UTF-8" : this.a.getRequest().getNetWorkParam().charSet;
+            String str2 = new String(netData, 0, netData.length, this.a.getRequest().getNetWorkParam().charSet);
+            try {
+                d(str2);
+                return str2;
+            } catch (Exception e) {
+                e = e;
+                str = str2;
+                BdLog.e(e.getMessage());
+                return str;
+            } catch (OutOfMemoryError e2) {
+                e = e2;
+                str = str2;
+                BdLog.e(e.getMessage());
+                return str;
+            }
+        } catch (Exception e3) {
+            e = e3;
+        } catch (OutOfMemoryError e4) {
+            e = e4;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public ArrayList<BasicNameValuePair> getPostData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a.getRequest().getNetWorkParam().mPostData : (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public String getSeqId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            HttpNetContext httpNetContext = this.a;
+            if (httpNetContext != null) {
+                return httpNetContext.getRequest().getNetWorkParam().mSeqId;
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public boolean isCancel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.c.i() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public String postMultiNetData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048590, this)) != null) {
+            return (String) invokeV.objValue;
+        }
+        StringBuilder sb = new StringBuilder(1024);
+        for (int i = 0; this.a.getRequest().getNetWorkParam().mPostData != null && i < this.a.getRequest().getNetWorkParam().mPostData.size(); i++) {
+            BasicNameValuePair basicNameValuePair = this.a.getRequest().getNetWorkParam().mPostData.get(i);
+            if (basicNameValuePair != null) {
+                String name = basicNameValuePair.getName();
+                String value = basicNameValuePair.getValue();
+                sb.append(name);
+                sb.append("=");
+                sb.append(value);
+            }
+        }
+        if (this.a.getRequest().getNetWorkParam().mIsBaiduServer) {
+            sb.append("tiebaclient!!!");
+            addPostData("sign", ui.c(sb.toString()));
+        }
+        TbConfig.getDebugSwitch();
+        String str = null;
+        try {
+            if (this.c.i()) {
+                return null;
+            }
+            if (this.c.j(this.a.getRequest().getNetWorkParam().mUrl, this.a.getRequest().getNetWorkParam().mPostData, this.a.getRequest().getNetWorkParam().mRequestGzip, 5, -1, b()) != null) {
+                zb8 f = this.c.f();
+                if (f == null) {
+                    return null;
+                }
+                bc8 b = f.b();
+                if (f != null && f.c() != null) {
+                    f.c().size();
+                }
+                this.a.getResponse().mNetErrorCode = b.b;
+                this.a.getResponse().mHeader = b.f;
+                if (this.a.getResponse().mNetErrorCode != 200) {
+                    if (this.a.getStat().stat != null && !TextUtils.isEmpty(this.a.getStat().stat.h)) {
+                        this.a.getResponse().mException = this.a.getStat().stat.h;
+                    } else {
+                        HttpResponse response = this.a.getResponse();
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append(this.a.getResponse().mNetErrorCode);
+                        sb2.append("|retryCount:");
+                        sb2.append(this.a.getStat().stat == null ? -1 : this.a.getStat().stat.e);
+                        response.mException = sb2.toString();
+                    }
+                    TiebaStatic.net(this.a);
+                    return null;
+                } else if (this.c.i()) {
+                    return null;
+                } else {
+                    String str2 = new String(b.g, StandardCharsets.UTF_8);
+                    try {
+                        if (this.a.getRequest().getNetWorkParam().mIsBaiduServer && this.a.getRequest().getNetWorkParam().mIsJson) {
+                            d(str2);
+                        }
+                        NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
+                        statisticsData.mMode = c(mi.I());
+                        statisticsData.mSize = this.a.getStat().stat.b;
+                        statisticsData.mTime = this.a.getStat().stat.f;
+                        statisticsData.mTimesNum = this.a.getStat().stat.e;
+                        statisticsData.mMethod = 1;
+                        NetWorkState.addStatisticsData(statisticsData);
+                        NetWorkState.mErrorNums.set(this.a.getStat().stat.e);
+                        TiebaStatic.net(this.a);
+                        return str2;
+                    } catch (BdHttpCancelException e) {
+                        e = e;
+                        str = str2;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        HttpResponse response2 = this.a.getResponse();
+                        StringBuilder sb3 = new StringBuilder();
+                        sb3.append(this.a.getResponse().mNetErrorCode);
+                        sb3.append("|retryCount:");
+                        sb3.append(this.a.getStat().stat != null ? this.a.getStat().stat.e : -1);
+                        sb3.append("|");
+                        sb3.append(BdHttpCancelException.class);
+                        sb3.append("|");
+                        sb3.append(e.getMessage());
+                        response2.mException = sb3.toString();
+                        this.a.getResponse().mNetErrorCode = -14;
+                        return str;
+                    } catch (OutOfMemoryError e2) {
+                        e = e2;
+                        str = str2;
+                        this.a.getResponse().mNetErrorCode = -15;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0ab4);
+                        BdLog.e(e.getMessage());
+                        TiebaStatic.net(this.a);
+                        return str;
+                    } catch (SocketException e3) {
+                        e = e3;
+                        str = str2;
+                        this.a.getResponse().mNetErrorCode = -12;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        BdLog.e(e.getMessage());
+                        TiebaStatic.net(this.a);
+                        return str;
+                    } catch (SocketTimeoutException e4) {
+                        e = e4;
+                        str = str2;
+                        this.a.getResponse().mNetErrorCode = -13;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        BdLog.e(e.getMessage());
+                        TiebaStatic.net(this.a);
+                        return str;
+                    } catch (Exception e5) {
+                        e = e5;
+                        str = str2;
+                        this.a.getResponse().mNetErrorCode = -10;
+                        HttpResponse response3 = this.a.getResponse();
+                        response3.mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) + " detailException:" + e.getMessage();
+                        BdLog.e(e.getMessage());
+                        TiebaStatic.net(this.a);
+                        return str;
+                    } catch (Throwable th) {
+                        th = th;
+                        str = str2;
+                        this.a.getResponse().mNetErrorCode = -10;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        BdLog.e(th.getMessage());
+                        TiebaStatic.net(this.a);
+                        return str;
+                    }
+                }
+            }
+            throw new BdHttpCancelException();
+        } catch (BdHttpCancelException e6) {
+            e = e6;
+        } catch (SocketException e7) {
+            e = e7;
+        } catch (SocketTimeoutException e8) {
+            e = e8;
+        } catch (Exception e9) {
+            e = e9;
+        } catch (OutOfMemoryError e10) {
+            e = e10;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public String postNetData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048591, this)) != null) {
+            return (String) invokeV.objValue;
+        }
+        StringBuilder sb = new StringBuilder(1024);
+        for (int i = 0; this.a.getRequest().getNetWorkParam().mPostData != null && i < this.a.getRequest().getNetWorkParam().mPostData.size(); i++) {
+            BasicNameValuePair basicNameValuePair = this.a.getRequest().getNetWorkParam().mPostData.get(i);
+            if (basicNameValuePair != null) {
+                String name = basicNameValuePair.getName();
+                String value = basicNameValuePair.getValue();
+                sb.append(name);
+                sb.append("=");
+                sb.append(value);
+            }
+        }
+        if (this.a.getRequest().getNetWorkParam().mIsBaiduServer) {
+            sb.append("tiebaclient!!!");
+            addPostData("sign", ui.c(sb.toString()));
+        }
+        TbConfig.getDebugSwitch();
+        String str = null;
+        try {
+            if (this.c.i()) {
+                return null;
+            }
+            if (this.c.j(this.a.getRequest().getNetWorkParam().mUrl, this.a.getRequest().getNetWorkParam().mPostData, this.a.getRequest().getNetWorkParam().mRequestGzip, 5, -1, b()) != null) {
+                zb8 f = this.c.f();
+                if (f == null) {
+                    return null;
+                }
+                bc8 b = f.b();
+                if (f != null && f.c() != null) {
+                    f.c().size();
+                }
+                this.a.getResponse().mNetErrorCode = b.b;
+                this.a.getResponse().mHeader = b.f;
+                if (this.a.getResponse().mNetErrorCode != 200) {
+                    if (this.a.getStat().stat != null && !TextUtils.isEmpty(this.a.getStat().stat.h)) {
+                        this.a.getResponse().mException = this.a.getStat().stat.h;
+                    } else {
+                        HttpResponse response = this.a.getResponse();
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append(this.a.getResponse().mNetErrorCode);
+                        sb2.append("|retryCount:");
+                        sb2.append(this.a.getStat().stat == null ? -1 : this.a.getStat().stat.e);
+                        response.mException = sb2.toString();
+                    }
+                    TiebaStatic.net(this.a);
+                    return null;
+                } else if (this.c.i()) {
+                    return null;
+                } else {
+                    String str2 = new String(b.g, StandardCharsets.UTF_8);
+                    try {
+                        if (this.a.getRequest().getNetWorkParam().mIsBaiduServer && this.a.getRequest().getNetWorkParam().mIsJson) {
+                            d(str2);
+                        }
+                        NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
+                        statisticsData.mMode = c(mi.I());
+                        statisticsData.mSize = this.a.getStat().stat.b;
+                        statisticsData.mTime = this.a.getStat().stat.f;
+                        statisticsData.mTimesNum = this.a.getStat().stat.e;
+                        statisticsData.mMethod = 1;
+                        NetWorkState.addStatisticsData(statisticsData);
+                        NetWorkState.mErrorNums.set(this.a.getStat().stat.e);
+                        TiebaStatic.net(this.a);
+                        return str2;
+                    } catch (BdHttpCancelException e) {
+                        e = e;
+                        str = str2;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        HttpResponse response2 = this.a.getResponse();
+                        StringBuilder sb3 = new StringBuilder();
+                        sb3.append(this.a.getResponse().mNetErrorCode);
+                        sb3.append("|retryCount:");
+                        sb3.append(this.a.getStat().stat != null ? this.a.getStat().stat.e : -1);
+                        sb3.append("|");
+                        sb3.append(BdHttpCancelException.class);
+                        sb3.append("|");
+                        sb3.append(e.getMessage());
+                        response2.mException = sb3.toString();
+                        this.a.getResponse().mNetErrorCode = -14;
+                        return str;
+                    } catch (OutOfMemoryError e2) {
+                        e = e2;
+                        str = str2;
+                        this.a.getResponse().mNetErrorCode = -15;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0ab4);
+                        BdLog.e(e.getMessage());
+                        TiebaStatic.net(this.a);
+                        return str;
+                    } catch (SocketException e3) {
+                        e = e3;
+                        str = str2;
+                        this.a.getResponse().mNetErrorCode = -12;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        BdLog.e(e.getMessage());
+                        TiebaStatic.net(this.a);
+                        return str;
+                    } catch (SocketTimeoutException e4) {
+                        e = e4;
+                        str = str2;
+                        this.a.getResponse().mNetErrorCode = -13;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        BdLog.e(e.getMessage());
+                        TiebaStatic.net(this.a);
+                        return str;
+                    } catch (Exception e5) {
+                        e = e5;
+                        str = str2;
+                        this.a.getResponse().mNetErrorCode = -10;
+                        HttpResponse response3 = this.a.getResponse();
+                        response3.mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17) + " detailException:" + e.getMessage();
+                        BdLog.e(e.getMessage());
+                        TiebaStatic.net(this.a);
+                        return str;
+                    } catch (Throwable th) {
+                        th = th;
+                        str = str2;
+                        this.a.getResponse().mNetErrorCode = -10;
+                        this.a.getResponse().mErrorString = this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
+                        BdLog.e(th.getMessage());
+                        TiebaStatic.net(this.a);
+                        return str;
+                    }
+                }
+            }
+            throw new BdHttpCancelException();
+        } catch (BdHttpCancelException e6) {
+            e = e6;
+        } catch (SocketException e7) {
+            e = e7;
+        } catch (SocketTimeoutException e8) {
+            e = e8;
+        } catch (Exception e9) {
+            e = e9;
+        } catch (OutOfMemoryError e10) {
+            e = e10;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public void setCancel() {
+        wb8 wb8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (wb8Var = this.c) == null) {
             return;
         }
-        DownloadData downloadData = null;
-        for (DownloadData downloadData2 : xa8.j().i()) {
-            if (downloadData2.getId() != null && downloadData2.getId().equals(str2)) {
-                downloadData = downloadData2;
+        wb8Var.k();
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public void setIsBaiduServer(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.a.getRequest().getNetWorkParam().mIsBaiduServer = z;
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public void setPostData(ArrayList<BasicNameValuePair> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, arrayList) == null) {
+            if (this.a.getRequest().getNetWorkParam().mPostData != null) {
+                this.a.getRequest().getNetWorkParam().mPostData.clear();
+            }
+            for (int i = 0; i < arrayList.size(); i++) {
+                addPostData(arrayList.get(i));
             }
         }
-        if (z) {
-            xa8.j().g(str, true);
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public void addPostData(BasicNameValuePair basicNameValuePair) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, basicNameValuePair) == null) || basicNameValuePair == null || basicNameValuePair.getName() == null) {
+            return;
+        }
+        if (this.a.getRequest().getNetWorkParam().mPostData == null) {
+            this.a.getRequest().getNetWorkParam().mPostData = new ArrayList<>();
+        }
+        int a2 = a(this.a.getRequest().getNetWorkParam().mPostData, basicNameValuePair.getName());
+        int size = this.a.getRequest().getNetWorkParam().mPostData.size();
+        if (a2 < 0 || a2 >= size) {
+            if (a2 == size) {
+                this.a.getRequest().getNetWorkParam().mPostData.add(a2, basicNameValuePair);
+            }
+        } else if (basicNameValuePair.getName().equals(this.a.getRequest().getNetWorkParam().mPostData.get(a2).getName())) {
+            this.a.getRequest().getNetWorkParam().mPostData.set(a2, basicNameValuePair);
         } else {
-            xa8.j().f(str);
+            this.a.getRequest().getNetWorkParam().mPostData.add(a2, basicNameValuePair);
         }
-        if (downloadData != null) {
-            int h = h(downloadData.getId(), downloadData.getName());
-            uj5.a.get().c().a(str2, h);
-            String str3 = h + "%";
-            if (downloadData == null || h < 0) {
-                return;
+    }
+
+    @Override // com.baidu.tbadk.core.util.INetWorkCore
+    public void addPostData(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            if (this.a.getRequest().getNetWorkParam().mFileData == null) {
+                this.a.getRequest().getNetWorkParam().mFileData = new HashMap<>();
             }
-            jb8 jb8Var = this.b.get(downloadData.getUrl());
-            if (jb8Var == null) {
-                jb8Var = new jb8(downloadData, h);
-            }
-            jb8Var.c();
-        }
-    }
-
-    public void g(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
-            xa8.j().h(downloadData);
-            uj5.a.get().c().b(downloadData.getId(), StopStatus.DOWNLOAD_UNSTART);
-            p(downloadData);
-        }
-    }
-
-    public int h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            long i = i(str, str2);
-            long j = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0).getLong(str, 0L);
-            if (0 == j) {
-                return -1;
-            }
-            if (i > j) {
-                return 0;
-            }
-            return (int) ((i * 100) / j);
-        }
-        return invokeLL.intValue;
-    }
-
-    public long i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            File e2 = h98.e(h98.i(str, str2));
-            if (e2 != null && e2.exists() && e2.isFile()) {
-                return e2.length();
-            }
-            return -1L;
-        }
-        return invokeLL.longValue;
-    }
-
-    public boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            for (DownloadData downloadData : xa8.j().i()) {
-                if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 5) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            for (DownloadData downloadData : xa8.j().i()) {
-                if (downloadData.getId() != null && downloadData.getId().equals(str) && downloadData.getStatus() == 1) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void o(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        q(downloadData);
-        uj5.a.get().c().b(downloadData.getId(), StopStatus.DOWNLOAD_FAIL);
-        this.b.get(downloadData.getUrl());
-    }
-
-    public void p(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, downloadData) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(downloadData);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new DownloadMessage(linkedList));
-        }
-    }
-
-    public void q(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        jb8 jb8Var = this.b.get(downloadData.getUrl());
-        int h = h(downloadData.getId(), downloadData.getName());
-        if (jb8Var == null) {
-            jb8Var = new jb8(downloadData, h);
-        }
-        jb8Var.c();
-    }
-
-    public void r(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        jb8 jb8Var = this.b.get(downloadData.getUrl());
-        int h = h(downloadData.getId(), downloadData.getName());
-        if (jb8Var == null) {
-            jb8Var = new jb8(downloadData, h);
-        }
-        jb8Var.d();
-    }
-
-    public void s(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        int errorCode = downloadData.getErrorCode();
-        if (errorCode == 1) {
-            TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04f7);
-        } else if (errorCode != 3) {
-            TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04f5);
-        } else {
-            TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04f6);
-        }
-    }
-
-    public void t(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, downloadData) == null) && downloadData != null && downloadData.isNeedNotify()) {
-            int h = h(downloadData.getId(), downloadData.getName());
-            uj5.a.get().c().d(downloadData.getId(), h);
-            String str = h + "%";
-            jb8 jb8Var = this.b.get(downloadData.getUrl());
-            if (jb8Var == null) {
-                jb8Var = new jb8(downloadData, h);
-            }
-            int l = l(downloadData);
-            if (l == 1) {
-                jb8Var.d();
-            } else if (l == 4 || l == 2 || l == 7) {
-                jb8Var.c();
-            } else if (l == 6) {
-                return;
-            }
-            jb8Var.b(h);
-        }
-    }
-
-    public void u(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, downloadData) == null) || downloadData == null) {
-            return;
-        }
-        List<DownloadData> i = xa8.j().i();
-        if (i != null && i.size() >= 5) {
-            downloadData.setStatus(2);
-            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f4));
-            p(downloadData);
-            UtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.obfuscated_res_0x7f0f04f4);
-            return;
-        }
-        gd7.a(e, downloadData);
-        w();
-    }
-
-    public void v(String str, String str2, String str3, int i, int i2, String[] strArr, boolean z, boolean z2, boolean z3, String str4, DownloadStaticsData downloadStaticsData, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), strArr, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), str4, downloadStaticsData, str5}) == null) {
-            DownloadData downloadData = new DownloadData(str);
-            downloadData.setType(12);
-            downloadData.setId(str);
-            downloadData.setUrl(str2);
-            downloadData.setName(str3);
-            downloadData.setTag(strArr);
-            downloadData.setPosition(i);
-            downloadData.setNotifyId(i2);
-            downloadData.setNeedInvokeApk(z);
-            downloadData.setForceDownload(z2);
-            downloadData.setNeedNotify(z3);
-            downloadData.setApp_icon(str4);
-            downloadData.setDownloadStaticsData(downloadStaticsData);
-            downloadData.setUser_name(str5);
-            u(downloadData);
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && d == null && !gd7.e(e)) {
-            DownloadData downloadData = (DownloadData) gd7.d(e, 0);
-            d = downloadData;
-            if (downloadData != null) {
-                b bVar = new b(this, null);
-                this.a = bVar;
-                bVar.setPriority(3);
-                this.a.execute(d);
-            }
+            this.a.getRequest().getNetWorkParam().mFileData.put(str, bArr);
         }
     }
 }

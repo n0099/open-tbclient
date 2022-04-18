@@ -1,124 +1,73 @@
 package com.repackage;
 
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.chosen.posts.request.ChosenPostCacheModel;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
 import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.Error;
-import tbclient.HotThread.HotThreadResIdl;
 import tbclient.HotThread.Pic;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes7.dex */
-public class vy5 implements p65, j65 {
+public class vy5 implements i65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<tinfo> a;
+    public ArrayList<String> a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
 
-    public vy5() {
+    public vy5(int i, tinfo tinfoVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), tinfoVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (tinfoVar == null) {
+            return;
+        }
+        this.a = new ArrayList<>();
+        this.b = i;
+        this.d = String.valueOf(tinfoVar.forum_id);
+        this.c = tinfoVar.forum_name;
+        this.e = String.valueOf(tinfoVar.thread_id);
+        for (Pic pic : tinfoVar.pics) {
+            if (pic != null && !StringUtils.isNull(pic.big_pic)) {
+                this.a.add(pic.big_pic);
             }
         }
     }
 
-    public List<tinfo> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<tinfo> list = this.a;
-            if (list == null || list.size() <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (tinfo tinfoVar : this.a) {
-                if (b(tinfoVar)) {
-                    arrayList.add(tinfoVar);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final boolean b(tinfo tinfoVar) {
+    public CustomMessage<ImageViewerConfig> a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tinfoVar)) == null) {
-            if (tinfoVar == null) {
-                return false;
-            }
-            List<Pic> list = tinfoVar.pics;
-            if (list == null || list.size() <= 0) {
-                return (StringUtils.isNull(tinfoVar.title) && StringUtils.isNull(tinfoVar._abstract)) ? false : true;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            ImageViewerConfig.b bVar = new ImageViewerConfig.b();
+            bVar.x(this.a);
+            bVar.B(this.b);
+            bVar.z(this.c);
+            bVar.y(this.d);
+            bVar.O(this.e);
+            bVar.C(true);
+            bVar.F(false);
+            ArrayList<String> arrayList = this.a;
+            bVar.J(arrayList.get(arrayList.size() - 1));
+            return new CustomMessage<>(2010000, bVar.v(context));
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.k65
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ChosenPostCacheModel.CACHE_KEY : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j65
-    public boolean initByByteArray(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            try {
-                initByProtobuf((HotThreadResIdl) new Wire(new Class[0]).parseFrom(bArr, HotThreadResIdl.class));
-                return true;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.p65
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.repackage.p65
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, message) == null) && (message instanceof HotThreadResIdl)) {
-            HotThreadResIdl hotThreadResIdl = (HotThreadResIdl) message;
-            Error error = hotThreadResIdl.error;
-            this.a = hotThreadResIdl.data.hot_thread;
-        }
-    }
-
-    @Override // com.repackage.j65
-    public byte[] toCacheByteArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
+        return (CustomMessage) invokeL.objValue;
     }
 }

@@ -1,56 +1,60 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sq5 extends BaseCardInfo {
+public class sq5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rq5> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755311878, "Lcom/repackage/sq5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755311878, "Lcom/repackage/sq5;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
+    public String a;
+    public String b;
+    public List<ThreadData> c;
+    public int d;
+    public int e;
 
     public sq5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("head_pic");
+        jSONObject.optString("url_type");
+        this.b = jSONObject.optString("url");
+        this.d = jSONObject.optInt("head_type", 0);
+        this.e = jSONObject.optInt("is_set", -1);
+        JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
+        if (optJSONArray == null || optJSONArray.length() <= 0) {
+            return;
+        }
+        this.c = new ArrayList(optJSONArray.length());
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
+            if (jSONObject2 != null) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserJson(jSONObject2);
+                this.c.add(threadData);
+            }
+        }
     }
 }

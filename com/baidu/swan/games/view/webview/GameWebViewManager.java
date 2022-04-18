@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a13;
-import com.repackage.d34;
+import com.repackage.c34;
 import com.repackage.i03;
 import com.repackage.if3;
 import com.repackage.j03;
@@ -233,8 +233,8 @@ public class GameWebViewManager extends SwanAppWebViewManager implements tm1<NgW
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d34.a(this.w, pq2.a());
-            d34.c(this);
+            c34.a(this.w, pq2.a());
+            c34.c(this);
         }
     }
 
@@ -403,7 +403,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements tm1<NgW
             layoutParams.leftMargin = (int) resources.getDimension(R.dimen.obfuscated_res_0x7f0706e4);
             this.A.setLayoutParams(layoutParams);
             this.A.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            this.A.setImageResource(R.drawable.obfuscated_res_0x7f0811c1);
+            this.A.setImageResource(R.drawable.obfuscated_res_0x7f0811c5);
             this.A.setClickable(true);
             this.A.setOnClickListener(new a(this));
             this.w.addView(this.A);
@@ -432,7 +432,7 @@ public class GameWebViewManager extends SwanAppWebViewManager implements tm1<NgW
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimension, dimension);
             layoutParams.gravity = 17;
             this.z.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            this.z.setImageResource(R.drawable.obfuscated_res_0x7f0811c2);
+            this.z.setImageResource(R.drawable.obfuscated_res_0x7f0811c6);
             this.w.addView(this.z, layoutParams);
         }
     }
@@ -462,8 +462,8 @@ public class GameWebViewManager extends SwanAppWebViewManager implements tm1<NgW
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             u().stopLoading();
             u().clearView();
-            d34.d(this.w);
-            d34.e(this);
+            c34.d(this.w);
+            c34.e(this);
         }
     }
 

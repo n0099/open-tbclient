@@ -57,7 +57,7 @@ public class mr2 extends lr2 {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal cancelTag");
                 return false;
             }
-            SwanAppNetworkUtils.a(m74.g().getOkHttpClient(), optString);
+            SwanAppNetworkUtils.a(l74.g().getOkHttpClient(), optString);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }

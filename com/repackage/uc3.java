@@ -22,13 +22,13 @@ public final class uc3 {
                 return false;
             }
             try {
-                ng4.d(context.getAssets().open(str, 0));
+                mg4.d(context.getAssets().open(str, 0));
                 return true;
             } catch (IOException unused) {
-                ng4.d(null);
+                mg4.d(null);
                 return false;
             } catch (Throwable th) {
-                ng4.d(null);
+                mg4.d(null);
                 throw th;
             }
         }
@@ -50,30 +50,30 @@ public final class uc3 {
                 inputStream = null;
             } catch (Throwable th) {
                 th = th;
-                ng4.d(inputStream2);
+                mg4.d(inputStream2);
                 throw th;
             }
             if (inputStream == null) {
-                ng4.d(inputStream);
+                mg4.d(inputStream);
                 return null;
             }
             try {
                 try {
-                    str2 = qg4.b(inputStream);
+                    str2 = pg4.b(inputStream);
                 } catch (IOException e2) {
                     e = e2;
                     if (tg1.a) {
                         Log.w(AssetUtils.TAG, "loadPresetDatas", e);
                     }
-                    ng4.d(inputStream);
+                    mg4.d(inputStream);
                     return str2;
                 }
-                ng4.d(inputStream);
+                mg4.d(inputStream);
                 return str2;
             } catch (Throwable th2) {
                 th = th2;
                 inputStream2 = inputStream;
-                ng4.d(inputStream2);
+                mg4.d(inputStream2);
                 throw th;
             }
         }

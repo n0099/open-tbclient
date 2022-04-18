@@ -86,7 +86,7 @@ public class ov2 {
                 if (dw2Var.g) {
                     c(jSONObject, jSONObject2, dw2Var);
                 } else {
-                    j94 q = f84.i().q(dw2Var.a, dw2Var.h, dw2Var.i);
+                    i94 q = e84.i().q(dw2Var.a, dw2Var.h, dw2Var.i);
                     if (q == null) {
                         bw2.a(Log.getStackTraceString(new Throwable(dw2Var.a + " query db fail")));
                     } else {
@@ -121,7 +121,7 @@ public class ov2 {
             }
             File file = new File(str, str2);
             if (file.exists() && file.isFile()) {
-                jd3.f(jSONObject2, dw2Var.a, jd3.d(ng4.E(file)));
+                jd3.f(jSONObject2, dw2Var.a, jd3.d(mg4.E(file)));
             }
         }
     }

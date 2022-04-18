@@ -20,10 +20,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a57;
+import com.repackage.d57;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
-public class MsgrightView extends a57 {
+public class MsgrightView extends d57 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String E = "com.baidu.tieba.im.chat.MsgrightView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -141,23 +141,23 @@ public class MsgrightView extends a57 {
         if (chatImageWithTailView != null && chatImageWithTailView.getImage() != null && (this.p.getImage() instanceof ChatClipImageItemView)) {
             this.p.getImage().setLeft(false);
         }
-        this.A = (TextView) e(R.id.obfuscated_res_0x7f090ec0);
-        this.y = (ProgressBar) e(R.id.obfuscated_res_0x7f09191c);
+        this.A = (TextView) e(R.id.obfuscated_res_0x7f090ec1);
+        this.y = (ProgressBar) e(R.id.obfuscated_res_0x7f09191d);
         this.z = (ImageButton) e(R.id.obfuscated_res_0x7f09042e);
-        HeadImageView headImageView = (HeadImageView) e(R.id.obfuscated_res_0x7f090ebf);
+        HeadImageView headImageView = (HeadImageView) e(R.id.obfuscated_res_0x7f090ec0);
         this.B = headImageView;
         headImageView.setAutoChangeStyle(false);
         this.B.setDrawerType(1);
         this.B.setRadius(oi.d(this.mContext.getContext(), 4.0f));
         this.B.setPlaceHolder(1);
         this.B.setOnClickListener(new a(this));
-        this.C = (TextView) e(R.id.obfuscated_res_0x7f090d1f);
-        this.D = (TextView) e(R.id.obfuscated_res_0x7f090d20);
+        this.C = (TextView) e(R.id.obfuscated_res_0x7f090d20);
+        this.D = (TextView) e(R.id.obfuscated_res_0x7f090d21);
         this.m.setIsLeft(false);
         this.n.setIsLeft(false);
     }
 
-    @Override // com.repackage.a57
+    @Override // com.repackage.d57
     public void n(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, chatMessage) == null) {
@@ -182,7 +182,7 @@ public class MsgrightView extends a57 {
             try {
                 C(chatMessage);
                 H(chatMessage);
-                this.B.setDefaultResource(R.drawable.obfuscated_res_0x7f080edc);
+                this.B.setDefaultResource(R.drawable.obfuscated_res_0x7f080ee0);
                 if (chatMessage.getUserInfo() != null) {
                     this.B.setUserId(chatMessage.getUserInfo().getUserId());
                     String currentAvatar = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAvatar() : null;
@@ -243,7 +243,7 @@ public class MsgrightView extends a57 {
         }
     }
 
-    @Override // com.repackage.a57
+    @Override // com.repackage.d57
     public void x(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, chatMessage) == null) {

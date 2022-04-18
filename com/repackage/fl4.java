@@ -1,10 +1,7 @@
 package com.repackage;
-
-import com.baidu.tbadk.img.ImageFileInfo;
-import java.util.List;
 /* loaded from: classes6.dex */
 public interface fl4 {
-    void a(List<cl4> list, List<ImageFileInfo> list2, String str);
+    void a(hl4 hl4Var);
 
     void onPreLoad();
 }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vm4;
+import com.repackage.um4;
 /* loaded from: classes3.dex */
 public class NightResourceStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -46,7 +46,7 @@ public class NightResourceStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 int intValue = (customMessage == null || customMessage.getData() == null) ? -927 : customMessage.getData().intValue();
                 String packageName = BdBaseApplication.getInst().getPackageName();
-                if (vm4.c().contains("-Night")) {
+                if (um4.c().contains("-Night")) {
                     packageName = NightPluginManager.getInstance().getNightPluginPackageName(intValue);
                     if (!NightPluginManager.getInstance().isInvokePlugin()) {
                         TbadkCoreApplication.getInst().setSkinType(0);

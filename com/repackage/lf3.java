@@ -1206,7 +1206,7 @@ public class lf3 {
         View view2;
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 != PMSConstants.PayProtected.PAY_PROTECTED.type || (view2 = this.a) == null || (relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d02)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 != PMSConstants.PayProtected.PAY_PROTECTED.type || (view2 = this.a) == null || (relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d03)) == null) {
             return;
         }
         relativeLayout.setVisibility(0);
@@ -1236,7 +1236,7 @@ public class lf3 {
             return;
         }
         if (!z2) {
-            this.w = textView.getContext().getString(R.string.obfuscated_res_0x7f0f124a);
+            this.w = textView.getContext().getString(R.string.obfuscated_res_0x7f0f1249);
         } else {
             this.w = "";
         }
@@ -1366,15 +1366,15 @@ public class lf3 {
                 gl2.a V = i03.J().r().V();
                 this.m.getFloatLayer().n(this.a);
                 B = true;
-                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092057);
-                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092056);
-                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f092055);
+                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092058);
+                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092057);
+                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f092056);
                 if (z2) {
                     this.f.setClickable(true);
                     this.f.setImageResource(R.drawable.obfuscated_res_0x7f080124);
                     this.g.setImageResource(R.drawable.obfuscated_res_0x7f08010f);
                     this.k.setBackgroundResource(R.drawable.obfuscated_res_0x7f080120);
-                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092058);
+                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092059);
                     this.n = findViewById;
                     findViewById.setBackgroundResource(R.color.obfuscated_res_0x7f060377);
                     this.k.post(new c(this));
@@ -1431,17 +1431,17 @@ public class lf3 {
                 K(V.K());
                 I(V.Q());
                 s(V.getType());
-                this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09123f);
+                this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091240);
                 this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09075f);
-                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092057);
-                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092056);
-                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f092055);
+                this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092058);
+                this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092057);
+                this.k = this.a.findViewById(R.id.obfuscated_res_0x7f092056);
                 if (z2) {
                     this.f.setClickable(true);
                     this.f.setImageResource(R.drawable.obfuscated_res_0x7f080124);
                     this.g.setImageResource(R.drawable.obfuscated_res_0x7f08010f);
                     this.k.setBackgroundResource(R.drawable.obfuscated_res_0x7f080120);
-                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092058);
+                    View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092059);
                     this.n = findViewById;
                     findViewById.setBackgroundResource(R.color.obfuscated_res_0x7f060377);
                     this.k.post(new e(this));

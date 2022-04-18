@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.or6;
-import com.repackage.wo6;
+import com.repackage.qr6;
+import com.repackage.yo6;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class FrsFoldingView extends LinearLayout {
@@ -186,10 +186,10 @@ public class FrsFoldingView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02a1, (ViewGroup) this, true);
             this.h = inflate;
-            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090a00);
-            this.e = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091766);
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090a01);
+            this.e = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f091767);
             this.f = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f090680);
-            this.g = (ImageView) this.h.findViewById(R.id.obfuscated_res_0x7f0909fe);
+            this.g = (ImageView) this.h.findViewById(R.id.obfuscated_res_0x7f0909ff);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
@@ -198,16 +198,16 @@ public class FrsFoldingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            wo6.d(this.h);
-            wo6.c(this.d);
-            wo6.b(this.g);
+            yo6.d(this.h);
+            yo6.c(this.d);
+            yo6.b(this.g);
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.h.findViewById(R.id.obfuscated_res_0x7f0909fe).setOnClickListener(new a(this));
+            this.h.findViewById(R.id.obfuscated_res_0x7f0909ff).setOnClickListener(new a(this));
         }
     }
 
@@ -233,7 +233,7 @@ public class FrsFoldingView extends LinearLayout {
         }
     }
 
-    public void setViews(List<View> list, List<or6> list2) {
+    public void setViews(List<View> list, List<qr6> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) {
             this.e.removeAllViews();

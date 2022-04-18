@@ -4,60 +4,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.st3;
-import com.repackage.ys2;
+import java.net.MalformedURLException;
 @Service
 /* loaded from: classes6.dex */
-public class lx3 implements ph1 {
+public class lx3 implements qh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements st3.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ys2.k a;
-
-        public a(lx3 lx3Var, ys2.k kVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lx3Var, kVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kVar;
-        }
-
-        @Override // com.repackage.st3.d
-        public void onFail(String str) {
-            ys2.k kVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (kVar = this.a) == null) {
-                return;
-            }
-            kVar.onFail(str);
-        }
-
-        @Override // com.repackage.st3.d
-        public void onSuccess() {
-            ys2.k kVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (kVar = this.a) == null) {
-                return;
-            }
-            kVar.onSuccess();
-        }
-    }
 
     public lx3() {
         Interceptable interceptable = $ic;
@@ -73,11 +28,35 @@ public class lx3 implements ph1 {
         }
     }
 
-    @Override // com.repackage.ph1
-    public void a(String str, ys2.k kVar) {
+    @Override // com.repackage.qh1
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, kVar) == null) {
-            vt3.o().j(str, new a(this, kVar));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? eu3.g() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.qh1
+    public boolean b() {
+        InterceptResult invokeV;
+        pz1 m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (j03.L() == null || !j03.L().v0()) {
+                return false;
+            }
+            sz1 V = wl2.U().V();
+            if (V == null || (m = V.m()) == null || !(m instanceof fw3)) {
+                return true;
+            }
+            return ((fw3) m).C3();
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.qh1
+    public String c(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? eu3.d(str) : (String) invokeL.objValue;
     }
 }

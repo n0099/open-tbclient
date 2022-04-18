@@ -22,7 +22,7 @@ public class UsbAbTestConst {
     public static final String KEY_FUN_AD_SDK_PICPAGE_INSERT_BEAR = "12_11_picpage_ahead_bear_a";
     public static final String KEY_FUN_AD_SDK_SPLASH_CLICK_EYE = "12_8_0_splash_bear_a";
     public static final String KEY_HOT_RANK_SHOW = "12_15_live_cell_style_a";
-    public static final String KEY_LIKE_MODIFY_TEST_A = "12_23_like_modify_a";
+    public static final String KEY_LIKE_MODIFY_TEST_A = "12_23_5_like_modify_a";
     public static final String KEY_LIVE_AUTO_PLAY = "12_9_live_autoplay_a";
     public static final String KEY_LIVE_CARD_GAME_SHOW = "12_18_live_gameshow_style_a";
     public static final String KEY_LOOPER_BLOCK_OPT = "12_22_looper_block_opt_a";

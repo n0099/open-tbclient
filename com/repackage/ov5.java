@@ -1,129 +1,619 @@
 package com.repackage;
 
+import android.os.Looper;
+import android.util.AndroidRuntimeException;
+import android.view.View;
+import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mv5;
+import com.repackage.nv5;
+import com.repackage.ov5;
+import com.tachikoma.core.component.anim.AnimationProperty;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class ov5 extends mv5<ov5> {
+public abstract class ov5<T extends ov5<T>> implements nv5.b {
     public static /* synthetic */ Interceptable $ic;
+    public static final l m;
+    public static final l n;
+    public static final l o;
+    public static final l p;
+    public static final l q;
+    public static final l r;
+    public static final l s;
     public transient /* synthetic */ FieldHolder $fh;
-    public pv5 t;
-    public float u;
-    public boolean v;
+    public float a;
+    public float b;
+    public boolean c;
+    public final Object d;
+    public final pv5 e;
+    public boolean f;
+    public float g;
+    public float h;
+    public long i;
+    public float j;
+    public final ArrayList<j> k;
+    public final ArrayList<k> l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public <K> ov5(K k, nv5<K> nv5Var) {
-        super(k, nv5Var);
+    /* loaded from: classes6.dex */
+    public static class a extends l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(String str) {
+            super(str, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (b) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: c */
+        public float a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getAlpha() : invokeL.floatValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: d */
+        public void b(View view2, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
+                view2.setAlpha(f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(String str) {
+            super(str, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (b) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: c */
+        public float a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getTranslationY() : invokeL.floatValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: d */
+        public void b(View view2, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
+                view2.setTranslationY(f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(String str) {
+            super(str, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (b) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: c */
+        public float a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getScaleX() : invokeL.floatValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: d */
+        public void b(View view2, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
+                view2.setScaleX(f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e extends l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(String str) {
+            super(str, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (b) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: c */
+        public float a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getScaleY() : invokeL.floatValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: d */
+        public void b(View view2, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
+                view2.setScaleY(f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class f extends l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(String str) {
+            super(str, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (b) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: c */
+        public float a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getRotation() : invokeL.floatValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: d */
+        public void b(View view2, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
+                view2.setRotation(f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class g extends l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public g(String str) {
+            super(str, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (b) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: c */
+        public float a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getRotationX() : invokeL.floatValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: d */
+        public void b(View view2, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
+                view2.setRotationX(f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class h extends l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public h(String str) {
+            super(str, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (b) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: c */
+        public float a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getRotationY() : invokeL.floatValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.pv5
+        /* renamed from: d */
+        public void b(View view2, float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
+                view2.setRotationY(f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float a;
+        public float b;
+
+        public i() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface j {
+        void a(ov5 ov5Var, boolean z, float f, float f2);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface k {
+        void a(ov5 ov5Var, float f, float f2);
+    }
+
+    /* loaded from: classes6.dex */
+    public static abstract class l extends pv5<View> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ l(String str, b bVar) {
+            this(str);
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public l(String str) {
+            super(str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755426237, "Lcom/repackage/ov5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755426237, "Lcom/repackage/ov5;");
+                return;
+            }
+        }
+        m = new c(AnimationProperty.TRANSLATE_Y);
+        n = new d(AnimationProperty.SCALE_X);
+        o = new e(AnimationProperty.SCALE_Y);
+        p = new f("rotation");
+        q = new g(AnimationProperty.ROTATE_X);
+        r = new h(AnimationProperty.ROTATE_Y);
+        s = new a(AnimationProperty.OPACITY);
+    }
+
+    public <K> ov5(K k2, pv5<K> pv5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k, nv5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(objArr2[0], (nv5) objArr2[1]);
+            Object[] objArr = {k2, pv5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.t = null;
-        this.u = Float.MAX_VALUE;
-        this.v = false;
+        this.a = 0.0f;
+        this.b = Float.MAX_VALUE;
+        this.c = false;
+        this.f = false;
+        this.g = Float.MAX_VALUE;
+        this.h = -Float.MAX_VALUE;
+        this.i = 0L;
+        this.k = new ArrayList<>();
+        this.l = new ArrayList<>();
+        this.d = k2;
+        this.e = pv5Var;
+        if (pv5Var != p && pv5Var != q && pv5Var != r) {
+            if (pv5Var == s) {
+                this.j = 0.00390625f;
+                return;
+            } else if (pv5Var != n && pv5Var != o) {
+                this.j = 1.0f;
+                return;
+            } else {
+                this.j = 0.00390625f;
+                return;
+            }
+        }
+        this.j = 0.1f;
     }
 
-    @Override // com.repackage.mv5
-    public void h() {
+    public static <T> void f(ArrayList<T> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l();
-            this.t.g(e());
-            super.h();
+        if (interceptable == null || interceptable.invokeL(65538, null, arrayList) == null) {
+            for (int size = arrayList.size() - 1; size >= 0; size--) {
+                if (arrayList.get(size) == null) {
+                    arrayList.remove(size);
+                }
+            }
         }
     }
 
-    @Override // com.repackage.mv5
-    public boolean j(long j) {
+    @Override // com.repackage.nv5.b
+    @RestrictTo({RestrictTo.Scope.LIBRARY})
+    public boolean a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (this.v) {
-                float f = this.u;
-                if (f != Float.MAX_VALUE) {
-                    this.t.e(f);
-                    this.u = Float.MAX_VALUE;
-                }
-                this.b = this.t.a();
-                this.a = 0.0f;
-                this.v = false;
-                return true;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+            long j3 = this.i;
+            if (j3 == 0) {
+                this.i = j2;
+                g(this.b);
+                return false;
             }
-            if (this.u != Float.MAX_VALUE) {
-                this.t.a();
-                long j2 = j / 2;
-                mv5.i h = this.t.h(this.b, this.a, j2);
-                this.t.e(this.u);
-                this.u = Float.MAX_VALUE;
-                mv5.i h2 = this.t.h(h.a, h.b, j2);
-                this.b = h2.a;
-                this.a = h2.b;
-            } else {
-                mv5.i h3 = this.t.h(this.b, this.a, j);
-                this.b = h3.a;
-                this.a = h3.b;
-            }
-            float max = Math.max(this.b, this.h);
-            this.b = max;
-            float min = Math.min(max, this.g);
+            this.i = j2;
+            boolean j4 = j(j2 - j3);
+            float min = Math.min(this.b, this.g);
             this.b = min;
-            if (k(min, this.a)) {
-                this.b = this.t.a();
-                this.a = 0.0f;
-                return true;
+            float max = Math.max(min, this.h);
+            this.b = max;
+            g(max);
+            if (j4) {
+                c(false);
             }
-            return false;
+            return j4;
         }
         return invokeJ.booleanValue;
     }
 
-    public boolean k(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? this.t.c(f, f2) : invokeCommon.booleanValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            pv5 pv5Var = this.t;
-            if (pv5Var != null) {
-                double a = pv5Var.a();
-                if (a <= this.g) {
-                    if (a < this.h) {
-                        throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
-                    }
-                    return;
-                }
-                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
-            }
-            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
-        }
-    }
-
-    public ov5 m(pv5 pv5Var) {
+    public T b(j jVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, pv5Var)) == null) {
-            this.t = pv5Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar)) == null) {
+            if (!this.k.contains(jVar)) {
+                this.k.add(jVar);
+            }
             return this;
         }
-        return (ov5) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.f = false;
+            nv5.i().l(this);
+            this.i = 0L;
+            this.c = false;
+            for (int i2 = 0; i2 < this.k.size(); i2++) {
+                if (this.k.get(i2) != null) {
+                    this.k.get(i2).a(this, z, this.b, this.a);
+                }
+            }
+            f(this.k);
+        }
+    }
+
+    public final float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e.a(this.d) : invokeV.floatValue;
+    }
+
+    public float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j * 0.75f : invokeV.floatValue;
+    }
+
+    public void g(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
+            this.e.b(this.d, f2);
+            for (int i2 = 0; i2 < this.l.size(); i2++) {
+                if (this.l.get(i2) != null) {
+                    this.l.get(i2).a(this, this.b, this.a);
+                }
+            }
+            f(this.l);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (Looper.myLooper() == Looper.getMainLooper()) {
+                if (this.f) {
+                    return;
+                }
+                i();
+                return;
+            }
+            throw new AndroidRuntimeException("Animations may only be started on the main thread");
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f) {
+            return;
+        }
+        this.f = true;
+        if (!this.c) {
+            this.b = d();
+        }
+        float f2 = this.b;
+        if (f2 <= this.g && f2 >= this.h) {
+            nv5.i().f(this, 0L);
+            return;
+        }
+        throw new IllegalArgumentException("Starting value need to be in between min value and max value");
+    }
+
+    public abstract boolean j(long j2);
 }

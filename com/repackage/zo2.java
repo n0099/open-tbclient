@@ -89,7 +89,7 @@ public class zo2 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements iz9<Boolean> {
+    public class b implements pz9<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zo2 a;
@@ -113,7 +113,7 @@ public class zo2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.iz9
+        @Override // com.repackage.pz9
         public void call(Boolean bool) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bool) == null) || bool.booleanValue()) {
@@ -126,7 +126,7 @@ public class zo2 {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements mz9<String, Boolean> {
+    public class c implements tz9<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ zo2 a;
@@ -150,7 +150,7 @@ public class zo2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mz9
+        @Override // com.repackage.tz9
         public Boolean call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -395,7 +395,7 @@ public class zo2 {
                     } else {
                         e(vo2.f, "recorderResume");
                     }
-                    uy9.f("").y(Schedulers.io()).h(new c(this)).k(ez9.b()).w(new b(this));
+                    bz9.f("").y(Schedulers.io()).h(new c(this)).k(lz9.b()).w(new b(this));
                 } catch (IllegalStateException e2) {
                     f();
                     jx1.d("recorder", "can't start", e2);
@@ -530,7 +530,7 @@ public class zo2 {
             if (TextUtils.isEmpty(this.b)) {
                 j = -1;
             } else {
-                j2 = ng4.u(this.b);
+                j2 = mg4.u(this.b);
                 j = new File(this.b).length();
             }
             JSONObject jSONObject = new JSONObject();
@@ -742,7 +742,7 @@ public class zo2 {
                         if (file.exists()) {
                             file.delete();
                         }
-                        ng4.h(file);
+                        mg4.h(file);
                     }
                     fileOutputStream = new FileOutputStream(file, true);
                 } catch (Exception e2) {
@@ -761,7 +761,7 @@ public class zo2 {
                         }
                     }
                 }
-                ng4.d(fileOutputStream);
+                mg4.d(fileOutputStream);
                 return true;
             } catch (Exception e3) {
                 e = e3;
@@ -770,12 +770,12 @@ public class zo2 {
                 if (this.d == 1) {
                     this.d = 3;
                 }
-                ng4.d(fileOutputStream2);
+                mg4.d(fileOutputStream2);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
-                ng4.d(fileOutputStream2);
+                mg4.d(fileOutputStream2);
                 throw th;
             }
         }

@@ -199,7 +199,7 @@ public class j35<T> {
                     if (imageUploadResult == null) {
                         imageUploadResult = new ImageUploadResult();
                         imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
-                        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f10e2);
+                        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f10e1);
                         imageUploadResult.error_msg = string;
                         TiebaStatic.imgError(-1002, string, "");
                     }
@@ -264,7 +264,7 @@ public class j35<T> {
                 if (this.c.b != null) {
                     ImageUploadResult imageUploadResult = new ImageUploadResult();
                     imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
-                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f10e2);
+                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f10e1);
                     this.c.b.a(this.c.c, imageUploadResult);
                 }
             }

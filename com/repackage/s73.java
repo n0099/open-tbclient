@@ -146,8 +146,8 @@ public class s73 extends k03 {
             } else {
                 g().edit().clear().apply();
             }
-            ng4.k(r73.x(j03.f0()));
-            ng4.k(r73.v(j03.f0()));
+            mg4.k(r73.x(j03.f0()));
+            mg4.k(r73.v(j03.f0()));
             fc3.h.update();
         }
     }
@@ -349,7 +349,7 @@ public class s73 extends k03 {
                                 str.flush();
                             }
                             str2 = l.getAbsolutePath();
-                            ng4.d(fileInputStream2);
+                            mg4.d(fileInputStream2);
                             closeable = str;
                         } catch (FileNotFoundException e2) {
                             e = e2;
@@ -360,9 +360,9 @@ public class s73 extends k03 {
                                 e.printStackTrace();
                                 str = obj2;
                             }
-                            ng4.d(fileInputStream);
+                            mg4.d(fileInputStream);
                             closeable = str;
-                            ng4.d(closeable);
+                            mg4.d(closeable);
                             return str2;
                         } catch (IOException e3) {
                             e = e3;
@@ -373,15 +373,15 @@ public class s73 extends k03 {
                                 e.printStackTrace();
                                 str = obj;
                             }
-                            ng4.d(fileInputStream);
+                            mg4.d(fileInputStream);
                             closeable = str;
-                            ng4.d(closeable);
+                            mg4.d(closeable);
                             return str2;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
-                            ng4.d(fileInputStream);
-                            ng4.d(str);
+                            mg4.d(fileInputStream);
+                            mg4.d(str);
                             throw th;
                         }
                     } catch (FileNotFoundException e4) {
@@ -407,7 +407,7 @@ public class s73 extends k03 {
                 th = th4;
                 str = 0;
             }
-            ng4.d(closeable);
+            mg4.d(closeable);
             return str2;
         }
         return (String) invokeL.objValue;

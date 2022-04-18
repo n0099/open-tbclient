@@ -337,7 +337,7 @@ public class ve3 {
     public static void f(Channel channel, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65541, null, channel, str) == null) && channel != null && channel.isOpen()) {
-            ng4.d(channel);
+            mg4.d(channel);
         }
     }
 

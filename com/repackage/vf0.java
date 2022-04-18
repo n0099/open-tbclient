@@ -272,15 +272,15 @@ public class vf0 {
                         next.start = j4;
                         next.end = j4 + (j6 - j7);
                     }
-                    tb9.c("zmy", "aEffect start : " + next.start + " end : " + next.end);
+                    ac9.c("zmy", "aEffect start : " + next.start + " end : " + next.end);
                     j4 = next.end;
                 } else if (j7 == 0) {
-                    if (yb9.e(arrayList)) {
+                    if (fc9.e(arrayList)) {
                         next.start = j4;
                         long j8 = (j4 + j) - mediaAEffect.duration;
                         next.end = j8;
                         j2 = j8 - j4;
-                        tb9.c("zmy", "aCenters 0 start : " + next.start + " end : " + next.end + " preSegmentDuration ： " + j);
+                        ac9.c("zmy", "aCenters 0 start : " + next.start + " end : " + next.end + " preSegmentDuration ： " + j);
                         j4 = j8;
                     } else {
                         j2 = j5;
@@ -298,7 +298,7 @@ public class vf0 {
             }
             ArrayList<MediaOneAEffect> arrayList4 = arrayList2;
             long j9 = j2;
-            if (yb9.b(arrayList) > 1) {
+            if (fc9.b(arrayList) > 1) {
                 long j10 = 0;
                 if (j9 - j3 > 0) {
                     long j11 = 0;
@@ -310,12 +310,12 @@ public class vf0 {
                             if (j14 != j10) {
                                 long j15 = (j13 + ((j14 - j13) / 2)) - (j3 / 2);
                                 mediaOneAEffect.end = j15;
-                                tb9.c("zmy", "aCenters 0 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end + " centerEffectDuration : " + j3);
+                                ac9.c("zmy", "aCenters 0 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end + " centerEffectDuration : " + j3);
                                 for (MediaOneAEffect mediaOneAEffect2 : arrayList4) {
                                     mediaOneAEffect2.start = j15;
                                     j15 += mediaOneAEffect2.end;
                                     mediaOneAEffect2.end = j15;
-                                    tb9.c("zmy", "aCenterEffects after start : " + mediaOneAEffect2.start + " end : " + mediaOneAEffect2.end);
+                                    ac9.c("zmy", "aCenterEffects after start : " + mediaOneAEffect2.start + " end : " + mediaOneAEffect2.end);
                                 }
                                 j12 = j14;
                                 j11 = j15;
@@ -325,12 +325,12 @@ public class vf0 {
                         if (j11 != 0) {
                             mediaOneAEffect.start = j11;
                             mediaOneAEffect.end = j12;
-                            tb9.c("zmy", "aCenters 1 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end);
+                            ac9.c("zmy", "aCenters 1 after start : " + mediaOneAEffect.start + " end : " + mediaOneAEffect.end);
                         }
                         j10 = 0;
                     }
                 } else {
-                    MediaOneAEffect mediaOneAEffect3 = (MediaOneAEffect) yb9.c(arrayList, 1);
+                    MediaOneAEffect mediaOneAEffect3 = (MediaOneAEffect) fc9.c(arrayList, 1);
                     if (mediaOneAEffect3 != null) {
                         mediaAEffect.mediaOneAEffects.remove(mediaOneAEffect3);
                     }
@@ -344,7 +344,7 @@ public class vf0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            if (yb9.e(list)) {
+            if (fc9.e(list)) {
                 return true;
             }
             return list != null && list.size() == 1 && list.get(0).start == 0 && list.get(0).end == 0;
@@ -377,7 +377,7 @@ public class vf0 {
     public static void F(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig, List<MediaTrack> list, MediaSegment mediaSegment, MediaSegment mediaSegment2, MediaTrack mediaTrack2, List<MediaSegment> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{mediaTrack, mediaTrackConfig, list, mediaSegment, mediaSegment2, mediaTrack2, list2}) == null) {
-            if (D(list2) && yb9.b(list2) > 0) {
+            if (D(list2) && fc9.b(list2) > 0) {
                 MediaSegment mediaSegment3 = list2.get(0);
                 for (MediaSegment mediaSegment4 : mediaTrack.mediaSegments) {
                     if (!TextUtils.isEmpty(mediaSegment3.lutConfigKey)) {
@@ -468,7 +468,7 @@ public class vf0 {
         if (interceptable == null || interceptable.invokeLJ(65543, null, mediaTrack, j) == null) {
             MediaTrack mediaTrack3 = mediaTrack;
             long j3 = j;
-            MediaSegment mediaSegment = (MediaSegment) yb9.d(mediaTrack3.mediaSegments);
+            MediaSegment mediaSegment = (MediaSegment) fc9.d(mediaTrack3.mediaSegments);
             boolean z = mediaSegment != null && TextUtils.equals(MediaSegment.SEG_TYPE_INPUT_FOOTER, mediaSegment.type);
             int i = 0;
             long j4 = 0;
@@ -538,7 +538,7 @@ public class vf0 {
                     mediaTrack2.mediaSegments = subList;
                     if (z && mediaSegment != null) {
                         long j11 = mediaSegment.end - mediaSegment.start;
-                        MediaSegment mediaSegment3 = (MediaSegment) yb9.d(subList);
+                        MediaSegment mediaSegment3 = (MediaSegment) fc9.d(subList);
                         long j12 = mediaSegment3.start;
                         mediaSegment.start = j12;
                         mediaSegment.end = j12 + j11;
@@ -740,7 +740,7 @@ public class vf0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, mediaTrack, mediaTrackConfig, z)) == null) {
             int i = 0;
-            if (mediaTrack != null && !yb9.e(mediaTrack.mediaAEffectKeyData) && mediaTrackConfig != null && mediaTrackConfig.effectConfigMap != null) {
+            if (mediaTrack != null && !fc9.e(mediaTrack.mediaAEffectKeyData) && mediaTrackConfig != null && mediaTrackConfig.effectConfigMap != null) {
                 MediaAEffectKeyData mediaAEffectKeyData = null;
                 Iterator<MediaAEffectKeyData> it = mediaTrack.mediaAEffectKeyData.iterator();
                 while (true) {
@@ -753,7 +753,7 @@ public class vf0 {
                         break;
                     }
                 }
-                if (mediaAEffectKeyData != null && !yb9.e(mediaAEffectKeyData.effectConfigKeys)) {
+                if (mediaAEffectKeyData != null && !fc9.e(mediaAEffectKeyData.effectConfigKeys)) {
                     if (z) {
                         k(mediaAEffectKeyData, mediaTrackConfig);
                         int size = mediaTrack.mediaSegments.size();
@@ -761,7 +761,7 @@ public class vf0 {
                         ArrayList arrayList = new ArrayList();
                         if (i2 > 0) {
                             ArrayList arrayList2 = new ArrayList();
-                            if (!yb9.e(mediaAEffectKeyData.calculateEffectKeys)) {
+                            if (!fc9.e(mediaAEffectKeyData.calculateEffectKeys)) {
                                 for (String str : mediaAEffectKeyData.calculateEffectKeys) {
                                     MediaAEffect mediaAEffect = mediaTrackConfig.effectConfigMap.get(str);
                                     if (mediaAEffect != null) {
@@ -781,7 +781,7 @@ public class vf0 {
                                 } else if (i == size - 1 && !TextUtils.isEmpty(mediaAEffectKeyData.footerEffectKey)) {
                                     str2 = mediaAEffectKeyData.footerEffectKey;
                                 } else {
-                                    MediaAEffect mediaAEffect2 = (MediaAEffect) yb9.c(arrayList, TextUtils.isEmpty(mediaAEffectKeyData.headerEffectKey) ? i : i - 1);
+                                    MediaAEffect mediaAEffect2 = (MediaAEffect) fc9.c(arrayList, TextUtils.isEmpty(mediaAEffectKeyData.headerEffectKey) ? i : i - 1);
                                     String str3 = mediaAEffect2 != null ? mediaAEffect2.name : "";
                                     if (TextUtils.equals(mediaAEffectKeyData.keyMode, "random_with_video") || TextUtils.equals(mediaAEffectKeyData.keyMode, "order_with_video") || !TextUtils.equals(mediaSegment.type, "video") || !mediaSegment.mediaAEffect.isSceneEffect()) {
                                         str2 = str3;
@@ -934,7 +934,7 @@ public class vf0 {
             mediaSegment2.effectEnd = mediaSegment3.effectEnd;
             mediaSegment2.scaleType = mediaSegment3.scaleType;
         }
-        if (yb9.b(list2) > min) {
+        if (fc9.b(list2) > min) {
             mediaTrack.mediaSegments = mediaTrack.mediaSegments.subList(0, min);
         }
         mediaTrackConfig.templateType = "normal";
@@ -1051,7 +1051,7 @@ public class vf0 {
                 }
                 MediaTrack mediaTrack5 = (MediaTrack) it3.next();
                 if (mediaTrack5 != null) {
-                    if (yb9.e(mediaTrack5.mediaSegments)) {
+                    if (fc9.e(mediaTrack5.mediaSegments)) {
                         it = it3;
                     } else {
                         for (MediaSegment mediaSegment6 : mediaTrack5.mediaSegments) {
@@ -1095,7 +1095,7 @@ public class vf0 {
                     MediaTrack mediaTrack6 = mediaTrack4;
                     if (TextUtils.equals("input", mediaTrack5.trackType)) {
                         f(mediaTrack, map, mediaTrack5);
-                        if (!yb9.e(mediaTrack5.mediaSegments)) {
+                        if (!fc9.e(mediaTrack5.mediaSegments)) {
                             for (MediaSegment mediaSegment8 : mediaTrack5.mediaSegments) {
                                 if (!TextUtils.equals(MediaSegment.SEG_TYPE_INPUT_HEADER, mediaSegment8.type) && !TextUtils.equals(MediaSegment.SEG_TYPE_INPUT_FOOTER, mediaSegment8.type)) {
                                     arrayList2.add(mediaSegment8);
@@ -1178,7 +1178,7 @@ public class vf0 {
 
     public static void k(MediaAEffectKeyData mediaAEffectKeyData, MediaTrackConfig mediaTrackConfig) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65552, null, mediaAEffectKeyData, mediaTrackConfig) == null) || mediaAEffectKeyData == null || yb9.e(mediaAEffectKeyData.effectConfigKeys) || mediaTrackConfig == null || mediaTrackConfig.effectConfigMap == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65552, null, mediaAEffectKeyData, mediaTrackConfig) == null) || mediaAEffectKeyData == null || fc9.e(mediaAEffectKeyData.effectConfigKeys) || mediaTrackConfig == null || mediaTrackConfig.effectConfigMap == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -1562,7 +1562,7 @@ public class vf0 {
                 break;
             }
         }
-        if (mediaAEffectKeyData == null || yb9.e(mediaAEffectKeyData.effectConfigKeys)) {
+        if (mediaAEffectKeyData == null || fc9.e(mediaAEffectKeyData.effectConfigKeys)) {
             return null;
         }
         if (mediaAEffectKeyData.calculateEffectKeys == null) {
@@ -1577,9 +1577,9 @@ public class vf0 {
                 mediaAEffect.name = mediaAEffectKeyData.headerEffectKey;
                 mediaAEffect2 = mediaAEffect;
             }
-            if (mediaAEffect2 == null && !yb9.e(mediaAEffectKeyData.calculateEffectKeys)) {
+            if (mediaAEffect2 == null && !fc9.e(mediaAEffectKeyData.calculateEffectKeys)) {
                 List<String> list2 = mediaAEffectKeyData.calculateEffectKeys;
-                mediaAEffect2 = mediaTrackConfig.effectConfigMap.get((String) yb9.c(list2, i % yb9.b(list2)));
+                mediaAEffect2 = mediaTrackConfig.effectConfigMap.get((String) fc9.c(list2, i % fc9.b(list2)));
             }
             if (mediaAEffect2 == null) {
                 MediaAEffect m33clone = mediaAEffect2.m33clone();
@@ -1597,7 +1597,7 @@ public class vf0 {
         }
         if (mediaAEffect2 == null) {
             List<String> list22 = mediaAEffectKeyData.calculateEffectKeys;
-            mediaAEffect2 = mediaTrackConfig.effectConfigMap.get((String) yb9.c(list22, i % yb9.b(list22)));
+            mediaAEffect2 = mediaTrackConfig.effectConfigMap.get((String) fc9.c(list22, i % fc9.b(list22)));
         }
         if (mediaAEffect2 == null) {
         }

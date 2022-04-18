@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.uv5;
 import com.repackage.wv5;
+import com.repackage.yv5;
 /* loaded from: classes3.dex */
 public class VotedAreaLayout extends CardBasicLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +48,7 @@ public class VotedAreaLayout extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092403);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092404);
         }
     }
 
@@ -78,10 +78,10 @@ public class VotedAreaLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, wv5 wv5Var) {
+    public void setData(int i, yv5 yv5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, wv5Var) == null) {
-            super.setData(i, wv5Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, yv5Var) == null) {
+            super.setData(i, yv5Var);
             if (this.b != null && this.c != null && this.a >= 0) {
                 TextView textView = this.e;
                 textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
@@ -92,12 +92,12 @@ public class VotedAreaLayout extends CardBasicLayout {
         }
     }
 
-    public void setMyRecordData(uv5 uv5Var) {
+    public void setMyRecordData(wv5 wv5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, uv5Var) == null) || uv5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, wv5Var) == null) || wv5Var == null) {
             return;
         }
-        this.c = uv5Var;
+        this.c = wv5Var;
         TextView textView = this.e;
         textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
     }

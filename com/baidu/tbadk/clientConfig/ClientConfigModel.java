@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.pm4;
+import com.repackage.om4;
 import com.repackage.wa;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes2.dex */
 public class ClientConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pm4 a;
+    public om4 a;
     public final wa b;
 
     /* loaded from: classes2.dex */
@@ -70,7 +70,7 @@ public class ClientConfigModel extends BdBaseModel {
                     }
                 } else {
                     String errorString = responsedMessage.getErrorString();
-                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18);
+                    String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17);
                     if (StringUtils.isNull(errorString)) {
                         errorString = string;
                     }
@@ -83,13 +83,13 @@ public class ClientConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, pm4 pm4Var) {
+    public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, om4 om4Var) {
         super(bdBaseFragmentActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdBaseFragmentActivity, pm4Var};
+            Object[] objArr = {bdBaseFragmentActivity, om4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,7 +102,7 @@ public class ClientConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = pm4Var;
+        this.a = om4Var;
         registerListener(aVar);
     }
 
@@ -122,9 +122,9 @@ public class ClientConfigModel extends BdBaseModel {
                 }
                 return;
             }
-            pm4 pm4Var = this.a;
-            if (pm4Var != null) {
-                pm4Var.a(dataRes);
+            om4 om4Var = this.a;
+            if (om4Var != null) {
+                om4Var.a(dataRes);
             }
         }
     }

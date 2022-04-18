@@ -37,9 +37,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b85;
 import com.repackage.e85;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import com.repackage.y75;
-import com.repackage.zw4;
+import com.repackage.yw4;
 /* loaded from: classes3.dex */
 public class MemberPayActivity extends BaseActivity<MemberPayActivity> implements RadioGroup.OnCheckedChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -113,7 +113,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                         this.a.addPaySussStats();
                         MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(this.a.mCurrentShowType)));
                         this.a.setResult(-1);
-                        wt4.k().u("show_member_deid_line", true);
+                        vt4.k().u("show_member_deid_line", true);
                         if (this.a.mIsClose) {
                             this.a.closeActivity();
                         } else {
@@ -166,12 +166,12 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                             this.a.mLoadFinished = true;
                             return;
                         }
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                         return;
                     }
                     String errorString = responseMemberPayMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                     }
                     this.a.showToast(errorString);
                 }
@@ -214,7 +214,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                 return;
             }
             this.a.mMemberPayView.g(((Boolean) customResponsedMessage.getData()).booleanValue());
-            this.a.showToast(R.string.obfuscated_res_0x7f0f13e7);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f13e6);
         }
     }
 
@@ -589,10 +589,10 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
             if (view2.getId() == R.id.obfuscated_res_0x7f09027e) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{LAW_JUMP_URL + TbadkCoreApplication.getCurrentVerson(getPageContext().getPageActivity())});
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f0921b5 || view2.getId() == R.id.obfuscated_res_0x7f0921b4) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0921b6 || view2.getId() == R.id.obfuscated_res_0x7f0921b5) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{MEMBER_AGREEMENT_JUMP_URL});
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09216d) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09216e) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{AUTO_PAY_AGREEMENT_JUMP_URL});
             }
         }
@@ -610,7 +610,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                 return;
             }
             handleIntent();
-            zw4 consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
+            yw4 consumePathData = TbadkCoreApplication.getInst().getConsumePathData();
             if (consumePathData != null) {
                 this.mIsPayDialog = Boolean.valueOf(consumePathData.b(1, this.mSceneId));
             }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k36;
+import com.repackage.m36;
 /* loaded from: classes3.dex */
 public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -37,9 +37,9 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.C3();
-            k36 k36Var = this.M0;
-            if (k36Var != null) {
-                k36Var.i(null);
+            m36 m36Var = this.M0;
+            if (m36Var != null) {
+                m36Var.i(null);
             }
         }
     }

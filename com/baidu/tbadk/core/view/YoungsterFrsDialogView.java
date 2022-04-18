@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nu4;
-import com.repackage.wr4;
+import com.repackage.mu4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class YoungsterFrsDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -57,20 +57,20 @@ public class YoungsterFrsDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08df, this);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09249a);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee2);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09222d);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09222c);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092499);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09249b);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09222e);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09222d);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09249a);
             this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09044b);
-            nu4 nu4Var = new nu4();
-            nu4Var.r(R.color.CAM_X0105);
-            this.f.setConfig(nu4Var);
+            mu4 mu4Var = new mu4();
+            mu4Var.r(R.color.CAM_X0105);
+            this.f.setConfig(mu4Var);
             this.g = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09044c);
-            nu4 nu4Var2 = new nu4();
-            nu4Var2.p(R.color.CAM_X0304);
-            this.g.setConfig(nu4Var2);
-            this.h = (NoTipAgainView) findViewById(R.id.obfuscated_res_0x7f09159f);
+            mu4 mu4Var2 = new mu4();
+            mu4Var2.p(R.color.CAM_X0304);
+            this.g.setConfig(mu4Var2);
+            this.h = (NoTipAgainView) findViewById(R.id.obfuscated_res_0x7f0915a0);
             b();
         }
     }
@@ -78,12 +78,12 @@ public class YoungsterFrsDialogView extends LinearLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this, R.drawable.obfuscated_res_0x7f081207);
-            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f38, WebPManager.ResourceStateType.NORMAL));
+            SkinManager.setBackgroundResource(this, R.drawable.obfuscated_res_0x7f08120b);
+            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080f3c, WebPManager.ResourceStateType.NORMAL));
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
             this.h.b();
-            wr4 d = wr4.d(this.a);
+            vr4 d = vr4.d(this.a);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
             this.f.k();

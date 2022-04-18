@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hd4;
+import com.repackage.gd4;
 /* loaded from: classes7.dex */
-public final class w92 implements hd4 {
+public final class w92 implements gd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public boolean b;
-    public hd4 c;
+    public gd4 c;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -85,11 +85,11 @@ public final class w92 implements hd4 {
             return (b) invokeL.objValue;
         }
 
-        public b e(hd4 hd4Var) {
+        public b e(gd4 gd4Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hd4Var)) == null) {
-                c().c = hd4Var;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gd4Var)) == null) {
+                c().c = gd4Var;
                 return this;
             }
             return (b) invokeL.objValue;
@@ -100,13 +100,13 @@ public final class w92 implements hd4 {
         this();
     }
 
-    @Override // com.repackage.hd4
-    public void a(String str, hd4.a aVar) {
+    @Override // com.repackage.gd4
+    public void a(String str, gd4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            hd4 hd4Var = this.c;
-            if (hd4Var != null) {
-                hd4Var.a(str, aVar);
+            gd4 gd4Var = this.c;
+            if (gd4Var != null) {
+                gd4Var.a(str, aVar);
             } else if (aVar != null) {
                 aVar.a(true);
             }

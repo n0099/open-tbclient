@@ -158,9 +158,9 @@ public class gz1 extends SwanAppWebViewManager implements om1<NgWebView> {
                 Log.d("SwanAppConsoleManager", "call downloadConsoleCore: " + z);
             }
             if (!this.x || z) {
-                lb4 lb4Var = new lb4("sconsole-core", kx1.c(), kx1.b(), 2);
+                kb4 kb4Var = new kb4("sconsole-core", kx1.c(), kx1.b(), 2);
                 sh1 h = rj2.h();
-                s74.g(lb4Var, h != null ? h.d() : null);
+                r74.g(kb4Var, h != null ? h.d() : null);
                 this.x = true;
             }
         }

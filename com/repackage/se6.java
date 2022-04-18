@@ -1,7 +1,7 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface se6 {
-    String a();
+    void D();
 
-    String b();
+    void k0();
 }

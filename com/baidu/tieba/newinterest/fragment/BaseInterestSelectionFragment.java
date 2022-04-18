@@ -11,24 +11,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lp7;
-import com.repackage.sp7;
-import com.repackage.zo7;
+import com.repackage.cp7;
+import com.repackage.op7;
+import com.repackage.vp7;
 import java.util.List;
 /* loaded from: classes3.dex */
-public abstract class BaseInterestSelectionFragment extends BaseFragment implements zo7.a {
+public abstract class BaseInterestSelectionFragment extends BaseFragment implements cp7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
     public TBSpecificationBtn b;
-    public zo7 c;
+    public cp7 c;
     public View d;
     public int e;
     public String[] f;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(List<lp7> list);
+        void a(List<op7> list);
     }
 
     public BaseInterestSelectionFragment() {
@@ -45,16 +45,16 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         }
     }
 
-    @Override // com.repackage.zo7.a
+    @Override // com.repackage.cp7.a
     public void A0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i > 0 && !this.b.isEnabled()) {
                 this.b.setEnabled(true);
-                this.b.setText(getString(R.string.obfuscated_res_0x7f0f0c23));
+                this.b.setText(getString(R.string.obfuscated_res_0x7f0f0c22));
             } else if (i == 0) {
                 this.b.setEnabled(false);
-                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10d0));
+                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10cf));
             }
         }
     }
@@ -108,7 +108,7 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 1) {
-                sp7.c(1, this.e);
+                vp7.c(1, this.e);
             }
         }
     }

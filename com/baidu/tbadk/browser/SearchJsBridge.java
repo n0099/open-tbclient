@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
 import com.repackage.ad5;
+import com.repackage.cm8;
 import com.repackage.cq;
 import com.repackage.dd5;
 import com.repackage.ic5;
-import com.repackage.kl8;
 import com.repackage.mi;
-import com.repackage.ol8;
+import com.repackage.rl8;
 import com.repackage.vl8;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @cq
 /* loaded from: classes2.dex */
-public class SearchJsBridge implements kl8 {
+public class SearchJsBridge implements rl8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUID = "baiduid";
     public static final String CLIENT_VERSION = "_client_version";
@@ -94,7 +94,7 @@ public class SearchJsBridge implements kl8 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                vl8.h(this.a);
+                cm8.h(this.a);
                 return this.a;
             }
             return (String) invokeV.objValue;
@@ -159,7 +159,7 @@ public class SearchJsBridge implements kl8 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                vl8.b();
+                cm8.b();
                 return null;
             }
             return invokeV.objValue;
@@ -262,7 +262,7 @@ public class SearchJsBridge implements kl8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.kl8
+    @Override // com.repackage.rl8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -302,64 +302,64 @@ public class SearchJsBridge implements kl8 {
         return invokeLLLL.booleanValue;
     }
 
-    public ol8 deleteAllSearchHistory() {
+    public vl8 deleteAllSearchHistory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ol8 ol8Var = new ol8();
+            vl8 vl8Var = new vl8();
             dd5.b(new c(this), new d(this));
-            return ol8Var;
+            return vl8Var;
         }
-        return (ol8) invokeV.objValue;
+        return (vl8) invokeV.objValue;
     }
 
-    public ol8 deleteSearchHistory(String str) {
+    public vl8 deleteSearchHistory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ol8 ol8Var = new ol8();
+            vl8 vl8Var = new vl8();
             dd5.b(new a(this, str), new b(this));
-            return ol8Var;
+            return vl8Var;
         }
-        return (ol8) invokeL.objValue;
+        return (vl8) invokeL.objValue;
     }
 
-    public ol8 getSearchAdCookie() {
+    public vl8 getSearchAdCookie() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ol8 ol8Var = new ol8();
-            ol8Var.o(initCookies());
-            return ol8Var;
+            vl8 vl8Var = new vl8();
+            vl8Var.o(initCookies());
+            return vl8Var;
         }
-        return (ol8) invokeV.objValue;
+        return (vl8) invokeV.objValue;
     }
 
-    public ol8 getSearchHistoryJson() {
+    public vl8 getSearchHistoryJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ol8 ol8Var = new ol8();
+            vl8 vl8Var = new vl8();
             int count = ListUtils.getCount(this.mHistoryDatas);
             if (count == 0) {
-                ol8Var.o("");
+                vl8Var.o("");
             }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < count; i++) {
                 jSONArray.put(this.mHistoryDatas.get(i));
             }
-            ol8Var.o(jSONArray.toString());
+            vl8Var.o(jSONArray.toString());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
-            return ol8Var;
+            return vl8Var;
         }
-        return (ol8) invokeV.objValue;
+        return (vl8) invokeV.objValue;
     }
 
-    public ol8 openSearchPage(String str, int i) {
+    public vl8 openSearchPage(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            ol8 ol8Var = new ol8();
+            vl8 vl8Var = new vl8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("query", str);
@@ -368,9 +368,9 @@ public class SearchJsBridge implements kl8 {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return ol8Var;
+            return vl8Var;
         }
-        return (ol8) invokeLI.objValue;
+        return (vl8) invokeLI.objValue;
     }
 
     public void setHistoryDatas(List<String> list) {

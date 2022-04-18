@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r94;
+import com.repackage.q94;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class v32 extends t32 implements r94 {
+public class v32 extends t32 implements q94 {
     public static /* synthetic */ Interceptable $ic;
     public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,22 +57,22 @@ public class v32 extends t32 implements r94 {
     }
 
     @NonNull
-    public static sa4 J() {
+    public static ra4 J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b ? qj2.r0() : new ua4() : (sa4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b ? qj2.r0() : new ta4() : (ra4) invokeV.objValue;
     }
 
-    @Override // com.repackage.t32, com.repackage.r94
-    public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, r94.a aVar) {
+    @Override // com.repackage.t32, com.repackage.q94
+    public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, q94.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
             J().a(str, map, map2, jSONObject, aVar);
         }
     }
 
-    @Override // com.repackage.t32, com.repackage.r94
-    public void j(String str, Map<String, String> map, Map<String, String> map2, r94.a aVar) {
+    @Override // com.repackage.t32, com.repackage.q94
+    public void j(String str, Map<String, String> map, Map<String, String> map2, q94.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
             String b2 = ju2.b();

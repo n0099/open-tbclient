@@ -62,7 +62,7 @@ public class bi5 {
     public CustomMessageListener K;
     public Context a;
     public TbPageContext b;
-    public mp4 c;
+    public lp4 c;
     public SparseArray<String> d;
     public List<th5.b> e;
     public int f;
@@ -85,7 +85,7 @@ public class bi5 {
     public String w;
     public g x;
     public h y;
-    public yt4 z;
+    public xt4 z;
 
     /* loaded from: classes5.dex */
     public class a implements CompoundButton.OnCheckedChangeListener {
@@ -129,7 +129,7 @@ public class bi5 {
                             return;
                         }
                         this.a.r.setClickable(true);
-                        wr4.d(this.a.r).v(R.color.CAM_X0302);
+                        vr4.d(this.a.r).v(R.color.CAM_X0302);
                         return;
                     }
                     this.a.e.remove(bVar);
@@ -137,7 +137,7 @@ public class bi5 {
                         return;
                     }
                     this.a.r.setClickable(false);
-                    this.a.r.setTextColor(zi8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                    this.a.r.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                 }
             }
         }
@@ -440,20 +440,20 @@ public class bi5 {
         }
     }
 
-    public void D(mp4 mp4Var) {
+    public void D(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, mp4Var) == null) || mp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, lp4Var) == null) || lp4Var == null) {
             return;
         }
-        this.c = mp4Var;
-        SparseArray<String> b2 = mp4Var.b();
+        this.c = lp4Var;
+        SparseArray<String> b2 = lp4Var.b();
         this.d = b2;
         if (b2 != null && b2.size() > 8) {
             for (int size = this.d.size() - 1; size >= 8; size--) {
                 this.d.removeAt(size);
             }
         }
-        this.l.j(mp4Var);
+        this.l.j(lp4Var);
     }
 
     public void E(String[] strArr) {
@@ -515,7 +515,7 @@ public class bi5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.z == null) {
-                this.z = new yt4(this.b);
+                this.z = new xt4(this.b);
             }
             this.z.i(R.string.obfuscated_res_0x7f0f0a2e);
             this.z.h(true);
@@ -531,10 +531,10 @@ public class bi5 {
         SkinManager.setViewTextColor(this.s, R.color.CAM_X0105, 1);
         SkinManager.setViewTextColorSelector(this.q, R.color.CAM_X0105);
         if (this.D) {
-            this.r.setTextColor(zi8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.r.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             this.r.setClickable(false);
         } else {
-            wr4.d(this.r).v(R.color.CAM_X0302);
+            vr4.d(this.r).v(R.color.CAM_X0302);
         }
         SkinManager.setViewTextColor(this.t, R.color.CAM_X0109, 1);
         SkinManager.setViewTextColor(this.u, R.color.CAM_X0105, 1);
@@ -548,12 +548,12 @@ public class bi5 {
     }
 
     public void u() {
-        yt4 yt4Var;
+        xt4 xt4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (yt4Var = this.z) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (xt4Var = this.z) == null) {
             return;
         }
-        yt4Var.h(false);
+        xt4Var.h(false);
     }
 
     public void v() {
@@ -628,53 +628,53 @@ public class bi5 {
             if (this.p == null) {
                 ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d084e, (ViewGroup) null);
                 this.p = viewGroup;
-                EMTextView eMTextView = (EMTextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092241);
+                EMTextView eMTextView = (EMTextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092242);
                 this.s = eMTextView;
                 if (this.H) {
-                    eMTextView.setText(R.string.obfuscated_res_0x7f0f115d);
+                    eMTextView.setText(R.string.obfuscated_res_0x7f0f115c);
                 } else {
                     eMTextView.setText(R.string.obfuscated_res_0x7f0f04a2);
                 }
-                wr4 d2 = wr4.d(this.s);
+                vr4 d2 = vr4.d(this.s);
                 d2.A(R.string.F_X02);
                 d2.v(R.color.CAM_X0105);
-                EMTextView eMTextView2 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f09223c);
+                EMTextView eMTextView2 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f09223d);
                 this.t = eMTextView2;
-                wr4.d(eMTextView2).z(R.dimen.T_X08);
-                EMTextView eMTextView3 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f09223a);
+                vr4.d(eMTextView2).z(R.dimen.T_X08);
+                EMTextView eMTextView3 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f09223b);
                 this.q = eMTextView3;
                 eMTextView3.setOnClickListener(new d(this));
-                EMTextView eMTextView4 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f09223b);
+                EMTextView eMTextView4 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f09223c);
                 this.r = eMTextView4;
                 if (this.H) {
-                    eMTextView4.setText(R.string.obfuscated_res_0x7f0f115a);
+                    eMTextView4.setText(R.string.obfuscated_res_0x7f0f1159);
                 } else {
                     eMTextView4.setText(R.string.obfuscated_res_0x7f0f0495);
                 }
                 this.r.setOnClickListener(new e(this));
             }
-            this.v = (LinearLayout) this.p.findViewById(R.id.obfuscated_res_0x7f09223e);
+            this.v = (LinearLayout) this.p.findViewById(R.id.obfuscated_res_0x7f09223f);
             View g2 = this.l.g();
             if (g2 != null && g2.getParent() == null) {
                 int f2 = oi.f(this.a, R.dimen.M_W_X009);
                 g2.setPadding(f2, 0, f2, 0);
                 this.v.addView(g2);
             }
-            EMTextView eMTextView5 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f092240);
+            EMTextView eMTextView5 = (EMTextView) this.p.findViewById(R.id.obfuscated_res_0x7f092241);
             this.u = eMTextView5;
             eMTextView5.setHighlightColor(SelectorHelper.getResources().getColor(17170445));
             if (this.E) {
                 this.u.setVisibility(0);
                 if (1 == this.F) {
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    spannableStringBuilder.append((CharSequence) this.a.getString(R.string.obfuscated_res_0x7f0f10f4));
+                    spannableStringBuilder.append((CharSequence) this.a.getString(R.string.obfuscated_res_0x7f0f10f3));
                     f fVar = new f(this);
                     this.G = fVar;
                     spannableStringBuilder.setSpan(fVar, 13, 17, 18);
                     this.u.setText(spannableStringBuilder);
                     this.u.setMovementMethod(LinkMovementMethod.getInstance());
                 } else {
-                    this.u.setText(this.a.getString(R.string.obfuscated_res_0x7f0f10f3));
+                    this.u.setText(this.a.getString(R.string.obfuscated_res_0x7f0f10f2));
                 }
             } else {
                 this.u.setVisibility(8);

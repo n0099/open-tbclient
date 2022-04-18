@@ -32,7 +32,7 @@ public class xd2 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] b = ic4.a().b();
+            String[] b = hc4.a().b();
             jx1.b("SwanHistoryQueryHelper", "no history app list: " + Arrays.toString(b));
             if (b != null && b.length != 0 && (str == null || !str.equals("sync_state=?"))) {
                 String format = String.format("%s %s NOT IN ('%s')", (str == null || str.trim().length() <= 0) ? "" : String.format("(%s) AND ", str.trim()), String.format("%s.%s", "ai_apps_history", "app_id"), TextUtils.join("','", b));

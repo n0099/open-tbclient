@@ -1,30 +1,31 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.data.UpdatesItemData;
+import com.baidu.tieba.im.groupUpdates.UpdatesActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class x67 {
+public class x67 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, ImMessageCenterPojo> a;
+    public UpdatesActivity a;
+    public List<UpdatesItemData> b;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(Iterator<ImMessageCenterPojo> it);
-    }
-
-    public x67() {
+    public x67(UpdatesActivity updatesActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {updatesActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,46 +35,72 @@ public class x67 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
+        this.b = new ArrayList();
+        this.a = updatesActivity;
     }
 
-    public void a(ImMessageCenterPojo imMessageCenterPojo) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, imMessageCenterPojo) == null) || imMessageCenterPojo == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public List<UpdatesItemData> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public void c(List<UpdatesItemData> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null) {
             return;
         }
-        this.a.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+        this.b = list;
+        notifyDataSetChanged();
     }
 
-    public void b() {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public ImMessageCenterPojo c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<UpdatesItemData> list = this.b;
+            if (list == null) {
+                return 0;
             }
-            return this.a.get(str);
+            return list.size();
         }
-        return (ImMessageCenterPojo) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public void d(a aVar) {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            aVar.a(this.a.values().iterator());
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.b.get(i) : invokeI.objValue;
     }
 
-    public boolean e(String str) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (TextUtils.isEmpty(str) || this.a.remove(str) == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            y67 y67Var = view2 != null ? (y67) view2.getTag() : null;
+            if (y67Var == null) {
+                y67Var = new y67(this.a);
+            }
+            y67Var.l(this.b.get(i));
+            return y67Var.f();
+        }
+        return (View) invokeILL.objValue;
     }
 }

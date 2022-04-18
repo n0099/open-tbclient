@@ -1,30 +1,20 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
+import com.baidu.turbonet.net.UploadDataProvider;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
-public class v39 {
+public abstract class v39 extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c49 a;
-    public HashSet<String> b;
-    public HashSet<String> c;
-    public HashSet<String> d;
-    public HashSet<String> e;
-    public HashSet<String> f;
-    public HashSet<String> g;
-    public HashMap<String, Integer> h;
-    public HashMap<String, String> i;
-    public HashMap<String, b49> j;
-    public HashSet<String> k;
-    public HashSet<String> l;
-    public HashMap<String, Integer> m;
-    public HashMap<String, Integer> n;
-    public HashMap<String, Integer> o;
+    public IOException a;
+    public boolean b;
+    public boolean c;
 
     public v39() {
         Interceptable interceptable = $ic;
@@ -36,23 +26,51 @@ public class v39 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new c49();
-        this.b = new HashSet<>();
-        this.c = new HashSet<>();
-        this.d = new HashSet<>();
-        this.e = new HashSet<>();
-        this.f = new HashSet<>();
-        this.g = new HashSet<>();
-        this.h = new HashMap<>();
-        this.i = new HashMap<>();
-        this.j = new HashMap<>();
-        this.k = new HashSet<>();
-        this.l = new HashSet<>();
-        this.m = new HashMap<>();
-        this.n = new HashMap<>();
-        this.o = new HashMap<>();
+    }
+
+    public void a() throws IOException {
+        IOException iOException;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (iOException = this.a) != null) {
+            throw iOException;
+        }
+    }
+
+    public void c() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!this.c) {
+                if (this.b) {
+                    throw new IOException("Stream has been closed.");
+                }
+                return;
+            }
+            a();
+            throw new IOException("Writing after request completed.");
+        }
+    }
+
+    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
+        }
+    }
+
+    public abstract void e() throws IOException;
+
+    public abstract UploadDataProvider f();
+
+    public abstract void g() throws IOException;
+
+    public void h(IOException iOException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
+            this.a = iOException;
+            this.c = true;
+        }
     }
 }

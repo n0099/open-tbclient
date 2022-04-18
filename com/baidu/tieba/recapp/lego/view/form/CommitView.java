@@ -127,7 +127,7 @@ public class CommitView extends FormItemBaseView {
                 }
                 String str = cVar.b;
                 if (TextUtils.isEmpty(str)) {
-                    str = this.b.getString(R.string.obfuscated_res_0x7f0f0f09);
+                    str = this.b.getString(R.string.obfuscated_res_0x7f0f0f08);
                 }
                 this.u.getLayoutParams().height = this.f;
                 this.u.setPadding(0, 0, 0, 0);

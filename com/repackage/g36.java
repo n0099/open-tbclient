@@ -1,75 +1,137 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.ItemManage.DataRes;
-import tbclient.ManageInfo;
 /* loaded from: classes6.dex */
-public class g36 implements p65 {
+public class g36 extends b36 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<x26> a;
-    public List<x26> b;
-    public Integer c;
+    public DownloadManagerNetModel b;
+    public h36 c;
+    public i36 d;
+    public e36 e;
 
-    public g36() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g36(BaseFragment baseFragment, int i) {
+        super(baseFragment, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BaseFragment) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = 0;
+        this.c = new h36(1, i);
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.c);
+        this.b = downloadManagerNetModel;
+        downloadManagerNetModel.a0(this);
+        this.b.setUniqueId(baseFragment.getUniqueId());
     }
 
-    public void a(g36 g36Var) {
+    @Override // com.repackage.b36
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, g36Var) == null) {
-            this.a.addAll(g36Var.a);
-            this.b = g36Var.b;
-            this.c = g36Var.c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.c();
+            this.b.loadData();
         }
     }
 
-    public void b(DataRes dataRes) {
+    @Override // com.repackage.b36
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
-            for (ManageInfo manageInfo : dataRes.manage_list) {
-                this.a.add(x26.e(manageInfo));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.b();
+            this.b.loadData();
+        }
+    }
+
+    @Override // com.repackage.b36
+    public void d(e36 e36Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e36Var) == null) {
+            this.e = e36Var;
+        }
+    }
+
+    public final void e(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || i == 0) {
+            return;
+        }
+        this.e.a(i, str);
+    }
+
+    public final boolean f(i36 i36Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, i36Var)) == null) {
+            if (i36Var == null) {
+                return false;
             }
-            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
-                this.b.add(x26.e(manageInfo2));
+            if (this.c.a() != 1) {
+                this.d.a(i36Var);
+            } else {
+                this.d = i36Var;
             }
-            this.c = dataRes.has_more;
+            e36 e36Var = this.e;
+            i36 i36Var2 = this.d;
+            e36Var.b(i36Var2.a, i36Var2.b, i36Var2.c.intValue());
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void m(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) || mvcSocketResponsedMessage == null) {
+            return;
+        }
+        i36 i36Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
+            i36Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (i36Var == null || !f(i36Var)) {
+            e(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
         }
     }
 
-    @Override // com.repackage.p65
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void r(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) || mvcHttpResponsedMessage == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.p65
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
+        i36 i36Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
+            i36Var = (i36) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
+        }
+        if (i36Var == null || !f(i36Var)) {
+            e(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
         }
     }
 }

@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ii5 extends bn4 {
+public class ii5 extends an4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,12 +40,12 @@ public class ii5 extends bn4 {
 
         /* renamed from: com.repackage.ii5$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0440a implements Runnable {
+        public class RunnableC0446a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LaunchTask a;
 
-            public RunnableC0440a(a aVar, LaunchTask launchTask) {
+            public RunnableC0446a(a aVar, LaunchTask launchTask) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,10 +96,10 @@ public class ii5 extends bn4 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this.a, ls4.a().b == 1);
-                if (et7.a().b()) {
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this.a, ks4.a().b == 1, ks4.a().c);
+                if (lt7.a().b()) {
                     for (LaunchTask launchTask : this.b.f()) {
-                        nb.b().a(launchTask.getName(), new RunnableC0440a(this, launchTask));
+                        nb.b().a(launchTask.getName(), new RunnableC0446a(this, launchTask));
                     }
                 }
                 return false;
@@ -145,18 +145,18 @@ public class ii5 extends bn4 {
 
     public final void g(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null && ls4.a().a) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null && ks4.a().a) {
             String name = activity.getClass().getName();
-            if (!ms4.a().d() || SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) || "com.baidu.tieba.yunpush.YunPushProxyActivity".equals(name) || SpeedRuntimeProvider.SCHEMA_ACTIVITY_NAME.equals(name)) {
+            if (!ls4.a().d() || SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) || "com.baidu.tieba.yunpush.YunPushProxyActivity".equals(name) || SpeedRuntimeProvider.SCHEMA_ACTIVITY_NAME.equals(name)) {
                 return;
             }
             if (!SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) || SchemeActionHelper.isToMaintab(activity.getIntent())) {
-                ls4.a().e(new a(this, activity));
+                ks4.a().e(new a(this, activity));
             }
         }
     }
 
-    @Override // com.repackage.bn4, android.app.Application.ActivityLifecycleCallbacks
+    @Override // com.repackage.an4, android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle) == null) {

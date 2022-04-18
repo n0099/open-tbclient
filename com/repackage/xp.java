@@ -9,10 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad7;
+import com.repackage.dd7;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class xp implements ad7 {
+public class xp implements dd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -33,7 +33,7 @@ public class xp implements ad7 {
     public int p;
     public ArrayList<String> q;
     public ArrayList<String> r;
-    public ad7.a s;
+    public dd7.a s;
 
     public xp() {
         Interceptable interceptable = $ic;
@@ -98,19 +98,19 @@ public class xp implements ad7 {
         }
     }
 
-    @Override // com.repackage.ad7
-    public ad7.a getParallelCharge() {
+    @Override // com.repackage.dd7
+    public dd7.a getParallelCharge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.s == null) {
-                ad7.a aVar = new ad7.a();
+                dd7.a aVar = new dd7.a();
                 this.s = aVar;
                 aVar.c = this.q;
                 aVar.d = this.r;
             }
             return this.s;
         }
-        return (ad7.a) invokeV.objValue;
+        return (dd7.a) invokeV.objValue;
     }
 }

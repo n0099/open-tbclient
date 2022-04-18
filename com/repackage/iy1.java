@@ -54,19 +54,19 @@ public class iy1 {
                         if (a) {
                             Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
                         }
-                        ng4.d(bufferedReader);
+                        mg4.d(bufferedReader);
                         return c;
                     } catch (IOException e2) {
                         e = e2;
                         if (a) {
                             Log.e("SwanCpuProperty", "error in cpu monitor", e);
                         }
-                        ng4.d(bufferedReader);
+                        mg4.d(bufferedReader);
                         return "";
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    ng4.d(bufferedReader);
+                    mg4.d(bufferedReader);
                     throw th;
                 }
             } catch (IOException e3) {
@@ -75,7 +75,7 @@ public class iy1 {
             } catch (Throwable th3) {
                 bufferedReader = null;
                 th = th3;
-                ng4.d(bufferedReader);
+                mg4.d(bufferedReader);
                 throw th;
             }
         }

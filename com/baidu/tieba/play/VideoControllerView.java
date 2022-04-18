@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r68;
+import com.repackage.y68;
 /* loaded from: classes3.dex */
 public class VideoControllerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -210,9 +210,9 @@ public class VideoControllerView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             View f = f(context);
             addView(f, -1, -2);
-            this.c = (TextView) f.findViewById(R.id.obfuscated_res_0x7f091f55);
-            this.d = (TextView) f.findViewById(R.id.obfuscated_res_0x7f091f56);
-            SeekBar seekBar = (SeekBar) f.findViewById(R.id.obfuscated_res_0x7f091732);
+            this.c = (TextView) f.findViewById(R.id.obfuscated_res_0x7f091f56);
+            this.d = (TextView) f.findViewById(R.id.obfuscated_res_0x7f091f57);
+            SeekBar seekBar = (SeekBar) f.findViewById(R.id.obfuscated_res_0x7f091733);
             this.g = seekBar;
             seekBar.setOnSeekBarChangeListener(this.n);
         }
@@ -273,7 +273,7 @@ public class VideoControllerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, seekBar) == null) {
             seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds18));
-            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08124a));
+            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08124e));
             this.e = true;
             SeekBar.OnSeekBarChangeListener onSeekBarChangeListener = this.j;
             if (onSeekBarChangeListener != null) {
@@ -287,7 +287,7 @@ public class VideoControllerView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, seekBar) == null) {
             seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds12));
-            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f081249));
+            seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08124d));
             this.b.seekTo(this.l);
             this.e = false;
             this.m.sendEmptyMessageDelayed(1, 500L);
@@ -322,8 +322,8 @@ public class VideoControllerView extends RelativeLayout {
             }
             int duration = mediaPlayerControl.getDuration();
             MediaController.MediaPlayerControl mediaPlayerControl2 = this.b;
-            if (mediaPlayerControl2 instanceof r68) {
-                currentPosition = ((r68) mediaPlayerControl2).getCurrentPositionSync();
+            if (mediaPlayerControl2 instanceof y68) {
+                currentPosition = ((y68) mediaPlayerControl2).getCurrentPositionSync();
             } else {
                 currentPosition = mediaPlayerControl2.getCurrentPosition();
             }

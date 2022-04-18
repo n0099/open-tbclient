@@ -8,24 +8,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.az9;
+import com.repackage.bz9;
+import com.repackage.cz9;
 import com.repackage.hz9;
-import com.repackage.n3a;
-import com.repackage.s3a;
-import com.repackage.uy9;
-import com.repackage.vy9;
+import com.repackage.oz9;
+import com.repackage.u3a;
+import com.repackage.z3a;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class BufferUntilSubscriber<T> extends n3a<T, T> {
+public final class BufferUntilSubscriber<T> extends u3a<T, T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final vy9 d;
+    public static final cz9 d;
     public transient /* synthetic */ FieldHolder $fh;
     public final State<T> b;
     public boolean c;
 
     /* loaded from: classes8.dex */
-    public static final class State<T> extends AtomicReference<vy9<? super T>> {
+    public static final class State<T> extends AtomicReference<cz9<? super T>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8026705089538090368L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,15 +50,15 @@ public final class BufferUntilSubscriber<T> extends n3a<T, T> {
             this.buffer = new ConcurrentLinkedQueue<>();
         }
 
-        public boolean casObserverRef(vy9<? super T> vy9Var, vy9<? super T> vy9Var2) {
+        public boolean casObserverRef(cz9<? super T> cz9Var, cz9<? super T> cz9Var2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, vy9Var, vy9Var2)) == null) ? compareAndSet(vy9Var, vy9Var2) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cz9Var, cz9Var2)) == null) ? compareAndSet(cz9Var, cz9Var2) : invokeLL.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class a implements vy9 {
+    public static class a implements cz9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -76,21 +76,21 @@ public final class BufferUntilSubscriber<T> extends n3a<T, T> {
             }
         }
 
-        @Override // com.repackage.vy9
+        @Override // com.repackage.cz9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.repackage.vy9
+        @Override // com.repackage.cz9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
             }
         }
 
-        @Override // com.repackage.vy9
+        @Override // com.repackage.cz9
         public void onNext(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
@@ -99,13 +99,13 @@ public final class BufferUntilSubscriber<T> extends n3a<T, T> {
     }
 
     /* loaded from: classes8.dex */
-    public static final class b<T> implements uy9.a<T> {
+    public static final class b<T> implements bz9.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final State<T> a;
 
         /* loaded from: classes8.dex */
-        public class a implements hz9 {
+        public class a implements oz9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -128,7 +128,7 @@ public final class BufferUntilSubscriber<T> extends n3a<T, T> {
                 this.a = bVar;
             }
 
-            @Override // com.repackage.hz9
+            @Override // com.repackage.oz9
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -155,19 +155,19 @@ public final class BufferUntilSubscriber<T> extends n3a<T, T> {
             this.a = state;
         }
 
-        @Override // com.repackage.uy9.a, com.repackage.iz9
+        @Override // com.repackage.bz9.a, com.repackage.pz9
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((az9) ((az9) obj));
+            call((hz9) ((hz9) obj));
         }
 
-        public void call(az9<? super T> az9Var) {
+        public void call(hz9<? super T> hz9Var) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, az9Var) != null) {
+            if (interceptable != null && interceptable.invokeL(1048576, this, hz9Var) != null) {
                 return;
             }
-            if (this.a.casObserverRef(null, az9Var)) {
-                az9Var.b(s3a.a(new a(this)));
+            if (this.a.casObserverRef(null, hz9Var)) {
+                hz9Var.b(z3a.a(new a(this)));
                 synchronized (this.a.guard) {
                     z = true;
                     if (this.a.emitting) {
@@ -193,7 +193,7 @@ public final class BufferUntilSubscriber<T> extends n3a<T, T> {
                     }
                 }
             } else {
-                az9Var.onError(new IllegalStateException("Only one subscriber allowed!"));
+                hz9Var.onError(new IllegalStateException("Only one subscriber allowed!"));
             }
         }
     }
@@ -226,7 +226,7 @@ public final class BufferUntilSubscriber<T> extends n3a<T, T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((uy9.a) newInitContext.callArgs[0]);
+                super((bz9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -265,7 +265,7 @@ public final class BufferUntilSubscriber<T> extends n3a<T, T> {
         }
     }
 
-    @Override // com.repackage.vy9
+    @Override // com.repackage.cz9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -277,7 +277,7 @@ public final class BufferUntilSubscriber<T> extends n3a<T, T> {
         }
     }
 
-    @Override // com.repackage.vy9
+    @Override // com.repackage.cz9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -289,7 +289,7 @@ public final class BufferUntilSubscriber<T> extends n3a<T, T> {
         }
     }
 
-    @Override // com.repackage.vy9
+    @Override // com.repackage.cz9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {

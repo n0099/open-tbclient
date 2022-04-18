@@ -26,10 +26,10 @@ public final class q03 extends h03 {
     }
 
     @Override // com.repackage.h03, com.repackage.i03
-    public r94 H() {
+    public q94 H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new w32(this) : (r94) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new w32(this) : (q94) invokeV.objValue;
     }
 
     @Override // com.repackage.h03, com.repackage.i03

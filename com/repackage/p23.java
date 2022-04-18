@@ -57,7 +57,7 @@ public class p23 extends n23 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.e.d) {
-                    b03 f = b03.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f12e5);
+                    b03 f = b03.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f12e4);
                     f.l(2);
                     f.G();
                 }

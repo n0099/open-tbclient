@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.de4;
-import com.repackage.fe4;
+import com.repackage.ce4;
+import com.repackage.ee4;
 /* loaded from: classes2.dex */
 public final class FragmentState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
@@ -122,15 +122,15 @@ public final class FragmentState implements Parcelable {
         return invokeV.intValue;
     }
 
-    public Fragment instantiate(de4 de4Var, Fragment fragment) {
+    public Fragment instantiate(ce4 ce4Var, Fragment fragment) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, de4Var, fragment)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ce4Var, fragment)) == null) {
             Fragment fragment2 = this.mInstance;
             if (fragment2 != null) {
                 return fragment2;
             }
-            Context context = de4Var.getContext();
+            Context context = ce4Var.getContext();
             Bundle bundle = this.mArguments;
             if (bundle != null) {
                 bundle.setClassLoader(context.getClassLoader());
@@ -150,8 +150,8 @@ public final class FragmentState implements Parcelable {
             fragment3.y = this.mTag;
             fragment3.B = this.mRetainInstance;
             fragment3.A = this.mDetached;
-            fragment3.s = de4Var.e;
-            if (fe4.x) {
+            fragment3.s = ce4Var.e;
+            if (ee4.x) {
                 Log.v("FragmentManager", "Instantiated fragment " + this.mInstance);
             }
             return this.mInstance;

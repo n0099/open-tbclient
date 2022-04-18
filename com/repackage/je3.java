@@ -39,13 +39,13 @@ public class je3 {
 
         /* renamed from: com.repackage.je3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0453a implements Runnable {
+        public class RunnableC0454a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Activity a;
             public final /* synthetic */ a b;
 
-            public RunnableC0453a(a aVar, Activity activity) {
+            public RunnableC0454a(a aVar, Activity activity) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,11 +124,11 @@ public class je3 {
                 if (activity == null || activity.getIntent() == null) {
                     return;
                 }
-                RunnableC0453a runnableC0453a = new RunnableC0453a(this, activity);
+                RunnableC0454a runnableC0454a = new RunnableC0454a(this, activity);
                 if (qc3.a()) {
-                    runnableC0453a.run();
+                    runnableC0454a.run();
                 } else {
-                    dd3.j(runnableC0453a, "moveTaskToFront");
+                    dd3.j(runnableC0454a, "moveTaskToFront");
                 }
             }
         }

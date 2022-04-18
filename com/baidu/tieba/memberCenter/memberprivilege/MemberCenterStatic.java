@@ -64,16 +64,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dk8;
+import com.repackage.bl7;
+import com.repackage.cl7;
+import com.repackage.kk8;
 import com.repackage.mg;
 import com.repackage.mi;
 import com.repackage.nd5;
 import com.repackage.ni;
 import com.repackage.oi;
 import com.repackage.u05;
-import com.repackage.ui7;
-import com.repackage.yk7;
-import com.repackage.zk7;
+import com.repackage.xi7;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class MemberCenterStatic {
@@ -108,7 +108,7 @@ public class MemberCenterStatic {
                     String str = strArr[0];
                     if (!StringUtils.isNull(str) && str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_EXCHANGE)) {
                         if (!mi.z()) {
-                            BdToast.c(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c18)).q();
+                            BdToast.c(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c17)).q();
                         } else if (ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
                             String currentPortrait = TbadkCoreApplication.getCurrentPortrait();
                             String d = nd5.d(str, MemberExchangeActivityConfig.MEMBER_NAME);
@@ -192,7 +192,7 @@ public class MemberCenterStatic {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001342, new zk7(customMessage.getData(), 1));
+                return new CustomResponsedMessage<>(2001342, new cl7(customMessage.getData(), 1));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -225,7 +225,7 @@ public class MemberCenterStatic {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001343, new yk7(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001343, new bl7(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -339,7 +339,7 @@ public class MemberCenterStatic {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001339, new ui7(customMessage.getData()));
+                return new CustomResponsedMessage<>(2001339, new xi7(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -585,7 +585,7 @@ public class MemberCenterStatic {
                     String str4 = strArr[0];
                     if (str4.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_CARD_BOX_MEMBER_BUY) && str4.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_CARD_BOX_MEMBER_BUY_ASSIST)) {
                         if (!mi.z()) {
-                            BdToast.c(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c18)).q();
+                            BdToast.c(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0c17)).q();
                         } else if (ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
                             Bundle i = nd5.i(str4);
                             str = "";
@@ -685,7 +685,7 @@ public class MemberCenterStatic {
                 UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
                 return;
             } else {
-                oi.M(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0e8d);
+                oi.M(tbPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f0e8c);
                 return;
             }
         }
@@ -704,8 +704,8 @@ public class MemberCenterStatic {
     public static void c(int i2, int i3, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, cls, cls2}) == null) {
-            dk8.h(i3, cls2, false, false);
-            dk8.c(i3, i2, str, cls, false, false, false, false);
+            kk8.h(i3, cls2, false, false);
+            kk8.c(i3, i2, str, cls, false, false, false, false);
         }
     }
 

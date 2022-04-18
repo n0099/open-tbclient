@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.m86;
 import com.repackage.mi;
+import com.repackage.o86;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -31,7 +31,7 @@ import org.json.JSONObject;
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m86 a;
+    public o86 a;
     public TbPageContext b;
     public final HttpMessageListener c;
 
@@ -131,13 +131,13 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectMusicModel(TbPageContext tbPageContext, m86 m86Var) {
+    public SelectMusicModel(TbPageContext tbPageContext, o86 o86Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, m86Var};
+            Object[] objArr = {tbPageContext, o86Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -150,7 +150,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
         this.c = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
         this.b = tbPageContext;
-        this.a = m86Var;
+        this.a = o86Var;
         A();
         this.c.setTag(getUniqueId());
         this.c.setSelfListener(true);
@@ -191,7 +191,7 @@ public class SelectMusicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (!mi.z()) {
-                this.b.showToast(R.string.obfuscated_res_0x7f0f0c4e);
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c4d);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC));
             }

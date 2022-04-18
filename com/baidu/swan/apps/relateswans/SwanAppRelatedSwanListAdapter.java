@@ -99,7 +99,7 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
         public void a(Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-                TextView textView = (TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091445);
+                TextView textView = (TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091446);
                 if (TextUtils.isEmpty(str)) {
                     textView.setVisibility(8);
                     return;
@@ -219,9 +219,9 @@ public class SwanAppRelatedSwanListAdapter extends RecyclerView.Adapter<Recycler
             if (!(interceptable == null || interceptable.invokeLLI(1048576, this, context, aVar, i) == null) || aVar == null) {
                 return;
             }
-            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091a25)).setOnClickListener(new a(this, aVar, context, i));
-            gd3.e(aVar.a, new C0163b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091dda), context));
-            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091ddc)).setText(aVar.b);
+            ((RelativeLayout) this.itemView.findViewById(R.id.obfuscated_res_0x7f091a26)).setOnClickListener(new a(this, aVar, context, i));
+            gd3.e(aVar.a, new C0163b(this, (SwanAppRoundedImageView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091ddb), context));
+            ((TextView) this.itemView.findViewById(R.id.obfuscated_res_0x7f091ddd)).setText(aVar.b);
         }
     }
 

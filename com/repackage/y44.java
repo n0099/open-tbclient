@@ -2,6 +2,8 @@ package com.repackage;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,9 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y44 extends v44<vm2> {
+public class y44 extends u44<vm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,22 +54,43 @@ public class y44 extends v44<vm2> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new y44() : (y44) invokeV.objValue;
     }
 
-    @Override // com.repackage.v44
+    @Override // com.repackage.u44
     public boolean b(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, vm2Var, sm2Var, j03Var, jSONObject)) == null) ? e(context, vm2Var, sm2Var, j03Var) : invokeLLLLL.booleanValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, vm2Var, sm2Var, j03Var, jSONObject)) == null) ? e(context, vm2Var, sm2Var, j03Var, jSONObject) : invokeLLLLL.booleanValue;
     }
 
-    public final boolean e(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var) {
-        InterceptResult invokeLLLL;
+    public final boolean e(Context context, vm2 vm2Var, sm2 sm2Var, j03 j03Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vm2Var, sm2Var, j03Var)) == null) {
-            jx1.i("map", "MapUpdateAction start");
-            boolean update = s44.b().update(context, vm2Var);
-            jx1.i("map", "MapUpdateAction end");
-            return update;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vm2Var, sm2Var, j03Var, jSONObject)) == null) {
+            jx1.i("map", "GetCenterLcationAction start");
+            rm1 A = wl2.U().A(vm2Var.c);
+            if (!(A instanceof pm1)) {
+                jx1.c("map", "WebViewManager is null");
+                return false;
+            }
+            s54 d = r44.b().c((pm1) A).d(vm2Var.b);
+            if (d == null) {
+                jx1.c("map", "can not find map by id " + vm2Var.b);
+                return false;
+            }
+            MapStatus mapStatus = d.l.getMap().getMapStatus();
+            cn2 cn2Var = new cn2();
+            LatLng latLng = mapStatus.target;
+            double d2 = latLng.latitude;
+            cn2Var.a = d2;
+            cn2Var.b = latLng.longitude;
+            try {
+                jSONObject.put("latitude", d2);
+                jSONObject.put("longitude", cn2Var.b);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            jx1.i("map", "GetCenterLocationAction end");
+            return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 }

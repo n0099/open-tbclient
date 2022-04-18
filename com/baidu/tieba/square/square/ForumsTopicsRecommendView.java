@@ -144,10 +144,10 @@ public class ForumsTopicsRecommendView extends ViewGroup implements g35 {
         this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b2);
         this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027c);
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02d7, (ViewGroup) this, true);
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a9b));
         this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a9c));
         this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a9d));
         this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a9e));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090a9f));
         int i3 = this.d;
         int i4 = this.b;
         this.g = ((i3 - (i4 * 2)) - this.c) / 2;

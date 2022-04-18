@@ -1,35 +1,26 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import com.baidu.adp.widget.SwipeBackLayout;
+import android.app.Activity;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.fluency.BdTracesManager;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rp6;
+import com.repackage.qe;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class vp6 {
     public static /* synthetic */ Interceptable $ic;
+    public static vp6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ViewGroup b;
-    public wp6 c;
-    public rp6 d;
-    public v85 e;
-    public rp6.a f;
-    public Runnable g;
+    public LruCache<String, String> a;
+    public qe<String> b;
 
     /* loaded from: classes7.dex */
-    public class a implements rp6.a {
+    public class a extends lm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vp6 a;
@@ -52,36 +43,28 @@ public class vp6 {
             this.a = vp6Var;
         }
 
-        @Override // com.repackage.rp6.a
-        public void onStateChanged(int i) {
+        @Override // com.repackage.lm4, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 1) {
-                    if (!TbSingleton.getInstance().isEnableBenchmark() || TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                        return;
-                    }
-                    if (this.a.e == null) {
-                        this.a.e = new v85("anim_switch_trans_frs");
-                    }
-                    this.a.e.b();
-                    BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsActivityConfig.KEY_FPS_FRS_FROM, "frs", "tran");
-                } else if (i != 2) {
-                    if (i == 0) {
-                        this.a.j();
-                    }
-                } else {
-                    this.a.k();
-                    if (this.a.e != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                        this.a.e.c();
-                    }
-                    BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsActivityConfig.KEY_FPS_FRS);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null && activity.getClass().getName().equals("FrsActivity")) {
+                StringBuilder sb = new StringBuilder();
+                for (Map.Entry entry : this.a.a.snapshot().entrySet()) {
+                    sb.append((String) entry.getKey());
+                    sb.append("=");
+                    sb.append((String) entry.getValue());
+                    sb.append(",");
                 }
+                if (sb.length() <= 1) {
+                    return;
+                }
+                sb.deleteCharAt(sb.length() - 1);
+                this.a.b.a("transition_cache_key", sb.toString());
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Runnable {
+    public class b implements qe.a<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vp6 a;
@@ -104,21 +87,27 @@ public class vp6 {
             this.a = vp6Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.qe.a
+        /* renamed from: b */
+        public void a(String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f();
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || str2 == null || str2.isEmpty()) {
+                return;
+            }
+            for (String str3 : str2.split(",")) {
+                String[] split = str3.split("=");
+                if (split != null && split.length == 2) {
+                    this.a.a.put(split[0], split[1]);
+                }
             }
         }
     }
 
-    public vp6(Context context, ViewGroup viewGroup, Intent intent) {
+    public vp6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,94 +117,45 @@ public class vp6 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new b(this);
-        this.a = context;
-        this.b = viewGroup;
-        wp6 wp6Var = new wp6(context);
-        this.c = wp6Var;
-        rp6 a2 = sp6.a(wp6Var, intent);
-        this.d = a2;
-        a2.b(this.f);
+        this.a = new LruCache<>(10);
+        br4.f();
+        this.b = br4.g("tb.recently_vistited_forum_animation");
+        TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new a(this));
+        this.b.f("transition_cache_key", new b(this));
     }
 
-    public static boolean i(Intent intent) {
+    public static vp6 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (vp6.class) {
+                    if (c == null) {
+                        c = new vp6();
+                    }
+                }
+            }
+            return c;
+        }
+        return (vp6) invokeV.objValue;
+    }
+
+    public wp6 c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) ? (intent == null || intent.getIntExtra("transition_type", 0) == 0) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null) {
+                return new wp6(null);
+            }
+            return new wp6(this.a.get(str));
+        }
+        return (wp6) invokeL.objValue;
     }
 
-    public final void f() {
+    public void e(String str, wp6 wp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pg.a().removeCallbacks(this.g);
-            if (this.d.a() == 1) {
-                pg.a().postDelayed(this.g, 10L);
-                return;
-            }
-            k();
-            this.d.c();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, wp6Var) == null) {
+            this.a.put(str, wp6Var.toString());
         }
-    }
-
-    public final void g() {
-        View findViewById;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ViewGroup viewGroup = this.b;
-            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
-                this.b.getChildAt(0).setVisibility(8);
-            }
-            ViewGroup viewGroup2 = this.b;
-            if (viewGroup2 == null || (findViewById = viewGroup2.findViewById(16908290)) == null) {
-                return;
-            }
-            findViewById.setVisibility(8);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.b == null) {
-            return;
-        }
-        f();
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ViewParent parent = this.c.a.getParent();
-            if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).removeView(this.c.a);
-            }
-            pg.a().removeCallbacks(this.g);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ViewGroup viewGroup = this.b;
-            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
-                this.b.getChildAt(0).setVisibility(0);
-            }
-            ViewGroup viewGroup2 = this.b;
-            if (viewGroup2 == null || viewGroup2.findViewById(16908290) == null) {
-                return;
-            }
-            this.b.findViewById(16908290).setVisibility(0);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.b == null) {
-            return;
-        }
-        j();
-        this.b.addView(this.c.a);
-        g();
-        this.d.d();
     }
 }

@@ -76,7 +76,7 @@ public class e extends FrameLayout {
                 return;
             }
         }
-        this.c = R.drawable.obfuscated_res_0x7f080bc2;
+        this.c = R.drawable.obfuscated_res_0x7f080bc6;
         a(context, attributeSet, 0);
     }
 
@@ -91,8 +91,8 @@ public class e extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0447, this);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091192);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091191);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091193);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091192);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040432, R.attr.obfuscated_res_0x7f040433, R.attr.obfuscated_res_0x7f040434, R.attr.obfuscated_res_0x7f040435}, 0, i);
             int resourceId = obtainStyledAttributes.getResourceId(0, 0);
             CharSequence text = obtainStyledAttributes.getText(2);
@@ -186,7 +186,7 @@ public class e extends FrameLayout {
                 this.f = textView;
                 textView.setGravity(17);
                 this.f.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060780));
-                this.f.setTextSize(0, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070943));
+                this.f.setTextSize(0, getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070944));
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 layoutParams.topMargin = g.a(getContext(), 5.0f);
                 layoutParams.gravity = 1;

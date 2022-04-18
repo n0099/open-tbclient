@@ -71,7 +71,7 @@ public class tc5 {
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "GodInvitePage", hashMap)));
-                wt4.k().x("key_new_god_dialog_showed_time", System.currentTimeMillis());
+                vt4.k().x("key_new_god_dialog_showed_time", System.currentTimeMillis());
             }
         }
     }
@@ -128,7 +128,7 @@ public class tc5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, newGodData)) == null) {
             if (i != 5) {
-                return (((((System.currentTimeMillis() - wt4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) > 259200000L ? 1 : (((System.currentTimeMillis() - wt4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) == 259200000L ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+                return (((((System.currentTimeMillis() - vt4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) > 259200000L ? 1 : (((System.currentTimeMillis() - vt4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) == 259200000L ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
             }
             return true;
         }

@@ -60,9 +60,9 @@ public final class ed2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.size() > 0) {
-                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f08110c));
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f081110));
                 } else {
-                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f08110b));
+                    this.b.setBackground(this.c.getDrawable(R.drawable.obfuscated_res_0x7f08110f));
                 }
             }
         }
@@ -244,7 +244,7 @@ public final class ed2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{activity, j03Var, str, list, fVar, onCancelListener})) == null) {
             View inflate = View.inflate(activity, R.layout.obfuscated_res_0x7f0d07c5, null);
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091dda);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ddb);
             Resources resources = activity.getResources();
             if (swanAppRoundedImageView != null) {
                 swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, de3.i(j03Var.V(), "SwanSubscribeMsgDialog", false)));
@@ -252,9 +252,9 @@ public final class ed2 {
             }
             TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902dd);
             TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902de);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ddc)).setText(j03Var.Y());
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09200d)).setText(str);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ef9);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ddd)).setText(j03Var.Y());
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09200e)).setText(str);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091efa);
             ArrayList arrayList = new ArrayList(list);
             if (list.size() > 0) {
                 for (fd2 fd2Var : list) {
@@ -296,7 +296,7 @@ public final class ed2 {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(0, 16, 0, 16);
             textView.setLayoutParams(layoutParams);
-            textView.setTextColor(me4.b(activity, R.color.obfuscated_res_0x7f060a48));
+            textView.setTextColor(le4.b(activity, R.color.obfuscated_res_0x7f060a48));
             textView.setText(fd2Var.b);
             Drawable drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c2);
             Drawable drawable2 = resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c1);

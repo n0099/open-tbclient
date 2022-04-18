@@ -150,9 +150,9 @@ public final class p73 {
             l73Var.a("swan", i3);
             l73Var.a(BaseJsonData.TAG_REQUESTID, a2);
             l73Var.a("net", d);
-            if (t74.b() != null) {
-                l73Var.a("SDKVersion", t74.b().b());
-                l73Var.a("hostName", t74.b().c());
+            if (s74.b() != null) {
+                l73Var.a("SDKVersion", s74.b().b());
+                l73Var.a("hostName", s74.b().c());
             }
             dd3.j(new a(l73Var), "monitor");
         }

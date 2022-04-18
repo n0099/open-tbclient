@@ -84,7 +84,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     private void initTabs() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091a13);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091a14);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.mTabHost.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
@@ -107,7 +107,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
             sigleRecordsFragment3.S0(3);
             n45 n45Var3 = new n45();
             n45Var3.a = this.rechargeFragment;
-            n45Var3.b = R.string.obfuscated_res_0x7f0f0f3c;
+            n45Var3.b = R.string.obfuscated_res_0x7f0f0f3b;
             createAndAddTabSpec(n45Var3, getTabIndicator(getPageContext().getPageActivity()), null);
             this.mTabHost.n(3);
             this.mTabHost.setCurrentTab(getIndexByType(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
@@ -131,7 +131,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0203);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091514);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091515);
             this.mNavigationbar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationbar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f042f));

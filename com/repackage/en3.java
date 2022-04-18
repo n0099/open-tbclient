@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
 @Service
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class en3 implements hm1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,10 +30,10 @@ public class en3 implements hm1 {
     }
 
     @Override // com.repackage.hm1
-    public hd4 a() {
+    public gd4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? dn3.b().a() : (hd4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? dn3.b().a() : (gd4) invokeV.objValue;
     }
 
     @Override // com.repackage.hm1

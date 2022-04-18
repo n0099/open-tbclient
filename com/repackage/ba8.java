@@ -1,13 +1,10 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbPageContext;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes5.dex */
 public interface ba8 {
-    void L();
+    void a(@Nullable AdvertAppInfo advertAppInfo, @Nullable vb5 vb5Var);
 
-    TbPageContext<?> i();
-
-    int q0();
-
-    String z();
+    void onDestroy();
 }

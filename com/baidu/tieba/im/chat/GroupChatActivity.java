@@ -28,13 +28,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a87;
 import com.repackage.ad5;
+import com.repackage.b57;
 import com.repackage.dd5;
 import com.repackage.ic5;
 import com.repackage.ni;
-import com.repackage.x77;
-import com.repackage.xx4;
-import com.repackage.y47;
+import com.repackage.wx4;
 /* loaded from: classes3.dex */
 public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -72,7 +72,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(x77.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getGroupId()))) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(a87.k().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getGroupId()))) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -219,11 +219,11 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean first(y47 y47Var) {
+    public boolean first(b57 b57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, y47Var)) == null) {
-            this.mListModel.loadFirst(y47Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, b57Var)) == null) {
+            this.mListModel.loadFirst(b57Var);
             return true;
         }
         return invokeL.booleanValue;
@@ -364,7 +364,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
             super.onResume();
             ChatStatusManager.getInst().setIsOpen(2, true);
             String curId = ChatStatusManager.getInst().getCurId(2);
-            xx4.g0().d(curId);
+            wx4.g0().d(curId);
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 1)));
         }
     }

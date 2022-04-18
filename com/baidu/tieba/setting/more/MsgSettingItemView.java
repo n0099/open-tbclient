@@ -59,13 +59,13 @@ public class MsgSettingItemView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0567, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091c95);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091c97);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c96);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091c94);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091c96);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091c98);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c97);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f091c95);
             this.d = bdSwitchView;
             oi.b(context, bdSwitchView, 10, 10, 10, 10);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d37);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d38);
             this.e = findViewById;
             findViewById.setVisibility(0);
         }

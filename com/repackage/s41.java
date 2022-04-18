@@ -234,7 +234,7 @@ public class s41 {
                 this.b = inflate;
                 inflate.setVisibility(4);
                 this.d = (ViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f090456);
-                this.f = (MaskViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f091ca0);
+                this.f = (MaskViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f091ca1);
                 this.h = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f090452);
                 this.i = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f09044f);
                 this.j = (ArrowView) this.b.findViewById(R.id.obfuscated_res_0x7f090450);

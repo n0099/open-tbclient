@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.n03;
-import com.repackage.r94;
+import com.repackage.q94;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class u32 extends t32 implements r94 {
+public final class u32 extends t32 implements q94 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,15 +58,15 @@ public final class u32 extends t32 implements r94 {
     }
 
     /* loaded from: classes7.dex */
-    public class b implements r94.a, cf3<n03.a> {
+    public class b implements q94.a, cf3<n03.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final r94.a a;
+        public final q94.a a;
         public final boolean b;
         public boolean c;
         public final /* synthetic */ u32 d;
 
-        public b(u32 u32Var, r94.a aVar) {
+        public b(u32 u32Var, q94.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,7 +90,7 @@ public final class u32 extends t32 implements r94 {
             }
         }
 
-        @Override // com.repackage.r94.a
+        @Override // com.repackage.q94.a
         public void a(String str, String str2, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
@@ -107,7 +107,7 @@ public final class u32 extends t32 implements r94 {
             }
         }
 
-        @Override // com.repackage.r94.a
+        @Override // com.repackage.q94.a
         public void b(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
@@ -204,7 +204,7 @@ public final class u32 extends t32 implements r94 {
             return invokeV.booleanValue;
         }
 
-        @Override // com.repackage.r94.a
+        @Override // com.repackage.q94.a
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, exc) == null) {
@@ -216,7 +216,7 @@ public final class u32 extends t32 implements r94 {
                     }
                     if (e) {
                         c();
-                        r94.a aVar = this.a;
+                        q94.a aVar = this.a;
                         if (exc == null) {
                             exc = new Exception("onFail");
                         }
@@ -226,7 +226,7 @@ public final class u32 extends t32 implements r94 {
             }
         }
 
-        @Override // com.repackage.r94.a
+        @Override // com.repackage.q94.a
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -280,7 +280,7 @@ public final class u32 extends t32 implements r94 {
         }
     }
 
-    public final void L(@NonNull String str, String str2, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, r94.a aVar) {
+    public final void L(@NonNull String str, String str2, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, q94.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, map, map2, jSONObject, aVar}) == null) {
             if (b) {
@@ -317,8 +317,8 @@ public final class u32 extends t32 implements r94 {
         }
     }
 
-    @Override // com.repackage.t32, com.repackage.r94
-    public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, r94.a aVar) {
+    @Override // com.repackage.t32, com.repackage.q94
+    public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, q94.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048579, this, str, map, map2, jSONObject, aVar) == null) {
             if (b) {
@@ -328,8 +328,8 @@ public final class u32 extends t32 implements r94 {
         }
     }
 
-    @Override // com.repackage.t32, com.repackage.r94
-    public void j(String str, Map<String, String> map, Map<String, String> map2, r94.a aVar) {
+    @Override // com.repackage.t32, com.repackage.q94
+    public void j(String str, Map<String, String> map, Map<String, String> map2, q94.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, map, map2, aVar) == null) {
             if (b) {

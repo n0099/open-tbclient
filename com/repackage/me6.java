@@ -1,11 +1,11 @@
 package com.repackage;
+
+import tbclient.ItemInfo;
 /* loaded from: classes6.dex */
 public interface me6 {
-    void A();
+    ItemInfo getItemInfo();
 
-    void C();
+    boolean isInScoreTab();
 
-    void m();
-
-    void r();
+    void setItemInfo(ItemInfo itemInfo);
 }

@@ -1,16 +1,15 @@
 package com.repackage;
 
-import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
 /* loaded from: classes7.dex */
 public class s59 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static volatile o59 a;
+    public static u59 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,37 +25,18 @@ public class s59 {
                 return;
             }
         }
-        a = r49.m();
+        b = new u59();
     }
 
-    public static void a(Cursor cursor) {
+    public static o59 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, cursor) == null) || cursor == null) {
-            return;
-        }
-        try {
-            if (cursor.isClosed()) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = b.a();
             }
-            cursor.close();
-        } catch (Exception e) {
-            if (a) {
-                e.printStackTrace();
-            }
+            return a;
         }
-    }
-
-    public static void b(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Exception e) {
-            if (a) {
-                e.printStackTrace();
-            }
-        }
+        return (o59) invokeV.objValue;
     }
 }

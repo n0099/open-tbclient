@@ -1,56 +1,50 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
+import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qe;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class v87 extends Thread {
+public class v87 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
-    public v87(String str, String str2, String str3) {
+    public v87() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.run();
-            if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
+                return null;
             }
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-            netWork.addPostData("obj", this.a);
-            netWork.addPostData("obj_tp", this.b);
-            netWork.addPostData("group_id", this.c);
-            netWork.postNetData();
+            br4.f();
+            List<qe.b<String>> b = ti.b(br4.g("tb.im_group_search_history"));
+            ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage();
+            responseSearchGroupLocalMessage.setCacheList(b);
+            return responseSearchGroupLocalMessage;
         }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

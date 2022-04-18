@@ -1,83 +1,64 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
-import com.baidu.tbadk.abtest.UsbAbTestConst;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
-import com.baidu.tbadk.core.util.CommonHelper;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
-import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
-import com.baidu.tbadk.coreExtra.data.CombineDownload;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
-import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tbadk.coreExtra.data.WhiteListData;
-import com.baidu.tbadk.dynamicres.data.AgreeMaterial;
-import com.baidu.tieba.interest.InterestPanelShowManager;
-import com.baidu.tieba.interest.data.RecentClientInfo;
-import com.baidu.tieba.wallet.YYLiveConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public class gy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NewGodData A;
-    public ex4 B;
-    public mw4 C;
-    public dx4 D;
-    public VersionData a;
-    public xw4 b;
-    public yw4 c;
-    public String d;
-    public CombineDownload e;
-    public jx4 f;
-    public vx4 g;
-    public nw4 h;
-    public iw4 i;
-    public kw4 j;
-    public cx4 k;
-    public final hw4 l;
-    public lx4 m;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
     public int n;
     public int o;
-    public int p;
-    public int q;
-    public zw4 r;
-    public gw4 s;
-    public ABTestExtraData t;
-    public JSONArray u;
-    public JSONArray v;
-    public JSONArray w;
-    public JSONObject x;
-    public YYLiveConfig y;
-    public a39 z;
+    public boolean p;
+    public String q;
+    public String r;
+    public HashMap<String, String> s;
+    public HashMap<String, String> t;
+    public String u;
+    public String v;
+    public String w;
+    public String x;
+    public List<a> y;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public int f;
+        public int g;
+        public int h;
+        public String i;
 
-        public a(gy4 gy4Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gy4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -85,14 +66,6 @@ public class gy4 {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                t45.d().g();
             }
         }
     }
@@ -110,357 +83,363 @@ public class gy4 {
                 return;
             }
         }
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+        this.i = 0;
+        this.j = 0;
+        this.k = 0;
+        this.l = 0;
+        this.m = 0;
+        this.n = 0;
         this.o = 0;
-        this.a = new VersionData();
-        this.b = new xw4();
-        this.c = new yw4();
-        this.e = new CombineDownload();
-        this.f = new jx4();
-        this.g = new vx4();
-        this.r = new zw4();
-        this.h = new nw4();
-        this.i = new iw4();
-        this.l = new hw4();
-        this.s = new gw4();
-        this.m = new lx4();
-        this.t = new ABTestExtraData();
-        this.A = new NewGodData();
-        this.B = new ex4();
-        this.j = new kw4();
-        this.k = new cx4();
-        this.C = new mw4();
-        this.D = new dx4();
+        this.p = true;
+        this.s = new HashMap<>();
+        this.t = new HashMap<>();
+        this.y = new ArrayList();
     }
 
-    public void A(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        JSONObject jSONObject2;
+    public void A(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            TbSingleton.getInstance().setVoiceRoomConfig(tx4.b(jSONObject));
-            TbSingleton.getInstance().setUpgradePopWindowConfig(px4.j(jSONObject));
-            this.B.a(x(jSONObject, "index_tab_info"));
-            this.a.parserJson(jSONObject.optJSONObject("version"));
-            this.b.b(jSONObject.optJSONObject("client"));
-            CommonHelper.setIp(jSONObject.optString("client_ip", null));
-            ah.g(jSONObject.optString("client_ip", null));
-            this.c.f(jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
-            this.g.j0(jSONObject.optJSONObject("wl_config"));
-            TbSingleton.getInstance().setWlConfigData(this.g);
-            jSONObject.optJSONObject("channel_icon_config");
-            this.j.c(jSONObject.optJSONObject("floating_icon"));
-            TbSingleton.getInstance().setAdFloatViewData(this.j);
-            this.k.d(jSONObject.optJSONObject("home_screen_ad"));
-            TbSingleton.getInstance().setHomeInsertAdData(this.k);
-            String optString = jSONObject.optString("new_god_data", "");
-            if (!StringUtils.isNull(optString)) {
-                this.A.parserJson(optString);
-            }
-            this.r.c(jSONObject.optJSONObject("consume_path"));
-            TbadkCoreApplication.getInst().setConsumePathData(this.r);
-            this.d = jSONObject.optString("config_version");
-            this.o = jSONObject.optInt("is_uninterest");
-            this.p = jSONObject.optInt("first_time_motivate");
-            this.q = jSONObject.optInt("needNewUserLead");
-            this.e.parserJson(jSONObject.optJSONObject("combine_download"));
-            this.f.a(jSONObject.optJSONObject("mainbar"));
-            jSONObject.optInt(TbConfig.SYNC_ACTIVE, 0);
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001141, jSONObject));
-            this.n = jSONObject.optInt("faceshop_version");
-            if (this.n > TbadkCoreApplication.getInst().getFaceShopVersion()) {
-                TbadkCoreApplication.getInst().setTempFaceShopVersion(this.n);
-                TbadkCoreApplication.getInst().setFaceShopNew(true);
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("lcs_strategy");
-            if (optJSONObject2 != null) {
-                TbadkCoreApplication.getInst().setLcsSwitchStratgy(optJSONObject2.toString());
-            }
-            new ey4().c(jSONObject.optJSONObject("dis_adv_config"));
-            WhiteListData whiteListData = new WhiteListData();
-            whiteListData.saveJson(jSONObject.optJSONArray("whitelist"));
-            TbSingleton.getInstance().setHostWhiteList(whiteListData);
-            ow4.c(jSONObject.optJSONArray("scheme_whitelist"));
-            UrlSchemaJumpHelper.setBlackList(x(jSONObject, UrlSchemaJumpHelper.KEY_APP_JUMP_BLACK_LIST));
-            this.h.a(jSONObject.optJSONObject("app_entrance"));
-            this.i.j(jSONObject.optJSONObject("ad_adsense"));
-            iy4.d(jSONObject.optJSONObject("video_report_config"));
-            this.l.b(jSONObject.optJSONObject("activity_switch"));
-            this.s.b(y(jSONObject, "abtest_config"));
-            this.t.parseJson(y(jSONObject, "new_abtest_entra"));
-            this.u = x(jSONObject, "new_abtest_config");
-            this.v = x(jSONObject, UbsABTestDataManager.PREF_KEY_SWITCHS);
-            x(jSONObject, "outside_callback_icon");
-            this.w = jSONObject.optJSONArray("windowStrategyList");
-            this.x = y(jSONObject, "bear_sdk_config");
-            if (y(jSONObject, "advertisement_config") != null) {
-                this.C.d(y(jSONObject, "advertisement_config"));
-            }
-            YYLiveConfig yYLiveConfig = new YYLiveConfig();
-            this.y = yYLiveConfig;
-            yYLiveConfig.parseJson(y(jSONObject, "yy_live_config"));
-            a39 a39Var = new a39();
-            this.z = a39Var;
-            a39Var.c(x(jSONObject, "yy_live_tab"));
-            nn4.b().f(this.w);
-            this.m.d(jSONObject.optJSONObject("profile_icon"));
-            TbSingleton.getInstance().setNewUser(jSONObject.optInt("recommend_userstatus", 0) == 1);
-            wt4.k().u("key_live_forum_enter_switch", jSONObject.optInt("ala_channel_white", 0) == 1);
-            TbSingleton.getInstance().setPcdnConfigData(jSONObject.optJSONObject("pcdn_config"));
-            JSONArray x = x(jSONObject, "offpack");
-            if (x != null && x.length() > 0 && (jSONObject2 = x.getJSONObject(0)) != null) {
-                d98 d98Var = new d98();
-                d98Var.e(jSONObject2.optString("mod_name"));
-                d98Var.f(jSONObject2.optInt("upload_offline_web_cache") == 1);
-                d98Var.d(jSONObject2.optInt("clear_offline_web_cache") == 1);
-                if (!TextUtils.isEmpty(d98Var.a())) {
-                    TbSingleton.getInstance().setUploadAndClearModule(d98Var);
-                }
-            }
-            String optString2 = jSONObject.optString("proxy_ip");
-            String optString3 = jSONObject.optString("proxy_port");
-            TbadkCoreApplication.getInst().setProxyIp(optString2);
-            TbadkCoreApplication.getInst().setProxyPort(optString3);
-            JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("ad_sdk_priority", jSONObject.optString("ad_sdk_priority", null));
-            jSONObject3.put(UsbAbTestConst.KEY_NEW_SPLASH_POLICY, jSONObject.optString(UsbAbTestConst.KEY_NEW_SPLASH_POLICY, null));
-            jSONObject3.put("ad_origin_config_switch", jSONObject.optString("ad_origin_config_switch", null));
-            jSONObject3.put("bear_sid_type", jSONObject.optString("bear_sid_type", null));
-            jSONObject3.put("screen_fill_data_result", jSONObject.optJSONObject("screen_fill_data_result"));
-            int optInt = jSONObject.optInt("ad_num_competition_frs", 5);
-            int optInt2 = jSONObject.optInt("ad_num_competition_personalize", 2);
-            wt4.k().w("key_mix_frs_ad_count", optInt);
-            wt4.k().w("key_mix_home_page_ad_count", optInt2);
-            MessageManager.getInstance().runTask(2016552, null, jSONObject3);
-            TbSingleton.getInstance().setSyncYYSwitch(jSONObject.optInt("is_yy_user", 1) == 1);
-            JSONObject optJSONObject3 = jSONObject.optJSONObject(LowFlowsActivityConfig.LF_USER_INFO);
-            if (optJSONObject3 != null) {
-                String optString4 = optJSONObject3.optString(LowFlowsActivityConfig.LF_USER);
-                TbSingleton.getInstance().setLFUser(optString4);
-                if (!StringUtils.isNull(optString4) && "2".equals(optString4)) {
-                    TbSingleton.getInstance().setLFUserTaskId(optJSONObject3.optString(LowFlowsActivityConfig.LF_USER_TASKID));
-                    TbSingleton.getInstance().setBannerText(optJSONObject3.optString(LowFlowsActivityConfig.LF_BANNER_TEXT));
-                }
-            }
-            wt4.k().w("key_personalized_rec_switch", jSONObject.optInt("personalized_rec_switch"));
-            JSONObject y = y(jSONObject, "homepage_interest_config");
-            if (y != null && this.D != null) {
-                this.D.e(y);
-                TbSingleton.getInstance().setHomepageInterestConfig(this.D);
-            }
-            qb7 qb7Var = new qb7();
-            JSONObject optJSONObject4 = jSONObject.optJSONObject("recent_client_info");
-            if (optJSONObject4 != null) {
-                qb7Var.d(RecentClientInfo.parseJson(optJSONObject4));
-            }
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("new_user_interest_board_config");
-            if (optJSONObject5 != null) {
-                qb7Var.c(ob7.e(optJSONObject5));
-            }
-            InterestPanelShowManager.a().c(qb7Var);
-            JSONObject optJSONObject6 = jSONObject.optJSONObject("bottom_bubble_config");
-            if (optJSONObject6 != null) {
-                t45.d().h(optJSONObject6);
-                pg.a().post(new a(this));
-            }
-            wt4.k().w("key_work_video_guide_pop", jSONObject.optInt("videoup_guide_pop", -1));
-            TbSingleton.getInstance().setVideoEventsConfig(sx4.e(jSONObject));
-            wt4.k().y("key_sync_extra_field", jSONObject.optString("extra"));
-            int optInt3 = jSONObject.optInt("icon_task_flag");
-            TbSingleton.getInstance().showStampMissionDialog = optInt3 == 1;
-            od8.d().h(jSONObject.optInt("afSearch_tab", 0) == 1);
-            JSONObject optJSONObject7 = jSONObject.optJSONObject("search_guide");
-            dr7.b().a();
-            if (optJSONObject7 != null && (optJSONObject = optJSONObject7.optJSONObject("pb")) != null) {
-                boolean z = optJSONObject.optInt("is_show", 0) == 1;
-                int optInt4 = optJSONObject.optInt("pos", -1);
-                ds7 ds7Var = new ds7();
-                ds7Var.a = z;
-                ds7Var.b = optInt4;
-                dr7.b().d(ds7Var);
-            }
-            h05.f().a(AgreeMaterial.y(jSONObject.optJSONObject("agree_material")));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.u = str;
         }
     }
 
-    public gw4 a() {
-        InterceptResult invokeV;
+    public void B(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s : (gw4) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
     }
 
-    public ABTestExtraData b() {
-        InterceptResult invokeV;
+    public void C(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.t : (ABTestExtraData) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
     }
 
-    public JSONArray c() {
-        InterceptResult invokeV;
+    public void D() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.u : (JSONArray) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            HashMap<String, String> a2 = a();
+            Set<String> keySet = a2.keySet();
+            if (keySet.size() != 1) {
+                A(null);
+            } else {
+                A(a2.get(keySet.iterator().next()));
+            }
+        }
     }
 
-    public hw4 d() {
-        InterceptResult invokeV;
+    public void E() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l : (hw4) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            HashMap<String, String> h = h();
+            Set<String> keySet = h.keySet();
+            if (keySet.size() != 1) {
+                J(null);
+            } else {
+                J(h.get(keySet.iterator().next()));
+            }
+        }
     }
 
-    public iw4 e() {
-        InterceptResult invokeV;
+    public void F(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (iw4) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.q = str;
+        }
     }
 
-    public kw4 f() {
-        InterceptResult invokeV;
+    public void G(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : (kw4) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        }
     }
 
-    public mw4 g() {
-        InterceptResult invokeV;
+    public void H(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.C : (mw4) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.r = str;
+        }
     }
 
-    public nw4 h() {
-        InterceptResult invokeV;
+    public void I(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (nw4) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        }
     }
 
-    public xw4 i() {
-        InterceptResult invokeV;
+    public void J(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : (xw4) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.v = str;
+        }
     }
 
-    public CombineDownload j() {
-        InterceptResult invokeV;
+    public void K(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.e : (CombineDownload) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.p = z;
+        }
     }
 
-    public yw4 k() {
-        InterceptResult invokeV;
+    public void L(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c : (yw4) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.a = i;
+        }
     }
 
-    public JSONObject l() {
-        InterceptResult invokeV;
+    public void M(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.x : (JSONObject) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.c = i;
+        }
     }
 
-    public boolean m() {
+    public void N(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void O(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void P(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void Q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void R(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void S(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.o = i;
+        }
+    }
+
+    public void T(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.m = i;
+        }
+    }
+
+    public void U(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.k = i;
+        }
+    }
+
+    public void V(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.l = i;
+        }
+    }
+
+    public void W(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void X(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public void Y(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.n = i;
+        }
+    }
+
+    public HashMap<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.p == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.s : (HashMap) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.u : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.x : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.w : (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.q : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.r : (String) invokeV.objValue;
+    }
+
+    public List<a> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.y : (List) invokeV.objValue;
+    }
+
+    public HashMap<String, String> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.t : (HashMap) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.v : (String) invokeV.objValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.q : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.d : invokeV.intValue;
     }
 
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.o : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public NewGodData p() {
+    public int p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.A : (NewGodData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) ? this.f : invokeV.intValue;
     }
 
-    public lx4 q() {
+    public int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.m : (lx4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    public JSONArray r() {
+    public int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.v : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    public VersionData s() {
+    public int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.a : (VersionData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) ? this.o : invokeV.intValue;
     }
 
-    public vx4 t() {
+    public int t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.g : (vx4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.m : invokeV.intValue;
     }
 
-    public YYLiveConfig u() {
+    public int u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.y : (YYLiveConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.k : invokeV.intValue;
     }
 
-    public a39 v() {
+    public int v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.z : (a39) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.l : invokeV.intValue;
     }
 
-    public String w() {
+    public int w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.i : invokeV.intValue;
     }
 
-    public final JSONArray x(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
+    public int x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, jSONObject, str)) == null) {
-            try {
-                return jSONObject.optJSONArray(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (JSONArray) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? this.j : invokeV.intValue;
     }
 
-    public final JSONObject y(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
+    public int y() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, jSONObject, str)) == null) {
-            try {
-                return jSONObject.optJSONObject(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (JSONObject) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.n : invokeV.intValue;
     }
 
-    public void z(String str) {
+    public boolean z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            try {
-                A(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? this.p : invokeV.booleanValue;
     }
 }

@@ -41,7 +41,7 @@ public class hu2 {
         c = 0;
         f = f("swan_670_append_request_info");
         qj2.g0().getSwitch("swan_description_online_control", 0);
-        pc4.a = 0;
+        oc4.a = 0;
         qj2.g0().getSwitch("swan_bdtls_use_cache", false);
         g = false;
     }

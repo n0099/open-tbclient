@@ -28,14 +28,14 @@ public class qq1 extends pq1 {
 
         /* renamed from: com.repackage.qq1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0497a implements v93.a {
+        public class C0501a implements v93.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ br1 b;
             public final /* synthetic */ a c;
 
-            public C0497a(a aVar, String str, br1 br1Var) {
+            public C0501a(a aVar, String str, br1 br1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public class qq1 extends pq1 {
                 br1 br1Var = new br1("accelerometerChange", jSONObject, str);
                 v93 a = v93.a();
                 a.b(this.a.getContext(), b.a(jSONObject.optString("interval")));
-                a.e(new C0497a(this, str, br1Var));
+                a.e(new C0501a(this, str, br1Var));
                 a.f();
                 br1Var.b(this.a);
                 return js1.f();

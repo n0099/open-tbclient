@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class gw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public int a;
 
     public gw4() {
         Interceptable interceptable = $ic;
@@ -23,16 +23,14 @@ public class gw4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == 1 : invokeV.booleanValue;
     }
 
     public void b(JSONObject jSONObject) {
@@ -40,31 +38,6 @@ public class gw4 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("zan_or_cai_smallflow");
-            c(optJSONObject);
-            d(optJSONObject);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public final void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = true;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            if (jSONObject != null) {
-                wt4.k().y("praise_abtest_switch_json", jSONObject.toString());
-            } else {
-                wt4.k().y("praise_abtest_switch_json", "");
-            }
-        }
+        this.a = jSONObject.optInt("agree_icon", 0);
     }
 }

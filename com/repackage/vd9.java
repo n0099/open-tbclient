@@ -1,67 +1,41 @@
 package com.repackage;
 
-import android.os.IBinder;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
-import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.voyager.impl.IVoyagerService;
 /* loaded from: classes7.dex */
 public class vd9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile IVoyagerService b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
+    public static long e = 300000;
+    public static int f = 10;
+    public static long g = 604800000;
+    public static long h = 104857600;
+    public static int i = 100;
+    public static int j = 5;
+    public static long k = 104857600;
+    public static int l = 0;
+    public static int m = 1;
+    public static int n;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755234874, "Lcom/repackage/vd9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755234874, "Lcom/repackage/vd9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755234874, "Lcom/repackage/vd9;")) == null) {
+            return;
         }
-        a = AppConfig.isDebug();
-    }
-
-    public vd9() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
         }
-    }
-
-    public static IVoyagerService b() {
-        InterceptResult invokeV;
-        IBinder f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (vd9.class) {
-                    if (b == null && (f = IPCServiceManager.f("remote_voyager_service", true)) != null) {
-                        b = IVoyagerService.Stub.asInterface(f);
-                    }
-                }
-            }
-            return b;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755234874, "Lcom/repackage/vd9;");
         }
-        return (IVoyagerService) invokeV.objValue;
     }
 }

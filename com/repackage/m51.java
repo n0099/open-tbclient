@@ -79,8 +79,8 @@ public class m51 extends j51 {
                 return;
             }
         }
-        this.g = (TextView) a(R.id.obfuscated_res_0x7f090987);
-        this.f = (TextView) a(R.id.obfuscated_res_0x7f0914b4);
+        this.g = (TextView) a(R.id.obfuscated_res_0x7f090988);
+        this.f = (TextView) a(R.id.obfuscated_res_0x7f0914b5);
         k();
     }
 
@@ -94,7 +94,7 @@ public class m51 extends j51 {
                 ((GradientDrawable) this.f.getBackground()).setStroke(2, getResources().getColor(R.color.obfuscated_res_0x7f0602d9));
                 return;
             }
-            this.f.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd4));
+            this.f.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd8));
         }
     }
 

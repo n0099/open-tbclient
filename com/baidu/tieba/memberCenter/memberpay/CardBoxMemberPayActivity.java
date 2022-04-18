@@ -34,9 +34,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ck7;
 import com.repackage.e85;
-import com.repackage.uj7;
-import com.repackage.zj7;
+import com.repackage.xj7;
 /* loaded from: classes3.dex */
 public class CardBoxMemberPayActivity extends BaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -49,7 +49,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
     public String mPackedId;
     public String mReferPage;
     public HttpMessageListener mRequestMemberPayInfoListener;
-    public uj7 mView;
+    public xj7 mView;
 
     /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
@@ -139,12 +139,12 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                             this.a.mView.m(responseCardBoxMemberPayMessage.getMemberPayResult());
                             return;
                         }
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                         return;
                     }
                     String errorString = responseCardBoxMemberPayMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                     }
                     this.a.showToast(errorString);
                 }
@@ -263,7 +263,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.mView = new uj7(this);
+            this.mView = new xj7(this);
         }
     }
 
@@ -307,8 +307,8 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
             PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, false, PageDialogHelper$PayForm.NOT_SET, this.mReferPage, this.mClickZone);
             payConfig.setFrom(4);
-            uj7 uj7Var = this.mView;
-            if (uj7Var == null || uj7Var.i() == null) {
+            xj7 xj7Var = this.mView;
+            if (xj7Var == null || xj7Var.i() == null) {
                 str = "";
             } else {
                 payConfig.setTitle(this.mView.i());
@@ -366,13 +366,13 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        uj7 uj7Var;
+        xj7 xj7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (uj7Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (xj7Var = this.mView) == null) {
             return;
         }
-        if (view2 == uj7Var.h() && this.mView.d() != null) {
-            zj7.d d = this.mView.d();
+        if (view2 == xj7Var.h() && this.mView.d() != null) {
+            ck7.d d = this.mView.d();
             startDealIntentService(d.i, d.j / 100, d.l, d.n);
         } else if (view2 == this.mView.f()) {
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{MEMBER_AGREEMENT_JUMP_URL});

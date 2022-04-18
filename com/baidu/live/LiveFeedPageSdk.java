@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bv9;
 import com.repackage.fc0;
 import com.repackage.ib0;
+import com.repackage.iv9;
 import com.repackage.ka0;
 import com.repackage.ma0;
 import com.repackage.ta0;
@@ -175,7 +175,7 @@ public class LiveFeedPageSdk {
     public String h(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? bv9.a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? iv9.a(context) : (String) invokeL.objValue;
     }
 
     public void i(String str, String str2) {

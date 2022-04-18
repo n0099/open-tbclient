@@ -152,6 +152,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(AsyncParseMessageSwitch.class);
             SwitchManager.getInstance().registerSwitch(DelayInitNightPluginSwitch.class);
             SwitchManager.getInstance().registerSwitch(PreInitAdCardViewSwitch.class);
+            SwitchManager.getInstance().registerSwitch(ImgUaSwitch.class);
         }
     }
 }

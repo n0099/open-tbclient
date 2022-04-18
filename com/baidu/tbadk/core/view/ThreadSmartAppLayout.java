@@ -21,11 +21,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fz;
 import com.repackage.ni;
-import com.repackage.qn4;
+import com.repackage.pn4;
 import com.repackage.ul5;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
-public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, fz<qn4> {
+public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, fz<pn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
@@ -73,24 +73,24 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: c */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn4Var) == null) {
-            if (qn4Var != null && qn4Var.getThreadData() != null && qn4Var.getThreadData().getSmartApp() != null) {
-                SmartApp smartApp = qn4Var.getThreadData().getSmartApp();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) {
+            if (pn4Var != null && pn4Var.getThreadData() != null && pn4Var.getThreadData().getSmartApp() != null) {
+                SmartApp smartApp = pn4Var.getThreadData().getSmartApp();
                 this.d = smartApp;
                 if (!ni.isEmpty(smartApp.avatar)) {
                     this.a.L(this.d.avatar, 10, false, false);
                 }
                 if (!ni.isEmpty(this.d.name)) {
-                    this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f118a));
+                    this.b.setText(this.d.name + " " + getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1189));
                 } else {
                     this.b.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08ec));
                 }
                 if (!ni.isEmpty(this.d._abstract)) {
                     this.c.setText(this.d._abstract);
                 } else {
-                    this.c.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1189));
+                    this.c.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f1188));
                 }
                 setVisibility(0);
                 return;
@@ -175,12 +175,12 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
             }
         }
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d082e, (ViewGroup) this, true);
-        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090ff3);
+        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090ff4);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setPlaceHolder(1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fd);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fc);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fe);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fd);
         setOnClickListener(this);
         d();
     }

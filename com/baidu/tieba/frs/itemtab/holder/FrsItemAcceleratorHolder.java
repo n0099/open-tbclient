@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.im6;
-import com.repackage.kf6;
-import com.repackage.uu4;
+import com.repackage.km6;
+import com.repackage.mf6;
+import com.repackage.tu4;
 /* loaded from: classes3.dex */
 public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -47,14 +47,14 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         this.b = bdUniqueId;
     }
 
-    public void c(im6 im6Var) {
+    public void c(km6 km6Var) {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, im6Var) == null) || (frsItemAcceleratorView = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, km6Var) == null) || (frsItemAcceleratorView = this.a) == null) {
             return;
         }
-        frsItemAcceleratorView.setBtnColor(im6Var.b());
-        this.a.setBtnImgClickListener(new View.OnClickListener() { // from class: com.repackage.sm6
+        frsItemAcceleratorView.setBtnColor(km6Var.b());
+        this.a.setBtnImgClickListener(new View.OnClickListener() { // from class: com.repackage.um6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,7 +66,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
                 }
             }
         });
-        this.a.setBtnDescClickListener(new View.OnClickListener() { // from class: com.repackage.rm6
+        this.a.setBtnDescClickListener(new View.OnClickListener() { // from class: com.repackage.tm6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -109,18 +109,18 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
 
     public /* synthetic */ void g(View view2) {
         i(2);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new uu4(19)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new tu4(19)));
     }
 
     public /* synthetic */ void h(View view2) {
         i(1);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new uu4(18)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new tu4(18)));
     }
 
     public final void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new kf6(i));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new mf6(i));
             CustomMessage customMessage = new CustomMessage(2921662);
             customMessage.setTag(this.b);
             customResponsedMessage.setOrginalMessage(customMessage);

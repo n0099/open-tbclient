@@ -20,19 +20,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d56;
-import com.repackage.e67;
+import com.repackage.f56;
+import com.repackage.h67;
 import com.repackage.w75;
+import com.repackage.xm4;
 import com.repackage.y75;
-import com.repackage.ym4;
 import com.repackage.z75;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
-public class EnterForumTabFragment extends BaseFragment implements ym4 {
+public class EnterForumTabFragment extends BaseFragment implements xm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d56 a;
+    public f56 a;
     public NewPagerSlidingTabBaseStrip.c b;
     public CustomMessageListener c;
     public CustomMessageListener d;
@@ -262,9 +262,9 @@ public class EnterForumTabFragment extends BaseFragment implements ym4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.changeSkinType(i);
-            d56 d56Var = this.a;
-            if (d56Var != null) {
-                d56Var.onChangeSkinType(i);
+            f56 f56Var = this.a;
+            if (f56Var != null) {
+                f56Var.onChangeSkinType(i);
             }
         }
     }
@@ -274,9 +274,9 @@ public class EnterForumTabFragment extends BaseFragment implements ym4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            d56 d56Var = this.a;
-            if (d56Var != null) {
-                return d56Var.t();
+            f56 f56Var = this.a;
+            if (f56Var != null) {
+                return f56Var.t();
             }
             return null;
         }
@@ -304,9 +304,9 @@ public class EnterForumTabFragment extends BaseFragment implements ym4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            d56 d56Var = this.a;
-            if (d56Var != null) {
-                d56Var.F(i, i2, intent);
+            f56 f56Var = this.a;
+            if (f56Var != null) {
+                f56Var.F(i, i2, intent);
             }
         }
     }
@@ -316,9 +316,9 @@ public class EnterForumTabFragment extends BaseFragment implements ym4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            d56 d56Var = this.a;
-            if (d56Var != null) {
-                d56Var.onChangeSkinType(this.mSkinType);
+            f56 f56Var = this.a;
+            if (f56Var != null) {
+                f56Var.onChangeSkinType(this.mSkinType);
             }
         }
     }
@@ -328,7 +328,7 @@ public class EnterForumTabFragment extends BaseFragment implements ym4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new d56(this);
+            this.a = new f56(this);
             registerListener(this.c);
             registerListener(this.d);
         }
@@ -353,11 +353,11 @@ public class EnterForumTabFragment extends BaseFragment implements ym4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            e67.m().c();
+            h67.m().c();
             MessageManager.getInstance().unRegisterListener(this.c);
-            d56 d56Var = this.a;
-            if (d56Var != null) {
-                d56Var.G();
+            f56 f56Var = this.a;
+            if (f56Var != null) {
+                f56Var.G();
             }
         }
     }
@@ -378,9 +378,9 @@ public class EnterForumTabFragment extends BaseFragment implements ym4 {
             if (isPrimary() && getActivity() != null) {
                 C0(getActivity().getIntent(), null);
             }
-            d56 d56Var = this.a;
-            if (d56Var != null) {
-                d56Var.Q(isPrimary());
+            f56 f56Var = this.a;
+            if (f56Var != null) {
+                f56Var.Q(isPrimary());
             }
         }
     }
@@ -416,7 +416,7 @@ public class EnterForumTabFragment extends BaseFragment implements ym4 {
         }
     }
 
-    @Override // com.repackage.ym4
+    @Override // com.repackage.xm4
     public void r0(Intent intent) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048592, this, intent) == null) || intent == null || this.a == null) {
@@ -436,9 +436,9 @@ public class EnterForumTabFragment extends BaseFragment implements ym4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             super.setPrimary(z);
-            d56 d56Var = this.a;
-            if (d56Var != null) {
-                d56Var.Q(z);
+            f56 f56Var = this.a;
+            if (f56Var != null) {
+                f56Var.Q(z);
             }
         }
     }

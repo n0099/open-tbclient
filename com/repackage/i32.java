@@ -56,23 +56,23 @@ public class i32 extends j32 {
         }
     }
 
-    @Override // com.repackage.j32, com.repackage.d84
-    public void D(c94 c94Var) {
+    @Override // com.repackage.j32, com.repackage.c84
+    public void D(b94 b94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c94Var) == null) {
-            super.D(c94Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, b94Var) == null) {
+            super.D(b94Var);
             if (D) {
-                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + c94Var.toString());
+                Log.e("SwanAppPkgAsyncDownloadCallback", "swanAsyncUpdate :: onFetchError: " + b94Var.toString());
             }
             I0("checkForUpdate", false);
-            n0(c94Var.a);
-            if (z32.m(c94Var)) {
+            n0(b94Var.a);
+            if (z32.m(b94Var)) {
                 z32.c(this.o);
             }
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -85,25 +85,25 @@ public class i32 extends j32 {
         }
     }
 
-    @Override // com.repackage.j32, com.repackage.d84
-    public void H(qd4 qd4Var) {
+    @Override // com.repackage.j32, com.repackage.c84
+    public void H(pd4 pd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qd4Var) == null) {
-            super.H(qd4Var);
-            I0("checkForUpdate", qd4Var != null && qd4Var.f());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pd4Var) == null) {
+            super.H(pd4Var);
+            I0("checkForUpdate", pd4Var != null && pd4Var.f());
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void I(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
             super.I(str, i);
-            n94 a = n94.a(str);
+            m94 a = m94.a(str);
             if (a == null) {
                 return;
             }
-            boolean b = pd4.b(a.c());
+            boolean b = od4.b(a.c());
             jx1.i("SwanAppPkgAsyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
             if (b) {
                 zw2 e = zw2.e();

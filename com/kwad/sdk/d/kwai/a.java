@@ -34,6 +34,6 @@ public class a extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.a = (ComplianceTextView) a(R.id.obfuscated_res_0x7f091051);
+        this.a = (ComplianceTextView) a(R.id.obfuscated_res_0x7f091052);
     }
 }

@@ -65,13 +65,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a9;
 import com.repackage.b35;
 import com.repackage.c35;
-import com.repackage.de8;
-import com.repackage.e78;
-import com.repackage.ee8;
-import com.repackage.fn4;
-import com.repackage.rt4;
+import com.repackage.en4;
+import com.repackage.ke8;
+import com.repackage.l78;
+import com.repackage.le8;
+import com.repackage.qt4;
+import com.repackage.vt4;
 import com.repackage.wa;
-import com.repackage.wt4;
 import com.repackage.z35;
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +87,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     public MoreModel mModel;
     public CustomMessageListener mModifyNicknameSucceedListener;
     public wa mPersonInfoChangedListener;
-    public ee8 mView;
+    public le8 mView;
     public List<Integer> notNeedLoginFunctions;
     public g receiver;
 
@@ -230,7 +230,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
     }
 
     /* loaded from: classes4.dex */
-    public class d implements de8 {
+    public class d implements ke8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MoreActivity a;
@@ -253,7 +253,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             this.a = moreActivity;
         }
 
-        @Override // com.repackage.de8
+        @Override // com.repackage.ke8
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.isNeedLogin(i)) {
@@ -291,8 +291,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
                 TbadkSettings.getInst().saveBoolean("is_exit_app_not_start_websocket", true);
                 z35.b(0, 0, 0, 2, 12);
                 BdSocketLinkService.close("exit app");
-                e78.d().b();
-                rt4.g(this.a.getPageContext().getPageActivity(), 12, false);
+                l78.d().b();
+                qt4.g(this.a.getPageContext().getPageActivity(), 12, false);
             } else if (i == 13) {
                 this.a.goToAccountSafe();
                 TiebaStatic.log("c10017");
@@ -478,10 +478,10 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         return (interceptable == null || (invokeL = interceptable.invokeL(65556, this, personChangeData)) == null) ? (personChangeData == null || (TextUtils.isEmpty(personChangeData.getUserId()) && TextUtils.isEmpty(personChangeData.getName()) && TextUtils.isEmpty(personChangeData.getPortrait()) && TextUtils.isEmpty(personChangeData.getmTiebaId()))) ? false : true : invokeL.booleanValue;
     }
 
-    private de8 getItemClickListener() {
+    private ke8 getItemClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) ? new d(this) : (de8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) ? new d(this) : (ke8) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -497,7 +497,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if ((currentAccount == null || currentAccount.length() <= 0) && fn4.d() <= 0) {
+            if ((currentAccount == null || currentAccount.length() <= 0) && en4.d() <= 0) {
                 TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), 11003)));
             } else {
                 sendMessage(new CustomMessage(2015006, new IntentConfig(getPageContext().getPageActivity())));
@@ -706,12 +706,12 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void OnSwitchStateChange(View view2, BdSwitchView.SwitchState switchState) {
-        ee8 ee8Var;
+        le8 le8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) || view2 == null || (ee8Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) || view2 == null || (le8Var = this.mView) == null) {
             return;
         }
-        if (view2 == ee8Var.y()) {
+        if (view2 == le8Var.y()) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 UtilHelper.showSkinChangeAnimation(this);
                 UtilHelper.setNavigationBarBackground(this, getResources().getColor(R.color.CAM_X0201_1));
@@ -721,8 +721,8 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             }
         }
         if (view2 == this.mView.A()) {
-            wt4.k().u("key_is_dark_mode_notify_shown", true);
-            wt4.k().u("key_is_follow_system_mode", BdSwitchView.SwitchState.ON == switchState);
+            vt4.k().u("key_is_dark_mode_notify_shown", true);
+            vt4.k().u("key_is_follow_system_mode", BdSwitchView.SwitchState.ON == switchState);
             if (TbadkCoreApplication.getInst().getSkinType() != 1) {
                 SkinManager.setDayOrDarkSkinTypeWithSystemMode(true, false);
             }
@@ -771,7 +771,7 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new ee8(this, getItemClickListener());
+            this.mView = new le8(this, getItemClickListener());
             initModel(bundle);
             regReceiver();
             registerListener(this.mPersonInfoChangedListener);
@@ -787,9 +787,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
             unregReceiver();
-            ee8 ee8Var = this.mView;
-            if (ee8Var != null) {
-                ee8Var.w();
+            le8 le8Var = this.mView;
+            if (le8Var != null) {
+                le8Var.w();
             }
         }
     }
@@ -822,9 +822,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            ee8 ee8Var = this.mView;
-            if (ee8Var != null) {
-                ee8Var.G();
+            le8 le8Var = this.mView;
+            if (le8Var != null) {
+                le8Var.G();
                 this.mView.E();
             }
         }
@@ -857,9 +857,9 @@ public class MoreActivity extends BaseActivity<MoreActivity> implements BdSwitch
             if (this.mGetImageWatermarkTypeModel != null) {
                 this.mGetImageWatermarkTypeModel = new GetImageWatermarkTypeModel(this);
             }
-            ee8 ee8Var = this.mView;
-            if (ee8Var != null) {
-                ee8Var.K();
+            le8 le8Var = this.mView;
+            if (le8Var != null) {
+                le8Var.K();
                 this.mView.M();
             }
         }

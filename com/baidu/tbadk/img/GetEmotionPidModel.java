@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.l35;
-import com.repackage.zl4;
+import com.repackage.yl4;
 /* loaded from: classes3.dex */
 public class GetEmotionPidModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -138,7 +138,7 @@ public class GetEmotionPidModel extends BdBaseModel {
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
-            httpMessage.addParam("pic_url", zl4.q(str));
+            httpMessage.addParam("pic_url", yl4.q(str));
             sendMessage(httpMessage);
         }
     }

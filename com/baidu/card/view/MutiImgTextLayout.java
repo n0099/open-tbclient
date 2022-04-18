@@ -28,19 +28,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.Cdo;
 import com.repackage.fz;
 import com.repackage.oi;
-import com.repackage.qn4;
-import com.repackage.rx5;
+import com.repackage.pn4;
+import com.repackage.tx5;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class MutiImgTextLayout extends LinearLayout implements fz<qn4> {
+public class MutiImgTextLayout extends LinearLayout implements fz<pn4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public TextView b;
     public PlayVoiceBntNew c;
-    public rx5<qn4> d;
-    public qn4 e;
+    public tx5<pn4> d;
+    public pn4 e;
     public boolean f;
 
     /* loaded from: classes.dex */
@@ -69,7 +69,7 @@ public class MutiImgTextLayout extends LinearLayout implements fz<qn4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            rx5<qn4> subClickListener;
+            tx5<pn4> subClickListener;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (subClickListener = this.a.getSubClickListener()) == null) {
                 return;
@@ -142,9 +142,9 @@ public class MutiImgTextLayout extends LinearLayout implements fz<qn4> {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d058d, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f79);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091f87);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f091f88);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f7a);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091f88);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f091f89);
             this.c = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
         }
@@ -153,11 +153,11 @@ public class MutiImgTextLayout extends LinearLayout implements fz<qn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: d */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn4Var) == null) {
-            this.e = qn4Var;
-            ThreadData threadData = qn4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) {
+            this.e = pn4Var;
+            ThreadData threadData = pn4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.f);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, g, this.f);
             TextView textView = this.a;
@@ -194,10 +194,10 @@ public class MutiImgTextLayout extends LinearLayout implements fz<qn4> {
         }
     }
 
-    public rx5<qn4> getSubClickListener() {
+    public tx5<pn4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (rx5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (tx5) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -244,10 +244,10 @@ public class MutiImgTextLayout extends LinearLayout implements fz<qn4> {
         }
     }
 
-    public void setSubClickListener(rx5<qn4> rx5Var) {
+    public void setSubClickListener(tx5<pn4> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, rx5Var) == null) {
-            this.d = rx5Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, tx5Var) == null) {
+            this.d = tx5Var;
         }
     }
 

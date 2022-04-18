@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.oj7;
+import com.repackage.rj7;
 /* loaded from: classes3.dex */
 public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +28,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
     public String descStr;
     public String dueDate;
     public HttpMessageListener getTCodeInfoListener;
-    public oj7 mView;
+    public rj7 mView;
     public String memberImage;
     public String memberLevelIcon;
     public String memberName;
@@ -76,12 +76,12 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                             return;
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 String errorString = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString) || StringUtil.NULL_STRING.equals(errorString)) {
-                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                 }
                 this.a.showToast(errorString);
             }
@@ -135,7 +135,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2.getId() == R.id.obfuscated_res_0x7f090cce) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f090ccf) {
             requestTCodeInfo();
         } else {
             oi.w(getPageContext().getPageActivity(), this.mView.b());
@@ -162,9 +162,9 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
             }
             initTask();
             initListener();
-            oj7 oj7Var = new oj7(this);
-            this.mView = oj7Var;
-            oj7Var.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
+            rj7 rj7Var = new rj7(this);
+            this.mView = rj7Var;
+            rj7Var.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
         }
     }
 }

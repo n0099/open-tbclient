@@ -34,17 +34,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ie6;
+import com.repackage.ke6;
 import com.repackage.m45;
 import com.repackage.oi;
-import com.repackage.pe6;
+import com.repackage.re6;
+import com.repackage.vt4;
 import com.repackage.w75;
-import com.repackage.wt4;
 import com.repackage.y75;
 import com.repackage.z75;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager.OnPageChangeListener, pe6 {
+public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager.OnPageChangeListener, re6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -336,18 +336,18 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ie6) || this.a.d.getCount() > 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ke6) || this.a.d.getCount() > 0) {
                 return;
             }
-            ie6 ie6Var = (ie6) customResponsedMessage.getData();
+            ke6 ke6Var = (ke6) customResponsedMessage.getData();
             Message<?> message = customResponsedMessage.getmOrginalMessage();
             if (message == null || message.getTag() == null || !message.getTag().equals(this.a.getUniqueId())) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
-            if (ie6Var.e() != null) {
-                for (m45 m45Var : ie6Var.e()) {
+            if (ke6Var.e() != null) {
+                for (m45 m45Var : ke6Var.e()) {
                     if (m45Var.b().a != null) {
                         arrayList.add(m45Var.b().a);
                         arrayList2.add(Integer.valueOf(m45Var.b().e));
@@ -432,11 +432,11 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
             gVar.setTag(getUniqueId());
             gVar.setPriority(Integer.MAX_VALUE);
             registerListener(gVar);
-            ie6 ie6Var = new ie6(getPageContext().getPageActivity());
-            ie6Var.g(this.g);
-            ie6Var.h(this.h);
-            ie6Var.f(this.i);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001619, ie6Var);
+            ke6 ke6Var = new ke6(getPageContext().getPageActivity());
+            ke6Var.g(this.g);
+            ke6Var.h(this.h);
+            ke6Var.f(this.i);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001619, ke6Var);
             customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, getUniqueId()));
             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
@@ -474,7 +474,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         this.a.setCenterTextTitle(sb.toString());
     }
 
-    @Override // com.repackage.pe6
+    @Override // com.repackage.re6
     public NavigationBar d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -658,11 +658,11 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
                     this.e = 0;
                     this.c.setCurrentTab(0);
                 }
-                String q = wt4.k().q("square_jump_tab_name", null);
+                String q = vt4.k().q("square_jump_tab_name", null);
                 if (!TextUtils.isEmpty(q)) {
                     this.c.setCurrentTab(I0(q));
                 }
-                wt4.k().y("square_jump_tab_name", "");
+                vt4.k().y("square_jump_tab_name", "");
             }
             if (isAdded() && (fragmentTabHost = this.c) != null && (fragmentTabHost.getCurrentFragment() instanceof BaseFragment)) {
                 ((BaseFragment) this.c.getCurrentFragment()).setPrimary(isPrimary());

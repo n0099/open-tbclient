@@ -258,7 +258,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f09153e);
+            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f09153f);
             int f = ae3.f(getContext(), 29.0f);
             this.e = f;
             this.f = (int) (f * 2.4f);

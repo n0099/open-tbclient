@@ -140,7 +140,7 @@ public class yb2<T extends sb2> extends ua2<T> {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        ng4.k(str);
+        mg4.k(str);
     }
 
     /* JADX WARN: Incorrect types in method signature: <T:Lcom/repackage/pb2;>(TT;)Ljava/lang/Exception; */
@@ -212,7 +212,7 @@ public class yb2<T extends sb2> extends ua2<T> {
             } else if (!wd3.a(new File(pb2Var.c), pb2Var.d)) {
                 return a.b("sign failed.");
             } else {
-                if (!ng4.U(pb2Var.c, b(j).getPath())) {
+                if (!mg4.U(pb2Var.c, b(j).getPath())) {
                     return a.b("unzip bundle failed.");
                 }
                 ac2.b(a(), g(), j);

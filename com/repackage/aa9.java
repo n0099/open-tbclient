@@ -1,179 +1,145 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import com.baidu.minivideo.plugin.capture.download.core.DownloadStatusDeliveryImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.baidu.ugc.download.exception.DownloadException;
+import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class aa9 {
+public class aa9 implements u99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Executor a;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final int b;
+        public final /* synthetic */ Handler a;
 
-        public a(int i, int i2) {
+        public a(aa9 aa9Var, Handler handler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {aa9Var, handler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i;
-            this.b = i2;
+            this.a = handler;
         }
 
-        public int a() {
-            InterceptResult invokeV;
+        @Override // java.util.concurrent.Executor
+        public void execute(Runnable runnable) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                this.a.post(runnable);
+            }
         }
+    }
 
-        public int b() {
-            InterceptResult invokeV;
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final t99 a;
+        public final r99 b;
+
+        public b(t99 t99Var) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
-        }
-    }
-
-    public static int[] a(float f, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            int[] iArr = new int[2];
-            if (f > 1.0f) {
-                iArr[0] = i;
-                iArr[1] = (int) (i * f);
-                int i2 = iArr[1] % 16;
-                if (i2 > 8) {
-                    iArr[1] = iArr[1] + (16 - i2);
-                } else {
-                    iArr[1] = iArr[1] - i2;
-                }
-            } else {
-                iArr[1] = i;
-                iArr[0] = (int) (i * (1.0f / f));
-                int i3 = iArr[0] % 16;
-                if (i3 > 8) {
-                    iArr[0] = iArr[0] + (16 - i3);
-                } else {
-                    iArr[0] = iArr[0] - i3;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t99Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return iArr;
+            this.a = t99Var;
+            this.b = t99Var.a();
         }
-        return (int[]) invokeCommon.objValue;
-    }
 
-    public static int[] b(float f, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int[] iArr = new int[2];
-            if (i > i2) {
-                int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
-                if (i3 == 0) {
-                    iArr[0] = c(i);
-                    iArr[1] = c(i);
-                    return iArr;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                switch (this.a.h()) {
+                    case 102:
+                        gc9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTING");
+                        this.b.c();
+                        return;
+                    case 103:
+                        gc9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CONNECTED length: " + this.a.e() + " acceptRanges: " + this.a.i());
+                        this.b.b(this.a.e(), this.a.i());
+                        return;
+                    case 104:
+                        gc9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PROGRESS finished: " + this.a.d() + " length: " + this.a.e() + " percent: " + this.a.f());
+                        this.b.g(this.a.d(), this.a.e(), this.a.f());
+                        return;
+                    case 105:
+                        gc9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_COMPLETED Path:" + this.a.g());
+                        if (this.a.b()) {
+                            return;
+                        }
+                        this.a.l(true);
+                        this.b.a(this.a.g());
+                        return;
+                    case 106:
+                        gc9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_PAUSED");
+                        this.b.e();
+                        return;
+                    case 107:
+                        gc9.a(DownloadStatusDeliveryImpl.TAG, "STATUS_CANCELED");
+                        this.b.d();
+                        return;
+                    case 108:
+                        gc9.c(DownloadStatusDeliveryImpl.TAG, "STATUS_FAILED error: " + this.a.c().getCause());
+                        this.b.f((DownloadException) this.a.c());
+                        return;
+                    default:
+                        return;
                 }
-                if (i3 > 0) {
-                    iArr[1] = i;
-                    iArr[0] = (int) (i * (1.0f / f));
-                } else {
-                    iArr[1] = i2;
-                    iArr[0] = (int) (i2 * (1.0f / f));
-                }
-                iArr[0] = c(iArr[0]);
-            } else {
-                int i4 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
-                if (i4 == 0) {
-                    iArr[0] = c(i2);
-                    iArr[1] = c(i2);
-                    return iArr;
-                }
-                if (i4 > 0) {
-                    iArr[0] = i;
-                    iArr[1] = (int) (i * f);
-                } else {
-                    iArr[0] = i2;
-                    iArr[1] = (int) (i2 * f);
-                }
-                iArr[1] = c(iArr[1]);
             }
-            return iArr;
         }
-        return (int[]) invokeCommon.objValue;
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    public aa9(Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = i % 16;
-            return i2 > 8 ? i + (16 - i2) : i - i2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static a d(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
-            if (i > 1920 || i2 > 1920) {
-                int[] a2 = a(i2 / i, RecordConstants.VIDEO_CONSTANT_WIDTH);
-                return new a(a2[0], a2[1]);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {handler};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return new a(i, i2);
         }
-        return (a) invokeII.objValue;
+        this.a = new a(this, handler);
     }
 
-    public static a e(float f, int i) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.u99
+    public void a(t99 t99Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            if (f <= 0.0f) {
-                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
-            }
-            int[] a2 = a(f, i);
-            return new a(a2[0], a2[1]);
+        if (interceptable == null || interceptable.invokeL(1048576, this, t99Var) == null) {
+            this.a.execute(new b(t99Var));
         }
-        return (a) invokeCommon.objValue;
-    }
-
-    public static a f(float f, int i, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (f <= 0.0f) {
-                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
-            }
-            int[] b = b(f, i, i2);
-            return new a(b[0], b[1]);
-        }
-        return (a) invokeCommon.objValue;
-    }
-
-    public static boolean g(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i > 1920 || i2 > 1920 : invokeII.booleanValue;
     }
 }

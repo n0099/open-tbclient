@@ -1,127 +1,28 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class zr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
-    public static String a(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
+    public zr7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
-            if (tbRichTextData == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(150);
-            TbRichTextImageInfo E = tbRichTextData.E();
-            if (E != null) {
-                if (!StringUtils.isNull(E.y())) {
-                    return E.y();
-                }
-                if (E.getHeight() * E.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                    double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (E.getHeight() * E.getWidth()));
-                    sb.append(BigImageLoaderProc.NCDN_PER);
-                    sb.append(String.valueOf((int) (E.getWidth() * sqrt)));
-                    sb.append("&height=");
-                    sb.append(String.valueOf((int) (E.getHeight() * sqrt)));
-                } else {
-                    double width = E.getWidth() / E.getHeight();
-                    double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
-                    sb.append(BigImageLoaderProc.NCDN_PER);
-                    sb.append(String.valueOf((int) (width * sqrt2)));
-                    sb.append("&height=");
-                    sb.append(String.valueOf((int) sqrt2));
-                }
-                sb.append("&src=");
-                sb.append(ni.getUrlEncode(E.D()));
-                return sb.toString();
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(PostData postData, AbsPbActivity.e eVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, postData, eVar) == null) || postData == null || postData.P() == null || postData.P().A() == null || eVar == null || eVar.a == null || eVar.b == null || postData.P().A().size() == 0) {
-            return;
-        }
-        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
-        if (StringUtils.isNull(str)) {
-            return;
-        }
-        eVar.a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
-        eVar.b = new ConcurrentHashMap<>();
-        Iterator<TbRichTextData> it = postData.P().A().iterator();
-        while (it.hasNext()) {
-            TbRichTextData next = it.next();
-            if (next != null && next.getType() == 8) {
-                String a = a(next);
-                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null) {
-                    eVar.a.add(a);
-                    eVar.b.put(a, concurrentHashMap.get(a));
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        eVar.j = ListUtils.getPosition(eVar.a, str);
-    }
-
-    public static PostData c(yr7 yr7Var, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{yr7Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (z) {
-                if (yr7Var == null || yr7Var.F() == null || yr7Var.F().size() <= 0) {
-                    return null;
-                }
-                PostData postData = yr7Var.F().get(0);
-                return postData.A() != 1 ? d(yr7Var) : postData;
-            }
-            return d(yr7Var);
-        }
-        return (PostData) invokeCommon.objValue;
-    }
-
-    public static PostData d(yr7 yr7Var) {
-        InterceptResult invokeL;
-        MetaData metaData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, yr7Var)) == null) {
-            if (yr7Var == null || yr7Var.O() == null || yr7Var.O().getAuthor() == null) {
-                return null;
-            }
-            PostData postData = new PostData();
-            MetaData author = yr7Var.O().getAuthor();
-            String userId = author.getUserId();
-            HashMap<String, MetaData> userMap = yr7Var.O().getUserMap();
-            if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
-                author = metaData;
-            }
-            postData.p0(1);
-            postData.u0(yr7Var.O().getFirstPostId());
-            postData.G0(yr7Var.O().getTitle());
-            postData.F0(yr7Var.O().getCreateTime());
-            postData.n0(author);
-            return postData;
-        }
-        return (PostData) invokeL.objValue;
     }
 }

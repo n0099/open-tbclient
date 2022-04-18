@@ -17,18 +17,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lp7;
-import com.repackage.tp7;
-import com.repackage.zo7;
+import com.repackage.cp7;
+import com.repackage.op7;
+import com.repackage.wp7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class InterestSelectionStyleAModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zo7 a;
-    public List<lp7> b;
-    public tp7 c;
+    public cp7 a;
+    public List<op7> b;
+    public wp7 c;
     public HttpMessageListener d;
 
     /* loaded from: classes3.dex */
@@ -68,7 +68,7 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
                 if (httpResponsedMessage.getError() == 0) {
                     if (this.a.b == null || this.a.b.size() <= 0) {
                         if (this.a.c != null) {
-                            this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18));
+                            this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c17));
                             return;
                         }
                         return;
@@ -86,12 +86,12 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         }
     }
 
-    public InterestSelectionStyleAModel(zo7 zo7Var, tp7 tp7Var) {
+    public InterestSelectionStyleAModel(cp7 cp7Var, wp7 wp7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zo7Var, tp7Var};
+            Object[] objArr = {cp7Var, wp7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -103,8 +103,8 @@ public class InterestSelectionStyleAModel extends BdBaseModel {
         }
         this.b = new ArrayList();
         this.d = new a(this, CmdConfigHttp.CMD_INTERESTED_GET_CLASS_LIST, true);
-        this.c = tp7Var;
-        this.a = zo7Var;
+        this.c = wp7Var;
+        this.a = cp7Var;
         C();
         registerListener();
         D();

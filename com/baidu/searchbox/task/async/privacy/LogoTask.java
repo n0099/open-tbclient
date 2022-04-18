@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.l9;
 import com.repackage.s85;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class LogoTask extends LaunchTask {
@@ -76,7 +76,7 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                wt4.k().u("frs_first_in", true);
+                vt4.k().u("frs_first_in", true);
             }
             NASLib.onAppStart(TbadkCoreApplication.getInst());
             s85.b().z(this.mIsFirstUse);

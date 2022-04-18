@@ -1,7 +1,9 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface ty8 {
-    void a();
+    void g(String str);
 
-    void b();
+    void k(String str);
+
+    void n();
 }

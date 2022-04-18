@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.IRemoteUBCService;
-import com.repackage.r49;
-import com.repackage.t39;
-import com.repackage.y59;
+import com.repackage.a49;
+import com.repackage.f69;
+import com.repackage.y49;
 import java.util.Map;
 import org.json.JSONObject;
 @Deprecated
@@ -57,7 +57,7 @@ public class UBC {
                 return;
             }
         }
-        DEBUG = r49.m();
+        DEBUG = y49.m();
     }
 
     public UBC() {
@@ -83,7 +83,7 @@ public class UBC {
     public static Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? r49.b() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? y49.b() : (Context) invokeV.objValue;
     }
 
     public static IRemoteUBCService getProxy() throws RemoteException {
@@ -93,7 +93,7 @@ public class UBC {
             if (sProxy == null) {
                 synchronized (UBC.class) {
                     if (sProxy == null) {
-                        IBinder e = r49.e(UBC_REMOTE_SERVICE_NAME);
+                        IBinder e = y49.e(UBC_REMOTE_SERVICE_NAME);
                         if (e == null) {
                             throw new RemoteException("UBC get remote service empty !");
                         }
@@ -118,11 +118,11 @@ public class UBC {
     public static void onMutilProcessEvent(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65556, null, str, str2, str3) == null) {
-            String a = y59.a(str3);
+            String a = f69.a(str3);
             if (DEBUG) {
                 Log.d(TAG, "on onMultiProcessEvent id:" + str + " value:" + str2 + " name: " + a);
             }
-            t39.w().z(str, str2, a, 8);
+            a49.w().z(str, str2, a, 8);
         }
     }
 

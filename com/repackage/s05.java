@@ -30,8 +30,8 @@ public class s05 extends u05 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f08096c;
-        this.e = R.drawable.obfuscated_res_0x7f080817;
+        this.d = R.drawable.obfuscated_res_0x7f080970;
+        this.e = R.drawable.obfuscated_res_0x7f080816;
         this.g = true;
         this.n = new int[]{32};
     }

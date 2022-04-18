@@ -1,69 +1,71 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkModule;
-import tbclient.NewHottopic.TimeLine;
-import tbclient.NewHottopic.TopicDetail;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class c27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public r27 e;
-    public g27 f;
+    public TbPageContext a;
+    public List<ho> b;
+    public zo c;
+    public d27 d;
+    public b27 e;
+    public s27 f;
 
-    public c27() {
+    public c27(TbPageContext tbPageContext, zo zoVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, zoVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
+        this.c = zoVar;
+        a();
+        this.c.a(this.b);
     }
 
-    public void a(TopicDetail topicDetail) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicDetail) == null) || topicDetail == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = new ArrayList();
+            this.d = new d27(this.a);
+            this.e = new b27(this.a);
+            this.f = new s27(this.a);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
         }
-        this.a = topicDetail.topic_id.longValue();
-        this.b = topicDetail.topic_desc;
-        topicDetail.discuss_num.longValue();
-        this.c = topicDetail.topic_image;
-        this.d = topicDetail.bg_image;
     }
 
-    public void b(PkModule pkModule) {
+    public void b() {
+        zo zoVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (zoVar = this.c) == null) {
             return;
         }
-        r27 r27Var = new r27();
-        this.e = r27Var;
-        r27Var.a = this.a;
-        r27Var.f = 2;
-        r27Var.a(pkModule);
+        zoVar.getListAdapter().notifyDataSetChanged();
     }
 
-    public void c(TimeLine timeLine) {
+    public void c(List<uo> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) == null) || timeLine == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.setData(list);
         }
-        g27 g27Var = new g27();
-        this.f = g27Var;
-        g27Var.a(this.a, timeLine);
     }
 }

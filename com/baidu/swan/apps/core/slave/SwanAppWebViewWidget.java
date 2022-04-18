@@ -1120,7 +1120,7 @@ public class SwanAppWebViewWidget extends SwanAppSlaveManager implements sm1<NgW
             if (((xz1) m).m() == null || m.S() == null) {
                 return;
             }
-            view2 = m.S().findViewById(R.id.obfuscated_res_0x7f091de0);
+            view2 = m.S().findViewById(R.id.obfuscated_res_0x7f091de1);
         }
         if (view2 == null) {
             return;

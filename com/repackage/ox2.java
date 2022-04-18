@@ -58,7 +58,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
+public class ox2 extends zd4 implements View.OnClickListener, eo2<MediaModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SPSwitchPanelLinearLayout A0;
@@ -397,7 +397,7 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.b.F0 = z;
                 if (z) {
-                    this.b.D0.setImageResource(R.drawable.obfuscated_res_0x7f08117b);
+                    this.b.D0.setImageResource(R.drawable.obfuscated_res_0x7f08117f);
                     this.a.post(new a(this));
                 }
             }
@@ -434,9 +434,9 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
                 this.a.E0 = z;
                 if (z) {
-                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f08117d);
+                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f081181);
                 } else {
-                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f08117b);
+                    this.a.D0.setImageResource(R.drawable.obfuscated_res_0x7f08117f);
                 }
                 hy2.onEvent("emoji_clk");
             }
@@ -590,7 +590,7 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
             this.v0.setTextColor(this.G0.sendTextColor);
             this.v0.setBackground(F1(this.G0.sendTextBgColor));
             if (this.G0.supportNoModule()) {
-                this.q0.findViewById(R.id.obfuscated_res_0x7f091426).setVisibility(8);
+                this.q0.findViewById(R.id.obfuscated_res_0x7f091427).setVisibility(8);
             }
         }
     }
@@ -634,7 +634,7 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
             return;
         }
         if (!SwanAppNetworkUtils.i(getContext())) {
-            ky2.h(getContext(), R.string.obfuscated_res_0x7f0f12bc);
+            ky2.h(getContext(), R.string.obfuscated_res_0x7f0f12bb);
             return;
         }
         try {
@@ -711,7 +711,7 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
             layoutParams.rightMargin = ae3.g(9.0f);
             this.t0.addView(this.w0, layoutParams);
             FrameLayout frameLayout = new FrameLayout(this.r0);
-            frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08117f);
+            frameLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081183);
             frameLayout.setPadding(1, 1, 1, 1);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1, 17);
             SimpleDraweeView simpleDraweeView = new SimpleDraweeView(this.r0);
@@ -731,7 +731,7 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(ae3.g(20.0f), ae3.g(20.0f));
             layoutParams3.gravity = 8388613;
             this.w0.addView(this.y0, layoutParams3);
-            this.y0.setImageResource(R.drawable.obfuscated_res_0x7f081180);
+            this.y0.setImageResource(R.drawable.obfuscated_res_0x7f081184);
             this.x0.setOnClickListener(this);
             this.y0.setOnTouchListener(new zd3());
             this.y0.setOnClickListener(this);
@@ -741,14 +741,14 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
     public final void L1(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            this.t0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090ef9);
+            this.t0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090efa);
             this.s0 = (EmojiEditText) view2.findViewById(R.id.obfuscated_res_0x7f0906e0);
-            this.u0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091225);
-            this.v0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c83);
-            this.z0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090efb);
-            this.D0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090875);
-            this.A0 = (SPSwitchPanelLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09163f);
-            this.B0 = view2.findViewById(R.id.obfuscated_res_0x7f09184b);
+            this.u0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091226);
+            this.v0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c84);
+            this.z0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090efc);
+            this.D0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090876);
+            this.A0 = (SPSwitchPanelLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091640);
+            this.B0 = view2.findViewById(R.id.obfuscated_res_0x7f09184c);
         }
     }
 
@@ -811,16 +811,16 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
                     return;
                 }
                 this.u0.setVisibility(0);
-                this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12c9), Integer.valueOf(200 - a2)));
+                this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12c8), Integer.valueOf(200 - a2)));
                 this.u0.setTextColor(ContextCompat.getColor(this.r0, R.color.obfuscated_res_0x7f060a8b));
             } else {
                 this.v0.setEnabled(false);
                 this.u0.setVisibility(0);
                 this.u0.setTextColor(ContextCompat.getColor(this.r0, R.color.obfuscated_res_0x7f060a8c));
                 if (a2 < 1200) {
-                    this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12c8), Integer.valueOf(a2 - 200)));
+                    this.u0.setText(String.format(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12c7), Integer.valueOf(a2 - 200)));
                 } else {
-                    this.u0.setText(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12c7));
+                    this.u0.setText(this.r0.getResources().getString(R.string.obfuscated_res_0x7f0f12c6));
                 }
             }
         }
@@ -838,8 +838,8 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             nz2.a aVar = new nz2.a(getContext());
             aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f12b9);
-            aVar.v(R.string.obfuscated_res_0x7f0f12bd);
+            aVar.U(R.string.obfuscated_res_0x7f0f12b8);
+            aVar.v(R.string.obfuscated_res_0x7f0f12bc);
             aVar.O(R.string.obfuscated_res_0x7f0f0110, new a(this));
             aVar.X();
         }
@@ -888,7 +888,7 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
         Q1(mediaModel);
     }
 
-    @Override // com.repackage.ae4
+    @Override // com.repackage.zd4
     public void m1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -922,7 +922,7 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
         }
     }
 
-    @Override // com.repackage.ae4, android.content.DialogInterface.OnDismissListener
+    @Override // com.repackage.zd4, android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, dialogInterface) == null) {
@@ -955,7 +955,7 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
         }
     }
 
-    @Override // com.repackage.ae4
+    @Override // com.repackage.zd4
     public Dialog q1(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -967,7 +967,7 @@ public class ox2 extends ae4 implements View.OnClickListener, eo2<MediaModel> {
         return (Dialog) invokeL.objValue;
     }
 
-    @Override // com.repackage.ae4, com.baidu.swan.support.v4.app.Fragment
+    @Override // com.repackage.zd4, com.baidu.swan.support.v4.app.Fragment
     public void v0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, bundle) == null) {

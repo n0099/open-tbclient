@@ -3,5 +3,5 @@ package com.repackage;
 public interface xh1 {
     void a(qs1 qs1Var);
 
-    void b(p64 p64Var);
+    void b(o64 o64Var);
 }

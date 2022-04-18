@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ag8;
+import com.repackage.hg8;
 import com.repackage.pb1;
 import com.repackage.rb1;
 import com.repackage.tb1;
@@ -61,7 +61,7 @@ public class PerfSampleManager {
                 arrayList.add(new FpsPerfSampleCallback());
                 arrayList.add(new ExceptionPerfSampleCallback());
                 arrayList.add(new LooperPerfSampleCallback());
-                arrayList.add(new ag8());
+                arrayList.add(new hg8());
                 return arrayList;
             }
             return invokeV.objValue;

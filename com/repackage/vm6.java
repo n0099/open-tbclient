@@ -1,173 +1,87 @@
 package com.repackage;
 
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.lego.LegoItemHolder;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vm6 implements CustomMessageTask.CustomRunnable<ThreadData>, px5 {
+public class vm6 extends kd6<ICardInfo, LegoItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ep6 a;
-    public TbPageTag b;
-    public BdUniqueId c;
-    public int d;
+    public ICardInfo t;
 
-    public vm6(ep6 ep6Var, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vm6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ep6Var, tbPageTag, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = ep6Var;
-        this.b = tbPageTag;
-        this.c = bdUniqueId;
     }
 
-    @Override // com.repackage.px5
-    public void a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: l0 */
+    public View E(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo})) == null) {
+            this.t = iCardInfo;
+            return super.E(i, view2, viewGroup, iCardInfo);
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public final void b(ThreadData threadData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) || threadData == null || threadData.getAuthor() == null || threadData.getThreadAlaInfo() == null) {
-            return;
-        }
-        long j = threadData.getThreadAlaInfo().user_info != null ? threadData.getThreadAlaInfo().user_info.ala_id : 0L;
-        StatisticItem statisticItem = new StatisticItem("c13615");
-        statisticItem.param("uid", threadData.getAuthor().getUserId());
-        statisticItem.param("fid", threadData.getFid());
-        statisticItem.param("ab_tag", threadData.mRecomAbTag);
-        statisticItem.param("obj_type", threadData.getThreadAlaInfo().isChushou ? 2 : 1);
-        statisticItem.param("tid", threadData.getTid());
-        statisticItem.param("liveid", threadData.getThreadAlaInfo().live_id);
-        statisticItem.param(TiebaStatic.Params.STAR_ID, j);
-        statisticItem.param("extra", threadData.mRecomExtra);
-        statisticItem.param("source_from", threadData.mRecomSource);
-        int i = this.d;
-        if (i == 14) {
-            statisticItem.param("obj_locate", 1);
-        } else if (i == 13) {
-            statisticItem.param("obj_locate", 2);
-        }
-        if (threadData.getAuthor() != null && threadData.getAuthor().getAlaInfo() != null) {
-            statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(threadData.getAuthor().getAlaInfo()));
-            if (threadData.getAuthor().getAlaInfo().mYyExtData != null) {
-                TiebaStaticHelper.addYYParam(statisticItem, threadData.getAuthor().getAlaInfo().mYyExtData);
-                str = TiebaStatic.YYValues.YY_LIVE;
-            } else {
-                str = "";
-            }
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
-        }
-        TiebaStatic.log(statisticItem);
-    }
-
-    public final void c(ThreadData threadData) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) || threadData == null || threadData.getAuthor() == null || threadData.getThreadAlaInfo() == null) {
-            return;
-        }
-        long j = threadData.getThreadAlaInfo().user_info != null ? threadData.getThreadAlaInfo().user_info.ala_id : 0L;
-        StatisticItem statisticItem = new StatisticItem("c13614");
-        statisticItem.param("uid", threadData.getAuthor().getUserId());
-        statisticItem.param("fid", threadData.getFid());
-        statisticItem.param("ab_tag", threadData.mRecomAbTag);
-        statisticItem.param("obj_type", threadData.getThreadAlaInfo().isChushou ? 2 : 1);
-        statisticItem.param("tid", threadData.getTid());
-        statisticItem.param("liveid", threadData.getThreadAlaInfo().live_id);
-        statisticItem.param(TiebaStatic.Params.STAR_ID, j);
-        statisticItem.param("extra", threadData.mRecomExtra);
-        statisticItem.param("source_from", threadData.mRecomSource);
-        int i = this.d;
-        if (i == 14) {
-            statisticItem.param("obj_locate", 1);
-        } else if (i == 13) {
-            statisticItem.param("obj_locate", 2);
-        }
-        if (threadData.getAuthor() != null && threadData.getAuthor().getAlaInfo() != null) {
-            statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(threadData.getAuthor().getAlaInfo()));
-            if (threadData.getAuthor().getAlaInfo().mYyExtData != null) {
-                TiebaStaticHelper.addYYParam(statisticItem, threadData.getAuthor().getAlaInfo().mYyExtData);
-                str = TiebaStatic.YYValues.YY_LIVE;
-            } else {
-                str = "";
-            }
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
-        }
-        kx5.b().a(statisticItem);
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    @Override // com.repackage.px5
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<ThreadData> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: m0 */
+    public LegoItemHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage.getData() instanceof ThreadData)) {
-                ThreadData data = customMessage.getData();
-                if (customMessage.getCmd() == 2921018) {
-                    b(data);
-                    fp6.k().h(this.a, data, 1);
-                    dp6.e(data, 1, this.c, this.a, this.b);
-                } else if (customMessage.getCmd() == 2921016) {
-                    b(data);
-                    fp6.k().h(this.a, data, 2);
-                    dp6.e(data, 2, this.c, this.a, this.b);
-                } else if (customMessage.getCmd() == 2921019) {
-                    b(data);
-                    fp6.k().h(this.a, data, 4);
-                    dp6.e(data, 1, this.c, this.a, this.b);
-                } else if (customMessage.getCmd() == 2921017) {
-                    c(data);
-                    fp6.k().c(this.a, data);
-                    dp6.n(data, this.c, this.a, this.b);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            sd7 a = wc7.h().a(this.k, this.t, 1);
+            if (a == null) {
+                return null;
             }
-            return null;
+            a.b(this.e);
+            return new LegoItemHolder(a);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (LegoItemHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.kd6, com.repackage.ho
+    /* renamed from: n0 */
+    public View S(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo, LegoItemHolder legoItemHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo, legoItemHolder})) == null) {
+            super.S(i, view2, viewGroup, iCardInfo, legoItemHolder);
+            View b = legoItemHolder.b();
+            if (b != null && iCardInfo != null) {
+                ((sd7) b).update(iCardInfo);
+            }
+            return b;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

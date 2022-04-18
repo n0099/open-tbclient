@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetVipInfo.VipTaskItem;
-import tbclient.GetVipInfo.VipTaskList;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes6.dex */
 public class mj7 implements uo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public zi7 a;
+    public cj7 a;
     public List<nj7> b;
 
     static {
@@ -36,12 +36,13 @@ public class mj7 implements uo {
         c = BdUniqueId.gen();
     }
 
-    public mj7(VipTaskList vipTaskList) {
+    public mj7(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipTaskList};
+            Object[] objArr = {vipSpecialList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -51,19 +52,19 @@ public class mj7 implements uo {
                 return;
             }
         }
-        if (vipTaskList == null || vipTaskList.item == null) {
+        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
             return;
         }
-        String str = vipTaskList.card_id;
-        zi7 zi7Var = new zi7();
-        this.a = zi7Var;
-        zi7Var.e(3);
-        this.a.d(vipTaskList.class_name);
-        this.a.f(vipTaskList.class_url_name);
-        this.a.g(vipTaskList.class_url);
+        String str = vipSpecialList.card_id;
+        cj7 cj7Var = new cj7();
+        this.a = cj7Var;
+        cj7Var.e(1);
+        this.a.d(vipSpecialList.class_name);
+        this.a.f(vipSpecialList.class_url_name);
+        this.a.g(vipSpecialList.class_url);
         this.b = new ArrayList();
-        for (VipTaskItem vipTaskItem : vipTaskList.item) {
-            this.b.add(new nj7(vipTaskItem));
+        for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
+            this.b.add(new nj7(vipSpecialItem));
         }
     }
 

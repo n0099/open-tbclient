@@ -1,31 +1,27 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.downloadmanager.ui.adapter.ItemCardViewWrapperAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import tbclient.ItemManage.DataReq;
+import tbclient.ItemManage.ItemManageReqIdl;
 /* loaded from: classes6.dex */
-public class h36 {
+public class h36 implements o65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public BdTypeRecyclerView b;
-    public ItemCardViewWrapperAdapter c;
-    public List<ho> d;
-    public int e;
-    public int f;
+    public int a;
+    public final int b;
 
-    public h36(BaseFragment baseFragment, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2) {
+    public h36(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -35,21 +31,65 @@ public class h36 {
                 return;
             }
         }
-        this.d = new ArrayList();
-        this.a = baseFragment;
-        this.b = bdTypeRecyclerView;
-        this.e = i;
-        this.f = i2;
-        a();
+        this.a = i;
+        this.b = i2;
     }
 
-    public final void a() {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ItemCardViewWrapperAdapter itemCardViewWrapperAdapter = new ItemCardViewWrapperAdapter(this.a.getContext(), x26.e, this.e, this.b, this.f);
-            this.c = itemCardViewWrapperAdapter;
-            this.d.add(itemCardViewWrapperAdapter);
-            this.b.a(this.d);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = 1;
         }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a++;
+        }
+    }
+
+    @Override // com.repackage.q65
+    public Object f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            builder.pn = Integer.valueOf(this.a);
+            builder.rn = 15;
+            builder.tab_id = Integer.valueOf(this.b);
+            ItemManageReqIdl.Builder builder2 = new ItemManageReqIdl.Builder();
+            DataReq build = builder.build(false);
+            builder2.data = build;
+            rc5.a(build, false);
+            return builder2.build(false);
+        }
+        return invokeZ.objValue;
+    }
+
+    @Override // com.repackage.n65
+    public HashMap<String, Object> u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.repackage.n65
+    public HashMap<String, String> w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
     }
 }

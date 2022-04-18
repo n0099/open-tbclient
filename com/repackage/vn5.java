@@ -1,102 +1,86 @@
 package com.repackage;
 
-import android.widget.BaseAdapter;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.ala.square.IAlaSquareTabController;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes7.dex */
-public class vn5 {
+public class vn5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public b9 a;
-    public BdTypeListView b;
-    public final List<ho> c;
-    public un5 d;
-    public ir5 e;
-    public jr5 f;
+    public int a;
+    public String b;
+    public String c;
+    public ThreadData d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
 
-    public vn5(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755225388, "Lcom/repackage/vn5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755225388, "Lcom/repackage/vn5;");
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = tbPageContext;
-        this.b = bdTypeListView;
-        a();
+        i = BdUniqueId.gen();
     }
 
-    public final void a() {
+    public vn5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jr5 jr5Var = new jr5((TbPageContext) this.a);
-            this.f = jr5Var;
-            jr5Var.c0(1);
-            ir5 ir5Var = new ir5((TbPageContext) this.a);
-            this.e = ir5Var;
-            ir5Var.c0(1);
-            this.d = new un5((TbPageContext) this.a, xn5.f);
-            this.c.add(this.f);
-            this.c.add(this.e);
-            this.c.add(this.d);
-            this.b.a(this.c);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.f = false;
+        this.g = false;
+        this.h = false;
     }
 
-    public void b() {
-        BdTypeListView bdTypeListView;
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof BaseAdapter)) {
-            this.b.getAdapter2().notifyDataSetChanged();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (ThreadData) invokeV.objValue;
     }
 
-    public void c(tr5 tr5Var) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tr5Var) == null) {
-            this.f.e0(tr5Var);
-            this.e.e0(tr5Var);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
     }
 
-    public void d(List<uo> list) {
-        BdTypeListView bdTypeListView;
+    @Deprecated
+    public void parserProtobuf(ThreadInfo threadInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (bdTypeListView = this.b) == null) {
-            return;
-        }
-        bdTypeListView.setData(list);
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f.d0(i);
-            this.e.d0(i);
-        }
-    }
-
-    public void f(IAlaSquareTabController iAlaSquareTabController) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, iAlaSquareTabController) == null) {
-            this.d.e0(iAlaSquareTabController);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadInfo) == null) {
+            if (this.d == null) {
+                this.d = new ThreadData();
+            }
+            this.d.parserProtobuf(threadInfo);
         }
     }
 }

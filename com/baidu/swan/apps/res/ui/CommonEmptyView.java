@@ -85,13 +85,13 @@ public class CommonEmptyView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00a2, (ViewGroup) this, true);
             setBackground(context.getResources().getDrawable(R.color.obfuscated_res_0x7f06039b));
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908d2);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d6);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d5);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d3);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d1);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908d0);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d4);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908d3);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d7);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d6);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d4);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d2);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0908d1);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0908d5);
             setPageResources();
         }
     }

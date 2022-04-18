@@ -1,106 +1,16 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cb4;
-import java.util.Iterator;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
-public class y94 {
+public class y94 extends w94<ja4> implements fa4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z94 a;
-    public BlockingQueue<Runnable> b;
-    public ThreadPoolExecutor c;
-    public ka4 d;
-    public final AtomicBoolean e;
-    @SuppressLint({"SyntheticAccessor"})
-    public final ga4 f;
-    public final qa4 g;
-    public fa4 h;
-
-    /* loaded from: classes7.dex */
-    public class a implements ga4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y94 a;
-
-        public a(y94 y94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y94Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y94Var;
-        }
-
-        @Override // com.repackage.ga4
-        public <T> void a(ka4<T> ka4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ka4Var) == null) {
-                this.a.d = ka4Var;
-            }
-        }
-
-        @Override // com.repackage.ga4
-        public <T> void b(ka4<T> ka4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ka4Var) == null) && this.a.d == ka4Var) {
-                this.a.d = null;
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements fa4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y94 a;
-
-        public b(y94 y94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y94Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y94Var;
-        }
-
-        @Override // com.repackage.fa4
-        public Runnable a(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? this.a.d(z) : (Runnable) invokeZ.objValue;
-        }
-    }
+    public volatile ja4 b;
 
     public y94() {
         Interceptable interceptable = $ic;
@@ -112,123 +22,118 @@ public class y94 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = new AtomicBoolean(false);
-        this.f = new a(this);
-        this.g = new qa4(this.f);
-        this.h = new b(this);
-        this.a = new z94();
-        this.b = new LinkedBlockingQueue();
-        this.c = new ThreadPoolExecutor(1, 1, 1L, TimeUnit.SECONDS, this.b);
-        c(this.a);
     }
 
-    public void c(ga4 ga4Var) {
+    @Override // com.repackage.fa4
+    public <T> void a(ja4<T> ja4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ga4Var) == null) {
-            this.g.c(ga4Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ja4Var) == null) {
+            this.b = ja4Var;
         }
     }
 
-    public synchronized Runnable d(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.repackage.fa4
+    public <T> void b(ja4<T> ja4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ja4Var) == null) {
+            if (this.b == ja4Var) {
+                this.b = null;
+            }
+            k(ja4Var);
+        }
+    }
+
+    public synchronized ja4 g() {
+        InterceptResult invokeV;
+        ja4 ja4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                if (this.a != null) {
-                    if (z) {
-                        return this.a.g();
+                ja4Var = (ja4) super.c();
+            }
+            return ja4Var;
+        }
+        return (ja4) invokeV.objValue;
+    }
+
+    public synchronized void h(ja4 ja4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ja4Var) == null) {
+            synchronized (this) {
+                if (ja4Var == null) {
+                    return;
+                }
+                if (this.b != null && this.b.d(ja4Var)) {
+                    ja4Var.e().f(ja4Var.f());
+                    return;
+                }
+                ja4 e = e(ja4Var);
+                if (e != null) {
+                    ja4Var.e().f(ja4Var.f());
+                    if (ja4Var.g() <= e.g()) {
+                        return;
                     }
-                    return this.a.i();
                 }
-                return null;
-            }
-        }
-        return (Runnable) invokeZ.objValue;
-    }
-
-    public synchronized boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    return false;
-                }
-                Object f = this.d.f();
-                if (f instanceof h94) {
-                    return TextUtils.equals(((h94) f).g, str);
-                }
-                if (f instanceof cb4.a) {
-                    return TextUtils.equals(((cb4.a) f).b, str);
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                Iterator<ka4> f = this.a.f();
-                while (f.hasNext()) {
-                    ka4 next = f.next();
-                    if (next != null) {
-                        Object f2 = next.f();
-                        if (f2 instanceof h94) {
-                            if (TextUtils.equals(((h94) f2).g, str)) {
-                                return true;
-                            }
-                        } else if ((f2 instanceof cb4.a) && TextUtils.equals(((cb4.a) f2).b, str)) {
-                            return true;
+                int g = ja4Var.g();
+                if (g != 200) {
+                    if (g == 300) {
+                        j(ja4Var);
+                        if (e != null) {
+                            this.a.remove(e);
+                            this.a.add(0, e);
+                        } else {
+                            this.a.add(0, ja4Var);
                         }
+                    } else if (e == null) {
+                        this.a.add(ja4Var);
                     }
+                } else if (e != null) {
+                    this.a.remove(e);
+                    this.a.add(0, e);
+                } else {
+                    this.a.add(0, ja4Var);
                 }
-                return false;
+                notifyAll();
             }
         }
-        return invokeL.booleanValue;
     }
 
-    public synchronized <T> void g(ka4<T> ka4Var) {
+    public synchronized ja4 i() {
+        InterceptResult invokeV;
+        ja4 ja4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ka4Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                this.a.h(ka4Var);
+                ja4Var = (ja4) super.d();
+            }
+            return ja4Var;
+        }
+        return (ja4) invokeV.objValue;
+    }
+
+    public final void j(ja4 ja4Var) {
+        ja4 ja4Var2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, ja4Var) == null) || ja4Var.g() != 300 || (ja4Var2 = this.b) == null || ja4Var2.g() == 300) {
+            return;
+        }
+        ja4Var2.o();
+        for (int i = 0; i < 500 && this.b != null; i++) {
+            try {
+                Thread.sleep(10L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public synchronized <T> void h(ka4<T> ka4Var) {
+    public final void k(ja4 ja4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ka4Var) == null) {
-            synchronized (this) {
-                g(ka4Var);
-                j();
-            }
-        }
-    }
-
-    public void i(ga4 ga4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ga4Var) == null) {
-            this.g.d(ga4Var);
-        }
-    }
-
-    public synchronized void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                if (this.b.size() < 1) {
-                    this.c.execute(new la4(this.e, this.g, this.h));
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(1048582, this, ja4Var) == null) && ja4Var.k()) {
+            ja4Var.r(true);
+            this.a.add(0, ja4Var);
         }
     }
 }

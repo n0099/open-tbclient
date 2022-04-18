@@ -15,17 +15,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.cq;
 import com.repackage.di;
-import com.repackage.kl8;
 import com.repackage.l75;
-import com.repackage.nr8;
-import com.repackage.ol8;
-import com.repackage.rw4;
+import com.repackage.qw4;
+import com.repackage.rl8;
+import com.repackage.ur8;
+import com.repackage.vl8;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
 @cq
 /* loaded from: classes2.dex */
-public class UegTbJsBridge implements kl8 {
+public class UegTbJsBridge implements rl8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
     public static final String METHOD_BIND_MOBILE_NUMBER = "bindMobileNumber";
@@ -66,33 +66,33 @@ public class UegTbJsBridge implements kl8 {
         }
     }
 
-    public ol8 bindingMobileNumber() {
+    public vl8 bindingMobileNumber() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ol8 ol8Var = new ol8();
+            vl8 vl8Var = new vl8();
             try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, rw4.b()));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, qw4.b()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return ol8Var;
+            return vl8Var;
         }
-        return (ol8) invokeV.objValue;
+        return (vl8) invokeV.objValue;
     }
 
-    public ol8 callNativeSMS(String str, String str2) {
+    public vl8 callNativeSMS(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            ol8 ol8Var = new ol8();
+            vl8 vl8Var = new vl8();
             UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), str, str2);
-            return ol8Var;
+            return vl8Var;
         }
-        return (ol8) invokeLL.objValue;
+        return (vl8) invokeLL.objValue;
     }
 
-    @Override // com.repackage.kl8
+    @Override // com.repackage.rl8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -141,22 +141,22 @@ public class UegTbJsBridge implements kl8 {
         return invokeLLLL.booleanValue;
     }
 
-    public ol8 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
+    public vl8 recordNovelInfo(String str, String str2, String str3, String str4, String str5) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, str, str2, str3, str4, str5)) == null) {
-            ol8 ol8Var = new ol8();
+            vl8 vl8Var = new vl8();
             l75.c(str2, new ReadRecordsData(str, str2, str3, str4, str5));
-            return ol8Var;
+            return vl8Var;
         }
-        return (ol8) invokeLLLLL.objValue;
+        return (vl8) invokeLLLLL.objValue;
     }
 
-    public ol8 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
+    public vl8 setBlockPopInfo(int i, String str, String str2, String str3, String str4, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, Integer.valueOf(i2)})) == null) {
-            ol8 ol8Var = new ol8();
+            vl8 vl8Var = new vl8();
             try {
                 BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
                 builder.can_post = Integer.valueOf(i);
@@ -166,13 +166,13 @@ public class UegTbJsBridge implements kl8 {
                 builder.ok_info = str4;
                 builder.ahead_type = Integer.valueOf(i2);
                 BlockPopInfo build = builder.build(false);
-                nr8.g(build);
-                nr8.f(build);
+                ur8.g(build);
+                ur8.f(build);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return ol8Var;
+            return vl8Var;
         }
-        return (ol8) invokeCommon.objValue;
+        return (vl8) invokeCommon.objValue;
     }
 }

@@ -20,12 +20,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a57;
+import com.repackage.d57;
 import com.repackage.oi;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class MsgleftView extends a57 {
+public class MsgleftView extends d57 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String G = "com.baidu.tieba.im.chat.MsgleftView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -163,16 +163,16 @@ public class MsgleftView extends a57 {
         this.F = new b(this);
         this.E = tbPageContext;
         k();
-        this.C = (ImageView) e(R.id.obfuscated_res_0x7f090fd8);
-        this.z = (TextView) e(R.id.obfuscated_res_0x7f091f02);
+        this.C = (ImageView) e(R.id.obfuscated_res_0x7f090fd9);
+        this.z = (TextView) e(R.id.obfuscated_res_0x7f091f03);
         this.A = (ViewGroup) e(R.id.obfuscated_res_0x7f0903ef);
-        HeadImageView headImageView = (HeadImageView) e(R.id.obfuscated_res_0x7f090ebf);
+        HeadImageView headImageView = (HeadImageView) e(R.id.obfuscated_res_0x7f090ec0);
         this.y = headImageView;
         headImageView.setAutoChangeStyle(false);
         this.y.setDrawerType(1);
         this.y.setRadius(oi.d(this.E.getContext(), 4.0f));
         this.y.setPlaceHolder(1);
-        this.B = (UserIconBox) e(R.id.obfuscated_res_0x7f0922be);
+        this.B = (UserIconBox) e(R.id.obfuscated_res_0x7f0922bf);
         this.y.setLongClickable(true);
         this.y.setOnLongClickListener(this.F);
         this.y.setOnTouchListener(new a(this));
@@ -183,7 +183,7 @@ public class MsgleftView extends a57 {
     public final void K(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) {
-            String q = wt4.k().q("live_room_chat_page_author_id", "");
+            String q = vt4.k().q("live_room_chat_page_author_id", "");
             if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(q)) {
                 this.C.setVisibility(0);
             } else {
@@ -237,7 +237,7 @@ public class MsgleftView extends a57 {
 
     /* JADX WARN: Removed duplicated region for block: B:29:0x012e  */
     /* JADX WARN: Removed duplicated region for block: B:44:0x015a A[Catch: Exception -> 0x0160, TRY_LEAVE, TryCatch #0 {Exception -> 0x0160, blocks: (B:17:0x00a7, B:19:0x00ad, B:20:0x00cf, B:22:0x00db, B:25:0x00e6, B:27:0x00f5, B:39:0x013e, B:40:0x0144, B:41:0x014a, B:42:0x014e, B:43:0x0154, B:44:0x015a, B:26:0x00ee), top: B:52:0x00a7 }] */
-    @Override // com.repackage.a57
+    @Override // com.repackage.d57
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

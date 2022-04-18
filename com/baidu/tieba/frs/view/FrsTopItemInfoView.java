@@ -32,9 +32,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dr4;
+import com.repackage.cr4;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import java.util.List;
 import java.util.Locale;
 import tbclient.ItemInfo;
@@ -112,17 +112,17 @@ public class FrsTopItemInfoView extends LinearLayout {
         public final /* synthetic */ FrsTopItemInfoView a;
 
         /* loaded from: classes3.dex */
-        public class a implements dr4.e {
+        public class a implements cr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ dr4 a;
+            public final /* synthetic */ cr4 a;
 
-            public a(b bVar, dr4 dr4Var) {
+            public a(b bVar, cr4 cr4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, dr4Var};
+                    Object[] objArr = {bVar, cr4Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -132,13 +132,13 @@ public class FrsTopItemInfoView extends LinearLayout {
                         return;
                     }
                 }
-                this.a = dr4Var;
+                this.a = cr4Var;
             }
 
-            @Override // com.repackage.dr4.e
-            public void onClick(dr4 dr4Var) {
+            @Override // com.repackage.cr4.e
+            public void onClick(cr4 cr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                     this.a.dismiss();
                 }
             }
@@ -166,10 +166,10 @@ public class FrsTopItemInfoView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.a instanceof FrsActivity)) {
-                dr4 dr4Var = new dr4((FrsActivity) this.a.a);
-                dr4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0402));
-                dr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0401, new a(this, dr4Var));
-                dr4Var.create(((FrsActivity) this.a.a).getPageContext()).show();
+                cr4 cr4Var = new cr4((FrsActivity) this.a.a);
+                cr4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0402));
+                cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0401, new a(this, cr4Var));
+                cr4Var.create(((FrsActivity) this.a.a).getPageContext()).show();
             }
         }
     }
@@ -228,21 +228,21 @@ public class FrsTopItemInfoView extends LinearLayout {
             this.a = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d035a, this);
             setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090fa7);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090f9b);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090fa9);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e1e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090fa8);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090f9c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090faa);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e1f);
             this.e = imageView;
             imageView.setOnClickListener(this.t);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090374);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09175f);
-            this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f090f9f);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091fe8);
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09091d);
-            this.k = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f092285);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091760);
+            this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f090fa0);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091fe9);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09091e);
+            this.k = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f092286);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090662);
-            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091d86);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a94);
+            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091d87);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a95);
             this.o = findViewById(R.id.obfuscated_res_0x7f0903d4);
             this.b.setText(R.string.obfuscated_res_0x7f0f06bd);
             this.l.setText(R.string.obfuscated_res_0x7f0f06bb);
@@ -259,31 +259,31 @@ public class FrsTopItemInfoView extends LinearLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wr4 d = wr4.d(this);
+            vr4 d = vr4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            wr4 d2 = wr4.d(this.b);
+            vr4 d2 = vr4.d(this.b);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0109);
-            wr4 d3 = wr4.d(this.d);
+            vr4 d3 = vr4.d(this.d);
             d3.A(R.string.F_X02);
             d3.v(R.color.CAM_X0105);
-            wr4 d4 = wr4.d(this.f);
+            vr4 d4 = vr4.d(this.f);
             d4.A(R.string.F_X02);
             d4.v(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1);
-            wr4 d5 = wr4.d(this.i);
+            vr4 d5 = vr4.d(this.i);
             d5.v(R.color.CAM_X0109);
             d5.A(R.string.F_X01);
-            wr4 d6 = wr4.d(this.l);
+            vr4 d6 = vr4.d(this.l);
             d6.A(R.string.F_X01);
             d6.v(R.color.CAM_X0105);
             this.h.d();
             this.m.f();
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f0805f7, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(this.o, R.color.CAM_X0210);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080626, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080625, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 

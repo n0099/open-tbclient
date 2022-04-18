@@ -36,7 +36,7 @@ public class x55 implements i55<HistoryEvent> {
             if (historyEvent == null || TextUtils.isEmpty(historyEvent.tid)) {
                 return false;
             }
-            cx5.a(historyEvent.tid);
+            ex5.a(historyEvent.tid);
             return true;
         }
         return invokeL.booleanValue;

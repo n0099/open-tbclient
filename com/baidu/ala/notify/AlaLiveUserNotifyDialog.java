@@ -116,10 +116,10 @@ public class AlaLiveUserNotifyDialog extends Dialog {
             this.alaNotifyContentPanel = (RelativeLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090208);
             this.alaNotifyDescription = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090209);
             this.btnKnow = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090405);
-            this.portraitLayout = (FrameLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091899);
-            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0922a9);
-            this.ivHeadWrapper = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090fd1);
-            this.overUserPortraitBg = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09162c);
+            this.portraitLayout = (FrameLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09189a);
+            this.userPortrait = (HeadImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0922aa);
+            this.ivHeadWrapper = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090fd2);
+            this.overUserPortraitBg = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09162d);
             this.userPortrait.setDefaultResource(R.drawable.icon_default_avatar100_bg);
             this.userPortrait.setIsRound(true);
             this.userPortrait.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -138,10 +138,10 @@ public class AlaLiveUserNotifyDialog extends Dialog {
                 this.overUserPortraitBg.setVisibility(0);
                 return;
             }
-            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f08125e);
+            this.alaNotifyContentPanel.setBackgroundResource(R.drawable.obfuscated_res_0x7f081262);
             this.alaNotifyDescription.setTextColor(getContext().getResources().getColor(R.color.common_color_10037));
             this.btnKnow.setTextColor(getContext().getResources().getColor(R.color.CAM_X0302));
-            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08125f);
+            this.portraitLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081263);
             this.overUserPortraitBg.setVisibility(8);
         }
     }

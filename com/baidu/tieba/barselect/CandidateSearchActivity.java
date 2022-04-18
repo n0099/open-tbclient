@@ -33,13 +33,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.am8;
-import com.repackage.cw5;
+import com.repackage.ew5;
+import com.repackage.hm8;
 import com.repackage.mg;
 import com.repackage.ni;
 import com.repackage.oi;
 import com.repackage.pg;
-import com.repackage.rv5;
+import com.repackage.tv5;
 import com.repackage.wa;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,13 +47,13 @@ import java.util.List;
 public class CandidateSearchActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rv5> dataList;
+    public List<tv5> dataList;
     public CandidateSearchAdapter mAdapter;
     public TextView mButtonCancelSearch;
     public ImageView mButtonDel;
     public wa mDataResListener;
     public String mForumId;
-    public cw5 mModel;
+    public ew5 mModel;
     public NavigationBar mNavigationBar;
     public View mNavigationCustomView;
     public View mNoDataView;
@@ -143,13 +143,13 @@ public class CandidateSearchActivity extends BaseActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            rv5 rv5Var = null;
+            tv5 tv5Var = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
-                rv5Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
+                tv5Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             } else if (responsedMessage instanceof CandidateSearchSocketResMsg) {
-                rv5Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
+                tv5Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
             }
-            if (responsedMessage.getError() != 0 || rv5Var == null) {
+            if (responsedMessage.getError() != 0 || tv5Var == null) {
                 this.a.mRecyclerView.setVisibility(8);
                 this.a.mNoDataView.setVisibility(0);
                 return;
@@ -157,14 +157,14 @@ public class CandidateSearchActivity extends BaseActivity {
             this.a.mRecyclerView.setVisibility(0);
             this.a.mNoDataView.setVisibility(8);
             if (this.a.mSearchbox.getText() != null) {
-                rv5Var.j = this.a.mSearchbox.getText().toString();
+                tv5Var.j = this.a.mSearchbox.getText().toString();
             }
             if (this.a.dataList != null) {
                 this.a.dataList.clear();
             } else {
                 this.a.dataList = new ArrayList();
             }
-            this.a.dataList.add(rv5Var);
+            this.a.dataList.add(tv5Var);
             this.a.mAdapter.setData(this.a.dataList);
         }
     }
@@ -248,15 +248,15 @@ public class CandidateSearchActivity extends BaseActivity {
             if (error == 0) {
                 oi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f02dc);
                 if (this.a.dataList != null) {
-                    for (rv5 rv5Var : this.a.dataList) {
-                        rv5Var.k = true;
+                    for (tv5 tv5Var : this.a.dataList) {
+                        tv5Var.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                am8.b(error, "", null);
+                hm8.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    am8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    hm8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 oi.N(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -378,17 +378,17 @@ public class CandidateSearchActivity extends BaseActivity {
     private void initNavigationBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091514);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091515);
             this.mNavigationBar = navigationBar;
             navigationBar.showBottomLine();
             View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0177, (View.OnClickListener) null);
             this.mNavigationCustomView = addCustomView;
-            this.mSearchIcon = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c0b);
-            this.mSearchbox = (EditText) this.mNavigationCustomView.findViewById(R.id.obfuscated_res_0x7f090d7d);
-            ImageView imageView = (ImageView) this.mNavigationCustomView.findViewById(R.id.obfuscated_res_0x7f090d6d);
+            this.mSearchIcon = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c0c);
+            this.mSearchbox = (EditText) this.mNavigationCustomView.findViewById(R.id.obfuscated_res_0x7f090d7e);
+            ImageView imageView = (ImageView) this.mNavigationCustomView.findViewById(R.id.obfuscated_res_0x7f090d6e);
             this.mButtonDel = imageView;
             imageView.setOnClickListener(this.mOnClickListener);
-            this.mButtonCancelSearch = (TextView) this.mNavigationCustomView.findViewById(R.id.obfuscated_res_0x7f090d6c);
+            this.mButtonCancelSearch = (TextView) this.mNavigationCustomView.findViewById(R.id.obfuscated_res_0x7f090d6d);
             setDelButtonVisible(false);
             this.mButtonCancelSearch.setText(getString(R.string.obfuscated_res_0x7f0f036e));
             this.mButtonCancelSearch.setOnClickListener(this.mOnClickListener);
@@ -407,7 +407,7 @@ public class CandidateSearchActivity extends BaseActivity {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mSearchIcon, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0109, null);
             this.mSearchbox.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
             SkinManager.setNavbarTitleColor(this.mSearchbox, R.color.CAM_X0105, R.color.s_navbar_title_color);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mButtonDel, R.drawable.obfuscated_res_0x7f080985, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mButtonDel, R.drawable.obfuscated_res_0x7f080989, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SkinManager.setViewTextColor(this.mButtonCancelSearch, R.color.CAM_X0302, 1);
         }
     }
@@ -422,16 +422,16 @@ public class CandidateSearchActivity extends BaseActivity {
                 this.mForumId = getIntent().getStringExtra("forum_id");
             }
             initNavigationBar();
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091a17);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091a18);
             this.mRecyclerView = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            this.mNoDataView = findViewById(R.id.obfuscated_res_0x7f091f2e);
+            this.mNoDataView = findViewById(R.id.obfuscated_res_0x7f091f2f);
             CandidateSearchAdapter candidateSearchAdapter = new CandidateSearchAdapter();
             this.mAdapter = candidateSearchAdapter;
             this.mRecyclerView.setAdapter(candidateSearchAdapter);
             registerListener(this.mDataResListener);
             registerListener(this.mVoteListener);
-            this.mModel = new cw5(getPageContext());
+            this.mModel = new ew5(getPageContext());
             pg.a().postDelayed(this.mShowKeyboardRunnable, 100L);
         }
     }

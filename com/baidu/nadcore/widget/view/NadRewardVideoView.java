@@ -121,7 +121,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
                     nadRewardCountDownView.u();
                     this.a.n.bringToFront();
                 }
-                View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09149b);
+                View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09149c);
                 if (findViewById != null) {
                     findViewById.bringToFront();
                 }
@@ -384,7 +384,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
     public void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            this.s = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091a70);
+            this.s = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091a71);
         }
     }
 
@@ -497,7 +497,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
                 return;
             }
         }
-        NadRewardVolumeView nadRewardVolumeView = (NadRewardVolumeView) findViewById(R.id.obfuscated_res_0x7f0914d9);
+        NadRewardVolumeView nadRewardVolumeView = (NadRewardVolumeView) findViewById(R.id.obfuscated_res_0x7f0914da);
         this.t = nadRewardVolumeView;
         nadRewardVolumeView.setVolumeListener(new a(this));
         this.q = new b(this);

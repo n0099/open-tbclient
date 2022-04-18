@@ -1,91 +1,164 @@
 package com.repackage;
 
 import android.view.View;
-import android.view.ViewStub;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.share.ShareStorage;
+import com.baidu.sapi2.PassportSDK;
+import com.baidu.sapi2.callback.OneKeyLoginCallback;
+import com.baidu.sapi2.result.OneKeyLoginResult;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.DialogLoginHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
 /* loaded from: classes6.dex */
-public class lq7 extends gq7 {
+public class lq7 extends iq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewStub o;
-    public View p;
-    public TbImageView q;
-    public TextView r;
-    public TextView s;
+
+    /* loaded from: classes6.dex */
+    public class a extends OneKeyLoginCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lq7 a;
+
+        public a(lq7 lq7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lq7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lq7Var;
+        }
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onFail(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
+                this.a.b.closeLoadingDialog();
+                BaseActivity baseActivity = this.a.b;
+                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0cc2), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
+        public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
+                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
+                this.a.f();
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lq7(TbPageContext tbPageContext, View view2) {
-        super(tbPageContext, view2);
+    public lq7(TbPageContext tbPageContext, jq7 jq7Var) {
+        super(tbPageContext, jq7Var, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {tbPageContext, jq7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (View) objArr2[1]);
+                super((TbPageContext) objArr2[0], (jq7) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0923ca);
-        this.o = viewStub;
-        viewStub.inflate();
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
-        layoutParams.topMargin = oi.i(tbPageContext.getPageActivity()) / 2;
-        this.o.setLayoutParams(layoutParams);
-        this.p = view2.findViewById(R.id.obfuscated_res_0x7f092293);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09227a);
-        this.q = tbImageView;
-        tbImageView.setIsRound(true);
-        this.q.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09229c);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922b7);
     }
 
-    @Override // com.repackage.gq7
-    public void a(int i) {
+    @Override // com.repackage.iq7
+    public void j(kq7 kq7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            super.a(i);
-            wr4 d = wr4.d(this.p);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0204);
-            wr4 d2 = wr4.d(this.r);
-            d2.v(R.color.CAM_X0105);
-            d2.z(R.dimen.T_X05);
-            d2.A(R.string.F_X02);
-            wr4 d3 = wr4.d(this.s);
-            d3.v(R.color.CAM_X0108);
-            d3.z(R.dimen.T_X08);
-            d3.A(R.string.F_X01);
+        if (interceptable == null || interceptable.invokeL(1048576, this, kq7Var) == null) {
+            this.e = kq7Var;
         }
     }
 
-    @Override // com.repackage.gq7
-    public void c(hq7 hq7Var) {
-        ShareStorage.StorageModel storageModel;
+    @Override // com.repackage.iq7
+    public void n(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hq7Var) == null) || hq7Var == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(hq7Var.d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.n(view2);
+            if (view2.getId() == R.id.obfuscated_res_0x7f09132b) {
+                s();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091608) {
+                t();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09016f) {
+                r();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0918eb) {
+                u();
+            }
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            BaseActivity baseActivity = this.b;
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cb9), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false).start();
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            l();
+            PassportSDK passportSDK = PassportSDK.getInstance();
+            BaseActivity baseActivity = this.b;
+            passportSDK.loadOneKeyLogin(baseActivity, qq7.j(baseActivity, this.e.c), new a(this));
+        }
+    }
+
+    public final void t() {
+        kq7 kq7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (kq7Var = this.e) == null) {
             return;
         }
-        this.q.K(storageModel.url, 10, false);
-        this.r.setText(storageModel.displayname);
-        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1121, storageModel.app));
+        int a2 = kq7Var.a();
+        if (a2 == 1) {
+            BaseActivity baseActivity = this.b;
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cba), "https://ms.zzx9.cn/html/oauth/protocol2.html", false).start();
+        } else if (a2 == 2) {
+            BaseActivity baseActivity2 = this.b;
+            new TbWebViewActivityConfig(baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0cbb), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false).start();
+        } else if (a2 != 3) {
+        } else {
+            BaseActivity baseActivity3 = this.b;
+            new TbWebViewActivityConfig(baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0cbc), "https://wap.cmpassport.com/resources/html/contract.html", false).start();
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            BaseActivity baseActivity = this.b;
+            new TbWebViewActivityConfig(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0cbd), "http://privacy.baidu.com/mdetail?id=288", false).start();
+        }
     }
 }

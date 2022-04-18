@@ -1,14 +1,11 @@
 package com.repackage;
 
-import androidx.annotation.CallSuper;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x7;
 /* loaded from: classes7.dex */
-public abstract class r06 implements x7.a {
+public final class r06 extends m06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,26 +23,12 @@ public abstract class r06 implements x7.a {
         }
     }
 
-    public abstract boolean a(long j);
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public void c(s06 s06Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s06Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.x7.a
-    @CallSuper
+    @Override // com.repackage.m06, com.repackage.x7.a
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(null);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            a().b();
+            super.reset();
         }
     }
 }

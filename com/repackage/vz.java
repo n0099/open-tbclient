@@ -85,10 +85,10 @@ public class vz extends xy {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: t */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qn4Var) == null) {
-            this.h.setData(qn4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, pn4Var) == null) {
+            this.h.setData(pn4Var);
         }
     }
 

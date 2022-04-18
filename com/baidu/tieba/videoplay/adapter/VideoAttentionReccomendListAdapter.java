@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ni;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -68,17 +68,17 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
                 }
             }
             this.a = view2;
-            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090edc);
-            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091859);
-            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09185b);
-            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f33);
-            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f3d);
-            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec7);
-            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090eba);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090edd);
+            this.c = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09185a);
+            this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09185c);
+            this.e = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f34);
+            this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f3e);
+            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ec8);
+            this.h = view2.findViewById(R.id.obfuscated_res_0x7f090ebb);
             this.b.setRadiusById(R.string.J_X05);
             this.b.setConrers(3);
-            wr4.d(this.h).s(R.array.Mask_X003);
-            wr4 d = wr4.d(view2);
+            vr4.d(this.h).s(R.array.Mask_X003);
+            vr4 d = vr4.d(view2);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0613);
         }
@@ -214,7 +214,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
             return;
         }
         forumViewHolder.e.setText(StringHelper.numberUniformFormatExtra(videoItemData.play_count));
-        wr4 d = wr4.d(forumViewHolder.e);
+        vr4 d = vr4.d(forumViewHolder.e);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0101);
     }
@@ -254,7 +254,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         } else {
             sb.append("00");
         }
-        wr4 d = wr4.d(forumViewHolder.d);
+        vr4 d = vr4.d(forumViewHolder.d);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0101);
         forumViewHolder.d.setText(sb.toString());
@@ -270,7 +270,7 @@ public class VideoAttentionReccomendListAdapter extends RecyclerView.Adapter<For
         } else if (!ni.isEmpty(videoItemData.abstext)) {
             forumViewHolder.f.setText(videoItemData.abstext);
         } else {
-            forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cec));
+            forumViewHolder.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ceb));
         }
     }
 

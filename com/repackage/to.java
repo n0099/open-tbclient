@@ -223,8 +223,8 @@ public class to {
                 if (C instanceof BaseCardInfo) {
                     return ((BaseCardInfo) C).position;
                 }
-                if (C instanceof ep4) {
-                    return ((ep4) C).h();
+                if (C instanceof dp4) {
+                    return ((dp4) C).h();
                 }
             }
             return -1;

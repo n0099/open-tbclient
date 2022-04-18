@@ -26,13 +26,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.io;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class PbListView extends io {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: D */
-    public static final int new_pic_emotion_03 = 2131234346;
+    public static final int new_pic_emotion_03 = 2131234350;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
     public int B;
@@ -375,22 +375,22 @@ public class PbListView extends io {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             View inflate = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d0600, (ViewGroup) null);
             this.i = inflate;
-            this.p = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0916ed);
-            this.q = (RelativeLayout) this.i.findViewById(R.id.obfuscated_res_0x7f09168c);
-            this.r = (EMTextView) this.i.findViewById(R.id.obfuscated_res_0x7f09168e);
+            this.p = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0916ee);
+            this.q = (RelativeLayout) this.i.findViewById(R.id.obfuscated_res_0x7f09168d);
+            this.r = (EMTextView) this.i.findViewById(R.id.obfuscated_res_0x7f09168f);
             this.q.setVisibility(8);
-            this.f = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0916ea);
-            this.k = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f09157e);
+            this.f = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f0916eb);
+            this.k = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f09157f);
             if (this.y) {
                 this.p.setVisibility(0);
             } else {
                 this.p.setVisibility(8);
             }
-            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f09191c);
-            this.v = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f0916fc);
-            this.j = this.i.findViewById(R.id.obfuscated_res_0x7f0908c9);
-            this.x = (LinearLayout) this.i.findViewById(R.id.obfuscated_res_0x7f0916ec);
-            wr4 d = wr4.d(this.r);
+            this.g = (ProgressBar) this.i.findViewById(R.id.obfuscated_res_0x7f09191d);
+            this.v = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f0916fd);
+            this.j = this.i.findViewById(R.id.obfuscated_res_0x7f0908ca);
+            this.x = (LinearLayout) this.i.findViewById(R.id.obfuscated_res_0x7f0916ed);
+            vr4 d = vr4.d(this.r);
             d.z(R.dimen.T_X12);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0107);
@@ -422,15 +422,15 @@ public class PbListView extends io {
             }
             String charSequence = this.f.getText().toString();
             boolean z = false;
-            if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0daa))) {
+            if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0da9))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
             } else if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0a2e))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
-            } else if (!charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09e8)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09e6)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f11e9)) && !this.w) {
+            } else if (!charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09e8)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09e6)) && !charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f11e8)) && !this.w) {
                 if (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09e9))) {
                     color = SkinManager.getColor(i, (int) R.color.CAM_X0110);
                 } else {
-                    color = (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09e5)) || charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0f31))) ? SkinManager.getColor(i, (int) R.color.CAM_X0109) : 0;
+                    color = (charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f09e5)) || charSequence.equals(this.e.getText(R.string.obfuscated_res_0x7f0f0f30))) ? SkinManager.getColor(i, (int) R.color.CAM_X0109) : 0;
                 }
             } else {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
@@ -491,7 +491,7 @@ public class PbListView extends io {
                     this.f.setText(this.o);
                 }
             } else {
-                this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0daa));
+                this.f.setText(this.e.getText(R.string.obfuscated_res_0x7f0f0da9));
             }
             d(TbadkCoreApplication.getInst().getSkinType());
         }

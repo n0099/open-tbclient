@@ -1,42 +1,54 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class qv7 extends pu7<up4, PbRecommendNovelHolder> {
+public class qv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yr7 o;
-    public PbRecommendNovelHolder.b p;
+    public PbModel a;
+    public b b;
+    public final BdUniqueId c;
+    public final wa d;
 
     /* loaded from: classes7.dex */
-    public class a implements PbRecommendNovelHolder.b {
+    public class a extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qv7 a;
 
-        public a(qv7 qv7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qv7 qv7Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qv7Var};
+                Object[] objArr = {qv7Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -45,73 +57,110 @@ public class qv7 extends pu7<up4, PbRecommendNovelHolder> {
             this.a = qv7Var;
         }
 
-        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
-        public void a(up4 up4Var) {
+        @Override // com.repackage.wa
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, up4Var) == null) || up4Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            ry7.a(this.a.o, up4Var, up4Var.h0, 6);
+            if (responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() == null || responsedMessage.getOrginalMessage().getTag() == this.a.c) {
+                if (responsedMessage instanceof LookMoreHttpResMessage) {
+                    LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
+                    List<PostData> data = lookMoreHttpResMessage.getData();
+                    String errorString = lookMoreHttpResMessage.getErrorString();
+                    int error = lookMoreHttpResMessage.getError();
+                    if (error != 0) {
+                        this.a.b.a(error, errorString, "");
+                    } else if (ListUtils.isEmpty(data)) {
+                    } else {
+                        this.a.b.onSuccess(data);
+                    }
+                } else if (responsedMessage instanceof LookMoreSocketResMessage) {
+                    LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
+                    List<PostData> data2 = lookMoreSocketResMessage.getData();
+                    String errorString2 = lookMoreSocketResMessage.getErrorString();
+                    int error2 = lookMoreSocketResMessage.getError();
+                    if (error2 != 0) {
+                        this.a.b.a(error2, errorString2, "");
+                    } else if (data2 != null) {
+                        this.a.b.onSuccess(data2);
+                    }
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qv7(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(int i, String str, String str2);
+
+        void onSuccess(List<PostData> list);
+    }
+
+    public qv7(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
+            Object[] objArr = {pbModel, baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((cz7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.p = new a(this);
+        this.d = new a(this, CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
+        this.a = pbModel;
+        this.c = BdUniqueId.gen();
+        e();
+        this.d.setTag(baseFragmentActivity.getUniqueId());
+        MessageManager.getInstance().registerListener(this.d);
+        this.b = null;
     }
 
-    @Override // com.repackage.pu7, com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        d0(i, view2, viewGroup, (up4) obj, (PbRecommendNovelHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: c0 */
-    public PbRecommendNovelHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void c(List<Long> list) {
+        PbModel pbModel;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbRecommendNovelHolder(this.j.getPageContext(), LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0699, viewGroup, false), this.p) : (PbRecommendNovelHolder) invokeL.objValue;
-    }
-
-    public View d0(int i, View view2, ViewGroup viewGroup, up4 up4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, up4Var, pbRecommendNovelHolder})) == null) {
-            super.S(i, view2, viewGroup, up4Var, pbRecommendNovelHolder);
-            if (up4Var == null) {
-                return view2;
-            }
-            up4Var.h0 = i + 1;
-            ry7.d(this.j.getUniqueId(), this.o, up4Var, up4Var.h0, 6);
-            pbRecommendNovelHolder.f(up4Var);
-            return view2;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || (pbModel = this.a) == null || pbModel.T0() == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        int k = oi.k(TbadkCoreApplication.getInst());
+        int i = oi.i(TbadkCoreApplication.getInst());
+        LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
+        lookMoreReqMessage.setKz(Long.valueOf(mg.g(this.a.b, 0L)));
+        lookMoreReqMessage.setPost_id(list);
+        lookMoreReqMessage.setSt_type(mg.e(this.a.mStType, 0));
+        lookMoreReqMessage.setWith_floor(1);
+        lookMoreReqMessage.setScr_w(k);
+        lookMoreReqMessage.setScr_h(i);
+        lookMoreReqMessage.setTag(this.c);
+        MessageManager.getInstance().sendMessage(lookMoreReqMessage);
     }
 
-    public void t(yr7 yr7Var) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yr7Var) == null) {
-            this.o = yr7Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, kk8.a(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
+            tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            kk8.f(309446, LookMoreSocketResMessage.class, false);
+        }
+    }
+
+    public void f(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 }

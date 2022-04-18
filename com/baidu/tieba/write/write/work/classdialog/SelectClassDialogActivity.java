@@ -23,14 +23,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f29;
+import com.repackage.gj8;
 import com.repackage.h95;
+import com.repackage.m29;
 import com.repackage.mi;
-import com.repackage.rr4;
+import com.repackage.qr4;
 import com.repackage.vf5;
+import com.repackage.vr4;
 import com.repackage.wa;
-import com.repackage.wr4;
-import com.repackage.zi8;
 /* loaded from: classes4.dex */
 public class SelectClassDialogActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -46,7 +46,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
     public boolean isSelectedTags;
     public TextView mDoneText;
     public wa mGetSelectClassListener;
-    public f29 selectClassDialogModel;
+    public m29 selectClassDialogModel;
     public SelectClassDialogView selectClassDialogView;
 
     /* loaded from: classes4.dex */
@@ -223,15 +223,15 @@ public class SelectClassDialogActivity extends SuspendedActivity {
                 String str2 = this.a.selectClassDialogModel.c().get(i).get(i2);
                 if ((i != 0 || i2 != 0) && (!str.equals(this.a.initFirstOption) || !str2.equals(this.a.initSecondOption))) {
                     this.a.canDone = true;
-                    wr4.d(this.a.mDoneText).x(R.color.CAM_X0302);
+                    vr4.d(this.a.mDoneText).x(R.color.CAM_X0302);
                 } else {
                     this.a.canDone = false;
-                    this.a.mDoneText.setTextColor(zi8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                    this.a.mDoneText.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
                     if (str.equals(this.a.initFirstOption) && str2.equals(this.a.initSecondOption)) {
                         this.a.initFirstOption = "";
                         this.a.initSecondOption = "";
                         this.a.canDone = true;
-                        wr4.d(this.a.mDoneText).x(R.color.CAM_X0302);
+                        vr4.d(this.a.mDoneText).x(R.color.CAM_X0302);
                     }
                 }
                 this.a.currentOption1 = i;
@@ -303,14 +303,14 @@ public class SelectClassDialogActivity extends SuspendedActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.canDone) {
                 if (this.a.isSelectedTags && this.a.initOption1 > 0 && (this.a.initOption1 != this.a.currentOption1 || this.a.initOption2 != this.a.currentOption2)) {
-                    rr4 rr4Var = new rr4(this.a.getPageContext().getPageActivity());
-                    rr4Var.v(R.string.obfuscated_res_0x7f0f10c6);
-                    rr4Var.l(R.string.obfuscated_res_0x7f0f10c5);
-                    rr4Var.n(true);
-                    rr4Var.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04d8, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0421, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
-                    rr4Var.g();
-                    rr4Var.i(false);
-                    rr4Var.y();
+                    qr4 qr4Var = new qr4(this.a.getPageContext().getPageActivity());
+                    qr4Var.v(R.string.obfuscated_res_0x7f0f10c5);
+                    qr4Var.l(R.string.obfuscated_res_0x7f0f10c4);
+                    qr4Var.n(true);
+                    qr4Var.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f04d8, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0421, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+                    qr4Var.g();
+                    qr4Var.i(false);
+                    qr4Var.y();
                     return;
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921601, this.a.selectClassDialogModel.a(this.a.currentOption1, this.a.currentOption2)));
@@ -387,7 +387,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             this.contentView = linearLayout;
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f10c7));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f10c6));
             TextView addTextButton = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f04e7));
             this.mDoneText = addTextButton;
             addTextButton.setOnClickListener(new d(this));
@@ -418,9 +418,9 @@ public class SelectClassDialogActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
             if (this.canDone) {
-                wr4.d(this.mDoneText).x(R.color.CAM_X0302);
+                vr4.d(this.mDoneText).x(R.color.CAM_X0302);
             } else {
-                this.mDoneText.setTextColor(zi8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.mDoneText.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -430,7 +430,7 @@ public class SelectClassDialogActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.selectClassDialogModel = new f29(getUniqueId());
+            this.selectClassDialogModel = new m29(getUniqueId());
             this.mGetSelectClassListener.getHttpMessageListener().setSelfListener(true);
             this.mGetSelectClassListener.getSocketMessageListener().setSelfListener(true);
             registerListener(this.mGetSelectClassListener);

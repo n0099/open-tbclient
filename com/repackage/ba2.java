@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bz9;
 import com.repackage.f32;
-import com.repackage.uy9;
 import com.repackage.z92;
 import java.io.File;
 import java.util.ArrayList;
@@ -32,25 +32,25 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ba2 extends n32 implements fd4, cd4 {
+public final class ba2 extends n32 implements ed4, bd4 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean m;
     public static int n;
     public static final PMSDownloadType o;
     public transient /* synthetic */ FieldHolder $fh;
     public String c;
-    public az9<? super k94> d;
-    public az9<k94> e;
-    public qd4 f;
-    public final ob4 g;
-    public z74<k94> h;
+    public hz9<? super j94> d;
+    public hz9<j94> e;
+    public pd4 f;
+    public final nb4 g;
+    public y74<j94> h;
     public final Map<String, aa2> i;
-    public final Map<String, gd4> j;
+    public final Map<String, fd4> j;
     public final z92 k;
-    public final sb4<JSONArray> l;
+    public final rb4<JSONArray> l;
 
     /* loaded from: classes5.dex */
-    public class a implements sb4<JSONArray> {
+    public class a implements rb4<JSONArray> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ba2 a;
@@ -74,7 +74,7 @@ public final class ba2 extends n32 implements fd4, cd4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.sb4
+        @Override // com.repackage.rb4
         /* renamed from: b */
         public void a(@NonNull JSONArray jSONArray) {
             Interceptable interceptable = $ic;
@@ -171,15 +171,15 @@ public final class ba2 extends n32 implements fd4, cd4 {
     public class d implements f32.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k94 a;
+        public final /* synthetic */ j94 a;
         public final /* synthetic */ ba2 b;
 
-        public d(ba2 ba2Var, k94 k94Var) {
+        public d(ba2 ba2Var, j94 j94Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ba2Var, k94Var};
+                Object[] objArr = {ba2Var, j94Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -190,7 +190,7 @@ public final class ba2 extends n32 implements fd4, cd4 {
                 }
             }
             this.b = ba2Var;
-            this.a = k94Var;
+            this.a = j94Var;
         }
 
         @Override // com.repackage.f32.c
@@ -218,7 +218,7 @@ public final class ba2 extends n32 implements fd4, cd4 {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements uy9.a<k94> {
+    public class e implements bz9.a<j94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ba2 a;
@@ -242,17 +242,17 @@ public final class ba2 extends n32 implements fd4, cd4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.uy9.a, com.repackage.iz9
-        public void call(az9<? super k94> az9Var) {
+        @Override // com.repackage.bz9.a, com.repackage.pz9
+        public void call(hz9<? super j94> hz9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, az9Var) == null) {
-                this.a.d = az9Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, hz9Var) == null) {
+                this.a.d = hz9Var;
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f extends az9<k94> {
+    public class f extends hz9<j94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ba2 e;
@@ -276,17 +276,17 @@ public final class ba2 extends n32 implements fd4, cd4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.vy9
+        @Override // com.repackage.cz9
         /* renamed from: g */
-        public void onNext(k94 k94Var) {
+        public void onNext(j94 j94Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, k94Var) == null) && ba2.m) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, j94Var) == null) && ba2.m) {
                 String str = this.e.c;
-                Log.e(str, "PkgDlSubscriber 单个包下载、业务层处理完成：" + k94Var.toString());
+                Log.e(str, "PkgDlSubscriber 单个包下载、业务层处理完成：" + j94Var.toString());
             }
         }
 
-        @Override // com.repackage.vy9
+        @Override // com.repackage.cz9
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -297,7 +297,7 @@ public final class ba2 extends n32 implements fd4, cd4 {
             }
         }
 
-        @Override // com.repackage.vy9
+        @Override // com.repackage.cz9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -315,7 +315,7 @@ public final class ba2 extends n32 implements fd4, cd4 {
     }
 
     /* loaded from: classes5.dex */
-    public class g extends w74<k94> {
+    public class g extends v74<j94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ba2 a;
@@ -339,23 +339,23 @@ public final class ba2 extends n32 implements fd4, cd4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.z74
+        @Override // com.repackage.y74
         /* renamed from: l */
-        public String d(k94 k94Var) {
+        public String d(j94 j94Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k94Var)) == null) {
-                String g = y92.d.g(k94Var);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, j94Var)) == null) {
+                String g = y92.d.g(j94Var);
                 if (ba2.m) {
                     String str = this.a.c;
-                    Log.i(str, "SoDlCallback getDownloadPath: so=" + k94Var.g + " path=" + g);
+                    Log.i(str, "SoDlCallback getDownloadPath: so=" + j94Var.g + " path=" + g);
                 }
                 return g;
             }
             return (String) invokeL.objValue;
         }
 
-        @Override // com.repackage.b84
+        @Override // com.repackage.a84
         @NonNull
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
@@ -364,57 +364,57 @@ public final class ba2 extends n32 implements fd4, cd4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: o */
-        public void e(k94 k94Var, c94 c94Var) {
+        public void e(j94 j94Var, b94 b94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k94Var, c94Var) == null) {
-                super.e(k94Var, c94Var);
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j94Var, b94Var) == null) {
+                super.e(j94Var, b94Var);
                 if (ba2.m) {
                     String str = this.a.c;
-                    Log.i(str, "SoDlCallback onDownloadError: so=" + k94Var.g + " err=" + c94Var);
+                    Log.i(str, "SoDlCallback onDownloadError: so=" + j94Var.g + " err=" + b94Var);
                 }
-                this.a.f.l(k94Var);
+                this.a.f.l(j94Var);
                 cc3 cc3Var = new cc3();
                 cc3Var.k(13L);
-                cc3Var.i(c94Var.a);
+                cc3Var.i(b94Var.a);
                 cc3Var.d("so包下载失败");
-                cc3Var.f(c94Var.toString());
+                cc3Var.f(b94Var.toString());
                 if (this.a.d != null) {
-                    this.a.d.onError(new PkgDownloadError(k94Var, cc3Var));
+                    this.a.d.onError(new PkgDownloadError(j94Var, cc3Var));
                 }
-                f32.c().a(k94Var, ba2.o, cc3Var);
-                ng4.k(k94Var.a);
+                f32.c().a(j94Var, ba2.o, cc3Var);
+                mg4.k(j94Var.a);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: p */
-        public void i(k94 k94Var) {
-            gd4 gd4Var;
+        public void i(j94 j94Var) {
+            fd4 fd4Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, k94Var) == null) {
-                super.i(k94Var);
+            if (interceptable == null || interceptable.invokeL(1048585, this, j94Var) == null) {
+                super.i(j94Var);
                 if (ba2.m) {
                     String str = this.a.c;
-                    Log.i(str, "SoDlCallback onDownloadFinish: so=" + k94Var);
+                    Log.i(str, "SoDlCallback onDownloadFinish: so=" + j94Var);
                 }
-                String str2 = k94Var.p;
-                if (TextUtils.isEmpty(str2) && (gd4Var = (gd4) this.a.j.get(k94Var.g)) != null) {
-                    str2 = gd4Var.a;
+                String str2 = j94Var.p;
+                if (TextUtils.isEmpty(str2) && (fd4Var = (fd4) this.a.j.get(j94Var.g)) != null) {
+                    str2 = fd4Var.a;
                 }
                 aa2 b0 = this.a.b0(str2);
                 if (b0 != null) {
-                    boolean a = wd3.a(new File(k94Var.a), k94Var.m);
+                    boolean a = wd3.a(new File(j94Var.a), j94Var.m);
                     if (ba2.m) {
                         String str3 = this.a.c;
-                        Log.i(str3, "SoDlCallback onDownloadFinish: bundle=" + k94Var.g + " checkSign=" + a);
+                        Log.i(str3, "SoDlCallback onDownloadFinish: bundle=" + j94Var.g + " checkSign=" + a);
                     }
                     boolean z = true;
                     z = (ba2.m && !de3.G() && iw2.j() == 1) ? false : false;
                     if (a || z) {
-                        f84.i().m(k94Var);
+                        e84.i().m(j94Var);
                         if (ba2.m) {
                             String str4 = this.a.c;
                             Log.i(str4, "SoDlCallback onDownloadFinish: updating=" + b0 + " libName=" + str2);
@@ -422,56 +422,56 @@ public final class ba2 extends n32 implements fd4, cd4 {
                     }
                     b0.q();
                 }
-                this.a.f.m(k94Var);
+                this.a.f.m(j94Var);
                 if (this.a.d != null) {
-                    this.a.d.onNext(k94Var);
+                    this.a.d.onNext(j94Var);
                     this.a.d.onCompleted();
                 }
-                f32.c().b(k94Var, ba2.o);
+                f32.c().b(j94Var, ba2.o);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: q */
-        public void a(k94 k94Var) {
+        public void a(j94 j94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, k94Var) == null) {
-                super.a(k94Var);
-                gd4 gd4Var = (gd4) this.a.j.get(k94Var.g);
-                aa2 b0 = this.a.b0(gd4Var == null ? null : gd4Var.a);
+            if (interceptable == null || interceptable.invokeL(1048586, this, j94Var) == null) {
+                super.a(j94Var);
+                fd4 fd4Var = (fd4) this.a.j.get(j94Var.g);
+                aa2 b0 = this.a.b0(fd4Var == null ? null : fd4Var.a);
                 if (b0 != null) {
-                    b0.x(new z92.b(k94Var.b, k94Var.k));
+                    b0.x(new z92.b(j94Var.b, j94Var.k));
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: r */
-        public void c(k94 k94Var) {
+        public void c(j94 j94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, k94Var) == null) {
-                super.c(k94Var);
+            if (interceptable == null || interceptable.invokeL(1048587, this, j94Var) == null) {
+                super.c(j94Var);
                 if (ba2.m) {
                     String str = this.a.c;
-                    Log.i(str, "SoDlCallback onDownloadStart: so=" + k94Var.g);
+                    Log.i(str, "SoDlCallback onDownloadStart: so=" + j94Var.g);
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: s */
-        public void f(k94 k94Var) {
+        public void f(j94 j94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, k94Var) == null) {
-                super.f(k94Var);
+            if (interceptable == null || interceptable.invokeL(1048588, this, j94Var) == null) {
+                super.f(j94Var);
                 if (ba2.m) {
                     String str = this.a.c;
-                    Log.i(str, "SoDlCallback onDownloading: so=" + k94Var.g);
+                    Log.i(str, "SoDlCallback onDownloading: so=" + j94Var.g);
                 }
-                this.a.g0(k94Var);
+                this.a.g0(j94Var);
             }
         }
 
@@ -498,12 +498,12 @@ public final class ba2 extends n32 implements fd4, cd4 {
         o = PMSDownloadType.SO_LIB;
     }
 
-    public ba2(ob4 ob4Var, z92 z92Var) {
+    public ba2(nb4 nb4Var, z92 z92Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ob4Var, z92Var};
+            Object[] objArr = {nb4Var, z92Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -527,7 +527,7 @@ public final class ba2 extends n32 implements fd4, cd4 {
         if (m) {
             Log.i(sb2, "SwanSoUpdater: config=" + z92Var + " trace=" + Log.getStackTraceString(new Exception()));
         }
-        this.g = ob4Var;
+        this.g = nb4Var;
         this.k = z92Var;
         if (z92Var != null) {
             Iterator<String> it = z92Var.a().iterator();
@@ -546,7 +546,7 @@ public final class ba2 extends n32 implements fd4, cd4 {
                     t.u(bVar);
                     t.v(cVar);
                     this.i.put(e2, t);
-                    this.j.putAll(gd4.b(e2));
+                    this.j.putAll(fd4.b(e2));
                 }
             }
         }
@@ -559,8 +559,8 @@ public final class ba2 extends n32 implements fd4, cd4 {
         }
     }
 
-    @Override // com.repackage.d84
-    public z74<k94> A() {
+    @Override // com.repackage.c84
+    public y74<j94> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -569,23 +569,23 @@ public final class ba2 extends n32 implements fd4, cd4 {
             }
             return this.h;
         }
-        return (z74) invokeV.objValue;
+        return (y74) invokeV.objValue;
     }
 
-    @Override // com.repackage.d84
-    public void D(c94 c94Var) {
+    @Override // com.repackage.c84
+    public void D(b94 b94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c94Var) == null) {
-            super.D(c94Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b94Var) == null) {
+            super.D(b94Var);
             if (m) {
                 String str = this.c;
-                Log.e(str, "onFetchError: " + c94Var.toString());
+                Log.e(str, "onFetchError: " + b94Var.toString());
             }
-            f0(new Exception("failed by fetch error = " + c94Var));
+            f0(new Exception("failed by fetch error = " + b94Var));
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -596,7 +596,7 @@ public final class ba2 extends n32 implements fd4, cd4 {
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -608,23 +608,23 @@ public final class ba2 extends n32 implements fd4, cd4 {
         }
     }
 
-    @Override // com.repackage.d84
-    public void H(qd4 qd4Var) {
+    @Override // com.repackage.c84
+    public void H(pd4 pd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qd4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, pd4Var) == null) {
             if (m) {
                 String str = this.c;
                 StringBuilder sb = new StringBuilder();
                 sb.append("onPrepareDownload: countSet.size=");
-                sb.append(qd4Var == null ? 0 : qd4Var.n());
+                sb.append(pd4Var == null ? 0 : pd4Var.n());
                 Log.i(str, sb.toString());
             }
-            super.H(qd4Var);
-            if (qd4Var == null) {
+            super.H(pd4Var);
+            if (pd4Var == null) {
                 return;
             }
-            this.f = qd4Var;
-            if (qd4Var.k()) {
+            this.f = pd4Var;
+            if (pd4Var.k()) {
                 return;
             }
             d0();
@@ -665,7 +665,7 @@ public final class ba2 extends n32 implements fd4, cd4 {
         return (aa2) invokeL.objValue;
     }
 
-    public final az9<k94> c0() {
+    public final hz9<j94> c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -674,7 +674,7 @@ public final class ba2 extends n32 implements fd4, cd4 {
             }
             return this.e;
         }
-        return (az9) invokeV.objValue;
+        return (hz9) invokeV.objValue;
     }
 
     public final void d0() {
@@ -682,12 +682,12 @@ public final class ba2 extends n32 implements fd4, cd4 {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ArrayList arrayList = new ArrayList();
             if (this.f.g()) {
-                arrayList.add(uy9.a(new e(this)));
+                arrayList.add(bz9.a(new e(this)));
             }
             if (arrayList.isEmpty()) {
                 return;
             }
-            uy9.i(arrayList).u(c0());
+            bz9.i(arrayList).u(c0());
         }
     }
 
@@ -725,94 +725,94 @@ public final class ba2 extends n32 implements fd4, cd4 {
         }
     }
 
-    @Override // com.repackage.fd4
-    public sb4<JSONArray> g() {
+    @Override // com.repackage.ed4
+    public rb4<JSONArray> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : (sb4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : (rb4) invokeV.objValue;
     }
 
-    public final void g0(k94 k94Var) {
+    public final void g0(j94 j94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, k94Var) == null) {
-            f32.c().d(k94Var, new d(this, k94Var));
+        if (interceptable == null || interceptable.invokeL(1048588, this, j94Var) == null) {
+            f32.c().d(j94Var, new d(this, j94Var));
         }
     }
 
-    @Override // com.repackage.fd4
+    @Override // com.repackage.ed4
     @Nullable
-    public ob4 getRequest() {
+    public nb4 getRequest() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.g : (ob4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.g : (nb4) invokeV.objValue;
     }
 
-    public final void h0(k94 k94Var) {
+    public final void h0(j94 j94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, k94Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, j94Var) == null) {
             if (m) {
                 String str = this.c;
-                Log.i(str, "SoNodeHandler updateBestSo start so=" + k94Var);
+                Log.i(str, "SoNodeHandler updateBestSo start so=" + j94Var);
             }
-            if (k94Var == null) {
+            if (j94Var == null) {
                 if (m) {
                     Log.i(this.c, "SoNodeHandler updateBestSo end by null so");
                     return;
                 }
                 return;
             }
-            gd4 gd4Var = this.j.get(k94Var.g);
-            if (gd4Var == null) {
+            fd4 fd4Var = this.j.get(j94Var.g);
+            if (fd4Var == null) {
                 if (m) {
                     String str2 = this.c;
-                    Log.i(str2, "SoNodeHandler updateBestSo end by illegal bundleId=" + k94Var.g);
+                    Log.i(str2, "SoNodeHandler updateBestSo end by illegal bundleId=" + j94Var.g);
                     return;
                 }
                 return;
             }
-            if (TextUtils.isEmpty(k94Var.p)) {
-                k94Var.p = gd4Var.a;
+            if (TextUtils.isEmpty(j94Var.p)) {
+                j94Var.p = fd4Var.a;
             }
-            aa2 b0 = b0(k94Var.p);
+            aa2 b0 = b0(j94Var.p);
             if (b0 == null) {
                 if (m) {
                     String str3 = this.c;
-                    Log.i(str3, "SoNodeHandler updateBestSo end by no updating lib=" + k94Var.p);
+                    Log.i(str3, "SoNodeHandler updateBestSo end by no updating lib=" + j94Var.p);
                     return;
                 }
                 return;
             }
-            if (k94Var.q == null) {
-                k94Var.q = gd4Var.c;
+            if (j94Var.q == null) {
+                j94Var.q = fd4Var.c;
             }
-            if (!AbiType.currentAbi().compat(k94Var.q)) {
+            if (!AbiType.currentAbi().compat(j94Var.q)) {
                 if (m) {
                     Log.i(this.c, "SoNodeHandler updateBestSo end by currentAbi");
                     return;
                 }
                 return;
             }
-            k94 l = b0.l();
-            k94 j = b0.j();
+            j94 l = b0.l();
+            j94 j = b0.j();
             long max = Math.max(j != null ? j.i : 0L, l == null ? 0L : l.i);
-            long j2 = k94Var.i;
+            long j2 = j94Var.i;
             if (j2 < max) {
                 if (m) {
-                    Log.i(this.c, String.format("SoNodeHandler updateBestSo end by not bestVer(%d) libVer(%d)", Long.valueOf(max), Long.valueOf(k94Var.i)));
+                    Log.i(this.c, String.format("SoNodeHandler updateBestSo end by not bestVer(%d) libVer(%d)", Long.valueOf(max), Long.valueOf(j94Var.i)));
                 }
             } else if (j2 > max) {
                 if (m) {
                     String str4 = this.c;
-                    Log.i(str4, "SoNodeHandler updateBestSo end by update bestVer=" + k94Var.i);
+                    Log.i(str4, "SoNodeHandler updateBestSo end by update bestVer=" + j94Var.i);
                 }
-                b0.w(this, k94Var);
+                b0.w(this, j94Var);
             } else {
-                if (j == null || !j.q.compat(k94Var.q)) {
+                if (j == null || !j.q.compat(j94Var.q)) {
                     if (m) {
                         String str5 = this.c;
-                        Log.i(str5, "SoNodeHandler updateBestSo end by update abi update=" + k94Var.q);
+                        Log.i(str5, "SoNodeHandler updateBestSo end by update abi update=" + j94Var.q);
                     }
-                    b0.w(this, k94Var);
+                    b0.w(this, j94Var);
                 }
                 if (m) {
                     Log.i(this.c, "SoNodeHandler updateBestSo end by should not exec here");
@@ -821,7 +821,7 @@ public final class ba2 extends n32 implements fd4, cd4 {
         }
     }
 
-    @Override // com.repackage.cd4
+    @Override // com.repackage.bd4
     public void l(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, jSONObject) == null) {
@@ -830,24 +830,24 @@ public final class ba2 extends n32 implements fd4, cd4 {
                 Log.i(str, "SoNodeHandler parseData start data=" + jSONObject);
             }
             if (jSONObject != null) {
-                h0((k94) pd4.j(jSONObject, new k94()));
+                h0((j94) od4.j(jSONObject, new j94()));
             }
         }
     }
 
-    @Override // com.repackage.fd4
-    public d84 o() {
+    @Override // com.repackage.ed4
+    public c84 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this : (d84) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this : (c84) invokeV.objValue;
     }
 
-    @Override // com.repackage.cd4
+    @Override // com.repackage.bd4
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            ad4 ad4Var = new ad4();
-            qd4 qd4Var = new qd4();
+            zc4 zc4Var = new zc4();
+            pd4 pd4Var = new pd4();
             if (m) {
                 Log.i(this.c, "SoNodeHandler handle for loop start");
             }
@@ -856,12 +856,12 @@ public final class ba2 extends n32 implements fd4, cd4 {
                 String i = iw2.i();
                 if (!TextUtils.isEmpty(i)) {
                     try {
-                        k94 k94Var = (k94) pd4.j(new JSONObject(i), new k94());
-                        k94Var.g = "so_zeus_armeabi";
-                        h0(k94Var);
-                        b03.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f120d)).G();
-                    } catch (JSONException e2) {
+                        j94 j94Var = (j94) od4.j(new JSONObject(i), new j94());
+                        j94Var.g = "so_zeus_armeabi";
+                        h0(j94Var);
                         b03.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f120c)).G();
+                    } catch (JSONException e2) {
+                        b03.g(AppRuntime.getAppContext(), AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f120b)).G();
                         e2.printStackTrace();
                     }
                 }
@@ -869,17 +869,17 @@ public final class ba2 extends n32 implements fd4, cd4 {
             for (aa2 aa2Var : this.i.values()) {
                 if (aa2Var.r(this)) {
                     h0(aa2Var.l());
-                    k94 j = aa2Var.j();
+                    j94 j = aa2Var.j();
                     if (aa2Var.p() && j != null) {
                         if (m) {
                             String str = this.c;
                             Log.i(str, "SoNodeHandler handle for bestSo=" + j);
                         }
-                        bd4.b(j, qd4Var);
-                        if (ad4Var.d == null) {
-                            ad4Var.d = new ArrayList();
+                        ad4.b(j, pd4Var);
+                        if (zc4Var.d == null) {
+                            zc4Var.d = new ArrayList();
                         }
-                        ad4Var.d.add(j);
+                        zc4Var.d.add(j);
                     } else {
                         if (m) {
                             Log.i(this.c, "SoNodeHandler localSo not update, just check for install");
@@ -891,9 +891,9 @@ public final class ba2 extends n32 implements fd4, cd4 {
             if (m) {
                 Log.i(this.c, "SoNodeHandler handle for loop end");
                 String str2 = this.c;
-                Log.i(str2, "SoNodeHandler handle soSet.pkgSize()=" + qd4Var.n());
+                Log.i(str2, "SoNodeHandler handle soSet.pkgSize()=" + pd4Var.n());
             }
-            if (qd4Var.n() == 0) {
+            if (pd4Var.n() == 0) {
                 if (m) {
                     Log.i(this.c, "SoNodeHandler handle end by no pkg");
                 }
@@ -903,15 +903,15 @@ public final class ba2 extends n32 implements fd4, cd4 {
             if (m) {
                 Log.i(this.c, "SoNodeHandler handle end by start dl");
             }
-            H(qd4Var);
-            t94.e(ad4Var, this);
+            H(pd4Var);
+            s94.e(zc4Var, this);
         }
     }
 
-    @Override // com.repackage.d84
-    public cd4 x(String str) {
+    @Override // com.repackage.c84
+    public bd4 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) ? TextUtils.equals("so", str) ? this : super.x(str) : (cd4) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) ? TextUtils.equals("so", str) ? this : super.x(str) : (bd4) invokeL.objValue;
     }
 }

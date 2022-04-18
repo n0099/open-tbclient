@@ -39,12 +39,12 @@ public class vl2 {
 
         /* renamed from: com.repackage.vl2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0534a extends TimerTask {
+        public class C0536a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0534a(a aVar) {
+            public C0536a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class vl2 {
         public final TimerTask e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0534a(this) : (TimerTask) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0536a(this) : (TimerTask) invokeV.objValue;
         }
 
         public void f() {

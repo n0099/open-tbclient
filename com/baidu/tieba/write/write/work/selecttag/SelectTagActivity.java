@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f29;
+import com.repackage.gj8;
 import com.repackage.h95;
+import com.repackage.m29;
+import com.repackage.vr4;
 import com.repackage.wa;
-import com.repackage.wr4;
-import com.repackage.zi8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SelectTagActivity extends SuspendedActivity {
@@ -36,7 +36,7 @@ public class SelectTagActivity extends SuspendedActivity {
     public boolean isKeybordVisible;
     public wa mGetSelectTagListener;
     public int mMaxSelectTagNum;
-    public f29 mSelectClassTagsModel;
+    public m29 mSelectClassTagsModel;
     public List<String> mShowSelectTagData;
     public VideoCategoryClassData mVideoCategoryClassData;
     public SelectTagListView selectTagListView;
@@ -225,9 +225,9 @@ public class SelectTagActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
             if (this.selectTagListView.w()) {
-                wr4.d(this.selectTagListView.c).x(R.color.CAM_X0302);
+                vr4.d(this.selectTagListView.c).x(R.color.CAM_X0302);
             } else {
-                this.selectTagListView.c.setTextColor(zi8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.selectTagListView.c.setTextColor(gj8.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -239,8 +239,8 @@ public class SelectTagActivity extends SuspendedActivity {
             super.onCreate(bundle);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.mSelectClassTagsModel = new f29(getUniqueId());
-            this.selectTagListView.d = findViewById(R.id.obfuscated_res_0x7f091dd1);
+            this.mSelectClassTagsModel = new m29(getUniqueId());
+            this.selectTagListView.d = findViewById(R.id.obfuscated_res_0x7f091dd2);
             this.selectTagListView.l();
             this.mGetSelectTagListener.getHttpMessageListener().setSelfListener(true);
             this.mGetSelectTagListener.getSocketMessageListener().setSelfListener(true);

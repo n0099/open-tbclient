@@ -23,20 +23,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a98;
-import com.repackage.dw4;
+import com.repackage.cw4;
+import com.repackage.dn4;
 import com.repackage.ec5;
-import com.repackage.en4;
-import com.repackage.f98;
+import com.repackage.em8;
+import com.repackage.fm8;
+import com.repackage.h98;
 import com.repackage.ka;
 import com.repackage.lf;
+import com.repackage.m98;
 import com.repackage.pg;
 import com.repackage.s85;
 import com.repackage.x8;
-import com.repackage.xl8;
 import com.repackage.yb5;
-import com.repackage.yl8;
-import com.repackage.zz4;
+import com.repackage.yz4;
 /* loaded from: classes2.dex */
 public class InitLaunchAsyncTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -121,7 +121,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
     private void initQuickWebViewManager() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            a98.q().u();
+            h98.q().u();
         }
     }
 
@@ -201,11 +201,11 @@ public class InitLaunchAsyncTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setServiceOnCreateCallBack();
-            f98.g().j();
-            zz4.k().n(TbadkCoreApplication.getInst().isMainProcess(false));
+            m98.g().j();
+            yz4.k().n(TbadkCoreApplication.getInst().isMainProcess(false));
             intReadThreadHistory();
-            dw4.c();
-            en4.t().C();
+            cw4.c();
+            dn4.t().C();
             yb5.m().s(TbadkCoreApplication.getInst());
             initICDN();
             initQuickWebViewManager();
@@ -276,8 +276,8 @@ public class InitLaunchAsyncTask extends LaunchTask {
     public void intReadThreadHistory() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            TbadkApplication.getInst().mReadThreadHistory = new yl8(300);
-            TbadkApplication.getInst().mPhotoLiveReadHistory = new xl8(300);
+            TbadkApplication.getInst().mReadThreadHistory = new fm8(300);
+            TbadkApplication.getInst().mPhotoLiveReadHistory = new em8(300);
             x8.f().r(TbadkApplication.getInst());
         }
     }

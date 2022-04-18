@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.xd8;
+import com.repackage.ee8;
 import tbclient.SimpleUser;
 /* loaded from: classes3.dex */
 public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public xd8 b;
+    public ee8 b;
     public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -52,8 +52,8 @@ public class AccountSafeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            xd8 xd8Var = this.b;
-            if (xd8Var == null || xd8Var.f() == null) {
+            ee8 ee8Var = this.b;
+            if (ee8Var == null || ee8Var.f() == null) {
                 return null;
             }
             return this.b.f();
@@ -92,10 +92,10 @@ public class AccountSafeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void F(xd8 xd8Var) {
+    public void F(ee8 ee8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xd8Var) == null) {
-            this.b = xd8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ee8Var) == null) {
+            this.b = ee8Var;
             D();
         }
     }
@@ -134,9 +134,9 @@ public class AccountSafeModel extends BdBaseModel {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new PrivateInfoNetMessage() : (PrivateInfoNetMessage) invokeV.objValue;
     }
 
-    public xd8 z() {
+    public ee8 z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : (xd8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : (ee8) invokeV.objValue;
     }
 }

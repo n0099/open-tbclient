@@ -1,162 +1,95 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Application;
-import android.view.MotionEvent;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xp8 {
+public class xp8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static xp8 mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mICrabSdk;
+    public final MainTabActivity a;
+    public final jo8 b;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(Application application);
-
-        void b(Exception exc);
-
-        void c(String str);
-
-        void d(String str);
-
-        void e(String str);
-
-        void f(MotionEvent motionEvent, Activity activity);
-
-        void onPause(Activity activity);
-
-        void onResume(Activity activity);
-    }
-
-    public xp8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xp8(MainTabActivity mainTabActivity) {
+        super(2001371);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mICrabSdk = getCrabSdk();
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.mLogicController;
     }
 
-    private a getCrabSdk() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, a.class)) == null) {
-                return null;
-            }
-            return (a) runTask.getData();
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || MainTabActivity.syncHasFinish) {
+            return;
         }
-        return (a) invokeV.objValue;
+        jo8 jo8Var = this.b;
+        if (jo8Var != null && jo8Var.g() != null) {
+            no8 g = this.b.g();
+            qb7 k = qb7.k(this.a);
+            int intValue = this.a.mCurrentTabIndex.intValue();
+            MainTabActivity mainTabActivity = this.a;
+            g.b = k.y("1", intValue, 0, mainTabActivity.mAppBackgroundTime, new bo8(mainTabActivity), false);
+        }
+        if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !this.a.mIsSplashClick) {
+            jo8 jo8Var2 = this.b;
+            if (jo8Var2 != null && jo8Var2.b() != null) {
+                this.b.b().b();
+            }
+            jo8 jo8Var3 = this.b;
+            if (jo8Var3 != null && jo8Var3.g() != null) {
+                this.b.g().a();
+            }
+        }
+        ld5.a(1);
     }
 
-    public static xp8 getInstance() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        jo8 jo8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (mInstance == null) {
-                synchronized (xp8.class) {
-                    if (mInstance == null) {
-                        mInstance = new xp8();
-                    }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
+            a();
+            MainTabActivity.syncHasFinish = true;
+            TbadkCoreApplication.getInst().syncHasFinish = true;
+            if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                return;
+            }
+            if (!this.a.mIsSplashClick && (jo8Var = this.b) != null && jo8Var.c() != null) {
+                if (UbsABTestHelper.isNewInterestShowTestA()) {
+                    this.b.c().d();
+                } else {
+                    this.b.c().a();
                 }
             }
-            return mInstance;
+            jo8 jo8Var2 = this.b;
+            if (jo8Var2 == null || jo8Var2.i() == null) {
+                return;
+            }
+            this.b.i().b();
         }
-        return (xp8) invokeV.objValue;
-    }
-
-    private boolean isCrabSdkSwitchOn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? wt4.k().l("pref_key_crab_sdk_enable", 1) == 1 : invokeV.booleanValue;
-    }
-
-    public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, activity) == null) || (aVar = this.mICrabSdk) == null) {
-            return;
-        }
-        aVar.f(motionEvent, activity);
-    }
-
-    public void initSdk(Application application) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) || (aVar = this.mICrabSdk) == null) {
-            return;
-        }
-        aVar.a(application);
-    }
-
-    public void onPause(Activity activity) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || (aVar = this.mICrabSdk) == null) {
-            return;
-        }
-        aVar.onPause(activity);
-    }
-
-    public void onResume(Activity activity) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (aVar = this.mICrabSdk) == null) {
-            return;
-        }
-        aVar.onResume(activity);
-    }
-
-    public void setFlutterPath(String str) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (aVar = this.mICrabSdk) == null) {
-            return;
-        }
-        aVar.c(str);
-    }
-
-    public void setLastFlutterPage(String str) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (aVar = this.mICrabSdk) == null) {
-            return;
-        }
-        aVar.e(str);
-    }
-
-    public void setOpenFlutterPage(String str) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (aVar = this.mICrabSdk) == null) {
-            return;
-        }
-        aVar.d(str);
-    }
-
-    public void uploadException(Exception exc) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, exc) == null) || (aVar = this.mICrabSdk) == null) {
-            return;
-        }
-        aVar.b(exc);
     }
 }

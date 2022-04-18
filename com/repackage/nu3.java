@@ -24,7 +24,7 @@ public class nu3 implements mu3 {
     public MediaPlayer.OnCompletionListener g;
     public MediaPlayer.OnErrorListener h;
     public MediaPlayer.OnSeekCompleteListener i;
-    public y64 j;
+    public x64 j;
     public Handler k;
 
     /* loaded from: classes6.dex */
@@ -311,12 +311,12 @@ public class nu3 implements mu3 {
 
         /* renamed from: com.repackage.nu3$e$e  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0480e implements y64 {
+        public class C0482e implements x64 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
 
-            public C0480e(e eVar) {
+            public C0482e(e eVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -334,7 +334,7 @@ public class nu3 implements mu3 {
                 this.a = eVar;
             }
 
-            @Override // com.repackage.y64
+            @Override // com.repackage.x64
             public void onPause() {
                 Interceptable interceptable = $ic;
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b.j == null) {
@@ -378,7 +378,7 @@ public class nu3 implements mu3 {
                 this.b.a.setOnCompletionListener(this.b.e, new b(this));
                 this.b.a.setOnSeekCompleteListener(this.b.e, new c(this));
                 this.b.a.setOnErrorListener(this.b.e, new d(this));
-                this.b.a.setOnPauseListener(this.b.e, new C0480e(this));
+                this.b.a.setOnPauseListener(this.b.e, new C0482e(this));
                 this.b.a.prepare(this.b.e);
             }
         }
@@ -503,10 +503,10 @@ public class nu3 implements mu3 {
     }
 
     @Override // com.repackage.mu3
-    public void f(y64 y64Var) {
+    public void f(x64 x64Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, y64Var) == null) {
-            this.j = y64Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, x64Var) == null) {
+            this.j = x64Var;
         }
     }
 

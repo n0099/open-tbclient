@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c15;
+import com.repackage.gj8;
 import com.repackage.i05;
 import com.repackage.v05;
-import com.repackage.zi8;
 /* loaded from: classes3.dex */
 public class SendView extends TextView implements v05 {
     public static /* synthetic */ Interceptable $ic = null;
@@ -109,7 +109,7 @@ public class SendView extends TextView implements v05 {
         setEnabled(false);
         setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
         setTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
-        setText(R.string.obfuscated_res_0x7f0f10e9);
+        setText(R.string.obfuscated_res_0x7f0f10e8);
         setOnClickListener(new a(this));
     }
 
@@ -253,7 +253,7 @@ public class SendView extends TextView implements v05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
-            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{zi8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), zi8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{gj8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), gj8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 

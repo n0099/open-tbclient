@@ -22,15 +22,15 @@ import com.repackage.b00;
 import com.repackage.c00;
 import com.repackage.h00;
 import com.repackage.kz;
-import com.repackage.qn4;
-import com.repackage.rx5;
+import com.repackage.pn4;
 import com.repackage.rz;
 import com.repackage.sy;
+import com.repackage.tx5;
 import com.repackage.tz;
 import com.repackage.vy;
 import com.repackage.zy;
 /* loaded from: classes.dex */
-public class ThreadCardViewHolder<T extends qn4> extends TypeAdapter.ViewHolder {
+public class ThreadCardViewHolder<T extends pn4> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
@@ -181,10 +181,10 @@ public class ThreadCardViewHolder<T extends qn4> extends TypeAdapter.ViewHolder 
         kzVar.t(i, c00Var);
     }
 
-    public void j(rx5<T> rx5Var) {
+    public void j(tx5<T> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rx5Var) == null) {
-            this.b.p(rx5Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tx5Var) == null) {
+            this.b.p(tx5Var);
         }
     }
 

@@ -46,12 +46,12 @@ public class zm3 {
 
         /* renamed from: com.repackage.zm3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0573a extends RequestBody {
+        public class C0572a extends RequestBody {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RequestBody a;
 
-            public C0573a(a aVar, RequestBody requestBody) {
+            public C0572a(a aVar, RequestBody requestBody) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class zm3 {
         public final RequestBody a(RequestBody requestBody) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? new C0573a(this, requestBody) : (RequestBody) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? new C0572a(this, requestBody) : (RequestBody) invokeL.objValue;
         }
 
         @Override // okhttp3.Interceptor

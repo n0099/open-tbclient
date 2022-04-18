@@ -136,10 +136,10 @@ public final class za2 {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            ng4.j(j());
-            ng4.j(k());
+            mg4.j(j());
+            mg4.j(k());
             for (File file : n()) {
-                ng4.j(file);
+                mg4.j(file);
             }
         }
     }
@@ -254,9 +254,9 @@ public final class za2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (File file : ng4.C(a)) {
+            for (File file : mg4.C(a)) {
                 if (file.isDirectory()) {
-                    File[] C2 = ng4.C(file);
+                    File[] C2 = mg4.C(file);
                     int length = C2.length;
                     int i = 0;
                     while (true) {
@@ -283,9 +283,9 @@ public final class za2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (File file : ng4.C(a)) {
+            for (File file : mg4.C(a)) {
                 if (file.isDirectory()) {
-                    File[] C2 = ng4.C(file);
+                    File[] C2 = mg4.C(file);
                     int length = C2.length;
                     int i = 0;
                     while (true) {
@@ -318,10 +318,10 @@ public final class za2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, file)) == null) {
             if (file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length == 1 && listFiles[0].isDirectory()) {
-                ng4.e(listFiles[0], file);
-                ng4.j(listFiles[0]);
+                mg4.e(listFiles[0], file);
+                mg4.j(listFiles[0]);
             }
-            return (String) new JSONObject(ng4.E(new File(file, "dynamicLib.json"))).get("name");
+            return (String) new JSONObject(mg4.E(new File(file, "dynamicLib.json"))).get("name");
         }
         return (String) invokeL.objValue;
     }
@@ -341,17 +341,17 @@ public final class za2 {
             boolean z = false;
             try {
                 File k = k();
-                ng4.l(k);
-                if (file.exists() && ng4.U(file.getAbsolutePath(), k.getAbsolutePath())) {
+                mg4.l(k);
+                if (file.exists() && mg4.U(file.getAbsolutePath(), k.getAbsolutePath())) {
                     str = q(k);
                     File d = d(str);
                     if (d.exists()) {
-                        ng4.j(d);
+                        mg4.j(d);
                     }
                     d.mkdirs();
-                    ng4.e(k, d);
-                    ng4.j(k);
-                    ng4.j(file);
+                    mg4.e(k, d);
+                    mg4.j(k);
+                    mg4.j(file);
                     z = true;
                 }
             } catch (Exception e) {

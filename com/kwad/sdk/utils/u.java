@@ -20,7 +20,7 @@ public class u {
 
     public static void a(Context context, String str, int i) {
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0421, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910b1)).setText(str);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910b2)).setText(str);
         Toast toast = new Toast(context);
         toast.setGravity(17, 0, 0);
         toast.setDuration(i);
@@ -34,7 +34,7 @@ public class u {
         }
         b = true;
         View inflate = LayoutInflater.from(context).inflate(i, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910b1)).setText(str);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910b2)).setText(str);
         Toast toast = new Toast(context.getApplicationContext());
         toast.setGravity(17, 0, 0);
         toast.setDuration(0);

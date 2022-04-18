@@ -1,25 +1,30 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import android.webkit.DownloadListener;
+import android.widget.Toast;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
 import com.win.opensdk.core.Info;
+import com.win.opensdk.downloader.WDownLoadService;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
-public class dt9 implements jq9 {
+public class dt9 implements DownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final /* synthetic */ tt9 b;
+    public final /* synthetic */ ht9 a;
 
-    public dt9(tt9 tt9Var) {
+    public dt9(ht9 ht9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tt9Var};
+            Object[] objArr = {ht9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,65 +34,60 @@ public class dt9 implements jq9 {
                 return;
             }
         }
-        this.b = tt9Var;
-        this.a = 0L;
+        this.a = ht9Var;
     }
 
-    @Override // com.repackage.jq9
-    public void a(int i, String str) {
+    @Override // android.webkit.DownloadListener
+    public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
+        Info info;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.a;
-            rr9 a = vr9.a(this.b.a);
-            zr9 zr9Var = new zr9(null);
-            zr9Var.a = this.b.b;
-            a.g(zr9Var, currentTimeMillis, i, 0);
-            a.m();
-            this.b.j.removeMessages(100101);
-            this.b.d = false;
-            this.b.d(this.b.a(i));
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) || (info = this.a.c) == null || info.getOpent() != 1 || j <= 10) {
+            return;
         }
-    }
-
-    @Override // com.repackage.jq9
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = System.currentTimeMillis();
-            tt9 tt9Var = this.b;
-            tt9Var.j.sendEmptyMessageDelayed(100101, tt9Var.f * 1000);
-        }
-    }
-
-    @Override // com.repackage.jq9
-    public void a(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            hp9 hp9Var = (hp9) obj;
-            this.b.j.removeMessages(100101);
-            this.b.d = false;
-            int size = hp9Var.a.size();
-            long currentTimeMillis = System.currentTimeMillis() - this.a;
-            Info info = size > 0 ? (Info) hp9Var.a.get(0) : null;
-            rr9 a = vr9.a(this.b.a);
-            zr9 zr9Var = new zr9(info);
-            zr9Var.a = this.b.b;
-            a.g(zr9Var, currentTimeMillis, 200, size);
+        ht9 ht9Var = this.a;
+        Context context = ht9Var.a;
+        Info info2 = ht9Var.c;
+        if (!wp9.H(context)) {
+            Toast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f1568) + info2.getDl_name(), 0).show();
+            yr9 a = cs9.a(context);
+            a.q(new gs9(info2), 1);
             a.m();
-            this.b.c(hp9Var);
-            vs9 vs9Var = this.b.c;
-            if (vs9Var != null && !vs9Var.d()) {
-                tt9 tt9Var = this.b;
-                if (tt9Var.h) {
-                    return;
+            return;
+        }
+        try {
+            if (wp9.B(context, info2.getOpen()) && wp9.A(context, info2)) {
+                yr9 a2 = cs9.a(context);
+                gs9 gs9Var = new gs9(info2);
+                String open = info2.getOpen();
+                try {
+                    a2.b = cs9.d("wii", gs9Var);
+                    a2.l("msg", cs9.b(open));
+                } catch (JSONException unused) {
                 }
-                Info c = tt9Var.c.c();
-                if (c != null) {
-                    this.b.e(c);
-                    return;
-                }
+                a2.m();
+                wp9.z(info2, context, wp9.f(context, info2.getOpen()));
+                return;
             }
-            this.b.d(PBError.NO_FILL);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (info2 != null) {
+            try {
+                if (TextUtils.isEmpty(info2.getOpen())) {
+                    return;
+                }
+                mr9.f(context, info2.getDl_pkg(), info2);
+                Intent intent = new Intent(context, WDownLoadService.class);
+                intent.putExtra("down_load_apk_url", info2.getOpen());
+                intent.putExtra("down_load_pkg_name", info2.getDl_pkg());
+                context.startService(intent);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                yr9 a3 = cs9.a(context);
+                a3.q(new gs9(info2), 2);
+                a3.l("desc", e2.getMessage());
+                a3.m();
+            }
         }
     }
 }

@@ -31,9 +31,9 @@ public class f15 extends u05 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f080965;
-        this.e = R.drawable.obfuscated_res_0x7f080966;
-        this.f = R.drawable.obfuscated_res_0x7f0808d1;
+        this.d = R.drawable.obfuscated_res_0x7f080969;
+        this.e = R.drawable.obfuscated_res_0x7f08096a;
+        this.f = R.drawable.obfuscated_res_0x7f0808d5;
         this.g = false;
         this.h = true;
         this.i = false;

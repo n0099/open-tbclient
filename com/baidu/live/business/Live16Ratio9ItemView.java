@@ -108,19 +108,19 @@ public class Live16Ratio9ItemView extends LiveBaseItemView {
             setNeedRatio(false);
             int c = (int) (((y90.c(context) - (y90.a(context, 12.0f) * 2)) - y90.a(context, 7.0f)) / 2.0d);
             View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0506, this);
-            this.d = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091297);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091298);
+            this.d = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091298);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091299);
             this.k = frameLayout;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) frameLayout.getLayoutParams();
             layoutParams.width = c;
             layoutParams.height = (int) ((c * 9) / 16.0d);
             this.k.setLayoutParams(layoutParams);
-            this.e = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f091299);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09129d);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09129b);
-            this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091294);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091296);
-            this.j = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09129c);
+            this.e = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09129a);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09129e);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09129c);
+            this.h = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091295);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091297);
+            this.j = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09129d);
             float a = y90.a(getContext(), 10.0f);
             this.m = new float[]{a, a, a, a, a, a, a, a};
         }

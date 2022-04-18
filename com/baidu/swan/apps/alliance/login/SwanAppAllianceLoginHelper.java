@@ -16,7 +16,7 @@ import com.repackage.jq2;
 import com.repackage.l73;
 import com.repackage.qj2;
 import com.repackage.qk2;
-import com.repackage.sg4;
+import com.repackage.rg4;
 import com.repackage.tn1;
 import com.repackage.un1;
 import com.repackage.vg1;
@@ -180,13 +180,13 @@ public final class SwanAppAllianceLoginHelper {
             }
             vl1 n = qj2.n();
             Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
-            String a2 = sg4.a("https://ossapi.baidu.com/oss/static/open_source_login_v3.html", "hostName", n.a());
+            String a2 = rg4.a("https://ossapi.baidu.com/oss/static/open_source_login_v3.html", "hostName", n.a());
             qk2 G0 = qj2.G0();
             Intrinsics.checkNotNull(G0);
-            String a3 = sg4.a(a2, "zid", G0.a(qj2.c()));
+            String a3 = rg4.a(a2, "zid", G0.a(qj2.c()));
             vl1 n2 = qj2.n();
             Intrinsics.checkNotNullExpressionValue(n2, "SwanAppRuntime.getConfig()");
-            String a4 = sg4.a(a3, "appKey", n2.b());
+            String a4 = rg4.a(a3, "appKey", n2.b());
             xz1.c3("allianceLogin", jq2.d(a4, a4));
             a = listener;
             c = false;

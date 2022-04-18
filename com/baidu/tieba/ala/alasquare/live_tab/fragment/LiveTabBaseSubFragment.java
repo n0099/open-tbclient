@@ -126,7 +126,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
             }
             this.c.e();
             this.c.i(R.drawable.new_pic_emotion_03);
-            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2f));
+            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2e));
             this.c.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
             if (this.c.b() == null || this.c.b().getParent() != null) {

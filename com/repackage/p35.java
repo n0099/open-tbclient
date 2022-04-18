@@ -136,7 +136,7 @@ public class p35 implements Callable<Boolean> {
     /* JADX WARN: Code restructure failed: missing block: B:157:0x0397, code lost:
         r8.append(r27);
         r8.append(r4);
-        com.repackage.sm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
+        com.repackage.zm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
      */
     /* JADX WARN: Code restructure failed: missing block: B:158:0x03b1, code lost:
         r11 = r7;
@@ -283,7 +283,7 @@ public class p35 implements Callable<Boolean> {
             return (ImageUploadResult) invokeCommon.objValue;
         }
         String str5 = str;
-        sm8.a("发帖：正在上传图片 = " + str5);
+        zm8.a("发帖：正在上传图片 = " + str5);
         BitmapFactory.Options options2 = new BitmapFactory.Options();
         boolean z3 = true;
         options2.inJustDecodeBounds = true;
@@ -316,7 +316,7 @@ public class p35 implements Callable<Boolean> {
                         try {
                             imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
                             imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0600);
-                            sm8.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
+                            zm8.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
                             lg.b(null);
                             this.s = null;
                             return imageUploadResult;
@@ -336,7 +336,7 @@ public class p35 implements Callable<Boolean> {
                             Object[] objArr = new Object[2];
                             objArr[c] = "comment";
                             objArr[1] = sb.toString();
-                            lt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr);
+                            kt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr);
                             StringBuilder sb6 = new StringBuilder();
                             sb6.append("发帖：正在上传图片 上传失败 = ");
                             sb6.append(r4);
@@ -345,14 +345,14 @@ public class p35 implements Callable<Boolean> {
                             sb6.append("    p = ");
                             str2 = str;
                             sb6.append(str2);
-                            sm8.a(sb6.toString());
+                            zm8.a(sb6.toString());
                             lg.b(randomAccessFile2);
                             this.s = null;
-                            sm8.a("发帖：上传图片 结束      p = " + str2);
+                            zm8.a("发帖：上传图片 结束      p = " + str2);
                             return imageUploadResult;
                         }
                     }
-                    sm8.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
+                    zm8.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
                     String b = ui.b(FileHelper.GetStreamFromFile(file));
                     sb5.append("path=");
                     sb5.append(str5);
@@ -438,7 +438,7 @@ public class p35 implements Callable<Boolean> {
                                                 Object[] objArr2 = new Object[2];
                                                 objArr2[c] = "comment";
                                                 objArr2[1] = sb.toString();
-                                                lt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr2);
+                                                kt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr2);
                                                 StringBuilder sb62 = new StringBuilder();
                                                 sb62.append("发帖：正在上传图片 上传失败 = ");
                                                 sb62.append(r4);
@@ -447,10 +447,10 @@ public class p35 implements Callable<Boolean> {
                                                 sb62.append("    p = ");
                                                 str2 = str;
                                                 sb62.append(str2);
-                                                sm8.a(sb62.toString());
+                                                zm8.a(sb62.toString());
                                                 lg.b(randomAccessFile2);
                                                 this.s = null;
-                                                sm8.a("发帖：上传图片 结束      p = " + str2);
+                                                zm8.a("发帖：上传图片 结束      p = " + str2);
                                                 return imageUploadResult;
                                             }
                                         } else if (i9 == 0) {
@@ -482,7 +482,7 @@ public class p35 implements Callable<Boolean> {
                                                 Object[] objArr22 = new Object[2];
                                                 objArr22[c] = "comment";
                                                 objArr22[1] = sb.toString();
-                                                lt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr22);
+                                                kt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr22);
                                                 StringBuilder sb622 = new StringBuilder();
                                                 sb622.append("发帖：正在上传图片 上传失败 = ");
                                                 sb622.append(r4);
@@ -491,10 +491,10 @@ public class p35 implements Callable<Boolean> {
                                                 sb622.append("    p = ");
                                                 str2 = str;
                                                 sb622.append(str2);
-                                                sm8.a(sb622.toString());
+                                                zm8.a(sb622.toString());
                                                 lg.b(randomAccessFile2);
                                                 this.s = null;
-                                                sm8.a("发帖：上传图片 结束      p = " + str2);
+                                                zm8.a("发帖：上传图片 结束      p = " + str2);
                                                 return imageUploadResult;
                                             }
                                         }
@@ -521,7 +521,7 @@ public class p35 implements Callable<Boolean> {
                                             Object[] objArr222 = new Object[2];
                                             objArr222[c] = "comment";
                                             objArr222[1] = sb.toString();
-                                            lt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr222);
+                                            kt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr222);
                                             StringBuilder sb6222 = new StringBuilder();
                                             sb6222.append("发帖：正在上传图片 上传失败 = ");
                                             sb6222.append(r4);
@@ -530,10 +530,10 @@ public class p35 implements Callable<Boolean> {
                                             sb6222.append("    p = ");
                                             str2 = str;
                                             sb6222.append(str2);
-                                            sm8.a(sb6222.toString());
+                                            zm8.a(sb6222.toString());
                                             lg.b(randomAccessFile2);
                                             this.s = null;
-                                            sm8.a("发帖：上传图片 结束      p = " + str2);
+                                            zm8.a("发帖：上传图片 结束      p = " + str2);
                                             return imageUploadResult;
                                         }
                                     }
@@ -566,7 +566,7 @@ public class p35 implements Callable<Boolean> {
                                                     Object[] objArr2222 = new Object[2];
                                                     objArr2222[c] = "comment";
                                                     objArr2222[1] = sb.toString();
-                                                    lt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr2222);
+                                                    kt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr2222);
                                                     StringBuilder sb62222 = new StringBuilder();
                                                     sb62222.append("发帖：正在上传图片 上传失败 = ");
                                                     sb62222.append(r4);
@@ -575,10 +575,10 @@ public class p35 implements Callable<Boolean> {
                                                     sb62222.append("    p = ");
                                                     str2 = str;
                                                     sb62222.append(str2);
-                                                    sm8.a(sb62222.toString());
+                                                    zm8.a(sb62222.toString());
                                                     lg.b(randomAccessFile2);
                                                     this.s = null;
-                                                    sm8.a("发帖：上传图片 结束      p = " + str2);
+                                                    zm8.a("发帖：上传图片 结束      p = " + str2);
                                                     return imageUploadResult;
                                                 }
                                             } catch (Throwable th4) {
@@ -630,7 +630,7 @@ public class p35 implements Callable<Boolean> {
                                                 this.s.addPostData("pic_water_type", String.valueOf(this.l));
                                             }
                                             if (z2) {
-                                                int b2 = cn4.c().b();
+                                                int b2 = bn4.c().b();
                                                 if (b2 != 0) {
                                                     this.s.addPostData("pic_water_type", String.valueOf(b2));
                                                 }
@@ -638,12 +638,12 @@ public class p35 implements Callable<Boolean> {
                                                 if (!StringUtils.isNull(currentAccountName) && b2 == 1) {
                                                     this.s.addPostData("user_name", currentAccountName);
                                                 }
-                                                String a2 = cn4.c().a();
+                                                String a2 = bn4.c().a();
                                                 if (!StringUtils.isNull(a2)) {
                                                     if (b2 == 2) {
                                                         this.s.addPostData("forum_name", a2);
                                                     }
-                                                    a = cn4.c().a();
+                                                    a = bn4.c().a();
                                                     if (!StringUtils.isNull(a)) {
                                                         this.s.addPostData("small_flow_fname", a);
                                                     }
@@ -676,7 +676,7 @@ public class p35 implements Callable<Boolean> {
                                                                 Object[] objArr22222 = new Object[2];
                                                                 objArr22222[c] = "comment";
                                                                 objArr22222[1] = sb.toString();
-                                                                lt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr22222);
+                                                                kt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr22222);
                                                                 StringBuilder sb622222 = new StringBuilder();
                                                                 sb622222.append("发帖：正在上传图片 上传失败 = ");
                                                                 sb622222.append(r4);
@@ -685,15 +685,15 @@ public class p35 implements Callable<Boolean> {
                                                                 sb622222.append("    p = ");
                                                                 str2 = str;
                                                                 sb622222.append(str2);
-                                                                sm8.a(sb622222.toString());
+                                                                zm8.a(sb622222.toString());
                                                                 lg.b(randomAccessFile2);
                                                                 this.s = null;
-                                                                sm8.a("发帖：上传图片 结束      p = " + str2);
+                                                                zm8.a("发帖：上传图片 结束      p = " + str2);
                                                                 return imageUploadResult;
                                                             }
                                                         }
                                                         if (parser.error_code != ImageUploadResult.CHUNK_ERROR) {
-                                                            sm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + "    p = " + str5);
+                                                            zm8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + "    p = " + str5);
                                                             if (i3 == parser.chunkNo || parser.chunkNo <= 0) {
                                                                 break;
                                                             }
@@ -744,7 +744,7 @@ public class p35 implements Callable<Boolean> {
                                                                 Object[] objArr222222 = new Object[2];
                                                                 objArr222222[c] = "comment";
                                                                 objArr222222[1] = sb.toString();
-                                                                lt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr222222);
+                                                                kt4.a("img", -1L, -1, "imageUpload", r4, r3, objArr222222);
                                                                 StringBuilder sb6222222 = new StringBuilder();
                                                                 sb6222222.append("发帖：正在上传图片 上传失败 = ");
                                                                 sb6222222.append(r4);
@@ -753,10 +753,10 @@ public class p35 implements Callable<Boolean> {
                                                                 sb6222222.append("    p = ");
                                                                 str2 = str;
                                                                 sb6222222.append(str2);
-                                                                sm8.a(sb6222222.toString());
+                                                                zm8.a(sb6222222.toString());
                                                                 lg.b(randomAccessFile2);
                                                                 this.s = null;
-                                                                sm8.a("发帖：上传图片 结束      p = " + str2);
+                                                                zm8.a("发帖：上传图片 结束      p = " + str2);
                                                                 return imageUploadResult;
                                                             }
                                                         } else {
@@ -801,7 +801,7 @@ public class p35 implements Callable<Boolean> {
                                                                             Object[] objArr2222222 = new Object[2];
                                                                             objArr2222222[c] = "comment";
                                                                             objArr2222222[1] = sb.toString();
-                                                                            lt4.a("img", -1L, -1, "imageUpload", i11, message, objArr2222222);
+                                                                            kt4.a("img", -1L, -1, "imageUpload", i11, message, objArr2222222);
                                                                             StringBuilder sb62222222 = new StringBuilder();
                                                                             sb62222222.append("发帖：正在上传图片 上传失败 = ");
                                                                             sb62222222.append(i11);
@@ -810,10 +810,10 @@ public class p35 implements Callable<Boolean> {
                                                                             sb62222222.append("    p = ");
                                                                             str2 = str;
                                                                             sb62222222.append(str2);
-                                                                            sm8.a(sb62222222.toString());
+                                                                            zm8.a(sb62222222.toString());
                                                                             lg.b(randomAccessFile2);
                                                                             this.s = null;
-                                                                            sm8.a("发帖：上传图片 结束      p = " + str2);
+                                                                            zm8.a("发帖：上传图片 结束      p = " + str2);
                                                                             return imageUploadResult;
                                                                         }
                                                                     } else {
@@ -825,7 +825,7 @@ public class p35 implements Callable<Boolean> {
                                                                     } else {
                                                                         i6 = i10;
                                                                     }
-                                                                    sm8.a("发帖：正在上传图片 已上传 = " + j3 + "    p = " + str5);
+                                                                    zm8.a("发帖：正在上传图片 已上传 = " + j3 + "    p = " + str5);
                                                                     if (this.n != null) {
                                                                         try {
                                                                             j4 = j3;
@@ -864,7 +864,7 @@ public class p35 implements Callable<Boolean> {
                                                                             Object[] objArr22222222 = new Object[2];
                                                                             objArr22222222[c] = "comment";
                                                                             objArr22222222[1] = sb.toString();
-                                                                            lt4.a("img", -1L, -1, "imageUpload", i11, message, objArr22222222);
+                                                                            kt4.a("img", -1L, -1, "imageUpload", i11, message, objArr22222222);
                                                                             StringBuilder sb622222222 = new StringBuilder();
                                                                             sb622222222.append("发帖：正在上传图片 上传失败 = ");
                                                                             sb622222222.append(i11);
@@ -873,10 +873,10 @@ public class p35 implements Callable<Boolean> {
                                                                             sb622222222.append("    p = ");
                                                                             str2 = str;
                                                                             sb622222222.append(str2);
-                                                                            sm8.a(sb622222222.toString());
+                                                                            zm8.a(sb622222222.toString());
                                                                             lg.b(randomAccessFile2);
                                                                             this.s = null;
-                                                                            sm8.a("发帖：上传图片 结束      p = " + str2);
+                                                                            zm8.a("发帖：上传图片 结束      p = " + str2);
                                                                             return imageUploadResult;
                                                                         }
                                                                     } else {
@@ -924,7 +924,7 @@ public class p35 implements Callable<Boolean> {
                                                                         Object[] objArr222222222 = new Object[2];
                                                                         objArr222222222[c] = "comment";
                                                                         objArr222222222[1] = sb.toString();
-                                                                        lt4.a("img", -1L, -1, "imageUpload", i11, message, objArr222222222);
+                                                                        kt4.a("img", -1L, -1, "imageUpload", i11, message, objArr222222222);
                                                                         StringBuilder sb6222222222 = new StringBuilder();
                                                                         sb6222222222.append("发帖：正在上传图片 上传失败 = ");
                                                                         sb6222222222.append(i11);
@@ -933,10 +933,10 @@ public class p35 implements Callable<Boolean> {
                                                                         sb6222222222.append("    p = ");
                                                                         str2 = str;
                                                                         sb6222222222.append(str2);
-                                                                        sm8.a(sb6222222222.toString());
+                                                                        zm8.a(sb6222222222.toString());
                                                                         lg.b(randomAccessFile2);
                                                                         this.s = null;
-                                                                        sm8.a("发帖：上传图片 结束      p = " + str2);
+                                                                        zm8.a("发帖：上传图片 结束      p = " + str2);
                                                                         return imageUploadResult;
                                                                     }
                                                                 }
@@ -961,7 +961,7 @@ public class p35 implements Callable<Boolean> {
                                                                 Object[] objArr2222222222 = new Object[2];
                                                                 objArr2222222222[c] = "comment";
                                                                 objArr2222222222[1] = sb.toString();
-                                                                lt4.a("img", -1L, -1, "imageUpload", i11, message, objArr2222222222);
+                                                                kt4.a("img", -1L, -1, "imageUpload", i11, message, objArr2222222222);
                                                                 StringBuilder sb62222222222 = new StringBuilder();
                                                                 sb62222222222.append("发帖：正在上传图片 上传失败 = ");
                                                                 sb62222222222.append(i11);
@@ -970,10 +970,10 @@ public class p35 implements Callable<Boolean> {
                                                                 sb62222222222.append("    p = ");
                                                                 str2 = str;
                                                                 sb62222222222.append(str2);
-                                                                sm8.a(sb62222222222.toString());
+                                                                zm8.a(sb62222222222.toString());
                                                                 lg.b(randomAccessFile2);
                                                                 this.s = null;
-                                                                sm8.a("发帖：上传图片 结束      p = " + str2);
+                                                                zm8.a("发帖：上传图片 结束      p = " + str2);
                                                                 return imageUploadResult;
                                                             }
                                                         }
@@ -985,7 +985,7 @@ public class p35 implements Callable<Boolean> {
                                                     }
                                                 }
                                             }
-                                            a = cn4.c().a();
+                                            a = bn4.c().a();
                                             if (!StringUtils.isNull(a)) {
                                             }
                                             postMultiNetData = this.s.postMultiNetData(true);
@@ -1015,7 +1015,7 @@ public class p35 implements Callable<Boolean> {
                                             Object[] objArr22222222222 = new Object[2];
                                             objArr22222222222[c] = "comment";
                                             objArr22222222222[1] = sb.toString();
-                                            lt4.a("img", -1L, -1, "imageUpload", i11, message, objArr22222222222);
+                                            kt4.a("img", -1L, -1, "imageUpload", i11, message, objArr22222222222);
                                             StringBuilder sb622222222222 = new StringBuilder();
                                             sb622222222222.append("发帖：正在上传图片 上传失败 = ");
                                             sb622222222222.append(i11);
@@ -1024,10 +1024,10 @@ public class p35 implements Callable<Boolean> {
                                             sb622222222222.append("    p = ");
                                             str2 = str;
                                             sb622222222222.append(str2);
-                                            sm8.a(sb622222222222.toString());
+                                            zm8.a(sb622222222222.toString());
                                             lg.b(randomAccessFile2);
                                             this.s = null;
-                                            sm8.a("发帖：上传图片 结束      p = " + str2);
+                                            zm8.a("发帖：上传图片 结束      p = " + str2);
                                             return imageUploadResult;
                                         }
                                     } catch (Throwable th6) {
@@ -1044,7 +1044,7 @@ public class p35 implements Callable<Boolean> {
                                     randomAccessFile2 = randomAccessFile;
                                     sb = sb2;
                                 }
-                                sm8.a("发帖：上传图片 结束      p = " + str2);
+                                zm8.a("发帖：上传图片 结束      p = " + str2);
                                 return imageUploadResult;
                             }
                             imageUploadResult2 = imageUploadResult3;
@@ -1053,7 +1053,7 @@ public class p35 implements Callable<Boolean> {
                             this.s = null;
                             imageUploadResult = imageUploadResult2;
                             str2 = str;
-                            sm8.a("发帖：上传图片 结束      p = " + str2);
+                            zm8.a("发帖：上传图片 结束      p = " + str2);
                             return imageUploadResult;
                         } catch (Throwable th7) {
                             th = th7;
@@ -1071,7 +1071,7 @@ public class p35 implements Callable<Boolean> {
                     this.s = null;
                     imageUploadResult = imageUploadResult2;
                     str2 = str;
-                    sm8.a("发帖：上传图片 结束      p = " + str2);
+                    zm8.a("发帖：上传图片 结束      p = " + str2);
                     return imageUploadResult;
                 } catch (Throwable th8) {
                     th = th8;
@@ -1082,7 +1082,7 @@ public class p35 implements Callable<Boolean> {
                 randomAccessFile = null;
             }
         } else {
-            sm8.a("发帖：正在上传图片 失败 = " + str5);
+            zm8.a("发帖：正在上传图片 失败 = " + str5);
             return null;
         }
     }
@@ -1099,11 +1099,11 @@ public class p35 implements Callable<Boolean> {
             if (TextUtils.isEmpty(imageFileInfo.getTempUploadFileName())) {
                 imageFileInfo.setTempUploadFileName("img_upload_temp_file_" + this.e + ".temp");
             }
-            sm8.a("发帖：发送图片 上传图片 = " + this.e + " = " + imageFileInfo.toJson().toString());
+            zm8.a("发帖：发送图片 上传图片 = " + this.e + " = " + imageFileInfo.toJson().toString());
             boolean isOriginalImg = imageFileInfo.getImageType() == 1 ? false : this.c.isOriginalImg();
-            qm8.m(this.u, imageFileInfo);
+            xm8.m(this.u, imageFileInfo);
             ImageUploadResult d = d(imageFileInfo, isOriginalImg, this.d, this.e + 1, this.b.size());
-            qm8.d(this.u, imageFileInfo, d);
+            xm8.d(this.u, imageFileInfo, d);
             if (d != null) {
                 UploadedImageInfo uploadedPicInfo = d.getUploadedPicInfo();
                 if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
@@ -1114,13 +1114,13 @@ public class p35 implements Callable<Boolean> {
                 }
                 errorData.setError_code(d.error_code);
                 errorData.setError_msg(d.error_msg);
-                sm8.a("发帖：发送图片 上传图片 错误 1= " + this.e + " = " + imageFileInfo.toJson().toString());
+                zm8.a("发帖：发送图片 上传图片 错误 1= " + this.e + " = " + imageFileInfo.toJson().toString());
                 this.a.a(errorData);
                 return Boolean.FALSE;
             }
             errorData.setError_code(-52);
-            errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1499));
-            sm8.a("发帖：发送图片 上传图片 错误 2= " + this.e + " = " + imageFileInfo.toJson().toString());
+            errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1498));
+            zm8.a("发帖：发送图片 上传图片 错误 2= " + this.e + " = " + imageFileInfo.toJson().toString());
             this.a.a(errorData);
             return Boolean.FALSE;
         }

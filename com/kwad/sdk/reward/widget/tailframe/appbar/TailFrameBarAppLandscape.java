@@ -150,19 +150,19 @@ public class TailFrameBarAppLandscape extends LinearLayout {
 
     private void c() {
         LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0479, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102f);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091031);
-        this.c = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091032);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09102e);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091030);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091062);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091030);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091032);
+        this.c = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091033);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09102f);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091031);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091063);
         this.f = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
         this.f.setTextColor(-1);
-        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0910e6);
-        this.j = (Button) findViewById(R.id.obfuscated_res_0x7f0910e0);
-        this.k = (Button) findViewById(R.id.obfuscated_res_0x7f0910e2);
-        this.i = findViewById(R.id.obfuscated_res_0x7f0910e1);
+        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0910e7);
+        this.j = (Button) findViewById(R.id.obfuscated_res_0x7f0910e1);
+        this.k = (Button) findViewById(R.id.obfuscated_res_0x7f0910e3);
+        this.i = findViewById(R.id.obfuscated_res_0x7f0910e2);
     }
 
     private void d() {

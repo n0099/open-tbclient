@@ -1,48 +1,39 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
-import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
+import android.content.Context;
+import android.view.View;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class e88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
+    public static boolean a(h45 h45Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            c();
-            b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, h45Var)) == null) {
+            if (h45Var != null) {
+                return h45Var.isViewAttached();
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void b() {
+    public static void b(h45 h45Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, dk8.a("c/u/feed/userpost", 303002));
-            tbHttpMessageTask.setIsNeedLogin(false);
-            tbHttpMessageTask.setIsNeedTbs(false);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setResponsedClass(UserPostPageHttpResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.SET_PRIVATE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SET_PRIVATE);
-            tbHttpMessageTask2.setIsNeedLogin(true);
-            tbHttpMessageTask2.setResponsedClass(JsonHttpResponsedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask2);
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{h45Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) || a(h45Var) || context == null || view2 == null) {
+            return;
         }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            dk8.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+        if (h45Var == null) {
+            h45Var = new h45(context, onClickListener);
         }
+        h45Var.k(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
+        h45Var.attachView(view2, z);
+        h45Var.p();
+        h45Var.onChangeSkinType();
     }
 }

@@ -46,11 +46,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ni;
+import com.repackage.ni4;
 import com.repackage.oi;
 import com.repackage.oi4;
-import com.repackage.pi4;
 import com.repackage.sh5;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import com.repackage.x8;
 import java.util.ArrayList;
 import java.util.List;
@@ -281,7 +281,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(videoTabListByFid);
             }
             if (ListUtils.isEmpty(this.mVideoDataList)) {
-                oi.M(this, R.string.obfuscated_res_0x7f0f0c15);
+                oi.M(this, R.string.obfuscated_res_0x7f0f0c14);
                 finish();
                 return;
             }
@@ -304,7 +304,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             this.mFragment = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f092379, this.mFragment);
+            beginTransaction.add(R.id.obfuscated_res_0x7f09237a, this.mFragment);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             this.mNavigationBar = new NavigationBar(this);
@@ -357,6 +357,9 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             if (this.mIsFromSchema) {
                 sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
             }
+            if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
+                TbSingleton.getInstance().setIsJumpFromVideoMiddleView(true);
+            }
             VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
             if (videoVerticalPageFragment != null && videoVerticalPageFragment.Q0() != null && this.mFragment.Q0().longValue() != 0 && this.mFragment.P0() != null && !this.mFragment.Q0().equals(this.mFragment.P0()) && !this.mFrom.equals(FrsVideoTabPlayActivityConfig.FROM_FRS_VIDEO_TOP)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921630, this.mFragment.Q0()));
@@ -408,13 +411,13 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             NavigationBar navigationBar = this.mNavigationBar;
             if (navigationBar != null && this.mTitleView != null) {
-                navigationBar.setBackgroundResource(R.drawable.obfuscated_res_0x7f081207);
-                wr4 d = wr4.d(this.mTitleView);
+                navigationBar.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120b);
+                vr4 d = vr4.d(this.mTitleView);
                 d.A(R.string.F_X01);
                 d.v(R.color.CAM_X0101);
                 d.z(R.dimen.T_X05);
                 if (this.mNavigationBar.getBackImageView() != null) {
-                    WebPManager.setPureDrawable(this.mNavigationBar.getBackImageView(), R.drawable.obfuscated_res_0x7f0809c3, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+                    WebPManager.setPureDrawable(this.mNavigationBar.getBackImageView(), R.drawable.obfuscated_res_0x7f0809c7, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
                 }
             }
             if (!UtilHelper.isFlyMeOs()) {
@@ -484,9 +487,6 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
-                TbSingleton.getInstance().setIsJumpFromVideoMiddleView(true);
-            }
             sh5 sh5Var = this.mNEGFeedBackManager;
             if (sh5Var != null) {
                 sh5Var.h();
@@ -560,7 +560,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
                 videoVerticalPageFragment.setPrimary(false);
                 this.mFragment.setUserVisibleHint(false);
             }
-            pi4.y().G();
+            oi4.y().G();
         }
     }
 
@@ -573,7 +573,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.mFragment.setUserVisibleHint(true);
-                pi4.y().R(oi4.a0, this.mFragment.X());
+                oi4.y().R(ni4.a0, this.mFragment.X());
             }
         }
     }

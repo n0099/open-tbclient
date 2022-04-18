@@ -39,14 +39,14 @@ public class qk5 implements CustomMessageTask.CustomRunnable<Object> {
             }
             int cmd = customMessage.getCmd();
             if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
-                jy4 jy4Var = (jy4) customMessage.getData();
+                iy4 iy4Var = (iy4) customMessage.getData();
                 if (cmd == 2001179) {
-                    d = sk5.f().a(jy4Var);
+                    d = sk5.f().a(iy4Var);
                 } else {
-                    d = sk5.f().d(jy4Var.e());
+                    d = sk5.f().d(iy4Var.e());
                 }
                 if (!d) {
-                    wt4 k = wt4.k();
+                    vt4 k = vt4.k();
                     k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                 }
             }

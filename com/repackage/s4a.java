@@ -1,14 +1,29 @@
 package com.repackage;
 
-import tv.athena.revenue.payui.model.PayFlowType;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface s4a {
-    void a(PayFlowType payFlowType);
+public class s4a {
+    public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, PayFlowType payFlowType);
-
-    void c(String str, PayFlowType payFlowType);
-
-    void d(PayFlowType payFlowType, PayDialogType payDialogType);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755369135, "Lcom/repackage/s4a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755369135, "Lcom/repackage/s4a;");
+                return;
+            }
+        }
+        a = new String[]{"https://web.zhiniu8.com", "https://web.myzhiniu.com"};
+    }
 }

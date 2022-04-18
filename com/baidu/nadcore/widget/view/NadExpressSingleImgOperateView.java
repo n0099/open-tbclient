@@ -80,7 +80,7 @@ public class NadExpressSingleImgOperateView extends NadExpressNaBaseView {
         int e;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            AdImageView adImageView = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914be);
+            AdImageView adImageView = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914bf);
             this.r = adImageView;
             if (adImageView == null) {
                 return;

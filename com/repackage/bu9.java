@@ -1,57 +1,79 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.views.CloseParentView;
+import com.win.opensdk.views.CircleProgressbar;
 /* loaded from: classes5.dex */
-public class bu9 extends Handler {
+public class bu9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ CloseParentView a;
+    public final /* synthetic */ CircleProgressbar a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bu9(CloseParentView closeParentView, Looper looper) {
-        super(looper);
+    public bu9(CircleProgressbar circleProgressbar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {closeParentView, looper};
+            Object[] objArr = {circleProgressbar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = closeParentView;
+        this.a = circleProgressbar;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0050  */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        CircleProgressbar circleProgressbar;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 10) {
-            CloseParentView closeParentView = this.a;
-            closeParentView.a.setText(String.valueOf(closeParentView.h));
-            CloseParentView closeParentView2 = this.a;
-            if (closeParentView2.h <= 0) {
-                closeParentView2.a.setVisibility(8);
-                this.a.a.setClickable(false);
-                this.a.i.removeMessages(10);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.removeCallbacks(this);
+            int ordinal = this.a.i.ordinal();
+            if (ordinal == 0) {
+                circleProgressbar = this.a;
+                i = circleProgressbar.h + 1;
             } else {
-                closeParentView2.a.setVisibility(0);
-                this.a.a.setClickable(true);
+                if (ordinal == 1) {
+                    circleProgressbar = this.a;
+                    i = circleProgressbar.h - 1;
+                }
+                CircleProgressbar circleProgressbar2 = this.a;
+                i2 = circleProgressbar2.h;
+                if (i2 < 0 && i2 <= 100) {
+                    dv9 dv9Var = circleProgressbar2.l;
+                    if (dv9Var != null) {
+                        dv9Var.a(circleProgressbar2.m, i2);
+                    }
+                    this.a.invalidate();
+                    CircleProgressbar circleProgressbar3 = this.a;
+                    circleProgressbar3.postDelayed(circleProgressbar3.n, circleProgressbar3.j / 100);
+                    return;
+                }
+                CircleProgressbar circleProgressbar4 = this.a;
+                int i3 = circleProgressbar4.h;
+                circleProgressbar4.h = i3 <= 100 ? i3 < 0 ? 0 : i3 : 100;
             }
-            this.a.i.sendEmptyMessageDelayed(10, 1000L);
-            this.a.h--;
+            circleProgressbar.h = i;
+            CircleProgressbar circleProgressbar22 = this.a;
+            i2 = circleProgressbar22.h;
+            if (i2 < 0) {
+            }
+            CircleProgressbar circleProgressbar42 = this.a;
+            int i32 = circleProgressbar42.h;
+            circleProgressbar42.h = i32 <= 100 ? i32 < 0 ? 0 : i32 : 100;
         }
     }
 }

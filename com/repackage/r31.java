@@ -119,16 +119,16 @@ public class r31 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = View.inflate(this.d, R.layout.obfuscated_res_0x7f0d05b7, null);
-            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091a29);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091403);
+            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091a2a);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091404);
             this.b = textView;
             textView.setTextColor(this.d.getResources().getColor(R.color.obfuscated_res_0x7f0607f8));
             this.b.setText(c());
             x41.a aVar = new x41.a(this.d);
-            aVar.q(R.string.obfuscated_res_0x7f0f0b8d);
+            aVar.q(R.string.obfuscated_res_0x7f0f0b8c);
             aVar.s(inflate);
-            aVar.l(R.string.obfuscated_res_0x7f0f0b89, new b(this));
-            aVar.o(R.string.obfuscated_res_0x7f0f0b8c, new a(this));
+            aVar.l(R.string.obfuscated_res_0x7f0f0b88, new b(this));
+            aVar.o(R.string.obfuscated_res_0x7f0f0b8b, new a(this));
             this.e = aVar.a();
         }
     }
@@ -142,7 +142,7 @@ public class r31 {
             if ("http".equals(parse.getScheme())) {
                 str = this.c.substring(7);
             }
-            return String.format(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b8a), str);
+            return String.format(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0b89), str);
         }
         return (String) invokeV.objValue;
     }
@@ -152,7 +152,7 @@ public class r31 {
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             boolean isChecked = this.a.isChecked();
             if (isChecked) {
-                t01.a().b(this.d.getApplicationContext(), z ? R.string.obfuscated_res_0x7f0f0b8e : R.string.obfuscated_res_0x7f0f0b8f);
+                t01.a().b(this.d.getApplicationContext(), z ? R.string.obfuscated_res_0x7f0f0b8d : R.string.obfuscated_res_0x7f0f0b8e);
             }
             this.f.a(this.c, z, isChecked);
         }

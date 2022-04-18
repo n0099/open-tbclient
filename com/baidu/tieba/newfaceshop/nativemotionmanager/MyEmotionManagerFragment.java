@@ -18,23 +18,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ao7;
 import com.repackage.mi;
-import com.repackage.mo7;
-import com.repackage.oo7;
 import com.repackage.pg;
+import com.repackage.po7;
 import com.repackage.ro7;
-import com.repackage.vn7;
-import com.repackage.vo7;
-import com.repackage.xn7;
+import com.repackage.uo7;
+import com.repackage.yn7;
+import com.repackage.yo7;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class MyEmotionManagerFragment extends BaseFragment implements ro7<Pair<List<EmotionPackageData>, Integer>> {
+public class MyEmotionManagerFragment extends BaseFragment implements uo7<Pair<List<EmotionPackageData>, Integer>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vo7 a;
+    public yo7 a;
     public MyEmotionManagerModel b;
-    public oo7 c;
+    public ro7 c;
     public CustomMessageListener d;
     public CustomMessageListener e;
     public CustomMessageListener f;
@@ -79,7 +79,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements ro7<Pair<L
                     String valueOf = String.valueOf(this.a.getData());
                     ArrayList arrayList = new ArrayList();
                     arrayList.add(valueOf);
-                    if (!xn7.i().c(arrayList, true) || !mi.z()) {
+                    if (!ao7.i().c(arrayList, true) || !mi.z()) {
                         if (this.b.a.b != null) {
                             this.b.a.b.K();
                         }
@@ -117,7 +117,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements ro7<Pair<L
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                vn7.b().a(new RunnableC0211a(this, customResponsedMessage));
+                yn7.b().a(new RunnableC0211a(this, customResponsedMessage));
             }
         }
     }
@@ -306,16 +306,16 @@ public class MyEmotionManagerFragment extends BaseFragment implements ro7<Pair<L
     }
 
     public void F0(boolean z) {
-        oo7 oo7Var;
+        ro7 ro7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (oo7Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (ro7Var = this.c) == null) {
             return;
         }
-        oo7Var.onUpdate(Boolean.valueOf(z));
+        ro7Var.onUpdate(Boolean.valueOf(z));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ro7
+    @Override // com.repackage.uo7
     /* renamed from: G0 */
     public void onSuccess(Pair<List<EmotionPackageData>, Integer> pair) {
         Interceptable interceptable = $ic;
@@ -324,22 +324,22 @@ public class MyEmotionManagerFragment extends BaseFragment implements ro7<Pair<L
         }
     }
 
-    public void H0(oo7 oo7Var) {
+    public void H0(ro7 ro7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, oo7Var) == null) || oo7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, ro7Var) == null) || ro7Var == null) {
             return;
         }
-        this.c = oo7Var;
+        this.c = ro7Var;
     }
 
-    @Override // com.repackage.ro7
+    @Override // com.repackage.uo7
     public void c0() {
-        vo7 vo7Var;
+        yo7 yo7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (vo7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (yo7Var = this.a) == null) {
             return;
         }
-        vo7Var.h();
+        yo7Var.h();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -347,9 +347,9 @@ public class MyEmotionManagerFragment extends BaseFragment implements ro7<Pair<L
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            vo7 vo7Var = this.a;
-            if (vo7Var != null) {
-                vo7Var.g(i);
+            yo7 yo7Var = this.a;
+            if (yo7Var != null) {
+                yo7Var.g(i);
             }
         }
     }
@@ -359,11 +359,11 @@ public class MyEmotionManagerFragment extends BaseFragment implements ro7<Pair<L
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            mo7.b().c();
+            po7.b().c();
             registerListener(this.e);
             registerListener(this.f);
             registerListener(this.d);
-            this.a = new vo7(getPageContext());
+            this.a = new yo7(getPageContext());
             MyEmotionManagerModel myEmotionManagerModel = new MyEmotionManagerModel(getPageContext());
             this.b = myEmotionManagerModel;
             myEmotionManagerModel.Q(this);
@@ -393,7 +393,7 @@ public class MyEmotionManagerFragment extends BaseFragment implements ro7<Pair<L
         }
     }
 
-    @Override // com.repackage.ro7
+    @Override // com.repackage.uo7
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {

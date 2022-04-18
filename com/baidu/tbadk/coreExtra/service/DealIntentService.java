@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ni;
-import com.repackage.rt4;
+import com.repackage.qt4;
 import com.repackage.x8;
 /* loaded from: classes3.dex */
 public class DealIntentService extends BdBaseService {
@@ -199,7 +199,7 @@ public class DealIntentService extends BdBaseService {
                 }
                 if (x8.f().b() != null) {
                     if (5 == this.a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                        if (x8.f().b().getClass().getName().equalsIgnoreCase(rt4.c())) {
+                        if (x8.f().b().getClass().getName().equalsIgnoreCase(qt4.c())) {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 5);
                         } else {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 21);

@@ -1,50 +1,77 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.SubmitPbShowTipHttpResponseMessage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uv7 {
+public class uv7 extends PostData {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId I0;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbFragment a;
-    public lz5 b;
+    public sp4 F0;
+    public sp4 G0;
+    public sp4 H0;
 
-    public uv7(PbFragment pbFragment) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755247429, "Lcom/repackage/uv7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755247429, "Lcom/repackage/uv7;");
+                return;
+            }
+        }
+        I0 = BdUniqueId.gen();
+    }
+
+    public uv7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = pbFragment;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
-        tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a() {
-        lz5 lz5Var;
+    public boolean M0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (lz5Var = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            sp4 sp4Var = this.F0;
+            if (sp4Var == null || StringUtils.isNull(sp4Var.b)) {
+                sp4 sp4Var2 = this.G0;
+                if (sp4Var2 == null || StringUtils.isNull(sp4Var2.b)) {
+                    sp4 sp4Var3 = this.H0;
+                    return (sp4Var3 == null || StringUtils.isNull(sp4Var3.b)) ? false : true;
+                }
+                return true;
+            }
+            return true;
         }
-        lz5Var.I();
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.uo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? I0 : (BdUniqueId) invokeV.objValue;
     }
 }

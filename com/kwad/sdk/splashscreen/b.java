@@ -225,9 +225,9 @@ public class b {
         final com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(b);
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0471, (ViewGroup) null);
         this.f = viewGroup;
-        this.i = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09113d);
-        this.g = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091143);
-        this.h = this.f.findViewById(R.id.obfuscated_res_0x7f09113b);
+        this.i = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09113e);
+        this.g = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091144);
+        this.h = this.f.findViewById(R.id.obfuscated_res_0x7f09113c);
         this.g.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {

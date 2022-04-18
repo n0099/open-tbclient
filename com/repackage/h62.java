@@ -101,7 +101,7 @@ public class h62 extends e62 {
                 File file = this.b;
                 File file2 = new File(file, str + File.separator + "app_info.json");
                 if (file2.exists()) {
-                    return ng4.E(file2);
+                    return mg4.E(file2);
                 }
                 return null;
             }
@@ -118,7 +118,7 @@ public class h62 extends e62 {
             if (this.b.exists()) {
                 File file = new File(this.b, "preset_list.json");
                 if (file.exists()) {
-                    return ng4.E(file);
+                    return mg4.E(file);
                 }
                 return null;
             }

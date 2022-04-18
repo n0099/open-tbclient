@@ -1,66 +1,89 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.util.Base64OutputStream;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.OutputStream;
 /* loaded from: classes7.dex */
-public class x59 {
+public class x59 extends Base64OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public long c;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        StringBuilder sb;
-        StringBuilder sb2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x59(OutputStream outputStream, int i) {
+        super(outputStream, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {outputStream, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((OutputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            String str4 = str2 + "=";
-            int indexOf = str.indexOf("?");
-            String str5 = null;
-            if (indexOf < 0) {
-                int indexOf2 = str.indexOf("#");
-                if (indexOf2 < 0) {
-                    sb2 = new StringBuilder(str);
-                } else {
-                    str5 = str.substring(indexOf2);
-                    sb2 = new StringBuilder(str.substring(0, indexOf2));
-                }
-                sb2.append("?");
-                sb2.append(str4);
-                sb2.append(str3);
-                if (str5 != null) {
-                    sb2.append(str5);
-                }
-                return sb2.toString();
-            }
-            if (str.indexOf("&" + str4, indexOf) < 0) {
-                if (str.indexOf("?" + str4, indexOf) < 0) {
-                    int indexOf3 = str.indexOf("#");
-                    if (indexOf3 < 0) {
-                        sb = new StringBuilder(str);
-                    } else {
-                        str5 = str.substring(indexOf3);
-                        str = str.substring(0, indexOf3);
-                        sb = new StringBuilder(str);
-                    }
-                    if (!str.endsWith("&") && !str.endsWith("?")) {
-                        sb.append("&");
-                    }
-                    sb.append(str4);
-                    sb.append(str3);
-                    if (str5 != null) {
-                        sb.append(str5);
-                    }
-                    return sb.toString();
-                }
-                return str;
-            }
-            return str;
         }
-        return (String) invokeLLL.objValue;
+        this.a = false;
+        this.b = false;
+        this.c = 0L;
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
+            if (this.a && !this.b && i2 > 0 && bArr.length - i > 0) {
+                bArr[i] = ContentUtil.GZIP_HEAD_2;
+                this.b = true;
+            } else if (!this.a && i2 == 1 && bArr.length - i > 0) {
+                bArr[i] = ContentUtil.GZIP_HEAD_1;
+                this.a = true;
+            } else if (!this.a && i2 > 1 && bArr.length - i > 1) {
+                bArr[i] = ContentUtil.GZIP_HEAD_1;
+                this.a = true;
+                bArr[i + 1] = ContentUtil.GZIP_HEAD_2;
+                this.b = true;
+            }
+            if (i2 > 0) {
+                this.c += i2;
+            }
+            super.write(bArr, i, i2);
+        }
+    }
+
+    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
+    public void write(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (!this.a) {
+                super.write(117);
+                this.a = true;
+            } else if (!this.b) {
+                super.write(123);
+                this.b = true;
+            } else {
+                super.write(i);
+            }
+        }
     }
 }

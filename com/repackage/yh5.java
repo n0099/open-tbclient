@@ -43,7 +43,7 @@ public class yh5 {
     public transient /* synthetic */ FieldHolder $fh;
     public View A;
     public String B;
-    public yt4 C;
+    public xt4 C;
     public CompoundButton.OnCheckedChangeListener D;
     public PopupWindow.OnDismissListener E;
     public CustomMessageListener F;
@@ -51,7 +51,7 @@ public class yh5 {
     public TbPageContext b;
     public PopupWindow c;
     public ViewGroup d;
-    public mp4 e;
+    public lp4 e;
     public SparseArray<String> f;
     public List<th5.b> g;
     public boolean h;
@@ -363,7 +363,7 @@ public class yh5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.C == null) {
-                this.C = new yt4(this.b);
+                this.C = new xt4(this.b);
             }
             this.C.i(R.string.obfuscated_res_0x7f0f0a2e);
             this.C.h(true);
@@ -458,12 +458,12 @@ public class yh5 {
             if (this.d == null) {
                 ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05ed, (ViewGroup) null);
                 this.d = viewGroup;
-                TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090d2e);
+                TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090d2f);
                 this.x = textView;
                 if (this.h) {
-                    textView.setText(R.string.obfuscated_res_0x7f0f115d);
+                    textView.setText(R.string.obfuscated_res_0x7f0f115c);
                 }
-                this.y = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091dab);
+                this.y = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f091dac);
             }
             View g2 = this.o.g();
             if (g2 != null && g2.getParent() == null) {
@@ -476,8 +476,8 @@ public class yh5 {
                 this.s = linearLayout;
                 this.w = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09079d);
                 this.v = (TextView) this.s.findViewById(R.id.obfuscated_res_0x7f09079e);
-                this.z = this.s.findViewById(R.id.obfuscated_res_0x7f0920a5);
-                this.A = this.s.findViewById(R.id.obfuscated_res_0x7f091410);
+                this.z = this.s.findViewById(R.id.obfuscated_res_0x7f0920a6);
+                this.A = this.s.findViewById(R.id.obfuscated_res_0x7f091411);
                 this.d.addView(this.s);
                 this.w.setOnClickListener(new d(this));
                 TextView textView2 = this.v;
@@ -533,20 +533,20 @@ public class yh5 {
         }
     }
 
-    public void x(mp4 mp4Var) {
+    public void x(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, mp4Var) == null) || mp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, lp4Var) == null) || lp4Var == null) {
             return;
         }
-        this.e = mp4Var;
-        SparseArray<String> b2 = mp4Var.b();
+        this.e = lp4Var;
+        SparseArray<String> b2 = lp4Var.b();
         this.f = b2;
         if (b2 != null && b2.size() > 8) {
             for (int size = this.f.size() - 1; size >= 8; size--) {
                 this.f.removeAt(size);
             }
         }
-        this.o.j(mp4Var);
+        this.o.j(lp4Var);
     }
 
     public void y(String[] strArr) {

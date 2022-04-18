@@ -59,19 +59,19 @@ public class m32 extends r32 {
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public Map<String, String> C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Map<String, String> C = super.C();
-            if (this.k && oc4.a) {
+            if (this.k && nc4.a) {
                 if (C == null) {
                     C = new HashMap<>();
                 }
                 C.put("hb_type", "1");
-                C.put("lastsynctime", String.valueOf(oc4.c));
-                C.put("SWAN-TIMEOUT-SETTING", String.valueOf(oc4.b(60) * 1000));
+                C.put("lastsynctime", String.valueOf(nc4.c));
+                C.put("SWAN-TIMEOUT-SETTING", String.valueOf(nc4.b(60) * 1000));
             }
             return C;
         }
@@ -110,11 +110,11 @@ public class m32 extends r32 {
     }
 
     @Override // com.repackage.r32
-    public cc3 c0(d94 d94Var) {
+    public cc3 c0(c94 c94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, d94Var)) == null) {
-            if (d94Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, c94Var)) == null) {
+            if (c94Var == null) {
                 cc3 cc3Var = new cc3();
                 cc3Var.k(14L);
                 cc3Var.b(2908L);
@@ -122,10 +122,10 @@ public class m32 extends r32 {
                 return cc3Var;
             }
             pb2 pb2Var = new pb2();
-            pb2Var.b = d94Var.i;
-            pb2Var.a = d94Var.j;
-            pb2Var.c = d94Var.a;
-            pb2Var.d = d94Var.m;
+            pb2Var.b = c94Var.i;
+            pb2Var.a = c94Var.j;
+            pb2Var.c = c94Var.a;
+            pb2Var.d = c94Var.m;
             if (sa2.b(0, pb2Var) == null) {
                 if (l) {
                     Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
@@ -162,23 +162,23 @@ public class m32 extends r32 {
     }
 
     @Override // com.repackage.r32
-    public cc3 d0(f94 f94Var) {
+    public cc3 d0(e94 e94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, f94Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, e94Var)) == null) {
             if (l) {
-                Log.d("SwanAppUpdateCore", "onFrameworkDownloadFinish framework = " + f94Var);
+                Log.d("SwanAppUpdateCore", "onFrameworkDownloadFinish framework = " + e94Var);
             }
-            if (f94Var == null) {
+            if (e94Var == null) {
                 cc3 cc3Var = new cc3();
                 cc3Var.k(13L);
                 cc3Var.b(2907L);
                 cc3Var.d("小程序Core包 Framework null");
                 return cc3Var;
             }
-            t93.b c = t93.c(f94Var, 0);
+            t93.b c = t93.c(e94Var, 0);
             jx1.k("SwanAppUpdateCore", "SwanCore RemoteCoreUpdateStatus: " + c);
-            ng4.k(f94Var.a);
+            mg4.k(e94Var.a);
             if (c.c()) {
                 long e = t93.e(0);
                 if (e > 0) {

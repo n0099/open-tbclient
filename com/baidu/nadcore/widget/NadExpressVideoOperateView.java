@@ -311,10 +311,10 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914bc);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0914bb);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914ba);
-            this.q = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914c2);
+            this.m = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914bd);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0914bc);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914bb);
+            this.q = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914c3);
         }
     }
 
@@ -372,11 +372,11 @@ public class NadExpressVideoOperateView extends NadExpressNaBaseView {
             TextView textView = this.n;
             if (textView != null) {
                 textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060290));
-                this.n.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080daf));
+                this.n.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db3));
             }
             ImageView imageView = this.o;
             if (imageView != null) {
-                imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dae));
+                imageView.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080db2));
             }
             F();
         }

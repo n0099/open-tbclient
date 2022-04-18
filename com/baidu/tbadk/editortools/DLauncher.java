@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.i05;
 import com.repackage.p05;
 import com.repackage.u05;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class DLauncher extends RelativeLayout implements p05 {
     public static /* synthetic */ Interceptable $ic;
@@ -67,7 +67,7 @@ public class DLauncher extends RelativeLayout implements p05 {
         setIcon();
         setToolId(u05Var.c);
         this.b.setGravity(17);
-        wr4 d = wr4.d(this.b);
+        vr4 d = vr4.d(this.b);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0106);
         context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e);
@@ -175,7 +175,7 @@ public class DLauncher extends RelativeLayout implements p05 {
             if (isEnabled()) {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, i);
             }
-            wr4.d(this.b).v(R.color.CAM_X0106);
+            vr4.d(this.b).v(R.color.CAM_X0106);
             if (this.f == null) {
                 return;
             }

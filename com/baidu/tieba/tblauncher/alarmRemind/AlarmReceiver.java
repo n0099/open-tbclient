@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.eo8;
 import com.repackage.mi;
-import com.repackage.wt4;
-import com.repackage.xn8;
+import com.repackage.vt4;
 /* loaded from: classes4.dex */
 public class AlarmReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
@@ -36,8 +36,8 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && mi.z() && xn8.e() && !xn8.f(wt4.k().m("tieba_last_active_time", 0L))) {
-            RemindRecommendMessage a = xn8.a(TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_info", ""));
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && mi.z() && eo8.e() && !eo8.f(vt4.k().m("tieba_last_active_time", 0L))) {
+            RemindRecommendMessage a = eo8.a(TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_info", ""));
             if (a != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(a);
             }

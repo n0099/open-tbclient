@@ -194,7 +194,7 @@ public final class hd3 {
                 }
                 try {
                     decodeFile.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
-                    ng4.d(fileOutputStream);
+                    mg4.d(fileOutputStream);
                     return true;
                 } catch (FileNotFoundException e2) {
                     e = e2;
@@ -202,12 +202,12 @@ public final class hd3 {
                     if (a) {
                         Log.e(BitmapUtils.TAG, "压缩图片失败", e);
                     }
-                    ng4.d(fileOutputStream2);
+                    mg4.d(fileOutputStream2);
                     return false;
                 } catch (Throwable th2) {
                     th = th2;
                     fileOutputStream2 = fileOutputStream;
-                    ng4.d(fileOutputStream2);
+                    mg4.d(fileOutputStream2);
                     throw th;
                 }
             } else {
@@ -513,7 +513,7 @@ public final class hd3 {
                         FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
                         try {
                             decodeFile.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream2);
-                            ng4.d(fileOutputStream2);
+                            mg4.d(fileOutputStream2);
                             c(file.getAbsolutePath(), file2.getAbsolutePath(), i);
                             return true;
                         } catch (Exception e) {
@@ -522,7 +522,7 @@ public final class hd3 {
                             if (a) {
                                 Log.e(BitmapUtils.TAG, "rotateAndCompressImage fail:", e);
                             }
-                            ng4.d(fileOutputStream);
+                            mg4.d(fileOutputStream);
                             return false;
                         } catch (OutOfMemoryError e2) {
                             e = e2;
@@ -530,19 +530,19 @@ public final class hd3 {
                             if (a) {
                                 Log.e(BitmapUtils.TAG, "rotateAndCompressImage fail:", e);
                             }
-                            ng4.d(fileOutputStream);
+                            mg4.d(fileOutputStream);
                             return false;
                         } catch (Throwable th) {
                             th = th;
                             fileOutputStream = fileOutputStream2;
-                            ng4.d(fileOutputStream);
+                            mg4.d(fileOutputStream);
                             throw th;
                         }
                     }
                     if (a) {
                         Log.e(BitmapUtils.TAG, "compress image，but decode bitmap is null");
                     }
-                    ng4.d(null);
+                    mg4.d(null);
                     return false;
                 } catch (Throwable th2) {
                     th = th2;
@@ -580,7 +580,7 @@ public final class hd3 {
             return invokeLL.booleanValue;
         }
         boolean z = false;
-        if (!ng4.w()) {
+        if (!mg4.w()) {
             return false;
         }
         FileOutputStream fileOutputStream2 = null;
@@ -592,7 +592,7 @@ public final class hd3 {
                     try {
                         if (ef3Var.a(fileOutputStream).booleanValue()) {
                             z = true;
-                            ng4.d(fileOutputStream);
+                            mg4.d(fileOutputStream);
                             return z;
                         }
                         fileOutputStream2 = fileOutputStream;
@@ -602,17 +602,17 @@ public final class hd3 {
                         if (a) {
                             Log.e(BitmapUtils.TAG, "保存图片失败", e);
                         }
-                        ng4.d(fileOutputStream2);
+                        mg4.d(fileOutputStream2);
                         return false;
                     } catch (Throwable th) {
                         th = th;
                         fileOutputStream2 = fileOutputStream;
-                        ng4.d(fileOutputStream2);
+                        mg4.d(fileOutputStream2);
                         throw th;
                     }
                 }
                 fileOutputStream = fileOutputStream2;
-                ng4.d(fileOutputStream);
+                mg4.d(fileOutputStream);
                 return z;
             } catch (Throwable th2) {
                 th = th2;

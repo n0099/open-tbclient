@@ -1,44 +1,84 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes6.dex */
-public final class l2a<E> extends n1a<E> {
+public final class l2a<E> extends q2a<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public l2a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l2a(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c(new LinkedQueueNode<>());
-        e(this.producerNode);
-        this.consumerNode.soNext(null);
+    }
+
+    public final long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? z2a.a.d(this, n2a.h) : invokeV.longValue;
+    }
+
+    public final long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? z2a.a.d(this, r2a.g) : invokeV.longValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? i() == h() : invokeV.booleanValue;
+    }
+
+    public final void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            z2a.a.i(this, n2a.h, j);
+        }
+    }
+
+    public final void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            z2a.a.i(this, r2a.g, j);
+        }
     }
 
     @Override // java.util.Queue
     public boolean offer(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) {
             if (e != null) {
-                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
-                this.producerNode.soNext(linkedQueueNode);
-                this.producerNode = linkedQueueNode;
+                E[] eArr = this.b;
+                long j = this.producerIndex;
+                long a = a(j);
+                if (e(eArr, a) != null) {
+                    return false;
+                }
+                f(eArr, a, e);
+                k(j + 1);
                 return true;
             }
             throw new NullPointerException("null elements not allowed");
@@ -50,29 +90,43 @@ public final class l2a<E> extends n1a<E> {
     public E peek() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
-            if (lvNext != null) {
-                return lvNext.lpValue();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? d(a(this.consumerIndex)) : (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue, com.repackage.b2a
+    public E poll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long j = this.consumerIndex;
+            long a = a(j);
+            E[] eArr = this.b;
+            E e = e(eArr, a);
+            if (e == null) {
+                return null;
             }
-            return null;
+            f(eArr, a, null);
+            j(j + 1);
+            return e;
         }
         return (E) invokeV.objValue;
     }
 
-    @Override // java.util.Queue
-    public E poll() {
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
-            if (lvNext != null) {
-                E andNullValue = lvNext.getAndNullValue();
-                this.consumerNode = lvNext;
-                return andNullValue;
-            }
-            return null;
+        if (interceptable != null && (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) != null) {
+            return invokeV.intValue;
         }
-        return (E) invokeV.objValue;
+        long h = h();
+        while (true) {
+            long i = i();
+            long h2 = h();
+            if (h == h2) {
+                return (int) (i - h2);
+            }
+            h = h2;
+        }
     }
 }

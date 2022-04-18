@@ -27,7 +27,7 @@ public class il3 {
             }
         }
         try {
-            a = n44.i(n44.b("android.os.SystemProperties", true), SharedPreferenceManager.OPERATION_GET_PERFIX, String.class);
+            a = m44.i(m44.b("android.os.SystemProperties", true), SharedPreferenceManager.OPERATION_GET_PERFIX, String.class);
         } catch (Throwable unused) {
         }
     }

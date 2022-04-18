@@ -32,15 +32,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ad5;
+import com.repackage.c28;
 import com.repackage.dd5;
+import com.repackage.f28;
 import com.repackage.ic5;
-import com.repackage.m18;
 import com.repackage.mg;
 import com.repackage.mi;
-import com.repackage.v18;
-import com.repackage.vm4;
-import com.repackage.wt4;
-import com.repackage.y18;
+import com.repackage.t18;
+import com.repackage.um4;
+import com.repackage.vt4;
 /* loaded from: classes3.dex */
 public class PersonCenterFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -50,7 +50,7 @@ public class PersonCenterFragment extends BaseFragment {
     @Deprecated
     public boolean c;
     public boolean d;
-    public v18 e;
+    public c28 e;
     public long f;
     public String g;
     public String h;
@@ -259,9 +259,9 @@ public class PersonCenterFragment extends BaseFragment {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_FEEDBACK_TIP);
                 netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
                 String postNetData = netWork.postNetData();
-                y18 y18Var = new y18();
-                y18Var.c(postNetData);
-                if (y18Var.b() == 0 && y18Var.a() > 0) {
+                f28 f28Var = new f28();
+                f28Var.c(postNetData);
+                if (f28Var.b() == 0 && f28Var.a() > 0) {
                     return Boolean.TRUE;
                 }
                 return Boolean.FALSE;
@@ -382,12 +382,12 @@ public class PersonCenterFragment extends BaseFragment {
     public final void K0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long m = wt4.k().m("key_feedback_tip", 0L);
+            long m = vt4.k().m("key_feedback_tip", 0L);
             if (!TbadkCoreApplication.isLogin() || System.currentTimeMillis() - m <= StringHelper.MS_TO_HOUR * 4) {
                 return;
             }
             dd5.b(new e(this), new f(this));
-            wt4.k().x("key_feedback_tip", System.currentTimeMillis());
+            vt4.k().x("key_feedback_tip", System.currentTimeMillis());
         }
     }
 
@@ -425,7 +425,7 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            m18.d().h(System.currentTimeMillis() - m18.d().a());
+            t18.d().h(System.currentTimeMillis() - t18.d().a());
         }
     }
 
@@ -452,9 +452,9 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            v18 v18Var = this.e;
-            if (v18Var != null) {
-                v18Var.f(i);
+            c28 c28Var = this.e;
+            if (c28Var != null) {
+                c28Var.f(i);
             }
         }
     }
@@ -463,7 +463,7 @@ public class PersonCenterFragment extends BaseFragment {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            m18.d().g(System.currentTimeMillis());
+            t18.d().g(System.currentTimeMillis());
             super.onCreate(bundle);
         }
     }
@@ -476,15 +476,15 @@ public class PersonCenterFragment extends BaseFragment {
             L0(bundle);
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02e9, (ViewGroup) null);
             this.i = inflate;
-            v18 v18Var = new v18(inflate, getPageContext(), getUniqueId());
-            this.e = v18Var;
-            v18Var.e();
+            c28 c28Var = new c28(inflate, getPageContext(), getUniqueId());
+            this.e = c28Var;
+            c28Var.e();
             this.j = false;
             if (!TbadkCoreApplication.getInst().checkInterrupt()) {
                 this.e.j();
                 this.j = true;
             }
-            if (vm4.c().contains("Host") && vm4.c().contains("-Flutter")) {
+            if (um4.c().contains("Host") && um4.c().contains("-Flutter")) {
                 if (mi.A()) {
                     this.e.k(true);
                     showLoadingView(inflate);
@@ -503,9 +503,9 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            v18 v18Var = this.e;
-            if (v18Var != null) {
-                v18Var.g();
+            c28 c28Var = this.e;
+            if (c28Var != null) {
+                c28Var.g();
             }
         }
     }
@@ -555,7 +555,7 @@ public class PersonCenterFragment extends BaseFragment {
                     this.e.j();
                 }
                 this.e.m();
-                wt4.k().u("key_feedback_tip_tab_show", false);
+                vt4.k().u("key_feedback_tip_tab_show", false);
                 if (TbSingleton.getInstance().isShowShoubaiDynamicGuide()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921423));
                 }

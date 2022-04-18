@@ -1,20 +1,8 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,132 +12,79 @@ import java.util.List;
 import tbclient.HotThread.Pic;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes7.dex */
-public class qy5 extends a75<tinfo, v65> {
+public class qy5 extends b75<tinfo, v65, a75<tinfo, v65>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public TextView k;
-    public View l;
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tinfo a;
-        public final /* synthetic */ qy5 b;
-
-        public a(qy5 qy5Var, tinfo tinfoVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qy5Var, tinfoVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = qy5Var;
-            this.a = tinfoVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String str = this.a.forum_name;
-                if (ni.isForumName(str)) {
-                    TiebaStatic.eventStat(this.b.getActivity(), "kantie_6", null, 1, new Object[0]);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.b.getActivity()).createNormalCfg(str, FrsActivityConfig.FRS_FROM_RECOMMEND)));
-                }
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qy5(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, view2, viewEventCenter);
+    public qy5(TbPageContext<?> tbPageContext, Class<?>[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, clsArr, iArr, viewEventCenter);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2, viewEventCenter};
+            Object[] objArr = {tbPageContext, clsArr, iArr, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
+                super((TbPageContext) objArr2[0], (Class[]) objArr2[1], (int[]) objArr2[2], (ViewEventCenter) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090625);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090627);
-        this.l = view2.findViewById(R.id.obfuscated_res_0x7f090623);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090624);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090626);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090621);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.e75
-    /* renamed from: m */
-    public void i(tinfo tinfoVar) {
+    @Override // com.repackage.b75
+    public int n(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tinfoVar) == null) {
-            super.i(tinfoVar);
-            if (tinfoVar == null) {
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            tinfo item = getItem(i);
+            if (item == null) {
+                return -1;
             }
-            String str = null;
-            List<Pic> list = tinfoVar.pics;
-            if (list != null && list.size() > 0) {
-                str = tinfoVar.pics.get(0).small_pic;
+            List<Pic> list = item.pics;
+            if (list != null) {
+                int size = list.size();
+                if (size >= 3) {
+                    return 0;
+                }
+                if (size > 0 && size < 3) {
+                    return 2;
+                }
             }
-            this.g.K(str, 10, false);
-            this.h.setText(tinfoVar.title);
-            if (StringUtils.isNull(tinfoVar.forum_name)) {
-                this.i.setVisibility(8);
-            } else {
-                this.i.setVisibility(0);
-                this.i.setText(UtilHelper.getFixedText(getContext().getString(R.string.obfuscated_res_0x7f0f03c7, tinfoVar.forum_name), 7, false));
-                this.i.setOnClickListener(new a(this, tinfoVar));
-            }
-            Integer num = tinfoVar.zan_num;
-            if (num != null) {
-                this.j.setText(String.valueOf(num));
-            }
-            Integer num2 = tinfoVar.reply_num;
-            if (num2 != null) {
-                this.k.setText(String.valueOf(num2));
-            }
-            this.l.setVisibility(0);
-            yl8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.d(String.valueOf(tinfoVar.forum_id))) {
-                SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1);
-            } else {
-                SkinManager.setViewTextColor(this.h, R.color.CAM_X0105, 1);
-            }
+            return 1;
         }
+        return invokeI.intValue;
     }
 
-    @Override // com.repackage.sj8
-    public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
+    public void o(long j) {
+        List<tinfo> d;
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i)) == null) {
-            f95.a(tbPageContext, e());
-            return true;
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || j <= 0 || (d = d()) == null || d.size() <= 0) {
+            return;
         }
-        return invokeLI.booleanValue;
+        tinfo tinfoVar = null;
+        int size = d.size();
+        int i = 0;
+        while (true) {
+            if (i < size) {
+                tinfo tinfoVar2 = d.get(i);
+                if (tinfoVar2 != null && (l = tinfoVar2.thread_id) != null && l.longValue() == j) {
+                    tinfoVar = d.get(i);
+                    break;
+                }
+                i++;
+            } else {
+                break;
+            }
+        }
+        if (tinfoVar != null) {
+            h(tinfoVar);
+        }
     }
 }

@@ -241,20 +241,20 @@ public class lv3 extends EventTargetImpl {
             if (!zw3.f().c()) {
                 ru3 ru3Var = new ru3();
                 ru3Var.errMsg = "download url is empty";
-                v24.call(this.b, false, ru3Var);
+                u24.call(this.b, false, ru3Var);
                 A("reallyDownloadNull", this.c);
                 return false;
             } else if (B(AppRuntime.getAppContext(), this.c)) {
                 ru3 ru3Var2 = new ru3();
                 ru3Var2.errMsg = "apk has installed";
-                v24.call(this.b, false, ru3Var2);
+                u24.call(this.b, false, ru3Var2);
                 A("reallyHasInstalled", this.c);
                 return false;
             } else {
                 nv3 nv3Var = new nv3();
                 nv3Var.statusCode = 0;
                 nv3Var.packageName = this.c;
-                v24.call(this.b, true, nv3Var);
+                u24.call(this.b, true, nv3Var);
                 return true;
             }
         }

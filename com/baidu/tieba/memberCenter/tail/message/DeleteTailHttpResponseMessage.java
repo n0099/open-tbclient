@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gk7;
+import com.repackage.jk7;
 /* loaded from: classes3.dex */
-public class DeleteTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<gk7> {
+public class DeleteTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<jk7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gk7 resultData;
+    public jk7 resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DeleteTailHttpResponseMessage() {
@@ -46,9 +46,9 @@ public class DeleteTailHttpResponseMessage extends HttpResponsedMessage implemen
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.IDataResponseMessage
-    public gk7 getResultData() {
+    public jk7 getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (gk7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.resultData : (jk7) invokeV.objValue;
     }
 }

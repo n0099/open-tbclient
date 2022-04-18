@@ -60,7 +60,7 @@ public class ui5 {
             this.c = linearLayout;
             this.d = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f0906e8);
             this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090329);
-            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092201);
+            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092202);
             this.f = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090052);
             this.e.a();
             this.f.a();
@@ -90,7 +90,7 @@ public class ui5 {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.b.getLayoutMode().k(i == 1);
             this.b.getLayoutMode().j(this.c);
-            wr4 d = wr4.d(this.g);
+            vr4 d = vr4.d(this.g);
             d.v(R.color.CAM_X0109);
             d.f(R.color.CAM_X0204);
         }

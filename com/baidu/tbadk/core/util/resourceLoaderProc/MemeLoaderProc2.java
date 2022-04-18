@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn4;
+import com.repackage.bn4;
 import com.repackage.fo;
 import com.repackage.gg;
 import com.repackage.h35;
@@ -106,7 +106,7 @@ public class MemeLoaderProc2 implements jg<fo> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? cn4.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? bn4.c().g() : invokeV.booleanValue;
     }
 
     public void setIsShare(boolean z) {

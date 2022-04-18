@@ -1,25 +1,26 @@
 package com.repackage;
 
+import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import org.json.JSONObject;
-import tbclient.Error;
-import tbclient.ZoneRight.DataRes;
-import tbclient.ZoneRight.Toast;
-import tbclient.ZoneRight.ZoneRightResIdl;
 /* loaded from: classes6.dex */
-public class nn6 implements p65 {
+public class nn6 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public String c;
-    public int d;
-    public String e;
+    public FrsModelController a;
+    public MvcSocketResponsedMessage<rj8, ?> b;
+    public MvcSocketMessage<FrsRequestData, rj8> c;
+    public MvcNetMessage<FrsRequestData, rj8> d;
+    public yj8 e;
 
     public nn6() {
         Interceptable interceptable = $ic;
@@ -35,32 +36,57 @@ public class nn6 implements p65 {
         }
     }
 
-    @Override // com.repackage.p65
-    public void initByJson(JSONObject jSONObject) {
+    public void a(FrsModelController frsModelController) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
+            this.a = frsModelController;
         }
     }
 
-    @Override // com.repackage.p65
-    public void initByProtobuf(Message message) {
+    public void b(yj8 yj8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && (message instanceof ZoneRightResIdl)) {
-            ZoneRightResIdl zoneRightResIdl = (ZoneRightResIdl) message;
-            Error error = zoneRightResIdl.error;
-            if (error != null) {
-                this.b = error.errorno.intValue();
-                this.c = zoneRightResIdl.error.usermsg;
-            }
-            DataRes dataRes = zoneRightResIdl.data;
-            if (dataRes != null) {
-                this.a = dataRes.has_right.intValue() == 1;
-                Toast toast = zoneRightResIdl.data.toast;
-                if (toast != null) {
-                    this.d = toast.type.intValue();
-                    this.e = zoneRightResIdl.data.toast.content;
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yj8Var) == null) {
+            this.e = yj8Var;
         }
+    }
+
+    public void c(MvcSocketMessage<FrsRequestData, rj8> mvcSocketMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcSocketMessage) == null) {
+            this.c = mvcSocketMessage;
+        }
+    }
+
+    public void d(MvcNetMessage<FrsRequestData, rj8> mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
+            this.d = mvcNetMessage;
+        }
+    }
+
+    public void e(MvcSocketResponsedMessage<rj8, ?> mvcSocketResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mvcSocketResponsedMessage) == null) {
+            this.b = mvcSocketResponsedMessage;
+        }
+    }
+
+    @Override // android.os.MessageQueue.IdleHandler
+    public boolean queueIdle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            FrsModelController frsModelController = this.a;
+            if (frsModelController == null) {
+                return false;
+            }
+            frsModelController.D0(this.b, this.c, this.d);
+            yj8 yj8Var = this.e;
+            if (yj8Var != null) {
+                yj8Var.b();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

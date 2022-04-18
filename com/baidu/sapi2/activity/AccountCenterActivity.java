@@ -796,7 +796,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 }
             });
             if (TextUtils.isEmpty(this.F)) {
-                setTitleText(R.string.obfuscated_res_0x7f0f104d);
+                setTitleText(R.string.obfuscated_res_0x7f0f104c);
                 loadAccountCenter(this.D);
             } else {
                 this.sapiWebView.loadUrl(this.F);

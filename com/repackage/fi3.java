@@ -29,7 +29,7 @@ public class fi3 extends ActivityDelegation implements vg1 {
         }
     }
 
-    public final void a() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             gi3.b();
@@ -57,7 +57,7 @@ public class fi3 extends ActivityDelegation implements vg1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.mResult.putInt("loginStatusCode", i);
-            a();
+            b();
         }
     }
 }

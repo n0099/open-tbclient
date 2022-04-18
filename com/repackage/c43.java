@@ -43,14 +43,14 @@ public class c43 extends g23 {
 
         /* renamed from: com.repackage.c43$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0389a implements o62.f {
+        public class C0391a implements o62.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ o62.e a;
             public final /* synthetic */ JSONObject b;
             public final /* synthetic */ a c;
 
-            public C0389a(a aVar, o62.e eVar, JSONObject jSONObject) {
+            public C0391a(a aVar, o62.e eVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class c43 extends g23 {
                 HybridUbcFlow q = ot2.q("route", this.a);
                 q.F(new UbcFlowEvent("na_pre_load_slave_check"));
                 q.D("preload", f.b ? "1" : "0");
-                o62.q(f, new C0389a(this, f, c2));
+                o62.q(f, new C0391a(this, f, c2));
             }
         }
 

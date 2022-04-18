@@ -30,24 +30,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ae3;
-import com.repackage.c34;
+import com.repackage.b34;
 import com.repackage.c73;
 import com.repackage.de3;
 import com.repackage.gl2;
 import com.repackage.j03;
+import com.repackage.k34;
 import com.repackage.l34;
-import com.repackage.m34;
 import com.repackage.qs1;
 import com.repackage.r83;
 import com.repackage.t72;
 import com.repackage.tg1;
+import com.repackage.u24;
 import com.repackage.uo1;
-import com.repackage.v24;
 import com.repackage.w53;
 import com.repackage.x83;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
-public class DesktopGuideApi implements m34 {
+public class DesktopGuideApi implements l34 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean n;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class DesktopGuideApi implements m34 {
     public PopupWindow d;
     public Runnable e;
     public AtomicBoolean f;
-    public c34 g;
+    public b34 g;
     public volatile long h;
     public volatile long i;
     public volatile long j;
@@ -169,8 +169,8 @@ public class DesktopGuideApi implements m34 {
                     return;
                 }
             }
-            BAR = new DesktopGuideType("BAR", 0, "bar", -1, 992, "desk_flow", R.string.obfuscated_res_0x7f0f1307);
-            DesktopGuideType desktopGuideType = new DesktopGuideType("BAR_AUTOHIDE", 1, "bar-autohide", -1, 865, "desk_flow_close", R.string.obfuscated_res_0x7f0f1307);
+            BAR = new DesktopGuideType("BAR", 0, "bar", -1, 992, "desk_flow", R.string.obfuscated_res_0x7f0f1306);
+            DesktopGuideType desktopGuideType = new DesktopGuideType("BAR_AUTOHIDE", 1, "bar-autohide", -1, 865, "desk_flow_close", R.string.obfuscated_res_0x7f0f1306);
             BAR_AUTOHIDE = desktopGuideType;
             $VALUES = new DesktopGuideType[]{BAR, desktopGuideType};
         }
@@ -615,7 +615,7 @@ public class DesktopGuideApi implements m34 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, desktopApiStatus) == null) || this.b == null) {
             return;
         }
-        v24.call(this.b, desktopApiStatus.success, new l34(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
+        u24.call(this.b, desktopApiStatus.success, new k34(desktopApiStatus.statusCode, desktopApiStatus.statusMsg));
     }
 
     @AnyThread
@@ -640,7 +640,7 @@ public class DesktopGuideApi implements m34 {
     public final void r() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.g == null) {
-            c34 d2 = c34.d();
+            b34 d2 = b34.d();
             this.g = d2;
             if (d2 != null) {
                 d2.b(new a(this));
@@ -727,30 +727,30 @@ public class DesktopGuideApi implements m34 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048586, this, activity, j03Var, desktopGuideType, str, bitmap) == null) {
             r();
-            c34 c34Var = this.g;
-            if (c34Var != null) {
-                c34Var.c(1);
+            b34 b34Var = this.g;
+            if (b34Var != null) {
+                b34Var.c(1);
             }
             View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d00aa, (ViewGroup) null, false);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090982);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090983);
             if (desktopGuideType.limit != -1 && str.length() > desktopGuideType.limit) {
                 str = str.substring(0, desktopGuideType.limit - 1) + StringHelper.STRING_MORE;
             }
             textView.setText(str);
-            n((ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090981), desktopGuideType);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090983);
+            n((ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f090982), desktopGuideType);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090984);
             if (bitmap != null) {
                 imageView.setImageBitmap(bitmap);
             } else {
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08013f);
             }
-            ImageView imageView2 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090980);
+            ImageView imageView2 = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090981);
             if (desktopGuideType == DesktopGuideType.BAR_AUTOHIDE) {
                 imageView2.setVisibility(8);
             } else {
                 imageView2.setOnClickListener(new d(this, desktopGuideType));
             }
-            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09097e);
+            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09097f);
             button.setText(R.string.obfuscated_res_0x7f0f015f);
             button.setOnClickListener(new e(this, activity, j03Var, desktopGuideType));
             PopupWindow popupWindow = new PopupWindow(inflate, -1, -2);
@@ -762,7 +762,7 @@ public class DesktopGuideApi implements m34 {
                 de3.d0(runnable);
                 de3.b0(this.e, this.k * 1000);
             }
-            c73.f(desktopGuideType.ubcType, m34.a, "show");
+            c73.f(desktopGuideType.ubcType, l34.a, "show");
         }
     }
 

@@ -1,28 +1,21 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Build;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
 /* loaded from: classes5.dex */
 public class at9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public WebView b;
-    public Info c;
+    public final /* synthetic */ et9 a;
 
-    public at9(Context context) {
+    public at9(et9 et9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {et9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,44 +25,6 @@ public class at9 {
                 return;
             }
         }
-        this.a = context;
-        if (pr9.a()) {
-            a();
-        } else {
-            pr9.a.post(new ls9(this));
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b == null) {
-            WebView webView = new WebView(this.a);
-            this.b = webView;
-            WebSettings settings = webView.getSettings();
-            settings.setAllowContentAccess(true);
-            settings.setJavaScriptEnabled(true);
-            if (Build.VERSION.SDK_INT >= 11) {
-                this.b.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.b.removeJavascriptInterface("accessibility");
-                this.b.removeJavascriptInterface("accessibilityTraversal");
-            }
-            this.b.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-            this.b.getSettings().setBlockNetworkImage(true);
-            this.b.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-            this.b.getSettings().setCacheMode(2);
-            this.b.getSettings().setAppCacheEnabled(true);
-            this.b.setScrollBarStyle(0);
-            settings.setDomStorageEnabled(true);
-            settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
-            settings.setEnableSmoothTransition(true);
-            if (Build.VERSION.SDK_INT >= 21) {
-                settings.setMixedContentMode(0);
-            }
-            settings.setNeedInitialFocus(false);
-            this.b.clearCache(true);
-            this.b.clearHistory();
-            this.b.setWebChromeClient(new ps9(this));
-            this.b.setWebViewClient(new ss9(this));
-        }
+        this.a = et9Var;
     }
 }

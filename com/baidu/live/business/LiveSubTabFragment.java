@@ -454,7 +454,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                 this.b.h2();
                 View findViewByPosition = this.b.o.getLayoutManager().findViewByPosition(this.b.K);
                 if (findViewByPosition != null) {
-                    this.b.M.attachToContainer((LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091298));
+                    this.b.M.attachToContainer((LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091299));
                 }
             }
         }
@@ -545,7 +545,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                 this.b.j2();
                 View findViewByPosition = this.b.o.getLayoutManager().findViewByPosition(this.b.L);
                 if (findViewByPosition != null) {
-                    this.b.N.attachToContainer((LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091298));
+                    this.b.N.attachToContainer((LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091299));
                 }
             }
         }
@@ -774,7 +774,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (findViewByPosition = this.o.getLayoutManager().findViewByPosition(this.K)) == null) {
             return;
         }
-        LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091298);
+        LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091299);
         LiveRoomEntity liveRoomEntity = (LiveRoomEntity) ob0.b(this.w, this.K);
         if (this.M == null) {
             pa0 a2 = qa0.a(String.valueOf(this.D));
@@ -818,7 +818,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (findViewByPosition = this.o.getLayoutManager().findViewByPosition(this.L)) == null) {
             return;
         }
-        LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091298);
+        LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091299);
         LiveRoomEntity liveRoomEntity = (LiveRoomEntity) ob0.b(this.w, this.L);
         if (this.N == null) {
             pa0 a2 = qa0.a(String.valueOf(this.D));
@@ -995,10 +995,10 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     public final void S1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.n.findViewById(R.id.obfuscated_res_0x7f091daa);
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.n.findViewById(R.id.obfuscated_res_0x7f091dab);
             this.r = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setOnRefreshListener(this.H);
-            RecyclerView recyclerView = (RecyclerView) this.n.findViewById(R.id.obfuscated_res_0x7f091da9);
+            RecyclerView recyclerView = (RecyclerView) this.n.findViewById(R.id.obfuscated_res_0x7f091daa);
             this.o = recyclerView;
             recyclerView.setLayoutManager(new i(this, 2, 1));
             this.o.setItemAnimator(null);
@@ -1009,17 +1009,17 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             this.q = x90Var;
             this.r.setProgressView(x90Var);
             this.q.y(this.d);
-            LoadingView loadingView = (LoadingView) this.n.findViewById(R.id.obfuscated_res_0x7f091da8);
+            LoadingView loadingView = (LoadingView) this.n.findViewById(R.id.obfuscated_res_0x7f091da9);
             this.s = loadingView;
             loadingView.c(this.d);
-            ErrorView errorView = (ErrorView) this.n.findViewById(R.id.obfuscated_res_0x7f091da7);
+            ErrorView errorView = (ErrorView) this.n.findViewById(R.id.obfuscated_res_0x7f091da8);
             this.t = errorView;
             errorView.c(this.d);
-            EmptyView emptyView = (EmptyView) this.n.findViewById(R.id.obfuscated_res_0x7f091da6);
+            EmptyView emptyView = (EmptyView) this.n.findViewById(R.id.obfuscated_res_0x7f091da7);
             this.u = emptyView;
             emptyView.a(this.d);
             this.t.setActionCallback(new j(this));
-            this.p = this.n.findViewById(R.id.obfuscated_res_0x7f0912a3);
+            this.p = this.n.findViewById(R.id.obfuscated_res_0x7f0912a4);
             R1();
         }
     }

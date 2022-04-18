@@ -1,22 +1,19 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.TreeMap;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes7.dex */
-public class ww9 implements sw9 {
+public class ww9 extends sw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public TreeMap<String, String> b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ww9() {
+        super(Framedata.Opcode.TEXT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,51 +21,22 @@ public class ww9 implements sw9 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
-    @Override // com.repackage.vw9
-    public String d(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.sw9, com.repackage.tw9
+    public void h() throws InvalidDataException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.b.get(str);
-            return str2 == null ? "" : str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.vw9
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.b.containsKey(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.vw9
-    public Iterator<String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.b.keySet()).iterator() : (Iterator) invokeV.objValue;
-    }
-
-    @Override // com.repackage.vw9
-    public byte[] getContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.repackage.sw9
-    public void put(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.b.put(str, str2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.h();
+            if (!kx9.b(a())) {
+                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
+            }
         }
     }
 }

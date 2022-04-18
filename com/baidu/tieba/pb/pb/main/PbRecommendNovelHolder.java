@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f9;
 import com.repackage.oi;
-import com.repackage.pp4;
-import com.repackage.up4;
+import com.repackage.op4;
+import com.repackage.tp4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
@@ -42,7 +42,7 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
     public TbImageView i;
     public LinearLayout j;
     public View k;
-    public up4 l;
+    public tp4 l;
     public b m;
     public View.OnClickListener n;
 
@@ -84,9 +84,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                 PbRecommendNovelHolder pbRecommendNovelHolder = this.a;
                 if (view2 == pbRecommendNovelHolder.h) {
                     String str = pbRecommendNovelHolder.l.I0;
-                    pp4 pp4Var = new pp4();
+                    op4 op4Var = new op4();
                     TbPageContext tbPageContext = (TbPageContext) f9.a(this.a.a.getPageActivity());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, pp4Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, op4Var));
                     TiebaStatic.log(new StatisticItem("c11387").param("obj_source", 6).param("obj_locate", "0").param("obj_param1", str));
                     TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.a.l.I0).param("obj_locate", "3"));
                 } else if (view2 == pbRecommendNovelHolder.j) {
@@ -103,7 +103,7 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(up4 up4Var);
+        void a(tp4 tp4Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -127,37 +127,37 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.n = new a(this);
         this.a = tbPageContext;
         this.m = bVar;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f5c);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f5b);
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915c5);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915d7);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915c1);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915d3);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915d2);
-        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915d4);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915d6);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f5d);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f5c);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915c6);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915d8);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915c2);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915d4);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915d3);
+        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0915d5);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915d7);
         this.i = tbImageView;
-        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081207);
-        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081207);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0919ef);
+        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08120b);
+        this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120b);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0919f0);
         this.h.setOnClickListener(this.n);
         this.j.setOnClickListener(this.n);
         this.c.setOnClickListener(this.n);
     }
 
-    public void f(up4 up4Var) {
+    public void f(tp4 tp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, up4Var) == null) || up4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tp4Var) == null) || tp4Var == null) {
             return;
         }
-        this.l = up4Var;
-        this.b.setText(up4Var.F0);
-        this.c.setText(up4Var.G0);
-        this.i.K(up4Var.N0, 10, false);
-        this.d.K(up4Var.J0, 10, false);
-        this.h.setText(up4Var.M0);
-        this.e.setText(up4Var.K0);
-        List<String> list = up4Var.L0;
+        this.l = tp4Var;
+        this.b.setText(tp4Var.F0);
+        this.c.setText(tp4Var.G0);
+        this.i.K(tp4Var.N0, 10, false);
+        this.d.K(tp4Var.J0, 10, false);
+        this.h.setText(tp4Var.M0);
+        this.e.setText(tp4Var.K0);
+        List<String> list = tp4Var.L0;
         if (list != null) {
             int size = list.size();
             if (size != 1) {

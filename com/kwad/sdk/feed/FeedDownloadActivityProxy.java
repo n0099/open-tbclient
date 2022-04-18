@@ -97,10 +97,10 @@ public class FeedDownloadActivityProxy extends com.kwad.sdk.h.a implements View.
     }
 
     private void intiView() {
-        KsAdContainer ksAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.obfuscated_res_0x7f091052);
+        KsAdContainer ksAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.obfuscated_res_0x7f091053);
         this.mAdContainer = ksAdContainer;
         ksAdContainer.setOnClickListener(this);
-        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.obfuscated_res_0x7f091064);
+        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.obfuscated_res_0x7f091065);
         this.mAppTailFrameView = tailFrameBarAppPortraitVertical;
         tailFrameBarAppPortraitVertical.a(this.mAdTemplate);
         this.mAppTailFrameView.a(d.j(this.mAdTemplate));

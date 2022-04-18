@@ -154,9 +154,9 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
                 }
             }
             this.e = officialBarFeedMsglistAdapter;
-            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915e7);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915ec);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0915e6);
+            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0915e8);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915ed);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0915e7);
             this.a.setShowOval(true);
             this.a.setPlaceHolder(2);
             this.a.setShowOuterBorder(false);

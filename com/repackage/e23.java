@@ -45,12 +45,12 @@ public class e23 extends g23 {
 
         /* renamed from: com.repackage.e23$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0406a implements Runnable {
+        public class RunnableC0408a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0406a(a aVar) {
+            public RunnableC0408a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class e23 extends g23 {
                     h53.q(m53Var, this.a, this.b);
                     return;
                 }
-                dd3.k(new RunnableC0406a(this), "SaveImageAction");
+                dd3.k(new RunnableC0408a(this), "SaveImageAction");
             }
         }
     }
@@ -221,13 +221,13 @@ public class e23 extends g23 {
                             if (g23.b) {
                                 e.printStackTrace();
                             }
-                            ng4.d(cursor);
+                            mg4.d(cursor);
                             return str;
                         }
                     } catch (Throwable th) {
                         th = th;
                         cursor2 = cursor;
-                        ng4.d(cursor2);
+                        mg4.d(cursor2);
                         throw th;
                     }
                 }
@@ -236,10 +236,10 @@ public class e23 extends g23 {
                 cursor = null;
             } catch (Throwable th2) {
                 th = th2;
-                ng4.d(cursor2);
+                mg4.d(cursor2);
                 throw th;
             }
-            ng4.d(cursor);
+            mg4.d(cursor);
             return str;
         }
         return (String) invokeLL.objValue;
@@ -294,7 +294,7 @@ public class e23 extends g23 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
-            String t = ng4.t(file.getPath());
+            String t = mg4.t(file.getPath());
             String valueOf = String.valueOf(System.currentTimeMillis());
             if (TextUtils.isEmpty(t)) {
                 return valueOf;
@@ -371,9 +371,9 @@ public class e23 extends g23 {
             }
             decodeFile.recycle();
             File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-            ng4.l(externalStoragePublicDirectory);
+            mg4.l(externalStoragePublicDirectory);
             File file2 = new File(externalStoragePublicDirectory, m(file));
-            if (ng4.f(file, file2) != 0) {
+            if (mg4.f(file, file2) != 0) {
                 hd3.r(context, file2.getAbsolutePath());
                 return true;
             }

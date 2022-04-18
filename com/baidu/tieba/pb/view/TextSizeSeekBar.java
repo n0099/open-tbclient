@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vs7;
+import com.repackage.ct7;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class TextSizeSeekBar extends View {
@@ -220,7 +220,7 @@ public class TextSizeSeekBar extends View {
                         break;
                     } else if (this.p.get(i).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                         this.j = i;
-                        vs7.a(Math.abs(i - 3));
+                        ct7.a(Math.abs(i - 3));
                         invalidate();
                         break;
                     } else {

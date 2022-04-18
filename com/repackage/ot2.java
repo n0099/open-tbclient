@@ -149,7 +149,7 @@ public final class ot2 {
                 p.D("mobile", zc3.c());
                 long l = this.a.l("box_cold_launch", -1L);
                 if (l < 0) {
-                    l = jt2.a();
+                    l = jt2.b();
                 }
                 if (l > 0) {
                     p.D("box_cold_launch", String.valueOf(l));

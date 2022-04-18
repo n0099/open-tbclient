@@ -1,39 +1,11 @@
 package com.repackage;
 
-import android.media.MediaPlayer;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.graphics.Bitmap;
 /* loaded from: classes5.dex */
-public class bt9 implements MediaPlayer.OnErrorListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bt9 {
+    void a(int i);
 
-    public bt9(zp9 zp9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zp9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void a(Bitmap bitmap);
 
-    @Override // android.media.MediaPlayer.OnErrorListener
-    public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
-            return true;
-        }
-        return invokeLII.booleanValue;
-    }
+    void a(com.win.opensdk.k0 k0Var);
 }

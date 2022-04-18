@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf4;
+import com.repackage.bf4;
 import com.repackage.cl2;
 import com.repackage.d72;
 import com.repackage.dd3;
@@ -157,7 +157,7 @@ public class SwanAppLocalService extends Service implements Handler.Callback {
                 try {
                     ClassLoader classLoader = this.a.getClassLoader();
                     Class.forName(SwanAppProcessInfo.current().activity.getName(), true, classLoader);
-                    Class.forName(cf4.class.getName(), true, classLoader);
+                    Class.forName(bf4.class.getName(), true, classLoader);
                     Class.forName(sz1.b.class.getName(), true, classLoader);
                     Class.forName(rz1.class.getName(), true, classLoader);
                     Class.forName(SwanAppSlaveManager.class.getName(), true, classLoader);

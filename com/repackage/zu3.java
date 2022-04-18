@@ -81,15 +81,15 @@ public class zu3 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 File k = this.d.k();
                 if (k.exists()) {
-                    ng4.j(k);
+                    mg4.j(k);
                 }
-                boolean U = ng4.U(this.a.getAbsolutePath(), k.getAbsolutePath());
+                boolean U = mg4.U(this.a.getAbsolutePath(), k.getAbsolutePath());
                 if (U) {
                     this.d.r();
                     Date date = new Date();
                     this.d.q(xc3.e(date, "'debug'-HH:mm:ss"), date.getTime());
                 }
-                ng4.j(this.a);
+                mg4.j(this.a);
                 this.b.onCallback(Boolean.valueOf(U));
                 this.d.a = this.c;
             }
@@ -310,7 +310,7 @@ public class zu3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             String string = x83.a().getString("swan-game-sconsole-version-name", "");
-            return !TextUtils.isEmpty(string) ? string : ng4.E(l());
+            return !TextUtils.isEmpty(string) ? string : mg4.E(l());
         }
         return (String) invokeV.objValue;
     }
@@ -390,7 +390,7 @@ public class zu3 {
             if (b && this.a) {
                 de3.e0(new b(this, cf3Var));
             } else {
-                s74.g(new ib4(e(), d()), new fv3(new c(this), new d(this, cf3Var)));
+                r74.g(new hb4(e(), d()), new fv3(new c(this), new d(this, cf3Var)));
             }
         }
     }
@@ -413,7 +413,7 @@ public class zu3 {
         if (interceptable == null || interceptable.invokeLJ(1048589, this, str, j) == null) {
             File l = l();
             if (l.exists()) {
-                ng4.j(l);
+                mg4.j(l);
             }
             x83.a().putString("swan-game-sconsole-version-name", str);
             x83.a().putLong("swan-game-sconsole-version-code", j);
@@ -429,9 +429,9 @@ public class zu3 {
                 return;
             }
             String format = String.format("%s%s%s", UriUtil.LOCAL_RESOURCE_SCHEME, File.separator, "swan-game-sconsole.js");
-            String D = ng4.D(qj2.c(), "aigames/sConsole.html");
+            String D = mg4.D(qj2.c(), "aigames/sConsole.html");
             if (D != null) {
-                ng4.N(String.format(D, format), h);
+                mg4.N(String.format(D, format), h);
             }
         }
     }

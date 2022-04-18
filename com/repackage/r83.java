@@ -119,7 +119,7 @@ public class r83 extends w83 {
         return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) ? super.getLong(str, j) : invokeLJ.longValue;
     }
 
-    @Override // com.repackage.w83, com.repackage.lg4, android.content.SharedPreferences
+    @Override // com.repackage.w83, com.repackage.kg4, android.content.SharedPreferences
     public Map<String, ?> getAll() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -370,14 +370,14 @@ public class r83 extends w83 {
 
         /* renamed from: com.repackage.r83$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0502b implements Runnable {
+        public class RunnableC0506b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ Set b;
             public final /* synthetic */ b c;
 
-            public RunnableC0502b(b bVar, String str, Set set) {
+            public RunnableC0506b(b bVar, String str, Set set) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -750,7 +750,7 @@ public class r83 extends w83 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, set)) == null) {
-                d(new RunnableC0502b(this, str, set));
+                d(new RunnableC0506b(this, str, set));
                 return this;
             }
             return (SharedPreferences.Editor) invokeLL.objValue;

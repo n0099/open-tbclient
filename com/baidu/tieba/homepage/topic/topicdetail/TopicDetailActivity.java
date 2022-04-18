@@ -26,13 +26,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b27;
-import com.repackage.ij4;
+import com.repackage.a27;
+import com.repackage.e27;
+import com.repackage.hj4;
 import com.repackage.mg;
 import com.repackage.mi;
 import com.repackage.ni;
 import com.repackage.uo;
-import com.repackage.x17;
 import com.repackage.x8;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements x17 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements a27 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -118,7 +118,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                ij4.b(statisticItem, paramPair);
+                hj4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));
@@ -175,7 +175,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.x17
+    @Override // com.repackage.a27
     public void loadData() {
         int i;
         String substring;
@@ -232,21 +232,21 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.repackage.x17
-    public void netCallback(int i, b27 b27Var) {
+    @Override // com.repackage.a27
+    public void netCallback(int i, e27 e27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, b27Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, e27Var) == null) {
             this.mTopicDetailView.s();
-            if (i == 0 && b27Var != null && !ListUtils.isEmpty(b27Var.f)) {
+            if (i == 0 && e27Var != null && !ListUtils.isEmpty(e27Var.f)) {
                 this.mTopicDetailView.t();
-                this.mTopicDetailView.setData(b27Var);
+                this.mTopicDetailView.setData(e27Var);
                 return;
             }
             this.mTopicDetailView.C(true);
         }
     }
 
-    @Override // com.repackage.x17
+    @Override // com.repackage.a27
     public void netThreadCallback(int i, boolean z, List<uo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {

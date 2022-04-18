@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc9;
-import com.repackage.lc9;
+import com.repackage.kc9;
+import com.repackage.sc9;
 /* loaded from: classes4.dex */
 public class InnerMediaProcessor extends Thread {
     public static /* synthetic */ Interceptable $ic;
@@ -105,7 +105,7 @@ public class InnerMediaProcessor extends Thread {
     public void log(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            dc9.l(str, str2);
+            kc9.l(str, str2);
         }
     }
 
@@ -140,7 +140,7 @@ public class InnerMediaProcessor extends Thread {
             try {
                 extractDecodeEditEncodeMux();
                 if (isUnInterrupted()) {
-                    lc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
+                    sc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ InnerMediaProcessor this$0;
@@ -174,7 +174,7 @@ public class InnerMediaProcessor extends Thread {
                 }
             } catch (Exception unused) {
                 if (this.mListener != null) {
-                    lc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
+                    sc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ InnerMediaProcessor this$0;

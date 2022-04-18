@@ -351,7 +351,7 @@ public class TiebaUpdateService extends BdBaseService {
                 if (i != 0) {
                     if (i != 1) {
                         if (i == 3) {
-                            oi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f148d);
+                            oi.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f148c);
                         }
                     } else if (this.a.mMainApkInstallEnable) {
                         if (this.a.mHasAs) {
@@ -732,7 +732,7 @@ public class TiebaUpdateService extends BdBaseService {
                 downloadOtherApk();
             } else {
                 if (this.mHasTieba) {
-                    string = getString(R.string.obfuscated_res_0x7f0f13b9);
+                    string = getString(R.string.obfuscated_res_0x7f0f13b8);
                 } else {
                     string = getString(R.string.obfuscated_res_0x7f0f0298);
                 }

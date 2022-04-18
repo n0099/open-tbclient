@@ -18,7 +18,7 @@ public class go1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.TRANSLATE_Y, 0.0f);
             ofFloat.setDuration(320L);
-            ofFloat.setInterpolator(new n64(0.32f, 0.6f, 0.1f, 1.0f));
+            ofFloat.setInterpolator(new m64(0.32f, 0.6f, 0.1f, 1.0f));
             return ofFloat;
         }
         return (ObjectAnimator) invokeL.objValue;
@@ -54,7 +54,7 @@ public class go1 {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.TRANSLATE_Y, i);
             ofFloat.setDuration(240L);
-            ofFloat.setInterpolator(new n64(0.32f, 0.6f, 0.1f, 1.0f));
+            ofFloat.setInterpolator(new m64(0.32f, 0.6f, 0.1f, 1.0f));
             return ofFloat;
         }
         return (ObjectAnimator) invokeLI.objValue;

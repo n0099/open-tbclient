@@ -130,10 +130,10 @@ public class InstallTipsViewHelper implements View.OnClickListener {
     private void a(Context context, View view2) {
         String clickButtonText;
         ViewCompat.setElevation(view2, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070362));
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f09108a);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09108c);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09108b);
-        this.h = (Button) view2.findViewById(R.id.obfuscated_res_0x7f09108d);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f09108b);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09108d);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09108c);
+        this.h = (Button) view2.findViewById(R.id.obfuscated_res_0x7f09108e);
         InstallTipsData installTipsData = this.c;
         if (installTipsData != null && (clickButtonText = installTipsData.getClickButtonText()) != null) {
             this.h.setText(clickButtonText);
@@ -241,7 +241,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
         InstallTipsData installTipsData = this.c;
         int clickAction = installTipsData != null ? installTipsData.getClickAction() : 1;
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f09108d) {
+        if (id == R.id.obfuscated_res_0x7f09108e) {
             b();
             if (clickAction == 1) {
                 d();
@@ -254,7 +254,7 @@ public class InstallTipsViewHelper implements View.OnClickListener {
             }
             adTemplate = this.b;
             i = 47;
-        } else if (id != R.id.obfuscated_res_0x7f09108a) {
+        } else if (id != R.id.obfuscated_res_0x7f09108b) {
             return;
         } else {
             b();

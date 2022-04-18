@@ -138,7 +138,7 @@ public class nn3 implements lc3 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            return pg4.d((str + System.currentTimeMillis() + str2).getBytes(), false);
+            return og4.d((str + System.currentTimeMillis() + str2).getBytes(), false);
         }
         return (String) invokeLL.objValue;
     }
@@ -239,12 +239,12 @@ public class nn3 implements lc3 {
         if (e == null) {
             return;
         }
-        l74 l74Var = new l74(v, e, new a(this, aVar, c));
-        if (m74.g().c()) {
-            l74Var.f = true;
+        k74 k74Var = new k74(v, e, new a(this, aVar, c));
+        if (l74.g().c()) {
+            k74Var.f = true;
         }
-        l74Var.g = false;
-        l74Var.c = hashMap;
-        m74.g().e(l74Var);
+        k74Var.g = false;
+        k74Var.c = hashMap;
+        l74.g().e(k74Var);
     }
 }

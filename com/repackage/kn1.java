@@ -196,7 +196,7 @@ public class kn1 extends lr2 {
                     file.delete();
                     file.createNewFile();
                 }
-                if (qg4.a(byteStream, file)) {
+                if (pg4.a(byteStream, file)) {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("filePath", J);
                     JSONObject jSONObject3 = new JSONObject();

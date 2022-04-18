@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.facebook.common.internal.Sets;
-import com.repackage.jb4;
+import com.repackage.ib4;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -31,7 +31,7 @@ public final class z32 {
     public static final Map<String, Long> c;
     public static int d;
     public static final ef3<String, String> e;
-    public static final ef3<jb4.a, String> f;
+    public static final ef3<ib4.a, String> f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
@@ -70,7 +70,7 @@ public final class z32 {
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements ef3<jb4.a, String> {
+    public static class b implements ef3<ib4.a, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,7 +91,7 @@ public final class z32 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.repackage.ef3
         /* renamed from: b */
-        public String a(jb4.a aVar) {
+        public String a(ib4.a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? aVar == null ? "" : aVar.b() : (String) invokeL.objValue;
@@ -212,7 +212,7 @@ public final class z32 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, collection)) == null) ? j(e, collection) : (List) invokeL.objValue;
     }
 
-    public static List<jb4.a> i(Collection<jb4.a> collection) {
+    public static List<ib4.a> i(Collection<ib4.a> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, collection)) == null) ? j(f, collection) : (List) invokeL.objValue;
@@ -250,10 +250,10 @@ public final class z32 {
         return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) ? b.contains(Integer.valueOf(i)) : invokeI.booleanValue;
     }
 
-    public static boolean m(c94 c94Var) {
+    public static boolean m(b94 b94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, c94Var)) == null) ? c94Var != null && l(c94Var.a) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, b94Var)) == null) ? b94Var != null && l(b94Var.a) : invokeL.booleanValue;
     }
 
     public static boolean n(@Nullable String str) {

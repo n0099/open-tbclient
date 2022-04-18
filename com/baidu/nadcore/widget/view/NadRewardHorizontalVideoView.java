@@ -167,6 +167,6 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
                 return;
             }
         }
-        this.u = (HorizontalVideoTailView) findViewById(R.id.obfuscated_res_0x7f0914c4);
+        this.u = (HorizontalVideoTailView) findViewById(R.id.obfuscated_res_0x7f0914c5);
     }
 }

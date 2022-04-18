@@ -171,7 +171,7 @@ public class gf3 {
                 if (TextUtils.isEmpty(b)) {
                     return;
                 }
-                m74.g().getRequest().url(b).addUrlParams(linkedHashMap).cookieManager(qj2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), false));
+                l74.g().getRequest().url(b).addUrlParams(linkedHashMap).cookieManager(qj2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), false));
                 return;
             }
             b03.f(this.b, R.string.obfuscated_res_0x7f0f0196).G();
@@ -191,7 +191,7 @@ public class gf3 {
             if (TextUtils.isEmpty(B)) {
                 return;
             }
-            m74.g().getRequest().url(B).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(qj2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), true));
+            l74.g().getRequest().url(B).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(qj2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), true));
         }
     }
 }

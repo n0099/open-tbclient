@@ -91,7 +91,7 @@ public class o25 extends k05 {
                 }
                 TiebaStatic.eventStat(this.b.getContext(), "pb_reply", "pbclick", 1, new Object[0]);
             } else if (i == 7) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0cf1);
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0cf0);
                 this.c.d = true;
             } else if (i == 8) {
                 if (this.c.k(this.a.getContext(), 11001)) {
@@ -106,7 +106,7 @@ public class o25 extends k05 {
             } else if (i == 11) {
                 this.a.t0(null);
             } else if (i == 18) {
-                boolean h = wt4.k().h("key_post_thread_has_request_location", false);
+                boolean h = vt4.k().h("key_post_thread_has_request_location", false);
                 if (i05Var.c != null) {
                     if (h) {
                         this.a.Q();
@@ -123,7 +123,7 @@ public class o25 extends k05 {
                 }
             } else if (i == 20) {
                 this.a.a().A(new i05(2, 7, null));
-                ul8.a().f(true);
+                bm8.a().f(true);
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
             } else if (i == 29) {
                 this.a.a().A(new i05(2, 19, null));
@@ -166,7 +166,7 @@ public class o25 extends k05 {
                         return;
                     case 16:
                         if (this.c.d) {
-                            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0cf1);
+                            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0cf0);
                         }
                         if (this.c.k(this.a.getContext(), 11025)) {
                             AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.a.getContext().getPageActivity(), 12004, true);
@@ -278,7 +278,7 @@ public class o25 extends k05 {
             arrayList.add(6);
             arrayList.add(9);
             a2.d(new f15(a2.getContext(), 1));
-            if (pm8.a() && tj8.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), u05.class)) != null && (u05Var = (u05) runTask.getData()) != null) {
+            if (wm8.a() && ak8.a(this.b, Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, a2.getContext()), u05.class)) != null && (u05Var = (u05) runTask.getData()) != null) {
                 u05Var.j = 2;
                 a2.d(u05Var);
             }

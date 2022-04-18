@@ -72,22 +72,22 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
             this.n = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010139);
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0606, this);
             this.b = inflate;
-            this.m = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090969);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091289);
+            this.m = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09096a);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09128a);
             this.c = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.c.setAutoChangeStyle(false);
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f090d2d);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f090d2e);
             this.d = findViewById;
-            findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fb6);
-            this.e = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090db5);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090db6);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090db4);
+            findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fba);
+            this.e = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090db6);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090db7);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090db5);
             this.e.setIsRound(true);
             this.e.setAutoChangeStyle(false);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092159);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09214f);
-            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e82);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09215a);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092150);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e83);
             NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.b.findViewById(R.id.obfuscated_res_0x7f090222);
             this.k = noActiveStopAlaPlayAnimationView;
             noActiveStopAlaPlayAnimationView.setFromSpecialForum(this.o);
@@ -156,12 +156,12 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
             this.d.setVisibility(0);
             this.e.K(alaUserInfoData.portrait, 10, false);
             this.f.setText(threadData.getAuthor().getName_show());
-            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f11b7), String.valueOf(alaUserInfoData.ala_id)));
+            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f11b6), String.valueOf(alaUserInfoData.ala_id)));
         } else {
             this.d.setVisibility(8);
         }
         this.h.setText(threadData.getTitle());
-        this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11bc, String.valueOf(threadAlaInfo.audience_count)));
+        this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11bb, String.valueOf(threadAlaInfo.audience_count)));
         if (this.o) {
             return;
         }

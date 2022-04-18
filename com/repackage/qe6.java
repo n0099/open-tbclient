@@ -1,7 +1,9 @@
 package com.repackage;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface qe6 {
-    void D();
+    void G(boolean z);
 
-    void k0();
+    void p();
+
+    void z0();
 }

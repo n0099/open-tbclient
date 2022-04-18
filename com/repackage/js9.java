@@ -1,34 +1,34 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.win.opensdk.bridge.JsBridge;
+import com.win.opensdk.bridge.JsInvokeJavaScope;
+import com.win.opensdk.bridge.core.JsBridgeWebChromeClient;
+import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public class js9 extends AsyncTask {
+public class js9 implements so9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.win.opensdk.k0 a;
-    public final /* synthetic */ String b;
-    public final /* synthetic */ boolean c;
-    public final /* synthetic */ ys9 d;
+    public ep9 a;
+    public wo9 b;
+    public WebView c;
+    public boolean d;
+    public String e;
 
-    public js9(ys9 ys9Var, String str, boolean z) {
+    public js9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ys9Var, str, Boolean.valueOf(z)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,195 +38,31 @@ public class js9 extends AsyncTask {
                 return;
             }
         }
-        this.d = ys9Var;
-        this.b = str;
-        this.c = z;
+        WebView webView = new WebView(context);
+        this.c = webView;
+        webView.setScrollContainer(false);
+        webView.setVerticalScrollBarEnabled(false);
+        webView.setHorizontalScrollBarEnabled(false);
+        wp9.m(webView);
+        this.c.getSettings().setJavaScriptEnabled(true);
+        JsBridge.getInstance().clazz(JsInvokeJavaScope.class).inject();
+        this.c.setWebChromeClient(new JsBridgeWebChromeClient());
+        this.c.setWebViewClient(new fs9(this));
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IF] complete} */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00aa A[Catch: all -> 0x00d0, TRY_LEAVE, TryCatch #0 {all -> 0x00d0, blocks: (B:43:0x00a4, B:45:0x00aa), top: B:75:0x00a4 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00bf A[Catch: Exception -> 0x00bb, TryCatch #2 {Exception -> 0x00bb, blocks: (B:47:0x00b7, B:51:0x00bf, B:53:0x00c7), top: B:79:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00c7 A[Catch: Exception -> 0x00bb, TRY_LEAVE, TryCatch #2 {Exception -> 0x00bb, blocks: (B:47:0x00b7, B:51:0x00bf, B:53:0x00c7), top: B:79:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    @Override // android.os.AsyncTask
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Object doInBackground(Object[] objArr) {
-        InterceptResult invokeL;
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream;
-        ByteArrayOutputStream byteArrayOutputStream;
-        Bitmap decodeStream;
-        ByteArrayOutputStream byteArrayOutputStream2;
+    public void a(String str, Info info) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-            Void[] voidArr = (Void[]) objArr;
-            int i = 1;
-            try {
-                httpURLConnection = (HttpURLConnection) new URL(this.b).openConnection();
-            } catch (Throwable th) {
-                th = th;
-                httpURLConnection = null;
-            }
-            try {
-                try {
-                    if (this.c) {
-                        httpURLConnection.connect();
-                        int contentLength = httpURLConnection.getContentLength();
-                        if (contentLength <= 0) {
-                            this.a = new com.win.opensdk.k0("Invalid content length. The URL is probably not pointing to a file");
-                            cancel(true);
-                        }
-                        inputStream = new BufferedInputStream(httpURLConnection.getInputStream(), 8192);
-                        byteArrayOutputStream = new ByteArrayOutputStream();
-                        try {
-                            byte[] bArr = new byte[8192];
-                            long j = 0;
-                            while (true) {
-                                int read = inputStream.read(bArr);
-                                if (read == -1) {
-                                    break;
-                                }
-                                j += read;
-                                byteArrayOutputStream.write(bArr, 0, read);
-                                Integer[] numArr = new Integer[i];
-                                numArr[0] = Integer.valueOf((int) ((100 * j) / contentLength));
-                                publishProgress(numArr);
-                                i = 1;
-                            }
-                            decodeStream = BitmapFactory.decodeByteArray(byteArrayOutputStream.toByteArray(), 0, byteArrayOutputStream.size());
-                            byteArrayOutputStream2 = byteArrayOutputStream;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            try {
-                                if (!isCancelled()) {
-                                    this.a = new com.win.opensdk.k0(th);
-                                    cancel(true);
-                                }
-                                if (httpURLConnection != null) {
-                                    try {
-                                        httpURLConnection.disconnect();
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                        return null;
-                                    }
-                                }
-                                if (byteArrayOutputStream != null) {
-                                    byteArrayOutputStream.flush();
-                                    byteArrayOutputStream.close();
-                                }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                return null;
-                            } catch (Throwable th3) {
-                                if (httpURLConnection != null) {
-                                    try {
-                                        httpURLConnection.disconnect();
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
-                                        throw th3;
-                                    }
-                                }
-                                if (byteArrayOutputStream != null) {
-                                    byteArrayOutputStream.flush();
-                                    byteArrayOutputStream.close();
-                                }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                throw th3;
-                            }
-                        }
-                    } else {
-                        inputStream = httpURLConnection.getInputStream();
-                        decodeStream = BitmapFactory.decodeStream(inputStream);
-                        byteArrayOutputStream2 = null;
-                    }
-                    if (httpURLConnection != null) {
-                        try {
-                            httpURLConnection.disconnect();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    if (byteArrayOutputStream2 != null) {
-                        byteArrayOutputStream2.flush();
-                        byteArrayOutputStream2.close();
-                    }
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                    return decodeStream;
-                } catch (Throwable th4) {
-                    th = th4;
-                    byteArrayOutputStream = null;
-                    if (!isCancelled()) {
-                    }
-                    if (httpURLConnection != null) {
-                    }
-                    if (byteArrayOutputStream != null) {
-                    }
-                    if (inputStream != null) {
-                    }
-                    return null;
-                }
-            } catch (Throwable th5) {
-                th = th5;
-                inputStream = null;
-                byteArrayOutputStream = null;
-                if (!isCancelled()) {
-                }
-                if (httpURLConnection != null) {
-                }
-                if (byteArrayOutputStream != null) {
-                }
-                if (inputStream != null) {
-                }
-                return null;
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // android.os.AsyncTask
-    public void onCancelled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d.b.remove(this.b);
-            this.d.a.a(this.a);
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    public void onPostExecute(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            Bitmap bitmap = (Bitmap) obj;
-            if (bitmap == null) {
-                this.d.a.a(new com.win.opensdk.k0("downloaded file could not be decoded as bitmap"));
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, info) == null) {
+            if ((!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) || str.startsWith(ImageSource.FILE_SCHEME)) {
+                this.c.loadUrl(str);
             } else {
-                this.d.a.a(bitmap);
+                this.c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
             }
-            this.d.b.remove(this.b);
-            System.gc();
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    public void onPreExecute() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d.b.add(this.b);
-        }
-    }
-
-    @Override // android.os.AsyncTask
-    public void onProgressUpdate(Object[] objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, objArr) == null) {
-            this.d.a.a(((Integer[]) objArr)[0].intValue());
+            ep9 ep9Var = this.a;
+            if (ep9Var != null) {
+                ep9Var.a();
+            }
+            this.c.setOnTouchListener(new ms9(info, new bs9(this)));
         }
     }
 }

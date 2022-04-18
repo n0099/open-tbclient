@@ -1,235 +1,81 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.drawable.AnimationDrawable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PullViewHelper;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class eu4 extends du4 {
+public class eu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public boolean B;
-    public boolean C;
-    public CustomMessageListener D;
-    public CustomMessageListener E;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eu4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(eu4 eu4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eu4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eu4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                eu4 eu4Var = this.a;
-                if (eu4Var.B) {
-                    eu4Var.H(TbadkCoreApplication.getInst().getSkinType());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eu4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(eu4 eu4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eu4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eu4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.h.setBackgroundColor(PullViewHelper.getInstance().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eu4(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public static void a(ImageView imageView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) || imageView == null) {
+            return;
         }
-        this.B = true;
-        this.C = false;
-        this.D = new a(this, 2016203);
-        this.E = new b(this, 2016204);
-        X(tbPageContext);
-    }
-
-    @Override // com.repackage.du4
-    public void H(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            super.H(i);
-            if (this.h == null || this.i == null) {
-                return;
-            }
-            this.A = false;
-            if (!M()) {
-                AnimationDrawable animationDrawable = PullViewHelper.getInstance().getAnimationDrawable(i);
-                this.n = animationDrawable;
-                if (animationDrawable != null) {
-                    this.A = true;
-                } else {
-                    this.n = new AnimationDrawable();
-                }
-                if (!this.A) {
-                    this.n = PullViewHelper.getInstance().getDefaultAnimationDrawable(i);
-                }
-                this.n.setOneShot(false);
-                this.i.setBackgroundDrawable(this.n);
-            }
-            if (this.C) {
-                this.h.setBackgroundColor(0);
-            }
+        WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+        ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
+        if (layoutParams != null) {
+            layoutParams.width = oi.f(TbadkApplication.getInst(), R.dimen.tbds52);
+            layoutParams.height = oi.f(TbadkApplication.getInst(), R.dimen.tbds52);
+            imageView.setLayoutParams(layoutParams);
         }
     }
 
-    public final void X(TbPageContext<?> tbPageContext) {
+    public static void b(ViewGroup viewGroup) {
+        ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            this.D.setTag(tbPageContext.getUniqueId());
-            this.E.setTag(tbPageContext.getUniqueId());
-            tbPageContext.registerListener(this.D);
-            tbPageContext.registerListener(this.E);
+        if (!(interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) || viewGroup == null || (layoutParams = viewGroup.getLayoutParams()) == null) {
+            return;
         }
+        layoutParams.height = oi.f(TbadkApplication.getInst(), R.dimen.tbds120);
+        viewGroup.setLayoutParams(layoutParams);
     }
 
-    public void Y() {
+    public static void c(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.D);
-            MessageManager.getInstance().unRegisterListener(this.E);
+        if (!(interceptable == null || interceptable.invokeL(65538, null, textView) == null) || textView == null) {
+            return;
         }
+        vr4.d(textView).v(R.color.CAM_X0107);
     }
 
-    public void Z(boolean z) {
+    public static void d(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.C = z;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, textView) == null) || textView == null) {
+            return;
         }
+        vr4.d(textView).z(R.dimen.tbds36);
     }
 
-    public void a0(BdUniqueId bdUniqueId) {
+    public static void e(TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            CustomMessageListener customMessageListener = this.D;
-            if (customMessageListener != null) {
-                customMessageListener.setTag(bdUniqueId);
-            }
-            CustomMessageListener customMessageListener2 = this.E;
-            if (customMessageListener2 != null) {
-                customMessageListener2.setTag(bdUniqueId);
-            }
-            MessageManager.getInstance().registerListener(this.D);
-            MessageManager.getInstance().registerListener(this.E);
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) || textView == null) {
+            return;
         }
+        vr4 d = vr4.d(textView);
+        d.z(R.dimen.tbds36);
+        d.v(R.color.CAM_X0107);
     }
 
-    @Override // com.repackage.du4, com.repackage.jo
-    public void o(boolean z) {
+    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.i.setBackgroundDrawable(null);
-            super.o(z);
-            this.B = true;
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) || tBLottieAnimationView == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.du4, com.repackage.jo
-    public void w(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            super.w(z);
-            this.B = false;
-            if (this.A) {
-                return;
-            }
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            int i = this.p;
-            if (i != Integer.MIN_VALUE) {
-                skinType = i;
-            }
-            H(skinType);
+        if (i != 1 && i != 4) {
+            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f11001d);
+        } else {
+            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f11001f);
         }
-    }
-
-    @Override // com.repackage.du4, com.repackage.jo
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.x();
-            this.B = false;
-        }
+        tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
     }
 }

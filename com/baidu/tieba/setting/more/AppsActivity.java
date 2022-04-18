@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.sg;
-import com.repackage.wt4;
+import com.repackage.vt4;
 /* loaded from: classes4.dex */
 public class AppsActivity extends BaseActivity<AppsActivity> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -258,14 +258,14 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
                         this.c.mWebView.setVisibility(8);
                         this.c.mFailView.setVisibility(0);
                         AppsActivity appsActivity = this.c;
-                        appsActivity.showToast(appsActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c18));
+                        appsActivity.showToast(appsActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c17));
                         return;
                     }
-                    this.c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10f1), SapiWebView.DATA_MIME_TYPE, IMAudioTransRequest.CHARSET, "");
+                    this.c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f10f0), SapiWebView.DATA_MIME_TYPE, IMAudioTransRequest.CHARSET, "");
                     return;
                 }
                 sg.a().b(new a(this, str));
-                wt4.k().x("app_inverval", System.currentTimeMillis());
+                vt4.k().x("app_inverval", System.currentTimeMillis());
                 this.c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, IMAudioTransRequest.CHARSET, "");
             }
         }
@@ -304,7 +304,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             } else {
                 this.mUrl = getIntent().getStringExtra("url");
             }
-            if (System.currentTimeMillis() - wt4.k().m("app_inverval", 0L) > 86400000) {
+            if (System.currentTimeMillis() - vt4.k().m("app_inverval", 0L) > 86400000) {
                 refresh();
             } else if (loadCacheData()) {
             } else {
@@ -316,17 +316,17 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
     private void InitUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mParent = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091641);
-            this.mTitle = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092012);
-            this.mTitleText = (TextView) findViewById(R.id.obfuscated_res_0x7f09203e);
+            this.mParent = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091642);
+            this.mTitle = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092013);
+            this.mTitleText = (TextView) findViewById(R.id.obfuscated_res_0x7f09203f);
             BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f09029e);
             this.mWebView = baseWebView;
             baseWebView.setDownloadEnabled(true);
             this.mProcess = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f090298);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09242b);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09242c);
             this.mFailView = linearLayout;
             linearLayout.setOnClickListener(new a(this));
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a1b);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a1c);
             this.mRefresh = imageView;
             imageView.setOnClickListener(new b(this));
             ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902f9);

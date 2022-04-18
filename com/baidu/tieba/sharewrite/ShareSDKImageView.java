@@ -88,7 +88,7 @@ public class ShareSDKImageView extends TbClipImageView {
                 return;
             }
         }
-        this.w0 = R.drawable.obfuscated_res_0x7f080f54;
+        this.w0 = R.drawable.obfuscated_res_0x7f080f58;
         this.x0 = R.color.CAM_X0110;
         w();
     }

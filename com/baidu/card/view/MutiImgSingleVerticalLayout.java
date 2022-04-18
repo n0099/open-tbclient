@@ -34,19 +34,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.Cdo;
-import com.repackage.cn4;
+import com.repackage.bn4;
 import com.repackage.fo;
 import com.repackage.fz;
 import com.repackage.h35;
 import com.repackage.ig;
 import com.repackage.oi;
 import com.repackage.pe5;
-import com.repackage.qn4;
-import com.repackage.rx5;
+import com.repackage.pn4;
+import com.repackage.tx5;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class MutiImgSingleVerticalLayout extends LinearLayout implements fz<qn4> {
+public class MutiImgSingleVerticalLayout extends LinearLayout implements fz<pn4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,8 +56,8 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements fz<qn4>
     public TbImageView d;
     public String e;
     public boolean f;
-    public rx5<qn4> g;
-    public qn4 h;
+    public tx5<pn4> g;
+    public pn4 h;
     public pe5 i;
     public LinkedList<MediaData> j;
     public boolean k;
@@ -90,7 +90,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements fz<qn4>
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            rx5<qn4> subClickListener;
+            tx5<pn4> subClickListener;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (subClickListener = this.a.getSubClickListener()) == null) {
                 return;
@@ -128,7 +128,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements fz<qn4>
         public void a(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                rx5<qn4> subClickListener = this.a.getSubClickListener();
+                tx5<pn4> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.h.objType = 2;
@@ -368,7 +368,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements fz<qn4>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (cn4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (bn4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList<MediaData> linkedList = new LinkedList<>();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -429,10 +429,10 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements fz<qn4>
         return (String) invokeL.objValue;
     }
 
-    public rx5<qn4> getSubClickListener() {
+    public tx5<pn4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (rx5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (tx5) invokeV.objValue;
     }
 
     public final void h() {
@@ -441,12 +441,12 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements fz<qn4>
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d058c, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f79);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091f87);
-            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f091f88);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f7a);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091f88);
+            PlayVoiceBntNew playVoiceBntNew = (PlayVoiceBntNew) findViewById(R.id.obfuscated_res_0x7f091f89);
             this.c = playVoiceBntNew;
             playVoiceBntNew.setAfterClickListener(new a(this));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091f84);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091f85);
             this.d = tbImageView;
             tbImageView.setRadiusById(R.string.J_X05);
             this.d.setConrers(15);
@@ -461,11 +461,11 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements fz<qn4>
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: i */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qn4Var) == null) {
-            this.h = qn4Var;
-            ThreadData threadData = qn4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048580, this, pn4Var) == null) {
+            this.h = pn4Var;
+            ThreadData threadData = pn4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.l);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, n, this.l);
             TextView textView = this.a;
@@ -572,10 +572,10 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements fz<qn4>
         }
     }
 
-    public void setSubClickListener(rx5<qn4> rx5Var) {
+    public void setSubClickListener(tx5<pn4> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, rx5Var) == null) {
-            this.g = rx5Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, tx5Var) == null) {
+            this.g = tx5Var;
         }
     }
 

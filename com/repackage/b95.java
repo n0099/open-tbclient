@@ -63,7 +63,7 @@ public class b95 extends oa {
             return;
         }
         httpMessage.addParam(HttpRequest.BDUSS, currentBduss);
-        String a = hn4.a(TbadkCoreApplication.getCurrentAccountInfo());
+        String a = gn4.a(TbadkCoreApplication.getCurrentAccountInfo());
         if (StringUtils.isNull(a)) {
             return;
         }
@@ -128,9 +128,9 @@ public class b95 extends oa {
             httpMessage.addParam("event_day", TbSingleton.getInstance().getData());
             httpMessage.addParam(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
             httpMessage.addParam("is_teenager", "0");
-            httpMessage.addParam("start_type", ks4.f);
-            httpMessage.addParam("start_scheme", ks4.e());
-            httpMessage.addParam("extra", wt4.k().q("key_sync_extra_field", ""));
+            httpMessage.addParam("start_type", js4.f);
+            httpMessage.addParam("start_scheme", js4.e());
+            httpMessage.addParam("extra", vt4.k().q("key_sync_extra_field", ""));
             httpMessage.addParam("personalized_rec_switch", String.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch()));
         }
     }
@@ -138,8 +138,8 @@ public class b95 extends oa {
     public final void c(HttpMessage httpMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpMessage) == null) {
-            if (fw4.b().d()) {
-                httpMessage.addCookie("pub_env", String.valueOf(fw4.b().c()));
+            if (ew4.b().d()) {
+                httpMessage.addCookie("pub_env", String.valueOf(ew4.b().c()));
             }
             if (TbSingleton.getInstance().isVisitPreviewServer()) {
                 httpMessage.addCookie("pub_env", TbSingleton.getInstance().getPubEnvValue());

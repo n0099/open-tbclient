@@ -19,24 +19,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.du4;
+import com.repackage.cu4;
 import com.repackage.mg;
 import com.repackage.mi;
-import com.repackage.pe6;
-import com.repackage.sk6;
+import com.repackage.re6;
+import com.repackage.uk6;
 import com.repackage.uo;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements pe6 {
+public class FrsGameRecommendFragment extends BaseFragment implements re6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sk6 a;
+    public uk6 a;
     public AlaGameRecommendModel b;
     public String c;
     public String d;
     public CustomMessageListener e;
     public AlaGameRecommendModel.b f;
-    public du4.g g;
+    public cu4.g g;
     public BdListView.p h;
 
     /* loaded from: classes3.dex */
@@ -134,7 +134,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements pe6 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements du4.g {
+    public class c implements cu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameRecommendFragment a;
@@ -157,7 +157,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements pe6 {
             this.a = frsGameRecommendFragment;
         }
 
-        @Override // com.repackage.du4.g
+        @Override // com.repackage.cu4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -168,7 +168,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements pe6 {
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 this.a.a.b();
             }
         }
@@ -241,7 +241,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements pe6 {
         return (FrsGameRecommendFragment) invokeLL.objValue;
     }
 
-    @Override // com.repackage.pe6
+    @Override // com.repackage.re6
     public NavigationBar d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -250,12 +250,12 @@ public class FrsGameRecommendFragment extends BaseFragment implements pe6 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        sk6 sk6Var;
+        uk6 uk6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (sk6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (uk6Var = this.a) == null) {
             return;
         }
-        sk6Var.i(i);
+        uk6Var.i(i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -269,9 +269,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements pe6 {
             }
             this.c = arguments.getString("forum_id");
             this.d = arguments.getString("forum_name");
-            sk6 sk6Var = new sk6(getPageContext(), this.c, this.d);
-            this.a = sk6Var;
-            sk6Var.l(this.g);
+            uk6 uk6Var = new uk6(getPageContext(), this.c, this.d);
+            this.a = uk6Var;
+            uk6Var.l(this.g);
             this.a.n(this.h);
             MessageManager.getInstance().registerListener(2001446, this.e);
             this.b = new AlaGameRecommendModel(this.c, this.f);
@@ -290,9 +290,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements pe6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            sk6 sk6Var = this.a;
-            if (sk6Var != null) {
-                sk6Var.j();
+            uk6 uk6Var = this.a;
+            if (uk6Var != null) {
+                uk6Var.j();
             }
             AlaGameRecommendModel alaGameRecommendModel = this.b;
             if (alaGameRecommendModel != null) {

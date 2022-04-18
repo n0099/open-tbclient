@@ -39,12 +39,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.c9;
 import com.repackage.oi;
-import com.repackage.ur4;
-import com.repackage.wt4;
+import com.repackage.tr4;
+import com.repackage.vt4;
+import com.repackage.vu4;
 import com.repackage.wu4;
-import com.repackage.x26;
-import com.repackage.xu4;
 import com.repackage.y35;
+import com.repackage.z26;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ItemCardDownloadButton extends View {
@@ -296,8 +296,8 @@ public class ItemCardDownloadButton extends View {
             }
             if (this.a.v == 2 || this.a.v == 1) {
                 String simpleName = ((Activity) this.a.getContext()).getClass().getSimpleName();
-                if (!"DownloadManagerActivity".equals(simpleName) && wt4.k().h("key_download_manager_first_toast", true)) {
-                    wt4.k().u("key_download_manager_first_toast", false);
+                if (!"DownloadManagerActivity".equals(simpleName) && vt4.k().h("key_download_manager_first_toast", true)) {
+                    vt4.k().u("key_download_manager_first_toast", false);
                     ItemCardHelper.g(1, simpleName, this.a.w.itemId);
                     ScreenTopToast screenTopToast = new ScreenTopToast(this.a.getContext());
                     screenTopToast.m(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f0974));
@@ -309,11 +309,11 @@ public class ItemCardDownloadButton extends View {
             if (!(this.a.x.getExtra() instanceof ItemDownloadExtraData) || !((ItemDownloadExtraData) this.a.x.getExtra()).isShouzhuData()) {
                 y35.l(this.a.x);
             } else if (this.a.v == 5) {
-                xu4.a(this.a.x, 500);
-                wu4.f().d(this.a.w, this.a.x, this.a.y, this.a.D);
+                wu4.a(this.a.x, 500);
+                vu4.f().d(this.a.w, this.a.x, this.a.y, this.a.D);
             } else {
-                xu4.a(this.a.x, 200);
-                wu4.f().e(this.a.w, this.a.x, this.a.y, this.a.D);
+                wu4.a(this.a.x, 200);
+                vu4.f().e(this.a.w, this.a.x, this.a.y, this.a.D);
             }
         }
     }
@@ -582,10 +582,10 @@ public class ItemCardDownloadButton extends View {
             switch (this.v) {
                 case 1:
                 case 2:
-                    x26 x26Var = new x26();
-                    x26Var.a = this.w;
-                    x26Var.b = 1;
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921627, x26Var));
+                    z26 z26Var = new z26();
+                    z26Var.a = this.w;
+                    z26Var.b = 1;
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921627, z26Var));
                     l();
                     return;
                 case 3:
@@ -598,7 +598,7 @@ public class ItemCardDownloadButton extends View {
                     l();
                     return;
                 case 6:
-                    xu4.a(this.x, 1000);
+                    wu4.a(this.x, 1000);
                     y35.k(this.w.pkgName);
                     return;
                 default:
@@ -707,14 +707,14 @@ public class ItemCardDownloadButton extends View {
             }
             x();
             v();
-            xu4.a(this.x, 100);
+            wu4.a(this.x, 100);
         }
     }
 
     public void setShadow(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            String[] F = ur4.F(i);
+            String[] F = tr4.F(i);
             int identifier = TbadkCoreApplication.getInst().getResources().getIdentifier(F[0], "color", TbadkCoreApplication.getInst().getPackageName());
             this.m = identifier;
             this.n = SkinManager.getColor(identifier);

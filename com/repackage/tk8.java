@@ -1,16 +1,7 @@
 package com.repackage;
 
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.util.SparseIntArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,141 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
 public class tk8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern f;
-    public static final Pattern g;
+    public static final int[] c;
+    public static final int[] d;
+    public static final int[] e;
+    public static final int[] f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public SpannableStringBuilder e;
-
-    /* loaded from: classes7.dex */
-    public class a extends lc5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk8 a;
-
-        public a(tk8 tk8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tk8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tk8Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                b(this.a.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends lc5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk8 a;
-
-        public b(tk8 tk8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tk8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tk8Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Matcher matcher = tk8.f.matcher(this.a.d);
-                if (matcher.find()) {
-                    try {
-                        String group = matcher.group();
-                        a(group.substring(group.lastIndexOf("/") + 1));
-                        return;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                Matcher matcher2 = tk8.g.matcher(this.a.d);
-                if (matcher2.find()) {
-                    try {
-                        String group2 = matcher2.group();
-                        a(group2.substring(group2.lastIndexOf("=") + 1));
-                        return;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                b(this.a.d);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends lc5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk8 a;
-
-        public c(tk8 tk8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tk8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tk8Var;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.b != null) {
-                    this.a.b.replace("@", "").replace(" ", "");
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(TbadkCoreApplication.getInst()).createNormalConfig(mg.g(this.a.d, 0L), false, false)));
-            }
-        }
-    }
+    public SparseIntArray a;
+    public final int[] b;
 
     static {
         InterceptResult invokeClinit;
@@ -167,14 +33,18 @@ public class tk8 {
                 return;
             }
         }
-        f = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-        g = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+        c = new int[]{3, 8, 13};
+        d = new int[]{2, 12};
+        e = new int[]{20};
+        f = new int[]{3, 13, 23};
     }
 
-    public tk8() {
+    public tk8(String str, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, iArr};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -184,112 +54,66 @@ public class tk8 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = null;
-        this.d = null;
-        this.e = null;
+        this.b = iArr;
+        this.a = new SparseIntArray();
     }
 
-    public static boolean k(int i, int i2) {
-        InterceptResult invokeII;
+    public void a(int i, int i2) {
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? (i != 0 || i2 == 3 || i2 == 2) ? false : true : invokeII.booleanValue;
-    }
-
-    public SpannableStringBuilder e(SpannableString spannableString) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, spannableString)) == null) {
-            if (this.e == null) {
-                this.e = new SpannableStringBuilder();
-            }
-            this.e.append((CharSequence) spannableString);
-            return this.e;
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || i < 0 || i2 < 0 || (sparseIntArray = this.a) == null) {
+            return;
         }
-        return (SpannableStringBuilder) invokeL.objValue;
+        sparseIntArray.append(i2, i);
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public int b(int i) {
+        InterceptResult invokeI;
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && (sparseIntArray = this.a) != null) {
+                return sparseIntArray.get(i, -1);
+            }
+            return -1;
+        }
+        return invokeI.intValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public void c(int i) {
+        SparseIntArray sparseIntArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (sparseIntArray = this.a) == null) {
+            return;
+        }
+        sparseIntArray.delete(i);
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            e(0);
+        }
     }
 
-    public SpannableString h() {
-        InterceptResult invokeV;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.a;
-            if (i != 0) {
-                if (i == 1) {
-                    if (!this.b.endsWith(" ")) {
-                        this.b += " ";
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            SparseIntArray sparseIntArray = this.a;
+            if (sparseIntArray != null) {
+                sparseIntArray.clear();
+                int[] iArr = this.b;
+                if (iArr != null) {
+                    for (int i2 : iArr) {
+                        if (i2 >= 0) {
+                            this.a.append(i2 + i, i2);
+                        }
                     }
-                    SpannableString spannableString = new SpannableString(this.b);
-                    spannableString.setSpan(new b(this), 0, this.b.length() - 1, 33);
-                    return spannableString;
-                } else if (i == 2) {
-                    SpannableString spannableString2 = new SpannableString(this.b + " ");
-                    fo face = TbadkCoreApplication.getInst().getFace(this.b);
-                    if (face != null) {
-                        BitmapDrawable j = face.j();
-                        j.setBounds(0, 0, face.r(), face.m());
-                        spannableString2.setSpan(new ImageSpan(j, 1), 0, this.b.length(), 33);
-                    }
-                    return spannableString2;
-                } else if (i == 4) {
-                    if (!this.b.endsWith(" ")) {
-                        this.b += " ";
-                    }
-                    SpannableString spannableString3 = new SpannableString(this.b);
-                    spannableString3.setSpan(new c(this), 0, this.b.length() - 1, 33);
-                    return spannableString3;
-                } else if (i != 5) {
-                    return null;
-                } else {
-                    if (!this.b.endsWith(" ")) {
-                        this.b += " ";
-                    }
-                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14c4);
-                    String str = string + this.b;
-                    SpannableString spannableString4 = new SpannableString(str);
-                    spannableString4.setSpan(new a(this), string.length(), str.length() - 1, 33);
-                    return spannableString4;
                 }
             }
-            return new SpannableString(this.b);
-        }
-        return (SpannableString) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public SpannableStringBuilder j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (SpannableStringBuilder) invokeV.objValue;
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.a = i;
         }
     }
 }

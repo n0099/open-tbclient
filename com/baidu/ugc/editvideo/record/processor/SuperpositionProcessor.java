@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fc9;
 import com.repackage.pf0;
-import com.repackage.yb9;
 /* loaded from: classes4.dex */
 public class SuperpositionProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +33,7 @@ public class SuperpositionProcessor extends BaseEffectProcessor {
         InterceptResult invokeLIL;
         int d;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, pf0Var, i, fArr)) == null) ? (pf0Var == null || (d = pf0Var.d((MediaTrack) yb9.c(pf0Var.l(), 0), i, null)) == 0) ? i : d : invokeLIL.intValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, pf0Var, i, fArr)) == null) ? (pf0Var == null || (d = pf0Var.d((MediaTrack) fc9.c(pf0Var.l(), 0), i, null)) == 0) ? i : d : invokeLIL.intValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.BaseEffectProcessor

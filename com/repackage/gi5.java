@@ -307,9 +307,9 @@ public class gi5 implements wg5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04e5, (ViewGroup) this.b, true);
-            this.d = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091c67);
-            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c68);
-            AttentionView attentionView = (AttentionView) this.b.findViewById(R.id.obfuscated_res_0x7f091c66);
+            this.d = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091c68);
+            this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c69);
+            AttentionView attentionView = (AttentionView) this.b.findViewById(R.id.obfuscated_res_0x7f091c67);
             this.g = attentionView;
             if (attentionView != null) {
                 attentionView.setForumSelectStateChangedListener(j());

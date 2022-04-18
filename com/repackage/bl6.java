@@ -1,52 +1,54 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bl6 extends PbListView {
+public class bl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> E;
+    public int a;
+    public boolean b;
+    public al6 c;
+    public List<uo> d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bl6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public bl6(JSONObject jSONObject) {
+        int length;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.E = tbPageContext;
-        b().setPadding(0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ff));
-        z();
-        y();
-        v();
-        G(R.dimen.obfuscated_res_0x7f070201);
-    }
-
-    @Override // com.baidu.tbadk.core.view.PbListView
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.f();
-            C(this.E.getResources().getString(R.string.obfuscated_res_0x7f0f09e8));
-            b().setVisibility(0);
+        if (jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("current_pn");
+        this.b = jSONObject.optInt("has_more", 0) == 1;
+        JSONObject optJSONObject = jSONObject.optJSONObject("main_comment");
+        if (optJSONObject != null) {
+            this.c = new al6(optJSONObject);
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("sub_comment");
+        if (optJSONArray == null || (length = optJSONArray.length()) <= 0) {
+            return;
+        }
+        this.d = new ArrayList(length);
+        for (int i3 = 0; i3 < length; i3++) {
+            this.d.add(new cl6(optJSONArray.optJSONObject(i3)));
         }
     }
 }

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gy5;
-import com.repackage.hy5;
+import com.repackage.iy5;
+import com.repackage.jy5;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -122,17 +122,17 @@ public class RecommendTopicData {
             return invokeV.intValue;
         }
 
-        public gy5 getConvertedCardData() {
+        public iy5 getConvertedCardData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                gy5 gy5Var = new gy5();
-                gy5Var.c = this.tag;
-                gy5Var.a = this.topicId;
-                gy5Var.b = this.topicName;
-                return gy5Var;
+                iy5 iy5Var = new iy5();
+                iy5Var.c = this.tag;
+                iy5Var.a = this.topicId;
+                iy5Var.b = this.topicName;
+                return iy5Var;
             }
-            return (gy5) invokeV.objValue;
+            return (iy5) invokeV.objValue;
         }
 
         public long getDiscussNum() {
@@ -260,13 +260,13 @@ public class RecommendTopicData {
         this.b = new ArrayList();
     }
 
-    public hy5 a() {
+    public jy5 a() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hy5 hy5Var = new hy5();
-            hy5Var.c = b();
+            jy5 jy5Var = new jy5();
+            jy5Var.c = b();
             if (this.b != null) {
                 arrayList = new ArrayList();
                 for (RecommendTopicListData recommendTopicListData : this.b) {
@@ -277,10 +277,10 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            hy5Var.d = arrayList;
-            return hy5Var;
+            jy5Var.d = arrayList;
+            return jy5Var;
         }
-        return (hy5) invokeV.objValue;
+        return (jy5) invokeV.objValue;
     }
 
     public String b() {

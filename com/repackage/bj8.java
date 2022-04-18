@@ -1,40 +1,27 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe;
-import com.squareup.wire.Wire;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import tbclient.App;
-import tbclient.BannerList;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.FrsPage.FrsPageResIdl;
-import tbclient.ThreadInfo;
-import tbclient.User;
 /* loaded from: classes5.dex */
 public class bj8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Wire c;
-    public static bj8 d;
+    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public kj8 a;
-    public qe<byte[]> b;
 
     static {
         InterceptResult invokeClinit;
@@ -49,332 +36,218 @@ public class bj8 {
                 return;
             }
         }
-        c = new Wire(new Class[0]);
+        a = Arrays.asList("a006", "a005", "a008", "a002");
     }
 
-    public bj8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.b = BdCacheService.k().a("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
-    }
-
-    public static bj8 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (bj8.class) {
-                    if (d == null) {
-                        d = new bj8();
-                    }
-                }
-            }
-            return d;
-        }
-        return (bj8) invokeV.objValue;
-    }
-
-    public void a(String str, byte[] bArr, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, str, bArr, z) == null) || str == null || str.length() <= 0) {
-            return;
-        }
-        if (z) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            qe<byte[]> qeVar = this.b;
-            qeVar.e(currentAccount + str, bArr, h());
-            return;
-        }
-        String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-        qe<byte[]> qeVar2 = this.b;
-        qeVar2.i(currentAccount2 + str, bArr, h());
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.b == null || str == null) {
-            return;
-        }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        qe<byte[]> qeVar = this.b;
-        byte[] bArr = qeVar.get(currentAccount + str);
-        if (bArr == null || bArr.length <= 0) {
-            return;
-        }
-        try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-            if (frsPageResIdl == null || frsPageResIdl.data == null || frsPageResIdl.data.forum == null || frsPageResIdl.data.forum.banner_list == null || frsPageResIdl.data.forum.banner_list.app == null || frsPageResIdl.data.forum.banner_list.app.size() <= 0) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (App app : frsPageResIdl.data.forum.banner_list.app) {
-                if (app != null && str2.equals(i98.a(app))) {
-                    arrayList.add(app);
-                }
-            }
-            BannerList.Builder builder = new BannerList.Builder(frsPageResIdl.data.forum.banner_list);
-            if (builder.app != null) {
-                builder.app.removeAll(arrayList);
-            }
-            FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-            DataRes.Builder builder3 = new DataRes.Builder(frsPageResIdl.data);
-            ForumInfo.Builder builder4 = new ForumInfo.Builder(frsPageResIdl.data.forum);
-            builder4.banner_list = builder.build(true);
-            builder3.forum = builder4.build(true);
-            builder2.data = builder3.build(true);
-            a(str, builder2.build(true).toByteArray(), true);
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || this.b == null || str == null) {
-            return;
-        }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        qe<byte[]> qeVar = this.b;
-        byte[] bArr = qeVar.get(currentAccount + str);
-        if (bArr == null || bArr.length <= 0) {
-            return;
-        }
-        try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-            if (frsPageResIdl == null || frsPageResIdl.data == null || frsPageResIdl.data.ala_stage_list == null) {
-                return;
-            }
-            DataRes.Builder builder = new DataRes.Builder(frsPageResIdl.data);
-            if (builder.ala_stage_list != null) {
-                builder.ala_stage_list.clear();
-            }
-            FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-            builder2.data = builder.build(true);
-            a(str, builder2.build(true).toByteArray(), true);
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) || this.b == null || str == null) {
-            return;
-        }
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        qe<byte[]> qeVar = this.b;
-        byte[] bArr = qeVar.get(currentAccount + str);
-        if (bArr == null || bArr.length <= 0) {
-            return;
-        }
-        try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-            if (frsPageResIdl == null || frsPageResIdl.data == null || frsPageResIdl.data.thread_list == null) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (ThreadInfo threadInfo : frsPageResIdl.data.thread_list) {
-                if (threadInfo != null && threadInfo.tid != null && str2 != null && str2.equals(threadInfo.tid.toString())) {
-                    arrayList.add(threadInfo);
-                }
-            }
-            DataRes.Builder builder = new DataRes.Builder(frsPageResIdl.data);
-            if (builder.thread_list != null) {
-                builder.thread_list.removeAll(arrayList);
-            }
-            FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-            builder2.data = builder.build(true);
-            a(str, builder2.build(true).toByteArray(), true);
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public boolean e(String str) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.b != null && str != null) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                qe<byte[]> qeVar = this.b;
-                byte[] bArr = qeVar.get(currentAccount + str);
-                if (bArr != null && bArr.length > 0) {
-                    kj8 kj8Var = new kj8();
-                    this.a = kj8Var;
-                    kj8Var.isFromCache = true;
-                    kj8Var.parserProtobuf(bArr, false);
-                    ForumData forumData = this.a.forum;
-                    if (forumData != null && forumData.getFrsBannerData() != null) {
-                        this.a.forum.getFrsBannerData().i = false;
-                    }
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return "enterfourm_att_" + str;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public final User f(List<User> list, long j) {
-        InterceptResult invokeLJ;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, list, j)) == null) {
-            if (ListUtils.isEmpty(list)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return "enterfourm_rec_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str, String str2, String str3, BaijiahaoData baijiahaoData) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, str, str2, str3, baijiahaoData)) == null) {
+            String str4 = "_tid_" + str;
+            if (!TextUtils.isEmpty(str2)) {
+                str4 = str4 + "_adid_" + str2;
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                str4 = str4 + "_appid_" + str3;
+            }
+            if (baijiahaoData != null) {
+                return str4 + "_nid_" + baijiahaoData.oriUgcNid;
+            }
+            return str4;
+        }
+        return (String) invokeLLLL.objValue;
+    }
+
+    public static StatisticItem d(ThreadData threadData, String str, String str2, int i, int i2, boolean z, String str3, String str4, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{threadData, str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), str3, str4, Integer.valueOf(i3)})) == null) {
+            if (threadData == null) {
                 return null;
             }
-            for (User user : list) {
-                if (user != null && user.id.longValue() == j) {
-                    return user;
-                }
-            }
-            return null;
+            return o(true, threadData, str, str2, i, i2, z, str3, str4, false, "", i3);
         }
-        return (User) invokeLJ.objValue;
+        return (StatisticItem) invokeCommon.objValue;
     }
 
-    public String g(String str, int i, int i2, int i3) {
-        InterceptResult invokeLIII;
+    public static StatisticItem e(ThreadData threadData, String str, String str2, int i, boolean z, String str3, String str4, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048582, this, str, i, i2, i3)) == null) {
-            String str2 = str + i + i2;
-            if (i3 != 0) {
-                return str + i + i2 + FrsRequestData.CATEGORY_ID_KEY + i3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{threadData, str, str2, Integer.valueOf(i), Boolean.valueOf(z), str3, str4, Integer.valueOf(i2)})) == null) {
+            if (threadData == null) {
+                return null;
             }
-            return str2;
+            return o(false, threadData, str, str2, -1, i, z, str3, str4, false, "", i2);
         }
-        return (String) invokeLIII.objValue;
+        return (StatisticItem) invokeCommon.objValue;
     }
 
-    public long h() {
-        InterceptResult invokeV;
+    public static StatisticItem f(String str, String str2, boolean z, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long m = wt4.k().m("key_frs_cache_time", 604800000L);
-            if (m < 0) {
-                return 604800000L;
-            }
-            return m;
-        }
-        return invokeV.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i)})) == null) ? g(str, str2, z, i, 0) : (StatisticItem) invokeCommon.objValue;
     }
 
-    public kj8 j() {
-        InterceptResult invokeV;
+    public static StatisticItem g(String str, String str2, boolean z, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : (kj8) invokeV.objValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            StatisticItem statisticItem = new StatisticItem(str2);
+            statisticItem.param("page_type", str).param("ad_exp", z ? 1 : 0).param("ad_exp_cnt", i).param(TiebaStatic.Params.OBJ_FLOOR, 0).param(TiebaStatic.Params.OBJ_AD_LOCATE, i2);
+            if (str != null && a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+                statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().n);
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeCommon.objValue;
     }
 
-    public final boolean k(long j, List<ThreadInfo> list) {
-        InterceptResult invokeJL;
-        Long l;
+    public static StatisticItem h(ThreadData threadData, String str, String str2, int i, int i2, String str3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, list)) == null) {
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                ThreadInfo threadInfo = (ThreadInfo) ListUtils.getItem(list, i);
-                if (threadInfo != null && (l = threadInfo.tid) != null && l.longValue() == j) {
-                    return true;
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{threadData, str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3})) == null) {
+            if (threadData == null) {
+                return null;
             }
-            return false;
+            return o(true, threadData, str, str2, i, i2, false, "", null, true, str3, 0);
         }
-        return invokeJL.booleanValue;
+        return (StatisticItem) invokeCommon.objValue;
     }
 
-    public boolean l(String str) {
-        InterceptResult invokeL;
-        qe.b<byte[]> h;
+    public static StatisticItem i(ThreadData threadData, String str, String str2, int i, String str3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (str == null || str.length() <= 0 || (h = this.b.h(str)) == null) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{threadData, str, str2, Integer.valueOf(i), str3})) == null) {
+            if (threadData == null) {
+                return null;
             }
-            return UtilHelper.isSameDay(h.c, System.currentTimeMillis());
+            return o(false, threadData, str, str2, -1, i, false, "", null, true, str3, 0);
         }
-        return invokeL.booleanValue;
+        return (StatisticItem) invokeCommon.objValue;
     }
 
-    public void m(String str, byte[] bArr) {
-        List<ThreadInfo> list;
-        int count;
+    public static StatisticItem j(boolean z, String str, String str2, int i, int i2, boolean z2, String str3, String str4, int i3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, str, bArr) == null) || this.b == null || str == null || bArr == null || bArr.length <= 0) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Boolean.valueOf(z), str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2), str3, str4, Integer.valueOf(i3)})) == null) {
+            StatisticItem statisticItem = new StatisticItem(str2);
+            StatisticItem param = statisticItem.param("page_type", str).param(TiebaStatic.Params.OBJ_FLOOR, i2).param(TiebaStatic.Params.OBJ_ISAD, z2 ? 1 : 0);
+            if (!z2) {
+                str3 = str4;
+            }
+            param.param("obj_id", str3).param(TiebaStatic.Params.OBJ_AD_LOCATE, i3);
+            if (str != null && a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null) {
+                statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().n);
+            }
+            if (z) {
+                statisticItem.param("obj_locate", i);
+            }
+            return statisticItem;
         }
-        try {
-            FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-            if (frsPageResIdl == null || frsPageResIdl.data == null || (count = ListUtils.getCount((list = frsPageResIdl.data.thread_list))) <= 0) {
-                return;
-            }
-            if (count >= 15) {
-                a(str, bArr, true);
-                return;
-            }
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            qe<byte[]> qeVar = this.b;
-            byte[] bArr2 = qeVar.get(currentAccount + str);
-            if (bArr2 != null) {
-                FrsPageResIdl frsPageResIdl2 = (FrsPageResIdl) c.parseFrom(bArr2, FrsPageResIdl.class);
-                if (frsPageResIdl2 != null && frsPageResIdl2.data != null && frsPageResIdl2.data.thread_list != null) {
-                    List<ThreadInfo> list2 = frsPageResIdl2.data.thread_list;
-                    int count2 = ListUtils.getCount(list2);
-                    ArrayList arrayList = new ArrayList();
-                    ArrayList arrayList2 = new ArrayList();
-                    int i = 0;
-                    for (int i2 = 15; i < count2 && count < i2; i2 = 15) {
-                        ThreadInfo threadInfo = (ThreadInfo) ListUtils.getItem(list2, i);
-                        if (threadInfo != null && threadInfo.tid != null && threadInfo.is_top.intValue() == 0 && !k(threadInfo.tid.longValue(), list)) {
-                            arrayList.add(threadInfo);
-                            User f = f(frsPageResIdl2.data.user_list, threadInfo.author_id.longValue());
-                            if (f != null) {
-                                arrayList2.add(f);
-                            }
-                            count++;
-                        }
-                        i++;
-                    }
-                    FrsPageResIdl.Builder builder = new FrsPageResIdl.Builder(frsPageResIdl);
-                    DataRes.Builder builder2 = new DataRes.Builder(frsPageResIdl.data);
-                    builder2.thread_list.addAll(arrayList);
-                    builder2.user_list.addAll(arrayList2);
-                    builder.data = builder2.build(true);
-                    a(str, builder.build(true).toByteArray(), true);
-                    return;
-                }
-                a(str, bArr, true);
-                return;
-            }
-            a(str, bArr, true);
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
+        return (StatisticItem) invokeCommon.objValue;
     }
 
-    public void n(String str, boolean z) {
+    public static StatisticItem k(String str, ThreadData threadData) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) || str == null || str.length() <= 0) {
-            return;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, threadData)) == null) ? m(str, threadData, 0, 0) : (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem l(String str, ThreadData threadData, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65548, null, str, threadData, i)) == null) ? m(str, threadData, i, 0) : (StatisticItem) invokeLLI.objValue;
+    }
+
+    public static StatisticItem m(String str, ThreadData threadData, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65549, null, str, threadData, i, i2)) == null) {
+            if (threadData == null) {
+                return null;
+            }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("tid", threadData.getTid()).param("fid", threadData.getFid()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", threadData.isWorksInfo() ? 1 : 0);
+            if (i != 0) {
+                statisticItem.param("obj_locate", i);
+            }
+            if (i2 != 0) {
+                statisticItem.param("obj_type", i2);
+            }
+            if (str == "c13696" && threadData.getAuthor() != null) {
+                statisticItem.param(TiebaStatic.Params.IS_FOLLOW, threadData.getAuthor().getIsLike() ? 1 : 0);
+            }
+            if (BdLog.isDebugMode()) {
+                Log.d("CardSimpleStatisticItem", statisticItem.toString());
+            }
+            return statisticItem;
         }
-        if (z) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            qe<byte[]> qeVar = this.b;
-            qeVar.remove(currentAccount + str);
-            return;
+        return (StatisticItem) invokeLLII.objValue;
+    }
+
+    public static String n(boolean z, String str, boolean z2, String str2, String str3, BaijiahaoData baijiahaoData) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Boolean.valueOf(z), str, Boolean.valueOf(z2), str2, str3, baijiahaoData})) == null) ? z ? str : z2 ? str2 : (baijiahaoData == null || TextUtils.isEmpty(baijiahaoData.oriUgcNid)) ? str3 : baijiahaoData.oriUgcNid : (String) invokeCommon.objValue;
+    }
+
+    public static StatisticItem o(boolean z, ThreadData threadData, String str, String str2, int i, int i2, boolean z2, String str3, String str4, boolean z3, String str5, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Boolean.valueOf(z), threadData, str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2), str3, str4, Boolean.valueOf(z3), str5, Integer.valueOf(i3)})) == null) {
+            StatisticItem statisticItem = new StatisticItem(str2);
+            statisticItem.param("page_type", str).param(TiebaStatic.Params.OBJ_FLOOR, i2).param(TiebaStatic.Params.OBJ_ISAD, z2 ? 1 : 0).param("obj_id", n(z2, str3, z3, str5, threadData.getId(), threadData.getBaijiahaoData())).param("tid", threadData.getTid()).param("thread_type", z2 ? -1 : threadData.getThreadType()).param(TiebaStatic.Params.OBJ_AD_LOCATE, i3).param("nid", threadData.getNid());
+            if (!ni.isEmpty(threadData.getRecomSource())) {
+                statisticItem.param("list_strategy", threadData.getRecomSource());
+            }
+            if (str != null && a.contains(str) && TbadkCoreApplication.getInst().getAdAdSense() != null && !StringUtils.isNull(TbadkCoreApplication.getInst().getAdAdSense().n)) {
+                statisticItem.param("ab_tag", TbadkCoreApplication.getInst().getAdAdSense().n);
+            } else if (!ni.isEmpty(threadData.mRecomAbTag)) {
+                statisticItem.param("ab_tag", threadData.mRecomAbTag);
+            }
+            if (z) {
+                statisticItem.param("obj_locate", i);
+            }
+            if (threadData.getFid() > 0) {
+                statisticItem.param("fid", threadData.getFid());
+            }
+            if (threadData.getForum_name() != null) {
+                statisticItem.param("fname", threadData.getForum_name());
+            }
+            if (!StringUtils.isNull(threadData.getFirstClassName())) {
+                statisticItem.param(TiebaStatic.Params.FIRST_DIR, threadData.getFirstClassName());
+            }
+            if (!StringUtils.isNull(threadData.getSecondClassName())) {
+                statisticItem.param(TiebaStatic.Params.SECOND_DIR, threadData.getSecondClassName());
+            }
+            if (threadData.getBaijiahaoData() != null) {
+                statisticItem.param(TiebaStatic.Params.UGC_VID, threadData.getBaijiahaoData().oriUgcVid);
+                statisticItem.param(TiebaStatic.Params.UGC_NID, threadData.getBaijiahaoData().oriUgcNid);
+            }
+            if (!StringUtils.isNull(str4)) {
+                statisticItem.param("pid", str4);
+            }
+            statisticItem.param(TiebaStatic.Params.IS_ZP, threadData.isWorksInfo() ? 1 : 0);
+            return statisticItem;
         }
-        String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-        qe<byte[]> qeVar2 = this.b;
-        qeVar2.d(currentAccount2 + str);
+        return (StatisticItem) invokeCommon.objValue;
     }
 }

@@ -1,44 +1,122 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.view.cloudmusic.MusicPlayer;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.view.cloudmusic.model.CloudMusicListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.repackage.q86;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class nx8 extends BaseAdapter {
+public class nx8 implements rx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b9 a;
-    public List<CloudMusicData.MusicTagList.MusicList> b;
-    public c c;
-    public String d;
+    public final CloudMusicListModel a;
+    public final sx8 b;
+    public MusicPlayer c;
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a implements wx8<CloudMusicData.MusicTagList> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nx8 a;
+
+        public a(nx8 nx8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nx8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nx8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.wx8
+        /* renamed from: b */
+        public void a(CloudMusicData.MusicTagList musicTagList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, musicTagList) == null) {
+                this.a.b.s(false);
+                if (!ListUtils.isEmpty(musicTagList.music_list) || musicTagList.page.pn != 1) {
+                    this.a.b.displayNoDataView(false);
+                    this.a.b.S(musicTagList);
+                } else {
+                    this.a.b.displayNoDataView(true);
+                }
+                if (musicTagList.page.has_more == 0) {
+                    this.a.b.u();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements q86.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CloudMusicData.MusicTagList.MusicList a;
         public final /* synthetic */ int b;
         public final /* synthetic */ nx8 c;
 
-        public a(nx8 nx8Var, CloudMusicData.MusicTagList.MusicList musicList, int i) {
+        /* loaded from: classes6.dex */
+        public class a implements MusicPlayer.b {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ b b;
+
+            public a(b bVar, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, str};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = str;
+            }
+
+            @Override // com.baidu.tieba.view.cloudmusic.MusicPlayer.b
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.c.c.f();
+                    if (this.a.startsWith("/")) {
+                        File file = new File(this.a);
+                        if (file.exists()) {
+                            file.delete();
+                        }
+                        q86.h().e();
+                        b bVar = this.b;
+                        bVar.c.b(bVar.a, bVar.b);
+                    }
+                }
+            }
+        }
+
+        public b(nx8 nx8Var, CloudMusicData.MusicTagList.MusicList musicList, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,68 +136,87 @@ public class nx8 extends BaseAdapter {
             this.b = i;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.repackage.q86.b
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.c.c == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.c.b.E(this.b);
             }
-            this.c.c.v0(view2, this.a.resource, this.b);
+        }
+
+        @Override // com.repackage.q86.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.b.H(this.b);
+            }
+        }
+
+        @Override // com.repackage.q86.b
+        public void c(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+                if (!TextUtils.isEmpty(str2)) {
+                    str = str2;
+                }
+                this.c.c.e(str, this.a, new a(this, str));
+            }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public class c implements MusicPlayer.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TbImageView b;
-        public View c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
-        public TextView g;
-        public View h;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ nx8 d;
 
-        public b() {
+        public c(nx8 nx8Var, String str, CloudMusicData.MusicTagList.MusicList musicList, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nx8Var, str, musicList, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = nx8Var;
+            this.a = str;
+            this.b = musicList;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tieba.view.cloudmusic.MusicPlayer.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.c.f();
+                if (this.a.startsWith("/")) {
+                    File file = new File(this.a);
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    q86.h().e();
+                    this.d.b(this.b, this.c);
                 }
             }
         }
-
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0302);
-                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f0802b4);
-                SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f08039a);
-            }
-        }
     }
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void v0(View view2, String str, int i);
-    }
-
-    public nx8(b9 b9Var) {
+    public nx8(CloudMusicListModel cloudMusicListModel, sx8 sx8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var};
+            Object[] objArr = {cloudMusicListModel, sx8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -129,131 +226,65 @@ public class nx8 extends BaseAdapter {
                 return;
             }
         }
-        this.d = "";
-        this.a = b9Var;
-        this.b = new ArrayList();
+        this.a = cloudMusicListModel;
+        this.b = sx8Var;
+        sx8Var.B(this);
+        this.c = MusicPlayer.c();
     }
 
-    public void b(List<CloudMusicData.MusicTagList.MusicList> list) {
+    @Override // com.repackage.rx8
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.cancelLoadData();
+        }
+    }
+
+    @Override // com.repackage.rx8
+    public void b(CloudMusicData.MusicTagList.MusicList musicList, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, musicList, i) == null) || musicList == null || TextUtils.isEmpty(musicList.resource)) {
             return;
         }
-        for (CloudMusicData.MusicTagList.MusicList musicList : list) {
-            if (!this.b.contains(musicList)) {
-                this.b.add(musicList);
-            }
+        String g = q86.h().g(musicList.resource);
+        if (TextUtils.isEmpty(g)) {
+            this.b.f0(i);
+            q86.h().f(String.valueOf(musicList.music_id), musicList.resource, new b(this, musicList, i));
+            return;
         }
-        notifyDataSetChanged();
+        this.c.e(g, musicList, new c(this, g, musicList, i));
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public CloudMusicData.MusicTagList.MusicList getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.rx8
+    public void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b.get(i) : (CloudMusicData.MusicTagList.MusicList) invokeI.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.C();
         }
     }
 
-    public void e(c cVar) {
+    @Override // com.repackage.rx8
+    public void d(CloudMusicData.MusicTagList musicTagList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.c = cVar;
-        }
-    }
-
-    public void f(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            getItem(i).isLoading = z;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.size() : invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01ec, viewGroup, false);
-                bVar = new b();
-                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091485);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091482);
-                bVar.a = tbImageView;
-                tbImageView.setDrawerType(1);
-                bVar.a.setIsRound(true);
-                bVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080300);
-                bVar.a.setDefaultBgResource(R.color.transparent);
-                bVar.a.setBorderWidth(oi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
-                bVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-                bVar.a.setConrers(15);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091483);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091486);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09147f);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091481);
-                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091480);
-                bVar.h = view2.findViewById(R.id.obfuscated_res_0x7f09124a);
-                view2.setTag(bVar);
+        if (interceptable == null || interceptable.invokeL(1048579, this, musicTagList) == null) {
+            if (ListUtils.isEmpty(musicTagList.music_list)) {
+                this.b.displayNoDataView(true);
             } else {
-                bVar = (b) view2.getTag();
+                this.b.displayNoDataView(false);
+                this.b.S(musicTagList);
             }
-            bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            CloudMusicData.MusicTagList.MusicList musicList = this.b.get(i);
-            if (musicList != null) {
-                bVar.d.setText(musicList.name);
-                bVar.a.K(musicList.image, 10, false);
-                bVar.e.setText(musicList.author);
-                bVar.f.setText(StringHelper.stringForVideoTime(musicList.duration * 1000));
-                if (musicList.isLoading) {
-                    bVar.c.setVisibility(0);
-                } else {
-                    bVar.c.setVisibility(4);
-                }
-                if (musicList.equals(ox8.b().a())) {
-                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08039c);
-                    bVar.a.setDrawBorder(true);
-                    bVar.g.setVisibility(0);
-                    bVar.c.setVisibility(4);
-                    musicList.isLoading = false;
-                    bVar.g.setOnClickListener(new a(this, musicList, i));
-                } else if (ox8.b().a() == null && getItem(i) != null && !TextUtils.isEmpty(this.d) && this.d.equals(String.valueOf(getItem(i).music_id))) {
-                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08039a);
-                    bVar.a.setDrawBorder(true);
-                    bVar.g.setVisibility(8);
-                    bVar.c.setVisibility(4);
-                    musicList.isLoading = false;
-                } else {
-                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08039a);
-                    bVar.a.setDrawBorder(false);
-                    bVar.g.setVisibility(8);
-                }
+            if (musicTagList.page.has_more == 0) {
+                this.b.u();
             }
-            return view2;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    @Override // com.repackage.rx8
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b.s(true);
+            this.a.A(i, new a(this));
+        }
     }
 }

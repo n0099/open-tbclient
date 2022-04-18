@@ -72,7 +72,7 @@ public class b83 extends g23 {
                     jx1.c("removeSavedFile", "file path status code : " + a);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a, d13.a(a)));
                     return false;
-                } else if (ng4.k(M)) {
+                } else if (mg4.k(M)) {
                     jx1.i("removeSavedFile", "file delete success");
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                     if (g23.b) {

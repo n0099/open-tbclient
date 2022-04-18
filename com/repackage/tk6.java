@@ -1,347 +1,33 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.TextView;
-import com.baidu.adp.widget.ColumnLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.GameShareData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.compatible.BlurDrawable;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class tk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView A;
-    public TbImageView B;
-    public LinearLayout C;
-    public TextView D;
-    public TextView E;
-    public TextView F;
-    public TextView G;
-    public TextView H;
-    public h I;
-    public BlurDrawable J;
-    public FrameLayout a;
-    public FrameLayout b;
-    public ImageView c;
-    public LinearLayout d;
-    public FrameLayout e;
-    public ColumnLayout f;
-    public TbImageView g;
-    public TbImageView h;
-    public TextView i;
-    public TextView j;
-    public TextView k;
-    public RadioButton l;
-    public RadioButton m;
-    public RadioButton n;
-    public RadioButton o;
-    public RadioButton p;
-    public RadioButton[] q;
-    public TextView r;
-    public TbImageView s;
-    public TextView t;
-    public RadioButton u;
-    public RadioButton v;
-    public RadioButton w;
-    public RadioButton x;
-    public RadioButton y;
-    public RadioButton[] z;
+    public List<uo> a;
+    public List<ThreadData> b;
+    public Object[] c;
 
-    /* loaded from: classes7.dex */
-    public class a implements TbImageView.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk6 a;
-
-        public a(tk6 tk6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tk6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tk6Var;
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.g
-        public void a(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z) {
-                this.a.g.setVisibility(0);
-            }
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.g
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk6 a;
-
-        public b(tk6 tk6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tk6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tk6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Bitmap g;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (g = this.a.g()) == null || this.a.I == null) {
-                return;
-            }
-            this.a.I.onWeixinShare(g);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk6 a;
-
-        public c(tk6 tk6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tk6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tk6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Bitmap g;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (g = this.a.g()) == null || this.a.I == null) {
-                return;
-            }
-            this.a.I.onWxFriendsShare(g);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk6 a;
-
-        public d(tk6 tk6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tk6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tk6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Bitmap g;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (g = this.a.g()) == null || this.a.I == null) {
-                return;
-            }
-            this.a.I.onQQShare(g);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk6 a;
-
-        public e(tk6 tk6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tk6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tk6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Bitmap g;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (g = this.a.g()) == null || this.a.I == null) {
-                return;
-            }
-            this.a.I.onSinaShare(g);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class f implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk6 a;
-
-        public f(tk6 tk6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tk6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tk6Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.I == null) {
-                return;
-            }
-            this.a.I.onCancel();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class g extends hg<fo> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tk6 a;
-
-        public g(tk6 tk6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tk6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tk6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.hg
-        public void onLoaded(fo foVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, foVar, str, i) == null) {
-                super.onLoaded((g) foVar, str, i);
-                if (foVar == null || foVar.p() == null) {
-                    UtilHelper.showToast(this.a.a.getContext(), (int) R.string.obfuscated_res_0x7f0f111b);
-                    if (this.a.I != null) {
-                        this.a.I.onCancel();
-                    }
-                }
-                this.a.J = new BlurDrawable(this.a.a.getContext());
-                this.a.J.init(2, 4, foVar.p());
-                this.a.J.drawBlur();
-                this.a.c.setImageBitmap(this.a.J.getBlurredBitmap());
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface h {
-        void onCancel();
-
-        void onQQShare(Bitmap bitmap);
-
-        void onSinaShare(Bitmap bitmap);
-
-        void onWeixinShare(Bitmap bitmap);
-
-        void onWxFriendsShare(Bitmap bitmap);
-    }
-
-    public tk6(Context context, h hVar) {
+    public tk6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, hVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -351,158 +37,185 @@ public class tk6 {
                 return;
             }
         }
-        this.I = hVar;
-        FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0039, (ViewGroup) null);
-        this.a = frameLayout;
-        this.b = (FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f090c5c);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090c5b);
-        this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090c58);
-        this.e = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090c68);
-        this.f = (ColumnLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090c67);
-        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090c66);
-        this.g = tbImageView;
-        tbImageView.setVisibility(4);
-        this.g.setDefaultBg(new ColorDrawable(this.a.getResources().getColor(R.color.transparent)));
-        this.g.setDrawerType(1);
-        this.g.setRadius(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
-        this.g.setEvent(new a(this));
-        TbImageView tbImageView2 = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090c63);
-        this.h = tbImageView2;
-        tbImageView2.setDrawerType(1);
-        this.h.setRadius(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
-        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c64);
-        this.j = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c62);
-        this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c65);
-        this.l = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f090c6b);
-        this.m = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f090c6c);
-        this.n = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f090c6d);
-        this.o = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f090c6e);
-        RadioButton radioButton = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f090c6f);
-        this.p = radioButton;
-        this.q = new RadioButton[]{this.l, this.m, this.n, this.o, radioButton};
-        this.r = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c59);
-        TbImageView tbImageView3 = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090c71);
-        this.s = tbImageView3;
-        tbImageView3.setDrawerType(1);
-        this.s.setIsRound(true);
-        this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c70);
-        this.u = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f090c72);
-        this.v = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f090c73);
-        this.w = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f090c74);
-        this.x = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f090c75);
-        RadioButton radioButton2 = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f090c76);
-        this.y = radioButton2;
-        this.z = new RadioButton[]{this.u, this.v, this.w, this.x, radioButton2};
-        this.A = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c6a);
-        this.B = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090c69);
-        this.C = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090c5d);
-        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c60);
-        this.D = textView;
-        textView.setOnClickListener(new b(this));
-        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c61);
-        this.E = textView2;
-        textView2.setOnClickListener(new c(this));
-        TextView textView3 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c5e);
-        this.F = textView3;
-        textView3.setOnClickListener(new d(this));
-        TextView textView4 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c5f);
-        this.G = textView4;
-        textView4.setOnClickListener(new e(this));
-        TextView textView5 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090c57);
-        this.H = textView5;
-        textView5.setOnClickListener(new f(this));
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    public Bitmap g() {
+    public List<uo> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.b.buildDrawingCache();
-            return this.b.getDrawingCache();
-        }
-        return (Bitmap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    public int h() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.getBottom() : invokeV.intValue;
-    }
-
-    public View i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (View) invokeV.objValue;
-    }
-
-    public void j() {
-        BlurDrawable blurDrawable;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (blurDrawable = this.J) == null) {
-            return;
-        }
-        blurDrawable.onDestroy();
-        this.J = null;
-    }
-
-    public final void k(int i, RadioButton[] radioButtonArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, radioButtonArr) == null) && radioButtonArr != null && radioButtonArr.length == 5) {
-            if (i < 0) {
-                i = 0;
-            } else if (i > 10) {
-                i = 10;
-            }
-            int i2 = i / 2;
-            for (int i3 = 0; i3 < radioButtonArr.length; i3++) {
-                if (radioButtonArr[i3] != null) {
-                    if (i3 < i2) {
-                        radioButtonArr[i3].setChecked(true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < this.b.size(); i++) {
+                ThreadData threadData = this.b.get(i);
+                if (threadData != null) {
+                    if (i % 4 == 0) {
+                        o26 o26Var = new o26();
+                        o26Var.e(threadData);
+                        this.a.add(o26Var);
                     } else {
-                        radioButtonArr[i3].setChecked(false);
+                        p26 p26Var = new p26();
+                        p26Var.e(threadData);
+                        this.a.add(p26Var);
                     }
                 }
             }
         }
     }
 
-    public final void l(GameShareData gameShareData) {
+    public void c(int i, rk6 rk6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, gameShareData) == null) || gameShareData == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, rk6Var) == null) || rk6Var == null) {
             return;
         }
-        this.h.K(gameShareData.gameIconUrl, 10, false);
-        this.i.setText(gameShareData.gameName);
-        this.j.setText(gameShareData.gameDescription);
-        this.k.setText(new DecimalFormat(".0").format(gameShareData.gameScore));
-        k((int) gameShareData.gameScore, this.q);
-    }
-
-    public void m(GameShareData gameShareData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, gameShareData) == null) {
-            l(gameShareData);
-            n(gameShareData);
-            StringBuilder sb = new StringBuilder();
-            sb.append("“ ");
-            sb.append(gameShareData.gameComment);
-            sb.append(" ”");
-            this.r.setText(sb);
-            if (this.J == null) {
-                ig.h().m(gameShareData.gameIconUrl, 10, new g(this), null);
+        if (1 == i) {
+            this.a.clear();
+            this.b.clear();
+            this.c = new Object[rk6Var.b + 10];
+        }
+        if (!ListUtils.isEmpty(rk6Var.c)) {
+            ArrayList arrayList = new ArrayList(rk6Var.c.size());
+            for (ThreadData threadData : rk6Var.c) {
+                if (threadData != null) {
+                    arrayList.add(threadData);
+                }
             }
-            this.g.K(gameShareData.headBgUrl, 10, false);
-            this.B.K(gameShareData.shareQRCodeUrl, 10, false);
+            this.b.addAll(arrayList);
+        }
+        if (1 == i) {
+            e(rk6Var);
+        }
+        this.a.clear();
+        b();
+        g();
+        f(rk6Var);
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            Object[] objArr = this.c;
+            if (i >= objArr.length) {
+                this.c = Arrays.copyOf(objArr, i + 1);
+            }
         }
     }
 
-    public final void n(GameShareData gameShareData) {
+    public final void e(rk6 rk6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, gameShareData) == null) || gameShareData == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, rk6Var) == null) {
+            if (!ListUtils.isEmpty(rk6Var.e)) {
+                for (FeatureCardHot featureCardHot : rk6Var.e) {
+                    if (featureCardHot != null && featureCardHot.isValid()) {
+                        d(featureCardHot.floor.intValue());
+                        this.c[featureCardHot.floor.intValue()] = featureCardHot;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(rk6Var.f)) {
+                for (FeatureCardTopic featureCardTopic : rk6Var.f) {
+                    if (featureCardTopic != null && featureCardTopic.isValid()) {
+                        d(featureCardTopic.floor.intValue());
+                        this.c[featureCardTopic.floor.intValue()] = featureCardTopic;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(rk6Var.g)) {
+                for (sk6 sk6Var : rk6Var.g) {
+                    if (sk6Var != null && sk6Var.a()) {
+                        d(sk6Var.c.intValue());
+                        this.c[sk6Var.c.intValue()] = sk6Var;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(rk6Var.h)) {
+                for (FeatureCardCompetition featureCardCompetition : rk6Var.h) {
+                    if (featureCardCompetition != null && featureCardCompetition.isValid()) {
+                        d(featureCardCompetition.floor.intValue());
+                        this.c[featureCardCompetition.floor.intValue()] = featureCardCompetition;
+                    }
+                }
+            }
+            if (!ListUtils.isEmpty(rk6Var.i)) {
+                for (FeatureCardGod featureCardGod : rk6Var.i) {
+                    if (featureCardGod != null && featureCardGod.isValid()) {
+                        d(featureCardGod.floor.intValue());
+                        this.c[featureCardGod.floor.intValue()] = featureCardGod;
+                    }
+                }
+            }
+            if (ListUtils.isEmpty(rk6Var.j)) {
+                return;
+            }
+            for (FeatureCardGame featureCardGame : rk6Var.j) {
+                if (featureCardGame != null && featureCardGame.isValid()) {
+                    d(featureCardGame.floor.intValue());
+                    this.c[featureCardGame.floor.intValue()] = featureCardGame;
+                }
+            }
+        }
+    }
+
+    public final void f(rk6 rk6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, rk6Var) == null) {
+            u26 u26Var = new u26();
+            u26Var.g(rk6Var.d);
+            this.a.add(0, u26Var);
+        }
+    }
+
+    public final void g() {
+        Object[] objArr;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (objArr = this.c) == null || objArr.length <= 0) {
             return;
         }
-        this.s.K(gameShareData.userPortrait, 12, false);
-        this.t.setText(gameShareData.userName);
-        k((int) gameShareData.userScore, this.z);
+        int i = 0;
+        while (true) {
+            Object[] objArr2 = this.c;
+            if (i >= objArr2.length) {
+                return;
+            }
+            Object obj = objArr2[i];
+            if (obj != null) {
+                int i2 = i - 1;
+                if (i2 < 0) {
+                    i2 = 0;
+                } else if (i2 >= this.a.size()) {
+                    i2 = this.a.size();
+                }
+                if (obj instanceof FeatureCardHot) {
+                    s26 s26Var = new s26();
+                    s26Var.g((FeatureCardHot) obj);
+                    this.a.add(i2, s26Var);
+                } else if (obj instanceof FeatureCardTopic) {
+                    v26 v26Var = new v26();
+                    v26Var.b((FeatureCardTopic) obj);
+                    this.a.add(i2, v26Var);
+                } else if (obj instanceof sk6) {
+                    r26 r26Var = new r26();
+                    r26Var.g((sk6) obj);
+                    this.a.add(i2, r26Var);
+                } else if (obj instanceof FeatureCardCompetition) {
+                    q26 q26Var = new q26();
+                    q26Var.b((FeatureCardCompetition) obj);
+                    this.a.add(i2, q26Var);
+                } else if (obj instanceof FeatureCardGod) {
+                    wd6 wd6Var = new wd6();
+                    wd6Var.g((FeatureCardGod) obj);
+                    this.a.add(i2, wd6Var);
+                } else if (obj instanceof FeatureCardGame) {
+                    t26 t26Var = new t26();
+                    t26Var.b((FeatureCardGame) obj);
+                    this.a.add(i2, t26Var);
+                }
+            }
+            i++;
+        }
     }
 }

@@ -68,14 +68,14 @@ public class h13 extends g23 {
                 if (a != null && context != null) {
                     JSONObject optJSONObject = a.optJSONObject("abtest");
                     if (optJSONObject != null) {
-                        Toast.makeText(context, l(optJSONObject) ? R.string.obfuscated_res_0x7f0f1281 : R.string.obfuscated_res_0x7f0f127f, 1).show();
+                        Toast.makeText(context, l(optJSONObject) ? R.string.obfuscated_res_0x7f0f1280 : R.string.obfuscated_res_0x7f0f127e, 1).show();
                     } else {
                         j();
-                        Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1282, 1).show();
+                        Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1281, 1).show();
                     }
                     return true;
                 }
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f1280, 1).show();
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f127f, 1).show();
                 return false;
             }
             return false;

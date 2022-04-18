@@ -54,13 +54,13 @@ public class b extends Dialog {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d04a3);
             setCanceledOnTouchOutside(false);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09164f);
-            this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f0923b6);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09203e);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091459);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09189b);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09152f);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09153c);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091650);
+            this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f0923b7);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09203f);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09145a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09189c);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091530);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09153d);
         }
     }
 
@@ -131,26 +131,26 @@ public class b extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.b.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e6c));
+                this.b.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e70));
                 this.c.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f06089c));
                 this.d.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f060890));
                 this.f.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f060894));
                 this.e.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f060898));
                 this.g.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f060894));
-                this.f.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e66));
-                this.e.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e68));
-                this.g.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e66));
+                this.f.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e6a));
+                this.e.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e6c));
+                this.g.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e6a));
                 return;
             }
-            this.b.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e6b));
+            this.b.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e6f));
             this.c.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f06089b));
             this.d.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f06088f));
             this.f.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f060893));
             this.g.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f060893));
             this.e.setTextColor(this.h.getResources().getColor(R.color.obfuscated_res_0x7f060897));
-            this.f.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e65));
-            this.e.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e67));
-            this.g.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e65));
+            this.f.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e69));
+            this.e.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e6b));
+            this.g.setBackgroundDrawable(this.h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e69));
         }
     }
 }

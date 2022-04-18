@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.c.e.b;
 import com.meizu.cloud.pushsdk.c.e.c;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.repackage.rm9;
+import com.repackage.ym9;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
 public class a {
@@ -48,7 +48,7 @@ public class a {
                 }
             }
         }
-        rm9.d("PushAndroidTracker", "can upload subject " + z);
+        ym9.d("PushAndroidTracker", "can upload subject " + z);
         if (z) {
             a.a(a(context));
         }
@@ -63,7 +63,7 @@ public class a {
         if (MzSystemUtils.isInternational() || MzSystemUtils.isIndiaLocal()) {
             return "push-statics.in.meizu.com";
         }
-        rm9.b("QuickTracker", "current statics domain is push-statics.meizu.com");
+        ym9.b("QuickTracker", "current statics domain is push-statics.meizu.com");
         return "push-statics.meizu.com";
     }
 

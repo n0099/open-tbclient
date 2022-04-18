@@ -20,7 +20,7 @@ public abstract class ae5<T> extends be5 {
     public List<T> c;
     public Context d;
     public LayoutInflater e;
-    public km4<T> f;
+    public jm4<T> f;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -52,14 +52,14 @@ public abstract class ae5<T> extends be5 {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            km4<T> km4Var;
+            jm4<T> jm4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (km4Var = this.c.f) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (jm4Var = this.c.f) == null) {
                 return;
             }
             T t = this.a;
             int i = this.b;
-            km4Var.a(view2, t, i, i);
+            jm4Var.a(view2, t, i, i);
         }
     }
 
@@ -119,10 +119,10 @@ public abstract class ae5<T> extends be5 {
         }
     }
 
-    public void h(km4<T> km4Var) {
+    public void h(jm4<T> jm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, km4Var) == null) {
-            this.f = km4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jm4Var) == null) {
+            this.f = jm4Var;
         }
     }
 

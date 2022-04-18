@@ -119,7 +119,7 @@ public class e02 extends hz2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00e2, viewGroup, false);
-            this.k = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d77);
+            this.k = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d78);
             p();
             return inflate;
         }

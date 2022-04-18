@@ -21,11 +21,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.m00;
 /* loaded from: classes6.dex */
-public class lz extends qy<qn4> {
+public class lz extends qy<pn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgMutiPicLayout f;
-    public qn4 g;
+    public pn4 g;
     public int h;
     public String i;
     public Context j;
@@ -79,7 +79,7 @@ public class lz extends qy<qn4> {
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (cn4.c().g()) {
+                    if (bn4.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -120,7 +120,7 @@ public class lz extends qy<qn4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.j);
-                boolean g = cn4.c().g();
+                boolean g = bn4.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -203,7 +203,7 @@ public class lz extends qy<qn4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
                 gifView.setTag(null);
-                if (cn4.c().g()) {
+                if (bn4.c().g()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -239,7 +239,7 @@ public class lz extends qy<qn4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 GifView gifView = new GifView(this.a.j);
-                boolean g = cn4.c().g();
+                boolean g = bn4.c().g();
                 gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     gifView.setAdjustViewBounds(false);
@@ -302,11 +302,11 @@ public class lz extends qy<qn4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    cx5.a(this.a.g.getThreadData().getId());
+                    ex5.a(this.a.g.getThreadData().getId());
                     TextView textView = this.a.f.a;
                     TextView textView2 = this.a.f.b;
-                    cx5.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    cx5.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ex5.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ex5.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -359,10 +359,10 @@ public class lz extends qy<qn4> {
     }
 
     @Override // com.repackage.qy
-    public void l(rx5<qn4> rx5Var) {
+    public void l(tx5<pn4> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rx5Var) == null) {
-            this.f.setSubClickListener(rx5Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, tx5Var) == null) {
+            this.f.setSubClickListener(tx5Var);
         }
     }
 
@@ -377,12 +377,12 @@ public class lz extends qy<qn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: r */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, qn4Var) == null) {
-            this.g = qn4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, pn4Var) == null) {
+            this.g = pn4Var;
             this.f.setFrom(this.i);
-            this.f.a(qn4Var);
+            this.f.a(pn4Var);
         }
     }
 

@@ -1,31 +1,27 @@
 package com.repackage;
 
-import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
+import android.os.Trace;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y16;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class q16 extends p16 {
+public final class q16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q16() {
-        super(new BottomRetainer(0.5f), new w16());
+    public static final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((y16) objArr[0], (y16.a) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && um4.e()) {
+            Trace.endSection();
+        }
+    }
+
+    public static final void b(String name) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, name) == null) {
+            Intrinsics.checkNotNullParameter(name, "name");
+            if (um4.e()) {
+                Trace.beginSection(name);
             }
         }
     }

@@ -16,7 +16,7 @@ public class zz extends xy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSmartAppLayout h;
-    public qn4 i;
+    public pn4 i;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -95,11 +95,11 @@ public class zz extends xy {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: t */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qn4Var) == null) {
-            this.i = qn4Var;
-            this.h.a(qn4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, pn4Var) == null) {
+            this.i = pn4Var;
+            this.h.a(pn4Var);
         }
     }
 }

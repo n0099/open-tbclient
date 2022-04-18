@@ -31,11 +31,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dt8;
 import com.repackage.fd5;
-import com.repackage.jt8;
 import com.repackage.oi;
-import com.repackage.ot8;
-import com.repackage.ws8;
+import com.repackage.qt8;
+import com.repackage.vt8;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
@@ -90,7 +90,7 @@ public class CoverPendantDragView extends FrameLayout {
     public float w;
     public float x;
     public float y;
-    public ot8 z;
+    public vt8 z;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnTouchListener {
@@ -333,14 +333,14 @@ public class CoverPendantDragView extends FrameLayout {
     }
 
     /* loaded from: classes4.dex */
-    public static class f implements jt8.b {
+    public static class f implements qt8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public WeakReference<ws8.c> a;
+        public WeakReference<dt8.c> a;
         public WeakReference<CoverPendantDragView> b;
         public WeakReference<PendantData> c;
 
-        public f(ws8.c cVar, CoverPendantDragView coverPendantDragView, PendantData pendantData) {
+        public f(dt8.c cVar, CoverPendantDragView coverPendantDragView, PendantData pendantData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -366,11 +366,11 @@ public class CoverPendantDragView extends FrameLayout {
             }
         }
 
-        @Override // com.repackage.jt8.b
+        @Override // com.repackage.qt8.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                WeakReference<ws8.c> weakReference = this.a;
+                WeakReference<dt8.c> weakReference = this.a;
                 if (weakReference != null && weakReference.get() != null) {
                     this.a.get().c.setVisibility(8);
                 }
@@ -382,9 +382,9 @@ public class CoverPendantDragView extends FrameLayout {
             }
         }
 
-        @Override // com.repackage.jt8.b
+        @Override // com.repackage.qt8.b
         public void b() {
-            WeakReference<ws8.c> weakReference;
+            WeakReference<dt8.c> weakReference;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (weakReference = this.a) == null || weakReference.get() == null) {
                 return;
@@ -392,12 +392,12 @@ public class CoverPendantDragView extends FrameLayout {
             this.a.get().c.setVisibility(8);
         }
 
-        @Override // com.repackage.jt8.b
+        @Override // com.repackage.qt8.b
         public void c(String str, String str2) {
             WeakReference<PendantData> weakReference;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                WeakReference<ws8.c> weakReference2 = this.a;
+                WeakReference<dt8.c> weakReference2 = this.a;
                 if (weakReference2 != null && weakReference2.get() != null) {
                     this.a.get().c.setVisibility(8);
                 }
@@ -952,10 +952,10 @@ public class CoverPendantDragView extends FrameLayout {
         }
     }
 
-    public void setParentViewController(ot8 ot8Var) {
+    public void setParentViewController(vt8 vt8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, ot8Var) == null) {
-            this.z = ot8Var;
+        if (interceptable == null || interceptable.invokeL(1048600, this, vt8Var) == null) {
+            this.z = vt8Var;
         }
     }
 
@@ -1049,12 +1049,12 @@ public class CoverPendantDragView extends FrameLayout {
             S();
         } else if (i != 3) {
             A();
-            String f2 = jt8.g().f(pendantData.resource);
+            String f2 = qt8.g().f(pendantData.resource);
             if (TextUtils.isEmpty(f2)) {
-                if (view2 != null && (view2.getTag() instanceof ws8.c)) {
-                    ws8.c cVar = (ws8.c) view2.getTag();
+                if (view2 != null && (view2.getTag() instanceof dt8.c)) {
+                    dt8.c cVar = (dt8.c) view2.getTag();
                     cVar.c.setVisibility(0);
-                    jt8.g().e(pendantData.id, pendantData.resource, new f(cVar, this, pendantData));
+                    qt8.g().e(pendantData.id, pendantData.resource, new f(cVar, this, pendantData));
                 }
             } else {
                 G(f2, pendantData);

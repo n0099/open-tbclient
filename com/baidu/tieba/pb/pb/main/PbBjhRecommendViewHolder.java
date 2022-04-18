@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ho4;
+import com.repackage.go4;
 import com.repackage.ni;
 import com.repackage.oi;
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public AbsPbActivity b;
-    public ho4 c;
+    public go4 c;
     public String d;
     public boolean e;
     public int f;
@@ -94,7 +94,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
                 int i = 3;
-                if (id == R.id.obfuscated_res_0x7f091ed1) {
+                if (id == R.id.obfuscated_res_0x7f091ed2) {
                     VideoInfo threadVideoInfo = this.a.c.getThreadVideoInfo();
                     if (threadVideoInfo != null) {
                         if (threadVideoInfo.is_vertical.intValue() == 1) {
@@ -135,7 +135,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig2));
                         }
                     }
-                } else if (id == R.id.obfuscated_res_0x7f091375 || id == R.id.obfuscated_res_0x7f090381 || id == R.id.obfuscated_res_0x7f090380) {
+                } else if (id == R.id.obfuscated_res_0x7f091376 || id == R.id.obfuscated_res_0x7f090381 || id == R.id.obfuscated_res_0x7f090380) {
                     String tid = this.a.c.getTid();
                     if (this.a.f == 2) {
                         i = 1;
@@ -210,8 +210,8 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.a = 3;
         this.y = new a(this);
         this.b = absPbActivity;
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091375);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0909a4);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091376);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f0909a5);
         this.j = view2.findViewById(R.id.obfuscated_res_0x7f090383);
         this.k = view2.findViewById(R.id.obfuscated_res_0x7f09037e);
         this.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090381);
@@ -220,23 +220,23 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.o = view2.findViewById(R.id.obfuscated_res_0x7f090385);
         this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090388);
         this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090386);
-        this.r = view2.findViewById(R.id.obfuscated_res_0x7f0911a1);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed1);
-        this.s = view2.findViewById(R.id.obfuscated_res_0x7f09119f);
-        this.t = view2.findViewById(R.id.obfuscated_res_0x7f0911a0);
+        this.r = view2.findViewById(R.id.obfuscated_res_0x7f0911a2);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed2);
+        this.s = view2.findViewById(R.id.obfuscated_res_0x7f0911a0);
+        this.t = view2.findViewById(R.id.obfuscated_res_0x7f0911a1);
         this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090384);
         this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090387);
         this.x = view2.findViewById(R.id.obfuscated_res_0x7f090382);
     }
 
-    public void i(ho4 ho4Var) {
+    public void i(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ho4Var) == null) {
-            this.c = ho4Var;
-            this.i.setVisibility(ho4Var.g() ? 0 : 8);
-            this.t.setVisibility(ho4Var.k() ? 0 : 8);
-            this.j.setVisibility(ho4Var.i() ? 8 : 0);
-            this.r.setVisibility(ho4Var.i() ? 0 : 8);
+        if (interceptable == null || interceptable.invokeL(1048576, this, go4Var) == null) {
+            this.c = go4Var;
+            this.i.setVisibility(go4Var.g() ? 0 : 8);
+            this.t.setVisibility(go4Var.k() ? 0 : 8);
+            this.j.setVisibility(go4Var.i() ? 8 : 0);
+            this.r.setVisibility(go4Var.i() ? 0 : 8);
             this.u.setOnClickListener(this.y);
             this.m.setOnClickListener(this.y);
             this.l.setOnClickListener(this.y);
@@ -244,16 +244,16 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
             this.l.setRadius(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             this.l.setDrawCorner(true);
             this.l.setPlaceHolder(2);
-            if (ho4Var.getThreadVideoInfo() != null) {
-                this.n.setText(ho4Var.getTitle());
-                this.l.K(ho4Var.getThreadVideoInfo().thumbnail_url, 10, false);
+            if (go4Var.getThreadVideoInfo() != null) {
+                this.n.setText(go4Var.getTitle());
+                this.l.K(go4Var.getThreadVideoInfo().thumbnail_url, 10, false);
                 this.m.setVisibility(0);
                 this.m.setAlpha(0.5f);
                 this.o.setVisibility(0);
-                this.q.setText(StringUtils.translateSecondsToString(ho4Var.getThreadVideoInfo().video_duration.intValue()));
+                this.q.setText(StringUtils.translateSecondsToString(go4Var.getThreadVideoInfo().video_duration.intValue()));
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.w.getLayoutParams();
-                if (ho4Var.getAuthor() != null && !ni.isEmpty(ho4Var.getAuthor().getName_show())) {
-                    this.v.setText(ho4Var.getAuthor().getName_show());
+                if (go4Var.getAuthor() != null && !ni.isEmpty(go4Var.getAuthor().getName_show())) {
+                    this.v.setText(go4Var.getAuthor().getName_show());
                     this.v.setVisibility(0);
                     layoutParams.leftMargin = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
                 } else {
@@ -261,12 +261,12 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     layoutParams.leftMargin = 0;
                 }
                 this.w.setLayoutParams(layoutParams);
-                this.w.setText(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0303), StringHelper.numFormatOverWan(ho4Var.getThreadVideoInfo().play_count.intValue())));
+                this.w.setText(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0303), StringHelper.numFormatOverWan(go4Var.getThreadVideoInfo().play_count.intValue())));
             } else {
                 this.o.setVisibility(8);
                 this.m.setVisibility(8);
-                this.l.K(ho4Var.getArticeCover(), 10, false);
-                this.n.setText(ho4Var.getTitle());
+                this.l.K(go4Var.getArticeCover(), 10, false);
+                this.n.setText(go4Var.getTitle());
             }
             this.h.setOnClickListener(this.y);
         }

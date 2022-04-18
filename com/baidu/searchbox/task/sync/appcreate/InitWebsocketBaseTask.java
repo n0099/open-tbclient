@@ -20,19 +20,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.aa;
-import com.repackage.dz4;
+import com.repackage.cz4;
 import com.repackage.ec5;
+import com.repackage.ez4;
 import com.repackage.fa;
 import com.repackage.fz4;
 import com.repackage.gb;
 import com.repackage.gz4;
 import com.repackage.ha;
-import com.repackage.hz4;
 import com.repackage.ia;
 import com.repackage.l95;
 import com.repackage.s85;
+import com.repackage.yy4;
 import com.repackage.z35;
-import com.repackage.zy4;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes2.dex */
@@ -69,7 +69,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
             if (UseHttpdnsSdkSwitch.isOn()) {
                 aa.h(TiebaIMConfig.url);
             } else {
-                String h = zy4.f().h();
+                String h = yy4.f().h();
                 if (TextUtils.isEmpty(h)) {
                     aa.h(TiebaIMConfig.url);
                 } else {
@@ -187,16 +187,16 @@ public class InitWebsocketBaseTask extends LaunchTask {
             if (socketReconnStratgy != null && socketReconnStratgy.length > 0) {
                 aa.g(socketReconnStratgy);
             }
-            dz4.j().k();
-            MessageManager.getInstance().getSocketClient().G(dz4.j());
-            MessageManager.getInstance().addResponsedMessageRule(new hz4());
+            cz4.j().k();
+            MessageManager.getInstance().getSocketClient().G(cz4.j());
+            MessageManager.getInstance().addResponsedMessageRule(new gz4());
             try {
                 fa.a().d(TiebaIMConfig.getRSAPublicKey());
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            gz4.j().k();
-            fz4.y().z();
+            fz4.j().k();
+            ez4.y().z();
             initSocket();
             s85.b().s(System.currentTimeMillis() - currentTimeMillis);
         }

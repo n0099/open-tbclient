@@ -1,9 +1,14 @@
 package com.repackage;
+
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBListener;
 /* loaded from: classes6.dex */
-public interface jq9 {
+public interface jq9 extends PBListener {
     void a();
 
-    void a(int i, String str);
+    void b(PBError pBError);
 
-    void a(Object obj);
+    void e();
+
+    void onDisplayed();
 }

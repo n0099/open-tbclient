@@ -277,7 +277,7 @@ public class SwanFavorDataManager implements xg1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cc2Var) == null) {
             qj2.t().a();
-            if (de3.T(R.string.obfuscated_res_0x7f0f123d) || !qj2.t().b()) {
+            if (de3.T(R.string.obfuscated_res_0x7f0f123c) || !qj2.t().b()) {
                 return;
             }
             if (!SwanAppNetworkUtils.h()) {
@@ -285,7 +285,7 @@ public class SwanFavorDataManager implements xg1 {
                     cc2Var.a();
                 }
             } else if (TextUtils.equals(str, i03.J().r().N()) && i03.J().r().V().getType() != 0) {
-                b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1210).G();
+                b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f120f).G();
                 cc2Var.b(true);
             } else {
                 SwanFavorItemData swanFavorItemData = new SwanFavorItemData();
@@ -301,7 +301,7 @@ public class SwanFavorDataManager implements xg1 {
 
     public void c(String str, dc2 dc2Var, da2.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, dc2Var, bVar) == null) || de3.T(R.string.obfuscated_res_0x7f0f123d)) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, dc2Var, bVar) == null) || de3.T(R.string.obfuscated_res_0x7f0f123c)) {
             return;
         }
         if (!SwanAppNetworkUtils.h()) {
@@ -309,7 +309,7 @@ public class SwanFavorDataManager implements xg1 {
                 dc2Var.a();
             }
         } else if (TextUtils.equals(str, i03.J().r().N()) && i03.J().r().V().getType() != 0) {
-            b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f1210).G();
+            b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f120f).G();
             dc2Var.c(true);
         } else {
             if (h72.g(str, dc2Var, bVar)) {

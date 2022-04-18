@@ -16,7 +16,7 @@ public final class su3 extends EventTargetImpl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public t72 a;
-    public rz3 b;
+    public qz3 b;
     @V8JavascriptField
     public final String domain;
 
@@ -47,7 +47,7 @@ public final class su3 extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
             if (this.b == null) {
-                this.b = new rz3(this.a);
+                this.b = new qz3(this.a);
             }
             this.b.getFriendCloudStorage(jsObject);
         }
@@ -65,7 +65,7 @@ public final class su3 extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
             if (this.b == null) {
-                this.b = new rz3(this.a);
+                this.b = new qz3(this.a);
             }
             this.b.getUserCloudStorage(jsObject);
         }
@@ -76,7 +76,7 @@ public final class su3 extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
             if (this.b == null) {
-                this.b = new rz3(this.a);
+                this.b = new qz3(this.a);
             }
             this.b.getUserInfo(jsObject);
         }
@@ -95,7 +95,7 @@ public final class su3 extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
             if (this.b == null) {
-                this.b = new rz3(this.a);
+                this.b = new qz3(this.a);
             }
             this.b.removeUserCloudStorage(jsObject);
         }
@@ -106,7 +106,7 @@ public final class su3 extends EventTargetImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
             if (this.b == null) {
-                this.b = new rz3(this.a);
+                this.b = new qz3(this.a);
             }
             this.b.setUserCloudStorage(jsObject);
         }

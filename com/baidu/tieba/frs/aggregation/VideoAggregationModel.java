@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.ng6;
+import com.repackage.pg6;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -45,7 +45,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public static class VideoAggregationResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<ng6> mDataList;
+        public List<pg6> mDataList;
         public boolean mHasMore;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -83,10 +83,10 @@ public class VideoAggregationModel extends BdBaseModel {
                     this.mDataList = new ArrayList();
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        ng6 ng6Var = new ng6();
-                        ng6Var.g(jSONArray.optString(i2));
-                        if (ng6Var.n != null) {
-                            this.mDataList.add(ng6Var);
+                        pg6 pg6Var = new pg6();
+                        pg6Var.g(jSONArray.optString(i2));
+                        if (pg6Var.n != null) {
+                            this.mDataList.add(pg6Var);
                         }
                     }
                 }
@@ -202,7 +202,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public interface c {
         void a(String str);
 
-        void b(List<ng6> list, boolean z, boolean z2);
+        void b(List<pg6> list, boolean z, boolean z2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

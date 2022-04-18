@@ -557,12 +557,12 @@ public class l extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
-        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091184);
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091185);
         this.f = ksAdWebView;
         ksAdWebView.setVisibility(4);
-        this.a = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091052);
-        this.q = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091157);
-        this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f091167);
+        this.a = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091053);
+        this.q = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091158);
+        this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f091168);
     }
 
     public void d() {

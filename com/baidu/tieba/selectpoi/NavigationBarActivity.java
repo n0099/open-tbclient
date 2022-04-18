@@ -132,11 +132,11 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
             super.setContentView(R.layout.obfuscated_res_0x7f0d05f1);
-            this.navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091514);
-            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091519);
+            this.navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091515);
+            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09151a);
             this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             if (needNoNetWorkView()) {
-                this.noNetWorkView = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091598)).inflate();
+                this.noNetWorkView = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091599)).inflate();
             }
         }
     }
@@ -171,9 +171,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             if (needNoNetWorkView()) {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091597);
-            } else {
                 layoutParams.addRule(3, R.id.obfuscated_res_0x7f091598);
+            } else {
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f091599);
             }
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.contentRootView = relativeLayout;

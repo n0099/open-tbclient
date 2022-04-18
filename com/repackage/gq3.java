@@ -74,11 +74,11 @@ public class gq3 {
                     if (listFiles != null && listFiles.length > 0) {
                         for (File file2 : listFiles) {
                             if (file2 != null && file2.exists() && file2.getName().startsWith(str)) {
-                                ng4.j(file2);
+                                mg4.j(file2);
                             }
                         }
                     }
-                    boolean N = ng4.N(str2, new File(a, b(str, j)));
+                    boolean N = mg4.N(str2, new File(a, b(str, j)));
                     if (tg1.a) {
                         Log.d("GameGuideConfigCache", "缓存配置信息成功：  " + N);
                     }
@@ -147,7 +147,7 @@ public class gq3 {
                     File file2 = null;
                     for (File file3 : listFiles) {
                         if (d(file3)) {
-                            ng4.j(file3);
+                            mg4.j(file3);
                         } else if (file3.getName().startsWith(str)) {
                             file2 = file3;
                         }
@@ -155,7 +155,7 @@ public class gq3 {
                     if (file2 == null) {
                         return null;
                     }
-                    return ng4.E(file2);
+                    return mg4.E(file2);
                 }
                 if (tg1.a) {
                     Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录中的文件为空");

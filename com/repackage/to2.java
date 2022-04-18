@@ -75,11 +75,11 @@ public class to2 implements ro2 {
             inputStream = b(bitmap);
             try {
                 this.a = BitmapRegionDecoder.newInstance(inputStream, false);
-                ng4.d(inputStream);
+                mg4.d(inputStream);
                 return new Point(this.a.getWidth(), this.a.getHeight());
             } catch (Throwable th) {
                 th = th;
-                ng4.d(inputStream);
+                mg4.d(inputStream);
                 throw th;
             }
         } catch (Throwable th2) {
@@ -171,7 +171,7 @@ public class to2 implements ro2 {
                     inputStream = context.getContentResolver().openInputStream(uri);
                     this.a = BitmapRegionDecoder.newInstance(inputStream, false);
                 } finally {
-                    ng4.d(inputStream);
+                    mg4.d(inputStream);
                 }
             }
             return new Point(this.a.getWidth(), this.a.getHeight());

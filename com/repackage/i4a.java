@@ -1,152 +1,33 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.RevenueConfig;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IEventReporter;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.reporter.IPayReporter;
+import kotlin.jvm.internal.Intrinsics;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.IMiddlePayService;
 /* loaded from: classes6.dex */
-public class i4a {
+public final class i4a implements IMiddleRevenue {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Window b;
-    public View c;
-    public View d;
-    public View e;
-    public f4a f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public boolean o;
-    public ViewTreeObserver.OnGlobalLayoutListener p;
+    public final h4a a;
+    public final IRevenue b;
 
-    /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i4a a;
-
-        public a(i4a i4aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i4aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i4aVar;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            int i;
-            int i2;
-            int i3;
-            int height;
-            int i4;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.o) {
-                Rect rect = new Rect();
-                this.a.c.getWindowVisibleDisplayFrame(rect);
-                if (this.a.f.x) {
-                    int height2 = (this.a.d.getHeight() - rect.bottom) - this.a.n;
-                    if (this.a.f.z != null) {
-                        this.a.f.z.a(height2 > this.a.n, height2);
-                    }
-                } else if (this.a.e != null) {
-                    if (this.a.f.s) {
-                        height = this.a.d.getHeight() + this.a.l + this.a.m;
-                        i4 = rect.bottom;
-                    } else if (this.a.f.n) {
-                        height = this.a.d.getHeight() + this.a.l;
-                        i4 = rect.bottom;
-                    } else {
-                        height = this.a.d.getHeight();
-                        i4 = rect.bottom;
-                    }
-                    int i5 = height - i4;
-                    int i6 = this.a.f.e ? i5 - this.a.n : i5;
-                    if (this.a.f.e && i5 == this.a.n) {
-                        i5 -= this.a.n;
-                    }
-                    if (i6 != this.a.k) {
-                        this.a.d.setPadding(this.a.g, this.a.h, this.a.i, i5 + this.a.j);
-                        this.a.k = i6;
-                        if (this.a.f.z != null) {
-                            this.a.f.z.a(i6 > this.a.n, i6);
-                        }
-                    }
-                } else {
-                    int height3 = this.a.d.getHeight() - rect.bottom;
-                    if (this.a.f.v && this.a.f.w) {
-                        if (Build.VERSION.SDK_INT == 19 || j4a.i()) {
-                            i2 = this.a.n;
-                        } else if (!this.a.f.e) {
-                            i3 = height3;
-                            if (this.a.f.e && height3 == this.a.n) {
-                                height3 -= this.a.n;
-                            }
-                            int i7 = height3;
-                            height3 = i3;
-                            i = i7;
-                        } else {
-                            i2 = this.a.n;
-                        }
-                        i3 = height3 - i2;
-                        if (this.a.f.e) {
-                            height3 -= this.a.n;
-                        }
-                        int i72 = height3;
-                        height3 = i3;
-                        i = i72;
-                    } else {
-                        i = height3;
-                    }
-                    if (height3 != this.a.k) {
-                        if (this.a.f.s) {
-                            this.a.d.setPadding(0, this.a.l + this.a.m, 0, i);
-                        } else if (this.a.f.n) {
-                            this.a.d.setPadding(0, this.a.l, 0, i);
-                        } else {
-                            this.a.d.setPadding(0, 0, 0, i);
-                        }
-                        this.a.k = height3;
-                        if (this.a.f.z != null) {
-                            this.a.f.z.a(height3 > this.a.n, height3);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public i4a(Activity activity, Window window) {
+    public i4a(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, window};
+            Object[] objArr = {middleRevenueConfig, iRevenue};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -156,60 +37,51 @@ public class i4a {
                 return;
             }
         }
-        this.p = new a(this);
-        this.a = activity;
-        this.b = window;
-        View decorView = window.getDecorView();
-        this.c = decorView;
-        FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
-        if (frameLayout == null) {
-            return;
+        this.b = iRevenue;
+        IAppPayService appPayService = this.b.getAppPayService();
+        Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
+        this.a = new h4a(middleRevenueConfig, appPayService);
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IAppPayService getAppPayService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (IAppPayService) invokeV.objValue;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IEventReporter getEventReporter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        View childAt = frameLayout.getChildAt(0);
-        this.e = childAt;
-        frameLayout = childAt != null ? childAt : frameLayout;
-        this.d = frameLayout;
-        this.g = frameLayout.getPaddingLeft();
-        this.h = this.d.getPaddingTop();
-        this.i = this.d.getPaddingRight();
-        this.j = this.d.getPaddingBottom();
-        e4a e4aVar = new e4a(this.a);
-        this.l = e4aVar.i();
-        this.n = e4aVar.d();
-        this.m = e4aVar.a();
-        this.o = e4aVar.l();
+        return (IEventReporter) invokeV.objValue;
     }
 
-    public static i4a q(Activity activity, Window window) {
-        InterceptResult invokeLL;
+    @Override // tv.athena.revenue.api.IMiddleRevenue
+    public IMiddlePayService getMiddlePayService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, window)) == null) ? new i4a(activity, window) : (i4a) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (IMiddlePayService) invokeV.objValue;
     }
 
-    public void o(int i) {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public IPayReporter getPayReporter() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                this.b.setSoftInputMode(i);
-                this.c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
-            }
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
+        return (IPayReporter) invokeV.objValue;
     }
 
-    public void p(int i) {
+    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
+    public void updateConfig(RevenueConfig revenueConfig) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || Build.VERSION.SDK_INT < 19) {
-            return;
-        }
-        this.b.setSoftInputMode(i);
-        this.c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
-    }
-
-    public void r(f4a f4aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f4aVar) == null) {
-            this.f = f4aVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, revenueConfig) == null) {
+            this.b.updateConfig(revenueConfig);
         }
     }
 }

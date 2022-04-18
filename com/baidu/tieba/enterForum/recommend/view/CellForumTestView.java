@@ -33,14 +33,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j66;
-import com.repackage.k66;
-import com.repackage.lu4;
+import com.repackage.bj8;
+import com.repackage.dj8;
+import com.repackage.ku4;
+import com.repackage.l66;
+import com.repackage.m66;
 import com.repackage.mi;
 import com.repackage.oi;
-import com.repackage.ui8;
-import com.repackage.wi8;
-import com.repackage.wt4;
+import com.repackage.vt4;
 /* loaded from: classes3.dex */
 public class CellForumTestView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -55,7 +55,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public int h;
     public int i;
     public BdUniqueId j;
-    public j66 k;
+    public l66 k;
     public boolean l;
     public float m;
     public float n;
@@ -68,7 +68,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public int u;
     public int v;
     public boolean w;
-    public k66 x;
+    public m66 x;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CellForumTestView(Context context) {
@@ -102,9 +102,9 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905b7);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b8);
             this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0905b6);
-            lu4 lu4Var = new lu4();
+            ku4 ku4Var = new ku4();
             this.f.setTextSize(R.dimen.tbds42);
-            this.f.setConfig(lu4Var);
+            this.f.setConfig(ku4Var);
             int f = oi.f(context, R.dimen.tbds10);
             this.c.setCornerTopLeftRadius(f);
             this.b.setRadius(f);
@@ -133,7 +133,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.k();
         }
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0807c4, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0807c3, SvgManager.SvgResourceStateType.NORMAL);
         if (skinType != 1 && skinType != 4) {
             ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).setMargins(0, 0, 0, 0);
             TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(oi.f(getContext(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(oi.f(getContext(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(oi.f(getContext(), R.dimen.tbds5)).into(this.e);
@@ -146,10 +146,10 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
     }
 
-    public j66 getData() {
+    public l66 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (j66) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (l66) invokeV.objValue;
     }
 
     public int getDataIndex() {
@@ -221,9 +221,9 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             if (this.d == view2) {
                 if (mi.A() && this.u == 1) {
                     TiebaStatic.log(new StatisticItem("c13373").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.k.a));
-                    k66 k66Var = this.x;
-                    if (k66Var != null) {
-                        k66Var.a(this.u);
+                    m66 m66Var = this.x;
+                    if (m66Var != null) {
+                        m66Var.a(this.u);
                     }
                     RequestTestCloseMessage requestTestCloseMessage = new RequestTestCloseMessage();
                     requestTestCloseMessage.setTestId(this.k.a);
@@ -233,12 +233,12 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             } else if (ViewHelper.checkUpIsLogin(getContext())) {
                 TiebaStatic.log(new StatisticItem("c13372").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.k.a));
                 int i2 = this.v;
-                j66 j66Var = this.k;
-                if (j66Var != null && i2 >= 0 && (j = ui8.j(true, "a065", "common_click", i, (i = i2 + 1), false, null, String.valueOf(j66Var.a), 0)) != null) {
-                    wi8.g().c(this.j, j);
+                l66 l66Var = this.k;
+                if (l66Var != null && i2 >= 0 && (j = bj8.j(true, "a065", "common_click", i, (i = i2 + 1), false, null, String.valueOf(l66Var.a), 0)) != null) {
+                    dj8.g().c(this.j, j);
                 }
                 if (!this.l) {
-                    String q = wt4.k().q("enter_forum_test_id_list", "");
+                    String q = vt4.k().q("enter_forum_test_id_list", "");
                     String[] split = q.split("[|]");
                     String str = this.k.a + "*" + TbadkCoreApplication.getCurrentAccountId();
                     StringBuilder sb = new StringBuilder();
@@ -257,7 +257,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                         }
                         sb.append(str);
                     }
-                    wt4.k().y("enter_forum_test_id_list", sb.toString());
+                    vt4.k().y("enter_forum_test_id_list", sb.toString());
                 }
                 this.c.setVisibility(8);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumTestActivityConfig(getContext(), this.k.a)));
@@ -286,15 +286,15 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         }
     }
 
-    public void setData(j66 j66Var) {
+    public void setData(l66 l66Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, j66Var) == null) || j66Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, l66Var) == null) || l66Var == null) {
             return;
         }
-        this.k = j66Var;
-        this.b.K(j66Var.d ? j66Var.e : j66Var.c, 10, false);
+        this.k = l66Var;
+        this.b.K(l66Var.d ? l66Var.e : l66Var.c, 10, false);
         this.l = false;
-        String q = wt4.k().q("enter_forum_test_id_list", "");
+        String q = vt4.k().q("enter_forum_test_id_list", "");
         String[] split = q.split("[|]");
         if (!StringUtils.isNull(q)) {
             int length = split.length;
@@ -305,7 +305,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 }
                 String str = split[i];
                 if (!StringUtils.isNull(str)) {
-                    if (str.equals(j66Var.a + "*" + TbadkCoreApplication.getCurrentAccountId())) {
+                    if (str.equals(l66Var.a + "*" + TbadkCoreApplication.getCurrentAccountId())) {
                         this.l = true;
                         break;
                     }
@@ -314,12 +314,12 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             }
         }
         this.c.setVisibility(this.l ? 8 : 0);
-        if (StringUtils.isNull(j66Var.b)) {
+        if (StringUtils.isNull(l66Var.b)) {
             this.e.setText(R.string.obfuscated_res_0x7f0f038a);
         } else {
-            this.e.setText(j66Var.b);
+            this.e.setText(l66Var.b);
         }
-        this.f.setText(getResources().getString(j66Var.d ? R.string.obfuscated_res_0x7f0f0388 : R.string.obfuscated_res_0x7f0f0389));
+        this.f.setText(getResources().getString(l66Var.d ? R.string.obfuscated_res_0x7f0f0388 : R.string.obfuscated_res_0x7f0f0389));
     }
 
     public void setDataIndex(int i) {
@@ -329,10 +329,10 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         }
     }
 
-    public void setForumTestDelClickListener(k66 k66Var) {
+    public void setForumTestDelClickListener(m66 m66Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, k66Var) == null) {
-            this.x = k66Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, m66Var) == null) {
+            this.x = m66Var;
         }
     }
 

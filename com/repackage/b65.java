@@ -38,10 +38,10 @@ public class b65 implements i55<ReplayEvent> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, replayEvent)) == null) {
             if (replayEvent != null && TbadkCoreApplication.isLogin() && TbadkCoreApplication.getInst().isMainProcess(true)) {
                 if (TbSingleton.getInstance().showStampMissionDialog && UbsABTestHelper.isStampMissionDialogABTestB()) {
-                    gi8.r().A(0, 3);
-                    gi8.r().G();
+                    ni8.r().A(0, 3);
+                    ni8.r().G();
                 }
-                gi8.r().z(StampMission.Type.REPLAY_THREAD);
+                ni8.r().z(StampMission.Type.REPLAY_THREAD);
                 return true;
             }
             return false;

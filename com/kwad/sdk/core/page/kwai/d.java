@@ -144,8 +144,8 @@ public class d extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.c = (WebView) a(R.id.obfuscated_res_0x7f0910ad);
-        this.f = (ViewGroup) a(R.id.obfuscated_res_0x7f091182);
+        this.c = (WebView) a(R.id.obfuscated_res_0x7f0910ae);
+        this.f = (ViewGroup) a(R.id.obfuscated_res_0x7f091183);
         this.c.setBackgroundColor(0);
     }
 

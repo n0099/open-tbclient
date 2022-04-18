@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sj4;
+import com.repackage.rj4;
 import com.squareup.wire.Wire;
 import tbclient.CompleteTask.CompleteTaskResIdl;
 import tbclient.CompleteTask.DataRes;
@@ -17,7 +17,7 @@ import tbclient.Error;
 public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sj4 mData;
+    public rj4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CompleteTaskHTTPResMsg() {
@@ -37,10 +37,10 @@ public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
         }
     }
 
-    public sj4 getData() {
+    public rj4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (sj4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (rj4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,31 +57,31 @@ public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
             setErrorString(completeTaskResIdl.error.usermsg);
         }
         if (completeTaskResIdl.data != null) {
-            sj4 sj4Var = new sj4();
-            this.mData = sj4Var;
-            sj4Var.c = completeTaskResIdl.data.show_type.intValue();
+            rj4 rj4Var = new rj4();
+            this.mData = rj4Var;
+            rj4Var.c = completeTaskResIdl.data.show_type.intValue();
             this.mData.d = completeTaskResIdl.data.ahead_type.intValue();
-            sj4 sj4Var2 = this.mData;
+            rj4 rj4Var2 = this.mData;
             DataRes dataRes = completeTaskResIdl.data;
-            sj4Var2.e = dataRes.message;
-            sj4Var2.f = dataRes.btn_text;
-            sj4Var2.g = dataRes.btn_confirm;
-            sj4Var2.h = dataRes.btn_cancel;
-            sj4Var2.i = dataRes.toast_duration.intValue();
-            sj4 sj4Var3 = this.mData;
+            rj4Var2.e = dataRes.message;
+            rj4Var2.f = dataRes.btn_text;
+            rj4Var2.g = dataRes.btn_confirm;
+            rj4Var2.h = dataRes.btn_cancel;
+            rj4Var2.i = dataRes.toast_duration.intValue();
+            rj4 rj4Var3 = this.mData;
             DataRes dataRes2 = completeTaskResIdl.data;
-            sj4Var3.j = dataRes2.img_url;
-            sj4Var3.k = dataRes2.url;
-            sj4Var3.l = dataRes2.schema;
-            sj4Var3.m = dataRes2.token;
-            sj4Var3.a = dataRes2.activity_id.intValue();
+            rj4Var3.j = dataRes2.img_url;
+            rj4Var3.k = dataRes2.url;
+            rj4Var3.l = dataRes2.schema;
+            rj4Var3.m = dataRes2.token;
+            rj4Var3.a = dataRes2.activity_id.intValue();
             this.mData.b = completeTaskResIdl.data.mission_id.intValue();
-            sj4 sj4Var4 = this.mData;
+            rj4 rj4Var4 = this.mData;
             DataRes dataRes3 = completeTaskResIdl.data;
-            sj4Var4.o = dataRes3.btn_color;
-            sj4Var4.p = dataRes3.message_color;
-            sj4Var4.q = dataRes3.btn_text_color;
-            sj4Var4.r = dataRes3.interface_type.intValue();
+            rj4Var4.o = dataRes3.btn_color;
+            rj4Var4.p = dataRes3.message_color;
+            rj4Var4.q = dataRes3.btn_text_color;
+            rj4Var4.r = dataRes3.interface_type.intValue();
             this.mData.n = completeTaskResIdl.data.opacity.doubleValue();
             this.mData.x = completeTaskResIdl.data.is_not_complete.intValue();
         }

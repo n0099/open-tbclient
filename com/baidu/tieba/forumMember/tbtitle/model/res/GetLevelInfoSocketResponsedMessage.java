@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vb6;
+import com.repackage.xb6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetLevelInfo.DataRes;
@@ -50,8 +50,8 @@ public class GetLevelInfoSocketResponsedMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             GetLevelInfoRequestMessage getLevelInfoRequestMessage = (getOrginalMessage() == null || getOrginalMessage().getExtra() == null) ? null : (GetLevelInfoRequestMessage) getOrginalMessage().getExtra();
             if (getLevelInfoRequestMessage != null) {
-                vb6 vb6Var = new vb6();
-                vb6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
+                xb6 xb6Var = new xb6();
+                xb6Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
             }
         }
     }

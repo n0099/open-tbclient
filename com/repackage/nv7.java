@@ -1,77 +1,132 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.main.PbLoadPreReplyViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class nv7 extends PostData {
+public class nv7 extends wu7<js7, PbLoadPreReplyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId I0;
     public transient /* synthetic */ FieldHolder $fh;
-    public tp4 F0;
-    public tp4 G0;
-    public tp4 H0;
+    public View.OnClickListener o;
+    public PbLoadPreReplyViewHolder p;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755455966, "Lcom/repackage/nv7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ nv7 b;
+
+        public a(nv7 nv7Var, View view2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nv7Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755455966, "Lcom/repackage/nv7;");
-                return;
+            this.b = nv7Var;
+            this.a = view2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.e0(1);
+                if (this.b.o != null) {
+                    this.b.o.onClick(this.a);
+                }
             }
         }
-        I0 = BdUniqueId.gen();
     }
 
-    public nv7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nv7(jz7 jz7Var, BdUniqueId bdUniqueId) {
+        super(jz7Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jz7Var, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((jz7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public boolean M0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            tp4 tp4Var = this.F0;
-            if (tp4Var == null || StringUtils.isNull(tp4Var.b)) {
-                tp4 tp4Var2 = this.G0;
-                if (tp4Var2 == null || StringUtils.isNull(tp4Var2.b)) {
-                    tp4 tp4Var3 = this.H0;
-                    return (tp4Var3 == null || StringUtils.isNull(tp4Var3.b)) ? false : true;
-                }
-                return true;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+    @Override // com.repackage.wu7, com.repackage.ho
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        d0(i, view2, viewGroup, (js7) obj, (PbLoadPreReplyViewHolder) viewHolder);
+        return view2;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: c0 */
+    public PbLoadPreReplyViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? I0 : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d068e, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f0921b2).setOnClickListener(new a(this, inflate));
+            return new PbLoadPreReplyViewHolder(this.a, inflate);
+        }
+        return (PbLoadPreReplyViewHolder) invokeL.objValue;
+    }
+
+    public View d0(int i, View view2, ViewGroup viewGroup, js7 js7Var, PbLoadPreReplyViewHolder pbLoadPreReplyViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, js7Var, pbLoadPreReplyViewHolder})) == null) {
+            super.S(i, view2, viewGroup, js7Var, pbLoadPreReplyViewHolder);
+            if (pbLoadPreReplyViewHolder != null && js7Var != null) {
+                this.p = pbLoadPreReplyViewHolder;
+                pbLoadPreReplyViewHolder.e(js7Var.a());
+                pbLoadPreReplyViewHolder.c();
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void e(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.o = onClickListener;
+        }
+    }
+
+    public void e0(int i) {
+        PbLoadPreReplyViewHolder pbLoadPreReplyViewHolder;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (pbLoadPreReplyViewHolder = this.p) == null) {
+            return;
+        }
+        pbLoadPreReplyViewHolder.d(i);
     }
 }

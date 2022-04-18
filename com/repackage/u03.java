@@ -31,11 +31,11 @@ public final class u03 {
 
         /* renamed from: com.repackage.u03$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0526a extends x03<a> {
+        public static class C0527a extends x03<a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0526a() {
+            public C0527a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public final class u03 {
                     return;
                 }
             }
-            e = new C0526a();
+            e = new C0527a();
             f = new b();
         }
 

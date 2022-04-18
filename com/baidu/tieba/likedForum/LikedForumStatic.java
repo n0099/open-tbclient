@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dk8;
+import com.repackage.kk8;
 /* loaded from: classes3.dex */
 public class LikedForumStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -28,8 +28,8 @@ public class LikedForumStatic {
                 return;
             }
         }
-        dk8.h(309440, GetBottleForumListSocketResMessage.class, false, false);
-        dk8.c(309440, CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, TbConfig.CMD_GET_BOTTLE_FORUM_LIST, GetBottleForumListHttpResMessage.class, false, false, true, false);
+        kk8.h(309440, GetBottleForumListSocketResMessage.class, false, false);
+        kk8.c(309440, CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, TbConfig.CMD_GET_BOTTLE_FORUM_LIST, GetBottleForumListHttpResMessage.class, false, false, true, false);
     }
 
     public LikedForumStatic() {

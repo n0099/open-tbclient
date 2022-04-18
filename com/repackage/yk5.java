@@ -39,7 +39,7 @@ public class yk5 implements ml5 {
     public int b;
     public volatile AdLoadState c;
     public WeakReference<ViewGroup> d;
-    public rl4 e;
+    public ql4 e;
     public boolean f;
     public long g;
     public final SplashNativePolicy h;
@@ -54,12 +54,12 @@ public class yk5 implements ml5 {
 
         /* renamed from: com.repackage.yk5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0557a implements Runnable {
+        public class RunnableC0558a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0557a(a aVar) {
+            public RunnableC0558a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,9 +168,9 @@ public class yk5 implements ml5 {
                         z = yk5.k.a().optInt(TiebaStatic.Params.AD_TYPE, 0) == 1;
                         z2 = yk5.k.a().optInt("full_type", 0) == 1;
                     }
-                    rl4 rl4Var = this.a.e;
+                    ql4 ql4Var = this.a.e;
                     yk5 yk5Var = this.a;
-                    rl4Var.d(z, z2, yk5Var.b, null, ub5.m(yk5Var.i), null);
+                    ql4Var.d(z, z2, yk5Var.b, null, ub5.m(yk5Var.i), null);
                 }
             }
         }
@@ -240,7 +240,7 @@ public class yk5 implements ml5 {
                 if (oi.B()) {
                     ll5.e().n(this.a.e);
                 } else {
-                    pg.a().post(new RunnableC0557a(this));
+                    pg.a().post(new RunnableC0558a(this));
                 }
                 i("advert_load", 1);
                 if (this.a.h != null) {
@@ -528,15 +528,15 @@ public class yk5 implements ml5 {
     }
 
     @Override // com.repackage.ml5
-    public void e(ul4 ul4Var) {
+    public void e(tl4 tl4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, ul4Var) == null) || ul4Var == null || ul4Var.b() == null || ul4Var.b().getContext() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, tl4Var) == null) || tl4Var == null || tl4Var.b() == null || tl4Var.b().getContext() == null) {
             return;
         }
-        this.e = ul4Var.a();
-        this.f = ul4Var.d();
-        this.g = ul4Var.c();
-        this.d = new WeakReference<>(ul4Var.b());
+        this.e = tl4Var.a();
+        this.f = tl4Var.d();
+        this.g = tl4Var.c();
+        this.d = new WeakReference<>(tl4Var.b());
         a aVar = new a(this);
         m = aVar;
         if (l) {
@@ -606,9 +606,9 @@ public class yk5 implements ml5 {
         yi5.c().b(f());
     }
 
-    public final void v(sa1 sa1Var, rl4 rl4Var) {
+    public final void v(sa1 sa1Var, ql4 ql4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, sa1Var, rl4Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048586, this, sa1Var, ql4Var) == null) {
             try {
                 Context context = TbadkCoreApplication.getInst().getContext();
                 tc1.b bVar = new tc1.b();
@@ -622,8 +622,8 @@ public class yk5 implements ml5 {
                 }
             } catch (OutOfMemoryError unused) {
                 TbadkCoreApplication.getInst().onLowMemory();
-                if (rl4Var != null) {
-                    rl4Var.c("oom");
+                if (ql4Var != null) {
+                    ql4Var.c("oom");
                 }
             }
         }

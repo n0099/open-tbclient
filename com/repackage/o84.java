@@ -2,8 +2,10 @@ package com.repackage;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class o84 extends i84<j94> {
+public class o84 extends h84<j94> implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +32,13 @@ public class o84 extends i84<j94> {
         }
     }
 
-    @Override // com.repackage.i84
+    public static int f(@NonNull Cursor cursor, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cursor, str)) == null) ? cursor.getColumnIndex(str) : invokeLL.intValue;
+    }
+
+    @Override // com.repackage.h84
     public List<j94> e(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -40,7 +48,7 @@ public class o84 extends i84<j94> {
                 return arrayList;
             }
             do {
-                arrayList.add(h(cursor));
+                arrayList.add(i(cursor));
             } while (cursor.moveToNext());
             return arrayList;
         }
@@ -48,26 +56,24 @@ public class o84 extends i84<j94> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.i84
-    /* renamed from: f */
+    @Override // com.repackage.h84
+    /* renamed from: g */
     public ContentValues c(j94 j94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, j94Var)) == null) {
             ContentValues a = super.a(j94Var);
             a.put("max_age", Long.valueOf(j94Var.o));
-            a.put("token", j94Var.p);
-            a.put("domains", j94Var.q);
-            a.put(GameGuideConfigInfo.KEY_APP_KEY, j94Var.r);
-            a.put("app_name", j94Var.s);
+            a.put(PackageTable.ABI, j94Var.q.id);
+            a.put("lib_name", j94Var.p);
             return a;
         }
         return (ContentValues) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.i84
-    /* renamed from: g */
+    @Override // com.repackage.h84
+    /* renamed from: h */
     public j94 d(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -75,31 +81,23 @@ public class o84 extends i84<j94> {
             if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
                 return null;
             }
-            return h(cursor);
+            return i(cursor);
         }
         return (j94) invokeL.objValue;
     }
 
-    public final j94 h(Cursor cursor) {
+    public final j94 i(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
             if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("max_age");
-                int columnIndex2 = cursor.getColumnIndex("token");
-                int columnIndex3 = cursor.getColumnIndex("domains");
-                int columnIndex4 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
-                int columnIndex5 = cursor.getColumnIndex("app_name");
                 j94 j94Var = new j94();
                 if (b(cursor, j94Var)) {
-                    j94Var.o = cursor.getLong(columnIndex);
-                    j94Var.p = cursor.getString(columnIndex2);
-                    j94Var.q = cursor.getString(columnIndex3);
-                    j94Var.r = cursor.getString(columnIndex4);
-                    j94Var.s = cursor.getString(columnIndex5);
+                    j94Var.o = cursor.getLong(f(cursor, "max_age"));
+                    j94Var.q = AbiType.findById(cursor.getString(f(cursor, PackageTable.ABI)), null);
+                    j94Var.p = cursor.getString(f(cursor, "lib_name"));
                     return j94Var;
                 }
-                return null;
             }
             return null;
         }

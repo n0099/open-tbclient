@@ -7,33 +7,31 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.view.SdkDoubleLiveViewHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.view.OfficialRecommendLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class jo5 extends ho<oo5, SdkDoubleLiveViewHolder> {
+public class jo5 extends ho<oo5, OfficialRecommendLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
-    public yp5 j;
-    public int k;
-    public boolean l;
+    public xp5 j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jo5(TbPageContext tbPageContext, int i, boolean z) {
-        super(tbPageContext.getPageActivity(), z ? oo5.d : oo5.c);
+    public jo5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), oo5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -42,37 +40,35 @@ public class jo5 extends ho<oo5, SdkDoubleLiveViewHolder> {
             }
         }
         this.i = tbPageContext;
-        this.k = i;
-        this.l = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: Z */
-    public SdkDoubleLiveViewHolder M(ViewGroup viewGroup) {
+    public OfficialRecommendLiveViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.j = new yp5(this.i, viewGroup, this.k, this.l);
-            return new SdkDoubleLiveViewHolder(this.j);
+            this.j = new xp5(this.i, viewGroup);
+            return new OfficialRecommendLiveViewHolder(this.j);
         }
-        return (SdkDoubleLiveViewHolder) invokeL.objValue;
+        return (OfficialRecommendLiveViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, oo5 oo5Var, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, oo5 oo5Var, OfficialRecommendLiveViewHolder officialRecommendLiveViewHolder) {
         InterceptResult invokeCommon;
-        yp5 yp5Var;
+        xp5 xp5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oo5Var, sdkDoubleLiveViewHolder})) == null) {
-            if (sdkDoubleLiveViewHolder == null || (yp5Var = sdkDoubleLiveViewHolder.a) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oo5Var, officialRecommendLiveViewHolder})) == null) {
+            if (officialRecommendLiveViewHolder == null || (xp5Var = officialRecommendLiveViewHolder.a) == null) {
                 return null;
             }
-            yp5Var.l(oo5Var);
-            sdkDoubleLiveViewHolder.a.m(this.i, TbadkCoreApplication.getInst().getSkinType());
-            return sdkDoubleLiveViewHolder.b();
+            xp5Var.l(oo5Var);
+            officialRecommendLiveViewHolder.a.m(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return officialRecommendLiveViewHolder.b();
         }
         return (View) invokeCommon.objValue;
     }

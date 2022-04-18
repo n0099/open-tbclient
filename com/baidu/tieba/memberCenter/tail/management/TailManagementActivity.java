@@ -9,21 +9,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sk7;
 import com.repackage.vk7;
-import com.repackage.wk7;
+import com.repackage.yk7;
+import com.repackage.zk7;
 /* loaded from: classes3.dex */
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sk7 mAdapter;
-    public vk7 mModel;
+    public vk7 mAdapter;
+    public yk7 mModel;
     public View.OnClickListener mNavBtnClickListener;
-    public sk7.f mRefreshCallbackListener;
-    public wk7 mView;
+    public vk7.f mRefreshCallbackListener;
+    public zk7 mView;
 
     /* loaded from: classes3.dex */
-    public class a implements sk7.f {
+    public class a implements vk7.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailManagementActivity a;
@@ -46,7 +46,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             this.a = tailManagementActivity;
         }
 
-        @Override // com.repackage.sk7.f
+        @Override // com.repackage.vk7.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -135,11 +135,11 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0802);
-            this.mModel = new vk7(getPageContext());
-            this.mAdapter = new sk7(getPageContext(), this.mModel, this.mRefreshCallbackListener);
-            wk7 wk7Var = new wk7(this, this.mNavBtnClickListener);
-            this.mView = wk7Var;
-            wk7Var.d(this.mAdapter);
+            this.mModel = new yk7(getPageContext());
+            this.mAdapter = new vk7(getPageContext(), this.mModel, this.mRefreshCallbackListener);
+            zk7 zk7Var = new zk7(this, this.mNavBtnClickListener);
+            this.mView = zk7Var;
+            zk7Var.d(this.mAdapter);
             this.mView.e(false, this.mModel.h().size() == 0);
             if (this.mModel.i(getIntent().getSerializableExtra("list"))) {
                 this.mAdapter.j();

@@ -1,31 +1,29 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import android.text.SpannableStringBuilder;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes7.dex */
-public class xy7 {
+public class xy7 implements ty7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uy7 a;
-    public BaseFragmentActivity b;
-    public int c;
+    public SpannableStringBuilder a;
+    public int b;
+    public String c;
+    public int d;
 
-    public xy7(BaseFragmentActivity baseFragmentActivity) {
+    public xy7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,60 +33,105 @@ public class xy7 {
                 return;
             }
         }
-        this.c = 3;
-        this.b = baseFragmentActivity;
+        this.b = 0;
+        this.d = -1;
+        this.a = new SpannableStringBuilder();
     }
 
-    public final void a(yr7 yr7Var, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, yr7Var, str) == null) || yr7Var == null) {
-            return;
-        }
-        if (this.a == null) {
-            this.a = new uy7(LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0680, (ViewGroup) null));
-        }
-        this.a.m(yr7Var, str);
-    }
-
-    public View b() {
+    @Override // com.repackage.ty7
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            uy7 uy7Var = this.a;
-            if (uy7Var == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.b;
+            return (i > 0 && i < 3) || !StringUtils.isNull(this.c);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.ty7
+    public CharSequence b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (CharSequence) invokeV.objValue;
+    }
+
+    public void c(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) || charSequence == null) {
+            return;
+        }
+        this.a.append(charSequence);
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    @Override // com.repackage.uy7
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public xy7(Context context, ExcContent excContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, excContent};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return uy7Var.a;
         }
-        return (View) invokeV.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.c == i) {
+        this.b = 0;
+        this.d = -1;
+        if (excContent == null) {
             return;
         }
-        uy7 uy7Var = this.a;
-        if (uy7Var != null) {
-            uy7Var.o();
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        this.a = spannableStringBuilder;
+        if (excContent != null) {
+            spannableStringBuilder.append((CharSequence) excContent.text);
         }
-        this.c = i;
-    }
-
-    public void d(yr7 yr7Var, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, yr7Var, str) == null) || yr7Var == null || yr7Var.O() == null) {
+        Integer num = excContent.align;
+        if (num != null) {
+            this.b = num.intValue();
+        }
+        if (!StringUtils.isNull(excContent.color)) {
+            this.c = excContent.color;
+        }
+        Integer num2 = excContent.size;
+        if (num2 == null || num2.intValue() <= 0 || context == null || context.getResources() == null) {
             return;
         }
-        a(yr7Var, str);
-    }
-
-    public void e(BdTypeListView bdTypeListView) {
-        uy7 uy7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdTypeListView) == null) || (uy7Var = this.a) == null) {
+        int identifier = context.getResources().getIdentifier("fontsize" + excContent.size, EMABTest.TYPE_DIMEN, context.getPackageName());
+        if (identifier <= 0) {
             return;
         }
-        bdTypeListView.removeHeaderView(uy7Var.a);
+        this.d = context.getResources().getDimensionPixelSize(identifier);
     }
 }

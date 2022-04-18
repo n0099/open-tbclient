@@ -40,10 +40,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cv5;
 import com.repackage.ev5;
 import com.repackage.fo;
 import com.repackage.g45;
+import com.repackage.gv5;
 import com.repackage.hg;
 import com.repackage.ig;
 import com.repackage.mi;
@@ -60,8 +60,8 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public TextView d;
     public TbImageView e;
     public BdTypeListView f;
-    public ev5 g;
-    public cv5 h;
+    public gv5 g;
+    public ev5 h;
     public g45 i;
     public AlaNetRefreshView j;
     public TextView k;
@@ -71,7 +71,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public TextView o;
     public RelativeLayout p;
     public CustomMessageListener q;
-    public cv5.b r;
+    public ev5.b r;
     public CustomMessageListener s;
 
     /* loaded from: classes3.dex */
@@ -152,7 +152,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements cv5.b {
+    public class c implements ev5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectFragment a;
@@ -210,7 +210,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
             this.a = alaEnterEffectFragment;
         }
 
-        @Override // com.repackage.cv5.b
+        @Override // com.repackage.ev5.b
         public void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, alaGetEnterEffectResponsedMessage) == null) {
@@ -352,14 +352,14 @@ public class AlaEnterEffectFragment extends AbsFragment {
         this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901d0);
         this.k = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0901d2);
         this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0901dc);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0908c5);
-        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908c7);
+        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0908c6);
+        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0908c8);
         this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0901d9);
         this.f = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f0901da);
-        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0908cf);
+        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0908d0);
         this.l = findViewById;
         this.f.setEmptyView(findViewById);
-        this.g = new ev5(getPageContext(), this.f);
+        this.g = new gv5(getPageContext(), this.f);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -499,7 +499,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
             this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00f3, (ViewGroup) null);
             K0();
-            this.h = new cv5(getPageContext(), this.r);
+            this.h = new ev5(getPageContext(), this.r);
             L0();
             this.h.d();
             return this.a;
@@ -513,9 +513,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
             g();
-            cv5 cv5Var = this.h;
-            if (cv5Var != null) {
-                cv5Var.c();
+            ev5 ev5Var = this.h;
+            if (ev5Var != null) {
+                ev5Var.c();
             }
         }
     }

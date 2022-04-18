@@ -36,9 +36,9 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.repackage.ae3;
-import com.repackage.f34;
+import com.repackage.e34;
+import com.repackage.g34;
 import com.repackage.gd3;
-import com.repackage.h34;
 import com.repackage.j03;
 import com.repackage.tg1;
 import com.repackage.ty2;
@@ -54,7 +54,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     public String c;
     public String d;
     public Bitmap e;
-    public f34 f;
+    public e34 f;
     public int g;
     public int h;
 
@@ -158,10 +158,10 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            if (h34.a(this.d) == PathType.NETWORK) {
+            if (g34.a(this.d) == PathType.NETWORK) {
                 return Uri.parse(this.d);
             }
-            if (h34.a(this.d) != PathType.RELATIVE || (b = h34.b()) == null) {
+            if (g34.a(this.d) != PathType.RELATIVE || (b = g34.b()) == null) {
                 return null;
             }
             if (this.d.startsWith(".")) {
@@ -186,7 +186,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(65545, this, gradientDrawable) == null) || (g = ae3.g(this.f.borderWidth)) <= 0) {
             return;
         }
-        gradientDrawable.setStroke(g, f34.c(m(this.f.borderColor, 0)));
+        gradientDrawable.setStroke(g, e34.c(m(this.f.borderColor, 0)));
     }
 
     private void setBorderRadius(GradientDrawable gradientDrawable) {
@@ -267,9 +267,9 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            f34 f34Var = this.f;
-            if (f34Var != null) {
-                f34Var.hidden = true;
+            e34 e34Var = this.f;
+            if (e34Var != null) {
+                e34Var.hidden = true;
             }
             setVisibility(8);
         }
@@ -340,7 +340,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
             gradientDrawable.setColor(i);
             int g = ae3.g(this.f.borderWidth);
             if (g > 0) {
-                gradientDrawable.setStroke(g, f34.c(i));
+                gradientDrawable.setStroke(g, e34.c(i));
             }
             double d = this.f.borderRadius;
             if (d != 0.0d) {
@@ -460,10 +460,10 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         }
     }
 
-    public void setApiButtonStyle(f34 f34Var) {
+    public void setApiButtonStyle(e34 e34Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, f34Var) == null) {
-            this.f = f34Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, e34Var) == null) {
+            this.f = e34Var;
         }
     }
 
@@ -503,9 +503,9 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     public void show() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            f34 f34Var = this.f;
-            if (f34Var != null) {
-                f34Var.hidden = false;
+            e34 e34Var = this.f;
+            if (e34Var != null) {
+                e34Var.hidden = false;
             }
             setVisibility(0);
         }

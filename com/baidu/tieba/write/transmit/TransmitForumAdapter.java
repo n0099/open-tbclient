@@ -17,15 +17,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c09;
 import com.repackage.dp;
 import com.repackage.ho;
+import com.repackage.j09;
 import com.repackage.uo;
 /* loaded from: classes4.dex */
 public class TransmitForumAdapter extends ho<TransmitForumData, TransmitForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c09 i;
+    public j09 i;
     public dp j;
 
     /* loaded from: classes4.dex */
@@ -53,8 +53,8 @@ public class TransmitForumAdapter extends ho<TransmitForumData, TransmitForumVie
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09212e);
-            CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09212a);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09212f);
+            CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09212b);
             this.b = checkBox;
             checkBox.setButtonDrawable(SkinManager.getDrawable(R.drawable.transmit_check_box));
         }
@@ -88,7 +88,7 @@ public class TransmitForumAdapter extends ho<TransmitForumData, TransmitForumVie
         public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (uoVar instanceof TransmitForumData)) {
-                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09212a);
+                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09212b);
                 boolean isChecked = checkBox.isChecked();
                 boolean c = this.a.i != null ? this.a.i.c() : false;
                 if (!isChecked && c) {
@@ -157,10 +157,10 @@ public class TransmitForumAdapter extends ho<TransmitForumData, TransmitForumVie
         return (View) invokeCommon.objValue;
     }
 
-    public void c0(c09 c09Var) {
+    public void c0(j09 j09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c09Var) == null) {
-            this.i = c09Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, j09Var) == null) {
+            this.i = j09Var;
         }
     }
 }

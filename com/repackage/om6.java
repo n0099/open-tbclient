@@ -11,14 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import tbclient.ItemInfo;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class om6 extends qn4 {
+public class om6 extends pn4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ItemInfo> a;
+    public List<ThreadData> a;
 
     static {
         InterceptResult invokeClinit;
@@ -52,30 +54,46 @@ public class om6 extends qn4 {
         setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    public List<ItemInfo> e() {
+    public List<ThreadData> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.size() > 10) {
+                ArrayList arrayList = new ArrayList();
+                Iterator<ThreadData> it = this.a.iterator();
+                while (it.hasNext() && arrayList.size() < 10) {
+                    arrayList.add(it.next());
+                }
+                return arrayList;
+            }
+            return this.a;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public void g(List<ItemInfo> list) {
+    public void g(List<ThreadInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+            this.a = new ArrayList();
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(threadInfo);
+                this.a.add(threadData);
+            }
         }
     }
 
-    @Override // com.repackage.qn4
-    public mp4 getNegFeedBackData() {
+    @Override // com.repackage.pn4
+    public lp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (mp4) invokeV.objValue;
+        return (lp4) invokeV.objValue;
     }
 
-    @Override // com.repackage.qn4
+    @Override // com.repackage.pn4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

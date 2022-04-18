@@ -144,10 +144,10 @@ public class pm3 extends om3 {
                 do {
                     arrayList.add(new c(this, l.getString(columnIndex), l.getLong(columnIndex2)));
                 } while (l.moveToNext());
-                ng4.d(l);
+                mg4.d(l);
                 return arrayList;
             }
-            ng4.d(l);
+            mg4.d(l);
             return arrayList;
         }
         return (List) invokeV.objValue;

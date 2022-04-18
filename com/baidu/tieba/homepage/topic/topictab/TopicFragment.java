@@ -20,16 +20,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.du4;
-import com.repackage.me6;
+import com.repackage.cu4;
 import com.repackage.mi;
-import com.repackage.n27;
+import com.repackage.oe6;
+import com.repackage.q27;
 import com.repackage.uo;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes3.dex */
-public class TopicFragment extends BaseFragment implements me6, du4.g, n27 {
+public class TopicFragment extends BaseFragment implements oe6, cu4.g, q27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicModel a;
@@ -52,14 +52,14 @@ public class TopicFragment extends BaseFragment implements me6, du4.g, n27 {
         this.c = false;
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -93,7 +93,7 @@ public class TopicFragment extends BaseFragment implements me6, du4.g, n27 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.n27
+    @Override // com.repackage.q27
     public void loadData() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && mi.z()) {
@@ -103,7 +103,7 @@ public class TopicFragment extends BaseFragment implements me6, du4.g, n27 {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -111,7 +111,7 @@ public class TopicFragment extends BaseFragment implements me6, du4.g, n27 {
         }
     }
 
-    @Override // com.repackage.n27
+    @Override // com.repackage.q27
     public void netCallback(int i, List<uo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048582, this, i, list) == null) {
@@ -187,7 +187,7 @@ public class TopicFragment extends BaseFragment implements me6, du4.g, n27 {
         }
     }
 
-    @Override // com.repackage.du4.g
+    @Override // com.repackage.cu4.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
@@ -207,7 +207,7 @@ public class TopicFragment extends BaseFragment implements me6, du4.g, n27 {
         }
     }
 
-    @Override // com.repackage.me6
+    @Override // com.repackage.oe6
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {

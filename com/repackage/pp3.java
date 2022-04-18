@@ -1009,11 +1009,11 @@ public class pp3 implements uo3, vo3, so3, wo3 {
                             i2 = 0;
                         }
                         i0();
-                        this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1308);
+                        this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1307);
                         if (this.x) {
-                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1309), Integer.valueOf(15 - (this.c.getCurrentPosition() / 1000)));
+                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1308), Integer.valueOf(15 - (this.c.getCurrentPosition() / 1000)));
                         } else {
-                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f130b), Integer.valueOf(min2 - currentPosition));
+                            format = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f130a), Integer.valueOf(min2 - currentPosition));
                         }
                         if (this.g != null) {
                             this.g.d(format);

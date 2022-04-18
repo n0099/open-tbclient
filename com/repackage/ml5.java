@@ -7,7 +7,7 @@ public interface ml5 {
     public static final boolean a;
 
     static {
-        a = TbadkCoreApplication.getInst().isDebugMode() || vm4.h();
+        a = TbadkCoreApplication.getInst().isDebugMode() || um4.h();
     }
 
     void a();
@@ -20,7 +20,7 @@ public interface ml5 {
 
     void destroy();
 
-    void e(ul4 ul4Var);
+    void e(tl4 tl4Var);
 
     String f();
 

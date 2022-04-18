@@ -46,7 +46,7 @@ public abstract class t83 extends ProviderDelegation {
         }
     }
 
-    public abstract Bundle a(s83 s83Var);
+    public abstract Bundle b(s83 s83Var);
 
     @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
     public final Bundle execCall(Bundle bundle) {
@@ -56,7 +56,7 @@ public abstract class t83 extends ProviderDelegation {
             if (bundle.isEmpty()) {
                 return Bundle.EMPTY;
             }
-            return a(s83.b(bundle));
+            return b(s83.b(bundle));
         }
         return (Bundle) invokeL.objValue;
     }

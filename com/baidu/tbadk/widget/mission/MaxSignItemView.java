@@ -115,17 +115,17 @@ public class MaxSignItemView extends FrameLayout {
                     return;
                 }
             }
-            this.a = R.drawable.obfuscated_res_0x7f08064e;
-            this.b = R.drawable.obfuscated_res_0x7f08064f;
-            this.c = R.drawable.obfuscated_res_0x7f08064d;
-            this.d = R.drawable.obfuscated_res_0x7f080650;
-            this.e = R.drawable.obfuscated_res_0x7f08064d;
+            this.a = R.drawable.obfuscated_res_0x7f08064d;
+            this.b = R.drawable.obfuscated_res_0x7f08064e;
+            this.c = R.drawable.obfuscated_res_0x7f08064c;
+            this.d = R.drawable.obfuscated_res_0x7f08064f;
+            this.e = R.drawable.obfuscated_res_0x7f08064c;
             this.j = false;
             this.k = activeCenterStatusData;
             this.f = view2;
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f75);
-            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090fa3);
-            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091c5d);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f76);
+            this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090fa4);
+            CircleView circleView = (CircleView) this.f.findViewById(R.id.obfuscated_res_0x7f091c5e);
             this.i = circleView;
             circleView.setVisibility(4);
             int i3 = activeCenterStatusData.is_today_mission;
@@ -208,8 +208,8 @@ public class MaxSignItemView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0537, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cee);
-            this.b = (LineView) findViewById(R.id.obfuscated_res_0x7f09125e);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cef);
+            this.b = (LineView) findViewById(R.id.obfuscated_res_0x7f09125f);
             this.e = oi.f(getContext(), R.dimen.tbds3);
             this.f = oi.f(getContext(), R.dimen.tbds0);
         }

@@ -1,73 +1,79 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.core.response.model.AdInfo;
-import com.kwad.sdk.core.response.model.AdResultData;
-import com.kwad.sdk.core.response.model.AdTemplate;
-import java.lang.reflect.Field;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.channel.model.jy.JYNativeAdView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class sj9 extends BaseAdRipper {
+public class sj9 implements FunNativeAd2Bridger<bj9, JYNativeAdView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ vj9 a;
+    public final /* synthetic */ rj9 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sj9(Ssp.Pid pid) {
-        super(pid);
+    public sj9(rj9 rj9Var, vj9 vj9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {rj9Var, vj9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = rj9Var;
+        this.a = vj9Var;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.ad.sdk.channel.model.jy.JYNativeAdView, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public JYNativeAdView createExpressView(bj9 bj9Var) {
         InterceptResult invokeL;
-        List<AdTemplate> list;
-        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                Field declaredField = obj.getClass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                if (obj2 == null) {
-                    return null;
-                }
-                AdResultData adResultData = new com.fun.module.ks.q(obj2).a;
-                if ((adResultData != null) && (list = adResultData.adTemplateList) != null && !list.isEmpty()) {
-                    AdTemplate adTemplate = list.get(0);
-                    List<AdInfo> list2 = adTemplate == null ? null : adTemplate.adInfoList;
-                    if (list2 == null || list2.isEmpty() || (adInfo = list2.get(0)) == null) {
-                        return null;
-                    }
-                    return tj9.a(adInfo);
-                }
-                return null;
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bj9Var)) == null) ? this.b.a(bj9Var) : (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, bj9 bj9Var, BaseNativeAd2<bj9, JYNativeAdView> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, bj9Var, baseNativeAd2, funAdInteractionListener}) == null) {
+            bj9 bj9Var2 = bj9Var;
+            ViewGroup inflate = customInflater.inflate();
+            rj9 rj9Var = this.b;
+            View view2 = this.a.d;
+            List<View> clickViews = customInflater.getClickViews();
+            rj9Var.d(bj9Var2, str, funAdInteractionListener);
+            bj9Var2.d(inflate, view2, clickViews);
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, bj9 bj9Var, BaseNativeAd2<bj9, JYNativeAdView> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, bj9Var, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.b.d(bj9Var, str, funAdInteractionListener);
+            expressInflater.inflate();
+        }
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mg;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
@@ -49,7 +49,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), str, str2, str3, str4}) == null) {
             String str5 = "onBind errorCode=" + i;
             if (i == 0) {
-                wt4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                vt4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }

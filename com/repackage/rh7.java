@@ -1,119 +1,84 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
+import com.baidu.searchbox.live.interfaces.player.ExtAction;
+import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.event.SystemEvent;
+import com.baidu.searchbox.player.event.VideoEvent;
+import com.baidu.searchbox.player.plugin.AbsPlugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class rh7 implements IVideoPlayerCallback {
+public final class rh7 extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public rh7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rh7(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void goBackOrForeground(boolean z) {
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{1, 4} : (int[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
+    public void onPlayerEventNotify(VideoEvent event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
         }
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onBufferEnd() {
+    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
+    @SuppressLint({"WrongConstant"})
+    public void onSystemEventNotify(VideoEvent event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onBufferStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onEnd(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onError(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onNetworkSpeedUpdate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onPrepared() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onSeekEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onUpdateProgress(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048587, this, i, i2, i3) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onVideoSizeChanged(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            String action = event.getAction();
+            if (action.hashCode() == 1822725860 && action.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
+                BDVideoPlayer bindPlayer = getBindPlayer();
+                if (bindPlayer == null ? true : bindPlayer.isStop()) {
+                    return;
+                }
+                BDVideoPlayer bindPlayer2 = getBindPlayer();
+                if (bindPlayer2 != null ? bindPlayer2.isComplete() : true) {
+                    return;
+                }
+                ExtAction extAction = new ExtAction(event.getAction());
+                extAction.put(5, Integer.valueOf(event.getIntExtra(5)));
+                BDVideoPlayer bindPlayer3 = getBindPlayer();
+                if (bindPlayer3 == null) {
+                    return;
+                }
+                bindPlayer3.onInfo(0, 0, extAction);
+            }
         }
     }
 }

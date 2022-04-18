@@ -87,13 +87,13 @@ public class f00 extends xy {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: s */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qn4Var) == null) {
-            if (qn4Var != null && qn4Var.getThreadData() != null && qn4Var.getThreadData().originalThreadData != null && qn4Var.getThreadData().originalThreadData.C != null) {
-                if (!qn4Var.getThreadData().originalThreadData.m && !qn4Var.getThreadData().shouldShowBlockedState()) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, pn4Var) == null) {
+            if (pn4Var != null && pn4Var.getThreadData() != null && pn4Var.getThreadData().originalThreadData != null && pn4Var.getThreadData().originalThreadData.C != null) {
+                if (!pn4Var.getThreadData().originalThreadData.m && !pn4Var.getThreadData().shouldShowBlockedState()) {
                     this.h.setVisibility(0);
-                    this.i.setData(qn4Var.getThreadData().originalThreadData.D, 13, qn4Var.getThreadData().originalThreadData.f);
+                    this.i.setData(pn4Var.getThreadData().originalThreadData.D, 13, pn4Var.getThreadData().originalThreadData.f);
                     return;
                 }
                 this.h.setVisibility(8);

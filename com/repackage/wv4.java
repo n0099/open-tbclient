@@ -1,70 +1,178 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.httpNet.WebClient;
+import com.baidu.tbadk.core.util.resourceLoaderProc.DiskCancelWorker;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class wv4 {
+public class wv4 implements jg<uv4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a() {
+    public wv4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (wv4.class) {
-                File file = new File(FileHelper.getCacheDir() + "voice");
-                if (file.exists() && file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles == null) {
-                        return;
-                    }
-                    for (File file2 : listFiles) {
-                        file2.delete();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.jg
+    /* renamed from: a */
+    public uv4 getFromLocal(String str, String str2, int i, int i2, gg ggVar, Object... objArr) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true)) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ggVar, objArr})) == null) {
+            DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.INFO);
+            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            diskFileOperate.setSubFolder(false);
+            diskFileOperate.setIsFormatData(false);
+            if (ggVar != null) {
+                DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                diskCancelWorker.setOperate(diskFileOperate);
+                ggVar.a = diskCancelWorker;
+            }
+            diskFileOperate.call();
+            if (diskFileOperate.isSuccess()) {
+                String desPath = diskFileOperate.getDesPath();
+                uv4 uv4Var = new uv4();
+                uv4Var.a = str;
+                uv4Var.b = desPath;
+                return uv4Var;
+            }
+            return null;
+        }
+        return (uv4) invokeCommon.objValue;
     }
 
-    public static vv4 c(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.jg
+    /* renamed from: b */
+    public uv4 getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            vv4 vv4Var = new vv4();
-            if (str == null) {
-                vv4Var.c = 6;
-                vv4Var.d = vv4.a(6);
-                return vv4Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
+            return null;
+        }
+        return (uv4) invokeCommon.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.jg
+    /* renamed from: c */
+    public uv4 getFromRemote(String str, String str2, int i, int i2, gg ggVar, Object... objArr) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ggVar, objArr})) == null) {
+            int i3 = 1;
+            String str3 = null;
+            String valueOf = objArr.length == 1 ? String.valueOf(objArr[0]) : null;
+            uv4 uv4Var = new uv4();
+            WebClient webClient = new WebClient();
+            if (ggVar != null) {
+                ggVar.a = webClient;
             }
-            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                vv4Var.c = 7;
-                vv4Var.d = vv4.a(7);
-                return vv4Var;
+            String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
+            if (!TextUtils.isEmpty(valueOf)) {
+                str4 = str4 + "&play_from=" + valueOf;
             }
-            String b = ui.b(FileHelper.GetStreamFromTmpFile(str));
-            if (b == null) {
-                vv4Var.c = 5;
-                vv4Var.d = vv4.a(5);
+            byte[] downloadCommonBytes = webClient.downloadCommonBytes(str4);
+            if (!webClient.IsRequestSuccess()) {
+                uv4Var.c = 3;
+                uv4Var.d = gj.a(R.string.obfuscated_res_0x7f0f0c17);
+                return uv4Var;
+            } else if (downloadCommonBytes == null || downloadCommonBytes.length == 0) {
+                uv4Var.c = 4;
+                uv4Var.d = gj.a(R.string.obfuscated_res_0x7f0f1516);
+                return uv4Var;
             } else {
-                String filePath = FileHelper.getFilePath(b, 1, true);
-                if (FileHelper.renameTo(str, filePath)) {
-                    vv4Var.b = filePath;
-                    vv4Var.a = b;
+                if (str == null) {
+                    i3 = 5;
+                } else if (downloadCommonBytes == null || downloadCommonBytes.length == 0) {
+                    i3 = 6;
                 } else {
-                    vv4Var.c = 1;
-                    vv4Var.d = vv4.a(1);
+                    DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
+                    diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                    diskFileOperate.setSubFolder(false);
+                    diskFileOperate.setData(downloadCommonBytes);
+                    if (ggVar != null) {
+                        DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
+                        diskCancelWorker.setOperate(diskFileOperate);
+                        ggVar.a = diskCancelWorker;
+                    }
+                    diskFileOperate.call();
+                    if (diskFileOperate.isSuccess() && diskFileOperate.getFileInfo() != null) {
+                        str3 = diskFileOperate.getFileInfo().getAbsolutePath();
+                        i3 = 0;
+                    } else if (FileHelper.getAvailableSize() < downloadCommonBytes.length) {
+                        i3 = 2;
+                    }
                 }
+                if (i3 == 0) {
+                    uv4Var.b = str3;
+                    uv4Var.a = str;
+                } else {
+                    uv4Var.c = i3;
+                    uv4Var.d = uv4.a(i3);
+                }
+                return uv4Var;
             }
-            return vv4Var;
         }
-        return (vv4) invokeL.objValue;
+        return (uv4) invokeCommon.objValue;
+    }
+
+    @Override // com.repackage.jg
+    public BdAsyncTaskParallel getAsyncTaskParallel() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (BdAsyncTaskParallel) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jg
+    public int getAsyncTaskPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.jg
+    public boolean isNeedLoad() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.jg
+    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {
+        }
     }
 }

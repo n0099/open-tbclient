@@ -22,9 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.es6;
-import com.repackage.g98;
+import com.repackage.gs6;
 import com.repackage.mg;
+import com.repackage.n98;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -173,7 +173,7 @@ public class ImagePagerAdapter extends PagerAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
             String str = i < this.c.size() ? this.c.get(i) : null;
-            if (StringUtils.isNull(str) || g98.l(str) || es6.d(str)) {
+            if (StringUtils.isNull(str) || n98.l(str) || gs6.d(str)) {
                 return null;
             }
             UrlDragImageView urlDragImageView = new UrlDragImageView(this.a);
@@ -204,8 +204,8 @@ public class ImagePagerAdapter extends PagerAdapter {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
             if (this.n && i == getCount() - 1 && i != 0) {
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d015c, (ViewGroup) null);
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e67)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fa5)).setText(this.o);
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e68)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fa6)).setText(this.o);
                 viewGroup.addView(inflate);
                 inflate.setOnClickListener(this.d);
                 return inflate;

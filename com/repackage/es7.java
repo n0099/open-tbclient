@@ -8,13 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import tbclient.Item;
+/* loaded from: classes6.dex */
 public class es7 implements uo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
+    public Item a;
+    public String b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,18 +33,22 @@ public class es7 implements uo {
         c = BdUniqueId.gen();
     }
 
-    public es7() {
+    public es7(Item item) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {item};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = item;
     }
 
     @Override // com.repackage.uo

@@ -28,14 +28,14 @@ public final class xw extends vu<ur> {
 
         /* renamed from: com.repackage.xw$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static final class C0554a implements yw.a {
+        public static final class C0555a implements yw.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ TaskToastViewData b;
             public final /* synthetic */ a c;
 
-            public C0554a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
+            public C0555a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -159,7 +159,7 @@ public final class xw extends vu<ur> {
             }
             String backBtnSchema = taskToastViewData.getBackBtnSchema();
             if (backBtnSchema != null) {
-                this.a.a.c(new C0554a(backBtnSchema, taskToastViewData, this, taskToastViewData));
+                this.a.a.c(new C0555a(backBtnSchema, taskToastViewData, this, taskToastViewData));
             }
             String backBtnTxt = taskToastViewData.getBackBtnTxt();
             if (backBtnTxt != null) {

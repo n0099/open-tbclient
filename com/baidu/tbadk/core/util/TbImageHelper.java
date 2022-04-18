@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn4;
+import com.repackage.bn4;
 import com.repackage.lb;
 import com.repackage.mi;
 /* loaded from: classes3.dex */
@@ -150,7 +150,7 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             boolean z = true;
-            if (cn4.c().e() != 0 ? cn4.c().e() != 1 : !this.mIsWifiCache) {
+            if (bn4.c().e() != 0 ? bn4.c().e() != 1 : !this.mIsWifiCache) {
                 z = false;
             }
             setShowBigImage(z);
@@ -166,7 +166,7 @@ public class TbImageHelper {
     public void updatePostImageSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int d = cn4.c().d();
+            int d = bn4.c().d();
             int i = 1300;
             if (d != 0) {
                 if (d != 1) {
@@ -184,11 +184,11 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             String valueOf = String.valueOf(45);
-            if (cn4.c().e() == 0) {
+            if (bn4.c().e() == 0) {
                 if (getIsWifi()) {
                     valueOf = String.valueOf(80);
                 }
-            } else if (cn4.c().e() == 1) {
+            } else if (bn4.c().e() == 1) {
                 valueOf = String.valueOf(80);
             }
             this.mUrlQuality = valueOf;

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tm4;
+import com.repackage.sm4;
 import com.repackage.wa;
 /* loaded from: classes2.dex */
 public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
@@ -51,10 +51,10 @@ public class KuangAPKActivityPageContext<T> implements TbPageContext<T> {
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public tm4 getLayoutMode() {
+    public sm4 getLayoutMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orginal.getLayoutMode() : (tm4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orginal.getLayoutMode() : (sm4) invokeV.objValue;
     }
 
     /* JADX WARN: Type inference failed for: r0v2, types: [T, com.baidu.tbadk.BaseActivity<T>] */

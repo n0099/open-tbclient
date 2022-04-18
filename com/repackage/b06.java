@@ -1,119 +1,233 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.danmu.cache.CacheManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
 import kotlin.Unit;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class b06 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a f;
+    public static final b06 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final Set<zz5> b;
+    public final c06 a;
+    public boolean b;
     public int c;
+    public CacheManager d;
+    public int e;
 
-    public b06(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final b06 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b06.g : (b06) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755880759, "Lcom/repackage/b06;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755880759, "Lcom/repackage/b06;");
                 return;
             }
         }
-        this.a = i;
-        this.b = new LinkedHashSet();
+        f = new a(null);
+        g = new b06();
     }
 
-    public final zz5 a(int i, int i2) {
-        InterceptResult invokeII;
-        zz5 zz5Var;
-        Object obj;
-        boolean z;
+    public b06() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            synchronized (this) {
-                Iterator<T> it = this.b.iterator();
-                while (true) {
-                    zz5Var = null;
-                    if (!it.hasNext()) {
-                        obj = null;
-                        break;
-                    }
-                    obj = it.next();
-                    zz5 zz5Var2 = (zz5) obj;
-                    if (zz5Var2.l() < i || zz5Var2.j() < i2 || zz5Var2.l() - i >= 5 || zz5Var2.j() - i2 >= 5) {
-                        z = false;
-                        continue;
-                    } else {
-                        z = true;
-                        continue;
-                    }
-                    if (z) {
-                        break;
-                    }
-                }
-                zz5 zz5Var3 = (zz5) obj;
-                if (zz5Var3 != null) {
-                    this.b.remove(zz5Var3);
-                    this.c -= zz5Var3.k();
-                    zz5Var = zz5Var3;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return zz5Var;
         }
-        return (zz5) invokeII.objValue;
+        this.a = new c06();
     }
 
-    public final void b() {
+    public final b06 b(int i, int i2, int i3, boolean z, int i4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)})) == null) {
+            synchronized (this) {
+                this.a.a(i, i2, i3, z, i4);
+                this.e = h(this.a.c());
+            }
+            return this;
+        }
+        return (b06) invokeCommon.objValue;
+    }
+
+    public final void d() {
+        CacheManager i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                for (zz5 zz5Var : this.b) {
-                    zz5Var.e();
+                int i2 = this.c - 1;
+                this.c = i2;
+                if (i2 <= 0 && this.b && (i = i()) != null) {
+                    i.l(this);
                 }
-                this.b.clear();
-                this.c = 0;
                 Unit unit = Unit.INSTANCE;
             }
         }
     }
 
-    public final boolean c(zz5 zz5Var) {
-        InterceptResult invokeL;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zz5Var)) == null) {
-            if ((zz5Var == null ? null : zz5Var.g()) == null) {
-                return true;
-            }
-            if (this.b.contains(zz5Var)) {
-                return false;
-            }
-            if (zz5Var.k() + this.c > this.a) {
-                BdLog.v("DrawingCache [Release][+] OOM Pool");
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.b.add(zz5Var);
-                zz5Var.f();
-                this.c += zz5Var.k();
+                if (this.c <= 0) {
+                    n();
+                } else {
+                    this.b = true;
+                }
                 Unit unit = Unit.INSTANCE;
             }
-            return true;
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                this.a.b();
+                Unit unit = Unit.INSTANCE;
+            }
+        }
+    }
+
+    public final c06 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            c06 c06Var = this.a;
+            if ((Intrinsics.areEqual(c06Var.c(), n16.b()) || c06Var.c().isRecycled()) ? false : true) {
+                return c06Var;
+            }
+            return null;
+        }
+        return (c06) invokeV.objValue;
+    }
+
+    @SuppressLint({"ObsoleteSdkInt"})
+    public final int h(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bitmap)) == null) {
+            if (bitmap == null) {
+                return 0;
+            }
+            if (Build.VERSION.SDK_INT >= 19) {
+                return bitmap.getAllocationByteCount();
+            }
+            return bitmap.getRowBytes() * bitmap.getHeight();
+        }
+        return invokeL.intValue;
+    }
+
+    public final CacheManager i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (CacheManager) invokeV.objValue;
+    }
+
+    public final int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.e() : invokeV.intValue;
+    }
+
+    public final int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public final int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.f() : invokeV.intValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            synchronized (this) {
+                this.c++;
+            }
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            synchronized (this) {
+                if (!Intrinsics.areEqual(Thread.currentThread().getName(), "AkDanmaku-Cache")) {
+                    BdLog.e(Intrinsics.stringPlus("DanmakuEngineDrawingCache recycle called must on cache thread but now on ", Thread.currentThread().getName()));
+                }
+                if (this.c > 0) {
+                    return;
+                }
+                this.b = false;
+                this.a.g();
+                this.e = 0;
+                Unit unit = Unit.INSTANCE;
+            }
+        }
+    }
+
+    public final void o(CacheManager cacheManager) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, cacheManager) == null) {
+            this.d = cacheManager;
+        }
     }
 }

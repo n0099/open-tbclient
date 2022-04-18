@@ -368,7 +368,7 @@ public class UbsABTestHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) ? isABTestByKeys(LaunchUpABTest.ABTEST_GROUP_KEY, LaunchUpABTest.TYPE_A) : invokeV.booleanValue;
     }
 
-    @Modify(description = "12.23版本 点赞互动优化实验")
+    @Modify(description = "12.23.5版本 点赞互动优化实验")
     public static boolean isLikeModifyTestA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

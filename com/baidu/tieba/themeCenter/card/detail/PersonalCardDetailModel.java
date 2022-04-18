@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aq8;
-import com.repackage.dk8;
+import com.repackage.hq8;
+import com.repackage.kk8;
 import com.repackage.wa;
 /* loaded from: classes4.dex */
 public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aq8 a;
+    public hq8 a;
     public b b;
     public wa c;
 
@@ -72,7 +72,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, aq8 aq8Var);
+        void a(int i, String str, hq8 hq8Var);
     }
 
     public PersonalCardDetailModel() {
@@ -89,8 +89,8 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             }
         }
         this.c = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
-        dk8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
-        dk8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
+        kk8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
+        kk8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
         registerListener(this.c);
     }
 

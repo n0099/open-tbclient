@@ -164,7 +164,7 @@ public class ImMessageCenterDelegateStatic extends m45 {
             n45 n45Var = new n45();
             n45Var.a = new MessageCenterFragment();
             n45Var.e = 3;
-            n45Var.b = R.string.obfuscated_res_0x7f0f0b33;
+            n45Var.b = R.string.obfuscated_res_0x7f0f0b32;
             n45Var.f = R.raw.lottie_tab_msg;
             n45Var.i = n45.m;
             n45Var.h = t45.d().c("message");

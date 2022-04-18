@@ -21,7 +21,7 @@ public interface y45 {
 
     y45 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
 
-    void b(int i, qp4 qp4Var, long j);
+    void b(int i, pp4 pp4Var, long j);
 
     void c(@Nullable a aVar);
 }

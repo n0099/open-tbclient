@@ -1,37 +1,5 @@
 package com.repackage;
-
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
-/* loaded from: classes6.dex */
-public class q49 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static void a(b59 b59Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, b59Var) == null) || b59Var == null || b59Var.y()) {
-            return;
-        }
-        JSONArray n = b59Var.n();
-        int length = n.length();
-        boolean B = b59Var.B();
-        for (int i = 0; i < length; i++) {
-            try {
-                if (B != w39.o().e(n.getJSONObject(i).getString("id"))) {
-                    Log.w("UBCDebug", " data is " + B + "  content " + b59Var.u().toString());
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-        }
-    }
+/* loaded from: classes7.dex */
+public interface q49 {
+    void a(boolean z, k49 k49Var);
 }

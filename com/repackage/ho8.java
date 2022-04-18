@@ -1,7 +1,5 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconRequest;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,8 +10,6 @@ public class ho8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final pn8 b;
-    public final Runnable c;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
@@ -43,25 +39,17 @@ public class ho8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                VideoRedIconRequest videoRedIconRequest = new VideoRedIconRequest();
-                if (this.a.b != null && this.a.b.z() != null && this.a.b.z().getCurrentTabType() == 22) {
-                    videoRedIconRequest.setCallFrom("video_tab");
-                }
-                this.a.a.sendMessage(videoRedIconRequest);
-                int videoRedIconInterval = TbSingleton.getInstance().getVideoRedIconInterval();
-                if (videoRedIconInterval > 5) {
-                    pg.a().postDelayed(this.a.c, videoRedIconInterval * 1000);
-                }
+                qb7.k(this.a.a).C(this.a.a.mCurrentTabIndex.intValue(), 0);
             }
         }
     }
 
-    public ho8(MainTabActivity mainTabActivity, pn8 pn8Var) {
+    public ho8(MainTabActivity mainTabActivity, wn8 wn8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pn8Var};
+            Object[] objArr = {mainTabActivity, wn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -71,15 +59,13 @@ public class ho8 {
                 return;
             }
         }
-        this.c = new a(this);
         this.a = mainTabActivity;
-        this.b = pn8Var;
     }
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            pg.a().removeCallbacks(this.c);
+            pg.a().postDelayed(new a(this), 700L);
         }
     }
 }

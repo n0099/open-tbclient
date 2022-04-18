@@ -250,7 +250,7 @@ public class oz1 extends pz1 implements AdapterView.OnItemClickListener {
                     view2 = View.inflate(this.a.getContext(), R.layout.obfuscated_res_0x7f0d00d7, null);
                     g gVar = new g(this.a);
                     gVar.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09060f);
-                    gVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092012);
+                    gVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092013);
                     view2.setTag(gVar);
                 }
                 g gVar2 = (g) view2.getTag();
@@ -521,16 +521,16 @@ public class oz1 extends pz1 implements AdapterView.OnItemClickListener {
             return;
         }
         boolean isEmpty = this.G0.isEmpty();
-        TextView textView = (TextView) S.findViewById(R.id.obfuscated_res_0x7f09200d);
+        TextView textView = (TextView) S.findViewById(R.id.obfuscated_res_0x7f09200e);
         textView.setVisibility(isEmpty ? 8 : 0);
         if (!isEmpty) {
             textView.setText(I(R.string.obfuscated_res_0x7f0f01bd, c3().Y()));
         }
-        View findViewById = S.findViewById(R.id.obfuscated_res_0x7f090e24);
+        View findViewById = S.findViewById(R.id.obfuscated_res_0x7f090e25);
         if (findViewById != null) {
             findViewById.setVisibility(isEmpty ? 0 : 8);
         }
-        TextView textView2 = (TextView) S.findViewById(R.id.obfuscated_res_0x7f0908c2);
+        TextView textView2 = (TextView) S.findViewById(R.id.obfuscated_res_0x7f0908c3);
         if (isEmpty) {
             textView2.setText(I(R.string.obfuscated_res_0x7f0f01b8, c3().Y()));
         }

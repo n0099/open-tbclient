@@ -137,7 +137,7 @@ public class pe2 extends BaseAdapter {
                 } else {
                     inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00bc, null);
                     c cVar3 = new c(null);
-                    cVar3.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090fff);
+                    cVar3.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091000);
                     cVar2 = cVar3;
                     if (i == 9) {
                         if (TextUtils.isEmpty(this.b[9])) {

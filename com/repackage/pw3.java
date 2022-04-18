@@ -49,7 +49,7 @@ public class pw3 implements DebugConsole {
     @Override // com.baidu.searchbox.v8engine.console.DebugConsole
     public void onReceiveInfo(int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && b && !g14.d()) {
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && b && !f14.d()) {
             if (i == 0) {
                 Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
             } else if (i == 1) {

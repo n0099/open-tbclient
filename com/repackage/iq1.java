@@ -44,12 +44,12 @@ public class iq1 extends gq1 {
 
         /* renamed from: com.repackage.iq1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0443a implements cf3<m53<JSONObject>> {
+        public class C0449a implements cf3<m53<JSONObject>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ lo1.b a;
 
-            public C0443a(a aVar, lo1.b bVar) {
+            public C0449a(a aVar, lo1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class iq1 extends gq1 {
                 jx1.i("SettingApi", "getSwanId start");
                 if (SwanAppNetworkUtils.i(this.e.getContext())) {
                     r53 e = i03.J().y().a().b().e(this.e.getContext());
-                    e.o(new C0443a(this, bVar));
+                    e.o(new C0449a(this, bVar));
                     e.call();
                     return new js1(0);
                 }
@@ -560,7 +560,7 @@ public class iq1 extends gq1 {
                 }
                 String string5 = P.getString(UBCCloudControlProcessor.UBC_KEY);
                 if (!TextUtils.isEmpty(string5)) {
-                    jSONObject.put("rootSource", mg4.a(new JSONObject(string5), "pre_source", T));
+                    jSONObject.put("rootSource", lg4.a(new JSONObject(string5), "pre_source", T));
                 }
                 SwanAppActivity activity = wl2.U().getActivity();
                 String showBy = activity != null ? activity.getShowBy() : "sys";

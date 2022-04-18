@@ -39,13 +39,13 @@ public class lz2 extends nz2 {
 
         /* renamed from: com.repackage.lz2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class DialogInterface$OnKeyListenerC0465a implements DialogInterface.OnKeyListener {
+        public class DialogInterface$OnKeyListenerC0464a implements DialogInterface.OnKeyListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public DialogInterface$OnKeyListenerC0465a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public DialogInterface$OnKeyListenerC0464a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -250,11 +250,11 @@ public class lz2 extends nz2 {
             this.j = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902dc);
             this.h = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902dd);
             this.i = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902de);
-            this.k = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091002);
-            this.l = (CheckBox) viewGroup.findViewById(R.id.obfuscated_res_0x7f090dfd);
-            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090dff);
-            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090dfe);
-            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08116d), (Drawable) null, (Drawable) null, (Drawable) null);
+            this.k = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091003);
+            this.l = (CheckBox) viewGroup.findViewById(R.id.obfuscated_res_0x7f090dfe);
+            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090e00);
+            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090dff);
+            this.l.setCompoundDrawablesWithIntrinsicBounds(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081171), (Drawable) null, (Drawable) null, (Drawable) null);
             this.k.setVisibility(8);
             this.j.setVisibility(0);
             this.l.setVisibility(0);
@@ -325,7 +325,7 @@ public class lz2 extends nz2 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, onClickListener)) == null) {
-                super.M(new DialogInterface$OnKeyListenerC0465a(this, onClickListener));
+                super.M(new DialogInterface$OnKeyListenerC0464a(this, onClickListener));
                 return this;
             }
             return (a) invokeL.objValue;

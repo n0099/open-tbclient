@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ab1;
 import com.repackage.ll5;
 import com.repackage.rl5;
+import com.repackage.sl4;
 import com.repackage.tl4;
-import com.repackage.ul4;
 import com.repackage.wk5;
 import com.repackage.yk5;
 import org.json.JSONObject;
@@ -29,7 +29,7 @@ public class AdvertSDKStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<ul4> {
+    public static class a implements CustomMessageTask.CustomRunnable<tl4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,7 +48,7 @@ public class AdvertSDKStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ul4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<tl4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -95,7 +95,7 @@ public class AdvertSDKStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements CustomMessageTask.CustomRunnable<ul4> {
+    public static class c implements CustomMessageTask.CustomRunnable<tl4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -114,7 +114,7 @@ public class AdvertSDKStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ul4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<tl4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -231,7 +231,7 @@ public class AdvertSDKStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class g implements CustomMessageTask.CustomRunnable<ul4> {
+    public static class g implements CustomMessageTask.CustomRunnable<tl4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -250,7 +250,7 @@ public class AdvertSDKStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ul4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<tl4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
@@ -264,12 +264,12 @@ public class AdvertSDKStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class h implements CustomMessageTask.CustomRunnable<tl4> {
+    public static class h implements CustomMessageTask.CustomRunnable<sl4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* loaded from: classes3.dex */
-        public class a implements tl4 {
+        public class a implements sl4 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -289,14 +289,14 @@ public class AdvertSDKStatic {
                 }
             }
 
-            @Override // com.repackage.tl4
+            @Override // com.repackage.sl4
             public float a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ab1.h() : invokeV.floatValue;
             }
 
-            @Override // com.repackage.tl4
+            @Override // com.repackage.sl4
             public int b() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -319,7 +319,7 @@ public class AdvertSDKStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<tl4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<sl4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921564, new a(this)) : (CustomResponsedMessage) invokeL.objValue;
@@ -327,7 +327,7 @@ public class AdvertSDKStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class i implements CustomMessageTask.CustomRunnable<ul4> {
+    public static class i implements CustomMessageTask.CustomRunnable<tl4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -346,7 +346,7 @@ public class AdvertSDKStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<ul4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<tl4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {

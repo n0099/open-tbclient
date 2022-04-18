@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q83 extends r83 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean g;
@@ -197,7 +197,7 @@ public class q83 extends r83 {
         return (SharedPreferences.Editor) invokeLL.objValue;
     }
 
-    @Override // com.repackage.w83, com.repackage.lg4, android.content.SharedPreferences
+    @Override // com.repackage.w83, com.repackage.kg4, android.content.SharedPreferences
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
@@ -224,7 +224,7 @@ public class q83 extends r83 {
         return (SharedPreferences.Editor) invokeL.objValue;
     }
 
-    @Override // com.repackage.w83, com.repackage.lg4, android.content.SharedPreferences
+    @Override // com.repackage.w83, com.repackage.kg4, android.content.SharedPreferences
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, onSharedPreferenceChangeListener) == null) {

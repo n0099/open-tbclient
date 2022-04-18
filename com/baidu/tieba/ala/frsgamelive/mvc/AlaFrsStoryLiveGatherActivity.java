@@ -33,11 +33,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.du4;
-import com.repackage.ks5;
+import com.repackage.cu4;
 import com.repackage.ms5;
 import com.repackage.oi;
-import com.repackage.qn5;
+import com.repackage.os5;
+import com.repackage.sn5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveGatherActivity> {
@@ -45,16 +45,16 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     public transient /* synthetic */ FieldHolder $fh;
     public String forumId;
     public String forumName;
-    public ms5 frsLiveViewEvent;
-    public du4.g listPullRefreshListener;
+    public os5 frsLiveViewEvent;
+    public cu4.g listPullRefreshListener;
     public AlaFrsStoryLiveGatherModel liveModel;
     public TextView mAllBtn;
-    public ks5 mLiveView;
+    public ms5 mLiveView;
     public NavigationBar mNavigationBar;
     public View mStatusBarView;
     public AlaFrsStoryLiveGatherModel.b modelCallback;
     public BdListView.p scrollToBottomListener;
-    public qn5 subCardClickListener;
+    public sn5 subCardClickListener;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -162,7 +162,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity2 = this.a;
                 alaFrsStoryLiveGatherActivity2.setNetRefreshViewTopMargin(alaFrsStoryLiveGatherActivity2.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070256));
                 AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity3 = this.a;
-                alaFrsStoryLiveGatherActivity3.showNetRefreshView(alaFrsStoryLiveGatherActivity3.mLiveView.g(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c30), false);
+                alaFrsStoryLiveGatherActivity3.showNetRefreshView(alaFrsStoryLiveGatherActivity3.mLiveView.g(), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2f), false);
                 return;
             }
             AlaFrsStoryLiveGatherActivity alaFrsStoryLiveGatherActivity4 = this.a;
@@ -191,7 +191,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class d implements qn5 {
+    public class d implements sn5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -214,7 +214,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.repackage.qn5
+        @Override // com.repackage.sn5
         public void a(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
@@ -225,7 +225,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class e implements du4.g {
+    public class e implements cu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -248,7 +248,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.repackage.du4.g
+        @Override // com.repackage.cu4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.liveModel == null) {
@@ -299,7 +299,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
     }
 
     /* loaded from: classes3.dex */
-    public class g implements ms5 {
+    public class g implements os5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaFrsStoryLiveGatherActivity a;
@@ -322,7 +322,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.a = alaFrsStoryLiveGatherActivity;
         }
 
-        @Override // com.repackage.ms5
+        @Override // com.repackage.os5
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.liveModel == null || this.a.liveModel.P() == i) {
@@ -393,9 +393,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             this.mNavigationBar.setCenterTextTitle(string);
             linearLayout.addView(this.mNavigationBar, new LinearLayout.LayoutParams(-1, -2));
             SkinManager.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.CAM_X0204);
-            ks5 ks5Var = new ks5(getPageContext(), false, false, getUniqueId());
-            this.mLiveView = ks5Var;
-            ks5Var.j();
+            ms5 ms5Var = new ms5(getPageContext(), false, false, getUniqueId());
+            this.mLiveView = ms5Var;
+            ms5Var.j();
             this.mLiveView.p(1);
             this.mLiveView.q(this.subCardClickListener);
             this.mLiveView.s(this.listPullRefreshListener);
@@ -465,9 +465,9 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
             }
-            ks5 ks5Var = this.mLiveView;
-            if (ks5Var != null) {
-                ks5Var.l(TbadkCoreApplication.getInst().getSkinType());
+            ms5 ms5Var = this.mLiveView;
+            if (ms5Var != null) {
+                ms5Var.l(TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

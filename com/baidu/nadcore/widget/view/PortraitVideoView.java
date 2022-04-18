@@ -251,7 +251,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         if (interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) {
             this.j.setVisibility(0);
             this.j.setData(adBaseModel);
-            this.j.setTag(R.id.obfuscated_res_0x7f0914cb, adBaseModel);
+            this.j.setTag(R.id.obfuscated_res_0x7f0914cc, adBaseModel);
         }
     }
 
@@ -297,7 +297,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0914df || view2.getId() == R.id.obfuscated_res_0x7f092334) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0914e0 || view2.getId() == R.id.obfuscated_res_0x7f092335) {
                 Log.d("PortraitVideoView", "onclick area： cover");
                 if (this.i.isPlaying()) {
                     this.i.pause();
@@ -355,13 +355,13 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     public void z(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
-            NadVideoAdOverContainer nadVideoAdOverContainer = (NadVideoAdOverContainer) findViewById(R.id.obfuscated_res_0x7f0914df);
+            NadVideoAdOverContainer nadVideoAdOverContainer = (NadVideoAdOverContainer) findViewById(R.id.obfuscated_res_0x7f0914e0);
             this.j = nadVideoAdOverContainer;
             nadVideoAdOverContainer.setOnClickListener(this);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092334);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092335);
             this.k = imageView;
             imageView.setOnClickListener(this);
-            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914cc);
+            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914cd);
         }
     }
 

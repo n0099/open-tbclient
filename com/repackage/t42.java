@@ -203,7 +203,7 @@ public class t42 implements m42, s42 {
                         z = true;
                     }
                 }
-                ng4.d(fileInputStream);
+                mg4.d(fileInputStream);
                 return z;
             } catch (IOException e2) {
                 e = e2;
@@ -211,12 +211,12 @@ public class t42 implements m42, s42 {
                 if (s42.a) {
                     Log.e("HybridIntercept", Log.getStackTraceString(e));
                 }
-                ng4.d(fileInputStream2);
+                mg4.d(fileInputStream2);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 fileInputStream2 = fileInputStream;
-                ng4.d(fileInputStream2);
+                mg4.d(fileInputStream2);
                 throw th;
             }
         }

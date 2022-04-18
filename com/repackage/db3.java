@@ -220,13 +220,13 @@ public abstract class db3 implements eb3, fb3 {
 
         /* renamed from: com.repackage.db3$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0402c implements Runnable {
+        public class RunnableC0403c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ cf3 a;
             public final /* synthetic */ c b;
 
-            public RunnableC0402c(c cVar, cf3 cf3Var) {
+            public RunnableC0403c(c cVar, cf3 cf3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -327,7 +327,7 @@ public abstract class db3 implements eb3, fb3 {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cf3Var) == null) || cf3Var == null) {
                 return;
             }
-            dd3.k(new RunnableC0402c(this, cf3Var), "wifiScan");
+            dd3.k(new RunnableC0403c(this, cf3Var), "wifiScan");
         }
 
         @Override // com.repackage.fb3

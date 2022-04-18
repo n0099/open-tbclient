@@ -1,8 +1,24 @@
 package com.repackage;
 
-import com.baidu.tieba.external.music.data.MusicData;
-import java.util.List;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.repackage.l86;
 /* loaded from: classes6.dex */
 public interface m86 {
-    void setMusicData(List<MusicData> list);
+    boolean a(QmFilterItem qmFilterItem);
+
+    QmFilterItem b();
+
+    void c(QmFilterItem qmFilterItem);
+
+    void d(l86.b bVar);
+
+    void e();
+
+    String f(String str);
+
+    void g();
+
+    void h();
+
+    void reset();
 }

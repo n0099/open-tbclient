@@ -18,8 +18,8 @@ import com.repackage.iq;
 import com.repackage.kq;
 import com.repackage.lq;
 import com.repackage.mq;
-import com.repackage.nm8;
 import com.repackage.u05;
+import com.repackage.um8;
 /* loaded from: classes.dex */
 public class RecorderManagerStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -45,7 +45,7 @@ public class RecorderManagerStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<nm8> run(CustomMessage<Activity> customMessage) {
+        public CustomResponsedMessage<um8> run(CustomMessage<Activity> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001271, iq.m()) : (CustomResponsedMessage) invokeL.objValue;

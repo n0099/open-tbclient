@@ -1,34 +1,41 @@
 package com.repackage;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.channels.FileChannel;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ee9;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
-import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
+import java.util.LinkedList;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ge9 {
+public class ge9 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
+    public static ge9 c;
+    public static ReentrantLock d;
     public transient /* synthetic */ FieldHolder $fh;
+    public ReentrantReadWriteLock a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,627 +50,448 @@ public class ge9 {
                 return;
             }
         }
-        a = AppConfig.isDebug();
+        b = AppConfig.isDebug();
+        c = null;
+        d = new ReentrantLock();
     }
 
-    public static boolean a(File file, File file2) {
-        FileChannel fileChannel;
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ge9(Context context) {
+        super(context, "voyager.db", (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, file, file2)) != null) {
-            return invokeLL.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        try {
-            if (!file2.getParentFile().exists()) {
-                file2.getParentFile().mkdirs();
+        this.a = new ReentrantReadWriteLock(true);
+    }
+
+    public static ge9 f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (c == null) {
+                d.lock();
+                if (c == null) {
+                    c = new ge9(context);
+                }
+                d.unlock();
             }
-            if (!file2.exists()) {
-                file2.createNewFile();
-            }
-            FileChannel fileChannel2 = null;
+            return c;
+        }
+        return (ge9) invokeL.objValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            this.a.writeLock().lock();
             try {
-                FileChannel channel = new FileInputStream(file).getChannel();
                 try {
-                    fileChannel2 = new FileOutputStream(file2).getChannel();
-                    fileChannel2.transferFrom(channel, 0L, channel.size());
-                    if (channel != null) {
-                        channel.close();
-                    }
-                    if (fileChannel2 != null) {
-                        fileChannel2.close();
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        long delete = writableDatabase.delete("task", null, null);
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "clear task data from table task, count = " + delete);
+                        }
+                        writableDatabase.setTransactionSuccessful();
                         return true;
+                    } finally {
+                        writableDatabase.endTransaction();
                     }
-                    return true;
-                } catch (Throwable th) {
-                    th = th;
-                    FileChannel fileChannel3 = fileChannel2;
-                    fileChannel2 = channel;
-                    fileChannel = fileChannel3;
-                    if (fileChannel2 != null) {
-                        fileChannel2.close();
+                } catch (SQLException e) {
+                    if (b) {
+                        e.printStackTrace();
                     }
-                    if (fileChannel != null) {
-                        fileChannel.close();
-                    }
-                    throw th;
+                    this.a.writeLock().unlock();
+                    return false;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                fileChannel = null;
-            }
-        } catch (IOException e) {
-            if (a) {
-                e.printStackTrace();
-                return false;
-            }
-            return false;
-        }
-    }
-
-    public static void b(File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, file) == null) && file != null && file.exists() && file.isDirectory()) {
-            File[] listFiles = file.listFiles();
-            if (listFiles != null && listFiles.length > 0) {
-                for (File file2 : listFiles) {
-                    if (file2.isFile()) {
-                        file2.delete();
-                    } else if (file2.isDirectory()) {
-                        b(file2);
-                    }
-                }
-            }
-            file.delete();
-        }
-    }
-
-    public static void c(ArrayList<File> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, arrayList) == null) || arrayList == null || arrayList.size() == 0) {
-            return;
-        }
-        Iterator<File> it = arrayList.iterator();
-        while (it.hasNext()) {
-            it.next().delete();
-        }
-    }
-
-    public static void d(File file, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str) == null) || file == null || !file.exists() || TextUtils.isEmpty(str) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file2 = new File(file, str);
-        if (file2.exists() && file2.isFile()) {
-            file2.delete();
-        }
-    }
-
-    public static void e(File file, List<String> list) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, file, list) == null) || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
-            return;
-        }
-        for (File file2 : listFiles) {
-            if (file2.isFile()) {
-                list.add(file2.getAbsolutePath());
-            } else {
-                e(file2, list);
+            } finally {
+                this.a.writeLock().unlock();
             }
         }
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x004b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x004d */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00b6 */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x008c, code lost:
-        if (com.repackage.ge9.a == false) goto L48;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x008e, code lost:
-        r6.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x00b2, code lost:
-        if (com.repackage.ge9.a == false) goto L48;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x00b9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x00c1 A[Catch: IOException -> 0x00bd, TryCatch #12 {IOException -> 0x00bd, blocks: (B:81:0x00b9, B:85:0x00c1, B:87:0x00c6), top: B:102:0x00b9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x00c6 A[Catch: IOException -> 0x00bd, TRY_LEAVE, TryCatch #12 {IOException -> 0x00bd, blocks: (B:81:0x00b9, B:85:0x00c1, B:87:0x00c6), top: B:102:0x00b9 }] */
-    /* JADX WARN: Type inference failed for: r3v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r3v12 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v5 */
-    /* JADX WARN: Type inference failed for: r3v6, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r3v9 */
-    /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.Object, java.io.File] */
-    /* JADX WARN: Type inference failed for: r6v11, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r6v14 */
-    /* JADX WARN: Type inference failed for: r6v15 */
-    /* JADX WARN: Type inference failed for: r6v16, types: [java.io.BufferedInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v3 */
-    /* JADX WARN: Type inference failed for: r6v5 */
-    /* JADX WARN: Type inference failed for: r6v6, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r6v8, types: [java.io.BufferedInputStream] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x007e A[Catch: all -> 0x009b, SQLException -> 0x009d, Merged into TryCatch #2 {all -> 0x009b, SQLException -> 0x009d, blocks: (B:5:0x0010, B:16:0x007e, B:17:0x0081, B:25:0x0094, B:26:0x0097, B:27:0x009a, B:31:0x009e, B:33:0x00a2), top: B:45:0x0010 }, TRY_ENTER] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String f(File file) {
-        ?? r3;
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        BufferedReader bufferedReader;
+    public String c() {
+        InterceptResult invokeV;
+        Cursor cursor;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = (r3 = interceptable).invokeL(65542, null, file)) != null) {
-            return (String) invokeL.objValue;
+        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+            return (String) invokeV.objValue;
         }
-        if (file == 0 || !file.exists()) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
+        this.a.writeLock().lock();
         try {
+            SQLiteDatabase writableDatabase = getWritableDatabase();
+            writableDatabase.beginTransactionNonExclusive();
             try {
-                fileInputStream = new FileInputStream((File) file);
-            } catch (Throwable th) {
-                th = th;
+                cursor = writableDatabase.rawQuery("SELECT * FROM task ORDER BY timestamp LIMIT 1", null);
+                if (cursor != null) {
+                    try {
+                        if (cursor.getCount() > 0) {
+                            cursor.moveToFirst();
+                            string = cursor.getString(cursor.getColumnIndex("task_id"));
+                            long delete = writableDatabase.delete("task", "task_id =? ", new String[]{string});
+                            if (b) {
+                                Log.d("VoyagerDBHelper", "delete task data count: " + delete);
+                            }
+                            writableDatabase.setTransactionSuccessful();
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            writableDatabase.endTransaction();
+                            return string;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        writableDatabase.endTransaction();
+                        throw th;
+                    }
+                }
+                string = null;
+                writableDatabase.setTransactionSuccessful();
+                if (cursor != null) {
+                }
+                writableDatabase.endTransaction();
+                return string;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
             }
-        } catch (FileNotFoundException e) {
-            e = e;
-            file = 0;
-            fileInputStream = null;
-            bufferedReader = null;
-        } catch (IOException e2) {
-            e = e2;
-            file = 0;
-            fileInputStream = null;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream = null;
-            r3 = 0;
+        } catch (SQLException e) {
+            if (b) {
+                e.printStackTrace();
+            }
+            return null;
+        } finally {
+            this.a.writeLock().unlock();
         }
-        try {
-            file = new BufferedInputStream(fileInputStream);
+    }
+
+    public final ContentValues d(ee9 ee9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ee9Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("task_id", ee9Var.j());
+            contentValues.put("timestamp", Long.valueOf(ee9Var.i()));
+            contentValues.put("biz_type", ee9Var.a());
+            contentValues.put("file_list", ee9Var.g().toString());
+            if (!ee9Var.l()) {
+                contentValues.put("zip_src", (Integer) 0);
+            } else {
+                contentValues.put("zip_src", (Integer) 1);
+            }
+            contentValues.put("priority", Integer.valueOf(ee9Var.h()));
+            contentValues.put("upload_count", Integer.valueOf(ee9Var.k()));
+            contentValues.put("network_type", Integer.valueOf(ee9Var.f()));
+            JSONObject jSONObject = new JSONObject();
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader((InputStream) file, "UTF-8"));
-                while (true) {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine);
-                    } catch (FileNotFoundException e3) {
-                        e = e3;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e4) {
-                                e = e4;
-                            }
-                        }
-                        if (file != 0) {
-                            file.close();
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                        }
-                        return null;
-                    } catch (IOException e5) {
-                        e = e5;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e6) {
-                                e = e6;
-                            }
-                        }
-                        if (file != 0) {
-                            file.close();
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                        }
-                        return null;
-                    }
+                JSONObject b2 = ee9Var.b();
+                if (b2 != null) {
+                    jSONObject.put("ext_info", b2);
                 }
-                String sb2 = sb.toString();
-                try {
-                    bufferedReader.close();
-                    file.close();
-                    fileInputStream.close();
-                } catch (IOException e7) {
-                    if (a) {
-                        e7.printStackTrace();
-                    }
+                JSONObject c2 = ee9Var.c();
+                if (c2 != null) {
+                    jSONObject.put("file_meta", c2);
                 }
-                return sb2;
-            } catch (FileNotFoundException e8) {
-                e = e8;
-                bufferedReader = null;
-            } catch (IOException e9) {
-                e = e9;
-                bufferedReader = null;
-            } catch (Throwable th3) {
-                r3 = 0;
-                th = th3;
-                if (r3 != 0) {
+                jSONObject.put("max_zip_size", ee9Var.e());
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+            if (jSONObject.length() > 0) {
+                contentValues.put("extend", jSONObject.toString());
+            }
+            return contentValues;
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    public final String e(ArrayList<String> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
+            StringBuilder sb = new StringBuilder();
+            Iterator<String> it = arrayList.iterator();
+            int i = 0;
+            while (it.hasNext()) {
+                String next = it.next();
+                if (i > 0) {
+                    sb.append(",");
+                }
+                sb.append(next);
+                i++;
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:47:0x0140 A[LOOP:0: B:12:0x003a->B:47:0x0140, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x014c A[Catch: all -> 0x0185, SQLException -> 0x0187, TRY_ENTER, TryCatch #0 {SQLException -> 0x0187, blocks: (B:5:0x0011, B:52:0x014c, B:53:0x014f, B:57:0x015f, B:60:0x0181, B:61:0x0184), top: B:75:0x0011, outer: #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0155 A[DONT_GENERATE] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x015f A[Catch: all -> 0x0185, SQLException -> 0x0187, TRY_ENTER, TryCatch #0 {SQLException -> 0x0187, blocks: (B:5:0x0011, B:52:0x014c, B:53:0x014f, B:57:0x015f, B:60:0x0181, B:61:0x0184), top: B:75:0x0011, outer: #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x014a A[EDGE_INSN: B:83:0x014a->B:51:0x014a ?: BREAK  , SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void g(@NonNull ArrayList<String> arrayList, @NonNull LinkedList<ee9> linkedList) {
+        SQLiteDatabase writableDatabase;
+        Cursor cursor;
+        long j;
+        ArrayList<String> arrayList2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLL(1048580, this, arrayList, linkedList) != null) {
+            return;
+        }
+        this.a.writeLock().lock();
+        try {
+            try {
+                writableDatabase = getWritableDatabase();
+                cursor = null;
+            } catch (SQLException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                Cursor rawQuery = writableDatabase.rawQuery("SELECT * FROM task", null);
+                if (rawQuery != null) {
                     try {
-                        r3.close();
-                    } catch (IOException e10) {
-                        if (a) {
-                            e10.printStackTrace();
+                        if (rawQuery.getCount() > 0) {
+                            rawQuery.moveToFirst();
+                            long currentTimeMillis = System.currentTimeMillis();
+                            while (true) {
+                                String string = rawQuery.getString(rawQuery.getColumnIndex("task_id"));
+                                String string2 = rawQuery.getString(rawQuery.getColumnIndex("biz_type"));
+                                long j2 = rawQuery.getLong(rawQuery.getColumnIndex("timestamp"));
+                                long b2 = ud9.f().b(string2);
+                                int i = rawQuery.getInt(rawQuery.getColumnIndex("upload_count"));
+                                int e2 = ud9.f().e(string2);
+                                if (b2 + j2 < currentTimeMillis) {
+                                    j = currentTimeMillis;
+                                    arrayList2 = arrayList;
+                                } else if (i >= e2) {
+                                    arrayList2 = arrayList;
+                                    j = currentTimeMillis;
+                                } else {
+                                    int i2 = rawQuery.getInt(rawQuery.getColumnIndex("priority"));
+                                    String string3 = rawQuery.getString(rawQuery.getColumnIndex("file_list"));
+                                    int i3 = rawQuery.getInt(rawQuery.getColumnIndex("network_type"));
+                                    j = currentTimeMillis;
+                                    ArrayList arrayList3 = new ArrayList(Arrays.asList(string3));
+                                    boolean z = rawQuery.getInt(rawQuery.getColumnIndex("zip_src")) != 0;
+                                    ee9.b bVar = new ee9.b(string, string2, arrayList3, j2);
+                                    bVar.o(i2);
+                                    bVar.n(i3);
+                                    bVar.p(z);
+                                    ee9 k = bVar.k();
+                                    k.s(i);
+                                    String string4 = rawQuery.getString(rawQuery.getColumnIndex("extend"));
+                                    if (!TextUtils.isEmpty(string4)) {
+                                        try {
+                                            JSONObject jSONObject = new JSONObject(string4);
+                                            if (jSONObject.length() > 0) {
+                                                JSONObject optJSONObject = jSONObject.optJSONObject("ext_info");
+                                                if (optJSONObject != null && optJSONObject.length() > 0) {
+                                                    k.m(optJSONObject);
+                                                }
+                                                JSONObject optJSONObject2 = jSONObject.optJSONObject("file_meta");
+                                                if (optJSONObject2 != null && optJSONObject2.length() > 0) {
+                                                    k.n(optJSONObject2);
+                                                }
+                                                long optLong = jSONObject.optLong("max_zip_size", 0L);
+                                                if (optLong > 0) {
+                                                    k.o(optLong);
+                                                }
+                                            }
+                                        } catch (JSONException e3) {
+                                            if (b) {
+                                                e3.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                    linkedList.addFirst(k);
+                                    if (rawQuery.moveToNext()) {
+                                        break;
+                                    }
+                                    currentTimeMillis = j;
+                                }
+                                arrayList2.add(string);
+                                if (rawQuery.moveToNext()) {
+                                }
+                            }
+                            if (rawQuery != null) {
+                                rawQuery.close();
+                            }
+                            if (arrayList.size() != 0) {
+                                return;
+                            }
+                            writableDatabase.delete("task", "task_id IN ( " + e(arrayList) + " )", null);
+                            return;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = rawQuery;
+                        if (cursor != null) {
+                            cursor.close();
                         }
                         throw th;
                     }
                 }
-                if (file != 0) {
-                    file.close();
+                if (rawQuery != null) {
                 }
-                if (fileInputStream != null) {
-                    fileInputStream.close();
-                }
-                throw th;
-            }
-        } catch (FileNotFoundException e11) {
-            e = e11;
-            file = 0;
-            bufferedReader = null;
-        } catch (IOException e12) {
-            e = e12;
-            file = 0;
-            bufferedReader = null;
-        } catch (Throwable th4) {
-            th = th4;
-            r3 = 0;
-            th = th;
-            file = r3;
-            if (r3 != 0) {
-            }
-            if (file != 0) {
-            }
-            if (fileInputStream != null) {
-            }
-            throw th;
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x004f, code lost:
-        if (com.repackage.ge9.a == false) goto L32;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x0051, code lost:
-        r4.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0066, code lost:
-        if (com.repackage.ge9.a == false) goto L32;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean g(String str, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, file)) == null) {
-            if (!TextUtils.isEmpty(str) && file.exists()) {
-                FileOutputStream fileOutputStream2 = null;
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file);
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                } catch (FileNotFoundException e) {
-                    e = e;
-                } catch (IOException e2) {
-                    e = e2;
-                }
-                try {
-                    fileOutputStream.write(str.getBytes("UTF-8"));
-                    fileOutputStream.flush();
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e3) {
-                        if (a) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    return true;
-                } catch (FileNotFoundException e4) {
-                    e = e4;
-                    fileOutputStream2 = fileOutputStream;
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException e5) {
-                            e = e5;
-                        }
-                    }
-                    return false;
-                } catch (IOException e6) {
-                    e = e6;
-                    fileOutputStream2 = fileOutputStream;
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException e7) {
-                            e = e7;
-                        }
-                    }
-                    return false;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileOutputStream2 = fileOutputStream;
-                    if (fileOutputStream2 != null) {
-                        try {
-                            fileOutputStream2.close();
-                        } catch (IOException e8) {
-                            if (a) {
-                                e8.printStackTrace();
-                            }
-                        }
-                    }
-                    throw th;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(File file, String str) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
-        ZipOutputStream zipOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65544, null, file, str)) != null) {
-            return invokeLL.booleanValue;
-        }
-        ZipOutputStream zipOutputStream2 = null;
-        try {
-            try {
-                ArrayList<String> arrayList = new ArrayList();
-                e(file, arrayList);
-                if (arrayList.size() == 0) {
-                    return false;
-                }
-                fileOutputStream = new FileOutputStream(str);
-                try {
-                    zipOutputStream = new ZipOutputStream(fileOutputStream);
-                } catch (IOException e) {
-                    e = e;
-                }
-                try {
-                    for (String str2 : arrayList) {
-                        if (a) {
-                            Log.d("VoyagerFileUtil", "Zipping " + str2);
-                        }
-                        zipOutputStream.putNextEntry(new ZipEntry(str2.substring(file.getAbsolutePath().length() + 1, str2.length())));
-                        FileInputStream fileInputStream = new FileInputStream(str2);
-                        byte[] bArr = new byte[8192];
-                        while (true) {
-                            int read = fileInputStream.read(bArr);
-                            if (read > 0) {
-                                zipOutputStream.write(bArr, 0, read);
-                            }
-                        }
-                        zipOutputStream.closeEntry();
-                        fileInputStream.close();
-                    }
-                    try {
-                        zipOutputStream.close();
-                    } catch (IOException e2) {
-                        if (a) {
-                            e2.printStackTrace();
-                        }
-                    }
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e3) {
-                        if (a) {
-                            e3.printStackTrace();
-                        }
-                    }
-                    return true;
-                } catch (IOException e4) {
-                    e = e4;
-                    zipOutputStream2 = zipOutputStream;
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    if (zipOutputStream2 != null) {
-                        try {
-                            zipOutputStream2.close();
-                        } catch (IOException e5) {
-                            if (a) {
-                                e5.printStackTrace();
-                            }
-                        }
-                    }
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e6) {
-                            if (a) {
-                                e6.printStackTrace();
-                            }
-                        }
-                    }
-                    return false;
-                } catch (Throwable th) {
-                    th = th;
-                    zipOutputStream2 = zipOutputStream;
-                    if (zipOutputStream2 != null) {
-                        try {
-                            zipOutputStream2.close();
-                        } catch (IOException e7) {
-                            if (a) {
-                                e7.printStackTrace();
-                            }
-                        }
-                    }
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e8) {
-                            if (a) {
-                                e8.printStackTrace();
-                            }
-                        }
-                    }
-                    throw th;
+                if (arrayList.size() != 0) {
                 }
             } catch (Throwable th2) {
                 th = th2;
             }
-        } catch (IOException e9) {
-            e = e9;
-            fileOutputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            fileOutputStream = null;
+        } finally {
+            this.a.writeLock().unlock();
         }
     }
 
-    public static boolean i(List<String> list, String str, String str2) {
-        InterceptResult invokeLLL;
-        FileOutputStream fileOutputStream;
-        ZipOutputStream zipOutputStream;
-        ZipEntry zipEntry;
+    public boolean h(ee9 ee9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, list, str, str2)) == null) {
-            if (list != null) {
-                ZipOutputStream zipOutputStream2 = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ee9Var)) == null) {
+            if (ee9Var != null && !TextUtils.isEmpty(ee9Var.j()) && !TextUtils.isEmpty(ee9Var.a())) {
+                this.a.writeLock().lock();
                 try {
-                    if (list.size() != 0) {
-                        int length = str2.length();
-                        if (!new File(str2).exists()) {
-                            if (a) {
-                                Log.d("VoyagerFileUtil", "rootDir " + str2 + "path not exists");
-                            }
-                            return false;
+                    ContentValues d2 = d(ee9Var);
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        long insert = writableDatabase.insert("task", null, d2);
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "insert task data into table task, rowId = " + insert);
                         }
-                        fileOutputStream = new FileOutputStream(str);
-                        try {
-                            try {
-                                zipOutputStream = new ZipOutputStream(fileOutputStream);
-                            } catch (IOException e) {
-                                e = e;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                        }
-                        try {
-                            for (String str3 : list) {
-                                if (a) {
-                                    Log.d("VoyagerFileUtil", "Zipping " + str3);
-                                }
-                                if (length > 0 && str3.startsWith(str2)) {
-                                    zipEntry = new ZipEntry(str3.substring(length + 1));
-                                } else {
-                                    zipEntry = new ZipEntry(str3.substring(str3.lastIndexOf(File.separator)));
-                                }
-                                zipOutputStream.putNextEntry(zipEntry);
-                                FileInputStream fileInputStream = new FileInputStream(str3);
-                                byte[] bArr = new byte[8192];
-                                while (true) {
-                                    int read = fileInputStream.read(bArr);
-                                    if (read > 0) {
-                                        zipOutputStream.write(bArr, 0, read);
-                                    }
-                                }
-                                zipOutputStream.closeEntry();
-                                fileInputStream.close();
-                            }
-                            try {
-                                zipOutputStream.close();
-                            } catch (IOException e2) {
-                                if (a) {
-                                    e2.printStackTrace();
-                                }
-                            }
-                            try {
-                                fileOutputStream.close();
-                                return true;
-                            } catch (IOException e3) {
-                                if (a) {
-                                    e3.printStackTrace();
-                                    return true;
-                                }
-                                return true;
-                            }
-                        } catch (IOException e4) {
-                            e = e4;
-                            zipOutputStream2 = zipOutputStream;
-                            if (a) {
-                                e.printStackTrace();
-                            }
-                            if (zipOutputStream2 != null) {
-                                try {
-                                    zipOutputStream2.close();
-                                } catch (IOException e5) {
-                                    if (a) {
-                                        e5.printStackTrace();
-                                    }
-                                }
-                            }
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                } catch (IOException e6) {
-                                    if (a) {
-                                        e6.printStackTrace();
-                                    }
-                                }
-                            }
-                            return false;
-                        } catch (Throwable th2) {
-                            th = th2;
-                            zipOutputStream2 = zipOutputStream;
-                            if (zipOutputStream2 != null) {
-                                try {
-                                    zipOutputStream2.close();
-                                } catch (IOException e7) {
-                                    if (a) {
-                                        e7.printStackTrace();
-                                    }
-                                }
-                            }
-                            if (fileOutputStream != null) {
-                                try {
-                                    fileOutputStream.close();
-                                } catch (IOException e8) {
-                                    if (a) {
-                                        e8.printStackTrace();
-                                    }
-                                }
-                            }
-                            throw th;
-                        }
+                        writableDatabase.setTransactionSuccessful();
+                        return true;
+                    } finally {
+                        writableDatabase.endTransaction();
                     }
-                } catch (IOException e9) {
-                    e = e9;
-                    fileOutputStream = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    fileOutputStream = null;
+                } catch (SQLException e) {
+                    if (b) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                } finally {
+                    this.a.writeLock().unlock();
                 }
+            }
+            if (b) {
+                Log.d("VoyagerDBHelper", "insert task data : task id should not null");
             }
             return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public void i(ee9 ee9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ee9Var) == null) {
+            if (ee9Var != null && !TextUtils.isEmpty(ee9Var.j()) && !TextUtils.isEmpty(ee9Var.a())) {
+                this.a.writeLock().lock();
+                try {
+                    try {
+                        int delete = getWritableDatabase().delete("task", "task_id =? ", new String[]{ee9Var.j()});
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "delete data from table task, del count = " + delete);
+                        }
+                    } catch (SQLException e) {
+                        if (b) {
+                            e.printStackTrace();
+                        }
+                    }
+                } finally {
+                    this.a.writeLock().unlock();
+                }
+            } else if (b) {
+                Log.d("VoyagerDBHelper", "task data and task id should not null");
+            }
+        }
+    }
+
+    public void j(ee9 ee9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ee9Var) == null) {
+            if (ee9Var != null && !TextUtils.isEmpty(ee9Var.j()) && !TextUtils.isEmpty(ee9Var.a())) {
+                this.a.writeLock().lock();
+                try {
+                    try {
+                        long update = getWritableDatabase().update("task", d(ee9Var), null, null);
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "update data into table task, update count = " + update);
+                        }
+                    } catch (SQLException e) {
+                        if (b) {
+                            e.printStackTrace();
+                        }
+                    }
+                } finally {
+                    this.a.writeLock().unlock();
+                }
+            } else if (b) {
+                Log.d("VoyagerDBHelper", "task data and task id should not null");
+            }
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onConfigure(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.enableWriteAheadLogging();
+            super.onConfigure(sQLiteDatabase);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
+            if (b) {
+                Log.i("VoyagerDBHelper", "Creating database voyager.db version: 1");
+            }
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE task (_id INTEGER PRIMARY KEY AUTOINCREMENT,task_id TEXT,timestamp LONG,biz_type TEXT,file_list TEXT,zip_src INTEGER,priority INTEGER,upload_count INTEGER,network_type INTEGER,extend TEXT,reserve1 TEXT);");
+            } catch (Exception e) {
+                if (b) {
+                    Log.w("VoyagerDBHelper", "Error while creating db: " + e.toString());
+                }
+            }
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048586, this, sQLiteDatabase, i, i2) == null) && b) {
+            Log.d("VoyagerDBHelper", "old version: " + i + ", new version: " + i2);
+        }
     }
 }

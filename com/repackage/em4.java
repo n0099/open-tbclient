@@ -6,39 +6,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class em4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public final View b;
     public final ThreadAchievementShareInfo.ParamBean c;
-    public TbRichTextView d;
-    public af5 e;
-    public TbImageView f;
+    public TbImageView d;
+    public ImageView e;
+    public TextView f;
     public TextView g;
     public TextView h;
     public TextView i;
-    public TextView j;
-    public TextView k;
 
     public em4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
         Interceptable interceptable = $ic;
@@ -56,7 +49,7 @@ public class em4 {
             }
         }
         this.a = context;
-        this.b = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d061f, (ViewGroup) null);
+        this.b = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0877, (ViewGroup) null);
         this.c = threadAchievementShareInfo.getParams();
         c();
         b();
@@ -69,80 +62,36 @@ public class em4 {
     }
 
     public final void b() {
+        ThreadAchievementShareInfo.ParamBean paramBean;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c.getContent() == null || this.c.getContent().size() == 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (paramBean = this.c) == null || paramBean.getVideo_info() == null || TextUtils.isEmpty(this.c.getVideo_info().getThumbnail_url())) {
             return;
         }
-        JSONArray jSONArray = new JSONArray();
-        ThreadAchievementShareInfo.ContentBean contentBean = null;
-        for (ThreadAchievementShareInfo.ContentBean contentBean2 : this.c.getContent()) {
-            if (contentBean2.getType() == 0) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("type", "0");
-                    jSONObject.put("text", contentBean2.getText());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                jSONArray.put(jSONObject);
-            } else if (contentBean2.getType() == 3) {
-                contentBean = contentBean2;
-            }
-        }
-        if (!TextUtils.isEmpty(this.c.getThread_title())) {
-            this.g.setText(this.c.getThread_title());
-            this.g.setVisibility(0);
-            this.d.setMaxLines(6);
-        } else {
-            ((LinearLayout.LayoutParams) this.d.getLayoutParams()).topMargin = oi.f(this.a, R.dimen.tbds20);
-            this.d.setMaxLines(8);
-        }
-        this.d.setTextEllipsize(TextUtils.TruncateAt.END);
-        this.d.setMinimumHeight(oi.f(this.a, R.dimen.tbds516));
-        if (contentBean != null && !TextUtils.isEmpty(contentBean.getSrc()) && this.c.getThread_type().contains("pic")) {
-            this.f.setVisibility(0);
-            this.f.setDefaultBgResource(R.color.transparent);
-            this.f.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f.setPlaceHolder(2);
-            this.f.K(contentBean.getSrc(), 10, false);
-            if (!TextUtils.isEmpty(this.c.getThread_title())) {
-                this.d.setVisibility(8);
-            } else {
-                this.d.setMaxLines(2);
-                this.d.setTextEllipsize(TextUtils.TruncateAt.END);
-                this.d.setLayoutStrategy(this.e);
-                this.d.setMinimumHeight(oi.f(this.a, R.dimen.tbds0));
-            }
-        }
-        this.d.setText(TbRichTextView.U(jSONArray, false));
-        this.k.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
-        this.h.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
+        this.d.K(this.c.getVideo_info().getThumbnail_url(), 10, false);
+        this.i.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
+        this.f.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090697);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09068d);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918c7);
-            this.k = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918c8);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091fb8);
-            this.f = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091369);
-            this.d = (TbRichTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a86);
-            this.k.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090697);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09068d);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918c8);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918c9);
+            this.i = textView;
+            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            af5 af5Var = new af5();
-            this.e = af5Var;
-            af5Var.s(oi.f(this.a, R.dimen.tbds38));
-            this.e.v(oi.f(this.a, R.dimen.tbds42));
-            this.e.j(oi.f(this.a, R.dimen.tbds23));
-            this.e.o(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);
-            this.e.i(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-            this.d.setLayoutStrategy(this.e);
-            this.d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09231c);
+            this.d = tbImageView;
+            tbImageView.setDefaultBgResource(R.color.transparent);
+            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.d.setPlaceHolder(2);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091858);
+            this.e = imageView;
+            imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
         }
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gp5;
+import com.repackage.ip5;
 import com.repackage.uo;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -31,7 +31,7 @@ public class MyConcernTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public gp5 d;
+    public ip5 d;
     public HttpMessageListener e;
 
     /* loaded from: classes3.dex */
@@ -109,7 +109,7 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new gp5(this.b);
+        this.d = new ip5(this.b);
         F();
         MessageManager.getInstance().registerListener(this.e);
     }

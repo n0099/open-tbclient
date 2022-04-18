@@ -44,12 +44,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lt4;
+import com.repackage.gj8;
+import com.repackage.kt4;
 import com.repackage.oi;
-import com.repackage.ur4;
-import com.repackage.wt4;
+import com.repackage.tr4;
+import com.repackage.vt4;
 import com.repackage.x8;
-import com.repackage.zi8;
 import java.io.File;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes3.dex */
@@ -150,8 +150,8 @@ public class SkinManager {
                 }
             }
         });
-        RESOURCE_ALPHA_PRESS = ur4.a(R.string.A_X07);
-        RESOURCE_ALPHA_DISABLE = ur4.a(R.string.A_X09);
+        RESOURCE_ALPHA_PRESS = tr4.a(R.string.A_X07);
+        RESOURCE_ALPHA_DISABLE = tr4.a(R.string.A_X09);
         TYPE_ERROR = "skinType not support";
         TYPE_COLOR = "com.baidu.tieba:color/CAM_X0";
         sPackagename = null;
@@ -180,7 +180,7 @@ public class SkinManager {
             if (i == 0 || i2 == 0 || i3 == 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842912}, new int[]{-16842910}, new int[0]}, new int[]{getColor(i4, i2), zi8.a(getColor(i4, i3), RESOURCE_ALPHA_DISABLE), getColor(i4, i)});
+            return new ColorStateList(new int[][]{new int[]{16842912}, new int[]{-16842910}, new int[0]}, new int[]{getColor(i4, i2), gj8.a(getColor(i4, i3), RESOURCE_ALPHA_DISABLE), getColor(i4, i)});
         }
         return (ColorStateList) invokeIIII.objValue;
     }
@@ -363,7 +363,7 @@ public class SkinManager {
             if (i <= 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{-16842910}, new int[0]}, new int[]{zi8.a(getColor(i2, i), RESOURCE_ALPHA_PRESS), zi8.a(getColor(i2, i), RESOURCE_ALPHA_DISABLE), getColor(i2, i)});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{-16842910}, new int[0]}, new int[]{gj8.a(getColor(i2, i), RESOURCE_ALPHA_PRESS), gj8.a(getColor(i2, i), RESOURCE_ALPHA_DISABLE), getColor(i2, i)});
         }
         return (ColorStateList) invokeII.objValue;
     }
@@ -375,7 +375,7 @@ public class SkinManager {
             if (i <= 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{zi8.a(getColor(i), RESOURCE_ALPHA_PRESS), getColor(i)});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{gj8.a(getColor(i), RESOURCE_ALPHA_PRESS), getColor(i)});
         }
         return (ColorStateList) invokeI.objValue;
     }
@@ -469,7 +469,7 @@ public class SkinManager {
     public static ColorStateList getIntColorStateListWithClickState(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65569, null, i)) == null) ? new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{zi8.a(i, RESOURCE_ALPHA_PRESS), i}) : (ColorStateList) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65569, null, i)) == null) ? new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{gj8.a(i, RESOURCE_ALPHA_PRESS), i}) : (ColorStateList) invokeI.objValue;
     }
 
     public static int getLottieAnimation(int i) {
@@ -648,7 +648,7 @@ public class SkinManager {
             if (mPluginRes == null) {
                 mPluginRes = resources;
             }
-            lt4.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
+            kt4.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
             try {
                 String resourceName = resources.getResourceName(i);
                 if (StringUtils.isNull(resourceName)) {
@@ -705,7 +705,7 @@ public class SkinManager {
         } else {
             color = getColor(i2, view2.getResources(), i);
         }
-        view2.setBackgroundColor(zi8.a(color, f));
+        view2.setBackgroundColor(gj8.a(color, f));
         if (paddingLeft == 0 && paddingRight == 0 && paddingTop == 0 && paddingBottom == 0) {
             return;
         }
@@ -726,7 +726,7 @@ public class SkinManager {
             return;
         }
         int color = getColor(i);
-        int[] iArr = {zi8.c(color), color};
+        int[] iArr = {gj8.c(color), color};
         if (Build.VERSION.SDK_INT >= 16) {
             gradientDrawable = new GradientDrawable();
             gradientDrawable.setOrientation(orientation);
@@ -843,8 +843,8 @@ public class SkinManager {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (wt4.k().h("key_is_dark_mode_notify_shown", false)) {
-                boolean h = wt4.k().h("key_is_follow_system_mode", false);
+            } else if (vt4.k().h("key_is_dark_mode_notify_shown", false)) {
+                boolean h = vt4.k().h("key_is_follow_system_mode", false);
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(b);
                 }
@@ -856,8 +856,8 @@ public class SkinManager {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i);
             } else {
-                wt4.k().u("key_is_dark_mode_notify_shown", true);
-                wt4.k().u("key_is_follow_system_mode", true);
+                vt4.k().u("key_is_dark_mode_notify_shown", true);
+                vt4.k().u("key_is_follow_system_mode", true);
                 TbadkCoreApplication.getInst().setSkinType(isCurrentSystemDarkMode() ? 4 : 0);
             }
         }
@@ -936,7 +936,7 @@ public class SkinManager {
                 mSkinPackageName = FileHelper.getApkFilePackageName(str);
                 return;
             }
-            oi.M(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f1392);
+            oi.M(BdBaseApplication.getInst().getApp(), R.string.obfuscated_res_0x7f0f1391);
         } catch (Throwable th) {
             BdLog.e(th);
         }
@@ -1237,7 +1237,7 @@ public class SkinManager {
                 return null;
             }
             int color = getColor(TbadkCoreApplication.getInst().getSkinType(), i);
-            int a = zi8.a(color, RESOURCE_ALPHA_PRESS);
+            int a = gj8.a(color, RESOURCE_ALPHA_PRESS);
             return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{a, a, color});
         }
         return (ColorStateList) invokeI.objValue;

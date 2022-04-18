@@ -28,10 +28,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.f9;
 import com.repackage.fo;
+import com.repackage.gj8;
 import com.repackage.hg;
 import com.repackage.ig;
 import com.repackage.og;
-import com.repackage.zi8;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -249,8 +249,8 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             this.s = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
             this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e);
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02da, this);
-            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09238f);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092390);
+            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092390);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092391);
             this.r = textView;
             textView.setDuplicateParentStateEnabled(true);
             l();
@@ -359,7 +359,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
             String charSequence = this.r.getText().toString();
             if (z) {
-                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f1344) + charSequence;
+                charSequence = getContext().getString(R.string.obfuscated_res_0x7f0f1343) + charSequence;
             }
             this.r.setContentDescription(charSequence);
         }
@@ -504,13 +504,13 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
                 if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                     int skinType = TbadkCoreApplication.getInst().getSkinType();
                     if (skinType == 4) {
-                        this.r.setTextColor(zi8.e(this.f.dark.font_color));
+                        this.r.setTextColor(gj8.e(this.f.dark.font_color));
                         return;
                     } else if (skinType == 1) {
-                        this.r.setTextColor(zi8.e(this.f.night.font_color));
+                        this.r.setTextColor(gj8.e(this.f.night.font_color));
                         return;
                     } else {
-                        this.r.setTextColor(zi8.e(this.f.day.font_color));
+                        this.r.setTextColor(gj8.e(this.f.day.font_color));
                         return;
                     }
                 }

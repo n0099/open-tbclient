@@ -168,7 +168,7 @@ public abstract class vb2<T extends sb2> extends ua2<T> {
                 return new IllegalStateException("ExtCore-PresetControl doUpdate: failed by updateInfo.coreFilePath is empty");
             }
             long j = pb2Var.b;
-            if (ng4.V(pb2Var.c, b(j).getPath())) {
+            if (mg4.V(pb2Var.c, b(j).getPath())) {
                 ac2.b(a(), j);
                 n(j);
                 o(pb2Var.a);

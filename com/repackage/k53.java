@@ -358,7 +358,7 @@ public class k53 implements kk1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
                 if (bitmap == null) {
-                    bitmap = BitmapFactory.decodeResource(this.a.getResources(), R.drawable.obfuscated_res_0x7f081130);
+                    bitmap = BitmapFactory.decodeResource(this.a.getResources(), R.drawable.obfuscated_res_0x7f081134);
                 }
                 SwanAppRoundedImageView swanAppRoundedImageView = this.b;
                 if (swanAppRoundedImageView != null) {
@@ -493,8 +493,8 @@ public class k53 implements kk1 {
         if (!(interceptable == null || interceptable.invokeLLL(1048576, this, context, view2, jSONObject) == null) || context == null || view2 == null || jSONObject == null) {
             return;
         }
-        SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f09228c);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09229c);
+        SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f09228d);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09229d);
         Pair<String, String> o = o(jSONObject);
         if (o != null) {
             gd3.e((String) o.second, new g(this, context, swanAppRoundedImageView));
@@ -514,7 +514,7 @@ public class k53 implements kk1 {
             textView2.setText(Html.fromHtml(str));
         }
         textView.setText(j53Var.f);
-        ((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091768)).setVisibility(0);
+        ((LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091769)).setVisibility(0);
         if (((!TextUtils.equals(j53Var.b, "snsapi_userinfo") || jSONObject == null) && !TextUtils.equals(j53Var.b, "mobile")) || view3 == null) {
             return;
         }
@@ -568,8 +568,8 @@ public class k53 implements kk1 {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (frameLayout = (FrameLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0902d8)) == null) {
             return;
         }
+        this.g.findViewById(R.id.obfuscated_res_0x7f091472).setVisibility(8);
         this.g.findViewById(R.id.obfuscated_res_0x7f091471).setVisibility(8);
-        this.g.findViewById(R.id.obfuscated_res_0x7f091470).setVisibility(8);
         this.g.findViewById(R.id.obfuscated_res_0x7f0902d8).setVisibility(0);
         this.i = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d07b5, null);
         this.d.h();
@@ -580,15 +580,15 @@ public class k53 implements kk1 {
     public final void l() {
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ((FrameLayout) this.g.findViewById(R.id.obfuscated_res_0x7f091471)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ((FrameLayout) this.g.findViewById(R.id.obfuscated_res_0x7f091472)) == null) {
             return;
         }
+        this.g.findViewById(R.id.obfuscated_res_0x7f091472).setVisibility(0);
         this.g.findViewById(R.id.obfuscated_res_0x7f091471).setVisibility(0);
-        this.g.findViewById(R.id.obfuscated_res_0x7f091470).setVisibility(0);
         this.g.findViewById(R.id.obfuscated_res_0x7f0902d8).setVisibility(8);
         this.d.h();
         y(true, this.g.findViewById(R.id.obfuscated_res_0x7f0902e0), this.k, this.d);
-        TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091470);
+        TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091471);
         textView.setVisibility(0);
         j53.a aVar = this.d.n;
         String str = aVar.e;
@@ -646,11 +646,11 @@ public class k53 implements kk1 {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (frameLayout = (FrameLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0902d8)) == null) {
             return;
         }
+        this.g.findViewById(R.id.obfuscated_res_0x7f091472).setVisibility(8);
         this.g.findViewById(R.id.obfuscated_res_0x7f091471).setVisibility(8);
-        this.g.findViewById(R.id.obfuscated_res_0x7f091470).setVisibility(8);
         char c2 = 0;
         this.g.findViewById(R.id.obfuscated_res_0x7f0902d8).setVisibility(0);
-        ((TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091470)).setVisibility(8);
+        ((TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091471)).setVisibility(8);
         this.i = p(this.a, this.d, this.e);
         String str = this.d.b;
         int hashCode = str.hashCode();
@@ -741,7 +741,7 @@ public class k53 implements kk1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             boolean z = (TextUtils.isEmpty(this.d.p) || TextUtils.isEmpty(this.d.q)) ? false : true;
-            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091dda);
+            SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) this.g.findViewById(R.id.obfuscated_res_0x7f091ddb);
             if (swanAppRoundedImageView != null) {
                 if (z) {
                     i2 = de3.j(this.d.q, "SwanAppAuthDialog", false);
@@ -751,12 +751,12 @@ public class k53 implements kk1 {
                 swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(this.a.getResources(), i2));
                 swanAppRoundedImageView.setBorderColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f060a2f));
             }
-            ((TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091ddc)).setText(z ? this.d.p : this.b.Y());
-            TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09176c);
+            ((TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091ddd)).setText(z ? this.d.p : this.b.Y());
+            TextView textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f09176d);
             this.h = textView;
             if (textView != null) {
                 if (u(this.d)) {
-                    View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f091dd9);
+                    View findViewById = this.g.findViewById(R.id.obfuscated_res_0x7f091dda);
                     if (findViewById != null) {
                         findViewById.setVisibility(8);
                     }
@@ -797,7 +797,7 @@ public class k53 implements kk1 {
     public void s() {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || TextUtils.isEmpty(this.d.l) || (textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091767)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || TextUtils.isEmpty(this.d.l) || (textView = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091768)) == null) {
             return;
         }
         j03 j03Var = this.b;
@@ -807,7 +807,7 @@ public class k53 implements kk1 {
             return;
         }
         if (!u(this.d)) {
-            hf3 hf3Var = new hf3(this.a, R.drawable.obfuscated_res_0x7f08110d);
+            hf3 hf3Var = new hf3(this.a, R.drawable.obfuscated_res_0x7f081111);
             SpannableString spannableString = new SpannableString(" # ");
             spannableString.setSpan(hf3Var, 1, 2, 33);
             spannableString.setSpan(new f(this, textView), 0, spannableString.length(), 33);
@@ -864,9 +864,9 @@ public class k53 implements kk1 {
         SpannableString spannableString = new SpannableString(textView2.getText());
         textView.setEnabled(z);
         if (z) {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081186);
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08118a);
         } else {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081187);
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08118b);
         }
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         spannableString.setSpan(new b(this, drawable), 0, 4, 33);
@@ -892,7 +892,7 @@ public class k53 implements kk1 {
         if (!(interceptable == null || interceptable.invokeLL(1048592, this, view2, j53Var) == null) || view2 == null || j53Var == null) {
             return;
         }
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a5);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a6);
         StringBuilder sb = new StringBuilder();
         for (String str : j53Var.i) {
             sb.append(str);
@@ -908,7 +908,7 @@ public class k53 implements kk1 {
         SwanAppConfigData.f fVar;
         Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048593, this, view2, j53Var) == null) || view2 == null || j53Var == null || (textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091769)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048593, this, view2, j53Var) == null) || view2 == null || j53Var == null || (textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09176a)) == null) {
             return;
         }
         if (TextUtils.equals(j53Var.b, "mapp_location") && (s = wl2.U().s()) != null && (fVar = s.p) != null && (map = fVar.a.get("scope.userLocation")) != null) {
@@ -927,12 +927,12 @@ public class k53 implements kk1 {
         if (!(interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), view2, textView, j53Var}) == null) || view2 == null || j53Var == null || j53Var.n == null || (textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902df)) == null) {
             return;
         }
-        textView2.setText("XXXX   " + this.a.getString(R.string.obfuscated_res_0x7f0f12ab));
+        textView2.setText("XXXX   " + this.a.getString(R.string.obfuscated_res_0x7f0f12aa));
         textView.setEnabled(z);
         if (z) {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081186);
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08118a);
         } else {
-            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081187);
+            drawable = view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08118b);
         }
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         h hVar = new h(this, drawable);

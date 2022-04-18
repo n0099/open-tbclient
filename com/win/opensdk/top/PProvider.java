@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap9;
-import com.repackage.fr9;
-import com.repackage.pp9;
+import com.repackage.hp9;
+import com.repackage.mr9;
+import com.repackage.wp9;
 /* loaded from: classes8.dex */
 public class PProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
@@ -38,8 +38,8 @@ public class PProvider extends ContentProvider {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && fr9.A(this.a) == 0) {
-            pp9.E(this.a);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && mr9.A(this.a) == 0) {
+            wp9.E(this.a);
         }
     }
 
@@ -81,13 +81,13 @@ public class PProvider extends ContentProvider {
             Context context = getContext();
             this.a = context;
             if (context != null) {
-                if (fr9.A(context) == 0) {
-                    pp9.E(this.a);
+                if (mr9.A(context) == 0) {
+                    wp9.E(this.a);
                     return true;
                 }
                 return true;
             }
-            new Handler(Looper.getMainLooper()).post(new ap9(this));
+            new Handler(Looper.getMainLooper()).post(new hp9(this));
             return true;
         }
         return invokeV.booleanValue;

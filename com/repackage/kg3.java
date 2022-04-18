@@ -29,7 +29,7 @@ public class kg3 extends ActivityDelegation implements cf3<Bundle> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.cf3
-    /* renamed from: a */
+    /* renamed from: b */
     public void onCallback(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {

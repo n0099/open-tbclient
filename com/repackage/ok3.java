@@ -26,7 +26,7 @@ public class ok3 {
     public volatile boolean b;
 
     /* loaded from: classes6.dex */
-    public static class a extends tg4 {
+    public static class a extends sg4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -182,8 +182,8 @@ public class ok3 {
             if (TextUtils.isEmpty(c2)) {
                 return "";
             }
-            String a2 = sg4.a(sg4.a(c2, "type", String.valueOf(i)), "appKey", str);
-            return !TextUtils.isEmpty(str2) ? sg4.a(a2, "path", rg4.b(str2)) : a2;
+            String a2 = rg4.a(rg4.a(c2, "type", String.valueOf(i)), "appKey", str);
+            return !TextUtils.isEmpty(str2) ? rg4.a(a2, "path", qg4.b(str2)) : a2;
         }
         return (String) invokeLIL.objValue;
     }
@@ -196,11 +196,11 @@ public class ok3 {
                 if (this.b) {
                     return true;
                 }
-                String D = ng4.D(AppRuntime.getAppContext(), "config/union-cfg.json");
+                String D = mg4.D(AppRuntime.getAppContext(), "config/union-cfg.json");
                 HashSet hashSet = null;
                 if (TextUtils.isEmpty(D)) {
                     File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_config/union-cfg.json");
-                    D = file.exists() ? ng4.E(file) : null;
+                    D = file.exists() ? mg4.E(file) : null;
                 }
                 if (TextUtils.isEmpty(D)) {
                     return false;

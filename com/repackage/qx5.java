@@ -1,5 +1,12 @@
 package com.repackage;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes7.dex */
 public interface qx5 {
-    void k(boolean z);
+    String from();
+
+    void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
+
+    void setFrom(String str);
 }

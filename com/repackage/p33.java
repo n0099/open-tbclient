@@ -30,7 +30,7 @@ public class p33 extends ir1 {
 
         /* renamed from: com.repackage.p33$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0490a implements Runnable {
+        public class RunnableC0492a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject a;
@@ -40,18 +40,18 @@ public class p33 extends ir1 {
 
             /* renamed from: com.repackage.p33$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0491a implements x74 {
+            public class C0493a implements w74 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-                public final /* synthetic */ RunnableC0490a b;
+                public final /* synthetic */ RunnableC0492a b;
 
-                public C0491a(RunnableC0490a runnableC0490a, String str) {
+                public C0493a(RunnableC0492a runnableC0492a, String str) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0490a, str};
+                        Object[] objArr = {runnableC0492a, str};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -61,11 +61,11 @@ public class p33 extends ir1 {
                             return;
                         }
                     }
-                    this.b = runnableC0490a;
+                    this.b = runnableC0492a;
                     this.a = str;
                 }
 
-                @Override // com.repackage.x74
+                @Override // com.repackage.w74
                 public void a(@Nullable Map<String, String> map) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
@@ -73,12 +73,12 @@ public class p33 extends ir1 {
                             jx1.c("PreloadPackageApi", "preloadPackage keyMap null");
                             return;
                         }
-                        RunnableC0490a runnableC0490a = this.b;
-                        runnableC0490a.d.a.z(map.get(this.b.b), this.a, runnableC0490a.c);
+                        RunnableC0492a runnableC0492a = this.b;
+                        runnableC0492a.d.a.z(map.get(this.b.b), this.a, runnableC0492a.c);
                     }
                 }
 
-                @Override // com.repackage.x74
+                @Override // com.repackage.w74
                 public void onFail(Exception exc) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
@@ -87,7 +87,7 @@ public class p33 extends ir1 {
                 }
             }
 
-            public RunnableC0490a(a aVar, JSONObject jSONObject, String str, String str2) {
+            public RunnableC0492a(a aVar, JSONObject jSONObject, String str, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,12 +112,12 @@ public class p33 extends ir1 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    boolean g = xc4.e().g(!de3.G());
+                    boolean g = wc4.e().g(!de3.G());
                     String optString = this.a.optString(PrefetchEvent.EVENT_KEY_PAGE_URL);
                     if (!g) {
                         this.d.a.z(this.b, optString, this.c);
                     } else {
-                        s74.e(Collections.singletonList(this.b), p33.f.c(), new C0491a(this, optString));
+                        r74.e(Collections.singletonList(this.b), p33.f.c(), new C0493a(this, optString));
                     }
                 }
             }
@@ -151,7 +151,7 @@ public class p33 extends ir1 {
                     if (!p33.f.a(1)) {
                         return new js1(402, "over single max limit");
                     }
-                    dd3.h().execute(new RunnableC0490a(this, jSONObject, optString, str), "PreloadPackageApi");
+                    dd3.h().execute(new RunnableC0492a(this, jSONObject, optString, str), "PreloadPackageApi");
                     return js1.f();
                 }
                 return new js1(202, "appKey must not empty");
@@ -229,7 +229,7 @@ public class p33 extends ir1 {
             }
             p72 p72Var = f;
             if (p72Var == null || !p72Var.d(a2)) {
-                f = new p72(a2, uc4.b(a2));
+                f = new p72(a2, tc4.b(a2));
             }
             if (f.e()) {
                 return new js1(402, "over max limit");

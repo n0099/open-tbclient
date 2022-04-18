@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pf4;
+import com.repackage.of4;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -124,14 +124,14 @@ public class OpenStatisticIPCManager {
                 public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
                     InterceptResult invokeLLI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i)) == null) ? pf4.e(str, str2, i) : (Flow) invokeLLI.objValue;
+                    return (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i)) == null) ? of4.e(str, str2, i) : (Flow) invokeLLI.objValue;
                 }
 
                 @Override // com.baidu.swan.ubc.IRemoteUBCService
                 public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLI(1048585, this, str, str2, i) == null) {
-                        pf4.i(str, str2, i);
+                        of4.i(str, str2, i);
                     }
                 }
             }, false);

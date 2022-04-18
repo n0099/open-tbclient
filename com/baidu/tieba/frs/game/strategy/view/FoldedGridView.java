@@ -23,10 +23,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk6;
-import com.repackage.fk6;
+import com.repackage.dk6;
+import com.repackage.hk6;
 /* loaded from: classes3.dex */
-public class FoldedGridView extends BdGridView implements fk6, AdapterView.OnItemClickListener {
+public class FoldedGridView extends BdGridView implements hk6, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class FoldedGridView extends BdGridView implements fk6, AdapterView.OnIte
     public int b;
     public int c;
     public boolean d;
-    public bk6 e;
+    public dk6 e;
     public a f;
     public int g;
     public Drawable h;
@@ -86,7 +86,7 @@ public class FoldedGridView extends BdGridView implements fk6, AdapterView.OnIte
         c();
     }
 
-    @Override // com.repackage.fk6
+    @Override // com.repackage.hk6
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2 instanceof FrameLayout)) {
@@ -103,7 +103,7 @@ public class FoldedGridView extends BdGridView implements fk6, AdapterView.OnIte
         }
     }
 
-    @Override // com.repackage.fk6
+    @Override // com.repackage.hk6
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -152,16 +152,16 @@ public class FoldedGridView extends BdGridView implements fk6, AdapterView.OnIte
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d = !this.d;
             a(this.a);
-            bk6 bk6Var = this.e;
-            if (bk6Var != null) {
-                bk6Var.k(this.d);
+            dk6 dk6Var = this.e;
+            if (dk6Var != null) {
+                dk6Var.k(this.d);
                 this.e.notifyDataSetChanged();
                 invalidate();
             }
         }
     }
 
-    @Override // com.repackage.fk6
+    @Override // com.repackage.hk6
     public int getArrowIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class FoldedGridView extends BdGridView implements fk6, AdapterView.OnIte
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.fk6
+    @Override // com.repackage.hk6
     public View getArrowView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -194,18 +194,18 @@ public class FoldedGridView extends BdGridView implements fk6, AdapterView.OnIte
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i2, long j) {
-        bk6 bk6Var;
+        dk6 dk6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             if (view2 == this.a) {
-                bk6 bk6Var2 = this.e;
-                if (bk6Var2 == null || !bk6Var2.h()) {
+                dk6 dk6Var2 = this.e;
+                if (dk6Var2 == null || !dk6Var2.h()) {
                     return;
                 }
                 e();
-            } else if (this.f == null || (bk6Var = this.e) == null) {
+            } else if (this.f == null || (dk6Var = this.e) == null) {
             } else {
-                int f = bk6Var.f(i2);
+                int f = dk6Var.f(i2);
                 this.e.j(f);
                 this.f.a(f, this.e.getItem(i2));
             }
@@ -233,14 +233,14 @@ public class FoldedGridView extends BdGridView implements fk6, AdapterView.OnIte
         }
     }
 
-    public void setFoldAdapter(bk6 bk6Var) {
+    public void setFoldAdapter(dk6 dk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bk6Var) == null) {
-            this.e = bk6Var;
-            if (bk6Var != null) {
-                bk6Var.i(this);
+        if (interceptable == null || interceptable.invokeL(1048587, this, dk6Var) == null) {
+            this.e = dk6Var;
+            if (dk6Var != null) {
+                dk6Var.i(this);
             }
-            setAdapter((ListAdapter) bk6Var);
+            setAdapter((ListAdapter) dk6Var);
         }
     }
 

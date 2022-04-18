@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lo5;
 import com.repackage.mi;
+import com.repackage.no5;
 import com.repackage.oi;
-import com.repackage.rp5;
-import com.repackage.to5;
+import com.repackage.tp5;
 import com.repackage.uo;
+import com.repackage.vo5;
 import com.yy.hiidostatis.inner.FlushManager;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -36,7 +36,7 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public rp5 f;
+    public tp5 f;
     public long g;
     public int h;
     public b i;
@@ -75,36 +75,36 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
-                lo5 lo5Var = new lo5();
+                no5 no5Var = new no5();
                 if (alaTabLiveResponsedMessage.getError() != 0 || !alaTabLiveResponsedMessage.isSuccess()) {
                     if (this.a.i != null) {
                         this.a.i.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
-                    lo5Var.a = false;
+                    no5Var.a = false;
                     httpResponsedMessage.getError();
                     httpResponsedMessage.getErrorString();
                 } else {
-                    to5 to5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    vo5 vo5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
-                        this.a.f.a(to5Var);
+                        this.a.f.a(vo5Var);
                         AlaLiveTabRecomModel.E(this.a);
                     } else {
                         AlaLiveTabFragment.i++;
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
-                        this.a.f = new rp5(alaTabLiveResponsedMessage);
+                        this.a.f = new tp5(alaTabLiveResponsedMessage);
                     }
                     AlaLiveTabRecomModel alaLiveTabRecomModel = this.a;
                     alaLiveTabRecomModel.c = alaLiveTabRecomModel.f.h();
                     if (this.a.i != null) {
                         this.a.i.a(this.a.c, this.a.f.d());
                     }
-                    lo5Var.a = true;
+                    no5Var.a = true;
                 }
-                lo5Var.b = this.a.d;
-                lo5Var.c = alaTabLiveResponsedMessage.superEntranceInfo;
-                this.a.I(lo5Var);
+                no5Var.b = this.a.d;
+                no5Var.c = alaTabLiveResponsedMessage.superEntranceInfo;
+                this.a.I(no5Var);
                 this.a.d = false;
             }
         }
@@ -145,10 +145,10 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
         return i;
     }
 
-    public final void I(lo5 lo5Var) {
+    public final void I(no5 no5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lo5Var) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE, lo5Var));
+        if (interceptable == null || interceptable.invokeL(1048576, this, no5Var) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE, no5Var));
         }
     }
 

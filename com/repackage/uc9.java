@@ -1,18 +1,16 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Formatter;
+import java.util.Locale;
 /* loaded from: classes7.dex */
 public class uc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<Integer> a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,33 +26,24 @@ public class uc9 {
                 return;
             }
         }
-        ArrayList<Integer> arrayList = new ArrayList<>(4);
-        a = arrayList;
-        arrayList.add(10000);
-        a.add(10001);
-        a.add(10002);
-        a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
-        a.add(-1);
+        new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                b = id9.a();
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? str == null || str.trim().length() == 0 : invokeL.booleanValue;
+    }
+
+    public static String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i < 1000) {
+                i = 1000;
             }
-            if (TextUtils.isEmpty(b)) {
-                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
-            }
-            if (b.toUpperCase().contains("HUAWEI")) {
-                return 10001;
-            }
-            if (b.toUpperCase().contains("XIAOMI")) {
-                return 10002;
-            }
-            return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
+            return new Formatter(new StringBuilder(), Locale.getDefault()).format("%ds", Integer.valueOf(i / 1000)).toString();
         }
-        return invokeV.intValue;
+        return (String) invokeI.objValue;
     }
 }

@@ -47,16 +47,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cs6;
-import com.repackage.cv8;
-import com.repackage.dv8;
+import com.repackage.es6;
+import com.repackage.fv8;
 import com.repackage.g55;
-import com.repackage.in8;
+import com.repackage.gw8;
+import com.repackage.jv8;
+import com.repackage.kv8;
 import com.repackage.mg;
 import com.repackage.oi;
+import com.repackage.pn8;
 import com.repackage.x8;
-import com.repackage.yu8;
-import com.repackage.zv8;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
@@ -64,7 +64,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0096\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u000e\u0018\u00002\u00020\u00012\u00020\u0002B1\u0012\n\b\u0002\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b\u0012\b\b\u0002\u0010\t\u001a\u00020\b¢\u0006\u0002\u0010\nJ\b\u0010'\u001a\u00020\u0016H\u0016J\b\u0010(\u001a\u00020)H\u0016J\u0017\u0010*\u001a\u00020)2\n\b\u0002\u0010+\u001a\u0004\u0018\u00010\b¢\u0006\u0002\u0010,J\"\u0010-\u001a\u00020.2\u0006\u0010/\u001a\u00020\b2\u0006\u00100\u001a\u00020\b2\b\u00101\u001a\u0004\u0018\u000102H\u0016J\b\u00103\u001a\u00020\u0012H\u0016J\b\u00104\u001a\u00020.H\u0016J\b\u00105\u001a\u00020.H\u0002J\u0012\u00106\u001a\u00020.2\b\u00107\u001a\u0004\u0018\u000108H\u0016J\"\u00109\u001a\u00020.2\u0006\u0010/\u001a\u00020\b2\u0006\u00100\u001a\u00020\b2\b\u00101\u001a\u0004\u0018\u000102H\u0016J\u0010\u0010:\u001a\u00020.2\u0006\u0010;\u001a\u00020\bH\u0016J&\u0010<\u001a\u0004\u0018\u00010\u001e2\u0006\u0010=\u001a\u00020>2\b\u0010?\u001a\u0004\u0018\u00010@2\b\u00107\u001a\u0004\u0018\u000108H\u0016J\b\u0010A\u001a\u00020.H\u0016J\b\u0010B\u001a\u00020.H\u0016J\b\u0010C\u001a\u00020.H\u0016J\b\u0010D\u001a\u00020.H\u0016J\b\u0010E\u001a\u00020.H\u0016J\u0010\u0010F\u001a\u00020.2\u0006\u0010G\u001a\u00020\bH\u0002J\u0010\u0010H\u001a\u00020.2\u0006\u0010I\u001a\u00020\u0012H\u0016J\b\u0010J\u001a\u00020.H\u0002J\b\u0010K\u001a\u00020\u0012H\u0002J\b\u0010L\u001a\u00020.H\u0002J\b\u0010M\u001a\u00020\u0012H\u0002R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0003\u001a\u0004\u0018\u00010\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0019\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001a\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001b\u001a\u0004\u0018\u00010\u001cX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001d\u001a\u0004\u0018\u00010\u001eX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001f\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010 \u001a\u0004\u0018\u00010!X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006N"}, d2 = {"Lcom/baidu/tieba/videoplay/fragment/VideoAttentionPageFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/videoplay/fragment/IVideoPlayActicityFragment;", "mActivityPageUniqueId", "Lcom/baidu/adp/BdUniqueId;", "progressViewCallback", "Lcom/baidu/adp/widget/refresh/BdSwipeRefreshLayout$OnProgressViewCallback;", "mainPageType", "", "mCurrentType", "(Lcom/baidu/adp/BdUniqueId;Lcom/baidu/adp/widget/refresh/BdSwipeRefreshLayout$OnProgressViewCallback;II)V", "backGroundListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "dataController", "Lcom/baidu/tieba/videoplay/controller/VideoDataController;", "goPbCommentFloatListener", "Lcom/baidu/tieba/videoplay/VideoPlayFragment$GoPbCommentFloatListener;", "isVertail", "", "keyboardShowHideListener", "mFeedBackListener", "mFrom", "", "mFromPage", "mIsVisibleToUser", "mLocate", "mObjId", "mRect", "Landroid/graphics/Rect;", "mRootView", "Landroid/view/View;", "mStType", "mVideoAttentionModel", "Lcom/baidu/tieba/videoplay/model/VideoAttentionModel;", "mVideoIndex", "mVideoPlayView", "Lcom/baidu/tieba/videoplay/VideoPlayView;", "viewPagerBottomScrollMoreCallback", "Lcom/baidu/tieba/videoplay/VideoPlayView$OnViewPagerBottomScrollMoreCallback;", "getCurrentPageKey", "getMissionTid", "", "getShowVideoTid", "index", "(Ljava/lang/Integer;)J", "handleActivityResult", "", GroupInfoActivityConfig.REQUEST_CODE, "resultCode", "data", "Landroid/content/Intent;", "handleBackPress", "handleIndexMessage", "initData", "onActivityCreated", "savedInstanceState", "Landroid/os/Bundle;", "onActivityResult", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreateView", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", MissionEvent.MESSAGE_DESTROY, "onDestroyView", MissionEvent.MESSAGE_PAUSE, "onPrimary", "onResume", "setEmptyHeight", "height", "setUserVisibleHint", "isVisibleToUser", "showData", "showNoLoginData", "stepStat", "whetherHasVideo", "VideoPlay_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes4.dex */
-public final class VideoAttentionPageFragment extends BaseFragment implements zv8 {
+public final class VideoAttentionPageFragment extends BaseFragment implements gw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BdUniqueId a;
@@ -73,7 +73,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
     public final int d;
     public View e;
     public VideoPlayView f;
-    public final cv8 g;
+    public final jv8 g;
     public int h;
     public Rect i;
     public String j;
@@ -127,10 +127,10 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
                         Intrinsics.checkNotNullExpressionValue(isBackground, "isBackground");
                         if (isBackground.booleanValue()) {
                             boolean z = false;
-                            if (x8.f().b() instanceof in8) {
+                            if (x8.f().b() instanceof pn8) {
                                 Activity b = x8.f().b();
                                 if (b != null) {
-                                    if (((in8) b).getCurrentTabType() == 22) {
+                                    if (((pn8) b).getCurrentTabType() == 22) {
                                         z = true;
                                     }
                                 } else {
@@ -465,7 +465,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
                 z = true;
             }
             if (z) {
-                oi.N(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c4a));
+                oi.N(this$0.getPageContext().getPageActivity(), this$0.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c49));
             }
         }
     }
@@ -475,7 +475,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
         int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, num)) == null) {
-            cv8 cv8Var = this.g;
+            jv8 jv8Var = this.g;
             if (num == null) {
                 VideoPlayView videoPlayView = this.f;
                 Intrinsics.checkNotNull(videoPlayView);
@@ -483,7 +483,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
             } else {
                 intValue = num.intValue();
             }
-            VideoItemData s = cv8Var.s(intValue);
+            VideoItemData s = jv8Var.s(intValue);
             if (s == null || TextUtils.isEmpty(s.thread_id)) {
                 return 0L;
             }
@@ -529,7 +529,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
                 }
                 VideoPlayView videoPlayView4 = this.f;
                 if (videoPlayView4 != null) {
-                    videoPlayView4.M(new VideoPlayView.f() { // from class: com.repackage.tv8
+                    videoPlayView4.M(new VideoPlayView.f() { // from class: com.repackage.aw8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -576,9 +576,9 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
             if (TbadkCoreApplication.isLogin()) {
                 return false;
             }
-            cv8 cv8Var = this.g;
-            if (cv8Var != null) {
-                cv8Var.B();
+            jv8 jv8Var = this.g;
+            if (jv8Var != null) {
+                jv8Var.B();
             }
             VideoPlayView videoPlayView = this.f;
             if (videoPlayView == null) {
@@ -593,7 +593,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
     public final void N0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            dv8.e(getActivity() instanceof VideoPlayActivity ? "2" : "4");
+            kv8.e(getActivity() instanceof VideoPlayActivity ? "2" : "4");
         }
     }
 
@@ -619,7 +619,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.zv8
+    @Override // com.repackage.gw8
     public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -635,10 +635,10 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
                     VideoPlayView videoPlayView4 = this.f;
                     Intrinsics.checkNotNull(videoPlayView4);
                     if (videoPlayView4.h < this.g.k()) {
-                        cv8 cv8Var = this.g;
+                        jv8 jv8Var = this.g;
                         VideoPlayView videoPlayView5 = this.f;
                         Intrinsics.checkNotNull(videoPlayView5);
-                        VideoItemData s = cv8Var.s(videoPlayView5.h);
+                        VideoItemData s = jv8Var.s(videoPlayView5.h);
                         if (s == null || StringUtils.isNull(s.thread_id)) {
                             return;
                         }
@@ -649,7 +649,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
         }
     }
 
-    @Override // com.repackage.zv8
+    @Override // com.repackage.gw8
     public long X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -744,7 +744,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
         }
     }
 
-    @Override // com.repackage.zv8
+    @Override // com.repackage.gw8
     public void m0(int i, int i2, Intent intent) {
         VideoPlayView videoPlayView;
         Interceptable interceptable = $ic;
@@ -830,8 +830,8 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onDestroyView();
-            cs6.j().d("6061002332-203360688");
-            cs6.j().c("6061002410-390177882");
+            es6.j().d("6061002332-203360688");
+            es6.j().c("6061002410-390177882");
         }
     }
 
@@ -857,7 +857,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
                 N0();
             }
             if (this.l && this.d == 4) {
-                yu8.c(2);
+                fv8.c(2);
             }
             if (this.l && !P0() && TbadkCoreApplication.isLogin()) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_ACCOUNT_ATTENTION_LIST_PAGE);
@@ -900,7 +900,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
         }
     }
 
-    @Override // com.repackage.zv8
+    @Override // com.repackage.gw8
     public boolean u0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -930,8 +930,8 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
         this.b = kVar;
         this.c = i;
         this.d = i2;
-        this.g = new cv8();
-        this.o = new VideoPlayFragment.GoPbCommentFloatListener(new SimpleMessageListener.b() { // from class: com.repackage.qv8
+        this.g = new jv8();
+        this.o = new VideoPlayFragment.GoPbCommentFloatListener(new SimpleMessageListener.b() { // from class: com.repackage.xv8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -944,7 +944,7 @@ public final class VideoAttentionPageFragment extends BaseFragment implements zv
             }
         });
         this.p = new d(this);
-        this.q = new VideoPlayView.h() { // from class: com.repackage.sv8
+        this.q = new VideoPlayView.h() { // from class: com.repackage.zv8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

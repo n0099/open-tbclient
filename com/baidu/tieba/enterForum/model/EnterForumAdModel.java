@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bj8;
+import com.repackage.dj8;
 import com.repackage.f9;
-import com.repackage.l46;
-import com.repackage.ui8;
-import com.repackage.wi8;
+import com.repackage.n46;
 /* loaded from: classes3.dex */
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l46 a;
+    public n46 a;
     public boolean b;
     public HttpMessageListener c;
 
@@ -91,10 +91,10 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.c);
     }
 
-    public l46 D() {
+    public n46 D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (l46) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (n46) invokeV.objValue;
     }
 
     public void E() {
@@ -105,12 +105,12 @@ public class EnterForumAdModel extends BdBaseModel {
     }
 
     public void F(Context context) {
-        l46 l46Var;
+        n46 n46Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.b || (l46Var = this.a) == null || !l46Var.a()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.b || (n46Var = this.a) == null || !n46Var.a()) {
             return;
         }
-        wi8.g().c(f9.a(context).getUniqueId(), ui8.g("a025", "common_fill", true, 1, 5));
+        dj8.g().c(f9.a(context).getUniqueId(), bj8.g("a025", "common_fill", true, 1, 5));
         this.b = true;
     }
 

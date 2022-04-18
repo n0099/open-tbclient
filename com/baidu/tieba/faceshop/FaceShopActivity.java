@@ -27,10 +27,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a9;
-import com.repackage.b96;
-import com.repackage.du4;
-import com.repackage.i96;
-import com.repackage.j96;
+import com.repackage.cu4;
+import com.repackage.d96;
+import com.repackage.k96;
+import com.repackage.l96;
 import com.repackage.mi;
 import com.repackage.ni;
 import java.util.ArrayList;
@@ -47,11 +47,11 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
     public final a9 mLoadDataCallBack;
     public FaceShopModel mModel;
     public final NoNetworkView.b mNetworkChangeListener;
-    public j96 mView;
+    public l96 mView;
     public final HashMap<String, DownloadData> map;
 
     /* loaded from: classes3.dex */
-    public class a implements du4.g {
+    public class a implements cu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceShopActivity a;
@@ -74,7 +74,7 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
             this.a = faceShopActivity;
         }
 
-        @Override // com.repackage.du4.g
+        @Override // com.repackage.cu4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -194,14 +194,14 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
                         if (str != null) {
                             this.a.showToast(str);
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                         }
                         this.a.mView.b();
                         return;
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 this.a.mView.b();
             }
         }
@@ -287,7 +287,7 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             FaceShopData K;
-            i96 c;
+            k96 c;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.mModel == null || this.a.mView == null || (K = this.a.mModel.K()) == null || K.pack_list == null) {
                 return;
@@ -388,15 +388,15 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            j96 j96Var = new j96(getPageContext());
-            this.mView = j96Var;
-            j96Var.o(new a(this));
+            l96 l96Var = new l96(getPageContext());
+            this.mView = l96Var;
+            l96Var.o(new a(this));
             this.mView.p(new b(this));
             this.mView.m(this);
             addNetWorkStateChangeListener();
             registerListener(2001118, this.mListener);
             registerListener(2001117, this.mListener);
-            b96.f();
+            d96.f();
         }
     }
 
@@ -435,11 +435,11 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
-        j96 j96Var;
+        l96 l96Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            if (i2 != -1 || (j96Var = this.mView) == null || j96Var.c() == null) {
+            if (i2 != -1 || (l96Var = this.mView) == null || l96Var.c() == null) {
                 return;
             }
             if (i == 10000) {
@@ -462,7 +462,7 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2902012, new IntentConfig(getActivity())));
                 }
             } else {
-                i96 c2 = this.mView.c();
+                k96 c2 = this.mView.c();
                 int e2 = c2.e();
                 if (e2 < 0) {
                     return;
@@ -484,10 +484,10 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
     }
 
     public void onBuySuccess(int i) {
-        j96 j96Var;
+        l96 l96Var;
         FacePackageData facePackageData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (j96Var = this.mView) == null || j96Var.c() == null || (facePackageData = (FacePackageData) this.mView.c().getItem(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (l96Var = this.mView) == null || l96Var.c() == null || (facePackageData = (FacePackageData) this.mView.c().getItem(i)) == null) {
             return;
         }
         this.mView.e();
@@ -502,21 +502,21 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            j96 j96Var = this.mView;
-            if (j96Var != null) {
-                j96Var.g(i);
+            l96 l96Var = this.mView;
+            if (l96Var != null) {
+                l96Var.g(i);
             }
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        j96 j96Var;
+        l96 l96Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (j96Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (l96Var = this.mView) == null) {
             return;
         }
-        if (view2 == j96Var.d()) {
+        if (view2 == l96Var.d()) {
             if (!TbadkCoreApplication.isLogin()) {
                 TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getActivity(), true, 11037)));
                 return;
@@ -546,9 +546,9 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
             if (faceShopModel != null) {
                 faceShopModel.cancelLoadData();
             }
-            j96 j96Var = this.mView;
-            if (j96Var != null) {
-                j96Var.c().h();
+            l96 l96Var = this.mView;
+            if (l96Var != null) {
+                l96Var.c().h();
             }
             FaceBuyModel faceBuyModel = this.mBuyModel;
             if (faceBuyModel != null) {
@@ -560,11 +560,11 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        j96 j96Var;
-        i96 c2;
+        l96 l96Var;
+        k96 c2;
         FacePackageData facePackageData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || this.mModel == null || (j96Var = this.mView) == null || (c2 = j96Var.c()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || this.mModel == null || (l96Var = this.mView) == null || (c2 = l96Var.c()) == null) {
             return;
         }
         if (i < c2.getCount() && i >= 0 && (facePackageData = (FacePackageData) c2.getItem(i)) != null) {
@@ -578,9 +578,9 @@ public class FaceShopActivity extends BaseActivity<FaceShopActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            j96 j96Var = this.mView;
-            if (j96Var != null) {
-                j96Var.h();
+            l96 l96Var = this.mView;
+            if (l96Var != null) {
+                l96Var.h();
             }
         }
     }

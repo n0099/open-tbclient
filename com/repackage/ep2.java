@@ -27,12 +27,12 @@ import java.io.File;
 import java.net.URI;
 import org.json.JSONObject;
 import rx.schedulers.Schedulers;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ep2 extends g23 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements cf3<m53<o53.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class ep2 extends g23 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements mv2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,8 +135,8 @@ public class ep2 extends g23 {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements iz9<File> {
+    /* loaded from: classes6.dex */
+    public class c implements pz9<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -166,7 +166,7 @@ public class ep2 extends g23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.iz9
+        @Override // com.repackage.pz9
         public void call(File file) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
@@ -185,8 +185,8 @@ public class ep2 extends g23 {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements mz9<File, File> {
+    /* loaded from: classes6.dex */
+    public class d implements tz9<File, File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -212,7 +212,7 @@ public class ep2 extends g23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.mz9
+        @Override // com.repackage.tz9
         public File call(File file) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -359,7 +359,7 @@ public class ep2 extends g23 {
                 return null;
             }
             File file2 = new File(t, file.getName());
-            if (ng4.f(file, file2) > 0) {
+            if (mg4.f(file, file2) > 0) {
                 return file2;
             }
             return null;
@@ -426,7 +426,7 @@ public class ep2 extends g23 {
                 callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
                 return;
             }
-            uy9.f(file).h(new d(this, context)).y(Schedulers.io()).k(ez9.b()).w(new c(this, callbackHandler, str, context));
+            bz9.f(file).h(new d(this, context)).y(Schedulers.io()).k(lz9.b()).w(new c(this, callbackHandler, str, context));
         }
     }
 }

@@ -176,7 +176,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
             this.b = context;
             LayoutInflater.from(context).inflate(getLayout(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091591);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091592);
             setOnClickListener(this);
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040313});
@@ -268,7 +268,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.d = 1;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0c4f);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0c4e);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
                 alphaAnimation.setDuration(500L);
@@ -282,7 +282,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     return;
                 }
                 this.d = 2;
-                this.a.setText(R.string.obfuscated_res_0x7f0f0cb4);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0cb3);
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation2.setFillAfter(true);
                 alphaAnimation2.setDuration(500L);

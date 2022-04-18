@@ -1,16 +1,12 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 /* loaded from: classes7.dex */
-public class s49 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface s49 {
+    public static final ServiceReference a = new ServiceReference(UBCCloudControlProcessor.UBC_KEY, "yalog");
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            r49.a();
-        }
-    }
+    void a(String str, String str2);
+
+    void b(String str, String str2);
 }

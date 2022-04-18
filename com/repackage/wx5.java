@@ -1,13 +1,20 @@
 package com.repackage;
 
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class wx5 {
+public abstract class wx5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String mBottomLink;
+    public String mBottomText;
+    public String mGroupTitle;
+    public int mRightIconResId;
+    public boolean showBottomDivider;
+    public boolean showTopDivider;
 
     public wx5() {
         Interceptable interceptable = $ic;
@@ -19,9 +26,9 @@ public abstract class wx5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.showBottomDivider = true;
     }
-
-    public abstract int sort();
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c6a;
+import com.repackage.j6a;
 /* loaded from: classes9.dex */
 public class NoScrollGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
@@ -46,7 +46,7 @@ public class NoScrollGridView extends GridView {
             int integer = obtainStyledAttributes.getInteger(0, 536870911);
             this.a = integer;
             if (integer != 536870911) {
-                this.a = c6a.a(integer);
+                this.a = j6a.a(integer);
             }
             obtainStyledAttributes.recycle();
         }

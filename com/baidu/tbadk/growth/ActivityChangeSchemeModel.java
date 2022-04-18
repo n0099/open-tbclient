@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.e35;
-import com.repackage.rt4;
+import com.repackage.qt4;
 import com.repackage.x8;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes3.dex */
@@ -83,7 +83,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.A();
                 } else {
-                    int a = rt4.a();
+                    int a = qt4.a();
                     if (a != 2) {
                         this.a.B(a);
                         return;

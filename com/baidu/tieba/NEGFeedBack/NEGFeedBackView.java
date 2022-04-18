@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f9;
-import com.repackage.mp4;
+import com.repackage.lp4;
 import com.repackage.oi;
 import com.repackage.uh5;
 import java.util.ArrayList;
@@ -80,11 +80,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, mp4 mp4Var);
+        void a(ArrayList<Integer> arrayList, String str, lp4 lp4Var);
 
-        void b(mp4 mp4Var, CompoundButton compoundButton, boolean z);
+        void b(lp4 lp4Var, CompoundButton compoundButton, boolean z);
 
-        void c(mp4 mp4Var);
+        void c(lp4 lp4Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,7 +106,7 @@ public class NEGFeedBackView extends AppCompatImageView {
             }
         }
         this.b = 0L;
-        this.f = R.drawable.obfuscated_res_0x7f0808ef;
+        this.f = R.drawable.obfuscated_res_0x7f0808f3;
         this.g = R.color.CAM_X0111;
         this.i = new a(this);
         this.a = tbPageContext.getPageActivity();
@@ -208,10 +208,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(mp4 mp4Var) {
+    public void setData(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mp4Var) == null) {
-            this.h.v(mp4Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, lp4Var) == null) {
+            this.h.v(lp4Var);
         }
     }
 

@@ -213,10 +213,10 @@ public class d02 extends hz2 {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00d2, viewGroup, false);
             this.k = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091afc);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091afd);
             this.l = textView;
             textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603d5));
-            SelectorTextView selectorTextView = (SelectorTextView) this.k.findViewById(R.id.obfuscated_res_0x7f091afd);
+            SelectorTextView selectorTextView = (SelectorTextView) this.k.findViewById(R.id.obfuscated_res_0x7f091afe);
             this.m = selectorTextView;
             selectorTextView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603d4));
             q();

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class iq implements nm8 {
+public class iq implements um8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ej a;
@@ -98,7 +98,7 @@ public class iq implements nm8 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     iq iqVar = this.a.c;
-                    iqVar.a.onShowErr(4, iqVar.f.getString(R.string.obfuscated_res_0x7f0f1524));
+                    iqVar.a.onShowErr(4, iqVar.f.getString(R.string.obfuscated_res_0x7f0f1523));
                     gj.a = 1;
                 }
             }
@@ -106,13 +106,13 @@ public class iq implements nm8 {
 
         /* renamed from: com.repackage.iq$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0442b implements Runnable {
+        public class RunnableC0448b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0442b(b bVar, String str) {
+            public RunnableC0448b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -166,13 +166,13 @@ public class iq implements nm8 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = wv4.c(uv4.d(this.a)).a;
+                String str = vv4.c(tv4.d(this.a)).a;
                 if (this.c.b != null) {
                     this.c.b.removeCallbacks(this.c.e);
                     if (StringUtils.isNull(str)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0442b(this, str));
+                        this.c.b.post(new RunnableC0448b(this, str));
                     }
                 }
             }
@@ -282,7 +282,7 @@ public class iq implements nm8 {
                         this.a.c = null;
                         return;
                     }
-                    ejVar.onShowErr(2, gj.a(R.string.obfuscated_res_0x7f0f1529));
+                    ejVar.onShowErr(2, gj.a(R.string.obfuscated_res_0x7f0f1528));
                     FieldBuilder fieldBuilder2 = new FieldBuilder();
                     fieldBuilder2.append("file", str);
                     fieldBuilder2.append("dur", Integer.valueOf(i));
@@ -322,7 +322,7 @@ public class iq implements nm8 {
                     iqVar2.l(iqVar2.c, cj.a / 1000);
                     this.a.c = null;
                     iq iqVar3 = this.a;
-                    iqVar3.a.onShowErr(3, iqVar3.f.getString(R.string.obfuscated_res_0x7f0f152a));
+                    iqVar3.a.onShowErr(3, iqVar3.f.getString(R.string.obfuscated_res_0x7f0f1529));
                 } else {
                     gj.a = 1;
                     if (i == 8) {
@@ -380,7 +380,7 @@ public class iq implements nm8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new iq() : (iq) invokeV.objValue;
     }
 
-    @Override // com.repackage.nm8
+    @Override // com.repackage.um8
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -388,7 +388,7 @@ public class iq implements nm8 {
         }
     }
 
-    @Override // com.repackage.nm8
+    @Override // com.repackage.um8
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -406,7 +406,7 @@ public class iq implements nm8 {
         }
     }
 
-    @Override // com.repackage.nm8
+    @Override // com.repackage.um8
     public boolean c(ej ejVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;
@@ -419,15 +419,15 @@ public class iq implements nm8 {
             if (!FileHelper.checkSD()) {
                 String sdErrorString = FileHelper.getSdErrorString();
                 if (sdErrorString == null) {
-                    sdErrorString = gj.a(R.string.obfuscated_res_0x7f0f1525);
+                    sdErrorString = gj.a(R.string.obfuscated_res_0x7f0f1524);
                 }
                 this.a.onShowErr(0, sdErrorString);
                 return false;
             }
             p(true);
-            String e = uv4.e();
+            String e = tv4.e();
             this.c = e;
-            String c2 = uv4.c(e);
+            String c2 = tv4.c(e);
             if (this.d == null) {
                 this.d = new d(this, null);
             }
@@ -450,7 +450,7 @@ public class iq implements nm8 {
         return invokeLI.booleanValue;
     }
 
-    @Override // com.repackage.nm8
+    @Override // com.repackage.um8
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -458,7 +458,7 @@ public class iq implements nm8 {
         }
     }
 
-    @Override // com.repackage.nm8
+    @Override // com.repackage.um8
     public void d(ej ejVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, ejVar) == null) {
@@ -466,7 +466,7 @@ public class iq implements nm8 {
         }
     }
 
-    @Override // com.repackage.nm8
+    @Override // com.repackage.um8
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -502,7 +502,7 @@ public class iq implements nm8 {
         }
     }
 
-    @Override // com.repackage.nm8
+    @Override // com.repackage.um8
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -521,7 +521,7 @@ public class iq implements nm8 {
         }
     }
 
-    @Override // com.repackage.nm8
+    @Override // com.repackage.um8
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {

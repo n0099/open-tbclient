@@ -1,109 +1,78 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.AdUploadSwitch;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class uc8 {
+public class uc8 extends zi5 {
     public static /* synthetic */ Interceptable $ic;
-    public static uc8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public vc8 a;
-    public CustomMessageListener b;
+    public aj5 h;
 
-    /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(uc8 uc8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uc8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uc8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && mi.z() && this.a.a != null) {
-                this.a.a.c();
-            }
-        }
-    }
-
-    public uc8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uc8(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
+        super(placeId, str, aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {placeId, str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((PlaceId) objArr2[0], (String) objArr2[1], (IAdBaseAsyncController.a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this, 2000994);
-        this.a = new xc8();
-        MessageManager.getInstance().registerListener(this.b);
+        this.h = aj5.d();
     }
 
-    public static uc8 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.zi5
+    public void c(List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (uc8.class) {
-                    if (c == null) {
-                        c = new uc8();
-                    }
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.h.a(this.a, list);
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (r98.e(System.currentTimeMillis(), this.h.e(this.a), i)) {
+                List<AdvertAppInfo> b = this.h.b(this.a);
+                if (jd7.e(b)) {
+                    return;
+                }
+                for (AdvertAppInfo advertAppInfo : b) {
+                    ad8.i(advertAppInfo, 0, 44);
                 }
             }
-            return c;
         }
-        return (uc8) invokeV.objValue;
     }
 
-    public final boolean c() {
+    @Nullable
+    public AdvertAppInfo i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SwitchManager.getInstance().findType(AdUploadSwitch.KEY) != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h.c(this.a) : (AdvertAppInfo) invokeV.objValue;
     }
 
-    public void d(sc8 sc8Var) {
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sc8Var) == null) && c() && this.a != null) {
-            if (mi.z()) {
-                this.a.a(sc8Var);
-            } else {
-                this.a.b(sc8Var);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h.f(this.a) : invokeV.booleanValue;
     }
 }

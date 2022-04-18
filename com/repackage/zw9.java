@@ -1,11 +1,5 @@
 package com.repackage;
 /* loaded from: classes7.dex */
-public interface zw9 {
-    zw9 a();
-
-    boolean b(String str);
-
-    String c();
-
-    String toString();
+public interface zw9 extends cx9 {
+    void put(String str, String str2);
 }

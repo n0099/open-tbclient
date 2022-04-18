@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cz5;
-import com.repackage.dz5;
+import com.repackage.ez5;
+import com.repackage.fz5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActivity> {
@@ -25,8 +25,8 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public int a;
     public int b;
     public int c;
-    public ArrayList<cz5> d;
-    public dz5 e;
+    public ArrayList<ez5> d;
+    public fz5 e;
     public boolean f;
     public b g;
     public HttpMessageListener h;
@@ -87,7 +87,7 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
     public interface b {
         void a();
 
-        void b(int i, String str, ArrayList<cz5> arrayList, dz5 dz5Var, boolean z);
+        void b(int i, String str, ArrayList<ez5> arrayList, fz5 fz5Var, boolean z);
     }
 
     public ConsumptionRecordsModel(BdUniqueId bdUniqueId) {
@@ -156,11 +156,11 @@ public class ConsumptionRecordsModel extends BdBaseModel<ConsumptionRecordsActiv
         }
     }
 
-    public final void G(ArrayList<cz5> arrayList, dz5 dz5Var, boolean z) {
+    public final void G(ArrayList<ez5> arrayList, fz5 fz5Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, dz5Var, z) == null) {
-            if (dz5Var != null) {
-                this.e = dz5Var;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, arrayList, fz5Var, z) == null) {
+            if (fz5Var != null) {
+                this.e = fz5Var;
             }
             this.f = z;
             if (arrayList == null) {

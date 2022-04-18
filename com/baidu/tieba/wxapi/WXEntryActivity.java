@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eq7;
+import com.repackage.hq7;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
@@ -118,7 +118,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
             setContentView(R.layout.obfuscated_res_0x7f0d04e1);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b23);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b24);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a4d));
@@ -167,10 +167,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         }
         int type = baseResp.getType();
         if (1 == type) {
-            eq7 eq7Var = new eq7();
-            eq7Var.a = this;
-            eq7Var.b = baseResp;
-            MessageManager.getInstance().runTask(2921351, null, eq7Var);
+            hq7 hq7Var = new hq7();
+            hq7Var.a = this;
+            hq7Var.b = baseResp;
+            MessageManager.getInstance().runTask(2921351, null, hq7Var);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {
             SendMessageToWX.Resp resp = (SendMessageToWX.Resp) baseResp;

@@ -15,7 +15,7 @@ public class xl3 {
     public static yl3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? vm5.a() : (yl3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? xm5.a() : (yl3) invokeV.objValue;
     }
 
     @Inject(force = false)

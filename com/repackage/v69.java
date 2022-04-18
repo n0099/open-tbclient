@@ -1,475 +1,315 @@
 package com.repackage;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
-import com.repackage.o69;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import org.json.JSONArray;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Map;
+import java.util.UUID;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class v69 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class b extends e79 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+    public interface a<T> {
+        void a(T t);
 
-        public b(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        @Override // com.repackage.e79
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                v69.k(this.a);
-                if (b69.h().i() != null && !b69.h().i().equals("")) {
-                    k79.a("BaiDuAB sdk  init success");
-                } else {
-                    String h = v69.h(b69.h().getContext());
-                    if (h == null || h.equals("")) {
-                        k79.b("SDK getToken Error do you have set correct  BAIDUAB_APPKEY in Manifest or network is available");
-                        return;
-                    }
-                }
-                v69.d();
-                v69.c();
-                d79.b(new z69(), u69.e(), u69.c());
-                l79.b();
-            }
-        }
+        void a(String str);
     }
 
-    /* loaded from: classes7.dex */
-    public static class e extends e79 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        /* loaded from: classes7.dex */
-        public class a implements o69.a<JSONObject> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-            @Override // com.repackage.o69.a
-            public final /* synthetic */ void a(JSONObject jSONObject) {
-                f79.a("status_updated");
-            }
-
-            @Override // com.repackage.o69.a
-            public final void a(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                }
-            }
-        }
-
-        public e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        @Override // com.repackage.e79
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || f79.b("status_updated")) {
-                return;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("exids", this.a);
-            o69.c(o69.d("http://absample.baidu.com/appabapp/appapi/updateStatus", hashMap), new a(this));
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755279080, "Lcom/repackage/v69;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755279080, "Lcom/repackage/v69;");
-        }
-    }
-
-    public static /* synthetic */ void a(String str) {
-        d79.a(new e(str));
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:24:0x00ba  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void b(a69 a69Var) {
-        byte b2;
-        int i;
+    /* JADX WARN: Not initialized variable reg: 7, insn: 0x0179: MOVE  (r5 I:??[OBJECT, ARRAY]) = (r7 I:??[OBJECT, ARRAY]), block:B:53:0x0179 */
+    public static String a(File file, String str) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, a69Var) == null) {
-            int g = a69Var.g();
-            if (g < 1000) {
-                String e2 = x69.e(a69Var.a());
-                int length = e2.length();
-                int i2 = length << 1;
-                byte[] bArr = new byte[i2];
-                int i3 = 0;
-                for (int i4 = 0; i4 < length; i4++) {
-                    char charAt = e2.charAt(i4);
-                    int i5 = i3 + 1;
-                    bArr[i3] = (byte) (charAt & 255);
-                    i3 = i5 + 1;
-                    bArr[i5] = (byte) (charAt >> '\b');
-                }
-                int i6 = (-1756908916) ^ i2;
-                int i7 = i2 / 4;
-                for (int i8 = 0; i8 < i7; i8++) {
-                    int i9 = i8 * 4;
-                    int i10 = ((bArr[i9 + 0] & 255) + ((bArr[i9 + 1] & 255) << 8) + ((bArr[i9 + 2] & 255) << 16) + ((bArr[i9 + 3] & 255) << 24)) * 1540483477;
-                    i6 = (i6 * 1540483477) ^ (((i10 >>> 24) ^ i10) * 1540483477);
-                }
-                int i11 = i2 % 4;
-                if (i11 == 3) {
-                    int i12 = i2 & (-4);
-                    i6 = (i6 ^ ((bArr[i12 + 2] & 255) << 16)) ^ ((bArr[i12 + 1] & 255) << 8);
-                    b2 = bArr[i12];
-                } else if (i11 == 2) {
-                    int i13 = i2 & (-4);
-                    i6 ^= (bArr[i13 + 1] & 255) << 8;
-                    b2 = bArr[i13];
-                } else {
-                    if (i11 == 1) {
-                        b2 = bArr[i2 & (-4)];
-                    }
-                    i = (i6 ^ (i6 >>> 13)) * 1540483477;
-                    if (Math.abs((i ^ (i >>> 15)) % 1000) >= g) {
-                        z59.f(false);
-                        return;
-                    }
-                }
-                i6 = (i6 ^ (b2 & 255)) * 1540483477;
-                i = (i6 ^ (i6 >>> 13)) * 1540483477;
-                if (Math.abs((i ^ (i >>> 15)) % 1000) >= g) {
-                }
-            }
-            b69.h().a(a69Var.a());
-            z59.f(true);
-            k79.g(a69Var.b());
-            c79.b(com.baidu.ubs.analytics.d.a.c() + "-进行一次 初始化   " + new Date().toLocaleString() + GlideException.IndentedAppendable.INDENT + j(a69Var.a()));
-            u69.b(a69Var.c());
-            u69.f(a69Var.d());
-            u69.g(a69Var.f());
-            u69.h(a69Var.e());
-            q69.a(a69Var.a());
-            d79.a(new b(a69Var.a()));
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (TextUtils.isEmpty(b69.h().j())) {
-                d();
-            }
-            if (TextUtils.isEmpty(b69.h().j())) {
-                return;
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put("package", b69.h().getContext().getPackageName());
-            hashMap.put("cuid", b69.h().j());
-            o69.c(o69.d("http://absample.baidu.com/appabapp/appapi/getgroup", hashMap), new a());
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            String e2 = f79.e("cuid", "");
-            if (!TextUtils.isEmpty(e2)) {
-                c79.b("本地 取得  cuid~~");
-                b69.h().e(e2);
-                return;
-            }
-            c79.b("网络请求  cuid~~");
-            HashMap hashMap = new HashMap();
-            hashMap.put("imei", x69.g(b69.h().getContext()));
-            hashMap.put("mac", x69.h(b69.h().getContext()));
-            o69.c(o69.d("http://absample.baidu.com/appabapp/appapi/getcuid", hashMap), new d());
-        }
-    }
-
-    public static /* synthetic */ int f() {
-        int i = a;
-        a = i + 1;
-        return i;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            String i = i(context);
-            HashMap hashMap = new HashMap();
-            hashMap.put("key", i);
-            hashMap.put("package", context.getPackageName());
-            o69.c(o69.d("http://absample.baidu.com/appabapp/appapi/gettoken", hashMap), new c(currentTimeMillis, context));
-            return b69.h().i();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, str)) == null) {
+            String uuid = UUID.randomUUID().toString();
+            InputStream inputStream2 = null;
             try {
-                return context.getPackageManager().getApplicationInfo(context.getPackageName(), 128).metaData.getString("BAIDUAB_APPKEY");
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
-                return "";
+            } catch (Throwable th) {
+                th = th;
+                inputStream2 = inputStream;
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            int myPid = Process.myPid();
-            ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
-            if (activityManager.getRunningAppProcesses() == null) {
-                return "unknow";
-            }
-            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
-                if (runningAppProcessInfo.pid == myPid) {
-                    return runningAppProcessInfo.processName;
-                }
-            }
-            return "unknow";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static /* synthetic */ String k(Context context) {
-        String e2 = f79.e("lastkey", "");
-        long c2 = f79.c("token_update_time");
-        if (e2.equals(i(context)) && c2 + 86400000 >= System.currentTimeMillis()) {
-            String e3 = f79.e("token", "");
-            if (!e3.equals("")) {
-                b69.h().b(e3);
-                return e3;
-            }
-        }
-        return h(context);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d implements o69.a<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.repackage.o69.a
-        public final /* synthetic */ void a(JSONObject jSONObject) {
-            String optString = jSONObject.optString("cuid");
-            if (TextUtils.isEmpty(optString)) {
-                b69.h().e("");
-                return;
-            }
-            b69.h().e(optString);
-            f79.f("cuid", optString);
-        }
-
-        @Override // com.repackage.o69.a
-        public final void a(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && str.equals("1")) {
-                b69.h().e("");
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements o69.a<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ Context b;
-
-        public c(long j, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = context;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.repackage.o69.a
-        public final /* synthetic */ void a(JSONObject jSONObject) {
-            String optString = jSONObject.optString("token");
-            if (optString == null || optString.isEmpty()) {
-                return;
-            }
-            b69.h().b(optString);
-            f79.f("token", optString);
-            f79.g("token_update_time", this.a);
-            f79.f("lastkey", v69.i(this.b));
-        }
-
-        @Override // com.repackage.o69.a
-        public final void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                k79.b("SDK getToken Error do you have set correct  BAIDUAB_APPKEY  in Manifest   or network is available");
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements o69.a<JSONArray> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        @Override // com.repackage.o69.a
-        public final /* synthetic */ void a(JSONArray jSONArray) {
-            JSONArray jSONArray2 = jSONArray;
-            StringBuffer stringBuffer = new StringBuffer();
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray2.length(); i++) {
-                JSONObject optJSONObject = jSONArray2.optJSONObject(i);
-                com.baidu.ubs.analytics.a.g gVar = new com.baidu.ubs.analytics.a.g();
-                gVar.setGroup(optJSONObject.optString("group"));
-                gVar.setId(optJSONObject.optString("id"));
-                gVar.y(optJSONObject.optString("sid"));
-                if (i > 0) {
-                    stringBuffer.append("_");
-                }
-                stringBuffer.append(gVar.getId());
-                arrayList.add(gVar);
-            }
-            b69.h().c(arrayList);
-            v69.a(stringBuffer.toString());
-        }
-
-        @Override // com.repackage.o69.a
-        public final void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                while (v69.a < 2) {
-                    synchronized (this) {
-                        v69.f();
+            try {
+                try {
+                    HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                    httpURLConnection.setReadTimeout(20000);
+                    httpURLConnection.setConnectTimeout(40000);
+                    httpURLConnection.setDoInput(true);
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setUseCaches(false);
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setRequestProperty("Accept-Charset", IMAudioTransRequest.CHARSET);
+                    httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+                    httpURLConnection.setRequestProperty("Content-Type", IMAudioTransRequest.CONTENT_TYPE + ";boundary=" + uuid);
+                    httpURLConnection.setRequestProperty("token", i69.h().i());
+                    if (file != null) {
+                        DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                        StringBuffer stringBuffer = new StringBuffer();
+                        stringBuffer.append("--");
+                        stringBuffer.append(uuid);
+                        stringBuffer.append("\r\n");
+                        stringBuffer.append("Content-Disposition: form-data; name=\"txt\"; filename=\"" + file.getName() + "\"\r\n");
+                        StringBuilder sb = new StringBuilder("Content-Type: application/octet-stream; charset=utf-8");
+                        sb.append("\r\n");
+                        stringBuffer.append(sb.toString());
+                        stringBuffer.append("\r\n");
+                        dataOutputStream.write(stringBuffer.toString().getBytes("UTF-8"));
+                        fileInputStream = new FileInputStream(file);
+                        try {
+                            byte[] bArr = new byte[8192];
+                            while (true) {
+                                int read = fileInputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                dataOutputStream.write(bArr, 0, read);
+                            }
+                            fileInputStream.close();
+                            dataOutputStream.write("\r\n".getBytes("UTF-8"));
+                            dataOutputStream.write(("--" + uuid + "--\r\n").getBytes("UTF-8"));
+                            dataOutputStream.flush();
+                            dataOutputStream.close();
+                            if (httpURLConnection.getResponseCode() == 200) {
+                                InputStream inputStream3 = httpURLConnection.getInputStream();
+                                StringBuffer stringBuffer2 = new StringBuffer();
+                                while (true) {
+                                    int read2 = inputStream3.read();
+                                    if (read2 == -1) {
+                                        break;
+                                    }
+                                    stringBuffer2.append((char) read2);
+                                }
+                                inputStream3.close();
+                                httpURLConnection.disconnect();
+                                String stringBuffer3 = stringBuffer2.toString();
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                return stringBuffer3;
+                            }
+                            j79.b(file.getAbsolutePath() + "     上传文件失败…………");
+                            httpURLConnection.disconnect();
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                            return null;
+                        } catch (IOException e3) {
+                            e = e3;
+                            r79.d(e);
+                            if (fileInputStream != null) {
+                                fileInputStream.close();
+                            }
+                            return null;
+                        } catch (Exception e4) {
+                            e = e4;
+                            r79.d(e);
+                            if (fileInputStream != null) {
+                                fileInputStream.close();
+                            }
+                            return null;
+                        }
                     }
-                    v69.c();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
+                }
+            } catch (IOException e6) {
+                e = e6;
+                fileInputStream = null;
+            } catch (Exception e7) {
+                e = e7;
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (inputStream2 != null) {
+                    try {
+                        inputStream2.close();
+                    } catch (IOException e8) {
+                        e8.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, str, str2)) != null) {
+            return (String) invokeLL.objValue;
+        }
+        try {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
+            httpURLConnection.setRequestProperty("Content-Type", "application/json");
+            httpURLConnection.setRequestProperty("Accept-Charset", IMAudioTransRequest.CHARSET);
+            httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+            httpURLConnection.setRequestProperty("Content-Length", String.valueOf(str.toString().getBytes("UTF-8").length));
+            httpURLConnection.setReadTimeout(20000);
+            httpURLConnection.setConnectTimeout(10000);
+            httpURLConnection.setRequestProperty("token", i69.h().i());
+            httpURLConnection.connect();
+            OutputStream outputStream = httpURLConnection.getOutputStream();
+            outputStream.write(str.getBytes("UTF-8"));
+            outputStream.flush();
+            outputStream.close();
+            if (httpURLConnection.getResponseCode() == 200) {
+                InputStreamReader inputStreamReader = new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                StringBuffer stringBuffer = new StringBuffer("");
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine != null) {
+                        stringBuffer.append(new String(readLine.getBytes("UTF-8"), IMAudioTransRequest.CHARSET));
+                    } else {
+                        bufferedReader.close();
+                        inputStreamReader.close();
+                        httpURLConnection.disconnect();
+                        return stringBuffer.toString();
+                    }
+                }
+            } else {
+                j79.b("上传log失败    ");
+                httpURLConnection.disconnect();
+                return null;
+            }
+        } catch (Exception e) {
+            j79.b("上传log失败    " + e.getMessage());
+            r79.d(e);
+            return null;
+        }
+    }
+
+    public static boolean c(String str, a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, aVar)) == null) {
+            try {
+            } catch (Exception e) {
+                r79.d(e);
+            }
+            if (str == null) {
+                if (aVar != null) {
+                    aVar.a("-1");
+                }
+                return false;
+            }
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.getString("status").equals("0")) {
+                if (aVar != null) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optJSONObject != null) {
+                        aVar.a((a) optJSONObject);
+                        return true;
+                    }
+                    aVar.a((a) jSONObject.optJSONArray("data"));
+                    return true;
+                }
+                return true;
+            } else if (jSONObject.getString("status").equals("1")) {
+                if (aVar != null) {
+                    aVar.a(jSONObject.optString("status"));
+                }
+                j79.b("net status  error ");
+                return false;
+            } else {
+                if (jSONObject.getString("status").equals("2")) {
+                    c79.h(i69.h().getContext());
+                    j79.b("net  token error ");
+                    return false;
+                }
+                if (aVar != null) {
+                    aVar.a("-1");
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static String d(String str, Map<String, Object> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, str, map)) != null) {
+            return (String) invokeLL.objValue;
+        }
+        String str2 = "";
+        if (map.size() > 0) {
+            StringBuffer stringBuffer = new StringBuffer();
+            if (!map.isEmpty()) {
+                for (Map.Entry<String, Object> entry : map.entrySet()) {
+                    if (stringBuffer.length() <= 0) {
+                        stringBuffer.append(entry.getKey());
+                        stringBuffer.append("=");
+                        stringBuffer.append(entry.getValue());
+                    } else {
+                        stringBuffer.append("&");
+                        stringBuffer.append(entry.getKey());
+                        stringBuffer.append("=");
+                        stringBuffer.append(entry.getValue());
+                    }
+                }
+                str2 = stringBuffer.toString();
+            }
+        }
+        try {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setConnectTimeout(10000);
+            httpURLConnection.setReadTimeout(20000);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setRequestProperty("token", i69.h().i());
+            PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), IMAudioTransRequest.CHARSET));
+            printWriter.write(str2);
+            printWriter.flush();
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(httpURLConnection.getInputStream());
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = bufferedInputStream.read(bArr);
+                if (read != -1) {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                    byteArrayOutputStream.flush();
+                } else {
+                    printWriter.close();
+                    bufferedInputStream.close();
+                    String byteArrayOutputStream2 = byteArrayOutputStream.toString(IMAudioTransRequest.CHARSET);
+                    byteArrayOutputStream.close();
+                    return byteArrayOutputStream2;
                 }
             }
+        } catch (Exception e) {
+            r79.e(e);
+            return null;
         }
     }
 }

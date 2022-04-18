@@ -2,10 +2,15 @@ package com.repackage;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +18,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class op5 extends rw5<ep5> {
+public class op5 extends tw5<fp5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public np5 i;
-    public np5 j;
-    public np5 k;
-    public ViewGroup l;
+    public TextView i;
+    public TextView j;
+    public HeadImageView k;
+    public TextView l;
+    public View m;
+    public fp5 n;
+    public RelativeLayout o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public op5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+    public op5(TbPageContext tbPageContext, ViewGroup viewGroup) {
         super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,62 +48,66 @@ public class op5 extends rw5<ep5> {
                 return;
             }
         }
-        this.i = new np5(tbPageContext);
-        this.j = new np5(tbPageContext);
-        this.k = new np5(tbPageContext);
-        this.l = (ViewGroup) k();
-        new View(getContext());
-        this.l.setPadding(j().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, j().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
-        this.l.addView(this.i.e());
-        this.l.addView(this.j.e());
-        this.l.addView(this.k.e());
-        m(this.b, TbadkCoreApplication.getInst().getSkinType());
+        this.m = k();
+        this.o = (RelativeLayout) k().findViewById(R.id.obfuscated_res_0x7f090e4d);
+        this.i = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e4b);
+        this.j = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e4a);
+        HeadImageView headImageView = (HeadImageView) k().findViewById(R.id.obfuscated_res_0x7f090e49);
+        this.k = headImageView;
+        headImageView.setAutoChangeStyle(true);
+        this.k.setIsRound(true);
+        this.k.setDrawBorder(true);
+        this.k.setPlaceHolder(1);
+        this.k.setBorderWidth(oi.f(tbPageContext.getPageActivity(), R.dimen.tbds1));
+        this.k.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.l = (TextView) k().findViewById(R.id.obfuscated_res_0x7f090e4c);
+        this.o.setOnClickListener(this);
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07fa : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07f7 : invokeV.intValue;
     }
 
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
-            this.i.g(tbPageContext, i);
-            this.j.g(tbPageContext, i);
-            this.k.g(tbPageContext, i);
+            SkinManager.setBackgroundResource(this.m, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0108);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || e() == null) {
+            return;
         }
+        e().a(view2, this.n);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     /* renamed from: s */
-    public void l(ep5 ep5Var) {
+    public void l(fp5 fp5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, ep5Var) == null) || ep5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, fp5Var) == null) || fp5Var == null) {
             return;
         }
-        this.i.f(ep5Var.a);
-        this.j.f(ep5Var.b);
-        this.k.f(ep5Var.c);
-    }
-
-    public void t(pp5 pp5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, pp5Var) == null) {
-            this.i.h(pp5Var);
-            this.j.h(pp5Var);
-            this.k.h(pp5Var);
+        this.n = fp5Var;
+        String str = fp5Var.c;
+        if (StringUtils.isNull(str)) {
+            str = StringUtils.isNull(fp5Var.b) ? "" : fp5Var.b;
         }
+        this.i.setText(str);
+        this.j.setText(StringUtils.isNull(fp5Var.e) ? "" : fp5Var.e);
+        this.k.K(fp5Var.d, 10, false);
+        this.l.setText(StringUtils.isNull(fp5Var.f) ? "" : fp5Var.f);
     }
 }

@@ -1,48 +1,14 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleProducer;
+import rx.internal.operators.OperatorPublish$InnerProducer;
 /* loaded from: classes6.dex */
-public final class l0a<T> extends zy9<T> {
+public final class l0a<T> extends hz9<T> implements iz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final az9<? super T> b;
 
-    public l0a(az9<? super T> az9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {az9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = az9Var;
-    }
+    public abstract void g();
 
-    @Override // com.repackage.zy9
-    public void b(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            this.b.onError(th);
-        }
-    }
-
-    @Override // com.repackage.zy9
-    public void c(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.b.f(new SingleProducer(this.b, t));
-        }
-    }
+    public abstract void h(OperatorPublish$InnerProducer<T> operatorPublish$InnerProducer);
 }

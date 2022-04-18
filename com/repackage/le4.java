@@ -1,28 +1,64 @@
 package com.repackage;
 
 import android.content.Context;
-import android.graphics.Matrix;
-import android.graphics.RectF;
-import android.os.Parcelable;
-import android.view.View;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Process;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class le4 {
+public class le4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract Parcelable a(View view2, Matrix matrix, RectF rectF);
+    public static int a(@NonNull Context context, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (str != null) {
+                return context.checkPermission(str, Process.myPid(), Process.myUid());
+            }
+            throw new IllegalArgumentException("permission is null");
+        }
+        return invokeLL.intValue;
+    }
 
-    public abstract View b(Context context, Parcelable parcelable);
+    public static final int b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return ne4.a(context, i);
+            }
+            return context.getResources().getColor(i);
+        }
+        return invokeLI.intValue;
+    }
 
-    public abstract void c(List<String> list, Map<String, View> map);
+    public static final ColorStateList c(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return ne4.b(context, i);
+            }
+            return context.getResources().getColorStateList(i);
+        }
+        return (ColorStateList) invokeLI.objValue;
+    }
 
-    public abstract void d(List<View> list);
-
-    public abstract void e(List<String> list, List<View> list2, List<View> list3);
-
-    public abstract void f(List<String> list, List<View> list2, List<View> list3);
+    public static final Drawable d(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return me4.a(context, i);
+            }
+            return context.getResources().getDrawable(i);
+        }
+        return (Drawable) invokeLI.objValue;
+    }
 }

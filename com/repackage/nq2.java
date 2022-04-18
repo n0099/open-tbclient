@@ -147,28 +147,28 @@ public class nq2 {
         return (String) invokeL.objValue;
     }
 
-    public static void g(String str, JSONObject jSONObject, h94 h94Var, List<i94> list) {
+    public static void g(String str, JSONObject jSONObject, g94 g94Var, List<h94> list) {
         long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65543, null, str, jSONObject, h94Var, list) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65543, null, str, jSONObject, g94Var, list) == null) {
             if (jSONObject == null) {
                 if (a) {
                     Log.d("PkgInfoExt", "pkgObject from pms is null");
                 }
-            } else if (h94Var == null && list == null) {
+            } else if (g94Var == null && list == null) {
                 if (a) {
                     Log.d("PkgInfoExt", "pkg info's ext must has at lest one main or sub pkg");
                 }
             } else {
                 String str2 = null;
-                if (h94Var != null) {
-                    str = h94Var.g;
-                    j = h94Var.i;
-                    str2 = h94Var.p;
+                if (g94Var != null) {
+                    str = g94Var.g;
+                    j = g94Var.i;
+                    str2 = g94Var.p;
                 } else if (list.size() > 0) {
-                    i94 i94Var = list.get(0);
-                    j = i94Var.i;
-                    str2 = i94Var.s;
+                    h94 h94Var = list.get(0);
+                    j = h94Var.i;
+                    str2 = h94Var.s;
                 } else {
                     j = -1;
                 }

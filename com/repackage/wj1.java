@@ -2,7 +2,7 @@ package com.repackage;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.repackage.l94;
+import com.repackage.k94;
 import okhttp3.Callback;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
@@ -11,7 +11,7 @@ public interface wj1 {
 
     <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
 
-    void f(String str, String str2, l94.c cVar);
+    void f(String str, String str2, k94.c cVar);
 
     boolean g(String str);
 

@@ -25,8 +25,10 @@ public class SpeedStatsUtils {
     public static final int START_TYPE_NEW_INSTALL_INDIRECT = 1;
     public static final int START_TYPE_NORMAL_DIRECT = 4;
     public static final int START_TYPE_NORMAL_INDIRECT = 5;
+    public static final int START_TYPE_PUSH = 9;
     public static final int START_TYPE_REENTER_FROM_EXTERNAL = 7;
     public static final int START_TYPE_REENTER_FROM_LAUNCHER = 6;
+    public static final int START_TYPE_SCHEME = 8;
     public static final int START_TYPE_UPGRADE_DIRECT = 2;
     public static final int START_TYPE_UPGRADE_INDIRECT = 3;
     public static final String UBC_FROM_MAINLINE = "mainline";
@@ -49,6 +51,8 @@ public class SpeedStatsUtils {
     public static final String UBC_TYPE_HOT_LAUNCH = "hotlaunch";
     public static final String UBC_TYPE_NEW_INSTALL_DIRECT = "newInstallDirect";
     public static final String UBC_TYPE_NEW_INSTALL_INDIRECT = "newInstallIndirect";
+    public static final String UBC_TYPE_PUSH = "push";
+    public static final String UBC_TYPE_SCHEME = "scheme";
     public static final String UBC_TYPE_UPGRADE_DIRECT = "upgradeDirect";
     public static final String UBC_TYPE_UPGRADE_INDIRECT = "upgradeIndirect";
     public static final String UBC_VALUE_BANNER = "banner";

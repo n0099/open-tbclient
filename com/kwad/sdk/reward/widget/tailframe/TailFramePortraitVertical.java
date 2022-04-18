@@ -67,19 +67,19 @@ public class TailFramePortraitVertical extends LinearLayout implements d {
 
     private void b() {
         this.l = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0482, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09117c);
-        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091179);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09117d);
+        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09117a);
     }
 
     private void c() {
         if (!com.kwad.sdk.core.response.a.a.B(this.f) && !com.kwad.sdk.core.response.a.d.v(this.e)) {
-            TailFrameBarH5PortraitVertical tailFrameBarH5PortraitVertical = (TailFrameBarH5PortraitVertical) findViewById(R.id.obfuscated_res_0x7f091168);
+            TailFrameBarH5PortraitVertical tailFrameBarH5PortraitVertical = (TailFrameBarH5PortraitVertical) findViewById(R.id.obfuscated_res_0x7f091169);
             this.c = tailFrameBarH5PortraitVertical;
             tailFrameBarH5PortraitVertical.a(this.e);
             this.c.setVisibility(0);
             return;
         }
-        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) findViewById(R.id.obfuscated_res_0x7f091152);
+        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) findViewById(R.id.obfuscated_res_0x7f091153);
         this.b = tailFrameBarAppPortraitVertical;
         tailFrameBarAppPortraitVertical.a(this.e);
         this.b.setVisibility(0);

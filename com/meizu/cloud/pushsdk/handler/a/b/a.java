@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.repackage.rm9;
+import com.repackage.ym9;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -55,7 +55,7 @@ public class a implements Parcelable {
             return aVar;
         }
         str = "no control message can parse ";
-        rm9.b("ctl", str);
+        ym9.b("ctl", str);
         return aVar;
     }
 

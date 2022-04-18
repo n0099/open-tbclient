@@ -26,8 +26,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
+import com.repackage.ck8;
 import com.repackage.mg;
-import com.repackage.vj8;
 import com.repackage.wa;
 import com.repackage.ya;
 /* loaded from: classes3.dex */
@@ -68,8 +68,8 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof vj8)) {
-                this.a.a.updateLikeAndMsgStatus(((vj8) customResponsedMessage.getData()).n() == 1);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ck8)) {
+                this.a.a.updateLikeAndMsgStatus(((ck8) customResponsedMessage.getData()).n() == 1);
             }
         }
     }
@@ -168,7 +168,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                            errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                         } else {
                             errorString = responseUpdateMaskInfoMessage.getErrorString();
                         }

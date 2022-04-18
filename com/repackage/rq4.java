@@ -1,41 +1,29 @@
 package com.repackage;
 
-import android.util.SparseArray;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
+import org.json.JSONObject;
+import tbclient.FrsPage.TopCode;
 /* loaded from: classes7.dex */
-public class rq4 extends qn4 implements uo {
+public class rq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public boolean p;
-    public boolean q;
-    public boolean r;
-    public ThreadData s;
-    public int t;
-    public int u;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public long f;
+    public String g;
+    public String h;
 
     public rq4() {
         Interceptable interceptable = $ic;
@@ -47,207 +35,95 @@ public class rq4 extends qn4 implements uo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        this.g = false;
-        this.h = false;
-        this.i = false;
-        this.j = false;
-        this.k = false;
-        this.l = false;
-        this.m = false;
-        this.n = false;
-        this.o = false;
-        this.p = false;
-        this.q = false;
-        this.r = false;
-        this.t = 0;
-        this.u = 0;
     }
 
-    @Override // com.repackage.qn4
-    public mp4 getNegFeedBackData() {
+    public String a() {
         InterceptResult invokeV;
-        SparseArray<String> sparseArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ThreadData threadData = this.s;
-            if (threadData == null || (sparseArray = threadData.feedBackReasonMap) == null || sparseArray.size() <= 0) {
-                return null;
-            }
-            mp4 mp4Var = new mp4();
-            mp4Var.o(getThreadData().getTid());
-            mp4Var.k(getThreadData().getFid());
-            mp4Var.n(getThreadData().getNid());
-            mp4Var.j(this.s.feedBackReasonMap);
-            ThreadData threadData2 = this.s;
-            mp4Var.g = threadData2.feedBackExtraMap;
-            mp4Var.p = threadData2.mRecomAbTag;
-            mp4Var.k = threadData2.mRecomWeight;
-            mp4Var.m = threadData2.mRecomExtra;
-            mp4Var.l = threadData2.mRecomSource;
-            mp4Var.q = threadData2.statFloor;
-            mp4Var.o = threadData2.getRecomCardType();
-            return mp4Var;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.longValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return (mp4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.qn4
-    public String getRecomReason() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.s.mRecomReason : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.qn4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.s : (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        OriginalThreadInfo originalThreadInfo;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ThreadData threadData = this.s;
-            if (threadData == null) {
-                return null;
-            }
-            if (threadData.getIsDailyThread()) {
-                if (this.s.getThreadVideoInfo() != null) {
-                    return ThreadData.TYPE_VIDEO;
-                }
-                return ThreadData.TYPE_NORMAL;
-            }
-            int is_top = this.s.getIs_top();
-            ThreadData threadData2 = this.s;
-            int i2 = threadData2.threadType;
-            if (i2 == 63) {
-                return ThreadData.TYPE_SMART_APP_IMAGE;
-            }
-            if (i2 == 64) {
-                return ThreadData.TYPE_SMART_APP_VIDEO;
-            }
-            if (i2 == 65) {
-                return ThreadData.TYPE_ARTICLE;
-            }
-            if (threadData2.getThreadAlaInfo() != null && this.s.threadType == 60) {
-                return ThreadData.TYPE_ALA_SHARE_THREAD;
-            }
-            if (this.s.getThreadAlaInfo() != null && ((i = this.s.threadType) == 49 || i == 69)) {
-                return ThreadData.TYPE_VIDEO_ALA_ONLIVE;
-            }
-            if (this.s.getThreadAlaInfo() != null && this.s.threadType == 67) {
-                return ThreadData.TYPE_ALA_FRIEND_ROOM;
-            }
-            ThreadData threadData3 = this.s;
-            if (threadData3.threadType == 51) {
-                return ThreadData.TYPE_ALA_LIVE_EMPTY;
-            }
-            if (is_top != 2 && is_top != 1) {
-                if (threadData3.getThreadVideoInfo() != null && this.s.isInsertThread() && !this.s.isLiveInterviewLiveType()) {
-                    return ThreadData.TYPE_INSERT_VIDEO;
-                }
-                ThreadData threadData4 = this.s;
-                if (threadData4.isShareThread && (originalThreadInfo = threadData4.originalThreadData) != null) {
-                    if (originalThreadInfo.x) {
-                        if (originalThreadInfo.r != null) {
-                            return ThreadData.TYPE_NEW_VIDEO_SHARE_THREAD;
-                        }
-                        if (originalThreadInfo.g()) {
-                            return ThreadData.TYPE_ARTICLE_SHARE_THREAD;
-                        }
-                        return ThreadData.TYPE_NEW_NORMAL_SHARE_THREAD;
-                    }
-                    return ThreadData.TYPE_SHARE_THREAD;
-                } else if (this.s.isInterviewLiveStyle()) {
-                    return ThreadData.isFRSExtraLoaded.get() ? ThreadData.TYPE_STAR_INTERVIEW : ThreadData.TYPE_NORMAL;
-                } else if (this.s.isActInfo() && this.s.getActInfoType() == 1) {
-                    return ThreadData.isFRSExtraLoaded.get() ? ThreadData.TYPE_LOTTERY : ThreadData.TYPE_NORMAL;
-                } else if (this.s.isLinkThread()) {
-                    return ThreadData.TYPE_LINK;
-                } else {
-                    if (this.s.isTopicThread()) {
-                        return this.s.getHotTopicInfo() != null ? ThreadData.TYPE_FRS_HOTTOPIC_VIDEO : ThreadData.TYPE_FRS_HOTTOPIC;
-                    }
-                    uk8 uk8Var = this.s.funAdData;
-                    if (uk8Var != null && uk8Var.f()) {
-                        return this.s.funAdData.g() ? AdvertAppInfo.G : AdvertAppInfo.H;
-                    } else if (this.r) {
-                        return ThreadData.TYPE_FORUM_HEADER;
-                    } else {
-                        if (this.a) {
-                            return ThreadData.TYPE_USER_NORMAL;
-                        }
-                        if (this.b) {
-                            return ThreadData.TYPE_CONTENT_TEXT_NORMAL;
-                        }
-                        if (this.c) {
-                            return ThreadData.TYPE_CONTENT_SINGLE_H_NORMAL;
-                        }
-                        if (this.d) {
-                            return ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL;
-                        }
-                        if (this.e) {
-                            return ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL;
-                        }
-                        if (this.f) {
-                            return ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL;
-                        }
-                        if (this.g) {
-                            return ThreadData.TYPE_BOTTOM_NORMAL;
-                        }
-                        if (this.h) {
-                            return ThreadData.TYPE_GODREPLY_NORMAL;
-                        }
-                        if (this.i) {
-                            return ThreadData.TYPE_VIDEO;
-                        }
-                        if (this.j) {
-                            return ThreadData.TYPE_FAKE_VIDEO;
-                        }
-                        if (this.s.isGodThread()) {
-                            if (this.k) {
-                                return ThreadData.TYPE_VIDEO_GOD;
-                            }
-                            return ThreadData.TYPE_GOD_NORMAL;
-                        } else if (this.l) {
-                            return ThreadData.TYPE_SMART_APP;
-                        } else {
-                            if (this.m) {
-                                return ThreadData.TYPE_ENTER_FORUM;
-                            }
-                            if (this.n) {
-                                return ThreadData.TYPE_ITEM;
-                            }
-                            if (this.o) {
-                                return ThreadData.TYPE_VOTE;
-                            }
-                            if (this.p) {
-                                return ThreadData.TYPE_SINGLE_LINK;
-                            }
-                            if (this.q) {
-                                return ThreadData.TYPE_MULTI_LINK;
-                            }
-                            return ThreadData.TYPE_NORMAL;
-                        }
-                    }
-                }
-            }
-            return ThreadData.TYPE_TOP;
+        try {
+            this.a = jSONObject.optString(BigdayActivityConfig.IMG_URL);
+            jSONObject.optString("game_link");
+            this.b = jSONObject.optString("summary");
+            this.c = jSONObject.optString("code_link");
+            this.d = jSONObject.optInt("get_type", 1);
+            this.e = jSONObject.optString("surplusgift");
+            this.f = jSONObject.optLong("giftworth", 0L);
+            this.g = jSONObject.optString("type_text");
+            this.h = jSONObject.optString(SubtitleLog.TAG);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void j(TopCode topCode) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, topCode) == null) || topCode == null) {
+            return;
+        }
+        this.a = topCode.img_url;
+        String str = topCode.game_link;
+        this.b = topCode.summary;
+        this.c = topCode.code_link;
+        this.d = topCode.get_type.intValue();
+        this.e = topCode.surplusgift;
+        if (topCode.giftworth.longValue() < 0) {
+            this.f = 0L;
+        } else {
+            this.f = topCode.giftworth.longValue();
+        }
+        this.g = topCode.type_text;
+        this.h = topCode.subtitle;
     }
 }

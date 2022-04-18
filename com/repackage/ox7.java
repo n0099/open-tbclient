@@ -6,10 +6,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.PollData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.VoteView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,18 +16,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.qy;
 /* loaded from: classes6.dex */
-public class ox7 extends gx7 {
+public class ox7 extends nx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout f;
-    public qn4 g;
+    public pn4 g;
     public wz h;
-    public i00 i;
+    public e00 i;
     public ThreadData j;
-    public VoteView k;
 
     /* loaded from: classes6.dex */
-    public class a extends qn4 {
+    public class a extends pn4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ox7 a;
@@ -52,17 +49,17 @@ public class ox7 extends gx7 {
             this.a = ox7Var;
         }
 
-        @Override // com.repackage.qn4
-        public mp4 getNegFeedBackData() {
+        @Override // com.repackage.pn4
+        public lp4 getNegFeedBackData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return null;
             }
-            return (mp4) invokeV.objValue;
+            return (lp4) invokeV.objValue;
         }
 
-        @Override // com.repackage.qn4
+        @Override // com.repackage.pn4
         public ThreadData getThreadData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -136,7 +133,7 @@ public class ox7 extends gx7 {
         }
     }
 
-    @Override // com.repackage.gx7
+    @Override // com.repackage.nx7
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -160,25 +157,15 @@ public class ox7 extends gx7 {
             layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
             this.f.addView(this.h.g(), layoutParams);
             if (this.i == null) {
-                i00 i00Var = new i00(this.a.getPageActivity());
-                this.i = i00Var;
-                i00Var.w("pb");
+                this.i = new e00(this.a.getPageActivity());
             }
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-            this.f.addView(this.i.g(), layoutParams2);
-            if (this.k == null) {
-                this.k = new VoteView(this.a.getPageActivity());
-            }
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams3.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            this.f.addView(this.k, layoutParams3);
+            this.f.addView(this.i.g());
             return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.gx7
+    @Override // com.repackage.nx7
     public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
@@ -190,13 +177,13 @@ public class ox7 extends gx7 {
         if (wzVar != null) {
             wzVar.onChangeSkinType(tbPageContext, i);
         }
-        i00 i00Var = this.i;
-        if (i00Var != null) {
-            i00Var.onChangeSkinType(tbPageContext, i);
+        e00 e00Var = this.i;
+        if (e00Var != null) {
+            e00Var.onChangeSkinType(tbPageContext, i);
         }
     }
 
-    @Override // com.repackage.gx7
+    @Override // com.repackage.nx7
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
@@ -204,35 +191,25 @@ public class ox7 extends gx7 {
             this.j = originalThreadInfo == null ? null : originalThreadInfo.a();
             a aVar = new a(this);
             this.g = aVar;
-            i00 i00Var = this.i;
-            if (i00Var != null) {
-                i00Var.a(aVar);
+            e00 e00Var = this.i;
+            if (e00Var != null) {
+                e00Var.a(aVar);
             }
             wz wzVar = this.h;
             if (wzVar != null) {
                 wzVar.a(this.g);
             }
-            PollData pollData = this.d.G;
-            if (pollData != null && pollData.getOptions() != null && this.d.G.getOptions().size() > 0) {
-                this.k.setIsTransmit(true);
-                VoteView voteView = this.k;
-                OriginalThreadInfo originalThreadInfo2 = this.d;
-                voteView.setData(originalThreadInfo2.G, originalThreadInfo2.f, originalThreadInfo2.e);
-                this.k.setVisibility(0);
-                return;
-            }
-            this.f.removeView(this.k);
         }
     }
 
-    @Override // com.repackage.gx7
+    @Override // com.repackage.nx7
     public void d(qy.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             super.d(aVar);
-            i00 i00Var = this.i;
-            if (i00Var != null) {
-                i00Var.x(aVar);
+            e00 e00Var = this.i;
+            if (e00Var != null) {
+                e00Var.u(aVar);
             }
             wz wzVar = this.h;
             if (wzVar != null) {
@@ -245,14 +222,14 @@ public class ox7 extends gx7 {
         }
     }
 
-    @Override // com.repackage.gx7
-    public void e(rx5 rx5Var) {
+    @Override // com.repackage.nx7
+    public void e(tx5 tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, rx5Var) == null) {
-            super.e(rx5Var);
-            i00 i00Var = this.i;
-            if (i00Var != null) {
-                i00Var.l(this.b);
+        if (interceptable == null || interceptable.invokeL(1048580, this, tx5Var) == null) {
+            super.e(tx5Var);
+            e00 e00Var = this.i;
+            if (e00Var != null) {
+                e00Var.l(this.b);
             }
         }
     }

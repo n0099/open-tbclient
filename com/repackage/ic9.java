@@ -1,69 +1,123 @@
 package com.repackage;
 
-import android.graphics.PointF;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class ic9 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Toast a = null;
+    public static int b = -1;
+    public static int c = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755623118, "Lcom/repackage/ic9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755623118, "Lcom/repackage/ic9;");
+        }
+    }
+
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, pointF, pointF2)) == null) {
-            if (pointF != null && pointF2 != null) {
-                float b = ((pointF.x * pointF2.x) + (pointF.y * pointF2.y)) / (b(pointF) * b(pointF2));
-                if (b <= 1.0f && b >= -1.0f) {
-                    return ((pointF.x * pointF2.y) - (pointF2.x * pointF.y) > 0.0f ? 1 : -1) * (360.0f - ((float) Math.toDegrees(Math.acos(b))));
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            b(i, 0);
+        }
+    }
+
+    public static void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            c(d89.c().getContext().getResources().getString(i), i2);
+        }
+    }
+
+    public static void c(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65539, null, str, i) == null) {
+            d(str, i, null);
+        }
+    }
+
+    public static void d(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, str2) == null) {
+            e(str, i, str2, -1);
+        }
+    }
+
+    public static void e(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) {
+            if (b != -1 && c != -1) {
+                Toast toast = a;
+                if (toast != null) {
+                    toast.cancel();
+                }
+                Toast toast2 = new Toast(d89.c().getContext());
+                a = toast2;
+                if (i2 > -1) {
+                    toast2.setGravity(i2, 0, 0);
+                }
+                a.setDuration(i);
+                try {
+                    View inflate = LayoutInflater.from(d89.c().getContext()).inflate(b, (ViewGroup) null);
+                    TextView textView = (TextView) inflate.findViewById(c);
+                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str) && str.contains(str2)) {
+                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(d89.c().getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603f6)), str.indexOf(str2), str.indexOf(str2) + str2.length(), 33);
+                        textView.setText(spannableStringBuilder);
+                    } else {
+                        textView.setText(str);
+                    }
+                    a.setView(inflate);
+                    a.show();
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
                 }
             }
-            return 0.0f;
-        }
-        return invokeLL.floatValue;
-    }
-
-    public static float b(PointF pointF) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pointF)) == null) {
-            float f = pointF.x;
-            float f2 = pointF.y;
-            return (float) Math.sqrt((f * f) + (f2 * f2));
-        }
-        return invokeL.floatValue;
-    }
-
-    public static float c(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pointF, pointF2)) == null) {
-            float f = pointF.x;
-            float f2 = pointF2.x;
-            float f3 = pointF.y;
-            float f4 = pointF2.y;
-            return (float) Math.sqrt(((f - f2) * (f - f2)) + ((f3 - f4) * (f3 - f4)));
-        }
-        return invokeLL.floatValue;
-    }
-
-    public static PointF d(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, pointF, pointF2)) == null) ? new PointF(pointF2.x - pointF.x, pointF2.y - pointF.y) : (PointF) invokeLL.objValue;
-    }
-
-    public static float e(PointF pointF, PointF pointF2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pointF, pointF2)) == null) {
-            if (pointF == null || pointF2 == null) {
-                return 1.0f;
+            Toast toast3 = a;
+            if (toast3 == null) {
+                Toast makeText = Toast.makeText(d89.c().getContext(), str, i);
+                a = makeText;
+                if (i2 > -1) {
+                    makeText.setGravity(i2, 0, 0);
+                }
+            } else {
+                toast3.cancel();
+                Toast makeText2 = Toast.makeText(d89.c().getContext(), str, i);
+                a = makeText2;
+                if (i2 > -1) {
+                    makeText2.setGravity(i2, 0, 0);
+                }
+                a.setDuration(i);
             }
-            return b(pointF2) / b(pointF);
+            try {
+                a.show();
+            } catch (Exception unused) {
+            }
         }
-        return invokeLL.floatValue;
     }
 }

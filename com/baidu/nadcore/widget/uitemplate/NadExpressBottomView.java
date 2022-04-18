@@ -224,8 +224,8 @@ public class NadExpressBottomView extends ViewGroup {
             AdImageView adImageView = new AdImageView(getContext());
             this.a = adImageView;
             adImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            this.a.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de1));
-            this.a.setId(R.id.obfuscated_res_0x7f09149b);
+            this.a.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de5));
+            this.a.setId(R.id.obfuscated_res_0x7f09149c);
             this.a.setContentDescription("不感兴趣");
             r11.a(getContext(), this.a, 15.0f);
             setWillNotDraw(false);

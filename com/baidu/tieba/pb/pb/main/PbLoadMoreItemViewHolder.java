@@ -95,12 +95,12 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         }
         this.i = new a(this, 2921471);
         this.a = view2;
-        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916ed);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916ea);
-        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09157e);
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916ee);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916eb);
+        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09157f);
         this.h = oi.f(this.a.getContext(), R.dimen.tbds156);
-        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f0908c9);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09191c);
+        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f0908ca);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09191d);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);
@@ -115,7 +115,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
             if (str != null) {
                 this.c.setText(str);
             } else {
-                this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0daa));
+                this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0da9));
             }
         }
     }

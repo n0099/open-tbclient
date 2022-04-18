@@ -6,11 +6,10 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaFansFamilyActivityConfig;
+import com.baidu.ala.atomdata.AlaAdminListActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class st5 extends ho<iu5, CardViewHolder<iv5>> {
+public class st5 extends ho<hu5, CardViewHolder<kv5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
@@ -28,15 +27,15 @@ public class st5 extends ho<iu5, CardViewHolder<iv5>> {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iu5 a;
+        public final /* synthetic */ hu5 a;
         public final /* synthetic */ st5 b;
 
-        public a(st5 st5Var, iu5 iu5Var) {
+        public a(st5 st5Var, hu5 hu5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {st5Var, iu5Var};
+                Object[] objArr = {st5Var, hu5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,7 +46,7 @@ public class st5 extends ho<iu5, CardViewHolder<iv5>> {
                 }
             }
             this.b = st5Var;
-            this.a = iu5Var;
+            this.a = hu5Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -61,7 +60,7 @@ public class st5 extends ho<iu5, CardViewHolder<iv5>> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public st5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), iu5.b);
+        super(tbPageContext.getPageActivity(), hu5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -81,47 +80,46 @@ public class st5 extends ho<iu5, CardViewHolder<iv5>> {
         this.i = tbPageContext;
     }
 
-    public final void a0(iu5 iu5Var, iv5 iv5Var) {
+    public final void a0(hu5 hu5Var, kv5 kv5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, iu5Var, iv5Var) == null) || iu5Var.e() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hu5Var, kv5Var) == null) || hu5Var.e() == null) {
             return;
         }
-        iv5Var.x(8);
-        iv5Var.y(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0236));
-        iv5Var.m(this.i, TbadkCoreApplication.getInst().getSkinType());
+        kv5Var.x(0);
+        kv5Var.y(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0234));
+        kv5Var.m(this.i, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public final void b0(iu5 iu5Var) {
+    public final void b0(hu5 hu5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, iu5Var) == null) || iu5Var == null || iu5Var.e() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, hu5Var) == null) || hu5Var == null || hu5Var.e() == null) {
             return;
         }
-        TiebaStatic.log("c13134");
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaFansFamilyActivityConfig(this.a, iu5Var.e().b().user_id, true, AlaFansFamilyActivityConfig.FROM_PERSON_CENTER)));
+        du5 e = hu5Var.e();
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaAdminListActivityConfig(this.i.getPageActivity(), (e.b() == null || !e.c()) ? "" : e.b().live_id)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: c0 */
-    public CardViewHolder<iv5> M(ViewGroup viewGroup) {
+    public CardViewHolder<kv5> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new CardViewHolder<>(new iv5(this.i)) : (CardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new CardViewHolder<>(new kv5(this.i)) : (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: d0 */
-    public View S(int i, View view2, ViewGroup viewGroup, iu5 iu5Var, CardViewHolder<iv5> cardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, hu5 hu5Var, CardViewHolder<kv5> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iu5Var, cardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hu5Var, cardViewHolder})) == null) {
             if (cardViewHolder.c() == null) {
                 return null;
             }
-            TiebaStatic.log("c13133");
-            a0(iu5Var, cardViewHolder.c());
-            cardViewHolder.c().k().setOnClickListener(new a(this, iu5Var));
+            a0(hu5Var, cardViewHolder.c());
+            cardViewHolder.c().k().setOnClickListener(new a(this, hu5Var));
             return cardViewHolder.c().k();
         }
         return (View) invokeCommon.objValue;

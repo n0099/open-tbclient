@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.AbstractBceClient;
-import com.repackage.l64;
+import com.repackage.k64;
 import java.util.List;
 import okhttp3.MediaType;
 import okhttp3.Request;
@@ -43,15 +43,15 @@ public class rl3 extends bj1 {
     public class a extends ResponseCallback<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q64 a;
+        public final /* synthetic */ p64 a;
         public final /* synthetic */ rl3 b;
 
-        public a(rl3 rl3Var, q64 q64Var) {
+        public a(rl3 rl3Var, p64 p64Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rl3Var, q64Var};
+                Object[] objArr = {rl3Var, p64Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,7 +62,7 @@ public class rl3 extends bj1 {
                 }
             }
             this.b = rl3Var;
-            this.a = q64Var;
+            this.a = p64Var;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -106,8 +106,8 @@ public class rl3 extends bj1 {
         }
     }
 
-    @Override // com.repackage.bj1, com.repackage.l64
-    public void d(int i, List<q64> list) {
+    @Override // com.repackage.bj1, com.repackage.k64
+    public void d(int i, List<p64> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, list) == null) {
             super.d(i, list);
@@ -121,38 +121,38 @@ public class rl3 extends bj1 {
         }
     }
 
-    @Override // com.repackage.l64
-    public void f(int i, List<q64> list, l64.a aVar) {
+    @Override // com.repackage.k64
+    public void f(int i, List<p64> list, k64.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, list, aVar) == null) {
             aVar.a(40);
         }
     }
 
-    @Override // com.repackage.l64
+    @Override // com.repackage.k64
     public void i(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
         }
     }
 
-    @Override // com.repackage.bj1, com.repackage.l64
-    public boolean j(q64 q64Var) {
+    @Override // com.repackage.bj1, com.repackage.k64
+    public boolean j(p64 p64Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, q64Var)) == null) {
-            int c = q64Var.c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, p64Var)) == null) {
+            int c = p64Var.c();
             if (c == 40) {
-                u(q64Var);
+                u(p64Var);
             } else if (c == 45) {
-                t(q64Var);
+                t(p64Var);
             }
-            return super.j(q64Var);
+            return super.j(p64Var);
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.l64
+    @Override // com.repackage.k64
     public boolean k(boolean z, int i) {
         InterceptResult invokeCommon;
         j03 a0;
@@ -171,12 +171,12 @@ public class rl3 extends bj1 {
         return invokeCommon.booleanValue;
     }
 
-    public void o(List<q64> list) {
+    public void o(List<p64> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || list == null) {
             return;
         }
-        list.add(new q64(40, R.string.obfuscated_res_0x7f0f00eb, R.drawable.obfuscated_res_0x7f0800f2, true));
+        list.add(new p64(40, R.string.obfuscated_res_0x7f0f00eb, R.drawable.obfuscated_res_0x7f0800f2, true));
     }
 
     public final Uri p(String str) {
@@ -197,10 +197,10 @@ public class rl3 extends bj1 {
         return (Uri) invokeL.objValue;
     }
 
-    public final void q(q64 q64Var) {
+    public final void q(p64 p64Var) {
         j03 a0;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, q64Var) == null) || (a0 = j03.a0()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, p64Var) == null) || (a0 = j03.a0()) == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -212,17 +212,17 @@ public class rl3 extends bj1 {
         jd3.f(jSONObject2, PrefetchEvent.EVENT_DATA_EXTRA_DATA, s(a0));
         jd3.f(jSONObject, "params", jSONObject2);
         String I = qj2.o().I();
-        l74 l74Var = new l74(I, new Request.Builder().url(I).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().body(), new a(this, q64Var));
-        l74Var.f = true;
-        l74Var.g = false;
-        l74Var.h = true;
-        m74.g().e(l74Var);
+        k74 k74Var = new k74(I, new Request.Builder().url(I).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().body(), new a(this, p64Var));
+        k74Var.f = true;
+        k74Var.g = false;
+        k74Var.h = true;
+        l74.g().e(k74Var);
     }
 
-    public final void r(List<q64> list) {
+    public final void r(List<p64> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) && list != null && de3.Q() && po1.y(AppRuntime.getAppContext())) {
-            list.add(new q64(45, R.string.obfuscated_res_0x7f0f1223, R.drawable.obfuscated_res_0x7f0800df, true));
+            list.add(new p64(45, R.string.obfuscated_res_0x7f0f1222, R.drawable.obfuscated_res_0x7f0800df, true));
         }
     }
 
@@ -243,17 +243,17 @@ public class rl3 extends bj1 {
         return (JSONObject) invokeL.objValue;
     }
 
-    public final void t(q64 q64Var) {
+    public final void t(p64 p64Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, q64Var) == null) || j03.a0() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, p64Var) == null) || j03.a0() == null) {
             return;
         }
-        q(q64Var);
+        q(p64Var);
     }
 
-    public final void u(q64 q64Var) {
+    public final void u(p64 p64Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, q64Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, p64Var) == null) {
             zp2.o("appletCenter");
             lm3.a(SchemeConfig.getSchemeHead() + "://swan/wYub6F7RD2tEngaTnOQPBEbYXx5s4Y3y?_baiduboxapp={\"from\":\"1271009000000000\",\"ext\":{}}&callback=_bdbox_js_275&upgrade=0");
         }
@@ -265,19 +265,19 @@ public class rl3 extends bj1 {
         }
     }
 
-    public final void w(q64 q64Var) {
+    public final void w(p64 p64Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, q64Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, p64Var) == null) {
             qj2.i().d();
-            hq2.j(q64Var);
-            zp2.q("customerService", String.valueOf(q64Var.e() > 0 ? 1 : 0), "click");
+            hq2.j(p64Var);
+            zp2.q("customerService", String.valueOf(p64Var.e() > 0 ? 1 : 0), "click");
             hq2.i();
         }
     }
 
-    public final void x(Response response, q64 q64Var) {
+    public final void x(Response response, p64 p64Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, response, q64Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048590, this, response, p64Var) == null) {
             try {
                 if (!response.isSuccessful()) {
                     v();
@@ -297,7 +297,7 @@ public class rl3 extends bj1 {
                 if (p == null) {
                     v();
                 } else if (SchemeRouter.invokeScheme(AppRuntime.getAppContext(), p, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                    w(q64Var);
+                    w(p64Var);
                 }
             } catch (Exception unused) {
                 v();

@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f66;
-import com.repackage.mu4;
+import com.repackage.h66;
+import com.repackage.lu4;
 import com.repackage.ni;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
@@ -39,13 +39,13 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
     public TextView g;
     public TBSpecificationBtn h;
     public a i;
-    public f66 j;
+    public h66 j;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(f66 f66Var);
+        void a(h66 h66Var);
 
-        void b(f66 f66Var);
+        void b(h66 h66Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,14 +70,14 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
         b(context);
     }
 
-    public final void a(f66 f66Var) {
+    public final void a(h66 h66Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, f66Var) == null) || f66Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, h66Var) == null) || h66Var == null) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c13374");
-        statisticItem.param("obj_type", String.valueOf(f66Var.h));
-        statisticItem.param("fid", f66Var.b);
+        statisticItem.param("obj_type", String.valueOf(h66Var.h));
+        statisticItem.param("fid", h66Var.b);
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
         TiebaStatic.log(statisticItem);
     }
@@ -87,17 +87,17 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d071b, this);
             View rootView = getRootView();
-            this.a = rootView.findViewById(R.id.obfuscated_res_0x7f0923b9);
-            this.b = rootView.findViewById(R.id.obfuscated_res_0x7f09238e);
-            this.c = (BarImageView) rootView.findViewById(R.id.obfuscated_res_0x7f090a53);
-            this.d = (TextView) rootView.findViewById(R.id.obfuscated_res_0x7f090a69);
-            this.e = (TextView) rootView.findViewById(R.id.obfuscated_res_0x7f090a23);
-            this.f = (TextView) rootView.findViewById(R.id.obfuscated_res_0x7f090a91);
-            this.g = (TextView) rootView.findViewById(R.id.obfuscated_res_0x7f090a57);
-            this.h = (TBSpecificationBtn) rootView.findViewById(R.id.obfuscated_res_0x7f090a5c);
-            mu4 mu4Var = new mu4();
-            mu4Var.r(R.color.CAM_X0302);
-            this.h.setConfig(mu4Var);
+            this.a = rootView.findViewById(R.id.obfuscated_res_0x7f0923ba);
+            this.b = rootView.findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.c = (BarImageView) rootView.findViewById(R.id.obfuscated_res_0x7f090a54);
+            this.d = (TextView) rootView.findViewById(R.id.obfuscated_res_0x7f090a6a);
+            this.e = (TextView) rootView.findViewById(R.id.obfuscated_res_0x7f090a24);
+            this.f = (TextView) rootView.findViewById(R.id.obfuscated_res_0x7f090a92);
+            this.g = (TextView) rootView.findViewById(R.id.obfuscated_res_0x7f090a58);
+            this.h = (TBSpecificationBtn) rootView.findViewById(R.id.obfuscated_res_0x7f090a5d);
+            lu4 lu4Var = new lu4();
+            lu4Var.r(R.color.CAM_X0302);
+            this.h.setConfig(lu4Var);
             this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c));
             this.c.setPlaceHolder(1);
             this.c.setOnClickListener(this);
@@ -106,36 +106,36 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
         }
     }
 
-    public void c(f66 f66Var) {
+    public void c(h66 h66Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f66Var) == null) || f66Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h66Var) == null) || h66Var == null) {
             return;
         }
-        this.j = f66Var;
-        this.c.K(f66Var.a, 15, false);
+        this.j = h66Var;
+        this.c.K(h66Var.a, 15, false);
         this.c.setStrokeColorResId(R.color.CAM_X0201);
         this.c.setStrokeWith(3);
         this.c.setShowOval(true);
-        String str = f66Var.c;
+        String str = h66Var.c;
         if (ni.isEmpty(str)) {
             str = "";
         }
         this.d.setText(str);
-        String numFormatOverWan = StringHelper.numFormatOverWan(f66Var.e);
+        String numFormatOverWan = StringHelper.numFormatOverWan(h66Var.e);
         TextView textView = this.e;
         textView.setText("关注 " + numFormatOverWan);
-        String numFormatOverWan2 = StringHelper.numFormatOverWan((long) f66Var.f);
+        String numFormatOverWan2 = StringHelper.numFormatOverWan((long) h66Var.f);
         TextView textView2 = this.f;
         textView2.setText("贴子 " + numFormatOverWan2);
-        if (!ni.isEmpty(f66Var.g)) {
-            this.g.setText(f66Var.g);
+        if (!ni.isEmpty(h66Var.g)) {
+            this.g.setText(h66Var.g);
         } else {
-            this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f48));
+            this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f47));
         }
-        e(f66Var.d);
+        e(h66Var.d);
         DrawableSelector.make().tlRadius(oi.f(getContext(), R.dimen.tbds10)).trRadius(oi.f(getContext(), R.dimen.tbds10)).defaultColor(R.color.CAM_X0901).into(this.a);
         TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0901).setShapeRadius(oi.f(getContext(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(oi.f(getContext(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(oi.f(getContext(), R.dimen.tbds5)).into(this.b);
-        a(f66Var);
+        a(h66Var);
     }
 
     public void d() {
@@ -152,15 +152,15 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                mu4 mu4Var = new mu4();
-                mu4Var.t(R.color.CAM_X0109);
-                this.h.setConfig(mu4Var);
-                this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d));
+                lu4 lu4Var = new lu4();
+                lu4Var.t(R.color.CAM_X0109);
+                this.h.setConfig(lu4Var);
+                this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6c));
                 this.h.setClickState(false);
             } else {
-                mu4 mu4Var2 = new mu4();
-                mu4Var2.r(R.color.CAM_X0302);
-                this.h.setConfig(mu4Var2);
+                lu4 lu4Var2 = new lu4();
+                lu4Var2.r(R.color.CAM_X0302);
+                this.h.setConfig(lu4Var2);
                 this.h.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f029c));
                 this.h.setClickState(true);
             }
@@ -173,12 +173,12 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
             if (view2 == this.h) {
-                f66 f66Var = this.j;
-                if (f66Var.d) {
-                    this.i.b(f66Var);
+                h66 h66Var = this.j;
+                if (h66Var.d) {
+                    this.i.b(h66Var);
                     return;
                 } else {
-                    this.i.a(f66Var);
+                    this.i.a(h66Var);
                     return;
                 }
             }

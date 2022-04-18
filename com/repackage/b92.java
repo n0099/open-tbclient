@@ -44,17 +44,17 @@ public class b92 {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Set a;
         public final /* synthetic */ boolean b;
-        public final /* synthetic */ bc4 c;
+        public final /* synthetic */ ac4 c;
         public final /* synthetic */ long d;
         public final /* synthetic */ da2.b e;
         public final /* synthetic */ b92 f;
 
-        public a(b92 b92Var, Set set, boolean z, bc4 bc4Var, long j, da2.b bVar) {
+        public a(b92 b92Var, Set set, boolean z, ac4 ac4Var, long j, da2.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {b92Var, set, Boolean.valueOf(z), bc4Var, Long.valueOf(j), bVar};
+                Object[] objArr = {b92Var, set, Boolean.valueOf(z), ac4Var, Long.valueOf(j), bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,7 +67,7 @@ public class b92 {
             this.f = b92Var;
             this.a = set;
             this.b = z;
-            this.c = bc4Var;
+            this.c = ac4Var;
             this.d = j;
             this.e = bVar;
         }
@@ -87,7 +87,7 @@ public class b92 {
                 Set<String> b = y82.b();
                 hashSet.addAll(b);
                 jx1.k("SwanAppDiskCleaner", "排除正在下载中的小程：" + b);
-                Map<String, PMSAppInfo> v = f84.i().v();
+                Map<String, PMSAppInfo> v = e84.i().v();
                 if (v82.c().d().n(v)) {
                     if (b92.a) {
                         Log.d("SwanAppDiskCleaner", "删除所有小程序包下的历史版本包");
@@ -298,7 +298,7 @@ public class b92 {
                     return;
                 }
                 jx1.k("SwanAppDiskCleaner", "是否为强制自动清理：" + z);
-                bc4 a2 = cc4.b().a();
+                ac4 a2 = bc4.b().a();
                 boolean z2 = z && z82.a();
                 long j = a2.a;
                 if (z2 || !o(3600000 * j)) {

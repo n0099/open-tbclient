@@ -259,7 +259,7 @@ public class FullScreenFloatView extends FrameLayout {
             float y = motionEvent.getY();
             Rect rect = new Rect();
             if (this.a == null) {
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f0909cf);
+                View findViewById = findViewById(R.id.obfuscated_res_0x7f0909d0);
                 this.a = findViewById;
                 b(findViewById);
             }
@@ -381,7 +381,7 @@ public class FullScreenFloatView extends FrameLayout {
     public void setFloatButtonText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909cf);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909d0);
             if (findViewById instanceof Button) {
                 ((Button) findViewById).setText(str);
             }
@@ -391,7 +391,7 @@ public class FullScreenFloatView extends FrameLayout {
     public void setFloatImageBackground(int i) {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0909cf)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0909d0)) == null) {
             return;
         }
         findViewById.setBackgroundResource(i);

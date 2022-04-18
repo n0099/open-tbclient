@@ -36,7 +36,7 @@ public class j92 implements i92 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
             for (String str : this.a) {
-                String K = ng4.K(str);
+                String K = mg4.K(str);
                 if (!TextUtils.isEmpty(K)) {
                     arraySet.add(K);
                 }

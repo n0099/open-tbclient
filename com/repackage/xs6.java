@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,8 +20,9 @@ import java.util.List;
 public class xs6 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ys6> a;
-    public Context b;
+    public Context a;
+    public List<zo4> b;
+    public int c;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -29,18 +31,19 @@ public class xs6 extends BaseAdapter {
     }
 
     /* loaded from: classes7.dex */
-    public class b {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public View b;
+        public TbImageView a;
+        public TbImageView b;
+        public View c;
+        public TextView d;
+        public TextView e;
 
-        public b(xs6 xs6Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xs6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,8 +54,8 @@ public class xs6 extends BaseAdapter {
             }
         }
 
-        public /* synthetic */ b(xs6 xs6Var, a aVar) {
-            this(xs6Var);
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
@@ -71,29 +74,43 @@ public class xs6 extends BaseAdapter {
                 return;
             }
         }
-        this.b = context;
+        this.c = -1;
+        this.a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public ys6 getItem(int i) {
+    public zo4 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (this.a == null || i < 0 || i >= getCount() - 1) {
+            if (i < 0 || i >= getCount()) {
                 return null;
             }
-            return this.a.get(i);
+            return this.b.get(i);
         }
-        return (ys6) invokeI.objValue;
+        return (zo4) invokeI.objValue;
     }
 
-    public void b(List<ys6> list) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public void c(List<zo4> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b = list;
             notifyDataSetChanged();
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.c = i;
         }
     }
 
@@ -101,12 +118,12 @@ public class xs6 extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<ys6> list = this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<zo4> list = this.b;
             if (list == null) {
-                return 1;
+                return 0;
             }
-            return list.size() + 1;
+            return list.size();
         }
         return invokeV.intValue;
     }
@@ -115,14 +132,7 @@ public class xs6 extends BaseAdapter {
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i == getCount() - 1 ? 1 : 0 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
     }
 
     @Override // android.widget.Adapter
@@ -130,47 +140,48 @@ public class xs6 extends BaseAdapter {
         InterceptResult invokeILL;
         b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
             if (view2 != null && view2.getTag() != null) {
                 bVar = (b) view2.getTag();
             } else {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0387, (ViewGroup) null);
-                bVar = new b(this, null);
-                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f07);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f0907ea);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0385, (ViewGroup) null);
+                bVar = new b(null);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e68);
+                bVar.a = tbImageView;
+                tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120b);
+                TbImageView tbImageView2 = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091390);
+                bVar.b = tbImageView2;
+                tbImageView2.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120b);
+                bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f08120b);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0913a6);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914e5);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918de);
                 view2.setTag(bVar);
             }
-            SkinManager.setBackgroundResource(view2, R.drawable.list_item_selector);
-            SkinManager.setViewTextColor(bVar.a, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundColor(bVar.b, R.color.CAM_X0204);
-            ys6 item = getItem(i);
-            if (getItemViewType(i) == 1) {
-                bVar.a.setText(R.string.obfuscated_res_0x7f0f046d);
-                bVar.b.setVisibility(4);
+            SkinManager.setViewTextColor(bVar.d, R.color.CAM_X0105, 1);
+            if (i == this.c) {
+                SkinManager.setBackgroundResource(bVar.c, R.drawable.obfuscated_res_0x7f080456);
             } else {
-                if (item != null) {
-                    int b2 = item.b() > 0 ? item.b() : 1;
-                    String a2 = item.a() != null ? item.a() : "";
-                    TextView textView = bVar.a;
-                    textView.setText(b2 + a2);
-                    bVar.b.setVisibility(0);
+                bVar.c.setBackgroundResource(R.color.common_color_10022);
+            }
+            zo4 item = getItem(i);
+            if (item != null) {
+                bVar.d.setText(item.b);
+                bVar.a.K(item.d, 10, false);
+                bVar.b.K(item.g, 10, false);
+                int i2 = item.f;
+                if (i2 == 5) {
+                    bVar.e.setVisibility(8);
+                } else if (i2 == 3) {
+                    bVar.e.setVisibility(0);
+                    bVar.e.setText(ct6.b(item.a(), false, item.s));
                 } else {
-                    bVar.a.setText("");
-                    bVar.b.setVisibility(0);
+                    bVar.e.setVisibility(0);
+                    bVar.e.setText(ct6.b(item.b(), false, item.s));
                 }
             }
             return view2;
         }
         return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
     }
 }

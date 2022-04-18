@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -131,7 +131,7 @@ public class InitGlobalDataTask extends LaunchTask {
     private String getFromByShare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? wt4.k().q("from_id", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? vt4.k().q("from_id", null) : (String) invokeV.objValue;
     }
 
     private void saveFromToFile(String str) {
@@ -158,7 +158,7 @@ public class InitGlobalDataTask extends LaunchTask {
         if (!(interceptable == null || interceptable.invokeL(65541, this, str) == null) || str == null || str.length() <= 0 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
             return;
         }
-        wt4.k().y("from_id", str);
+        vt4.k().y("from_id", str);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

@@ -17,17 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lu4;
+import com.repackage.dw7;
+import com.repackage.ku4;
 import com.repackage.ni;
 import com.repackage.oi;
-import com.repackage.wv7;
 /* loaded from: classes3.dex */
 public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public PbVideoFullscreenLikeBtn b;
-    public wv7 c;
+    public dw7 c;
     public BdUniqueId d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,8 +70,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            wv7 wv7Var = this.c;
-            return (wv7Var == null || wv7Var.j() == null || !this.c.j().getIsLike()) ? false : true;
+            dw7 dw7Var = this.c;
+            return (dw7Var == null || dw7Var.j() == null || !this.c.j().getIsLike()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -86,7 +86,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             this.a.setBorderWidth(oi.f(context, R.dimen.tbds3));
             this.a.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
             this.a.setAutoChangeStyle(false);
-            this.b.setConfig(new lu4());
+            this.b.setConfig(new ku4());
         }
     }
 
@@ -101,17 +101,17 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             if (!(getContext() instanceof AbsPbActivity)) {
                 return;
             }
-            wv7 wv7Var = new wv7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
-            this.c = wv7Var;
-            wv7Var.m("11");
+            dw7 dw7Var = new dw7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
+            this.c = dw7Var;
+            dw7Var.m("11");
             this.c.l(this.d);
         }
         this.c.n(threadData.getAuthor());
         this.c.y(str);
         this.c.w(threadData);
-        wv7 wv7Var2 = this.c;
-        wv7Var2.p = true;
-        wv7Var2.x(a);
+        dw7 dw7Var2 = this.c;
+        dw7Var2.p = true;
+        dw7Var2.x(a);
     }
 
     public void setData(ThreadData threadData) {

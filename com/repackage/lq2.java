@@ -70,7 +70,7 @@ public abstract class lq2 {
                 String e = e(str, valueOf);
                 JSONObject jSONObject = this.a.get(e);
                 if (jSONObject == null) {
-                    jSONObject = pd4.p(mq2.a(pMSAppInfo));
+                    jSONObject = od4.p(mq2.a(pMSAppInfo));
                     this.a.put(e, jSONObject);
                 }
                 if (c) {
@@ -154,7 +154,7 @@ public abstract class lq2 {
                 String e = e(str, valueOf);
                 JSONObject jSONObject = this.b.get(e);
                 if (jSONObject == null) {
-                    jSONObject = pd4.p(nq2.f(pMSAppInfo));
+                    jSONObject = od4.p(nq2.f(pMSAppInfo));
                     this.a.put(e, jSONObject);
                 }
                 if (c) {

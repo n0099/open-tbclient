@@ -224,14 +224,14 @@ public final class xd3 {
                 if (!hashSet.contains(path) && z3) {
                     arrayList.add(0, new a(path, z2, equals, -1));
                 }
-                ng4.d(bufferedReader);
+                mg4.d(bufferedReader);
             } catch (FileNotFoundException e3) {
                 e = e3;
                 bufferedReader2 = bufferedReader;
                 if (a) {
                     e.printStackTrace();
                 }
-                ng4.d(bufferedReader2);
+                mg4.d(bufferedReader2);
                 if (arrayList.isEmpty()) {
                 }
                 return arrayList;
@@ -241,14 +241,14 @@ public final class xd3 {
                 if (a) {
                     e.printStackTrace();
                 }
-                ng4.d(bufferedReader2);
+                mg4.d(bufferedReader2);
                 if (arrayList.isEmpty()) {
                 }
                 return arrayList;
             } catch (Throwable th3) {
                 th = th3;
                 bufferedReader2 = bufferedReader;
-                ng4.d(bufferedReader2);
+                mg4.d(bufferedReader2);
                 throw th;
             }
             if (arrayList.isEmpty()) {

@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nl4;
+import com.repackage.ml4;
 /* loaded from: classes7.dex */
 public class tg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public nl4 b;
+    public ml4 b;
     public b c;
     public MarkData d;
-    public final nl4.a e;
+    public final ml4.a e;
 
     /* loaded from: classes7.dex */
-    public class a implements nl4.a {
+    public class a implements ml4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tg5 a;
@@ -48,7 +48,7 @@ public class tg5 {
             this.a = tg5Var;
         }
 
-        @Override // com.repackage.nl4.a
+        @Override // com.repackage.ml4.a
         public void a(boolean z, boolean z2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
@@ -56,21 +56,21 @@ public class tg5 {
                     if (z2) {
                         oi.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f00cd));
                     } else {
-                        oi.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0f85));
+                        oi.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f0f84));
                     }
                     if (this.a.c != null) {
                         this.a.c.a(z2);
                     }
                     if (this.a.d != null) {
-                        sk8 sk8Var = new sk8();
-                        sk8Var.a = this.a.d.getThreadId();
-                        sk8Var.b = z2;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, sk8Var));
+                        zk8 zk8Var = new zk8();
+                        zk8Var.a = this.a.d.getThreadId();
+                        zk8Var.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, zk8Var));
                         return;
                     }
                     return;
                 }
-                oi.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f148e));
+                oi.N(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f148d));
             }
         }
     }
@@ -99,30 +99,30 @@ public class tg5 {
         this.e = new a(this);
         this.a = context;
         if (context instanceof BaseActivity) {
-            this.b = nl4.b((BaseActivity) context);
+            this.b = ml4.b((BaseActivity) context);
         } else if (context instanceof BaseFragmentActivity) {
-            this.b = nl4.c((BaseFragmentActivity) context);
+            this.b = ml4.c((BaseFragmentActivity) context);
         }
-        nl4 nl4Var = this.b;
-        if (nl4Var != null) {
-            nl4Var.j(this.e);
+        ml4 ml4Var = this.b;
+        if (ml4Var != null) {
+            ml4Var.j(this.e);
         }
     }
 
     public void d() {
-        nl4 nl4Var;
+        ml4 ml4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nl4Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ml4Var = this.b) == null) {
             return;
         }
-        nl4Var.a();
+        ml4Var.a();
         this.b.h(true);
     }
 
     public void e() {
-        nl4 nl4Var;
+        ml4 ml4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (nl4Var = this.b) != null && nl4Var.e()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ml4Var = this.b) != null && ml4Var.e()) {
             this.b.d();
             this.b.h(false);
         }
@@ -132,9 +132,9 @@ public class tg5 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            nl4 nl4Var = this.b;
-            if (nl4Var != null) {
-                return nl4Var.e();
+            ml4 ml4Var = this.b;
+            if (ml4Var != null) {
+                return ml4Var.e();
             }
             return false;
         }
@@ -142,21 +142,21 @@ public class tg5 {
     }
 
     public void g(boolean z) {
-        nl4 nl4Var;
+        ml4 ml4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (nl4Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (ml4Var = this.b) == null) {
             return;
         }
-        nl4Var.h(z);
+        ml4Var.h(z);
     }
 
     public void h(MarkData markData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
             this.d = markData;
-            nl4 nl4Var = this.b;
-            if (nl4Var != null) {
-                nl4Var.i(markData);
+            ml4 ml4Var = this.b;
+            if (ml4Var != null) {
+                ml4Var.i(markData);
             }
         }
     }

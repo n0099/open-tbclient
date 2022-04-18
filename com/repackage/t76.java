@@ -1,12 +1,18 @@
 package com.repackage;
 
 import android.view.View;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.RecommendForumLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,10 +23,16 @@ public class t76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public RecommendForumLayout b;
-    public View.OnClickListener c;
-    public PullLeftRefreshLayout.f d;
-    public lm4 e;
+    public View b;
+    public RoundRelativeLayout c;
+    public ImageView d;
+    public ImageView e;
+    public ImageView f;
+    public TextView g;
+    public TextView h;
+    public int i;
+    public int j;
+    public boolean k;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
@@ -50,91 +62,13 @@ public class t76 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                f46.b(this.a.a, null);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements PullLeftRefreshLayout.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t76 a;
-
-        public b(t76 t76Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t76Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t76Var;
-        }
-
-        @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f46.b(this.a.a, null);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements lm4<eq4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t76 a;
-
-        public c(t76 t76Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t76Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t76Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.lm4
-        /* renamed from: b */
-        public void c(View view2, eq4 eq4Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, eq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.lm4
-        /* renamed from: d */
-        public void a(View view2, eq4 eq4Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, eq4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (eq4Var == null) {
-                    f46.b(this.a.a, null);
-                    return;
-                }
-                String m = eq4Var.m();
-                if (ni.isForumName(m)) {
-                    this.a.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.a.getPageActivity()).createNormalCfg(m, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
-                }
+                h46.b(this.a.a, null);
+                StatisticItem statisticItem = new StatisticItem("c13645");
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem.param("obj_locate", 1);
+                statisticItem.param("obj_type", this.a.k ? 5 : 1);
+                statisticItem.param("obj_source", this.a.k ? 1 : 3);
+                TiebaStatic.log(statisticItem);
             }
         }
     }
@@ -154,31 +88,64 @@ public class t76 {
                 return;
             }
         }
-        this.c = new a(this);
-        this.d = new b(this);
-        this.e = new c(this);
         this.a = tbPageContext;
-        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
-        this.b = recommendForumLayout;
-        recommendForumLayout.setShowMore(true);
-        this.b.setSquareEntranceAtStart(true);
-        this.b.setTabName(null);
-        this.b.setFrom(0);
-        this.b.setOnClickRightArrowListener(this.c);
-        this.b.setOnRullOkCallbackr(this.d);
-        this.b.setOnItemCoverListener(this.e);
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d02d4, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091d55);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d6b);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d71);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d73);
+        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d57);
+        this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ff0);
+        this.g.setText(R.string.obfuscated_res_0x7f0f06a9);
+        this.h.setText(R.string.obfuscated_res_0x7f0f06a5);
+        this.b.setOnClickListener(new a(this));
+        this.i = oi.f(this.a.getPageActivity(), R.dimen.tbds90);
+        this.j = oi.f(this.a.getPageActivity(), R.dimen.tbds58);
+        RoundRelativeLayout roundRelativeLayout = this.c;
+        int i3 = this.i;
+        roundRelativeLayout.setRoundLayoutRadius(new float[]{i3, i3, i3, i3, i3, i3, i3, i3});
     }
 
-    public void b(fq4 fq4Var) {
+    public void c(k46 k46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fq4Var) == null) {
-            this.b.a(fq4Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, k46Var) == null) {
+            if (k46Var.isTop()) {
+                if (this.c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
+                    int i = marginLayoutParams.bottomMargin;
+                    int i2 = this.j;
+                    if (i != i2) {
+                        marginLayoutParams.bottomMargin = i2;
+                        this.c.requestLayout();
+                    }
+                }
+            } else if (this.c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
+                if (marginLayoutParams2.bottomMargin != 0) {
+                    marginLayoutParams2.bottomMargin = 0;
+                    this.c.requestLayout();
+                }
+            }
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0206);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.d, R.drawable.obfuscated_res_0x7f08064b, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setImageResource(this.e, R.drawable.pic_mask_square_circle);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f0805f7, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
         }
     }
 
-    public RecommendForumLayout c() {
+    public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (RecommendForumLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.k = z;
+        }
     }
 }

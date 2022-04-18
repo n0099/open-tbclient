@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ts5;
+import com.repackage.vs5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
@@ -40,7 +40,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AlaSquareTabInfo> mAlaSquareTabInfos;
     public View mCustomScrollView;
-    public ts5 mGameEntryAdapter;
+    public vs5 mGameEntryAdapter;
     public NoScrollGridView mGridView;
     public int mHasSearchTab;
     public NavigationBar mNavigationBar;
@@ -154,16 +154,16 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00eb, null);
             this.mRootView = linearLayout;
-            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923ab);
+            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01f6));
-            LinearLayout linearLayout2 = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c12);
+            LinearLayout linearLayout2 = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c13);
             this.mSearchRoot = linearLayout2;
-            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091c3a);
+            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091c3b);
             this.mTextSearchHint = textView;
             textView.setClickable(false);
-            this.mSearchIcon = (ImageView) this.mSearchRoot.findViewById(R.id.obfuscated_res_0x7f091c24);
+            this.mSearchIcon = (ImageView) this.mSearchRoot.findViewById(R.id.obfuscated_res_0x7f091c25);
             this.mSearchRoot.setOnClickListener(new a(this));
             if (this.mHasSearchTab == 1) {
                 this.mSearchRoot.setVisibility(0);
@@ -171,8 +171,8 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                 this.mSearchRoot.setVisibility(8);
             }
             this.mNoDataRootView = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ed, (ViewGroup) null);
-            this.mCustomScrollView = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091bfc);
-            this.mGameEntryAdapter = new ts5(getPageContext());
+            this.mCustomScrollView = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091bfd);
+            this.mGameEntryAdapter = new vs5(getPageContext());
             NoScrollGridView noScrollGridView = (NoScrollGridView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0901ef);
             this.mGridView = noScrollGridView;
             noScrollGridView.setOnItemClickListener(new b(this));

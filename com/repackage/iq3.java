@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public class iq3 implements rx3 {
+public class iq3 implements qx3 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String b = "hasDownloadApk";
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class iq3 implements rx3 {
         this.a = "com.baidu.gamenow";
     }
 
-    @Override // com.repackage.rx3
+    @Override // com.repackage.qx3
     public boolean a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class iq3 implements rx3 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.rx3
+    @Override // com.repackage.qx3
     public void b(Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (obj instanceof Download)) {
@@ -78,7 +78,7 @@ public class iq3 implements rx3 {
         }
     }
 
-    @Override // com.repackage.rx3
+    @Override // com.repackage.qx3
     public void c(Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) && (obj instanceof Download)) {

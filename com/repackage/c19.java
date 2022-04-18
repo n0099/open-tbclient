@@ -1,7 +1,7 @@
 package com.repackage;
 
-import java.util.List;
+import android.graphics.Bitmap;
 /* loaded from: classes5.dex */
 public interface c19 {
-    void e(List<String> list);
+    void a(Bitmap bitmap, boolean z);
 }

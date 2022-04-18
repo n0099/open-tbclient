@@ -131,12 +131,12 @@ public class oq1 extends mq1 {
     public final void A(@NonNull Request request, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, request, str) == null) {
-            l74 l74Var = new l74(request.url().toString(), request.body(), new b(this, str));
-            l74Var.i = request.tag();
-            l74Var.f = true;
-            l74Var.g = true;
-            l74Var.h = true;
-            m74.g().e(l74Var);
+            k74 k74Var = new k74(request.url().toString(), request.body(), new b(this, str));
+            k74Var.i = request.tag();
+            k74Var.f = true;
+            k74Var.g = true;
+            k74Var.h = true;
+            l74.g().e(k74Var);
         }
     }
 

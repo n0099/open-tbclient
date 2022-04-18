@@ -21,7 +21,7 @@ import com.repackage.fo;
 import com.repackage.h35;
 import com.repackage.hg;
 import com.repackage.ig;
-import com.repackage.ju4;
+import com.repackage.iu4;
 import com.repackage.oi;
 import com.repackage.pg;
 import java.util.HashMap;
@@ -127,10 +127,10 @@ public class SpecHotTopicHelper {
                         bitmapDrawable = new BitmapDrawable(j2);
                         bitmapDrawable.setBounds(0, 0, j2.getWidth(), j2.getHeight());
                     }
-                    ju4 ju4Var = new ju4(bitmapDrawable);
-                    ju4Var.b(oi.d(TbadkCoreApplication.getInst(), threadData.threadTitleSpanOffset));
+                    iu4 iu4Var = new iu4(bitmapDrawable);
+                    iu4Var.b(oi.d(TbadkCoreApplication.getInst(), threadData.threadTitleSpanOffset));
                     int i4 = i + i3;
-                    spannableString.setSpan(ju4Var, i4, i4 + 1, 33);
+                    spannableString.setSpan(iu4Var, i4, i4 + 1, 33);
                     i2++;
                 }
             }

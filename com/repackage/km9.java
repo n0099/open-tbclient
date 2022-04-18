@@ -1,28 +1,24 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.os.RemoteException;
-import android.util.Log;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes6.dex */
-public final class km9 implements Runnable {
+public final class km9 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
-    public final /* synthetic */ ArCoreApk.a b;
-    public final /* synthetic */ hm9 c;
+    public final /* synthetic */ InstallActivity a;
 
-    public km9(hm9 hm9Var, Context context, ArCoreApk.a aVar) {
+    public km9(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hm9Var, context, aVar};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,27 +28,14 @@ public final class km9 implements Runnable {
                 return;
             }
         }
-        this.c = hm9Var;
-        this.a = context;
-        this.b = aVar;
+        this.a = installActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                hm9 hm9Var = this.c;
-                l = hm9.l();
-                aVar.a(str, l, new com.google.ar.core.u(this));
-            } catch (RemoteException e) {
-                Log.e("ARCore-InstallService", "requestInfo threw", e);
-                this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            this.a.finishWithFailure(new UnavailableUserDeclinedInstallationException());
         }
     }
 }

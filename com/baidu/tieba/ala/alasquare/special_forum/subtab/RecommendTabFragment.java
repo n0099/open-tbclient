@@ -29,18 +29,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cu4;
 import com.repackage.du4;
-import com.repackage.eu4;
 import com.repackage.h45;
 import com.repackage.ho;
 import com.repackage.mg;
 import com.repackage.mi;
-import com.repackage.mr5;
 import com.repackage.oi;
-import com.repackage.oq5;
-import com.repackage.pq5;
-import com.repackage.tr5;
+import com.repackage.or5;
+import com.repackage.qq5;
+import com.repackage.rq5;
 import com.repackage.uo;
+import com.repackage.vr5;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -50,7 +50,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public View d;
     public BdTypeListView e;
     public PbListView f;
-    public eu4 g;
+    public du4 g;
     public h45 h;
     public d i;
     public SpecialRecommendTabModel j;
@@ -61,7 +61,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public String o;
     public SpecialRecommendTabModel.b p;
     public BdListView.p q;
-    public final du4.g r;
+    public final cu4.g r;
 
     /* loaded from: classes3.dex */
     public class a implements SpecialRecommendTabModel.b {
@@ -158,7 +158,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements du4.g {
+    public class c implements cu4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendTabFragment a;
@@ -181,7 +181,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
             this.a = recommendTabFragment;
         }
 
-        @Override // com.repackage.du4.g
+        @Override // com.repackage.cu4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -198,13 +198,13 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
     public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public pq5 a;
-        public oq5 b;
+        public rq5 a;
+        public qq5 b;
         public List<ho> c;
         public final /* synthetic */ RecommendTabFragment d;
 
         /* loaded from: classes3.dex */
-        public class a implements tr5 {
+        public class a implements vr5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RecommendTabFragment a;
@@ -229,7 +229,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                 this.a = recommendTabFragment;
             }
 
-            @Override // com.repackage.tr5
+            @Override // com.repackage.vr5
             public void a(int i, String str, ThreadData threadData) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, threadData) == null) {
@@ -259,10 +259,10 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                 }
             }
 
-            @Override // com.repackage.tr5
-            public void b(mr5 mr5Var) {
+            @Override // com.repackage.vr5
+            public void b(or5 or5Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mr5Var) == null) {
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, or5Var) == null) {
                 }
             }
         }
@@ -284,10 +284,10 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
             }
             this.d = recommendTabFragment;
             this.c = new LinkedList();
-            this.b = new oq5(recommendTabFragment.getPageContext());
-            pq5 pq5Var = new pq5(recommendTabFragment.getPageContext());
-            this.a = pq5Var;
-            pq5Var.c0(2);
+            this.b = new qq5(recommendTabFragment.getPageContext());
+            rq5 rq5Var = new rq5(recommendTabFragment.getPageContext());
+            this.a = rq5Var;
+            rq5Var.c0(2);
             this.a.b0(mg.g(recommendTabFragment.n, 0L));
             this.a.a(recommendTabFragment.o);
             this.c.add(this.b);
@@ -402,7 +402,7 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                 this.h.p();
                 this.h.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             }
-            this.h.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f11b9));
+            this.h.m(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f11b8));
             this.h.onChangeSkinType();
             if (!this.l) {
                 this.e.x(this.h.b(), 0);
@@ -427,9 +427,9 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            eu4 eu4Var = this.g;
-            if (eu4Var != null) {
-                eu4Var.H(i);
+            du4 du4Var = this.g;
+            if (du4Var != null) {
+                du4Var.H(i);
             }
             PbListView pbListView = this.f;
             if (pbListView != null) {
@@ -472,9 +472,9 @@ public class RecommendTabFragment extends SpecialForumTabBaseFragment {
                 this.e.setOverScrollMode(2);
                 this.e.setScrollable(this);
                 this.e.setOnSrollToBottomListener(this.q);
-                eu4 eu4Var = new eu4(getPageContext());
-                this.g = eu4Var;
-                eu4Var.f(this.r);
+                du4 du4Var = new du4(getPageContext());
+                this.g = du4Var;
+                du4Var.f(this.r);
                 this.e.setPullRefresh(this.g);
                 PbListView pbListView = new PbListView(getContext());
                 this.f = pbListView;

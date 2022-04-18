@@ -200,7 +200,7 @@ public class j extends com.kwad.sdk.reward.g implements KsRefluxView.a, a.Interf
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        KsRefluxView ksRefluxView = (KsRefluxView) a(R.id.obfuscated_res_0x7f09111f);
+        KsRefluxView ksRefluxView = (KsRefluxView) a(R.id.obfuscated_res_0x7f091120);
         this.d = ksRefluxView;
         this.e = ksRefluxView.getWebView();
         this.d.setViewListener(this);

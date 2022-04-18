@@ -30,14 +30,14 @@ public final class wq2 {
 
         /* renamed from: com.repackage.wq2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0544a implements Runnable {
+        public class RunnableC0545a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ Bitmap b;
             public final /* synthetic */ Rect c;
 
-            public RunnableC0544a(a aVar, int i, Bitmap bitmap, Rect rect) {
+            public RunnableC0545a(a aVar, int i, Bitmap bitmap, Rect rect) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public final class wq2 {
                 return;
             }
             Bitmap p = ae3.p();
-            dd3.f().execute(new RunnableC0544a(this, sq2.d(o), p, sq2.b(p, o, wl2.U().B(this.a))), "SwanNAArrivalCheck");
+            dd3.f().execute(new RunnableC0545a(this, sq2.d(o), p, sq2.b(p, o, wl2.U().B(this.a))), "SwanNAArrivalCheck");
         }
     }
 

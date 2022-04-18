@@ -1,20 +1,22 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.RecomTopicList;
 /* loaded from: classes7.dex */
-public class r17 {
+public class r17 extends ax6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ThreadData> a;
+    public String b;
 
     public r17() {
         Interceptable interceptable = $ic;
@@ -29,54 +31,28 @@ public class r17 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f61);
     }
 
-    public p17 a(boolean z, n17 n17Var) {
-        InterceptResult invokeZL;
+    public void i(HotTopic hotTopic) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, n17Var)) == null) {
-            p17 p17Var = new p17();
-            p17Var.c = n17Var.i();
-            p17Var.e = n17Var.a();
-            p17Var.f = n17Var.c();
-            ArrayList<ThreadData> h = n17Var.h();
-            if (z) {
-                if (!ListUtils.isEmpty(h)) {
-                    this.a.clear();
-                    this.a.addAll(h);
-                }
-            } else if (!ListUtils.isEmpty(h)) {
-                this.a.addAll(h);
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.a);
-            m07.e(true, arrayList, n17Var.e());
-            m07.e(true, arrayList, n17Var.f());
-            m07.e(true, arrayList, n17Var.d());
-            m07.e(true, arrayList, n17Var.g());
-            p17Var.a = m07.c(arrayList);
-            return p17Var;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, hotTopic) == null) || hotTopic == null) {
+            return;
         }
-        return (p17) invokeZL.objValue;
+        this.floorPosition = hotTopic.floor_position.intValue();
+        parserProtobuf(hotTopic.topic_list);
     }
 
-    public List<ThreadData> b() {
-        InterceptResult invokeV;
+    public void parserProtobuf(List<RecomTopicList> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<ThreadData> list = this.a;
-            if (list == null) {
-                return false;
-            }
-            return !ListUtils.isEmpty(list);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return invokeV.booleanValue;
+        int min = Math.min(list.size(), 6);
+        ArrayList arrayList = new ArrayList(list.size());
+        for (int i = 0; i < min; i++) {
+            arrayList.add(new zw6(list.get(i), i));
+        }
+        g(arrayList);
     }
 }

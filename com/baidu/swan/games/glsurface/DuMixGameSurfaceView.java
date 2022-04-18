@@ -31,10 +31,10 @@ import com.faceunity.gles.GeneratedTexture;
 import com.repackage.c63;
 import com.repackage.de1;
 import com.repackage.ee1;
-import com.repackage.g14;
+import com.repackage.f14;
 import com.repackage.id2;
+import com.repackage.j04;
 import com.repackage.jw3;
-import com.repackage.k04;
 import com.repackage.l82;
 import com.repackage.ot2;
 import com.repackage.pw3;
@@ -42,7 +42,7 @@ import com.repackage.r72;
 import com.repackage.rw3;
 import com.repackage.sw3;
 import com.repackage.tg1;
-import com.repackage.v14;
+import com.repackage.u14;
 import com.repackage.wl2;
 import java.nio.IntBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -97,7 +97,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         public void b(ee1 ee1Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ee1Var) == null) {
-                v14.c(ee1Var);
+                u14.c(ee1Var);
             }
         }
     }
@@ -344,11 +344,11 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             r72 r72Var = this.b;
             if (r72Var != null) {
-                g14.b(r72Var.q0());
+                f14.b(r72Var.q0());
             }
             AREngineDelegate aREngineDelegate = this.a;
             if (aREngineDelegate != null) {
-                g14.b(aREngineDelegate.getPerformanceJson());
+                f14.b(aREngineDelegate.getPerformanceJson());
             }
         }
     }
@@ -376,7 +376,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
             ot2.p("preload").F(new UbcFlowEvent("na_game_engine_end"));
             this.c = new rw3();
             this.h = new GameRecorderController(this.a);
-            k04.a().g(this.h);
+            j04.a().g(this.h);
         }
     }
 
@@ -449,7 +449,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
                 Log.d("DuMixGameSurfaceView", MissionEvent.MESSAGE_DESTROY);
             }
             v();
-            k04.a().f(this.h);
+            j04.a().f(this.h);
             if (this.a != null) {
                 r72 r72Var = this.b;
                 if (r72Var != null) {
@@ -484,7 +484,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
             if (aREngineDelegate != null) {
                 aREngineDelegate.onPause();
             }
-            k04.a().d();
+            j04.a().d();
         }
     }
 
@@ -498,7 +498,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
             if (aREngineDelegate != null) {
                 aREngineDelegate.onResume();
             }
-            k04.a().e();
+            j04.a().e();
         }
     }
 

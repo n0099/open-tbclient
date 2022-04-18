@@ -199,7 +199,7 @@ public class FloatingAnimationView extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f0807a5);
+            SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f0807a4);
         }
     }
 

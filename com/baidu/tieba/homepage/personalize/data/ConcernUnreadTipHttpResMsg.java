@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mz6;
+import com.repackage.oz6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.UnreadTip.UnreadTipResIdl;
@@ -15,7 +15,7 @@ import tbclient.UnreadTip.UnreadTipResIdl;
 public class ConcernUnreadTipHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mz6 mData;
+    public oz6 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernUnreadTipHttpResMsg() {
@@ -49,9 +49,9 @@ public class ConcernUnreadTipHttpResMsg extends HttpResponsedMessage {
             setErrorString(unreadTipResIdl.error.errmsg);
         }
         if (unreadTipResIdl.data != null) {
-            mz6 mz6Var = new mz6();
-            this.mData = mz6Var;
-            mz6Var.b(unreadTipResIdl.data);
+            oz6 oz6Var = new oz6();
+            this.mData = oz6Var;
+            oz6Var.b(unreadTipResIdl.data);
         }
     }
 }

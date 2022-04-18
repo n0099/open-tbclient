@@ -96,22 +96,22 @@ public class k32 extends j32 {
         }
     }
 
-    @Override // com.repackage.j32, com.repackage.d84
-    public void D(c94 c94Var) {
+    @Override // com.repackage.j32, com.repackage.c84
+    public void D(b94 b94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c94Var) == null) {
-            super.D(c94Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, b94Var) == null) {
+            super.D(b94Var);
             if (F) {
-                Log.e("PkgSyncDownloadCallback", "onFetchError: " + c94Var.toString());
+                Log.e("PkgSyncDownloadCallback", "onFetchError: " + b94Var.toString());
             }
-            M0(c94Var);
+            M0(b94Var);
             cc3 cc3Var = new cc3();
             cc3Var.k(10L);
-            cc3Var.c(c94Var);
-            if (b42.j(c94Var) && qj2.T().a(qj2.c(), this.o, cc3Var)) {
+            cc3Var.c(b94Var);
+            if (b42.j(b94Var) && qj2.T().a(qj2.c(), this.o, cc3Var)) {
                 u0(false, cc3Var);
                 I0(this.D.V(), cc3Var);
-            } else if (c94Var != null && c94Var.a == 1020) {
+            } else if (b94Var != null && b94Var.a == 1020) {
                 u0(false, cc3Var);
                 I0(this.D.V(), cc3Var);
             } else {
@@ -120,7 +120,7 @@ public class k32 extends j32 {
         }
     }
 
-    @Override // com.repackage.j32, com.repackage.d84
+    @Override // com.repackage.j32, com.repackage.c84
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -130,7 +130,7 @@ public class k32 extends j32 {
         }
     }
 
-    @Override // com.repackage.j32, com.repackage.d84
+    @Override // com.repackage.j32, com.repackage.c84
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -140,7 +140,7 @@ public class k32 extends j32 {
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -156,25 +156,25 @@ public class k32 extends j32 {
         }
     }
 
-    @Override // com.repackage.j32, com.repackage.d84
-    public void H(qd4 qd4Var) {
+    @Override // com.repackage.j32, com.repackage.c84
+    public void H(pd4 pd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qd4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, pd4Var) == null) {
             ot2.p(NodeJS.STARTUP_SCRIPT_NAME).F(new UbcFlowEvent("aps_start_download"));
-            super.H(qd4Var);
+            super.H(pd4Var);
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void I(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
             super.I(str, i);
-            n94 a = n94.a(str);
+            m94 a = m94.a(str);
             if (a == null) {
                 return;
             }
-            boolean b = pd4.b(a.c());
+            boolean b = od4.b(a.c());
             jx1.i("PkgSyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
             if (b) {
                 zw2 e = zw2.e();
@@ -193,7 +193,7 @@ public class k32 extends j32 {
     /* JADX WARN: Type inference failed for: r6v7 */
     /* JADX WARN: Type inference failed for: r6v8 */
     /* JADX WARN: Type inference failed for: r6v9 */
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void J(String str, String str2, JSONObject jSONObject) {
         String jSONObject2;
         Interceptable interceptable = $ic;
@@ -288,13 +288,13 @@ public class k32 extends j32 {
         }
     }
 
-    public final void M0(c94 c94Var) {
+    public final void M0(b94 b94Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, c94Var) == null) || c94Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, b94Var) == null) || b94Var == null) {
             return;
         }
         try {
-            PMSAppInfo a = pd4.a(new JSONObject(c94Var.c));
+            PMSAppInfo a = od4.a(new JSONObject(b94Var.c));
             a.appId = a.appKey;
             i03.J().r().M0(a);
             jx1.i("PkgSyncDownloadCallback", "onFetchError: pms info:" + a.toString());
@@ -322,7 +322,7 @@ public class k32 extends j32 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? PMSDownloadType.SYNC : (PMSDownloadType) invokeV.objValue;
     }
 
-    @Override // com.repackage.d84, com.repackage.b84
+    @Override // com.repackage.c84, com.repackage.a84
     @NonNull
     public Bundle m(@NonNull Bundle bundle, Set<String> set) {
         InterceptResult invokeLL;
@@ -337,7 +337,7 @@ public class k32 extends j32 {
         return (Bundle) invokeLL.objValue;
     }
 
-    @Override // com.repackage.d84, com.repackage.a84
+    @Override // com.repackage.c84, com.repackage.z74
     public void n(String str, String str2) {
         List<UbcFlowEvent> list;
         Interceptable interceptable = $ic;
@@ -383,29 +383,29 @@ public class k32 extends j32 {
                     Log.d("PkgSyncDownloadCallback", "同步获取-> DB 存储成功");
                 }
                 gl2 J0 = J0();
-                f94 f94Var = this.l;
-                if (f94Var != null && f94Var.h == 0) {
+                e94 e94Var = this.l;
+                if (e94Var != null && e94Var.h == 0) {
                     J0.Z0(o93.e(0));
                     J0.E(1);
                 }
-                f94 f94Var2 = this.l;
-                if (f94Var2 != null && f94Var2.h == 1) {
+                e94 e94Var2 = this.l;
+                if (e94Var2 != null && e94Var2.h == 1) {
                     J0.Z0(o93.e(1));
                     J0.E(1);
                 }
-                d94 d94Var = this.m;
-                if (d94Var != null && d94Var.h == 0) {
+                c94 c94Var = this.m;
+                if (c94Var != null && c94Var.h == 0) {
                     J0.C0(sa2.c(0));
                     J0.E(2);
                 }
-                d94 d94Var2 = this.m;
-                if (d94Var2 != null && d94Var2.h == 1) {
+                c94 c94Var2 = this.m;
+                if (c94Var2 != null && c94Var2.h == 1) {
                     J0.C0(sa2.c(1));
                     J0.E(2);
                 }
-                i94 i94Var = this.q;
-                if (i94Var != null) {
-                    J0.F0(i94Var.r);
+                h94 h94Var = this.q;
+                if (h94Var != null) {
+                    J0.F0(h94Var.r);
                     J0.V0(this.q.p);
                 }
                 t0(this.n);

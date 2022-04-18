@@ -23,9 +23,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ga8;
+import com.repackage.na8;
 import com.repackage.oi;
-import com.repackage.xo4;
+import com.repackage.wo4;
 /* loaded from: classes3.dex */
 public class BannerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class BannerView extends RelativeLayout {
     public float i;
     public String j;
     public boolean k;
-    public xo4 l;
+    public wo4 l;
     public String m;
     public b n;
     public View.OnClickListener o;
@@ -162,7 +162,7 @@ public class BannerView extends RelativeLayout {
             this.d = tbImageView;
             tbImageView.setAutoChangeStyle(true);
             this.d.setOnClickListener(this.o);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092161);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092162);
             View findViewById = findViewById(R.id.obfuscated_res_0x7f09030b);
             this.g = findViewById;
             SkinManager.setBackgroundColor(findViewById, R.color.black_alpha0);
@@ -190,11 +190,11 @@ public class BannerView extends RelativeLayout {
         }
     }
 
-    public void setBannerData(xo4 xo4Var) {
+    public void setBannerData(wo4 wo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, xo4Var) == null) {
-            this.l = xo4Var;
-            ga8.l(xo4Var.g, this.f, xo4Var.h, oi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, wo4Var) == null) {
+            this.l = wo4Var;
+            na8.l(wo4Var.g, this.f, wo4Var.h, oi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class TextLineView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -56,12 +56,12 @@ public class TextLineView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
             if (z) {
-                wr4 d = wr4.d(this);
+                vr4 d = vr4.d(this);
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
                 return;
             }
-            wr4 d2 = wr4.d(this);
+            vr4 d2 = vr4.d(this);
             d2.v(R.color.CAM_X0108);
             d2.A(R.string.F_X01);
         }

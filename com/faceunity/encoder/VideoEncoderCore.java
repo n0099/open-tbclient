@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.am7;
-import com.repackage.ql7;
-import com.repackage.wl7;
+import com.repackage.dm7;
+import com.repackage.tl7;
+import com.repackage.zl7;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
@@ -33,7 +33,7 @@ public class VideoEncoderCore {
     public long mLastFrameSyncTime;
     public MediaMuxerWrapper mMuxer;
     public boolean mMuxerStarted;
-    public wl7 mPostMonitorManager;
+    public zl7 mPostMonitorManager;
     public boolean mRequestStop;
     public int mTrackIndex;
     public Bundle params;
@@ -56,10 +56,10 @@ public class VideoEncoderCore {
         this.params = new Bundle();
         this.mLastFrameSyncTime = 0L;
         this.mRequestStop = false;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, am7.class);
-        am7 am7Var = runTask != null ? (am7) runTask.getData() : null;
-        if (am7Var != null) {
-            this.mPostMonitorManager = am7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, dm7.class);
+        dm7 dm7Var = runTask != null ? (dm7) runTask.getData() : null;
+        if (dm7Var != null) {
+            this.mPostMonitorManager = dm7Var.get();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -180,9 +180,9 @@ public class VideoEncoderCore {
                 try {
                     mediaMuxerWrapper.stop();
                 } catch (IllegalStateException e) {
-                    wl7 wl7Var = this.mPostMonitorManager;
-                    if (wl7Var != null) {
-                        wl7Var.b(17, ql7.a(e));
+                    zl7 zl7Var = this.mPostMonitorManager;
+                    if (zl7Var != null) {
+                        zl7Var.b(17, tl7.a(e));
                     }
                 }
                 this.mMuxer = null;

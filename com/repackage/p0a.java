@@ -1,126 +1,39 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xy9;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.ThreadFactory;
+import com.repackage.ez9;
+import com.repackage.fz9;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.schedulers.ScheduledAction;
-import rx.internal.util.RxThreadFactory;
 /* loaded from: classes6.dex */
-public final class p0a extends xy9 implements w0a {
+public final class p0a<T> implements fz9.c<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final long c;
-    public static final TimeUnit d;
-    public static final c e;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ThreadFactory a;
-    public final AtomicReference<a> b;
+    public final fz9.c<T> a;
+    public final long b;
+    public final TimeUnit c;
+    public final ez9 d;
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public static final class a<T> extends gz9<T> implements oz9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ThreadFactory a;
-        public final long b;
-        public final ConcurrentLinkedQueue<c> c;
-        public final p3a d;
-        public final ScheduledExecutorService e;
-        public final Future<?> f;
+        public final gz9<? super T> b;
+        public final ez9.a c;
+        public final long d;
+        public final TimeUnit e;
+        public T f;
+        public Throwable g;
 
-        /* renamed from: com.repackage.p0a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class ThreadFactoryC0489a implements ThreadFactory {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ThreadFactory a;
-
-            public ThreadFactoryC0489a(a aVar, ThreadFactory threadFactory) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, threadFactory};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = threadFactory;
-            }
-
-            @Override // java.util.concurrent.ThreadFactory
-            public Thread newThread(Runnable runnable) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                    Thread newThread = this.a.newThread(runnable);
-                    newThread.setName(newThread.getName() + " (Evictor)");
-                    return newThread;
-                }
-                return (Thread) invokeL.objValue;
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a();
-                }
-            }
-        }
-
-        public a(ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
-            ScheduledFuture<?> scheduledFuture;
+        public a(gz9<? super T> gz9Var, ez9.a aVar, long j, TimeUnit timeUnit) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {threadFactory, Long.valueOf(j), timeUnit};
+                Object[] objArr = {gz9Var, aVar, Long.valueOf(j), timeUnit};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -130,326 +43,85 @@ public final class p0a extends xy9 implements w0a {
                     return;
                 }
             }
-            this.a = threadFactory;
-            this.b = timeUnit != null ? timeUnit.toNanos(j) : 0L;
-            this.c = new ConcurrentLinkedQueue<>();
-            this.d = new p3a();
-            ScheduledExecutorService scheduledExecutorService = null;
-            if (timeUnit != null) {
-                scheduledExecutorService = Executors.newScheduledThreadPool(1, new ThreadFactoryC0489a(this, threadFactory));
-                v0a.k(scheduledExecutorService);
-                b bVar = new b(this);
-                long j2 = this.b;
-                scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(bVar, j2, j2, TimeUnit.NANOSECONDS);
-            } else {
-                scheduledFuture = null;
-            }
-            this.e = scheduledExecutorService;
-            this.f = scheduledFuture;
+            this.b = gz9Var;
+            this.c = aVar;
+            this.d = j;
+            this.e = timeUnit;
         }
 
-        public void a() {
+        @Override // com.repackage.gz9
+        public void b(Throwable th) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c.isEmpty()) {
-                return;
-            }
-            long c = c();
-            Iterator<c> it = this.c.iterator();
-            while (it.hasNext()) {
-                c next = it.next();
-                if (next.l() > c) {
-                    return;
-                }
-                if (this.c.remove(next)) {
-                    this.d.b(next);
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                this.g = th;
+                this.c.c(this, this.d, this.e);
             }
         }
 
-        public c b() {
-            InterceptResult invokeV;
+        @Override // com.repackage.gz9
+        public void c(T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.d.isUnsubscribed()) {
-                    return p0a.e;
-                }
-                while (!this.c.isEmpty()) {
-                    c poll = this.c.poll();
-                    if (poll != null) {
-                        return poll;
-                    }
-                }
-                c cVar = new c(this.a);
-                this.d.a(cVar);
-                return cVar;
-            }
-            return (c) invokeV.objValue;
-        }
-
-        public long c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.nanoTime() : invokeV.longValue;
-        }
-
-        public void d(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-                cVar.m(c() + this.b);
-                this.c.offer(cVar);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+                this.f = t;
+                this.c.c(this, this.d, this.e);
             }
         }
 
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                try {
-                    if (this.f != null) {
-                        this.f.cancel(true);
-                    }
-                    if (this.e != null) {
-                        this.e.shutdownNow();
-                    }
-                } finally {
-                    this.d.unsubscribe();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b extends xy9.a implements hz9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final p3a a;
-        public final a b;
-        public final c c;
-        public final AtomicBoolean d;
-
-        /* loaded from: classes6.dex */
-        public class a implements hz9 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ hz9 a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, hz9 hz9Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, hz9Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = hz9Var;
-            }
-
-            @Override // com.repackage.hz9
-            public void call() {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.isUnsubscribed()) {
-                    return;
-                }
-                this.a.call();
-            }
-        }
-
-        public b(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new p3a();
-            this.b = aVar;
-            this.d = new AtomicBoolean();
-            this.c = aVar.b();
-        }
-
-        @Override // com.repackage.xy9.a
-        public bz9 b(hz9 hz9Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hz9Var)) == null) ? c(hz9Var, 0L, null) : (bz9) invokeL.objValue;
-        }
-
-        @Override // com.repackage.xy9.a
-        public bz9 c(hz9 hz9Var, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{hz9Var, Long.valueOf(j), timeUnit})) == null) {
-                if (this.a.isUnsubscribed()) {
-                    return s3a.c();
-                }
-                ScheduledAction h = this.c.h(new a(this, hz9Var), j, timeUnit);
-                this.a.a(h);
-                h.addParent(this.a);
-                return h;
-            }
-            return (bz9) invokeCommon.objValue;
-        }
-
-        @Override // com.repackage.hz9
+        @Override // com.repackage.oz9
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.b.d(this.c);
-            }
-        }
-
-        @Override // com.repackage.bz9
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.bz9
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                if (this.d.compareAndSet(false, true)) {
-                    this.c.b(this);
-                }
-                this.a.unsubscribe();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class c extends v0a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long i;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ThreadFactory threadFactory) {
-            super(threadFactory);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {threadFactory};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((ThreadFactory) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                try {
+                    Throwable th = this.g;
+                    if (th != null) {
+                        this.g = null;
+                        this.b.b(th);
+                    } else {
+                        T t = this.f;
+                        this.f = null;
+                        this.b.c(t);
+                    }
+                } finally {
+                    this.c.unsubscribe();
                 }
             }
-            this.i = 0L;
-        }
-
-        public long l() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : invokeV.longValue;
-        }
-
-        public void m(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.i = j;
-            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755462352, "Lcom/repackage/p0a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755462352, "Lcom/repackage/p0a;");
-                return;
-            }
-        }
-        d = TimeUnit.SECONDS;
-        c cVar = new c(RxThreadFactory.NONE);
-        e = cVar;
-        cVar.unsubscribe();
-        a aVar = new a(null, 0L, null);
-        f = aVar;
-        aVar.e();
-        c = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
-    }
-
-    public p0a(ThreadFactory threadFactory) {
+    public p0a(fz9.c<T> cVar, long j, TimeUnit timeUnit, ez9 ez9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {cVar, Long.valueOf(j), timeUnit, ez9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = threadFactory;
-        this.b = new AtomicReference<>(f);
-        start();
+        this.a = cVar;
+        this.d = ez9Var;
+        this.b = j;
+        this.c = timeUnit;
     }
 
-    @Override // com.repackage.xy9
-    public xy9.a createWorker() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this.b.get()) : (xy9.a) invokeV.objValue;
+    @Override // com.repackage.fz9.c, com.repackage.pz9
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((gz9) ((gz9) obj));
     }
 
-    @Override // com.repackage.w0a
-    public void shutdown() {
-        a aVar;
-        a aVar2;
+    public void call(gz9<? super T> gz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            do {
-                aVar = this.b.get();
-                aVar2 = f;
-                if (aVar == aVar2) {
-                    return;
-                }
-            } while (!this.b.compareAndSet(aVar, aVar2));
-            aVar.e();
-        }
-    }
-
-    @Override // com.repackage.w0a
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a aVar = new a(this.a, c, d);
-            if (this.b.compareAndSet(f, aVar)) {
-                return;
-            }
-            aVar.e();
+        if (interceptable == null || interceptable.invokeL(1048576, this, gz9Var) == null) {
+            ez9.a createWorker = this.d.createWorker();
+            a aVar = new a(gz9Var, createWorker, this.b, this.c);
+            gz9Var.a(createWorker);
+            gz9Var.a(aVar);
+            this.a.call(aVar);
         }
     }
 }

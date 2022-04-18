@@ -23,19 +23,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fw5;
+import com.repackage.hw5;
 import com.repackage.mg;
-import com.repackage.uv5;
-import com.repackage.vv5;
 import com.repackage.wv5;
+import com.repackage.xv5;
+import com.repackage.yv5;
 /* loaded from: classes3.dex */
 public class FloatMyRecordCard extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public wv5 c;
-    public uv5 d;
+    public yv5 c;
+    public wv5 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -106,16 +106,16 @@ public class FloatMyRecordCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092212);
-            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f09227a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092213);
+            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f09227b);
             this.f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.f.getHeadView().setIsRound(true);
             }
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09229c);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ce7);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f7);
-            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f091494);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09229d);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ce8);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f8);
+            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f091495);
         }
     }
 
@@ -131,12 +131,12 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public void d(int i) {
-        uv5 uv5Var;
+        wv5 wv5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (uv5Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (wv5Var = this.d) == null) {
             return;
         }
-        if (uv5Var.i() > 3) {
+        if (wv5Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -147,21 +147,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(wv5 wv5Var) {
-        uv5 uv5Var;
+    public void setData(yv5 yv5Var) {
+        wv5 wv5Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, wv5Var) == null) {
-            this.c = wv5Var;
-            if (wv5Var != null && wv5Var.a() != null) {
-                vv5 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, yv5Var) == null) {
+            this.c = yv5Var;
+            if (yv5Var != null && yv5Var.a() != null) {
+                xv5 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.g();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (uv5Var = this.d) != null && this.b == fw5.c) {
-                int i = uv5Var.i();
+            if (this.c != null && (wv5Var = this.d) != null && this.b == hw5.c) {
+                int i = wv5Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {

@@ -47,12 +47,12 @@ public class sq2 {
 
         /* renamed from: com.repackage.sq2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0516a implements xk1.a {
+        public class C0515a implements xk1.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File[] a;
 
-            public C0516a(a aVar, File[] fileArr) {
+            public C0515a(a aVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +75,7 @@ public class sq2 {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && str.contains("success")) {
                     for (File file : this.a) {
-                        ng4.L(file);
+                        mg4.L(file);
                     }
                 }
             }
@@ -113,7 +113,7 @@ public class sq2 {
                     fileArr = new File[]{b};
                 }
                 if (u != null) {
-                    u.d(p, null, fileArr, new C0516a(this, fileArr));
+                    u.d(p, null, fileArr, new C0515a(this, fileArr));
                 }
             }
         }

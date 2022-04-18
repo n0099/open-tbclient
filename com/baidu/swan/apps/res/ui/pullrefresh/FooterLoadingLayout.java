@@ -77,7 +77,7 @@ public class FooterLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09195c);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09195d);
             if (findViewById != null) {
                 return findViewById.getHeight();
             }
@@ -128,8 +128,8 @@ public class FooterLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f09195e);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09195d);
+            this.e = (LoadingAnimView) findViewById(R.id.obfuscated_res_0x7f09195f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09195e);
             this.f = textView;
             textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603c7));
             setState(ILoadingLayout$State.RESET);

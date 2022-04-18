@@ -27,13 +27,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.io7;
+import com.repackage.lo7;
 import com.repackage.oi;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements io7 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements lo7 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALBUM_TYPE = 3;
     public static final int COLLECT_TYPE = 2;
@@ -220,7 +220,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements io7 {
             }
             createAndAddTabSpec(this.mSearchFragment, 1, this.mActivity.getText(R.string.obfuscated_res_0x7f0f05da).toString());
             createAndAddTabSpec(this.mAlbumFragment, 3, this.mActivity.getText(R.string.obfuscated_res_0x7f0f05d6).toString());
-            createAndAddTabSpec(this.mCollectFragment, 2, this.mActivity.getText(R.string.obfuscated_res_0x7f0f0b32).toString());
+            createAndAddTabSpec(this.mCollectFragment, 2, this.mActivity.getText(R.string.obfuscated_res_0x7f0f0b31).toString());
             this.mTabHost.n(1);
             this.mTabHost.setCurrentTab(0);
             this.mTabHost.getFragmentTabWidget().getLayoutParams().height = oi.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070239);
@@ -231,12 +231,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements io7 {
     private void initTitleBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mLayoutRoot = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911ea);
-            this.mNavigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091514);
+            this.mLayoutRoot = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911eb);
+            this.mNavigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091515);
             this.mTitleBar = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
             this.mTitleBar.setLayoutParams(new RelativeLayout.LayoutParams(oi.k(getPageContext().getPageActivity()), -1));
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.mTitleBar, (View.OnClickListener) null);
-            this.mNoNetView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923ad);
+            this.mNoNetView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923ae);
             this.mTitleBar.setRightListener(new a(this));
             SkinManager.setBackgroundColor(this.mTitleBar, R.color.CAM_X0201);
             setTitleText(0);
@@ -256,7 +256,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements io7 {
             this.mTitleBar.setTitle(this.mActivity.getText(R.string.obfuscated_res_0x7f0f0248).toString());
         } else if (i != 2) {
         } else {
-            this.mTitleBar.setTitle(this.mActivity.getText(R.string.obfuscated_res_0x7f0f0b32).toString());
+            this.mTitleBar.setTitle(this.mActivity.getText(R.string.obfuscated_res_0x7f0f0b31).toString());
         }
     }
 
@@ -273,7 +273,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements io7 {
         }
     }
 
-    @Override // com.repackage.io7
+    @Override // com.repackage.lo7
     public boolean canChooseMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -296,7 +296,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements io7 {
         }
     }
 
-    @Override // com.repackage.io7
+    @Override // com.repackage.lo7
     public void onChoose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -313,7 +313,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements io7 {
             super.onCreate(bundle);
             this.mActivity = getPageContext().getPageActivity();
             setContentView(R.layout.obfuscated_res_0x7f0d06e4);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e2f);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e30);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.mTabHost.setOnPageChangeListener(this.mOnPageChangeListener);
@@ -324,7 +324,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements io7 {
         }
     }
 
-    @Override // com.repackage.io7
+    @Override // com.repackage.lo7
     public void onUnChoose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mp4;
-import com.repackage.qn4;
+import com.repackage.lp4;
+import com.repackage.pn4;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
 /* loaded from: classes3.dex */
-public class SpecialColumnListData extends qn4 implements Parcelable {
+public class SpecialColumnListData extends pn4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR;
     public static final int MAX_SIZE = 3;
@@ -119,14 +119,14 @@ public class SpecialColumnListData extends qn4 implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mListData : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.qn4
-    public mp4 getNegFeedBackData() {
+    @Override // com.repackage.pn4
+    public lp4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (mp4) invokeV.objValue;
+        return (lp4) invokeV.objValue;
     }
 
     public List<SpecialColumnItemData> getResultData() {
@@ -135,7 +135,7 @@ public class SpecialColumnListData extends qn4 implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mResultListData : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.qn4
+    @Override // com.repackage.pn4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

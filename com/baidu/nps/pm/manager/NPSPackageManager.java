@@ -289,10 +289,10 @@ public class NPSPackageManager {
                         k61.i().c(this.d.getUpdateBundle(this.a));
                         f61 f61Var = this.c;
                         if (f61Var != null) {
-                            f61Var.onResult(51, this.d.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eac));
+                            f61Var.onResult(51, this.d.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eab));
                         }
                         if (t61.a()) {
-                            Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.d.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eac));
+                            Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.d.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eab));
                             return;
                         }
                         return;
@@ -303,10 +303,10 @@ public class NPSPackageManager {
                 }
                 f61 f61Var2 = this.c;
                 if (f61Var2 != null) {
-                    f61Var2.onResult(3, this.d.getDownloadMessage(R.string.obfuscated_res_0x7f0f0ead));
+                    f61Var2.onResult(3, this.d.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eac));
                 }
                 if (t61.a()) {
-                    Log.i(NPSPackageManager.TAG, "preDownload, retCode=3，message = " + this.d.getDownloadMessage(R.string.obfuscated_res_0x7f0f0ead));
+                    Log.i(NPSPackageManager.TAG, "preDownload, retCode=3，message = " + this.d.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eac));
                 }
             }
         }
@@ -361,10 +361,10 @@ public class NPSPackageManager {
                     d dVar2 = this.b;
                     f61 f61Var = dVar2.b;
                     if (f61Var != null) {
-                        f61Var.onResult(51, dVar2.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eac));
+                        f61Var.onResult(51, dVar2.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eab));
                     }
                     if (t61.a()) {
-                        Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.b.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eac));
+                        Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.b.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eab));
                     }
                 }
             }
@@ -400,10 +400,10 @@ public class NPSPackageManager {
                 if (updateBundle == null) {
                     f61 f61Var = this.b;
                     if (f61Var != null) {
-                        f61Var.onResult(3, this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0ead));
+                        f61Var.onResult(3, this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eac));
                     }
                     if (t61.a()) {
-                        Log.i(NPSPackageManager.TAG, "update, retCode=3,message = " + this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0ead));
+                        Log.i(NPSPackageManager.TAG, "update, retCode=3,message = " + this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eac));
                     }
                 } else if (this.c == 1) {
                     if (v61.b(ContextHolder.getApplicationContext())) {
@@ -415,10 +415,10 @@ public class NPSPackageManager {
                     k61.i().c(updateBundle);
                     f61 f61Var2 = this.b;
                     if (f61Var2 != null) {
-                        f61Var2.onResult(51, this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eac));
+                        f61Var2.onResult(51, this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eab));
                     }
                     if (t61.a()) {
-                        Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eac));
+                        Log.i(NPSPackageManager.TAG, "preDownload, retCode=51，message = " + this.e.getDownloadMessage(R.string.obfuscated_res_0x7f0f0eab));
                     }
                 }
             }

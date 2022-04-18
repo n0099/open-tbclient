@@ -45,7 +45,7 @@ public class h92 {
     public int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? n92.a(i) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? n92.b(i) : invokeI.intValue;
     }
 
     public void c() {
@@ -54,7 +54,7 @@ public class h92 {
             jx1.k("SwanRecoveryManager", "RecoverPlatform");
             p92 p92Var = new p92();
             p92Var.a = 1;
-            f92.a(p92Var);
+            f92.b(p92Var);
         }
     }
 }

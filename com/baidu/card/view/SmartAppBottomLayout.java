@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fz;
 import com.repackage.oi;
-import com.repackage.qn4;
+import com.repackage.pn4;
 /* loaded from: classes.dex */
-public class SmartAppBottomLayout extends LinearLayout implements fz<qn4> {
+public class SmartAppBottomLayout extends LinearLayout implements fz<pn4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,10 +90,10 @@ public class SmartAppBottomLayout extends LinearLayout implements fz<qn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: c */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn4Var) == null) || (threadData = qn4Var.getThreadData()) == null || threadData.getSmartApp() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) || (threadData = pn4Var.getThreadData()) == null || threadData.getSmartApp() == null) {
             return;
         }
         if (!TextUtils.isEmpty(threadData.getSmartApp().avatar)) {

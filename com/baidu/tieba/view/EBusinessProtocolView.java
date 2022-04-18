@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nu4;
+import com.repackage.mu4;
 import com.repackage.oi;
 /* loaded from: classes4.dex */
 public class EBusinessProtocolView extends Dialog {
@@ -334,12 +334,12 @@ public class EBusinessProtocolView extends Dialog {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09193b);
-            this.d = (WebView) this.b.findViewById(R.id.obfuscated_res_0x7f091936);
+            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09193c);
+            this.d = (WebView) this.b.findViewById(R.id.obfuscated_res_0x7f091937);
             this.f = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090164);
             this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f09049d);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ff8);
-            this.h = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f092004);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ff9);
+            this.h = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f092005);
             h();
             f();
         }
@@ -355,11 +355,11 @@ public class EBusinessProtocolView extends Dialog {
                 this.h.setVisibility(0);
                 setCanceledOnTouchOutside(true);
                 this.g.setText(this.k);
-                this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13de));
-                nu4 nu4Var = new nu4();
-                nu4Var.p(R.color.CAM_X0302);
+                this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f13dd));
+                mu4 mu4Var = new mu4();
+                mu4Var.p(R.color.CAM_X0302);
                 this.h.setTextSize(R.dimen.T_X08);
-                this.h.setConfig(nu4Var);
+                this.h.setConfig(mu4Var);
             } else if (i != 2) {
             } else {
                 n();
@@ -367,17 +367,17 @@ public class EBusinessProtocolView extends Dialog {
                 this.f.setVisibility(0);
                 this.e.setVisibility(0);
                 this.d.loadUrl(this.l);
-                nu4 nu4Var2 = new nu4();
-                nu4Var2.p(R.color.CAM_X0107);
-                this.e.setConfig(nu4Var2);
+                mu4 mu4Var2 = new mu4();
+                mu4Var2.p(R.color.CAM_X0107);
+                this.e.setConfig(mu4Var2);
                 this.e.setTextSize(R.dimen.tbds42);
-                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0eef));
+                this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0eee));
                 this.f.setTextSize(R.dimen.tbds42);
-                nu4 nu4Var3 = new nu4();
-                nu4Var3.p(R.color.CAM_X0302);
-                this.f.setConfig(nu4Var3);
+                mu4 mu4Var3 = new mu4();
+                mu4Var3.p(R.color.CAM_X0302);
+                this.f.setConfig(mu4Var3);
                 this.f.setTextSize(R.dimen.tbds42);
-                this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0eee));
+                this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0eed));
             }
         }
     }

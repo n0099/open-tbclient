@@ -134,13 +134,13 @@ public class SwanContextMenuView extends FrameLayout implements tz2.g {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
                 if (getCount() == 1) {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081113));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081117));
                 } else if (i == 0) {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081114));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081118));
                 } else if (i == getCount() - 1) {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081111));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081115));
                 } else {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081112));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081116));
                 }
             }
         }
@@ -184,8 +184,8 @@ public class SwanContextMenuView extends FrameLayout implements tz2.g {
                 if (view2 == null) {
                     view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07bc, (ViewGroup) null);
                     aVar = new a(this);
-                    aVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f75);
-                    aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fa5);
+                    aVar.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f76);
+                    aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fa6);
                     b(view2, i);
                     view2.setTag(aVar);
                 } else {
@@ -249,7 +249,7 @@ public class SwanContextMenuView extends FrameLayout implements tz2.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081110));
+            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081114));
             ListView listView = new ListView(this.a);
             this.c = listView;
             listView.setCacheColorHint(0);

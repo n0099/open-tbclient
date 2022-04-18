@@ -1,6 +1,6 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,47 +27,148 @@ public class dx3 implements ux3 {
     }
 
     @Override // com.repackage.ux3
-    public boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z, @NonNull od2 od2Var) {
-        InterceptResult invokeCommon;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Boolean.valueOf(z), od2Var})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? fx1.v(String.format("%s/api/user/addiction/gamevalid", dx1.a())) : (String) invokeV.objValue;
     }
 
     @Override // com.repackage.ux3
-    public void b(String str, String str2, String str3, String str4, String str5) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? fx1.v(String.format("%s/api/minigame/get_game_tencent_ads", dx1.a())) : (String) invokeV.objValue;
     }
 
     @Override // com.repackage.ux3
-    public void c(@NonNull String str) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? fx1.v(String.format("%s/api/msgame/reservation/query", dx1.a())) : (String) invokeV.objValue;
     }
 
     @Override // com.repackage.ux3
-    public void d(@NonNull String str, @NonNull String str2) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? fx1.v(String.format("%s/api/report/download", dx1.a())) : (String) invokeV.objValue;
     }
 
     @Override // com.repackage.ux3
-    public void e(@NonNull String str) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? fx1.v(String.format("%s/api/msgame/adblock", dx1.a())) : (String) invokeV.objValue;
     }
 
     @Override // com.repackage.ux3
-    public void f(@NonNull String str) {
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? fx1.v(String.format("%s/ma/game/rest/check_is_user_advised_to_rest", u())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? fx1.v(String.format("%s/api/exchange/transfer_report", dx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? fx1.v(String.format("%s/api/user/addiction/polling", dx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? fx1.v(String.format("%s/api/user/addiction/realname", dx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? fx1.v(String.format("%s/api/user/rechargecheck", dx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? fx1.v(String.format("%s/ma/game/od/get_friend_cloud_storage", u())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? fx1.v(String.format("%s/user/gamehistory/upload", dx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? fx1.v(String.format("%s/ma/game/od/remove_user_cloud_storage", dx1.c())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? fx1.v(String.format("%s/api/msgame/reservation/auto_download/finish", dx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? fx1.v(String.format("%s/ma/game/od/set_user_cloud_storage", u())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? fx1.v(String.format("%s/api/exchange/list", dx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? fx1.v(String.format("%s/api/user/addiction/behavior_report", dx1.a())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? fx1.v(String.format("%s/ma/game/od/get_user_info", u())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? fx1.v(String.format("%s/ma/game/od/get_user_cloud_storage", u())) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ux3
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? fx1.v(String.format("%s/api/minigame/get_return_guide_config", dx1.a())) : (String) invokeV.objValue;
+    }
+
+    public final String u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? fx1.a : (String) invokeV.objValue;
     }
 }

@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.m00;
 /* loaded from: classes6.dex */
-public class oz extends qy<qn4> {
+public class oz extends qy<pn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgSingleVerticalLayout f;
-    public qn4 g;
+    public pn4 g;
     public int h;
     public String i;
 
@@ -53,11 +53,11 @@ public class oz extends qy<qn4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    cx5.a(this.a.g.getThreadData().getId());
+                    ex5.a(this.a.g.getThreadData().getId());
                     oz ozVar = this.a;
-                    cx5.l(ozVar.f.a, ozVar.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ex5.l(ozVar.f.a, ozVar.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     oz ozVar2 = this.a;
-                    cx5.l(ozVar2.f.b, ozVar2.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    ex5.l(ozVar2.f.b, ozVar2.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -107,10 +107,10 @@ public class oz extends qy<qn4> {
     }
 
     @Override // com.repackage.qy
-    public void l(rx5<qn4> rx5Var) {
+    public void l(tx5<pn4> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rx5Var) == null) {
-            this.f.setSubClickListener(rx5Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, tx5Var) == null) {
+            this.f.setSubClickListener(tx5Var);
         }
     }
 
@@ -125,12 +125,12 @@ public class oz extends qy<qn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: p */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, qn4Var) == null) {
-            this.g = qn4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, pn4Var) == null) {
+            this.g = pn4Var;
             this.f.setFrom(this.i);
-            this.f.a(qn4Var);
+            this.f.a(pn4Var);
         }
     }
 

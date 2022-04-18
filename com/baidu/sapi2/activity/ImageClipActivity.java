@@ -297,8 +297,8 @@ public class ImageClipActivity extends Activity {
                 this.f = 512;
             }
             this.f *= 1024;
-            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091b1e);
-            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091b1c);
+            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091b1f);
+            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091b1d);
             if (this.e == 1) {
                 ClipBoxView clipBoxView = this.h;
                 clipBoxView.E = ClipBoxView.G;
@@ -310,7 +310,7 @@ public class ImageClipActivity extends Activity {
                 clipBoxView2.F = false;
             }
             setPendingTransition(R.anim.obfuscated_res_0x7f01010e, R.anim.obfuscated_res_0x7f01010d, R.anim.obfuscated_res_0x7f01010c, R.anim.obfuscated_res_0x7f01010f);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091dcf);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091dd0);
             Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f090498);
             if (Build.VERSION.SDK_INT >= 19) {
                 b(getIntent());

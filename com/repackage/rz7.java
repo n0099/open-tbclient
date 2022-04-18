@@ -1,716 +1,82 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.MotionEvent;
+import android.content.Context;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.ViewModelProviders;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.card.view.CardForumHeadLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
-import com.baidu.tieba.pb.videopb.VideoPbViewModel;
-import com.baidu.tieba.pb.videopb.fragment.BaseVideoPBReplyFragment;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ws7;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class rz7 {
+public class rz7 extends ho<ws7, VideoPbEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseVideoPBReplyFragment a;
-    public AbsVideoPbFragment b;
-    public int c;
-    public boolean d;
-    public final TbRichTextView.y e;
-    public ws7 f;
 
-    /* loaded from: classes7.dex */
-    public class a implements TbRichTextView.y {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rz7 a;
-
-        public a(rz7 rz7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rz7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rz7Var;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r9v14, resolved type: com.baidu.tbadk.core.atomData.ImageViewerConfig$b */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tbadk.widget.richText.TbRichTextView.y
-        public void a(View view2, String str, int i, boolean z, boolean z2) {
-            sz7 B0;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                try {
-                    StatisticItem statisticItem = new StatisticItem("c13398");
-                    statisticItem.param("tid", this.a.a.w().l1());
-                    statisticItem.param("fid", this.a.a.w().getForumId());
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem.param("obj_locate", 3);
-                    statisticItem.param("obj_type", z2 ? 1 : 2);
-                    TiebaStatic.log(statisticItem);
-                    if (this.a.b.E3()) {
-                        StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                        statisticItem2.param("fid", this.a.a.w().getForumId());
-                        statisticItem2.param("tid", this.a.a.w().l1());
-                        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-                        statisticItem2.param("post_id", this.a.a.w().r0());
-                        statisticItem2.param("obj_source", 1);
-                        statisticItem2.param("obj_type", 10);
-                        statisticItem2.param("obj_locate", this.a.b.U2());
-                        TiebaStatic.log(statisticItem2);
-                    }
-                    TiebaStatic.eventStat(this.a.a.getPageContext().getPageActivity(), "pic_pb", "");
-                    if (this.a.a.w().T0().g0()) {
-                        ArrayList<String> arrayList = new ArrayList<>();
-                        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
-                        int i2 = -1;
-                        if (view2.getParent() instanceof TbRichTextView) {
-                            TbRichTextView tbRichTextView = (TbRichTextView) view2.getParent();
-                            if (tbRichTextView.getRichText() != null && tbRichTextView.getRichText().C() != null) {
-                                ArrayList<TbRichTextImageInfo> C = tbRichTextView.getRichText().C();
-                                int i3 = -1;
-                                for (int i4 = 0; i4 < C.size(); i4++) {
-                                    if (C.get(i4) != null) {
-                                        arrayList.add(C.get(i4).D());
-                                        if (i3 == -1 && str != null && str.equals(C.get(i4).D())) {
-                                            i3 = i4;
-                                        }
-                                        ImageUrlData imageUrlData = new ImageUrlData();
-                                        imageUrlData.imageUrl = C.get(i4).D();
-                                        imageUrlData.originalUrl = C.get(i4).D();
-                                        imageUrlData.isLongPic = C.get(i4).G();
-                                        concurrentHashMap.put(C.get(i4).D(), imageUrlData);
-                                    }
-                                }
-                                i2 = i3;
-                            }
-                        }
-                        ImageViewerConfig.b bVar = new ImageViewerConfig.b();
-                        bVar.x(arrayList);
-                        bVar.B(i2);
-                        bVar.C(false);
-                        bVar.F(this.a.a.w().e1());
-                        bVar.w(concurrentHashMap);
-                        bVar.H(true);
-                        bVar.K(false);
-                        if (this.a.a.w() != null) {
-                            bVar.G(this.a.a.w().w0());
-                            bVar.A(this.a.a.w().getFromForumId());
-                            if (this.a.a.w().T0() != null) {
-                                bVar.N(this.a.a.w().T0().O());
-                            }
-                        }
-                        ImageViewerConfig v = bVar.v(this.a.a.getPageContext().getPageActivity());
-                        v.getIntent().putExtra("from", "pb");
-                        this.a.a.sendMessage(new CustomMessage(2010000, v));
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
-                        return;
-                    }
-                    AbsPbActivity.e eVar = new AbsPbActivity.e();
-                    this.a.m(str, i, eVar);
-                    if (eVar.h) {
-                        TbRichText p = this.a.p(str, i);
-                        if (p != null && this.a.c >= 0 && this.a.c < p.A().size()) {
-                            ArrayList<String> arrayList2 = new ArrayList<>();
-                            String a = zr7.a(p.A().get(this.a.c));
-                            int i5 = 0;
-                            while (true) {
-                                if (i5 >= eVar.a.size()) {
-                                    break;
-                                } else if (eVar.a.get(i5).equals(a)) {
-                                    eVar.j = i5;
-                                    arrayList2.add(a);
-                                    break;
-                                } else {
-                                    i5++;
-                                }
-                            }
-                            if (p.getPostId() != 0 && (B0 = this.a.a.B0()) != null) {
-                                ArrayList<uo> a2 = B0.a();
-                                if (ListUtils.getCount(a2) > 0) {
-                                    Iterator<uo> it = a2.iterator();
-                                    while (true) {
-                                        if (!it.hasNext()) {
-                                            break;
-                                        }
-                                        uo next = it.next();
-                                        if ((next instanceof PostData) && p.getPostId() == mg.g(((PostData) next).I(), 0L)) {
-                                            ry7.b(this.a.a.w().T0(), (PostData) next, ((PostData) next).h0, 8, 3);
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                            ConcurrentHashMap<String, ImageUrlData> concurrentHashMap2 = new ConcurrentHashMap<>();
-                            if (!ListUtils.isEmpty(arrayList2)) {
-                                String str2 = arrayList2.get(0);
-                                concurrentHashMap2.put(str2, eVar.b.get(str2));
-                            }
-                            ImageViewerConfig.b bVar2 = new ImageViewerConfig.b();
-                            bVar2.x(arrayList2);
-                            bVar2.z(eVar.c);
-                            bVar2.y(eVar.d);
-                            bVar2.O(eVar.e);
-                            bVar2.C(eVar.g);
-                            bVar2.H(true);
-                            bVar2.J(eVar.i);
-                            bVar2.w(concurrentHashMap2);
-                            bVar2.K(false);
-                            bVar2.F(this.a.a.w().e1());
-                            bVar2.L(eVar.f);
-                            if (this.a.a.w() != null) {
-                                bVar2.G(this.a.a.w().w0());
-                                bVar2.A(this.a.a.w().getFromForumId());
-                                if (this.a.a.w().T0() != null) {
-                                    bVar2.N(this.a.a.w().T0().O());
-                                }
-                            }
-                            ImageViewerConfig v2 = bVar2.v(this.a.a.getPageContext().getPageActivity());
-                            v2.getIntent().putExtra("from", "pb");
-                            this.a.a.sendMessage(new CustomMessage(2010000, v2));
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
-                            return;
-                        }
-                        return;
-                    }
-                    ArrayList arrayList3 = new ArrayList();
-                    arrayList3.add(ListUtils.getItem(eVar.a, 0));
-                    ConcurrentHashMap concurrentHashMap3 = new ConcurrentHashMap();
-                    if (!ListUtils.isEmpty(arrayList3)) {
-                        String str3 = (String) arrayList3.get(0);
-                        concurrentHashMap3.put(str3, eVar.b.get(str3));
-                    }
-                    ImageViewerConfig.b bVar3 = new ImageViewerConfig.b();
-                    bVar3.x(arrayList3);
-                    bVar3.z(eVar.c);
-                    bVar3.y(eVar.d);
-                    bVar3.O(eVar.e);
-                    bVar3.C(eVar.g);
-                    bVar3.H(true);
-                    bVar3.J(eVar.a.get(0));
-                    bVar3.w(concurrentHashMap3);
-                    bVar3.F(this.a.a.w().e1());
-                    bVar3.K(false);
-                    bVar3.L(eVar.f);
-                    bVar3.D(false);
-                    if (this.a.a.w() != null) {
-                        bVar3.G(this.a.a.w().w0());
-                        bVar3.A(this.a.a.w().getFromForumId());
-                        if (this.a.a.w().T0() != null) {
-                            bVar3.N(this.a.a.w().T0().O());
-                        }
-                    }
-                    ImageViewerConfig v3 = bVar3.v(this.a.a.getPageContext().getPageActivity());
-                    v3.getIntent().putExtra("from", "pb");
-                    this.a.a.sendMessage(new CustomMessage(2010000, v3));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ws7.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rz7 a;
-
-        public b(rz7 rz7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rz7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rz7Var;
-        }
-
-        @Override // com.repackage.ws7.a
-        public boolean a(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // com.repackage.ws7.a
-        public boolean b(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
-                AbsVideoPbFragment absVideoPbFragment = this.a.b;
-                if (absVideoPbFragment != null && absVideoPbFragment.isAdded()) {
-                    if (view2 != null) {
-                        if (view2.getId() == R.id.obfuscated_res_0x7f091a79) {
-                            AbsVideoPbFragment absVideoPbFragment2 = this.a.b;
-                            if (absVideoPbFragment2 != null && absVideoPbFragment2.l4(view2)) {
-                                return true;
-                            }
-                        } else if (view2.getId() == R.id.obfuscated_res_0x7f0916b1) {
-                            if (view2.getTag(R.id.obfuscated_res_0x7f091e68) instanceof SparseArray) {
-                                this.a.o((SparseArray) view2.getTag(R.id.obfuscated_res_0x7f091e68));
-                            }
-                        } else if ((view2 instanceof TbRichTextView) || view2.getId() == R.id.obfuscated_res_0x7f091709) {
-                            SparseArray sparseArray = view2.getTag() instanceof SparseArray ? (SparseArray) view2.getTag() : null;
-                            if (sparseArray == null) {
-                                return false;
-                            }
-                            this.a.o(sparseArray);
-                        }
-                    }
-                    AbsVideoPbFragment absVideoPbFragment3 = this.a.b;
-                    if (absVideoPbFragment3 != null) {
-                        absVideoPbFragment3.V4();
-                    }
-                }
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // com.repackage.ws7.a
-        public boolean c(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, motionEvent)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public rz7(BaseVideoPBReplyFragment baseVideoPBReplyFragment) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rz7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseVideoPBReplyFragment};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = 0;
-        this.d = false;
-        this.e = new a(this);
-        this.f = new ws7(new b(this));
-        this.a = baseVideoPBReplyFragment;
-        this.b = baseVideoPBReplyFragment.t();
     }
 
-    public final void d(yr7 yr7Var, ArrayList<PostData> arrayList) {
-        List<PostData> list;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.repackage.ho
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ws7 ws7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
+        a0(i, view2, viewGroup, ws7Var, videoPbEnterForumViewHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: Z */
+    public VideoPbEnterForumViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, yr7Var, arrayList) == null) || yr7Var == null || yr7Var.T() == null || yr7Var.T().a == null || (list = yr7Var.T().a) == null || arrayList == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a);
+            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.a);
+            cardForumHeadLayout.setPadding(oi.f(this.a, R.dimen.tbds32), 0, 0, 0);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, oi.f(this.a, R.dimen.tbds156));
+            layoutParams.leftMargin = oi.f(this.a, R.dimen.tbds44);
+            layoutParams.rightMargin = oi.f(this.a, R.dimen.tbds44);
+            layoutParams.bottomMargin = oi.f(this.a, R.dimen.tbds76);
+            frameLayout.addView(cardForumHeadLayout, layoutParams);
+            return new VideoPbEnterForumViewHolder(frameLayout);
         }
-        ArrayList arrayList2 = new ArrayList();
-        ArrayList arrayList3 = new ArrayList();
-        if (list.size() <= 0 || arrayList.size() <= 0) {
-            return;
-        }
-        arrayList3.addAll(list);
-        Iterator<PostData> it = arrayList.iterator();
-        while (it.hasNext()) {
-            PostData next = it.next();
-            if (next != null) {
-                Iterator it2 = arrayList3.iterator();
-                while (it2.hasNext()) {
-                    PostData postData = (PostData) it2.next();
-                    if (postData != null && !TextUtils.isEmpty(next.I()) && !TextUtils.isEmpty(postData.I()) && next.I().equals(postData.I())) {
-                        arrayList2.add(postData);
-                    }
-                }
-            }
-        }
-        if (arrayList2.size() > 0) {
-            arrayList3.removeAll(arrayList2);
-        }
-        if (arrayList3.size() > 0) {
-            arrayList.addAll(arrayList3);
-        }
+        return (VideoPbEnterForumViewHolder) invokeL.objValue;
     }
 
-    public final TbRichText e(ArrayList<PostData> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
-        ArrayList<TbRichTextData> A;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, str, i)) == null) {
-            if (arrayList != null && !arrayList.isEmpty()) {
-                for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    TbRichText P = arrayList.get(i2).P();
-                    if (P != null && (A = P.A()) != null) {
-                        int size = A.size();
-                        int i3 = -1;
-                        for (int i4 = 0; i4 < size; i4++) {
-                            if (A.get(i4) != null && A.get(i4).getType() == 8) {
-                                i3++;
-                                if (A.get(i4).E().A().equals(str) || A.get(i4).E().B().equals(str)) {
-                                    int h = (int) oi.h(TbadkCoreApplication.getInst());
-                                    int width = A.get(i4).E().getWidth() * h;
-                                    int height = A.get(i4).E().getHeight() * h;
-                                    if (width < 80 || height < 80 || width * height < 10000) {
-                                        return null;
-                                    }
-                                    this.c = i4;
-                                    return P;
-                                } else if (i3 > i) {
-                                    break;
-                                }
-                            }
-                        }
-                        continue;
-                    }
-                }
-            }
-            return null;
-        }
-        return (TbRichText) invokeLLI.objValue;
-    }
-
-    public final int f(TbRichText tbRichText, TbRichText tbRichText2, int i, int i2, ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
+    public View a0(int i, View view2, ViewGroup viewGroup, ws7 ws7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
         InterceptResult invokeCommon;
-        TbRichTextImageInfo E;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbRichText, tbRichText2, Integer.valueOf(i), Integer.valueOf(i2), arrayList, concurrentHashMap})) == null) {
-            if (tbRichText == tbRichText2) {
-                this.d = true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ws7Var, videoPbEnterForumViewHolder})) == null) {
+            if (ws7Var != null) {
+                videoPbEnterForumViewHolder.setData(ws7Var.a);
             }
-            if (tbRichText != null) {
-                int size = tbRichText.A().size();
-                int i3 = i;
-                int i4 = -1;
-                for (int i5 = 0; i5 < size; i5++) {
-                    TbRichTextData tbRichTextData = tbRichText.A().get(i5);
-                    if ((tbRichTextData == null || tbRichTextData.getType() != 20) && tbRichTextData != null && tbRichTextData.getType() == 8) {
-                        i4++;
-                        int h = (int) oi.h(TbadkCoreApplication.getInst());
-                        int width = tbRichTextData.E().getWidth() * h;
-                        int height = tbRichTextData.E().getHeight() * h;
-                        if ((width < 80 || height < 80 || width * height < 10000) || !tbRichTextData.E().F()) {
-                            if (tbRichText == tbRichText2) {
-                                if (i4 <= i2) {
-                                    i3--;
-                                }
-                            }
-                        } else if (tbRichTextData.getType() != 20) {
-                            String a2 = zr7.a(tbRichTextData);
-                            if (!TextUtils.isEmpty(a2)) {
-                                arrayList.add(a2);
-                                if (tbRichTextData != null && (E = tbRichTextData.E()) != null) {
-                                    String A = E.A();
-                                    ImageUrlData imageUrlData = new ImageUrlData();
-                                    if (TbadkCoreApplication.getInst().isGifAutoPlay()) {
-                                        imageUrlData.urlType = 38;
-                                        A = E.B();
-                                    } else {
-                                        imageUrlData.urlType = ((VideoPbViewModel) ViewModelProviders.of(this.a.x()).get(VideoPbViewModel.class)).m() ? 17 : 18;
-                                    }
-                                    imageUrlData.imageUrl = A;
-                                    imageUrlData.originalUrl = j(tbRichTextData);
-                                    imageUrlData.originalSize = k(tbRichTextData);
-                                    imageUrlData.mIsShowOrigonButton = h(tbRichTextData);
-                                    imageUrlData.isLongPic = g(tbRichTextData);
-                                    imageUrlData.postId = tbRichText.getPostId();
-                                    imageUrlData.threadId = mg.g(this.a.w().l1(), -1L);
-                                    imageUrlData.mIsReserver = this.a.w().e1();
-                                    imageUrlData.mIsSeeHost = this.a.w().w0();
-                                    if (concurrentHashMap != null) {
-                                        concurrentHashMap.put(a2, imageUrlData);
-                                    }
-                                }
-                            }
-                            if (!this.d) {
-                                i3++;
-                            }
-                        }
-                    }
-                }
-                return i3;
-            }
-            return i;
+            videoPbEnterForumViewHolder.c();
+            return view2;
         }
-        return invokeCommon.intValue;
-    }
-
-    public final boolean g(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, tbRichTextData)) == null) {
-            if (tbRichTextData == null || tbRichTextData.E() == null) {
-                return false;
-            }
-            return tbRichTextData.E().G();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean h(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tbRichTextData)) == null) {
-            if (tbRichTextData == null || tbRichTextData.E() == null) {
-                return false;
-            }
-            return tbRichTextData.E().H();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public TbRichTextView.y i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (TbRichTextView.y) invokeV.objValue;
-    }
-
-    public final String j(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, tbRichTextData)) == null) {
-            if (tbRichTextData == null || tbRichTextData.E() == null) {
-                return null;
-            }
-            return tbRichTextData.E().C();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final long k(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tbRichTextData)) == null) {
-            if (tbRichTextData == null || tbRichTextData.E() == null) {
-                return 0L;
-            }
-            return tbRichTextData.E().getOriginalSize();
-        }
-        return invokeL.longValue;
-    }
-
-    public ws7 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (ws7) invokeV.objValue;
-    }
-
-    public void m(String str, int i, AbsPbActivity.e eVar) {
-        TbRichTextData tbRichTextData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048585, this, str, i, eVar) == null) || eVar == null) {
-            return;
-        }
-        yr7 T0 = this.a.w().T0();
-        TbRichText p = p(str, i);
-        if (p == null || (tbRichTextData = p.A().get(this.c)) == null) {
-            return;
-        }
-        eVar.f = String.valueOf(p.getPostId());
-        eVar.a = new ArrayList<>();
-        eVar.b = new ConcurrentHashMap<>();
-        if (!tbRichTextData.E().F()) {
-            eVar.h = false;
-            String a2 = zr7.a(tbRichTextData);
-            eVar.a.add(a2);
-            ImageUrlData imageUrlData = new ImageUrlData();
-            imageUrlData.imageUrl = str;
-            if (TbadkCoreApplication.getInst().isGifAutoPlay()) {
-                imageUrlData.urlType = 38;
-            } else {
-                imageUrlData.urlType = ((VideoPbViewModel) ViewModelProviders.of(this.a.x()).get(VideoPbViewModel.class)).m() ? 17 : 18;
-            }
-            imageUrlData.originalUrl = j(tbRichTextData);
-            imageUrlData.originalUrl = j(tbRichTextData);
-            imageUrlData.originalSize = k(tbRichTextData);
-            imageUrlData.mIsShowOrigonButton = h(tbRichTextData);
-            imageUrlData.isLongPic = g(tbRichTextData);
-            imageUrlData.postId = p.getPostId();
-            imageUrlData.mIsReserver = this.a.w().e1();
-            imageUrlData.mIsSeeHost = this.a.w().w0();
-            eVar.b.put(a2, imageUrlData);
-            if (T0 != null) {
-                if (T0.l() != null) {
-                    eVar.c = T0.l().getName();
-                    eVar.d = T0.l().getId();
-                }
-                if (T0.O() != null) {
-                    eVar.e = T0.O().getId();
-                }
-                eVar.g = T0.s() == 1;
-            }
-            imageUrlData.threadId = mg.g(eVar.e, -1L);
-            return;
-        }
-        eVar.h = true;
-        int size = T0.F().size();
-        this.d = false;
-        eVar.j = -1;
-        int f = T0.j() != null ? f(T0.j().P(), p, i, i, eVar.a, eVar.b) : i;
-        for (int i2 = 0; i2 < size; i2++) {
-            PostData postData = T0.F().get(i2);
-            if (postData.I() == null || T0.j() == null || T0.j().I() == null || !postData.I().equals(T0.j().I())) {
-                f = f(postData.P(), p, f, i, eVar.a, eVar.b);
-            }
-        }
-        if (eVar.a.size() > 0) {
-            ArrayList<String> arrayList = eVar.a;
-            eVar.i = arrayList.get(arrayList.size() - 1);
-        }
-        if (T0 != null) {
-            if (T0.l() != null) {
-                eVar.c = T0.l().getName();
-                eVar.d = T0.l().getId();
-            }
-            if (T0.O() != null) {
-                eVar.e = T0.O().getId();
-            }
-            eVar.g = T0.s() == 1;
-        }
-        eVar.j = f;
-    }
-
-    public AbsPbActivity.e n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            String str2 = null;
-            if (this.a.w() != null && this.a.w().T0() != null && this.a.w().T0().F() != null && this.a.w().T0().F().size() != 0 && !StringUtils.isNull(str)) {
-                AbsPbActivity.e eVar = new AbsPbActivity.e();
-                int i = 0;
-                while (true) {
-                    if (i >= this.a.w().T0().F().size()) {
-                        i = 0;
-                        break;
-                    } else if (str.equals(this.a.w().T0().F().get(i).I())) {
-                        break;
-                    } else {
-                        i++;
-                    }
-                }
-                PostData postData = this.a.w().T0().F().get(i);
-                if (postData.P() != null && postData.P().A() != null) {
-                    Iterator<TbRichTextData> it = postData.P().A().iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        TbRichTextData next = it.next();
-                        if (next != null && next.getType() == 8) {
-                            if (next.E() != null) {
-                                str2 = next.E().A();
-                            }
-                        }
-                    }
-                    m(str2, 0, eVar);
-                    zr7.b(postData, eVar);
-                    return eVar;
-                }
-            }
-            return null;
-        }
-        return (AbsPbActivity.e) invokeL.objValue;
-    }
-
-    public final void o(SparseArray<Object> sparseArray) {
-        PostData postData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, sparseArray) == null) || !this.a.checkUpIsLogin() || sparseArray == null || !(sparseArray.get(R.id.obfuscated_res_0x7f091e55) instanceof PostData) || (postData = (PostData) sparseArray.get(R.id.obfuscated_res_0x7f091e55)) == null || this.a.w() == null || this.a.w().T0() == null || postData.A() == 1) {
-            return;
-        }
-        String l1 = this.a.w().l1();
-        String I = postData.I();
-        int V = this.a.w().T0() != null ? this.a.w().T0().V() : 0;
-        AbsPbActivity.e n = n(I);
-        if (n == null) {
-            return;
-        }
-        SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.a.getPageContext().getPageActivity()).createSubPbActivityConfig(l1, I, "pb", true, this.b.E3(), null, false, null, V, postData.U(), this.a.w().T0().d(), false, postData.s() != null ? postData.s().getIconInfo() : null, 0).addBigImageData(n.a, n.b, n.g, n.j);
-        addBigImageData.setKeyPageStartFrom(this.a.w().S0());
-        addBigImageData.setFromFrsForumId(this.a.w().getFromForumId());
-        addBigImageData.setWorksInfoData(this.a.w().q1());
-        addBigImageData.setKeyFromForumId(this.a.w().getForumId());
-        addBigImageData.setBjhData(this.a.w().l0());
-        this.a.sendMessage(new CustomMessage(2002001, addBigImageData));
-    }
-
-    public final TbRichText p(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, str, i)) == null) {
-            TbRichText tbRichText = null;
-            if (this.a.w() == null || this.a.w().T0() == null || str == null || i < 0) {
-                return null;
-            }
-            yr7 T0 = this.a.w().T0();
-            if (T0.j() != null) {
-                ArrayList<PostData> arrayList = new ArrayList<>();
-                arrayList.add(T0.j());
-                tbRichText = e(arrayList, str, i);
-            }
-            if (tbRichText == null) {
-                ArrayList<PostData> F = T0.F();
-                d(T0, F);
-                return e(F, str, i);
-            }
-            return tbRichText;
-        }
-        return (TbRichText) invokeLI.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

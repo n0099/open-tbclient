@@ -29,9 +29,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fi;
 import com.repackage.jc5;
 import com.repackage.mi;
-import com.repackage.nm4;
+import com.repackage.mm4;
 import com.repackage.oi;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
@@ -49,7 +49,7 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
     public CdnCacheItem c;
     public IPListReceiver d;
     public TbCdnMobileGetIpModel e;
-    public nm4 f;
+    public mm4 f;
     @SuppressLint({"HandlerLeak"})
     public final Handler g;
 
@@ -311,7 +311,7 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String q = wt4.k().q("cdn_iplist_cache_key_three", "");
+            String q = vt4.k().q("cdn_iplist_cache_key_three", "");
             if (q != null && q.length() != 0) {
                 try {
                     return d(fi.d(q));
@@ -332,10 +332,10 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
     }
 
     @Override // com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect
-    public nm4 getCDNImageTimeData() {
+    public mm4 getCDNImageTimeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (nm4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (mm4) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect
@@ -460,7 +460,7 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             try {
-                this.f = new nm4();
+                this.f = new mm4();
                 this.e = new TbCdnMobileGetIpModel();
                 f();
                 this.d = new IPListReceiver();
@@ -514,7 +514,7 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
         try {
             String j = fi.j(e);
             if (j != null) {
-                wt4.k().y("cdn_iplist_cache_key_three", j);
+                vt4.k().y("cdn_iplist_cache_key_three", j);
             }
         } catch (Exception e2) {
             BdLog.e(e2);
@@ -609,10 +609,10 @@ public class CDNIPDirectConnect extends ICDNIPDirectConnect {
     }
 
     @Override // com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect
-    public void setCDNImageTimeData(nm4 nm4Var) {
+    public void setCDNImageTimeData(mm4 mm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, nm4Var) == null) {
-            this.f = nm4Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, mm4Var) == null) {
+            this.f = mm4Var;
         }
     }
 

@@ -75,7 +75,7 @@ public class rc5 {
                     AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
                     if (currentAccountInfo != null) {
                         builder.BDUSS = currentAccountInfo.getBDUSS();
-                        String a = hn4.a(currentAccountInfo);
+                        String a = gn4.a(currentAccountInfo);
                         if (!StringUtils.isNull(a)) {
                             builder.stoken = a;
                         }
@@ -94,7 +94,7 @@ public class rc5 {
             }
             builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
             builder.lego_lib_version = TbConfig.getLegoLibVersion();
-            if (wt4.k().l("android_safe_sdk_open", 0) == 1) {
+            if (vt4.k().l("android_safe_sdk_open", 0) == 1) {
                 builder.z_id = TbadkCoreApplication.getInst().getZid();
             }
             builder.net_type = Integer.valueOf(mi.I());
@@ -104,7 +104,7 @@ public class rc5 {
             builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
             builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
             builder.swan_game_ver = TbadkCoreApplication.getInst().getSwan_game_ver();
-            builder.q_type = Integer.valueOf(cn4.c().e());
+            builder.q_type = Integer.valueOf(bn4.c().e());
             builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst()));
             builder.scr_dip = Double.valueOf(oi.h(TbadkCoreApplication.getInst()));
@@ -117,9 +117,9 @@ public class rc5 {
                 i = 2;
             }
             builder.cmode = Integer.valueOf(i);
-            builder.start_type = Integer.valueOf(ks4.f);
-            builder.start_scheme = ks4.e();
-            builder.extra = wt4.k().q("key_sync_extra_field", "");
+            builder.start_type = Integer.valueOf(js4.f);
+            builder.start_scheme = js4.e();
+            builder.extra = vt4.k().q("key_sync_extra_field", "");
             builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
             field.set(obj, builder.build(false));
         } catch (Throwable th) {

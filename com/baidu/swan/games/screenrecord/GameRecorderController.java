@@ -17,9 +17,9 @@ import com.repackage.bd0;
 import com.repackage.dd0;
 import com.repackage.jc0;
 import com.repackage.lu3;
+import com.repackage.v64;
 import com.repackage.w64;
 import com.repackage.wl2;
-import com.repackage.x64;
 import java.nio.ByteBuffer;
 /* loaded from: classes2.dex */
 public class GameRecorderController {
@@ -30,7 +30,7 @@ public class GameRecorderController {
     public RecorderState c;
     public jc0 d;
     public long e;
-    public x64 f;
+    public w64 f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes2.dex */
@@ -97,7 +97,7 @@ public class GameRecorderController {
     }
 
     /* loaded from: classes2.dex */
-    public class a implements x64 {
+    public class a implements w64 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameRecorderController a;
@@ -120,13 +120,13 @@ public class GameRecorderController {
             this.a = gameRecorderController;
         }
 
-        @Override // com.repackage.x64
-        public void a(w64 w64Var) {
+        @Override // com.repackage.w64
+        public void a(v64 v64Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, w64Var) == null) || this.a.d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, v64Var) == null) || this.a.d == null) {
                 return;
             }
-            this.a.d.onAudioFrameAvailable(ByteBuffer.wrap(w64Var.a), (int) w64Var.b, w64Var.c - this.a.e);
+            this.a.d.onAudioFrameAvailable(ByteBuffer.wrap(v64Var.a), (int) v64Var.b, v64Var.c - this.a.e);
         }
     }
 

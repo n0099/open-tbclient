@@ -110,7 +110,7 @@ public class v13 extends g23 {
                     return false;
                 }
                 String optString2 = a2.optString(UploadConstant.KEY_FILE_TYPE);
-                String t = ng4.t(M);
+                String t = mg4.t(M);
                 if (!TextUtils.isEmpty(t)) {
                     optString2 = t;
                 } else if (TextUtils.isEmpty(optString2)) {

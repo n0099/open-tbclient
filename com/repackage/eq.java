@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class eq {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
@@ -21,7 +21,7 @@ public class eq {
     public static Handler f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,9 +59,9 @@ public class eq {
                         case 3:
                             if (eq.d != null) {
                                 if (ii.d()) {
-                                    eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f151a));
+                                    eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f1519));
                                 } else {
-                                    eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f1523));
+                                    eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f1522));
                                 }
                                 fj unused2 = eq.d = null;
                                 break;
@@ -69,7 +69,7 @@ public class eq {
                             break;
                         case 2:
                             if (eq.d != null) {
-                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f151b));
+                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f151a));
                                 fj unused3 = eq.d = null;
                                 break;
                             }
@@ -82,28 +82,28 @@ public class eq {
                             break;
                         case 5:
                             if (eq.d != null) {
-                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f151f));
+                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f151e));
                                 fj unused4 = eq.d = null;
                                 break;
                             }
                             break;
                         case 6:
                             if (eq.d != null) {
-                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f151c));
+                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f151b));
                                 fj unused5 = eq.d = null;
                                 break;
                             }
                             break;
                         case 7:
                             if (eq.d != null) {
-                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f152a));
+                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f1529));
                                 fj unused6 = eq.d = null;
                                 break;
                             }
                             break;
                         case 8:
                             if (eq.d != null) {
-                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f1529));
+                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f1528));
                                 fj unused7 = eq.d = null;
                                 break;
                             }
@@ -116,7 +116,7 @@ public class eq {
                             break;
                         default:
                             if (eq.d != null) {
-                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f1521));
+                                eq.d.error(message.what, gj.a(R.string.obfuscated_res_0x7f0f1520));
                                 fj unused8 = eq.d = null;
                                 break;
                             }

@@ -32,11 +32,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.bj5;
+import com.repackage.cn4;
 import com.repackage.di;
-import com.repackage.dn4;
 import com.repackage.ej5;
-import com.repackage.ga8;
 import com.repackage.mi;
+import com.repackage.na8;
 import com.repackage.nd5;
 import com.repackage.oi;
 import com.repackage.pg;
@@ -225,7 +225,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!mi.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 this.a.mView.h();
@@ -379,7 +379,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         this.mView.y(z);
         setUseStyleImmersiveSticky(intent.getBooleanExtra(WebViewActivityConfig.TAG_NEED_STYLE_IMMERSIVE_STICKY, true));
         if (TextUtils.isEmpty(this.mUrl)) {
-            oi.N(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f14a0));
+            oi.N(getPageContext().getPageActivity(), getResources().getString(R.string.obfuscated_res_0x7f0f149f));
             return;
         }
         if (this.mUrl.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
@@ -393,7 +393,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
-            dn4.b c2 = dn4.b().c(TbadkCoreApplication.getCurrentBduss());
+            cn4.b c2 = cn4.b().c(TbadkCoreApplication.getCurrentBduss());
             String str2 = "";
             if (c2 != null) {
                 String str3 = c2.a;
@@ -454,7 +454,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, str, str2, str3, str4)) == null) {
             ShareItem shareItem = new ShareItem();
             if (StringUtils.isNull(this.mUrlTitle, true)) {
-                shareItem.r = getResources().getString(R.string.obfuscated_res_0x7f0f111d);
+                shareItem.r = getResources().getString(R.string.obfuscated_res_0x7f0f111c);
             } else {
                 shareItem.r = this.mUrlTitle;
             }
@@ -700,15 +700,15 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (interceptable == null || interceptable.invokeL(1048598, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092431) {
+            if (id == R.id.obfuscated_res_0x7f092432) {
                 this.mView.e();
                 loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
                 pg.a().post(this.mShareRunnable);
                 this.mShareResultToFe = true;
-            } else if (id == R.id.obfuscated_res_0x7f09242f) {
+            } else if (id == R.id.obfuscated_res_0x7f092430) {
                 this.mView.e();
                 bj5.f(getPageContext().getPageActivity(), this.mUrl);
-            } else if (id == R.id.obfuscated_res_0x7f09242d) {
+            } else if (id == R.id.obfuscated_res_0x7f09242e) {
                 this.mView.e();
                 di.a(this.mUrl);
                 oi.N(view2.getContext(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f043f));
@@ -943,7 +943,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public boolean tryDeeplink(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, str)) == null) ? ga8.z(str, getApplicationContext()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, str)) == null) ? na8.z(str, getApplicationContext()) : invokeL.booleanValue;
     }
 
     public abstract void webViewDestory();

@@ -89,10 +89,10 @@ public class xw3 {
     }
 
     public void c(yw3.c cVar, Activity activity) {
-        d04 d04Var;
+        c04 c04Var;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.a == null) {
-            if (ww3.f((cVar == null || (d04Var = cVar.c) == null) ? null : d04Var.f).b()) {
+            if (ww3.f((cVar == null || (c04Var = cVar.c) == null) ? null : c04Var.f).b()) {
                 b(activity);
             }
         }

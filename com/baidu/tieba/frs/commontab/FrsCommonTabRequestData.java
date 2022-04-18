@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.is6;
+import com.repackage.ks6;
 import com.repackage.o65;
 import com.repackage.oi;
 import com.repackage.rc5;
@@ -66,7 +66,7 @@ public class FrsCommonTabRequestData extends OrmObject implements o65 {
             builder.tab_name = this.tabName;
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = is6.e().d("frs_feed");
+            String d = ks6.e().d("frs_feed");
             builder.ad_bear_sid = d;
             builder.ad_bear_context = ub5.g(d, ub5.f());
             builder.ad_bear_sid_price = Double.valueOf(ub5.i());

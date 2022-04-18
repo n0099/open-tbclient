@@ -362,10 +362,10 @@ public class wx1 extends g23 {
             zx1.l();
             zx1.g().h("downloadstart");
             try {
-                d74 request = m74.g().getRequest();
+                c74 request = l74.g().getRequest();
                 Response executeSync = request.url(str + "/app.zip").connectionTimeout(3000).build().executeSync();
                 if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
-                    qg4.a(executeSync.body().byteStream(), file);
+                    pg4.a(executeSync.body().byteStream(), file);
                     Intent g1 = hl2.g1(context, r);
                     g1.putExtra("remoteDebugUrl", str);
                     context.startActivity(g1);

@@ -1,77 +1,52 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mv5;
-/* loaded from: classes6.dex */
+import com.repackage.pg6;
+/* loaded from: classes7.dex */
 public class qg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ov5 b;
-    public ov5 c;
-    public ov5 d;
-    public ValueAnimator e;
+    public lg6 a;
+    public TbPageContext b;
+    public by4 c;
+    public BdUniqueId d;
+    public CustomMessageListener e;
 
-    /* loaded from: classes6.dex */
-    public class a implements mv5.j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBLottieAnimationView a;
-
-        public a(qg6 qg6Var, TBLottieAnimationView tBLottieAnimationView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qg6Var, tBLottieAnimationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBLottieAnimationView;
-        }
-
-        @Override // com.repackage.mv5.j
-        public void a(mv5 mv5Var, boolean z, float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{mv5Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.a.playAnimation();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends AnimatorListenerAdapter {
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ qg6 a;
 
-        public b(qg6 qg6Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qg6 qg6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qg6Var};
+                Object[] objArr = {qg6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -80,124 +55,29 @@ public class qg6 {
             this.a = qg6Var;
         }
 
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            UpdateAttentionMessage updateAttentionMessage;
+            UpdateAttentionMessage.a data;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.e.start();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qg6 a;
-
-        public c(qg6 qg6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qg6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qg6Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) || this.a.a == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || this.a.a == null || (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) == null) {
                 return;
             }
-            this.a.a.setRotation(((Float) valueAnimator.getAnimatedValue()).floatValue());
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qg6 a;
-
-        public d(qg6 qg6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qg6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qg6Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.d.h();
+            if (!data.a) {
+                this.a.a.f(updateAttentionMessage.getData().b);
+            } else {
+                this.a.a.h(data.d);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class e implements mv5.j {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBLottieAnimationView a;
-
-        public e(qg6 qg6Var, TBLottieAnimationView tBLottieAnimationView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qg6Var, tBLottieAnimationView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBLottieAnimationView;
-        }
-
-        @Override // com.repackage.mv5.j
-        @SuppressLint({"WrongConstant"})
-        public void a(mv5 mv5Var, boolean z, float f, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{mv5Var, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                this.a.setRepeatCount(-1);
-                this.a.setRepeatMode(2);
-                this.a.playAnimation();
-            }
-        }
-    }
-
-    public qg6(View view2, TBLottieAnimationView tBLottieAnimationView) {
+    public qg6(TbPageContext tbPageContext, lg6 lg6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tBLottieAnimationView};
+            Object[] objArr = {tbPageContext, lg6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -207,57 +87,62 @@ public class qg6 {
                 return;
             }
         }
-        this.a = view2;
-        this.b = d(view2, mv5.n, 170.0f, 0.5f, 1.0f);
-        this.c = d(view2, mv5.o, 170.0f, 0.5f, 1.0f);
-        this.e = e(view2, 0.0f, 6.0f, 100L);
-        this.d = d(view2, mv5.p, 200.0f, 0.4f, 0.0f);
-        f(tBLottieAnimationView);
+        this.d = BdUniqueId.gen();
+        this.e = new a(this, 2001115);
+        this.b = tbPageContext;
+        this.a = lg6Var;
+        this.c = new by4(tbPageContext);
+        this.e.setSelfListener(true);
+        this.e.setTag(this.d);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public final ov5 d(View view2, nv5<View> nv5Var, float f, float f2, float f3) {
-        InterceptResult invokeCommon;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, nv5Var, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            pv5 pv5Var = new pv5(f3);
-            pv5Var.f(f);
-            pv5Var.d(f2);
-            ov5 ov5Var = new ov5(view2, nv5Var);
-            ov5Var.m(pv5Var);
-            return ov5Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            by4 by4Var = this.c;
+            if (by4Var != null) {
+                by4Var.g();
+            }
+            MessageManager.getInstance().unRegisterListener(this.e);
         }
-        return (ov5) invokeCommon.objValue;
     }
 
-    public final ValueAnimator e(View view2, float f, float f2, long j) {
-        InterceptResult invokeCommon;
+    public void c(pg6 pg6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Long.valueOf(j)})) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(f, f2);
-            ofFloat.setTarget(view2);
-            ofFloat.setDuration(j);
-            return ofFloat;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pg6Var) == null) {
+            if (!mi.z()) {
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c4d);
+            } else if (pg6Var == null || pg6Var.m == null || this.c == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            } else {
+                by4 by4Var = this.c;
+                pg6.b bVar = pg6Var.m;
+                by4Var.k(!bVar.e, bVar.d, bVar.a, this.d);
+            }
         }
-        return (ValueAnimator) invokeCommon.objValue;
     }
 
-    public final void f(TBLottieAnimationView tBLottieAnimationView) {
+    public void d(pg6 pg6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tBLottieAnimationView) == null) || tBLottieAnimationView == null) {
-            return;
-        }
-        this.b.b(new a(this, tBLottieAnimationView));
-        tBLottieAnimationView.addAnimatorListener(new b(this));
-        this.e.addUpdateListener(new c(this));
-        this.e.addListener(new d(this));
-        this.d.b(new e(this, tBLottieAnimationView));
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.h();
-            this.c.h();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pg6Var) == null) {
+            if (!mi.z()) {
+                this.b.showToast(R.string.obfuscated_res_0x7f0f0c4d);
+            } else if (pg6Var == null || this.a == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+            } else {
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+                httpMessage.addParam("thread_id", pg6Var.b);
+                httpMessage.addParam("op_type", Boolean.valueOf(pg6Var.h));
+                httpMessage.addParam("obj_type", 3);
+                httpMessage.addParam("agree_type", 2);
+                httpMessage.addParam("forum_id", pg6Var.a);
+                httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+                if (!StringUtil.isEmpty(pg6Var.i)) {
+                    httpMessage.addParam("obj_source", pg6Var.i);
+                }
+                httpMessage.addHeader("needSig", "1");
+                MessageManager.getInstance().sendMessage(httpMessage);
+                this.a.g();
+            }
         }
     }
 }

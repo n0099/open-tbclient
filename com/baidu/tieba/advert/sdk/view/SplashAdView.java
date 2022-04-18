@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.al5;
+import com.repackage.bd8;
 import com.repackage.bl5;
+import com.repackage.dd8;
 import com.repackage.rl5;
-import com.repackage.uc8;
-import com.repackage.wc8;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class SplashAdView extends BCAdView {
@@ -171,7 +171,7 @@ public class SplashAdView extends BCAdView {
             }
             AdInfo adInfo = this.a.f;
             if (adInfo.advisible != 0) {
-                uc8.b().d(wc8.k(adInfo.extraParam, 2, adInfo.placeId, "video"));
+                bd8.b().d(dd8.k(adInfo.extraParam, 2, adInfo.placeId, "video"));
             }
             SplashAdView splashAdView = this.a;
             if (splashAdView.a == null || TextUtils.isEmpty(splashAdView.m.e)) {
@@ -214,7 +214,7 @@ public class SplashAdView extends BCAdView {
             }
             AdInfo adInfo = this.a.f;
             if (adInfo.advisible != 0) {
-                uc8.b().d(wc8.k(adInfo.extraParam, 2, adInfo.placeId, "image"));
+                bd8.b().d(dd8.k(adInfo.extraParam, 2, adInfo.placeId, "image"));
             }
             SplashAdView splashAdView = this.a;
             if (splashAdView.a == null || TextUtils.isEmpty(splashAdView.m.b)) {
@@ -258,7 +258,7 @@ public class SplashAdView extends BCAdView {
             String str = this.h;
             jsonToObject.placeId = str;
             if (jsonToObject.advisible == 0) {
-                uc8.b().d(wc8.j(jsonToObject.extraParam, 3, str));
+                bd8.b().d(dd8.j(jsonToObject.extraParam, 3, str));
             }
             al5 b2 = al5.b(rl5.d());
             this.m = b2;
@@ -282,7 +282,7 @@ public class SplashAdView extends BCAdView {
                             this.o.setOnClickListener(new d(this));
                             addView(this.o, layoutParams);
                             AdInfo adInfo = this.f;
-                            uc8.b().d(wc8.k(adInfo.extraParam, 3, adInfo.placeId, "video"));
+                            bd8.b().d(dd8.k(adInfo.extraParam, 3, adInfo.placeId, "video"));
                             return true;
                         } catch (Exception e2) {
                             e2.printStackTrace();
@@ -309,7 +309,7 @@ public class SplashAdView extends BCAdView {
                     this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
                     addView(this.c, new RelativeLayout.LayoutParams(this.j, this.i));
                     AdInfo adInfo2 = this.f;
-                    uc8.b().d(wc8.k(adInfo2.extraParam, 3, adInfo2.placeId, "image"));
+                    bd8.b().d(dd8.k(adInfo2.extraParam, 3, adInfo2.placeId, "image"));
                     return true;
                 } else {
                     rl5.a();

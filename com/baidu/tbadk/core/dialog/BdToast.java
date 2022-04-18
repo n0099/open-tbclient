@@ -121,8 +121,8 @@ public class BdToast {
         }
         HashMap<DefaultIcon, Integer> hashMap = new HashMap<>(2);
         o = hashMap;
-        hashMap.put(DefaultIcon.SUCCESS, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f0809a7));
-        o.put(DefaultIcon.FAILURE, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f0809a5));
+        hashMap.put(DefaultIcon.SUCCESS, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f0809ab));
+        o.put(DefaultIcon.FAILURE, Integer.valueOf((int) R.drawable.obfuscated_res_0x7f0809a9));
         o.put(DefaultIcon.NOT, 0);
     }
 
@@ -151,8 +151,8 @@ public class BdToast {
         this.a = context;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0230, (ViewGroup) null);
         this.c = viewGroup;
-        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092070);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092073);
+        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092071);
+        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092074);
     }
 
     public static BdToast c(Context context, CharSequence charSequence) {

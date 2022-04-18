@@ -56,14 +56,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ueg.encrypt.entity.EncryptAlgorithm;
-import com.repackage.dr4;
+import com.repackage.cr4;
 import com.repackage.l95;
-import com.repackage.m79;
 import com.repackage.mg;
-import com.repackage.n79;
-import com.repackage.p79;
-import com.repackage.ss6;
-import com.repackage.ts6;
+import com.repackage.t79;
+import com.repackage.u79;
+import com.repackage.us6;
+import com.repackage.vs6;
+import com.repackage.w79;
 import com.repackage.wa;
 import com.repackage.ya;
 import java.util.ArrayList;
@@ -101,7 +101,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     public final ya mGetGiftsSocketListener;
     public GiftCommonList mGiftCommonList;
     public SendGiftSuccessMessage.a mGiftInfo;
-    public ts6 mGiftNumAdapter;
+    public vs6 mGiftNumAdapter;
     public GiftPagerAdapter mGiftPagerAdapter;
     public boolean mHasShowAnim;
     public boolean mHasYinji;
@@ -110,7 +110,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     public String mPassword;
     public String mPublicKey;
     public View mPwdContentView;
-    public dr4 mPwdDialog;
+    public cr4 mPwdDialog;
     public EditText mPwdText;
     public long mReceiverId;
     public int mSelectedPage;
@@ -186,7 +186,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     /* loaded from: classes3.dex */
-    public class c implements dr4.e {
+    public class c implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BuyGiftActivity a;
@@ -209,10 +209,10 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             this.a = buyGiftActivity;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 this.a.mPassword = "";
                 this.a.mPwdText.clearFocus();
                 BuyGiftActivity buyGiftActivity = this.a;
@@ -223,7 +223,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     }
 
     /* loaded from: classes3.dex */
-    public class d implements dr4.e {
+    public class d implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BuyGiftActivity a;
@@ -246,17 +246,17 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             this.a = buyGiftActivity;
         }
 
-        @Override // com.repackage.dr4.e
-        public void onClick(dr4 dr4Var) {
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
                 this.a.showWarningOrNot(false);
                 BuyGiftActivity buyGiftActivity = this.a;
                 buyGiftActivity.mPassword = buyGiftActivity.mPwdText.getText().toString();
                 if (StringUtils.isValidPassWord(this.a.mPassword)) {
                     if (!StringUtils.isNull(this.a.mPublicKey)) {
                         try {
-                            m79 a = n79.a(new p79(EncryptAlgorithm.RSA, this.a.mPublicKey));
+                            t79 a = u79.a(new w79(EncryptAlgorithm.RSA, this.a.mPublicKey));
                             this.a.mPassword = a.a(this.a.mPassword);
                         } catch (Exception e) {
                             this.a.mPassword = "";
@@ -771,14 +771,14 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                 BuyGiftActivity buyGiftActivity = this.a;
                 buyGiftActivity.mSelectedPage = buyGiftActivity.mCurrentPage;
                 this.a.mSelectedPosition = i;
-                ss6 ss6Var = (ss6) adapterView.getAdapter();
-                if (ss6Var != null) {
-                    GiftCommonList.GiftItem item = ss6Var.getItem(i);
+                us6 us6Var = (us6) adapterView.getAdapter();
+                if (us6Var != null) {
+                    GiftCommonList.GiftItem item = us6Var.getItem(i);
                     if (item != null) {
                         this.a.mCurrentItem = item;
                     }
-                    ss6Var.d(i);
-                    ss6Var.notifyDataSetChanged();
+                    us6Var.d(i);
+                    us6Var.notifyDataSetChanged();
                 }
                 this.a.countTotalPrice(true);
             }
@@ -1017,7 +1017,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             GiftCommonList.GiftItem giftItem = this.mCurrentItem;
             int price = ((giftItem == null || giftItem.getPrice() <= 0) ? 1 : this.mCurrentItem.getPrice()) * e2;
             if (z) {
-                this.gift_count_result.setText(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f1383), StringHelper.numFormat(price)));
+                this.gift_count_result.setText(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f1382), StringHelper.numFormat(price)));
                 if (price <= 0) {
                     SkinManager.setBackgroundResource(this.gift_button, R.drawable.btn_gift_give_d);
                     this.gift_button.setEnabled(false);
@@ -1080,16 +1080,16 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65573, this, list, i2)) == null) {
-            ss6 ss6Var = new ss6(getPageContext().getPageActivity());
-            ss6Var.c(list);
-            ss6Var.d(i2);
+            us6 us6Var = new us6(getPageContext().getPageActivity());
+            us6Var.c(list);
+            us6Var.d(i2);
             GridView gridView = new GridView(getPageContext().getPageActivity());
             gridView.setVerticalScrollBarEnabled(false);
             gridView.setNumColumns(4);
             gridView.setVerticalSpacing(8);
             gridView.setHorizontalSpacing(8);
             gridView.setSelector(R.color.common_color_10022);
-            gridView.setAdapter((ListAdapter) ss6Var);
+            gridView.setAdapter((ListAdapter) us6Var);
             gridView.setPadding(4, 0, 4, 0);
             gridView.setOnItemClickListener(new p(this, null));
             return gridView;
@@ -1110,7 +1110,7 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                 return;
             }
             if (TextUtils.isEmpty(str)) {
-                showToast(R.string.obfuscated_res_0x7f0f0c18);
+                showToast(R.string.obfuscated_res_0x7f0f0c17);
             } else {
                 showToast(str);
             }
@@ -1126,8 +1126,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65575, this, i2, str, sendGiftAndroidResIdl) == null) {
-            dr4 dr4Var = this.mPwdDialog;
-            if (dr4Var != null && dr4Var.isShowing()) {
+            cr4 cr4Var = this.mPwdDialog;
+            if (cr4Var != null && cr4Var.isShowing()) {
                 this.mPwdDialog.setYesBtnClickable(true);
                 this.mPwdDialog.setNoBtnClickable(true);
             }
@@ -1137,15 +1137,15 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                 int countTotalPrice = countTotalPrice(false);
                 int intValue = (sendGiftAndroidResIdl == null || (dataRes2 = sendGiftAndroidResIdl.data) == null || (num = dataRes2.money) == null) ? 0 : countTotalPrice - num.intValue();
                 if (intValue > 0) {
-                    showToast(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c70), Integer.valueOf(intValue)));
+                    showToast(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c6f), Integer.valueOf(intValue)));
                 }
                 CurrencyJumpHelper.buyGiftGotoBuyTBeanPage(getPageContext().getPageActivity(), countTotalPrice);
                 InputMethodManager inputMethodManager = this.mInputMethodManager;
                 if (inputMethodManager != null) {
                     HidenSoftKeyPad(inputMethodManager, this.gift_count_input);
                 }
-                dr4 dr4Var2 = this.mPwdDialog;
-                if (dr4Var2 == null || !dr4Var2.isShowing()) {
+                cr4 cr4Var2 = this.mPwdDialog;
+                if (cr4Var2 == null || !cr4Var2.isShowing()) {
                     return;
                 }
                 this.mPwdDialog.dismiss();
@@ -1156,13 +1156,13 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                 getGiftList();
             } else if (i2 != 1990027) {
                 if (i2 != 0) {
-                    showToastFromServer(str, R.string.obfuscated_res_0x7f0f0c18);
+                    showToastFromServer(str, R.string.obfuscated_res_0x7f0f0c17);
                     return;
                 }
                 SendGiftSuccessMessage sendGiftSuccessMessage = new SendGiftSuccessMessage(2001232, Long.valueOf(this.mReceiverId));
                 sendGiftSuccessMessage.setGiftInfo(this.mGiftInfo);
                 MessageManager.getInstance().dispatchResponsedMessageToUI(sendGiftSuccessMessage);
-                showToastFromServer(str, R.string.obfuscated_res_0x7f0f10e6);
+                showToastFromServer(str, R.string.obfuscated_res_0x7f0f10e5);
                 closeActivity();
             } else {
                 if (sendGiftAndroidResIdl != null && (dataRes = sendGiftAndroidResIdl.data) != null && (str2 = dataRes.public_key) != null) {
@@ -1270,9 +1270,9 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
                 }
                 list.removeAll(arrayList);
             }
-            ts6 ts6Var = new ts6(getPageContext().getPageActivity());
-            this.mGiftNumAdapter = ts6Var;
-            this.gift_num_list.setAdapter((ListAdapter) ts6Var);
+            vs6 vs6Var = new vs6(getPageContext().getPageActivity());
+            this.mGiftNumAdapter = vs6Var;
+            this.gift_num_list.setAdapter((ListAdapter) vs6Var);
             this.mGiftNumAdapter.b(list);
         }
     }
@@ -1291,42 +1291,42 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65581, this) == null) {
-            this.gift_panel_lay = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090cbb);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0908c6);
+            this.gift_panel_lay = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090cbc);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0908c7);
             this.empty_layout = findViewById;
             findViewById.setOnClickListener(new m(this));
-            this.gift_list_layout = findViewById(R.id.obfuscated_res_0x7f090cb2);
+            this.gift_list_layout = findViewById(R.id.obfuscated_res_0x7f090cb3);
             this.mInputMethodManager = (InputMethodManager) getSystemService("input_method");
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090cab);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090cac);
             this.gift_count_input = editText;
             editText.setSelection(1);
             changeEditTextFocusState(false);
             this.gift_count_input.addTextChangedListener(new r(this, null));
             this.gift_count_input.setOnClickListener(new n(this));
             this.gift_count_input.setOnFocusChangeListener(new o(this));
-            this.gift_count_result = (TextView) findViewById(R.id.obfuscated_res_0x7f090cad);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090caa);
+            this.gift_count_result = (TextView) findViewById(R.id.obfuscated_res_0x7f090cae);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090cab);
             this.gift_button = textView;
             textView.setEnabled(false);
             this.gift_button.setOnClickListener(new a(this));
-            this.gift_lower_layout = findViewById(R.id.obfuscated_res_0x7f090cb5);
-            BaseViewPager baseViewPager = (BaseViewPager) findViewById(R.id.obfuscated_res_0x7f090cc7);
+            this.gift_lower_layout = findViewById(R.id.obfuscated_res_0x7f090cb6);
+            BaseViewPager baseViewPager = (BaseViewPager) findViewById(R.id.obfuscated_res_0x7f090cc8);
             this.gift_viewpager = baseViewPager;
             baseViewPager.setOnPageChangeListener(this);
-            this.gift_tab_indicator = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f090cc2);
-            this.gift_tab_layout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090cc3);
-            this.gift_progress_layout = findViewById(R.id.obfuscated_res_0x7f090cbd);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090cb8);
+            this.gift_tab_indicator = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f090cc3);
+            this.gift_tab_layout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090cc4);
+            this.gift_progress_layout = findViewById(R.id.obfuscated_res_0x7f090cbe);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090cb9);
             this.gift_num_layout = findViewById2;
             findViewById2.setOnClickListener(new b(this));
-            ListView listView = (ListView) findViewById(R.id.obfuscated_res_0x7f090cb9);
+            ListView listView = (ListView) findViewById(R.id.obfuscated_res_0x7f090cba);
             this.gift_num_list = listView;
             listView.setOnItemClickListener(new q(this, null));
-            this.mPwdDialog = new dr4(getActivity());
+            this.mPwdDialog = new cr4(getActivity());
             View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d023d, (ViewGroup) null);
             this.mPwdContentView = inflate;
-            this.mPwdText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f09165c);
-            this.password_dialog_warning = (TextView) this.mPwdContentView.findViewById(R.id.obfuscated_res_0x7f09165d);
+            this.mPwdText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f09165d);
+            this.password_dialog_warning = (TextView) this.mPwdContentView.findViewById(R.id.obfuscated_res_0x7f09165e);
             this.mPwdDialog.setContentView(this.mPwdContentView);
             this.mPwdDialog.setCanceledOnTouchOutside(false);
             this.mPwdDialog.setNegativeButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f036e), new c(this));
@@ -1376,8 +1376,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         if (!(interceptable == null || interceptable.invokeV(65584, this) == null) || this.mCurrentItem == null || this.mReceiverId <= 0) {
             return;
         }
-        dr4 dr4Var = this.mPwdDialog;
-        if (dr4Var != null && dr4Var.isShowing()) {
+        cr4 cr4Var = this.mPwdDialog;
+        if (cr4Var != null && cr4Var.isShowing()) {
             this.mPwdDialog.setYesBtnClickable(false);
             this.mPwdDialog.setNoBtnClickable(false);
         }
@@ -1509,17 +1509,17 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             boolean z = TbadkCoreApplication.getInst().getSkinType() == 1;
             getLayoutMode().k(z);
             getLayoutMode().j(this.gift_list_layout);
-            ts6 ts6Var = this.mGiftNumAdapter;
-            if (ts6Var != null) {
-                ts6Var.notifyDataSetChanged();
+            vs6 vs6Var = this.mGiftNumAdapter;
+            if (vs6Var != null) {
+                vs6Var.notifyDataSetChanged();
             }
             if (z) {
-                this.gift_tab_indicator.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080887));
-                this.gift_tab_indicator.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080885));
+                this.gift_tab_indicator.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08088b));
+                this.gift_tab_indicator.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080889));
                 return;
             }
-            this.gift_tab_indicator.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080886));
-            this.gift_tab_indicator.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080884));
+            this.gift_tab_indicator.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08088a));
+            this.gift_tab_indicator.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080888));
         }
     }
 
@@ -1544,8 +1544,8 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, keyEvent)) == null) {
             if (i2 == 4) {
-                dr4 dr4Var = this.mPwdDialog;
-                if (dr4Var != null && dr4Var.isShowing()) {
+                cr4 cr4Var = this.mPwdDialog;
+                if (cr4Var != null && cr4Var.isShowing()) {
                     this.mPwdText.clearFocus();
                     this.mPwdDialog.dismiss();
                     return true;
@@ -1593,16 +1593,16 @@ public class BuyGiftActivity extends BaseActivity<BuyGiftActivity> implements Vi
             }
             GridView gridView = (GridView) this.mViewPagerContent.get(i2);
             if (gridView.getAdapter() != null) {
-                ss6 ss6Var = (ss6) gridView.getAdapter();
-                if (ss6Var.b() >= 0 && i2 != this.mSelectedPage) {
-                    ss6Var.d(-1);
-                    ss6Var.notifyDataSetChanged();
+                us6 us6Var = (us6) gridView.getAdapter();
+                if (us6Var.b() >= 0 && i2 != this.mSelectedPage) {
+                    us6Var.d(-1);
+                    us6Var.notifyDataSetChanged();
                 }
-                if (ss6Var.b() >= 0 || i2 != this.mSelectedPage) {
+                if (us6Var.b() >= 0 || i2 != this.mSelectedPage) {
                     return;
                 }
-                ss6Var.d(this.mSelectedPosition);
-                ss6Var.notifyDataSetChanged();
+                us6Var.d(this.mSelectedPosition);
+                us6Var.notifyDataSetChanged();
             }
         }
     }

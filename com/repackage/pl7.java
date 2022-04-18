@@ -1,144 +1,323 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.sapi2.SapiAccount;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.relogin.ReloginManager;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.switchs.CheckShowNameDialogSwitch;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
-import com.repackage.dn4;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.apache.http.message.BasicNameValuePair;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cn4;
+import com.repackage.gn4;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class pl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                NetWork netWork = new NetWork(TbConfig.PassConfig.GET_CERT_URL);
-                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                JSONObject jSONObject = new JSONObject(new String(netWork.getNetData()));
-                return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
-            } catch (Exception unused) {
-                return null;
+    /* loaded from: classes6.dex */
+    public static class a implements gn4.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ cn4.a b;
+        public final /* synthetic */ String c;
+
+        public a(b bVar, cn4.a aVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar, aVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+            this.b = aVar;
+            this.c = str;
+        }
+
+        @Override // com.repackage.gn4.b
+        public void onFailed() {
+            cn4.a aVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.b) == null) {
+                return;
+            }
+            aVar.a(this.c, 1, null);
+        }
+
+        @Override // com.repackage.gn4.b
+        public void onSuccess(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.a.d(str);
+                this.a.execute(new String[0]);
             }
         }
-        return (String[]) invokeV.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (mi.H()) {
-                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
-            }
-            return UtilHelper.getGprsIpAddress();
-        }
-        return (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class b extends BdAsyncTask<String, Integer, AccountData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public volatile NetWork a;
+        public final String b;
+        public final String c;
+        public final String d;
+        public String e;
+        public final cn4.a f;
+        public final boolean g;
 
-    public static String c(ArrayList<BasicNameValuePair> arrayList, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, str)) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            HashMap hashMap = new HashMap();
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                arrayList2.add(arrayList.get(i).getName());
-                hashMap.put(arrayList.get(i).getName(), arrayList.get(i).getValue());
-            }
-            Collections.sort(arrayList2);
-            StringBuffer stringBuffer = new StringBuffer();
-            Iterator it = arrayList2.iterator();
-            while (it.hasNext()) {
-                String str2 = (String) it.next();
-                stringBuffer.append(str2);
-                stringBuffer.append("=");
-                try {
-                    String str3 = (String) hashMap.get(str2);
-                    if (!TextUtils.isEmpty(str3)) {
-                        stringBuffer.append(URLEncoder.encode(str3, "UTF-8"));
+        /* loaded from: classes6.dex */
+        public class a implements cn4.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
                     }
-                } catch (UnsupportedEncodingException e) {
-                    BdLog.e(e.getMessage());
                 }
-                stringBuffer.append("&");
             }
-            stringBuffer.append("sign_key=" + str);
-            return ui.c(stringBuffer.toString());
+
+            @Override // com.repackage.cn4.a
+            public void a(String str, int i, String str2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+                }
+            }
+
+            @Override // com.repackage.cn4.a
+            public void b(String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                }
+            }
+
+            @Override // com.repackage.cn4.a
+            public void c(AccountData accountData) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+                }
+            }
         }
-        return (String) invokeLL.objValue;
+
+        public b(String str, String str2, String str3, cn4.a aVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3, aVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.g = z;
+            this.f = aVar == null ? new a(this) : aVar;
+            setPriority(3);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Removed duplicated region for block: B:50:0x01b4  */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public AccountData doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            AccountData accountData;
+            int i;
+            int i2;
+            cn4.b d;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                this.a = new NetWork(TbConfig.LOGIN_FULL_ADDRESS);
+                this.a.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                this.a.addPostData("bdusstoken", this.c + "|" + this.d);
+                if (!StringUtils.isNull(this.e)) {
+                    this.a.addPostData("stoken", this.e);
+                }
+                this.a.addPostData("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
+                this.a.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
+                this.a.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                String postNetData = this.a.postNetData();
+                if (!this.a.getNetContext().getResponse().isRequestSuccess() || postNetData == null) {
+                    accountData = null;
+                } else {
+                    hp4 hp4Var = new hp4();
+                    hp4Var.c(postNetData);
+                    accountData = new AccountData();
+                    accountData.setAccount(hp4Var.b().getUserName());
+                    accountData.setPassword("");
+                    accountData.setID(hp4Var.b().getUserId());
+                    String str = this.c;
+                    if (this.g && (d = sl7.d(cn4.b().c(str))) != null) {
+                        str = d.a + "|" + d.b;
+                    }
+                    accountData.setBDUSS(str);
+                    accountData.setPortrait(hp4Var.b().getPortrait());
+                    accountData.setStoken(this.e);
+                    accountData.setIsActive(1);
+                    if (hp4Var.a() != null) {
+                        accountData.setTbs(hp4Var.a().getTbs());
+                    }
+                }
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_SHOW_INIT_NAME_DIALOG);
+                netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                if (accountData != null) {
+                    netWork.addPostData(HttpRequest.BDUSS, accountData.getBDUSS());
+                    netWork.addPostData("stoken", gn4.a(accountData));
+                }
+                String postNetData2 = netWork.postNetData();
+                if (!netWork.getNetContext().getResponse().isRequestSuccess() || postNetData2 == null) {
+                    i = 0;
+                } else {
+                    try {
+                        JSONObject jSONObject = new JSONObject(postNetData2);
+                        JSONArray optJSONArray = jSONObject.optJSONArray("switch");
+                        if (optJSONArray != null) {
+                            int length = optJSONArray.length();
+                            for (int i3 = 0; i3 < length; i3++) {
+                                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
+                                if (optJSONObject != null && CheckShowNameDialogSwitch.KEY.equals(optJSONObject.optString("name"))) {
+                                    i = optJSONObject.optInt("type", 0);
+                                    break;
+                                }
+                            }
+                        }
+                        i = 0;
+                        try {
+                            JSONObject jSONObject2 = jSONObject.getJSONObject("user_info");
+                            if (accountData != null && jSONObject2 != null) {
+                                accountData.setNameShow(jSONObject2.optString("name_show"));
+                            }
+                        } catch (JSONException e) {
+                            i2 = i;
+                            e = e;
+                            e.printStackTrace();
+                            i = i2;
+                            TbadkCoreApplication.getInst().setNeedCheckUserNameDialog(i == 1);
+                            return accountData;
+                        }
+                    } catch (JSONException e2) {
+                        e = e2;
+                        i2 = 0;
+                    }
+                }
+                TbadkCoreApplication.getInst().setNeedCheckUserNameDialog(i == 1);
+                return accountData;
+            }
+            return (AccountData) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
+                super.onPostExecute(accountData);
+                int i = 0;
+                ReloginManager.g().o(false);
+                kt4.a(DI.ACCOUNT, -1L, 0, "cslogin_result", this.a.getServerErrorCode(), this.a.getErrorString(), new Object[0]);
+                if (accountData != null && accountData.getBDUSS() != null) {
+                    this.f.c(accountData);
+                    return;
+                }
+                String str = null;
+                if (this.a != null) {
+                    str = this.a.getErrorString();
+                    i = this.a.getServerErrorCode();
+                }
+                if (str == null) {
+                    str = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0473);
+                }
+                this.f.a(this.b, i, str);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel(true);
+                if (this.a != null) {
+                    this.a.cancelNetConnect();
+                }
+            }
+        }
+
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.e = str;
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.f.b(this.b);
+            }
+        }
     }
 
-    public static dn4.b d(dn4.b bVar) {
-        InterceptResult invokeL;
+    public static BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, cn4.a aVar) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bVar)) == null) {
-            if (bVar == null) {
-                return null;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, str, str2, str3, str4, aVar)) == null) {
+            gn4 gn4Var = new gn4();
+            b bVar = new b(str, str2, str3, aVar, false);
+            if (gn4.b() && StringUtils.isNull(str4)) {
+                gn4Var.c(str2, new a(bVar, aVar, str));
+            } else {
+                if (gn4.b()) {
+                    bVar.d(str4);
+                }
+                bVar.execute(new String[0]);
             }
-            try {
-                String[] a = a();
-                if (a == null) {
-                    return null;
-                }
-                ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
-                arrayList.add(new BasicNameValuePair("crypttype", "1"));
-                arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
-                arrayList.add(new BasicNameValuePair("appid", "1"));
-                arrayList.add(new BasicNameValuePair("clientip", b()));
-                arrayList.add(new BasicNameValuePair("cert_id", a[0]));
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("bduss", bVar.a);
-                jSONObject.put(SapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.b);
-                jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
-                jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new gn4().b(a[1], jSONObject.toString())));
-                arrayList.add(new BasicNameValuePair(FunAdSdk.PLATFORM_SIG, c(arrayList, TbConfig.PassConfig.ENC_KEY)));
-                NetWork netWork = new NetWork(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                netWork.setPostData(arrayList);
-                netWork.getNetContext().getRequest().getNetWorkParam().mRequestGzip = true;
-                netWork.getNetContext().getRequest().getNetWorkParam().mIsBaiduServer = false;
-                String postNetData = netWork.postNetData();
-                if (!netWork.getNetContext().getResponse().isRequestSuccess() || ni.isEmpty(postNetData)) {
-                    return null;
-                }
-                JSONObject jSONObject2 = new JSONObject(postNetData);
-                if ("0".equals(jSONObject2.optString("errno"))) {
-                    dn4.b bVar2 = new dn4.b();
-                    bVar2.a = jSONObject2.optString("bduss");
-                    bVar2.b = jSONObject2.optString(SapiAccount.SAPI_ACCOUNT_PTOKEN);
-                    jSONObject2.optString("uname");
-                    return bVar2;
-                }
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
+            return bVar;
         }
-        return (dn4.b) invokeL.objValue;
+        return (BdAsyncTask) invokeLLLLL.objValue;
     }
 }

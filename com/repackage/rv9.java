@@ -1,120 +1,229 @@
 package com.repackage;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.Signature;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.hiidostatis.inner.BaseStatisContent;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public final class rv9 {
+public class rv9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[][] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int[] iArr, int i, int i2, int[] iArr2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2, Integer.valueOf(i3)}) == null) {
-            int[] iArr3 = new int[i3];
-            int[] iArr4 = new int[16];
-            int[] iArr5 = new int[16];
-            int i4 = 0;
-            for (int i5 = 0; i5 < i3; i5++) {
-                int i6 = iArr2[i5];
-                iArr4[i6] = iArr4[i6] + 1;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755336740, "Lcom/repackage/rv9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            iArr5[1] = 0;
-            int i7 = 1;
-            while (i7 < 15) {
-                int i8 = i7 + 1;
-                iArr5[i8] = iArr5[i7] + iArr4[i7];
-                i7 = i8;
-            }
-            for (int i9 = 0; i9 < i3; i9++) {
-                if (iArr2[i9] != 0) {
-                    int i10 = iArr2[i9];
-                    int i11 = iArr5[i10];
-                    iArr5[i10] = i11 + 1;
-                    iArr3[i11] = i9;
-                }
-            }
-            int i12 = 1 << i2;
-            if (iArr5[15] == 1) {
-                for (int i13 = 0; i13 < i12; i13++) {
-                    iArr[i + i13] = iArr3[0];
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755336740, "Lcom/repackage/rv9;");
                 return;
             }
-            int i14 = 2;
-            int i15 = 0;
-            int i16 = 1;
-            int i17 = 2;
-            while (i16 <= i2) {
-                while (iArr4[i16] > 0) {
-                    d(iArr, i + i4, i17, i12, iArr3[i15] | (i16 << 16));
-                    i4 = b(i4, i16);
-                    iArr4[i16] = iArr4[i16] - 1;
-                    i15++;
-                }
-                i16++;
-                i17 <<= 1;
-            }
-            int i18 = i12 - 1;
-            int i19 = -1;
-            int i20 = i2 + 1;
-            int i21 = i;
-            while (i20 <= 15) {
-                while (iArr4[i20] > 0) {
-                    int i22 = i4 & i18;
-                    if (i22 != i19) {
-                        i21 += i12;
-                        int c = c(iArr4, i20, i2);
-                        iArr[i + i22] = ((c + i2) << 16) | ((i21 - i) - i22);
-                        i12 = 1 << c;
-                        i19 = i22;
+        }
+        a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
+    }
+
+    public static int a(Context context) {
+        InterceptResult invokeL;
+        String[][] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                boolean z = false;
+                for (String[] strArr2 : a) {
+                    if (strArr2.length > 1) {
+                        String str = strArr2[0];
+                        try {
+                            if (qv9.a(context.getPackageManager().getPackageInfo(str, 1).versionName, strArr2[1]) >= 0) {
+                                Intent intent = new Intent();
+                                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                                if (qv9.e(context, intent)) {
+                                    return 0;
+                                }
+                            }
+                            z = true;
+                        } catch (Exception unused) {
+                            z = false;
+                        }
                     }
-                    d(iArr, (i4 >> i2) + i21, i14, i12, ((i20 - i2) << 16) | iArr3[i15]);
-                    i4 = b(i4, i20);
-                    iArr4[i20] = iArr4[i20] - 1;
-                    i15++;
                 }
-                i20++;
-                i14 <<= 1;
+                return z ? 2 : 1;
+            } catch (Exception unused2) {
+                return 1;
             }
         }
+        return invokeL.intValue;
     }
 
-    public static int b(int i, int i2) {
-        InterceptResult invokeII;
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Signature[] signatureArr;
+        ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            int i3 = 1 << (i2 - 1);
-            while ((i & i3) != 0) {
-                i3 >>= 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream2 = null;
+            try {
+                try {
+                    signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
             }
-            return (i & (i3 - 1)) + i3;
-        }
-        return invokeII.intValue;
-    }
-
-    public static int c(int[] iArr, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, iArr, i, i2)) == null) {
-            int i4 = 1 << (i - i2);
-            while (i < 15 && (i3 = i4 - iArr[i]) > 0) {
-                i++;
-                i4 = i3 << 1;
+            try {
+                for (Signature signature : signatureArr) {
+                    if (signature != null) {
+                        byteArrayOutputStream.write(signature.toByteArray());
+                    }
+                }
+                byteArrayOutputStream.flush();
+                String f = f(byteArrayOutputStream.toByteArray());
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException unused) {
+                }
+                return f;
+            } catch (Exception e2) {
+                e = e2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                e.printStackTrace();
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                        return "";
+                    } catch (IOException unused2) {
+                        return "";
+                    }
+                }
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                throw th;
             }
-            return i - i2;
         }
-        return invokeLII.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void d(int[] iArr, int i, int i2, int i3, int i4) {
+    public static String c(Context context, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            do {
-                i3 -= i2;
-                iArr[i + i3] = i4;
-            } while (i3 > 0);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) ? String.format(Locale.getDefault(), "%s?appId=%s&appType=android&appSign=%s&appDeviceid=%s&grantType=code&callbackType=uri&redirectUri=%s&state=%s", "https://thirdlogin.yy.com/open/oauth/authorize.do", str, b(context), pv9.a(context), g(z), str2) : (String) invokeCommon.objValue;
+    }
+
+    public static Bundle d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("appid", str);
+            bundle.putString("appname", qv9.b(context, context.getPackageName()));
+            bundle.putString("appver", qv9.c(context));
+            bundle.putString("appdeviceid", pv9.a(context));
+            bundle.putString(BaseStatisContent.SDKVER, "1.0.0");
+            return bundle;
         }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static Intent e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            for (String[] strArr : a) {
+                String str = strArr[0];
+                Intent intent = new Intent();
+                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                if (qv9.e(context, intent)) {
+                    return intent;
+                }
+            }
+            return null;
+        }
+        return (Intent) invokeL.objValue;
+    }
+
+    public static String f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                byte[] digest = messageDigest.digest();
+                char[] cArr2 = new char[digest.length * 2];
+                int i = 0;
+                for (byte b : digest) {
+                    int i2 = i + 1;
+                    cArr2[i] = cArr[(b >>> 4) & 15];
+                    i = i2 + 1;
+                    cArr2[i2] = cArr[b & 15];
+                }
+                return new String(cArr2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65543, null, z)) == null) ? z ? "https://raqweb.yy.com/" : "https://raq.yy.com/" : (String) invokeZ.objValue;
+    }
+
+    public static String h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            if (i != 444111001) {
+                switch (i) {
+                    case 444222000:
+                        return "参数为空，请检查";
+                    case 444222001:
+                        return "请求操作类型错误";
+                    case 444222002:
+                        return "请求操作附带参数为空";
+                    case 444222003:
+                        return "请求操作附带参数错误";
+                    default:
+                        switch (i) {
+                            case 444222104:
+                                return "授权APP返回的请求码出错";
+                            case 444222105:
+                                return "Json格式错误";
+                            default:
+                                return "未知错误";
+                        }
+                }
+            }
+            return "成功";
+        }
+        return (String) invokeI.objValue;
     }
 }

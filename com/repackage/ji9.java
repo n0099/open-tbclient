@@ -1,34 +1,25 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.ki9;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.repackage.fi9;
 /* loaded from: classes6.dex */
-public class ji9 implements Animator.AnimatorListener {
+public class ji9 implements fi9.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ki9.a a;
-    public final /* synthetic */ View b;
-    public final /* synthetic */ ViewGroup c;
-    public final /* synthetic */ float d;
-    public final /* synthetic */ float e;
-    public final /* synthetic */ int[] f;
-    public final /* synthetic */ ViewGroup g;
-    public final /* synthetic */ ki9 h;
+    public final /* synthetic */ ChannelNativeAds.GdtADStatusChangeListener a;
+    public final /* synthetic */ NativeUnifiedADData b;
 
-    public ji9(ki9 ki9Var, ki9.a aVar, View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2) {
+    public ji9(li9 li9Var, ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener, NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ki9Var, aVar, view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2};
+            Object[] objArr = {li9Var, gdtADStatusChangeListener, nativeUnifiedADData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,44 +29,15 @@ public class ji9 implements Animator.AnimatorListener {
                 return;
             }
         }
-        this.h = ki9Var;
-        this.a = aVar;
-        this.b = view2;
-        this.c = viewGroup;
-        this.d = f;
-        this.e = f2;
-        this.f = iArr;
-        this.g = viewGroup2;
+        this.a = gdtADStatusChangeListener;
+        this.b = nativeUnifiedADData;
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
+    @Override // com.repackage.fi9.e
+    public void onADStatusChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            this.h.a(this.b, this.c, this.d, this.e, this.f, this.g, this.a);
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            LogPrinter.d("zoomOut onAnimationStart", new Object[0]);
-            this.h.getClass();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.onADStatusChanged(this.b);
         }
     }
 }

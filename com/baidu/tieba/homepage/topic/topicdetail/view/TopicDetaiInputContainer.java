@@ -29,14 +29,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ax4;
 import com.repackage.c15;
-import com.repackage.dz8;
 import com.repackage.i05;
+import com.repackage.kz8;
 import com.repackage.oi;
-import com.repackage.r86;
-import com.repackage.s86;
+import com.repackage.t86;
+import com.repackage.u86;
 import com.repackage.v05;
+import com.repackage.zw4;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
 public class TopicDetaiInputContainer extends LinearLayout implements v05, View.OnClickListener {
@@ -186,7 +186,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements v05, View.
     }
 
     /* loaded from: classes3.dex */
-    public class d implements s86.g {
+    public class d implements u86.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetaiInputContainer a;
@@ -209,7 +209,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements v05, View.
             this.a = topicDetaiInputContainer;
         }
 
-        @Override // com.repackage.s86.g
+        @Override // com.repackage.u86.g
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -353,7 +353,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements v05, View.
             this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
             this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
             this.b.setBackgroundResource(R.color.common_color_10022);
-            dz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b6);
+            kz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b6);
             this.b.setPadding(0, oi.f(context, R.dimen.obfuscated_res_0x7f0701e8), oi.f(context, R.dimen.obfuscated_res_0x7f0702dd), oi.f(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
@@ -374,7 +374,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements v05, View.
             this.c.setIncludeFontPadding(false);
             this.c.setEnabled(false);
             this.c.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.tbds42));
-            this.c.setText(R.string.obfuscated_res_0x7f0f0dc2);
+            this.c.setText(R.string.obfuscated_res_0x7f0f0dc1);
             this.c.setOnClickListener(new a(this));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(0, 0, oi.f(context, R.dimen.tbds14), 0);
@@ -385,41 +385,41 @@ public class TopicDetaiInputContainer extends LinearLayout implements v05, View.
     public final void l(i05 i05Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, i05Var) == null) || i05Var == null || (obj = i05Var.c) == null || !(obj instanceof ax4)) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, i05Var) == null) || i05Var == null || (obj = i05Var.c) == null || !(obj instanceof zw4)) {
             return;
         }
-        ax4 ax4Var = (ax4) obj;
-        if (ax4Var.getType() == EmotionGroupType.NET_SUG) {
-            n(ax4Var);
+        zw4 zw4Var = (zw4) obj;
+        if (zw4Var.getType() == EmotionGroupType.NET_SUG) {
+            n(zw4Var);
         } else {
-            m(ax4Var);
+            m(zw4Var);
         }
     }
 
-    public final void m(ax4 ax4Var) {
+    public final void m(zw4 zw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ax4Var) == null) {
-            if (!this.g || ax4Var.getType() == EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, zw4Var) == null) {
+            if (!this.g || zw4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
-                if (this.h && r86.a(obj) >= 10 && getContext() != null) {
-                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1404);
+                if (this.h && t86.a(obj) >= 10 && getContext() != null) {
+                    CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1403);
                 } else {
-                    s86.b(getContext(), ax4Var, this.b);
+                    u86.b(getContext(), zw4Var, this.b);
                 }
             }
         }
     }
 
-    public final void n(ax4 ax4Var) {
+    public final void n(zw4 zw4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, ax4Var) == null) || ax4Var == null || TextUtils.isEmpty(ax4Var.c()) || TextUtils.isEmpty(ax4Var.f())) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, zw4Var) == null) || zw4Var == null || TextUtils.isEmpty(zw4Var.c()) || TextUtils.isEmpty(zw4Var.f())) {
             return;
         }
         String obj = this.b.getText().toString();
-        if (this.h && r86.a(obj) >= 10 && getContext() != null) {
-            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1404);
+        if (this.h && t86.a(obj) >= 10 && getContext() != null) {
+            CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1403);
         } else {
-            s86.c(getContext(), ax4Var, this.b);
+            u86.c(getContext(), zw4Var, this.b);
         }
     }
 
@@ -440,7 +440,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements v05, View.
                         if (TextUtils.isEmpty((String) obj)) {
                             this.b.setText((CharSequence) null);
                         } else {
-                            s86.e(getContext(), (String) i05Var.c, new d(this));
+                            u86.e(getContext(), (String) i05Var.c, new d(this));
                         }
                     }
                 } else if (i == 9) {
@@ -495,7 +495,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements v05, View.
             }
         } else if (this.b.getSelectionStart() > 0) {
             String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-            Matcher matcher = r86.b.matcher(substring);
+            Matcher matcher = t86.b.matcher(substring);
             if (matcher.find()) {
                 this.b.getText().delete(this.b.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.b.getSelectionStart());
             } else {
@@ -513,10 +513,10 @@ public class TopicDetaiInputContainer extends LinearLayout implements v05, View.
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
             if (i == 0) {
-                dz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b6);
+                kz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b6);
                 this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
             } else {
-                dz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b7);
+                kz8.l(this.b, R.drawable.obfuscated_res_0x7f0804b7);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0110));
             }
             SkinManager.setBackgroundResource(this.c, R.drawable.topic_discuss_send_bg);

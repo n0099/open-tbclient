@@ -1,109 +1,91 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class pu7<T, V extends TypeAdapter.ViewHolder> extends ho<T, V> {
+public class pu7 extends hw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cz7 i;
-    public PbFragment j;
-    public AbsVideoPbFragment k;
-    public int l;
-    public boolean m;
-    public SparseIntArray n;
+    public TextView c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pu7(cz7 cz7Var, BdUniqueId bdUniqueId) {
-        super(cz7Var == null ? null : cz7Var.x(), bdUniqueId);
+    public pu7(BaseFragmentActivity baseFragmentActivity, View view2) {
+        super(baseFragmentActivity, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cz7Var, bdUniqueId};
+            Object[] objArr = {baseFragmentActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((BaseFragmentActivity) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = 3;
-        this.m = false;
-        new SparseArray();
-        this.n = new SparseIntArray();
-        a0(cz7Var);
+        this.c = null;
     }
 
-    @Override // com.repackage.ho
-    public View S(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.hw7
+    public void c(ou7 ou7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            this.l = TbadkCoreApplication.getInst().getSkinType();
-            wo woVar = (wo) viewGroup;
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ou7Var) == null) {
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e1e);
+            this.c = textView;
+            textView.setVisibility(8);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public int Z(int i) {
-        InterceptResult invokeI;
+    public TextView e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int i2 = this.n.get(i, -1);
-            if (i2 != -1) {
-                return i2;
-            }
-            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.n.put(i, dimensionPixelSize);
-            return dimensionPixelSize;
-        }
-        return invokeI.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (TextView) invokeV.objValue;
     }
 
-    public void a0(cz7 cz7Var) {
+    public void f(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cz7Var) == null) || cz7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) || threadData == null || threadData.getPushStatusData() == null) {
             return;
         }
-        this.i = cz7Var;
-        this.j = cz7Var.x0();
-        AbsVideoPbFragment t = cz7Var.t();
-        this.k = t;
-        PbFragment pbFragment = this.j;
-        if (pbFragment != null) {
-            this.a = pbFragment.getActivity();
-        } else if (t != null) {
-            this.a = t.getActivity();
-        } else {
-            this.a = null;
+        int status = threadData.getPushStatusData().getStatus();
+        if (status == 1) {
+            g(true);
+        } else if (status == 2) {
+            g(false);
         }
     }
 
-    public void setFromCDN(boolean z) {
+    public void g(boolean z) {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.m = z;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.c) == null) {
+            return;
         }
+        if (z) {
+            textView.setText(R.string.obfuscated_res_0x7f0f0f07);
+            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f080fa3);
+            SkinManager.setBackgroundResource(this.c, R.drawable.push_bg_selector);
+            this.c.setClickable(true);
+        } else {
+            textView.setText(R.string.obfuscated_res_0x7f0f0271);
+            SkinManager.setBackgroundResource(this.c, R.drawable.label_bg_gray80);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
+            this.c.setClickable(false);
+        }
+        this.c.setVisibility(0);
     }
 }

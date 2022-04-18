@@ -16,19 +16,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.i05;
-import com.repackage.nk7;
-import com.repackage.ok7;
-import com.repackage.pk7;
+import com.repackage.qk7;
 import com.repackage.rk7;
+import com.repackage.sk7;
+import com.repackage.uk7;
 import com.repackage.v05;
 /* loaded from: classes3.dex */
 public class TailEditColorToolHost extends NoPressedLinearLayout implements v05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public nk7 b;
-    public pk7 c;
-    public rk7 d;
+    public qk7 b;
+    public sk7 c;
+    public uk7 d;
     public EditorTools e;
     public View.OnClickListener f;
 
@@ -58,14 +58,14 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements v05 
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            ok7 ok7Var;
+            rk7 rk7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (ok7Var = (ok7) view2.getTag()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (rk7Var = (rk7) view2.getTag()) == null) {
                 return;
             }
-            this.a.c.c(ok7Var.b());
+            this.a.c.c(rk7Var.b());
             this.a.b.notifyDataSetChanged();
-            this.a.e.A(new i05(26, -1, ok7Var.b()));
+            this.a.e.A(new i05(26, -1, rk7Var.b()));
         }
     }
 
@@ -129,13 +129,13 @@ public class TailEditColorToolHost extends NoPressedLinearLayout implements v05 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, tbPageContext, str) == null) {
             LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07fe, (ViewGroup) this, true);
-            this.d = new rk7(this);
-            pk7 pk7Var = new pk7(tbPageContext);
-            this.c = pk7Var;
-            pk7Var.c(str);
-            nk7 nk7Var = new nk7(tbPageContext, this.c, this.f);
-            this.b = nk7Var;
-            this.d.a(nk7Var);
+            this.d = new uk7(this);
+            sk7 sk7Var = new sk7(tbPageContext);
+            this.c = sk7Var;
+            sk7Var.c(str);
+            qk7 qk7Var = new qk7(tbPageContext, this.c, this.f);
+            this.b = qk7Var;
+            this.d.a(qk7Var);
         }
     }
 

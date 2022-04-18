@@ -25,18 +25,18 @@ public class sg5 {
         }
     }
 
-    public static void b(nw4 nw4Var) {
+    public static void b(mw4 mw4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, nw4Var) == null) || nw4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, mw4Var) == null) || mw4Var == null) {
             return;
         }
-        if (nw4Var.b != 0) {
-            wt4.k().y("app_entrance_nologin", nw4Var.b + "");
+        if (mw4Var.b != 0) {
+            vt4.k().y("app_entrance_nologin", mw4Var.b + "");
         }
-        if (nw4Var.a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
+        if (mw4Var.a == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        wt4.k().y("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), nw4Var.a + "");
+        vt4.k().y("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), mw4Var.a + "");
     }
 
     public int a() {
@@ -45,9 +45,9 @@ public class sg5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (TbadkCoreApplication.getCurrentAccount() == null) {
-                q = wt4.k().q("app_entrance_nologin", "");
+                q = vt4.k().q("app_entrance_nologin", "");
             } else {
-                wt4 k = wt4.k();
+                vt4 k = vt4.k();
                 q = k.q("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
             int e = mg.e(q, 0);

@@ -1,47 +1,30 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.AlaUserInfoData;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.HeadPendantClickableView;
-import com.baidu.tbadk.data.IconData;
-import com.baidu.tbadk.switchs.PbNormalLikeButtonSwitch;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorCommentAndPraiseAdapter;
+import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorItemAdapter;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
-import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
-import com.baidu.tieba.pb.videopb.viewholder.VideoTabPbFloatUserInfoViewHolder;
+import com.baidu.tieba.pb.videopb.fragment.DetailInfoFragment;
+import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -49,29 +32,107 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class pz7 extends ho<PostData, VideoTabPbFloatUserInfoViewHolder> {
+public class pz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment i;
-    public yr7 j;
-    public int k;
-    public boolean l;
-    public boolean m;
-    public boolean n;
-    public wv7 o;
-    public boolean p;
-    public boolean q;
-    public boolean r;
-    public String s;
-    public View.OnClickListener t;
-    public CustomMessageListener u;
+    public final List<ho> a;
+    public DetailInfoFragment b;
+    public bs7 c;
+    public BdTypeRecyclerView d;
+    public List<uo> e;
+    public uz7 f;
+    public sz7 g;
+    public PbFirstFloorCommentAndPraiseAdapter h;
+    public tu7 i;
+    public ru7 j;
+    public jv7 k;
+    public PbFirstFloorItemAdapter l;
+    public fw7 m;
+    public ho n;
+    public ho o;
+    public View.OnClickListener p;
+    public View.OnClickListener q;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pz7 a;
+
+        /* renamed from: com.repackage.pz7$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0498a implements FullBrowseHelper.IAcceptPrivacyConfirm {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            /* renamed from: com.repackage.pz7$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class RunnableC0499a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ C0498a a;
+
+                public RunnableC0499a(C0498a c0498a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0498a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = c0498a;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                        this.a.a.a.b.w().n2(3);
+                    }
+                }
+            }
+
+            public C0498a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tbadk.core.util.FullBrowseHelper.IAcceptPrivacyConfirm
+            public void onConfirm() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (!mi.z()) {
+                        this.a.a.b.S0();
+                    } else {
+                        pg.a().postDelayed(new RunnableC0499a(this), 10L);
+                    }
+                }
+            }
+        }
 
         public a(pz7 pz7Var) {
             Interceptable interceptable = $ic;
@@ -94,110 +155,73 @@ public class pz7 extends ho<PostData, VideoTabPbFloatUserInfoViewHolder> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.b == null || this.a.b.w() == null) {
+                return;
+            }
+            FullBrowseHelper.checkAndShowFullBrowseModeDialog(this.a.b.getPageContext(), new C0498a(this));
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pz7 a;
+
+        public b(pz7 pz7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pz7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pz7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f09236d) {
-                    if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
-                        String str = view2.getTag() != null ? (String) view2.getTag() : null;
-                        if (str != null) {
-                            UrlManager.getInstance().dealOneLink(this.a.i.getPageContext(), new String[]{str});
-                        }
-                        TiebaStatic.eventStat(this.a.i.getPageContext().getPageActivity(), "consume_2", "click", 1, new Object[0]);
+                if (view2.getId() == R.id.obfuscated_res_0x7f091983) {
+                    if (this.a.f(11009)) {
+                        this.a.i(8);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092368) {
-                    if (view2.getTag(R.id.obfuscated_res_0x7f091ea3) instanceof String) {
-                        vl4.q(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ad), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + ((String) view2.getTag(R.id.obfuscated_res_0x7f091ea3)) + "&opacity=0", true, true, true);
-                        TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 2));
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091cba) {
+                    if (this.a.f(11009)) {
+                        this.a.i(3);
                     }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f09235b) {
-                    HeadImageView headView = ((HeadPendantClickableView) view2).getHeadView();
-                    String userId = headView.getUserId();
-                    String userName = headView.getUserName();
-                    String fid = headView.getFid();
-                    String tid = headView.getTid();
-                    String fName = headView.getFName();
-                    int floor = headView.getFloor();
-                    AlaInfoData alaInfo = headView.getAlaInfo();
-                    int liveStatus = headView.getLiveStatus();
-                    if (alaInfo != null && (liveStatus == 1 || alaInfo.live_status == 1)) {
-                        if (alaInfo.isLegalYYLiveData()) {
-                            YYLiveUtil.jumpYYLiveRoom(this.a.i.getPageContext(), alaInfo, YYLiveUtil.SOURCE_PB_LIVE_HEAD);
-                        }
-                        StatisticItem statisticItem = new StatisticItem("c13715");
-                        statisticItem.param("fid", fid);
-                        statisticItem.param("fname", fName);
-                        AlaUserInfoData alaUserInfoData = alaInfo.user_info;
-                        statisticItem.param("obj_param1", alaUserInfoData != null ? alaUserInfoData.user_id : 0L);
-                        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                        statisticItem.param("tid", tid);
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, floor);
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, YYLiveUtil.calculateLiveType(alaInfo));
-                        if (alaInfo.mYyExtData != null) {
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, TiebaStatic.YYValues.YY_LIVE);
-                            TiebaStaticHelper.addYYParam(statisticItem, alaInfo.mYyExtData);
-                        }
-                        TiebaStatic.log(statisticItem);
-                        return;
-                    }
-                    TiebaStatic.log(new StatisticItem("c11923").param("obj_id", 2));
-                    StatisticItem statisticItem2 = new StatisticItem("c13267");
-                    statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem2.param("fid", fid);
-                    statisticItem2.param("tid", tid);
-                    statisticItem2.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
-                    TiebaStatic.log(statisticItem2);
-                    if (userId != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.a, userId, userName, fName, AddFriendActivityConfig.TYPE_PB_HEAD)));
-                    }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092367) {
-                    TiebaStatic.log(new StatisticItem("c11923").param("obj_id", 2));
-                    String str2 = view2.getTag(R.id.obfuscated_res_0x7f091ea3) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f091ea3) : null;
-                    String str3 = view2.getTag(R.id.obfuscated_res_0x7f091eab) instanceof String ? (String) view2.getTag(R.id.obfuscated_res_0x7f091eab) : null;
-                    String name = (this.a.j == null || this.a.j.l() == null) ? null : this.a.j.l().getName();
-                    StatisticItem statisticItem3 = new StatisticItem("c13267");
-                    statisticItem3.param("uid", str2);
-                    if (this.a.j != null) {
-                        statisticItem3.param("fid", this.a.j.m());
-                        statisticItem3.param("tid", this.a.j.Q());
-                    }
-                    statisticItem3.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
-                    TiebaStatic.log(statisticItem3);
-                    if (str2 != null) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.a, str2, str3, name, AddFriendActivityConfig.TYPE_PB_HEAD)));
-                    }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f092357 && (this.a.i instanceof VideoPbCommentFloatFragment)) {
-                    StatisticItem statisticItem4 = new StatisticItem(TbadkCoreStatisticKey.KEY_VIDEO_TAB_COMMENT_FLOAT_CLICK);
-                    statisticItem4.param("fid", this.a.j.m());
-                    statisticItem4.param("tid", this.a.j.Q());
-                    statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem4.param("post_id", this.a.j.j().I());
-                    statisticItem4.param("obj_source", 1);
-                    statisticItem4.param("obj_type", 15);
-                    statisticItem4.param("obj_locate", ((VideoPbCommentFloatFragment) this.a.i).U2());
-                    TiebaStatic.log(statisticItem4);
+                } else if (this.a.b == null || this.a.b.t() == null || this.a.b.t().Y2() == null) {
+                } else {
+                    this.a.b.t().Y2().onClick(view2);
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends CustomMessageListener {
+    public class c extends ad5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pz7 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(pz7 pz7Var, int i) {
-            super(i);
+        public c(pz7 pz7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pz7Var, Integer.valueOf(i)};
+                Object[] objArr = {pz7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -207,391 +231,303 @@ public class pz7 extends ho<PostData, VideoTabPbFloatUserInfoViewHolder> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.repackage.ad5
+        /* renamed from: a */
+        public ShareItem doInBackground() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.g == null || ((VideoTabPbFloatUserInfoViewHolder) this.a.g).o == null) {
-                return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return zx7.d(this.a.h(), ShareSwitch.isOn() ? 1 : 6, this.a.b.w());
             }
-            ((VideoTabPbFloatUserInfoViewHolder) this.a.g).o.setTextSize(TbConfig.getContentSize());
-            this.a.H();
+            return (ShareItem) invokeV.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pz7(BaseFragment baseFragment, BdUniqueId bdUniqueId) {
-        super(baseFragment.getActivity(), bdUniqueId);
+    /* loaded from: classes6.dex */
+    public class d implements ic5<ShareItem> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ pz7 b;
+
+        public d(pz7 pz7Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pz7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = pz7Var;
+            this.a = i;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ic5
+        /* renamed from: a */
+        public void onReturnDataInUI(ShareItem shareItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, shareItem) == null) {
+                MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this.b.b.getContext(), this.a, shareItem, false));
+            }
+        }
+    }
+
+    public pz7(DetailInfoFragment detailInfoFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, bdUniqueId};
+            Object[] objArr = {detailInfoFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = null;
-        this.t = new a(this);
-        b bVar = new b(this, 2004018);
-        this.u = bVar;
-        this.i = baseFragment;
-        baseFragment.registerListener(bVar);
+        this.a = new ArrayList();
+        this.p = new a(this);
+        this.q = new b(this);
+        this.b = detailInfoFragment;
+        this.d = bdTypeRecyclerView;
+        k(detailInfoFragment, bdTypeRecyclerView);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, PostData postData, VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder) {
-        n0(i, view2, viewGroup, postData, videoTabPbFloatUserInfoViewHolder);
-        return view2;
-    }
-
-    public final void g0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder, PostData postData) {
-        yr7 yr7Var;
+    public final void e(cl8 cl8Var) {
+        ForumData l;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, videoTabPbFloatUserInfoViewHolder, postData) == null) || (yr7Var = this.j) == null || yr7Var.O() == null || this.j.O().getAuthor() == null || postData == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, cl8Var) == null) || cl8Var == null || this.c == null || cl8Var.getAdvertAppInfo() == null) {
             return;
         }
-        u0(videoTabPbFloatUserInfoViewHolder, this.j.O().getAuthor(), postData);
-        y0(videoTabPbFloatUserInfoViewHolder, this.j.O().getAuthor());
-        w0(videoTabPbFloatUserInfoViewHolder, this.j.O().getAuthor());
-        r0(videoTabPbFloatUserInfoViewHolder.h, postData);
-        t0(videoTabPbFloatUserInfoViewHolder, postData);
-        x0(videoTabPbFloatUserInfoViewHolder, this.j.O().getAuthor());
-        q0(videoTabPbFloatUserInfoViewHolder, this.j.O().getAuthor());
-        v0(videoTabPbFloatUserInfoViewHolder, this.j.O().getAuthor(), postData);
-    }
-
-    public final void h0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder, PostData postData) {
-        yr7 yr7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, videoTabPbFloatUserInfoViewHolder, postData) == null) || (yr7Var = this.j) == null || yr7Var.O() == null || postData == null) {
-            return;
+        cl8Var.getAdvertAppInfo().j = new un4();
+        if (this.c.y() != null) {
+            cl8Var.getAdvertAppInfo().j.b = this.c.y().a();
         }
-        videoTabPbFloatUserInfoViewHolder.o(this.j.O().getRichTitle(), this.j.O().getTitle(), this.j.O(), k0(postData), this.j.s0());
-        videoTabPbFloatUserInfoViewHolder.n(this.a, postData);
-    }
-
-    public final void i0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder, PostData postData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, videoTabPbFloatUserInfoViewHolder, postData) == null) {
-            videoTabPbFloatUserInfoViewHolder.m(8, null);
-            yr7 yr7Var = this.j;
-            if (yr7Var == null || yr7Var.O() == null || postData == null) {
-                return;
-            }
-            if (postData.Q) {
-                videoTabPbFloatUserInfoViewHolder.m(0, postData.I());
-            }
-            BaseFragment baseFragment = this.i;
-            if (baseFragment instanceof AbsVideoPbFragment) {
-                ((AbsVideoPbFragment) baseFragment).c5(postData.Q);
-            }
+        cl8Var.getAdvertAppInfo().j.a = cl8Var.O0();
+        if (this.c.l() != null && (l = this.c.l()) != null) {
+            cl8Var.getAdvertAppInfo().j.d = l.getId();
+            cl8Var.getAdvertAppInfo().j.e = l.getFirst_class();
+            cl8Var.getAdvertAppInfo().j.f = l.getSecond_class();
         }
+        AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+        if (currentAccountObj != null) {
+            cl8Var.getAdvertAppInfo().j.g = String.valueOf(currentAccountObj.isMemberCloseAdIsOpen());
+        }
+        cl8Var.getAdvertAppInfo().j.h = cl8Var.getAdvertAppInfo().h;
+        cl8Var.getAdvertAppInfo().j.i = false;
     }
 
-    public final int j0(yr7 yr7Var) {
+    public final boolean f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null || currentAccount.length() <= 0) {
+                TbadkCoreApplication.getInst().login(this.b.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.b.x(), true, i)));
+                return false;
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final List<uo> g(bs7 bs7Var) {
         InterceptResult invokeL;
+        PostData postData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, yr7Var)) == null) {
-            if (yr7Var == null || yr7Var.O() == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bs7Var)) == null) {
+            cl8 cl8Var = null;
+            if (bs7Var == null) {
+                return null;
             }
-            if (yr7Var.O().isMutiForumThread()) {
-                return (ListUtils.isEmpty(yr7Var.p()) && (yr7Var.h() == null || StringUtils.isNull(yr7Var.h().a()))) ? 0 : 2;
+            this.e = new ArrayList();
+            Iterator<PostData> it = bs7Var.F().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    postData = null;
+                    break;
+                }
+                PostData next = it.next();
+                if (next instanceof PostData) {
+                    postData = next;
+                    if (postData.A() == 1) {
+                        break;
+                    }
+                }
             }
-            return 1;
-        }
-        return invokeL.intValue;
-    }
-
-    public final boolean k0(PostData postData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, postData)) == null) ? postData != null && ListUtils.getCount(postData.m0) >= 2 : invokeL.booleanValue;
-    }
-
-    public void l0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, videoTabPbFloatUserInfoViewHolder) == null) || videoTabPbFloatUserInfoViewHolder == null) {
-            return;
-        }
-        videoTabPbFloatUserInfoViewHolder.h(this.k);
-        videoTabPbFloatUserInfoViewHolder.k(this.p || this.q || this.r);
-        videoTabPbFloatUserInfoViewHolder.j(this.l, this.n, this.m);
-        videoTabPbFloatUserInfoViewHolder.i();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: m0 */
-    public VideoTabPbFloatUserInfoViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0690, viewGroup, false);
-            Context context = this.a;
-            BaseFragment baseFragment = this.i;
-            VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder = new VideoTabPbFloatUserInfoViewHolder(context, inflate, baseFragment instanceof AbsVideoPbFragment ? (AbsVideoPbFragment) baseFragment : null);
-            videoTabPbFloatUserInfoViewHolder.l(this.t);
-            l0(videoTabPbFloatUserInfoViewHolder);
-            this.g = videoTabPbFloatUserInfoViewHolder;
-            return videoTabPbFloatUserInfoViewHolder;
-        }
-        return (VideoTabPbFloatUserInfoViewHolder) invokeL.objValue;
-    }
-
-    public View n0(int i, View view2, ViewGroup viewGroup, PostData postData, VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, postData, videoTabPbFloatUserInfoViewHolder})) == null) {
-            yr7 yr7Var = this.j;
-            if (yr7Var != null && yr7Var.O() != null && postData != null) {
-                ry7.d(this.i.getUniqueId(), this.j, postData, 1, 1);
-                s0(videoTabPbFloatUserInfoViewHolder);
-                g0(videoTabPbFloatUserInfoViewHolder, postData);
-                h0(videoTabPbFloatUserInfoViewHolder, postData);
-                i0(videoTabPbFloatUserInfoViewHolder, postData);
-                l0(videoTabPbFloatUserInfoViewHolder);
-                videoTabPbFloatUserInfoViewHolder.q.setVisibility(8);
+            if (postData == null && bs7Var.j() != null) {
+                postData = bs7Var.j();
             }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void o0(PostData postData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, postData) == null) || postData == null || postData.s() == null) {
-            return;
-        }
-        String userId = postData.s().getUserId();
-        yr7 yr7Var = this.j;
-        String m = yr7Var != null ? yr7Var.m() : "";
-        yr7 yr7Var2 = this.j;
-        String n = yr7Var2 != null ? yr7Var2.n() : "";
-        int A = postData.A();
-        String I = postData.I();
-        StatisticItem statisticItem = new StatisticItem("c13714");
-        statisticItem.param("fid", m);
-        statisticItem.param("fname", n);
-        statisticItem.param("obj_param1", userId);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("tid", I);
-        statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, A);
-        if (postData.s().getAlaInfo() != null) {
-            AlaInfoData alaInfo = postData.s().getAlaInfo();
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, YYLiveUtil.calculateLiveType(alaInfo));
-            if (alaInfo.mYyExtData != null) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, TiebaStatic.YYValues.YY_LIVE);
-                TiebaStaticHelper.addYYParam(statisticItem, alaInfo.mYyExtData);
+            if (postData != null) {
+                this.e.add(postData);
             }
-        }
-        TiebaStatic.log(statisticItem);
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.s = str;
-        }
-    }
-
-    public void p0(yr7 yr7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, yr7Var) == null) {
-            this.j = yr7Var;
-        }
-    }
-
-    public final void q0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder, MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, videoTabPbFloatUserInfoViewHolder, metaData) == null) {
-            if (this.j != null && metaData != null) {
-                String numberUniformFormatExtra = StringHelper.numberUniformFormatExtra(metaData.getFansNum());
-                TextView textView = videoTabPbFloatUserInfoViewHolder.l;
-                textView.setText(numberUniformFormatExtra + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f05ee));
+            vs7 vs7Var = new vs7();
+            ThreadData O = bs7Var.O();
+            vs7Var.a = O;
+            if (O != null && ni.isEmpty(O.getForum_name())) {
+                vs7Var.a.setForum_name(bs7Var.n());
             }
-            String authInfo = UtilHelper.getAuthInfo(metaData, false, 24);
-            if (!TextUtils.isEmpty(authInfo)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) videoTabPbFloatUserInfoViewHolder.l.getLayoutParams();
-                layoutParams.setMargins(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds32), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-                videoTabPbFloatUserInfoViewHolder.k.setText(authInfo);
-                videoTabPbFloatUserInfoViewHolder.k.setVisibility(0);
-                return;
+            this.e.add(vs7Var);
+            ps7 ps7Var = new ps7(bs7Var.O(), bs7Var.d());
+            ps7Var.b = true;
+            this.e.add(ps7Var);
+            if (postData != null && postData.o0 != null && (bs7Var.l() == null || !TextUtils.equals(bs7Var.l().getName(), this.b.w().s0()) || !this.b.w().y0())) {
+                es7 es7Var = new es7(postData.o0);
+                es7Var.b = this.b.w().l1();
+                this.e.add(es7Var);
             }
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) videoTabPbFloatUserInfoViewHolder.l.getLayoutParams();
-            layoutParams2.setMargins(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds20), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
-            videoTabPbFloatUserInfoViewHolder.k.setVisibility(8);
-        }
-    }
-
-    public final void r0(TextView textView, PostData postData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048590, this, textView, postData) == null) || textView == null || postData == null) {
-            return;
-        }
-        textView.setTag(postData);
-        if (postData.s() != null && StringHelper.equals(this.s, postData.s().getUserId())) {
-            textView.setVisibility(0);
-            wr4 d = wr4.d(textView);
-            d.v(R.color.CAM_X0101);
-            d.n(R.string.J_X04);
-            d.f(R.color.CAM_X0302);
-            textView.setText(R.string.obfuscated_res_0x7f0f0856);
-            return;
-        }
-        textView.setVisibility(8);
-    }
-
-    public final void s0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder) {
-        yr7 yr7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, videoTabPbFloatUserInfoViewHolder) == null) || (yr7Var = this.j) == null) {
-            return;
-        }
-        this.l = yr7Var.j;
-        if (yr7Var.O() != null) {
-            this.n = this.j.O().getIs_good() == 1;
-            this.m = this.j.O().getIs_top() == 1;
-        }
-        videoTabPbFloatUserInfoViewHolder.j(this.l, this.n, this.m);
-    }
-
-    public final void t0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder, PostData postData) {
-        yr7 yr7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048592, this, videoTabPbFloatUserInfoViewHolder, postData) == null) || (yr7Var = this.j) == null || yr7Var.O() == null) {
-            return;
-        }
-        this.k = 0;
-        if (!this.j.O().isMutiForumThread()) {
-            if (postData != null && postData.s() != null) {
-                this.k = postData.s().getLevel_id();
+            List<cl8> Y = bs7Var.Y();
+            int i = 0;
+            int i2 = -1;
+            if (!jd7.e(Y) && (cl8Var = (cl8) jd7.d(Y, 0)) != null) {
+                i2 = cl8Var.getPosition();
             }
-            if (!this.j.g0()) {
-                videoTabPbFloatUserInfoViewHolder.i.setVisibility(0);
-                videoTabPbFloatUserInfoViewHolder.h(this.k);
-                return;
+            if (bs7Var.f() != null) {
+                as7 as7Var = new as7();
+                as7Var.f(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f6d));
+                this.e.add(as7Var);
+                if (TbSingleton.getInstance().isBrowseMode()) {
+                    this.e.add(new qs7());
+                } else {
+                    int i3 = 1;
+                    for (go4 go4Var : bs7Var.f()) {
+                        if (Y != null && i3 == i2) {
+                            if (cl8Var != null) {
+                                e(cl8Var);
+                                jd7.a(this.e, cl8Var);
+                                i++;
+                                if (cl8Var.getType() != AdvertAppInfo.x) {
+                                    i3++;
+                                }
+                            }
+                            if (i < Y.size() && (cl8Var = (cl8) jd7.d(Y, i)) != null) {
+                                i2 = cl8Var.getPosition();
+                            }
+                        }
+                        jd7.a(this.e, go4Var);
+                        i3++;
+                        if (i3 == 4 && bs7Var.C() != null) {
+                            jd7.a(this.e, bs7Var.C());
+                            i3++;
+                        }
+                    }
+                }
             }
-            videoTabPbFloatUserInfoViewHolder.i.setVisibility(8);
-            return;
+            return this.e;
         }
-        videoTabPbFloatUserInfoViewHolder.i.setVisibility(8);
+        return (List) invokeL.objValue;
     }
 
-    public final void u0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder, MetaData metaData, PostData postData) {
+    public final int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048593, this, videoTabPbFloatUserInfoViewHolder, metaData, postData) == null) || this.j == null || metaData == null || postData == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            bs7 bs7Var = this.c;
+            if (bs7Var == null || bs7Var.O() == null) {
+                return -1;
+            }
+            return this.c.O().getActInfoType();
         }
-        videoTabPbFloatUserInfoViewHolder.d.getHeadView().setUserId(metaData.getUserId());
-        videoTabPbFloatUserInfoViewHolder.d.getHeadView().setUserName(metaData.getUserName());
-        videoTabPbFloatUserInfoViewHolder.d.getHeadView().setTid(postData.I());
-        yr7 yr7Var = this.j;
-        videoTabPbFloatUserInfoViewHolder.d.getHeadView().setFid(yr7Var != null ? yr7Var.m() : "");
-        yr7 yr7Var2 = this.j;
-        videoTabPbFloatUserInfoViewHolder.d.getHeadView().setFName(yr7Var2 != null ? yr7Var2.n() : "");
-        videoTabPbFloatUserInfoViewHolder.d.j(metaData, 4);
-        videoTabPbFloatUserInfoViewHolder.d.n(metaData);
-        if (metaData.getAlaInfo() != null && metaData.getAlaUserData() != null && metaData.getAlaUserData().live_status == 1) {
-            videoTabPbFloatUserInfoViewHolder.e(true);
-            videoTabPbFloatUserInfoViewHolder.d.getHeadView().setLiveStatus(1);
-            videoTabPbFloatUserInfoViewHolder.d.getHeadView().setAlaInfo(postData.s().getAlaInfo());
-            o0(postData);
-            return;
-        }
-        videoTabPbFloatUserInfoViewHolder.e(false);
-        videoTabPbFloatUserInfoViewHolder.d.getHeadView().setLiveStatus(0);
-        videoTabPbFloatUserInfoViewHolder.d.getHeadView().setAlaInfo(null);
+        return invokeV.intValue;
     }
 
-    public final void v0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder, MetaData metaData, PostData postData) {
+    public final void i(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048594, this, videoTabPbFloatUserInfoViewHolder, metaData, postData) == null) || this.j == null || postData == null || postData.s() == null) {
-            return;
-        }
-        yr7 yr7Var = this.j;
-        String Q = yr7Var != null ? yr7Var.Q() : "";
-        int j0 = j0(this.j);
-        int i = 4;
-        if (this.j.O() != null && this.j.O().isVideoWorksInfo()) {
-            i = 8;
-        }
-        if (this.o == null) {
-            wv7 wv7Var = new wv7(this.i.getPageContext(), videoTabPbFloatUserInfoViewHolder.m, i);
-            this.o = wv7Var;
-            wv7Var.l(this.i.getUniqueId());
-        }
-        postData.s().setIsLike(postData.s().hadConcerned());
-        this.o.n(postData.s());
-        this.o.y(Q);
-        this.o.w(this.j.O());
-        wv7 wv7Var2 = this.o;
-        wv7Var2.p = true;
-        wv7Var2.x(j0);
-        this.o.k(true);
-        if (StringHelper.equals(TbadkCoreApplication.getCurrentAccount(), metaData.getUserId())) {
-            videoTabPbFloatUserInfoViewHolder.m.setVisibility(8);
-            videoTabPbFloatUserInfoViewHolder.m.setText("");
-        } else if (!PbNormalLikeButtonSwitch.getIsOn()) {
-            videoTabPbFloatUserInfoViewHolder.m.setVisibility(8);
-            videoTabPbFloatUserInfoViewHolder.m.setText("");
-        }
-        if (this.j.i) {
-            videoTabPbFloatUserInfoViewHolder.m.setVisibility(8);
-            videoTabPbFloatUserInfoViewHolder.m.setText("");
-        }
-        if (postData.s().getIsLike()) {
-            videoTabPbFloatUserInfoViewHolder.m.setVisibility(8);
-            videoTabPbFloatUserInfoViewHolder.m.setText("");
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            dd5.b(new c(this), new d(this, i));
+            StatisticItem statisticItem = new StatisticItem("c13833");
+            statisticItem.param("obj_locate", 1);
+            if (i == 3) {
+                statisticItem.param("obj_type", 1);
+            } else if (i == 8) {
+                statisticItem.param("obj_type", 2);
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public final void w0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder, MetaData metaData) {
+    public final void j(DetailInfoFragment detailInfoFragment) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048595, this, videoTabPbFloatUserInfoViewHolder, metaData) == null) || metaData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, detailInfoFragment) == null) {
+            this.n = ma8.q().a(detailInfoFragment.t().getBaseFragmentActivity(), AdvertAppInfo.x);
+            this.o = ma8.q().a(detailInfoFragment.t().getBaseFragmentActivity(), AdvertAppInfo.z);
+            this.a.add(this.n);
+            this.a.add(this.o);
         }
-        videoTabPbFloatUserInfoViewHolder.g.setText(metaData.getName_show());
-        videoTabPbFloatUserInfoViewHolder.g.setTag(R.id.obfuscated_res_0x7f091ea3, metaData.getUserId());
-        videoTabPbFloatUserInfoViewHolder.g.setTag(R.id.obfuscated_res_0x7f091eab, metaData.getName_show());
-        this.q = metaData.isBigV();
-        this.r = metaData.isNewGod();
     }
 
-    public final void x0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder, MetaData metaData) {
+    public final void k(DetailInfoFragment detailInfoFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048596, this, videoTabPbFloatUserInfoViewHolder, metaData) == null) || this.j == null || metaData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, detailInfoFragment, bdTypeRecyclerView) == null) {
+            AbsVideoPbFragment t = detailInfoFragment.t();
+            this.f = new uz7(t, t, PostData.w0);
+            this.g = new sz7(detailInfoFragment.getContext(), vs7.b);
+            PbFirstFloorCommentAndPraiseAdapter pbFirstFloorCommentAndPraiseAdapter = new PbFirstFloorCommentAndPraiseAdapter(detailInfoFragment.t(), ps7.f);
+            this.h = pbFirstFloorCommentAndPraiseAdapter;
+            pbFirstFloorCommentAndPraiseAdapter.n0(this.q);
+            this.i = new tu7(detailInfoFragment.t(), as7.c);
+            ru7 ru7Var = new ru7(detailInfoFragment.t(), go4.e);
+            this.j = ru7Var;
+            ru7Var.g0(true);
+            this.k = new jv7(detailInfoFragment.t());
+            this.l = new PbFirstFloorItemAdapter(detailInfoFragment.getContext(), es7.c);
+            fw7 fw7Var = new fw7(detailInfoFragment.t(), qs7.a);
+            this.m = fw7Var;
+            fw7Var.e0(this.p);
+            this.a.add(this.f);
+            this.a.add(this.g);
+            this.a.add(this.h);
+            this.a.add(this.i);
+            this.a.add(this.j);
+            this.a.add(this.k);
+            this.a.add(this.l);
+            this.a.add(this.m);
+            j(detailInfoFragment);
+            bdTypeRecyclerView.a(this.a);
         }
-        ArrayList<IconData> iconInfo = metaData.getIconInfo();
-        videoTabPbFloatUserInfoViewHolder.j.setTag(R.id.obfuscated_res_0x7f091ea3, metaData.getUserId());
-        videoTabPbFloatUserInfoViewHolder.j.g(iconInfo, 4, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10));
     }
 
-    public final void y0(VideoTabPbFloatUserInfoViewHolder videoTabPbFloatUserInfoViewHolder, MetaData metaData) {
+    public void l() {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048597, this, videoTabPbFloatUserInfoViewHolder, metaData) == null) || metaData == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bdTypeRecyclerView = this.d) == null || bdTypeRecyclerView.getAdapter() == null) {
             return;
         }
-        ArrayList<IconData> tShowInfoNew = metaData.getTShowInfoNew();
-        if (tShowInfoNew != null && tShowInfoNew.size() > 0 && tShowInfoNew.get(0) != null) {
-            this.p = true;
-            videoTabPbFloatUserInfoViewHolder.f.setTag(tShowInfoNew.get(0).getUrl());
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) videoTabPbFloatUserInfoViewHolder.g.getLayoutParams();
-            layoutParams.setMargins(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-        } else {
-            this.p = false;
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) videoTabPbFloatUserInfoViewHolder.g.getLayoutParams();
-            layoutParams2.setMargins(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10), layoutParams2.topMargin, layoutParams2.rightMargin, layoutParams2.bottomMargin);
+        this.d.getListAdapter().notifyDataSetChanged();
+    }
+
+    public void m() {
+        uz7 uz7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (uz7Var = this.f) == null) {
+            return;
         }
-        videoTabPbFloatUserInfoViewHolder.f.h(tShowInfoNew, 3, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36), TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10), true);
+        uz7Var.H();
+    }
+
+    public void n(bs7 bs7Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, bs7Var) == null) || bs7Var == null) {
+            return;
+        }
+        this.c = bs7Var;
+        BdTypeRecyclerView bdTypeRecyclerView = this.d;
+        if (bdTypeRecyclerView != null) {
+            bdTypeRecyclerView.setVisibility(0);
+        }
+        this.f.A0(bs7Var);
+        this.j.f0(bs7Var);
+        this.k.d0(bs7Var);
+        this.d.setData(g(bs7Var));
     }
 }

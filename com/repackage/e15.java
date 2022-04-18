@@ -66,10 +66,10 @@ public class e15 {
                 return null;
             }
             multiImgToolView.setAsyncLocalImageLoader(k35Var);
-            fl8 fl8Var = new fl8(context);
-            fl8Var.e(multiImgToolView.getDragLayer());
-            fl8Var.g(multiImgToolView.getDragHorizonScrollView());
-            fl8Var.f(multiImgToolView.getDragHorizonScrollView());
+            ml8 ml8Var = new ml8(context);
+            ml8Var.e(multiImgToolView.getDragLayer());
+            ml8Var.g(multiImgToolView.getDragHorizonScrollView());
+            ml8Var.f(multiImgToolView.getDragHorizonScrollView());
             if (i > 1) {
                 multiImgToolView.getDragHorizonScrollView().setAddView(b(context, multiImgToolView));
             } else {

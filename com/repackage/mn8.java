@@ -1,66 +1,60 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetIconList.Custom;
+import tbclient.GetIconList.Setting;
+import tbclient.GetIconList.UserInfo;
 /* loaded from: classes6.dex */
-public class mn8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static boolean b = true;
+public class mn8 extends BaseCardInfo implements uo {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Custom a;
+    public UserInfo b;
+    public Setting c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755493414, "Lcom/repackage/mn8;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755493414, "Lcom/repackage/mn8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755493414, "Lcom/repackage/mn8;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        d = BdUniqueId.gen();
+    }
+
+    public mn8() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755493414, "Lcom/repackage/mn8;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static boolean a(Intent intent) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            if (!PermissionUtil.isAgreePrivacyPolicy() || intent == null) {
-                return false;
-            }
-            String action = intent.getAction();
-            Set<String> categories = intent.getCategories();
-            boolean z = !AdToMainTabActivitySwitch.getIsOn() && action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER") && PermissionUtil.isAgreePrivacyPolicy() && a;
-            a = false;
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
-            if (intent == null) {
-                return false;
-            }
-            String action = intent.getAction();
-            Set<String> categories = intent.getCategories();
-            boolean z = AdToMainTabActivitySwitch.getIsOn() && b && action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER");
-            b = false;
-            return z;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 }

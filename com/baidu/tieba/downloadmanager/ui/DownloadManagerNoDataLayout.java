@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class DownloadManagerNoDataLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -73,7 +73,7 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(null);
             SkinManager.setImageResource(this.a, R.drawable.im_no_data_icon);
-            wr4 d = wr4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.v(R.color.CAM_X0110);
             d.z(R.dimen.T_X08);
         }

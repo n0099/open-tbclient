@@ -147,9 +147,9 @@ public class EmojiBagLayout extends LinearLayout {
                 } else {
                     linearLayout = (LinearLayout) view2;
                 }
-                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090eb5);
+                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090eb6);
                 if (i == getCount() - 1) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f081178);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f08117c);
                 } else if (i < this.a.size()) {
                     imageView.setImageBitmap(wx2.c().a(this.a.get(i)));
                 }

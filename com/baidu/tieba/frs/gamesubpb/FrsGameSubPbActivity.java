@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.al6;
 import com.repackage.cl6;
+import com.repackage.el6;
 import com.repackage.uo;
-import com.repackage.wk6;
-import com.repackage.xk6;
 import com.repackage.yk6;
+import com.repackage.zk6;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
@@ -33,13 +33,13 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
     public boolean isDelComment;
     public View.OnClickListener mCommonClickListener;
     public int mForumId;
-    public wk6 mHalfToFullScreenController;
+    public yk6 mHalfToFullScreenController;
     public String mMainTowerId;
-    public xk6 mSubPbModel;
-    public cl6 mSubPbView;
+    public zk6 mSubPbModel;
+    public el6 mSubPbView;
 
     /* loaded from: classes3.dex */
-    public class a implements wk6.e {
+    public class a implements yk6.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
@@ -64,7 +64,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             this.a = false;
         }
 
-        @Override // com.repackage.wk6.e
+        @Override // com.repackage.yk6.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -73,14 +73,14 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             }
         }
 
-        @Override // com.repackage.wk6.e
+        @Override // com.repackage.yk6.e
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
         }
 
-        @Override // com.repackage.wk6.e
+        @Override // com.repackage.yk6.e
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements xk6.d {
+    public class c implements zk6.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameSubPbActivity a;
@@ -153,23 +153,23 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             this.a = frsGameSubPbActivity;
         }
 
-        @Override // com.repackage.xk6.d
-        public void a(boolean z, int i, String str, boolean z2, boolean z3, yk6 yk6Var, List<uo> list) {
+        @Override // com.repackage.zk6.d
+        public void a(boolean z, int i, String str, boolean z2, boolean z3, al6 al6Var, List<uo> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Boolean.valueOf(z2), Boolean.valueOf(z3), yk6Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Boolean.valueOf(z2), Boolean.valueOf(z3), al6Var, list}) == null) {
                 if (this.a.mHalfToFullScreenController != null && this.a.mHalfToFullScreenController.h()) {
                     this.a.mHalfToFullScreenController.k(R.color.cp_bg_line_k_alpha10_1);
                 }
                 if (z) {
                     FrsGameSubPbActivity frsGameSubPbActivity = this.a;
                     frsGameSubPbActivity.hideNetRefreshView(frsGameSubPbActivity.mSubPbView.x());
-                    this.a.mSubPbView.O(z2, yk6Var, list);
+                    this.a.mSubPbView.O(z2, al6Var, list);
                     if (ListUtils.isEmpty(list)) {
                         return;
                     }
                     uo uoVar = list.get(list.size() - 1);
-                    if (uoVar instanceof al6) {
-                        this.a.mSubPbModel.m(((al6) uoVar).a);
+                    if (uoVar instanceof cl6) {
+                        this.a.mSubPbModel.m(((cl6) uoVar).a);
                     }
                 } else if (z3) {
                 } else {
@@ -178,7 +178,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     FrsGameSubPbActivity frsGameSubPbActivity3 = this.a;
                     View x = frsGameSubPbActivity3.mSubPbView.x();
                     if (TextUtils.isEmpty(str)) {
-                        str = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f6a);
+                        str = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0f69);
                     }
                     frsGameSubPbActivity3.showNetRefreshView(x, str, false);
                     if (this.a.mHalfToFullScreenController != null) {
@@ -188,22 +188,22 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             }
         }
 
-        @Override // com.repackage.xk6.d
-        public void b(boolean z, int i, String str, al6 al6Var) {
+        @Override // com.repackage.zk6.d
+        public void b(boolean z, int i, String str, cl6 cl6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, al6Var}) == null) {
-                this.a.mSubPbView.z(z, str, al6Var);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, cl6Var}) == null) {
+                this.a.mSubPbView.z(z, str, cl6Var);
                 if (z) {
                     this.a.isAddComment = true;
                 }
             }
         }
 
-        @Override // com.repackage.xk6.d
-        public void c(boolean z, int i, String str, al6 al6Var) {
+        @Override // com.repackage.zk6.d
+        public void c(boolean z, int i, String str, cl6 cl6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, al6Var}) == null) {
-                this.a.mSubPbView.A(z, str, al6Var);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, cl6Var}) == null) {
+                this.a.mSubPbView.A(z, str, cl6Var);
                 if (z) {
                     this.a.isDelComment = true;
                 }
@@ -329,19 +329,19 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                 finish();
             }
             initListeners();
-            cl6 cl6Var = new cl6(this, this.mCommonClickListener, this.mMainTowerId);
-            this.mSubPbView = cl6Var;
-            setContentView(cl6Var.x());
-            wk6 wk6Var = new wk6(this, this.mSubPbView.u(), this.mSubPbView.v());
-            this.mHalfToFullScreenController = wk6Var;
-            wk6Var.g();
+            el6 el6Var = new el6(this, this.mCommonClickListener, this.mMainTowerId);
+            this.mSubPbView = el6Var;
+            setContentView(el6Var.x());
+            yk6 yk6Var = new yk6(this, this.mSubPbView.u(), this.mSubPbView.v());
+            this.mHalfToFullScreenController = yk6Var;
+            yk6Var.g();
             this.mHalfToFullScreenController.j(new a(this));
             this.mSubPbView.H(this.mHalfToFullScreenController);
             this.mSubPbView.P(true);
             this.mSubPbView.I(new b(this));
-            xk6 xk6Var = new xk6(this, this.mForumId, this.mMainTowerId);
-            this.mSubPbModel = xk6Var;
-            xk6Var.l(new c(this));
+            zk6 zk6Var = new zk6(this, this.mForumId, this.mMainTowerId);
+            this.mSubPbModel = zk6Var;
+            zk6Var.l(new c(this));
             this.mSubPbModel.h(false);
         }
     }
@@ -351,9 +351,9 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            cl6 cl6Var = this.mSubPbView;
-            if (cl6Var != null) {
-                cl6Var.E();
+            el6 el6Var = this.mSubPbView;
+            if (el6Var != null) {
+                el6Var.E();
             }
         }
     }

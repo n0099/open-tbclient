@@ -35,12 +35,12 @@ import com.repackage.f9;
 import com.repackage.fo;
 import com.repackage.hg;
 import com.repackage.ig;
+import com.repackage.im4;
 import com.repackage.jb;
 import com.repackage.jc5;
-import com.repackage.jm4;
 import com.repackage.kb;
 import com.repackage.wk;
-import com.repackage.xr4;
+import com.repackage.wr4;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class GifView extends TbImageView implements Runnable, View.OnClickListener, wk {
@@ -60,7 +60,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     public final Rect K0;
     public final Rect L0;
     public boolean M0;
-    public jm4 N0;
+    public im4 N0;
     public View.OnClickListener O0;
     public boolean P0;
     public boolean Q0;
@@ -536,7 +536,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     public float[] getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? xr4.b(this.U0) : (float[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? wr4.b(this.U0) : (float[]) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
@@ -603,8 +603,8 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, view2) == null) {
-            jm4 jm4Var = this.N0;
-            if (jm4Var == null || !jm4Var.a(view2)) {
+            im4 im4Var = this.N0;
+            if (im4Var == null || !im4Var.a(view2)) {
                 if (this.Y0 != null) {
                     boolean f = jc5.f();
                     GifInfo gifInfo = this.Y0;
@@ -1052,11 +1052,11 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         }
     }
 
-    public void setOnInterceptClickListener(jm4 jm4Var) {
+    public void setOnInterceptClickListener(im4 im4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, jm4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048622, this, im4Var) == null) {
             super.setOnClickListener(this);
-            this.N0 = jm4Var;
+            this.N0 = im4Var;
         }
     }
 
@@ -1140,7 +1140,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         this.P0 = false;
         this.Q0 = false;
         this.R0 = false;
-        this.V0 = R.drawable.obfuscated_res_0x7f080b6d;
+        this.V0 = R.drawable.obfuscated_res_0x7f080b71;
         this.W0 = new a(this, Looper.getMainLooper());
         this.Z0 = 20;
         this.a1 = true;

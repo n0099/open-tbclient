@@ -29,7 +29,7 @@ public class d35 {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || a || qi4.C().E() || !mi.z()) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || a || pi4.C().E() || !mi.z()) {
             return;
         }
         ActivityChangeSchemeModel activityChangeSchemeModel = new ActivityChangeSchemeModel();

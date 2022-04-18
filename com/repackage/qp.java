@@ -69,7 +69,7 @@ public class qp {
                                                     JSONObject optJSONObject4 = jSONArray.optJSONObject(0);
                                                     if (optJSONObject4 != null) {
                                                         pp ppVar = new pp();
-                                                        tc7.i(optJSONObject4.optJSONObject("lego_card").toString());
+                                                        wc7.i(optJSONObject4.optJSONObject("lego_card").toString());
                                                         ppVar.a = str2;
                                                         return ppVar;
                                                     }

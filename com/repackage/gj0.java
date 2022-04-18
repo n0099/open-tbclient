@@ -120,7 +120,7 @@ public class gj0 {
             Context b = hi0.b();
             char c2 = 0;
             if (!NetUtil.a(b) && (TextUtils.equals(optString, "startdownload") || TextUtils.equals(optString, "resumedownload"))) {
-                Toast.makeText(b, b.getString(R.string.obfuscated_res_0x7f0f0b7c), 0).show();
+                Toast.makeText(b, b.getString(R.string.obfuscated_res_0x7f0f0b7b), 0).show();
                 return;
             }
             switch (optString.hashCode()) {

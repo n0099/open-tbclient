@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.MimeTypes;
-import com.repackage.r94;
+import com.repackage.q94;
 import java.io.IOException;
 import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class lj3 extends p94<String> {
+public class lj3 extends o94<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r94.a a;
+    public final q94.a a;
 
-    public lj3(r94.a aVar) {
+    public lj3(q94.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,7 +38,7 @@ public class lj3 extends p94<String> {
         this.a = aVar;
     }
 
-    @Override // com.repackage.r94.a
+    @Override // com.repackage.q94.a
     public void a(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) && c()) {
@@ -90,7 +90,7 @@ public class lj3 extends p94<String> {
                         wj3Var.j();
                         return;
                     }
-                    r94.a aVar = this.a;
+                    q94.a aVar = this.a;
                     aVar.onFail(new IOException("request fail : " + str));
                     wj3Var.h = 0;
                     return;
@@ -137,7 +137,7 @@ public class lj3 extends p94<String> {
         return (String) invokeLIL.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.repackage.r94.a
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.repackage.q94.a
     public void onFail(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
@@ -150,7 +150,7 @@ public class lj3 extends p94<String> {
         }
     }
 
-    @Override // com.repackage.r94.a
+    @Override // com.repackage.q94.a
     public void onStart() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && c()) {

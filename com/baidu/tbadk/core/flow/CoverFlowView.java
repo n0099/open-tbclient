@@ -24,23 +24,23 @@ import com.repackage.bs4;
 import com.repackage.cs4;
 import com.repackage.ds4;
 import com.repackage.es4;
-import com.repackage.fs4;
+import com.repackage.zr4;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class CoverFlowView<T extends bs4> extends FrameLayout {
+public class CoverFlowView<T extends as4> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListViewPager a;
     public IndicatorView b;
-    public ds4 c;
+    public cs4 c;
     public View d;
     public CoverFlowAdapter<T> e;
-    public as4 f;
+    public zr4 f;
     public CoverFlowView<T>.b g;
     public boolean h;
     public boolean i;
     public boolean j;
-    public es4<T> k;
+    public ds4<T> k;
     public CoverFlowView<T>.d l;
     public CoverFlowView<T>.c m;
     public long n;
@@ -133,7 +133,7 @@ public class CoverFlowView<T extends bs4> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r7v25, resolved type: com.repackage.es4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r7v25, resolved type: com.repackage.ds4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
@@ -157,7 +157,7 @@ public class CoverFlowView<T extends bs4> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.repackage.es4 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.repackage.ds4 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
@@ -210,7 +210,7 @@ public class CoverFlowView<T extends bs4> extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             int intValue;
-            bs4 b;
+            as4 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.k == null || !(view2.getTag() instanceof Integer) || (b = this.a.e.b((intValue = ((Integer) view2.getTag()).intValue()))) == null) {
                 return;
@@ -329,7 +329,7 @@ public class CoverFlowView<T extends bs4> extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             r(context);
             q(context);
-            setCoverFlowFactory(new cs4());
+            setCoverFlowFactory(new bs4());
             addView(this.a);
             addView(this.b);
             CoverFlowAdapter<T> coverFlowAdapter = new CoverFlowAdapter<>(context);
@@ -357,15 +357,15 @@ public class CoverFlowView<T extends bs4> extends FrameLayout {
     }
 
     public void s() {
-        ds4 ds4Var;
+        cs4 cs4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.e.c();
             IndicatorView indicatorView = this.b;
-            if (indicatorView == null || (ds4Var = this.c) == null) {
+            if (indicatorView == null || (cs4Var = this.c) == null) {
                 return;
             }
-            indicatorView.setDrawable(SkinManager.getDrawable(ds4Var.a()));
+            indicatorView.setDrawable(SkinManager.getDrawable(cs4Var.a()));
             this.b.setSelector(SkinManager.getDrawable(this.c.b()));
         }
     }
@@ -377,24 +377,24 @@ public class CoverFlowView<T extends bs4> extends FrameLayout {
         }
     }
 
-    public void setCallback(es4<T> es4Var) {
+    public void setCallback(ds4<T> ds4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, es4Var) == null) {
-            this.k = es4Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ds4Var) == null) {
+            this.k = ds4Var;
         }
     }
 
-    public void setCoverFlowFactory(as4 as4Var) {
+    public void setCoverFlowFactory(zr4 zr4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, as4Var) == null) || as4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, zr4Var) == null) || zr4Var == null) {
             return;
         }
-        this.f = as4Var;
-        ds4 a2 = as4Var.a();
+        this.f = zr4Var;
+        cs4 a2 = zr4Var.a();
         this.c = a2;
         a2.i(this.b);
-        as4Var.c().b(this.a);
-        View b2 = as4Var.b();
+        zr4Var.c().b(this.a);
+        View b2 = zr4Var.b();
         this.d = b2;
         if (b2 != null) {
             removeAllViews();
@@ -528,13 +528,13 @@ public class CoverFlowView<T extends bs4> extends FrameLayout {
         }
     }
 
-    public void x(fs4 fs4Var) {
+    public void x(es4 es4Var) {
         ListViewPager listViewPager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048599, this, fs4Var) == null) || fs4Var == null || (listViewPager = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048599, this, es4Var) == null) || es4Var == null || (listViewPager = this.a) == null) {
             return;
         }
-        fs4Var.b(listViewPager);
+        es4Var.b(listViewPager);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

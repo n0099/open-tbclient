@@ -22,14 +22,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ei3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements oi3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class ei3 {
         public final /* synthetic */ ei3 c;
 
         /* renamed from: com.repackage.ei3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class RunnableC0410a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class ei3 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements DelegateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -225,7 +225,7 @@ public class ei3 {
                 viewGroup = null;
             } else {
                 viewGroup = (ViewGroup) x.findViewById(16908290);
-                rz2.h(x, viewGroup, x.getResources().getString(R.string.obfuscated_res_0x7f0f12a2));
+                rz2.h(x, viewGroup, x.getResources().getString(R.string.obfuscated_res_0x7f0f12a1));
             }
             ri3.b(new a(this, viewGroup, vg1Var));
         }

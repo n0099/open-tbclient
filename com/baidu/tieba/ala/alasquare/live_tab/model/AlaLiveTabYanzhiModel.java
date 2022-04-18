@@ -19,9 +19,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mi;
 import com.repackage.oi;
-import com.repackage.sp5;
-import com.repackage.to5;
 import com.repackage.uo;
+import com.repackage.up5;
+import com.repackage.vo5;
 import com.yy.hiidostatis.inner.FlushManager;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -33,7 +33,7 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public sp5 f;
+    public up5 f;
     public long g;
     public String h;
     public String i;
@@ -78,9 +78,9 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
                         this.a.j.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
                 } else {
-                    to5 to5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    vo5 vo5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
-                        this.a.f.a(to5Var);
+                        this.a.f.a(vo5Var);
                         AlaLiveTabYanzhiModel.E(this.a);
                     } else {
                         AlaLiveTabFragment.j++;
@@ -88,7 +88,7 @@ public class AlaLiveTabYanzhiModel extends BdBaseModel {
                             this.a.f.b();
                         }
                         AlaLiveTabYanzhiModel alaLiveTabYanzhiModel = this.a;
-                        alaLiveTabYanzhiModel.f = new sp5(to5Var, alaLiveTabYanzhiModel.h, this.a.i);
+                        alaLiveTabYanzhiModel.f = new up5(vo5Var, alaLiveTabYanzhiModel.h, this.a.i);
                     }
                     AlaLiveTabYanzhiModel alaLiveTabYanzhiModel2 = this.a;
                     alaLiveTabYanzhiModel2.c = alaLiveTabYanzhiModel2.f.f();

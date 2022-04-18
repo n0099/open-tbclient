@@ -134,7 +134,7 @@ public class fj2 {
                     }
                 } else {
                     String q = L.d0().q("installed_debug_bundle_md5", "");
-                    String b2 = pg4.b(b, false);
+                    String b2 = og4.b(b, false);
                     if (!TextUtils.equals(q, b2)) {
                         if (!fj2.N(b, e(), gl2Var, pe3Var)) {
                             b03.g(AppRuntime.getAppContext(), "小程序bundle解压失败!").G();
@@ -354,8 +354,8 @@ public class fj2 {
             for (File file : listFiles) {
                 if (k(str2, file.getName())) {
                     jx1.k("SwanAppBundleHelper", "#deleteLowerVersionFolder del：" + file.getAbsolutePath());
-                    f84.i().d(str, file.getName());
-                    ng4.j(file);
+                    e84.i().d(str, file.getName());
+                    mg4.j(file);
                     nq2.b(str, file.getName());
                 }
             }
@@ -364,7 +364,7 @@ public class fj2 {
         public static void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-                ng4.L(fj2.q());
+                mg4.L(fj2.q());
             }
         }
 
@@ -375,16 +375,16 @@ public class fj2 {
             }
             File f = f(str, false);
             if (f != null) {
-                ng4.L(f);
+                mg4.L(f);
             }
             File file = new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_folder" + File.separator + str);
             nq2.a(str);
-            ng4.L(file);
-            ng4.L(new File(fj2.o(str)));
+            mg4.L(file);
+            mg4.L(new File(fj2.o(str)));
             int indexOf = str.indexOf("_dev");
             if (indexOf != -1) {
                 String substring = str.substring(0, indexOf);
-                ng4.L(new File(fj2.o(substring + "_dev")));
+                mg4.L(new File(fj2.o(substring + "_dev")));
             }
         }
 
@@ -705,7 +705,7 @@ public class fj2 {
                 jx1.l("SwanAppBundleHelper", "#parseBundleVersion ex=", e2);
                 if (name.endsWith(".tmp")) {
                     jx1.k("SwanAppBundleHelper", "#parseBundleVersion deleteDir=" + file);
-                    ng4.j(file);
+                    mg4.j(file);
                 }
                 j = Long.MAX_VALUE;
                 z = false;
@@ -788,7 +788,7 @@ public class fj2 {
             }
             boolean mkdirs = file2.mkdirs();
             jx1.k("SwanAppBundleHelper", "#tryMkdirs del: " + file2.getAbsolutePath());
-            ng4.L(file2);
+            mg4.L(file2);
             return mkdirs;
         }
         return invokeLL.booleanValue;
@@ -816,7 +816,7 @@ public class fj2 {
                         U = ij2.d(j.a, file2, i2).a;
                         i = j.b;
                     } else {
-                        U = ng4.U(file.getPath(), file2.getPath());
+                        U = mg4.U(file.getPath(), file2.getPath());
                     }
                     long currentTimeMillis2 = System.currentTimeMillis();
                     if (a) {
@@ -932,14 +932,14 @@ public class fj2 {
                                         long j = entry.getValue().versionCode;
                                         File file = new File(o, key);
                                         if (file.exists() && file.isDirectory()) {
-                                            for (File file2 : ng4.C(file)) {
+                                            for (File file2 : mg4.C(file)) {
                                                 if (file2 != null) {
                                                     Pair<Boolean, Long> D = D(file2);
                                                     if (((Boolean) D.first).booleanValue() && ((Long) D.second).longValue() < j) {
                                                         if (x(key)) {
                                                             break;
                                                         }
-                                                        ng4.L(file2);
+                                                        mg4.L(file2);
                                                         jx1.k("SwanAppBundleHelper", "删历史版本包，file=" + file2.getAbsolutePath());
                                                     }
                                                 }
@@ -962,7 +962,7 @@ public class fj2 {
         if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
             synchronized (fj2.class) {
                 if (w()) {
-                    t74.b().y("SwanAppBundleHelper", "hasDoneFallbackStrategy true");
+                    s74.b().y("SwanAppBundleHelper", "hasDoneFallbackStrategy true");
                     E(str, "repeat");
                     return;
                 }
@@ -974,11 +974,11 @@ public class fj2 {
                     E(str, "canwrite");
                     return;
                 }
-                r74 b2 = t74.b();
+                q74 b2 = s74.b();
                 b2.y("SwanAppBundleHelper", "tryMkdirs fail. Base folder: " + g2.getAbsolutePath() + " child file:" + str);
                 if (g2.exists()) {
                     jx1.k("SwanAppBundleHelper", "#doSwanFolderFallback del: " + g2.getAbsolutePath());
-                    ng4.L(g2);
+                    mg4.L(g2);
                 }
                 if (!g2.exists() && g2.mkdirs() && L(g2, str)) {
                     E(str, "delete");
@@ -1091,7 +1091,7 @@ public class fj2 {
                     if (a) {
                         Log.d("SwanAppBundleHelper", "getConfigContent read start: " + path);
                     }
-                    String E = ng4.E(file);
+                    String E = mg4.E(file);
                     c72.b().c(path, E);
                     if (a) {
                         Log.d("SwanAppBundleHelper", "getConfigContent read end: " + path);

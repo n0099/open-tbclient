@@ -59,8 +59,8 @@ public class ToastUtil {
             } else {
                 inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04c7, (ViewGroup) null);
             }
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc6);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc7);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc7);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc8);
             if (-1 == i) {
                 imageView.setVisibility(8);
             } else {

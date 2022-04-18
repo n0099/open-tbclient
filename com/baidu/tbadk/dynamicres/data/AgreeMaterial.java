@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mg;
 import com.repackage.te5;
+import java.io.File;
 import java.util.Arrays;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -148,6 +149,16 @@ public class AgreeMaterial extends OrmObject {
             return (Data) invokeL.objValue;
         }
 
+        /* JADX WARN: Code restructure failed: missing block: B:30:0x008c, code lost:
+            if (java.util.Arrays.asList(r8.fid.split(",")).contains(r11) != false) goto L13;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:39:0x00bb, code lost:
+            if (com.baidu.tbadk.dynamicres.data.AgreeMaterial.z(r8.nightDirName + r9) == false) goto L29;
+         */
+        /* JADX WARN: Removed duplicated region for block: B:33:0x0091  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public String A(String str, String str2, String str3) {
             InterceptResult invokeLLL;
             StringBuilder sb;
@@ -157,28 +168,42 @@ public class AgreeMaterial extends OrmObject {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
                 long g = mg.g(this.startTime, 0L);
                 long g2 = mg.g(this.endTime, 0L);
-                if (currentTimeMillis < g || currentTimeMillis >= g2 || StringUtils.isNull(this.dayDirName)) {
-                    return null;
-                }
-                boolean z = this.all;
-                if (StringUtils.isNull(str2) || StringUtils.isNull(this.tid) ? !(StringUtils.isNull(str3) || StringUtils.isNull(this.fid) || !Arrays.asList(this.fid.split(",")).contains(str3)) : Arrays.asList(this.tid.split(",")).contains(str2)) {
-                    z = true;
-                }
-                if (z) {
-                    int skinType = TbadkCoreApplication.getInst().getSkinType();
-                    if ((skinType == 1 || skinType == 4) && StringUtils.isNull(this.nightDirName)) {
-                        return this.dayDirName + str;
+                if (currentTimeMillis >= g && currentTimeMillis < g2 && !StringUtils.isNull(this.dayDirName)) {
+                    if (AgreeMaterial.z(this.dayDirName + str)) {
+                        boolean z = false;
+                        if (!this.all) {
+                            if (!StringUtils.isNull(str2) && !StringUtils.isNull(this.tid) && Arrays.asList(this.tid.split(",")).contains(str2)) {
+                                z = true;
+                            }
+                            if (!z) {
+                                if (!StringUtils.isNull(str3)) {
+                                    if (!StringUtils.isNull(this.fid)) {
+                                    }
+                                }
+                            }
+                            if (z) {
+                                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                                if (skinType == 1 || skinType == 4) {
+                                    if (!StringUtils.isNull(this.nightDirName)) {
+                                    }
+                                    return this.dayDirName + str;
+                                }
+                                if (skinType == 1 || skinType == 4) {
+                                    sb = new StringBuilder();
+                                    str4 = this.nightDirName;
+                                } else {
+                                    sb = new StringBuilder();
+                                    str4 = this.dayDirName;
+                                }
+                                sb.append(str4);
+                                sb.append(str);
+                                return sb.toString();
+                            }
+                        }
+                        z = true;
+                        if (z) {
+                        }
                     }
-                    if (skinType == 1 || skinType == 4) {
-                        sb = new StringBuilder();
-                        str4 = this.nightDirName;
-                    } else {
-                        sb = new StringBuilder();
-                        str4 = this.dayDirName;
-                    }
-                    sb.append(str4);
-                    sb.append(str);
-                    return sb.toString();
                 }
                 return null;
             }
@@ -216,7 +241,7 @@ public class AgreeMaterial extends OrmObject {
         }
     }
 
-    public static AgreeMaterial y(JSONObject jSONObject) {
+    public static AgreeMaterial A(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
@@ -231,5 +256,17 @@ public class AgreeMaterial extends OrmObject {
             return agreeMaterial;
         }
         return (AgreeMaterial) invokeL.objValue;
+    }
+
+    public static boolean z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(TBLottieAnimationView.getAnimationPath());
+            sb.append(str);
+            return new File(sb.toString()).exists();
+        }
+        return invokeL.booleanValue;
     }
 }

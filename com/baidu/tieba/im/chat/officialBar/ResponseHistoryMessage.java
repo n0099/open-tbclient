@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
+import com.repackage.br4;
 import com.repackage.ni;
 import com.repackage.qe;
 import com.squareup.wire.Wire;
@@ -107,8 +107,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             if (this.msg.isEmpty()) {
                 return;
             }
-            cr4.f();
-            qe<byte[]> d = cr4.d("tb.im_official_history");
+            br4.f();
+            qe<byte[]> d = br4.d("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage == null || requestHistoryMessage.getRequestId() != 0) {
                 return;

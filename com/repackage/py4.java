@@ -1,7 +1,7 @@
 package com.repackage;
 
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface py4 {
-    void a(ShareItem shareItem, int i, boolean z);
+    oy4 a(Context context, ny4 ny4Var);
 }

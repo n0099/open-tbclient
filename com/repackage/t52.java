@@ -164,7 +164,7 @@ public class t52 {
             this.d = i;
         }
 
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.repackage.r94.a
+        @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.repackage.q94.a
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && t52.h) {
@@ -529,15 +529,15 @@ public class t52 {
                 p(i2, str2, str3, z);
                 return;
             }
-            l74 l74Var = new l74();
-            l74Var.b = "HEAD";
-            HttpRequestBuilder a2 = n74.a(l74Var);
+            k74 k74Var = new k74();
+            k74Var.b = "HEAD";
+            HttpRequestBuilder a2 = m74.a(k74Var);
             a2.setHeader("Referer", yp1.d());
-            l74Var.a = str2;
-            l74Var.f = true;
-            l74Var.g = false;
-            l74Var.h = true;
-            m74.g().u(a2, l74Var);
+            k74Var.a = str2;
+            k74Var.f = true;
+            k74Var.g = false;
+            k74Var.h = true;
+            l74.g().u(a2, k74Var);
             HttpRequest build = a2.enableStat(true).build();
             if (z) {
                 y(i2, "校验通过", "开始向 url=" + str2 + " 发送预连接 HEAD 请求");

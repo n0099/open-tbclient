@@ -24,15 +24,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ad5;
 import com.repackage.dd5;
 import com.repackage.ic5;
-import com.repackage.sy4;
-import com.repackage.tk6;
+import com.repackage.ry4;
+import com.repackage.vk6;
 /* loaded from: classes3.dex */
-public class GameShareCardActivity extends BaseActivity implements tk6.h {
+public class GameShareCardActivity extends BaseActivity implements vk6.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GameShareData mShareData;
-    public sy4 mShareTool;
-    public tk6 mView;
+    public ry4 mShareTool;
+    public vk6 mView;
 
     /* loaded from: classes3.dex */
     public class a extends ad5<ShareItem> {
@@ -383,7 +383,7 @@ public class GameShareCardActivity extends BaseActivity implements tk6.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, bundle) == null) {
             if (this.mShareTool == null) {
-                this.mShareTool = new sy4(getActivity(), null);
+                this.mShareTool = new ry4(getActivity(), null);
             }
             if (bundle == null) {
                 this.mShareData = (GameShareData) getIntent().getParcelableExtra(GameShareActivityConfig.KEY_GAME_SHARE_DATA);
@@ -397,7 +397,7 @@ public class GameShareCardActivity extends BaseActivity implements tk6.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             if (this.mView == null) {
-                this.mView = new tk6(getActivity(), this);
+                this.mView = new vk6(getActivity(), this);
             }
             setContentView(this.mView.i());
             this.mView.m(this.mShareData);
@@ -424,7 +424,7 @@ public class GameShareCardActivity extends BaseActivity implements tk6.h {
         }
     }
 
-    @Override // com.repackage.tk6.h
+    @Override // com.repackage.vk6.h
     public void onCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -449,14 +449,14 @@ public class GameShareCardActivity extends BaseActivity implements tk6.h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            tk6 tk6Var = this.mView;
-            if (tk6Var != null) {
-                tk6Var.j();
+            vk6 vk6Var = this.mView;
+            if (vk6Var != null) {
+                vk6Var.j();
             }
         }
     }
 
-    @Override // com.repackage.tk6.h
+    @Override // com.repackage.vk6.h
     public void onQQShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) || bitmap == null) {
@@ -475,7 +475,7 @@ public class GameShareCardActivity extends BaseActivity implements tk6.h {
         }
     }
 
-    @Override // com.repackage.tk6.h
+    @Override // com.repackage.vk6.h
     public void onSinaShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, bitmap) == null) || bitmap == null) {
@@ -485,7 +485,7 @@ public class GameShareCardActivity extends BaseActivity implements tk6.h {
         dd5.b(new g(this, bitmap), new h(this));
     }
 
-    @Override // com.repackage.tk6.h
+    @Override // com.repackage.vk6.h
     public void onWeixinShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap) == null) || bitmap == null) {
@@ -495,7 +495,7 @@ public class GameShareCardActivity extends BaseActivity implements tk6.h {
         dd5.b(new a(this, bitmap), new b(this));
     }
 
-    @Override // com.repackage.tk6.h
+    @Override // com.repackage.vk6.h
     public void onWxFriendsShare(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) || bitmap == null) {

@@ -337,7 +337,7 @@ public class vb3 {
                 l = fj2.e.i(n.H(), n.v1()).getPath();
             }
             String str = l + File.separator + oVar.b;
-            if (ng4.v(str)) {
+            if (mg4.v(str)) {
                 swanAppBottomTabIconView.setmIsSelect(false);
                 de3.e0(new b(this, swanAppBottomTabIconView, BitmapFactory.decodeFile(str)));
                 return true;
@@ -367,7 +367,7 @@ public class vb3 {
                 l = fj2.e.i(n.H(), n.v1()).getPath();
             }
             String str = l + File.separator + oVar.c;
-            if (ng4.v(str)) {
+            if (mg4.v(str)) {
                 swanAppBottomTabIconView.setmIsSelect(true);
                 de3.e0(new c(this, swanAppBottomTabIconView, BitmapFactory.decodeFile(str)));
                 return true;

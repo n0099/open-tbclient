@@ -1,9 +1,6 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.os.Build;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import android.graphics.Color;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,36 +9,30 @@ public class kd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                return Integer.parseInt(Build.VERSION.SDK);
-            } catch (NumberFormatException unused) {
-                return 0;
-            }
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a() >= 14 : invokeV.booleanValue;
-    }
-
-    public static boolean c(Activity activity) {
+    public static int b(String str) {
         InterceptResult invokeL;
-        Resources resources;
-        int identifier;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (!b() || (identifier = (resources = activity.getResources()).getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android")) <= 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null) {
+                if (str.length() != 0) {
+                    try {
+                        if (!str.startsWith("#")) {
+                            str = "#" + str;
+                        }
+                    } catch (Exception unused) {
+                        return Integer.MAX_VALUE;
+                    }
+                }
+                return Color.parseColor(str);
             }
-            return resources.getBoolean(identifier);
+            return Integer.MAX_VALUE;
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 }

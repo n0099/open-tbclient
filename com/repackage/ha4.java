@@ -1,208 +1,115 @@
 package com.repackage;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public class ha4<T> implements z74<T> {
+public class ha4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final kd4 c;
+    public static ha4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public z74<T> a;
-    public int b;
+    public x94 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755654986, "Lcom/repackage/ha4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755654986, "Lcom/repackage/ha4;");
-                return;
-            }
-        }
-        c = kd4.e();
-    }
-
-    public ha4(z74<T> z74Var) {
+    public ha4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {z74Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.a = z74Var;
+        this.a = new x94();
     }
 
-    @Override // com.repackage.z74
-    public void a(T t) {
-        z74<T> z74Var;
+    public static ha4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (z74Var = this.a) == null) {
-            return;
-        }
-        try {
-            z74Var.a(t);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloadProgress 错误", e);
-        }
-    }
-
-    @Override // com.repackage.z74
-    public void c(T t) {
-        z74<T> z74Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) || (z74Var = this.a) == null) {
-            return;
-        }
-        try {
-            z74Var.c(t);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloadStart 错误", e);
-        }
-    }
-
-    @Override // com.repackage.z74
-    public String d(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            z74<T> z74Var = this.a;
-            String d = z74Var != null ? z74Var.d(t) : null;
-            if (d == null) {
-                try {
-                    return od4.d(AppRuntime.getAppContext()).getAbsolutePath();
-                } catch (Exception e) {
-                    c.g("PMSDownStreamCallbackGuard", "#getDownloadPath getPmsDir出错", e);
-                    return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ha4 ha4Var = b;
+            if (ha4Var != null) {
+                return ha4Var;
+            }
+            synchronized (ha4.class) {
+                if (b == null) {
+                    b = new ha4();
                 }
             }
-            return d;
+            return b;
         }
-        return (String) invokeL.objValue;
+        return (ha4) invokeV.objValue;
     }
 
-    @Override // com.repackage.z74
-    public void e(T t, c94 c94Var) {
-        z74<T> z74Var;
+    public t94 a(ja4 ja4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, t, c94Var) == null) || (z74Var = this.a) == null) {
-            return;
-        }
-        try {
-            z74Var.e(t, c94Var);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloadError 错误", e);
-        }
-    }
-
-    @Override // com.repackage.z74
-    public void f(T t) {
-        z74<T> z74Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || (z74Var = this.a) == null) {
-            return;
-        }
-        try {
-            z74Var.f(t);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloading 错误", e);
-        }
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.z74
-    public c94 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
-            z74<T> z74Var = this.a;
-            if (z74Var != null) {
-                return z74Var.h(t, file, j, readableByteChannel);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ja4Var)) == null) {
+            if (ja4Var == null) {
+                return null;
             }
-            return new c94(2302, "业务层默认不处理下载流");
+            return new oa4(ja4Var, false);
         }
-        return (c94) invokeCommon.objValue;
+        return (t94) invokeL.objValue;
     }
 
-    @Override // com.repackage.z74
-    public void i(T t) {
-        z74<T> z74Var;
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean e;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, t) == null) || (z74Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                e = this.a.e(str);
+            }
+            return e;
         }
-        try {
-            z74Var.i(t);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloadFinish 错误", e);
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                f = this.a.f(str);
+            }
+            return f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void e(fa4 fa4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, fa4Var) == null) {
+            synchronized (this) {
+                this.a.c(fa4Var);
+            }
         }
     }
 
-    @Override // com.repackage.z74
-    public void j(T t) {
-        z74<T> z74Var;
+    public synchronized <T> void f(ja4<T> ja4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) || (z74Var = this.a) == null) {
-            return;
-        }
-        try {
-            z74Var.j(t);
-        } catch (Exception e) {
-            c.g("PMSDownStreamCallbackGuard", "#onDownloadStop 错误", e);
+        if (interceptable == null || interceptable.invokeL(1048580, this, ja4Var) == null) {
+            synchronized (this) {
+                ja4Var.s(false);
+                this.a.h(ja4Var);
+            }
         }
     }
 
-    @Override // com.repackage.z74
-    public Map<String, Object> k() {
-        InterceptResult invokeV;
+    public synchronized void g(fa4 fa4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.k() : (Map) invokeV.objValue;
-    }
-
-    @Override // com.repackage.b84
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
-            z74<T> z74Var = this.a;
-            return z74Var == null ? new Bundle() : z74Var.m(bundle, set);
+        if (interceptable == null || interceptable.invokeL(1048581, this, fa4Var) == null) {
+            synchronized (this) {
+                this.a.i(fa4Var);
+            }
         }
-        return (Bundle) invokeLL.objValue;
     }
 }

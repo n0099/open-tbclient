@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.qp4;
+import com.repackage.pp4;
 import com.repackage.y45;
 import java.util.ArrayList;
 import java.util.List;
@@ -134,9 +134,9 @@ public class VideoHotTopicModel extends BdBaseModel {
         }
         this.f = true;
         this.e = this.a.getCurrentPn() + 1;
-        qp4 qp4Var = new qp4();
-        qp4Var.k(this.e);
-        this.c.b(this.a.getSortType(), qp4Var, l.longValue());
+        pp4 pp4Var = new pp4();
+        pp4Var.k(this.e);
+        this.c.b(this.a.getSortType(), pp4Var, l.longValue());
     }
 
     public void E(@Nullable b bVar) {

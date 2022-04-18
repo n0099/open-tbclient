@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-import com.repackage.am9;
-import com.repackage.bm9;
+import com.repackage.hm9;
+import com.repackage.im9;
 /* loaded from: classes5.dex */
 public class ArCoreApk {
     public static /* synthetic */ Interceptable $ic;
@@ -285,7 +285,7 @@ public class ArCoreApk {
     public static ArCoreApk b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? bm9.d() : (ArCoreApk) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? im9.d() : (ArCoreApk) invokeV.objValue;
     }
 
     public abstract Availability a(Context context);
@@ -416,7 +416,7 @@ public class ArCoreApk {
             return invokeV.booleanValue;
         }
 
-        public /* synthetic */ Availability(String str, int i, int i2, am9 am9Var) {
+        public /* synthetic */ Availability(String str, int i, int i2, hm9 hm9Var) {
             this(str, i, i2);
         }
     }

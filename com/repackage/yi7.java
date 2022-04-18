@@ -9,19 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipBasicList;
-import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipUpgrade;
 /* loaded from: classes7.dex */
 public class yi7 implements uo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public zi7 a;
-    public List<VipSpecialItem> b;
-    public int c;
-    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -36,53 +30,44 @@ public class yi7 implements uo {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        a = BdUniqueId.gen();
     }
 
-    public yi7(VipBasicList vipBasicList) {
+    public yi7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipBasicList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        this.c = 0;
-        this.d = "";
-        if (vipBasicList == null || vipBasicList.item.size() <= 0) {
-            return;
-        }
-        this.d = vipBasicList.card_id;
-        this.c = vipBasicList.card_type.intValue();
-        zi7 zi7Var = new zi7();
-        this.a = zi7Var;
-        zi7Var.e(5);
-        this.a.d(vipBasicList.class_name);
-        this.a.f(vipBasicList.class_url_name);
-        this.a.g(vipBasicList.class_url);
-        this.b = new ArrayList();
-        for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
-            this.b.add(vipSpecialItem);
         }
     }
 
-    public List<VipSpecialItem> a() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
+        VipUpgrade vipUpgrade;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null || (vipUpgrade = dataRes.upgrade) == null) {
+            return;
+        }
+        String str = vipUpgrade.svip;
+        String str2 = vipUpgrade.link;
+        String str3 = vipUpgrade.button;
+        String str4 = vipUpgrade.text;
+        vipUpgrade.pay.intValue();
+        dataRes.upgrade.normal.intValue();
+        VipUpgrade vipUpgrade2 = dataRes.upgrade;
+        String str5 = vipUpgrade2.card_id;
+        String str6 = vipUpgrade2.expire;
     }
 
     @Override // com.repackage.uo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

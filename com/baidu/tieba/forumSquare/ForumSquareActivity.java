@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yb6;
-import com.repackage.zb6;
+import com.repackage.ac6;
+import com.repackage.bc6;
 /* loaded from: classes3.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yb6 mDelegate;
+    public ac6 mDelegate;
 
     public ForumSquareActivity() {
         Interceptable interceptable = $ic;
@@ -37,10 +37,10 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a073" : (String) invokeV.objValue;
     }
 
-    public yb6 getDelegate() {
+    public ac6 getDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegate : (yb6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegate : (ac6) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -48,9 +48,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            zb6 zb6Var = this.mDelegate.d;
-            if (zb6Var != null) {
-                zb6Var.a(i);
+            bc6 bc6Var = this.mDelegate.d;
+            if (bc6Var != null) {
+                bc6Var.a(i);
             }
         }
     }
@@ -60,9 +60,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            yb6 yb6Var = new yb6(this, getPageContext());
-            this.mDelegate = yb6Var;
-            yb6Var.n(getIntent());
+            ac6 ac6Var = new ac6(this, getPageContext());
+            this.mDelegate = ac6Var;
+            ac6Var.n(getIntent());
             this.mDelegate.p();
         }
     }

@@ -225,8 +225,8 @@ public class NadImageInsertingView extends NadInsertingBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05b0, this);
-            this.e = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914c5);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c6);
+            this.e = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914c6);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c7);
         }
     }
 

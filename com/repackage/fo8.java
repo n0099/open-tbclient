@@ -1,56 +1,51 @@
 package com.repackage;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.framework.MessageManager;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.GrowthStatsUtil;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.clientConfig.ClientConfigModel;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.tblauncher.SchemaRouteActivity;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tieba.tblauncher.alarmRemind.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
+import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes6.dex */
 public class fo8 {
     public static /* synthetic */ Interceptable $ic;
+    public static fo8 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public boolean b;
+    public ClientConfigModel a;
+    public d b;
+    public boolean c;
+    public final om4 d;
+    public CustomMessageListener e;
+    public CustomMessageListener f;
 
     /* loaded from: classes6.dex */
-    public class a implements BdUniDispatchSchemeController.b {
+    public class a implements om4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Intent a;
+        public final /* synthetic */ fo8 a;
 
-        public a(fo8 fo8Var, Intent intent) {
+        public a(fo8 fo8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fo8Var, intent};
+                Object[] objArr = {fo8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,87 +55,163 @@ public class fo8 {
                     return;
                 }
             }
-            this.a = intent;
+            this.a = fo8Var;
         }
 
-        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
-        public void a(HashMap<String, Object> hashMap) {
+        @Override // com.repackage.om4
+        public void a(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) || hashMap == null || this.a == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.a.c = false;
+                if (obj == null || !(obj instanceof DataRes)) {
+                    return;
+                }
+                DataRes dataRes = (DataRes) obj;
+                if (dataRes.local_dialog != null) {
+                    String g = eo8.g(dataRes);
+                    if (TextUtils.isEmpty(g)) {
+                        return;
+                    }
+                    TbadkSettings.getInst().saveString(this.a.h("remind_recommend_info"), g);
+                    TbadkSettings.getInst().saveInt(this.a.h("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
+                    TbadkSettings.getInst().saveString(this.a.h("remind_recommend_dialog_time"), dataRes.local_dialog.time);
+                    this.a.k(true);
+                    TbadkSettings.getInst().saveLong(this.a.h("remind_recommend_data_time"), System.currentTimeMillis());
+                }
+            }
+        }
+
+        @Override // com.repackage.om4
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.a.c = false;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fo8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(fo8 fo8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fo8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fo8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && mi.z() && this.a.f()) {
+                this.a.g();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fo8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(fo8 fo8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fo8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fo8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && this.a.f()) {
+                this.a.k(true);
+                this.a.g();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fo8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(fo8 fo8Var) {
+            super(2001011);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fo8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fo8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Boolean data;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage instanceof BackgroundSwitchMessage) || (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) == null || data.booleanValue()) {
                 return;
             }
-            Object obj = hashMap.get(BdUniDispatchSchemeController.NATIVE_PARAM_MAINTAB_LOCATE);
-            int intValue = obj instanceof Integer ? ((Integer) obj).intValue() : -1;
-            Object obj2 = hashMap.get(BdUniDispatchSchemeController.NATIVE_PARAM_MAINTAB_SUBTAB);
-            String str = obj2 instanceof String ? (String) obj2 : null;
-            Object obj3 = hashMap.get(BdUniDispatchSchemeController.PARAM_TAB_NAME);
-            String str2 = obj3 instanceof String ? (String) obj3 : null;
-            Object obj4 = hashMap.get(BdUniDispatchSchemeController.PARAM_TAB_CODE);
-            String str3 = obj4 instanceof String ? (String) obj4 : null;
-            if (intValue != -1) {
-                this.a.putExtra("is_from_scheme", true);
-                this.a.putExtra("locate_type", intValue);
-                this.a.putExtra("sub_locate_type", str);
-                this.a.putExtra("sub_tab_name", str2);
-                this.a.putExtra("sub_tab_code", str3);
-                rt4.b = intValue;
-                Object obj5 = hashMap.get(BdUniDispatchSchemeController.PARAM_NEW_GOD_FROM);
-                String str4 = obj5 instanceof String ? (String) obj5 : null;
-                Object obj6 = hashMap.get(BdUniDispatchSchemeController.PARAM_FIELD_ID);
-                String str5 = obj6 instanceof String ? (String) obj6 : null;
-                this.a.putExtra(BdUniDispatchSchemeController.PARAM_NEW_GOD_FROM, str4);
-                this.a.putExtra(BdUniDispatchSchemeController.PARAM_FIELD_ID, str5);
-            }
-            pi4.y().N(true);
-            if (intValue == 1 && "ForumSquare".equals(str)) {
-                rt4.c = rt4.e;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921528));
+            vt4.k().x("tieba_last_active_time", System.currentTimeMillis());
+            if (this.a.f()) {
+                this.a.k(true);
+                this.a.g();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ fo8 b;
-
-        public b(fo8 fo8Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fo8Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fo8Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                nb.b().d();
-                UrlManager.getInstance().dealOneLink(this.b.a.getPageContext(), new String[]{this.a});
-            }
-        }
-    }
-
-    public fo8(MainTabActivity mainTabActivity, pn8 pn8Var) {
+    public fo8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -150,87 +221,108 @@ public class fo8 {
                 return;
             }
         }
-        this.b = false;
-        this.a = mainTabActivity;
+        this.c = false;
+        this.d = new a(this);
+        this.e = new b(this, 2000994);
+        this.f = new c(this, 2005016);
     }
 
-    public void b(Intent intent) {
+    public static fo8 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null) {
-            return;
-        }
-        String dataString = intent.getDataString();
-        UtilHelper.clearClipBoardBySchemaParam(dataString);
-        if (!StringUtils.isNull(dataString) && dataString.startsWith("tbmaintab://")) {
-            String decode = Uri.decode(intent.getData().getEncodedPath());
-            if (StringUtils.isNull(decode)) {
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_type", 1).param(TiebaStatic.Params.OBJ_TO, 1).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                ij4.a(param, decode);
-                TiebaStatic.log(param);
-                return;
-            }
-            if (decode.startsWith("//")) {
-                decode = decode.substring(2);
-            }
-            Map<String, String> paramPair = UrlManager.getParamPair(decode);
-            if (paramPair == null) {
-                return;
-            }
-            if ("bpush".equals(paramPair.get("fr"))) {
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                ij4.b(statisticItem, paramPair);
-                statisticItem.param("obj_locate", paramPair.get("obj_locate"));
-                statisticItem.param("obj_type", 1);
-                statisticItem.param("obj_source", paramPair.get("obj_source"));
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2));
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, 1);
-                statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
-                statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                if (!ni.isEmpty(paramPair.get("ext_log"))) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(paramPair.get("ext_log"));
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            statisticItem.param(next, jSONObject.getString(next));
-                        }
-                    } catch (Exception e) {
-                        BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (g == null) {
+                synchronized (fo8.class) {
+                    if (g == null) {
+                        g = new fo8();
                     }
                 }
-                TiebaStatic.log(statisticItem);
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SCHEMA_UPLOAD);
-                httpMessage.addParam("call_url", dataString);
-                MessageManager.getInstance().sendMessage(httpMessage);
             }
-            pi4.y().N(true);
-        } else if (!StringUtils.isNull(dataString) && (dataString.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT) || dataString.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TB_CLIENT_ZM) || dataString.startsWith(UrlSchemaHelper.SCHEMA_LIVE_SDK) || dataString.startsWith(UrlSchemaHelper.SCHEMA_CHUSHOU_LIVE_SDK))) {
-            String dataString2 = intent.getDataString();
-            if (!StringUtils.isNull(dataString2) && PermissionUtil.isAgreePrivacyPolicy()) {
-                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{dataString2});
-                pi4.y().N(true);
-            }
-        } else if (!StringUtils.isNULL(dataString) && dataString.startsWith(BdUniDispatchSchemeController.SCHEME)) {
-            BdUniDispatchSchemeController.getInstance().parseMainTabScheme(intent.getData(), new a(this, intent));
+            return g;
         }
-        String stringExtra = intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME);
-        if (!StringUtils.isNull(stringExtra)) {
-            pg.a().postDelayed(new b(this, stringExtra), this.b ? 0L : DeviceInfoUtil.getMainTabActJumpOtherDelayTime());
-            this.a.getIntent().removeExtra(MainTabActivityConfig.TARGET_SCHEME);
-            this.a.getIntent().putExtra(MainTabActivityConfig.TARGET_SCHEME_BAK, stringExtra);
-            GrowthStatsUtil.statisticChannel("push", stringExtra);
-        } else if (StringUtils.isNull(SchemaRouteActivity.targetSchemeAction)) {
-        } else {
-            SchemeActionManager.getInstance().doSchemeAction(this.a.getPageContext(), SchemaRouteActivity.targetSchemeAction);
-            SchemaRouteActivity.targetSchemeAction = null;
+        return (fo8) invokeV.objValue;
+    }
+
+    public void e(BaseFragmentActivity baseFragmentActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, baseFragmentActivity) == null) {
+            d dVar = new d(this);
+            this.b = dVar;
+            baseFragmentActivity.registerListener(dVar);
+            baseFragmentActivity.registerListener(this.e);
+            baseFragmentActivity.registerListener(this.f);
+            this.a = new ClientConfigModel(baseFragmentActivity, this.d);
+            vt4.k().x("tieba_last_active_time", System.currentTimeMillis());
+            if (f()) {
+                k(true);
+                g();
+            }
         }
     }
 
-    public void c() {
+    public final boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TbadkCoreApplication.isLogin()) {
+                k(false);
+                return false;
+            } else if (!eo8.e()) {
+                k(false);
+                return false;
+            } else if (eo8.d()) {
+                return true;
+            } else {
+                k(false);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (eo8.f(TbadkSettings.getInst().loadLong(h("remind_recommend_data_time"), 0L)) || TbadkCoreApplication.getInst().checkInterrupt()) {
+                return;
+            }
+            j();
+        }
+    }
+
+    public String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return TbadkCoreApplication.getCurrentAccount() + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void j() {
+        ClientConfigModel clientConfigModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (clientConfigModel = this.a) == null || this.c) {
+            return;
+        }
+        this.c = true;
+        clientConfigModel.D("local_dialog");
+    }
+
+    public final void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            AlarmManager alarmManager = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
+            PendingIntent broadcast = PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 0, new Intent(TbadkCoreApplication.getInst().getApp(), AlarmReceiver.class), 134217728);
+            try {
+                if (z) {
+                    alarmManager.setRepeating(0, eo8.b() + 86400000, 86400000L, broadcast);
+                } else {
+                    alarmManager.cancel(broadcast);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 }

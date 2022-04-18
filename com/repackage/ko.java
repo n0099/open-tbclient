@@ -215,7 +215,7 @@ public class ko {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
             for (int i = 0; i < this.a.size(); i++) {
                 c cVar = this.a.get(i);
-                if (cVar != null && (tag = (view2 = cVar.c.itemView).getTag(R.id.obfuscated_res_0x7f090f5f)) != null && tag.equals(obj)) {
+                if (cVar != null && (tag = (view2 = cVar.c.itemView).getTag(R.id.obfuscated_res_0x7f090f60)) != null && tag.equals(obj)) {
                     return view2;
                 }
             }

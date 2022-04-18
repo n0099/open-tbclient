@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jl9;
-import com.repackage.kl9;
-import com.repackage.ll9;
+import com.repackage.ql9;
+import com.repackage.rl9;
+import com.repackage.sl9;
 @Singleton
 @Service
 /* loaded from: classes2.dex */
@@ -24,7 +24,7 @@ public class LooperMonitor implements ILooperMonitor {
     public static volatile boolean sIsStartTrack;
     public static LooperContextDispatcher sLooperContextDispatcher;
     public transient /* synthetic */ FieldHolder $fh;
-    public kl9 mBlockCanaryCore;
+    public rl9 mBlockCanaryCore;
     public boolean mMonitorStarted;
 
     static {
@@ -76,12 +76,12 @@ public class LooperMonitor implements ILooperMonitor {
         Track.getInstance().startTrack(context);
     }
 
-    public void addBlockInterceptor(ll9 ll9Var) {
+    public void addBlockInterceptor(sl9 sl9Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ll9Var) == null) || ll9Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, sl9Var) == null) || sl9Var == null) {
             return;
         }
-        this.mBlockCanaryCore.b(ll9Var);
+        this.mBlockCanaryCore.b(sl9Var);
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
@@ -105,11 +105,11 @@ public class LooperMonitor implements ILooperMonitor {
             if (sLooperContextDispatcher == null) {
                 sLooperContextDispatcher = new LooperContextDispatcher();
             }
-            jl9.init(context, sLooperContextDispatcher, i);
-            kl9.k(jl9.get());
-            kl9 e = kl9.e();
+            ql9.init(context, sLooperContextDispatcher, i);
+            rl9.k(ql9.get());
+            rl9 e = rl9.e();
             this.mBlockCanaryCore = e;
-            e.b(jl9.get());
+            e.b(ql9.get());
             startLooperPrint();
             startTrack(context);
         }

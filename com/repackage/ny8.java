@@ -2,86 +2,104 @@ package com.repackage;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ny8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LruCache<String, Bitmap> a;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? os8.d : (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class a extends LruCache<String, Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? os8.c : (String) invokeV.objValue;
-    }
-
-    public static String c(String str, Bitmap bitmap, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, str, bitmap, str2)) != null) {
-            return (String) invokeLLL.objValue;
-        }
-        String str3 = "";
-        FileOutputStream fileOutputStream = null;
-        try {
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            try {
-            } catch (Exception e2) {
-                e = e2;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ny8 ny8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ny8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public void entryRemoved(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) || bitmap == null || bitmap.isRecycled()) {
+                return;
+            }
+            bitmap.recycle();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: b */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) ? (bitmap.getRowBytes() * bitmap.getHeight()) / 1024 : invokeLL.intValue;
+        }
+    }
+
+    public ny8(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (i > 0) {
+            this.a = new a(this, i);
+            return;
+        }
+        throw new IllegalArgumentException("maxSize <= 0");
+    }
+
+    public Bitmap a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return "";
+                return null;
             }
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(file, str2);
-            if (!file2.exists()) {
-                file2.createNewFile();
-            }
-            FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-            try {
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream2);
-                fileOutputStream2.flush();
-                str3 = file2.getAbsolutePath();
-                fileOutputStream2.close();
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream = fileOutputStream2;
-                e.printStackTrace();
-                if (fileOutputStream != null) {
-                    fileOutputStream.close();
-                }
-                return str3;
-            } catch (Throwable th) {
-                th = th;
-                fileOutputStream = fileOutputStream2;
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-            return str3;
-        } catch (Throwable th2) {
-            th = th2;
+            return this.a.get(str);
         }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public void b(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap) == null) || TextUtils.isEmpty(str) || bitmap == null || bitmap.isRecycled()) {
+            return;
+        }
+        this.a.put(str, bitmap);
     }
 }

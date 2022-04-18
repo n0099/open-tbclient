@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fj2;
-import com.repackage.hb4;
+import com.repackage.gb4;
 import com.repackage.y32;
 import java.io.File;
 import java.util.Set;
@@ -134,7 +134,7 @@ public class y33 {
                     y33.k(this.b, this.e, this.d, this.c, this.f, true);
                     return;
                 }
-                b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f12e6).G();
+                b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f12e5).G();
                 y33.h(this.a, this.b.b, "pkg_retry_fail", String.valueOf(cc3Var == null ? 0L : cc3Var.a()));
                 this.c.c(2113, cc3Var);
             }
@@ -351,7 +351,7 @@ public class y33 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (this.c.b) {
-                        b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f12e6).G();
+                        b03.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f12e5).G();
                     }
                     this.c.a.c(this.a, this.b);
                 }
@@ -437,7 +437,7 @@ public class y33 {
                                 eVar.b(str);
                                 return;
                             }
-                            Set<hb4.a> i = qv2.i(j03Var.V().f0());
+                            Set<gb4.a> i = qv2.i(j03Var.V().f0());
                             if (i != null && !i.isEmpty()) {
                                 z = false;
                             }
@@ -509,14 +509,14 @@ public class y33 {
         }
     }
 
-    public static void j(Set<hb4.a> set, e eVar, String str) {
+    public static void j(Set<gb4.a> set, e eVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65546, null, set, eVar, str) == null) {
-            hb4 hb4Var = new hb4(set);
-            hb4Var.d("3");
+            gb4 gb4Var = new gb4(set);
+            gb4Var.d("3");
             a aVar = new a(eVar, str);
             aVar.M(1);
-            s74.d(hb4Var, aVar);
+            r74.d(gb4Var, aVar);
         }
     }
 
@@ -532,10 +532,10 @@ public class y33 {
         HybridUbcFlow q = ot2.q("route", str3);
         q.F(new UbcFlowEvent("na_start_sub_package_download"));
         q.D("sub_state", "1");
-        kb4 kb4Var = new kb4(j03Var.b, i03.J().l());
-        kb4Var.q(de3.o(j03Var.j0()));
-        kb4Var.t(str);
-        s74.c(kb4Var, new y32(j03Var.b, new b(z, j03Var, eVar, str2, str, str3)));
+        jb4 jb4Var = new jb4(j03Var.b, i03.J().l());
+        jb4Var.q(de3.o(j03Var.j0()));
+        jb4Var.t(str);
+        r74.c(jb4Var, new y32(j03Var.b, new b(z, j03Var, eVar, str2, str, str3)));
     }
 
     public static void l(String str, String str2, String str3, String str4, String str5, String str6, e eVar) {
@@ -543,9 +543,9 @@ public class y33 {
         if (!(interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{str, str2, str3, str4, str5, str6, eVar}) == null) || eVar == null) {
             return;
         }
-        nb4 nb4Var = new nb4(str, str2, str5, 0);
-        nb4Var.d(str3);
-        s74.h(nb4Var, new a42(str, str2, new c(str4, eVar, str6)));
+        mb4 mb4Var = new mb4(str, str2, str5, 0);
+        mb4Var.d(str3);
+        r74.h(mb4Var, new a42(str, str2, new c(str4, eVar, str6)));
     }
 
     public static void m(String str, String str2, String str3, String str4, String str5, String str6, e eVar) {
@@ -561,9 +561,9 @@ public class y33 {
             return;
         }
         String e2 = el2.b().e(str, str4);
-        nb4 nb4Var = new nb4(str, str2, str5, 0);
-        nb4Var.d(str3);
-        s74.h(nb4Var, new a42(str, str2, new d(str4, z, e2, eVar, str6, str, str2, str3, str5)));
+        mb4 mb4Var = new mb4(str, str2, str5, 0);
+        mb4Var.d(str3);
+        r74.h(mb4Var, new a42(str, str2, new d(str4, z, e2, eVar, str6, str, str2, str3, str5)));
     }
 
     public static boolean o(String str, cc3 cc3Var) {
@@ -604,7 +604,7 @@ public class y33 {
                     }
                     String str = swanAppConfigData.c.c.get(c2);
                     if (!TextUtils.isEmpty(str)) {
-                        if (f84.i().n(gl2Var.H(), gl2Var.v1(), str)) {
+                        if (e84.i().n(gl2Var.H(), gl2Var.v1(), str)) {
                             return !new File(fj2.e.i(gl2Var.H(), gl2Var.v1()), str).exists();
                         }
                         return true;

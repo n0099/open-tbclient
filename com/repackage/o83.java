@@ -157,7 +157,7 @@ public class o83 implements m83 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            String t = ng4.t(str);
+            String t = mg4.t(str);
             if (TextUtils.isEmpty(t)) {
                 return g(str);
             }

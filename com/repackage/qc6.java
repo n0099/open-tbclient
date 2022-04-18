@@ -1,112 +1,101 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class qc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public final View b;
+    public final RelativeLayout c;
+    public final EditText d;
+    public final ImageView e;
+    public final TextView f;
+    public final BdTypeListView g;
+    public final ImageView h;
+    public int i;
 
-    public static void a() {
+    public qc6(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            wt4.k().y(wt4.o("search_forum_history"), "");
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        String q = wt4.k().q(wt4.o("search_forum_history"), "");
-        if (StringUtils.isNull(q)) {
-            return;
-        }
-        try {
-            JSONArray jSONArray = new JSONArray(q);
-            if (jSONArray.length() <= 0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                Object obj = jSONArray.get(i);
-                if (!str.equals(obj)) {
-                    arrayList.add((String) obj);
-                }
+        }
+        this.i = 3;
+        this.a = tbPageContext;
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02cf, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091c09);
+        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c0c);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090d7e);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d6e);
+        this.d.setHint(R.string.obfuscated_res_0x7f0f1097);
+        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d6d);
+        this.f = textView;
+        textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f036e));
+        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091c0d);
+        a();
+        b(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
+            layoutParams.height = oi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070309);
+            int f = oi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070305);
+            layoutParams.rightMargin = f;
+            layoutParams.leftMargin = f;
+            int immersiveStickyBarHeight = UtilHelper.getImmersiveStickyBarHeight();
+            if (immersiveStickyBarHeight > 0) {
+                layoutParams.topMargin = immersiveStickyBarHeight;
             }
-            wt4.k().y(wt4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
+            this.c.setLayoutParams(layoutParams);
         }
     }
 
-    public static ArrayList<String> c() {
-        InterceptResult invokeV;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
-            return (ArrayList) invokeV.objValue;
-        }
-        String q = wt4.k().q(wt4.o("search_forum_history"), "");
-        ArrayList<String> arrayList = null;
-        if (StringUtils.isNull(q)) {
-            return null;
-        }
-        try {
-            JSONArray jSONArray = new JSONArray(q);
-            if (jSONArray.length() <= 0) {
-                return null;
-            }
-            ArrayList<String> arrayList2 = new ArrayList<>();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    Object obj = jSONArray.get(i);
-                    if (obj instanceof String) {
-                        arrayList2.add((String) obj);
-                    }
-                } catch (JSONException e) {
-                    e = e;
-                    arrayList = arrayList2;
-                    e.printStackTrace();
-                    return arrayList;
-                }
-            }
-            return arrayList2;
-        } catch (JSONException e2) {
-            e = e2;
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.i == i) {
             return;
         }
-        String q = wt4.k().q(wt4.o("search_forum_history"), "");
-        try {
-            JSONArray jSONArray = StringUtils.isNull(q) ? new JSONArray() : new JSONArray(q);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(str);
-            int i = 1;
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                Object obj = jSONArray.get(i2);
-                if ((obj instanceof String) && !str.equals(obj)) {
-                    arrayList.add((String) obj);
-                    i++;
-                }
-                if (i == 6) {
-                    break;
-                }
-            }
-            wt4.k().y(wt4.o("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+        SkinManager.setViewTextColor(this.f, R.color.CAM_X0302, 1);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080989, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (i == 2) {
+            this.d.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
+        } else {
+            this.d.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
         }
+        SkinManager.setNavbarTitleColor(this.d, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        this.i = i;
     }
 }

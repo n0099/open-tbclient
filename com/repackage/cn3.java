@@ -55,7 +55,7 @@ public class cn3 extends ii1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (ki4.a()) {
+                if (ji4.a()) {
                     jSONObject.put("swanswitch_android_setdata", 1);
                 }
                 jSONObject.put("swanswitch_ab_inline_video", 1);

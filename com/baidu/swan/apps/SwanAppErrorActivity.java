@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.de3;
-import com.repackage.ge4;
+import com.repackage.fe4;
 import com.repackage.gl2;
 import com.repackage.ix2;
 import com.repackage.kx2;
@@ -102,7 +102,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         qz1 qz1Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            ge4 a = getSupportFragmentManager().a();
+            fe4 a = getSupportFragmentManager().a();
             if (getIntent() != null) {
                 qz1Var = qz1.e3(this.mErrorCode, this.mErrorType, this.mWebUrl, this.mWebPermit, this.mForbiddenInfo, this.mMenuNoticeCount, this.mMenuPrivateCount);
             } else if (this.mLaunchInfo == null) {
@@ -179,7 +179,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLaunchInfo : (gl2) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.yd4, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.xd4, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {

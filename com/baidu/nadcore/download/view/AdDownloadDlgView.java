@@ -70,19 +70,19 @@ public class AdDownloadDlgView extends RelativeLayout {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.getTag() instanceof mo0)) {
                 mo0 mo0Var = (mo0) this.a.getTag();
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f0914ad) {
+                if (id == R.id.obfuscated_res_0x7f0914ae) {
                     mo0.b bVar = mo0Var.g;
                     if (bVar != null) {
                         str = bVar.b;
                     }
                     str = "";
                 } else {
-                    if (id == R.id.obfuscated_res_0x7f0914ac) {
+                    if (id == R.id.obfuscated_res_0x7f0914ad) {
                         mo0.a aVar = mo0Var.h;
                         if (aVar != null) {
                             str = aVar.b;
                         }
-                    } else if (id == R.id.obfuscated_res_0x7f0914a9 && !TextUtils.isEmpty(mo0Var.d)) {
+                    } else if (id == R.id.obfuscated_res_0x7f0914aa && !TextUtils.isEmpty(mo0Var.d)) {
                         this.a.d(mo0Var.d);
                         return;
                     }
@@ -149,16 +149,16 @@ public class AdDownloadDlgView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05a7, this);
-            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a7);
-            this.b = (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914ab);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a4);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a5);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a9);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a6);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914ad);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914ac);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914b0);
-            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914a8);
+            this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a8);
+            this.b = (AdImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0914ac);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a5);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a6);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914aa);
+            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a7);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914ae);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914ad);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914b1);
+            this.j = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0914a9);
         }
     }
 
@@ -168,7 +168,7 @@ public class AdDownloadDlgView extends RelativeLayout {
             return;
         }
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a8, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a3)).setText(str);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914a4)).setText(str);
         Toast toast = new Toast(getContext());
         toast.setGravity(81, 0, (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704fd));
         toast.setView(inflate);

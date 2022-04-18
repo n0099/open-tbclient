@@ -101,11 +101,11 @@ public class SettingTextSwitchView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0767, (ViewGroup) this, true);
             this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f07);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f08);
             BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f090464);
             this.e = bdSwitchView;
             bdSwitchView.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091fed);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091fee);
             this.d = textView;
             if (textView != null) {
                 textView.setVisibility(8);
@@ -133,7 +133,7 @@ public class SettingTextSwitchView extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.e.g(z);
             BdSwitchView bdSwitchView = this.e;
-            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f1347) + this.a.getString(R.string.obfuscated_res_0x7f0f1345));
+            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f1346) + this.a.getString(R.string.obfuscated_res_0x7f0f1344));
         }
     }
 
@@ -142,7 +142,7 @@ public class SettingTextSwitchView extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             this.e.k(z);
             BdSwitchView bdSwitchView = this.e;
-            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f1347) + this.a.getString(R.string.obfuscated_res_0x7f0f1348));
+            bdSwitchView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f1346) + this.a.getString(R.string.obfuscated_res_0x7f0f1347));
         }
     }
 

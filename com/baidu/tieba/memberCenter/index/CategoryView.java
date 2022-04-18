@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cj7;
 import com.repackage.f9;
-import com.repackage.zi7;
 /* loaded from: classes3.dex */
 public class CategoryView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -27,7 +27,7 @@ public class CategoryView extends LinearLayout {
     public TextView c;
     public TextView d;
     public ImageView e;
-    public zi7 f;
+    public cj7 f;
     public View.OnClickListener g;
 
     /* loaded from: classes3.dex */
@@ -101,8 +101,8 @@ public class CategoryView extends LinearLayout {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e0, this);
             this.b = inflate;
             this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090659);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d52);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d50);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091d53);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d51);
             this.b.setOnClickListener(this.g);
             this.e.setOnClickListener(this.g);
         }

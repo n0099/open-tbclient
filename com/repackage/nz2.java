@@ -48,13 +48,13 @@ public class nz2 extends iz2 {
 
         /* renamed from: com.repackage.nz2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0482a implements View.OnClickListener {
+        public class View$OnClickListenerC0484a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0482a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0484a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -439,7 +439,7 @@ public class nz2 extends iz2 {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0482a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0484a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -995,31 +995,31 @@ public class nz2 extends iz2 {
             this.D = -1;
             this.E = true;
             this.v = viewGroup;
-            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092035);
+            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092036);
             this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907bf);
             this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907b5);
             this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907b6);
-            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09189c);
-            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091530);
-            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09153d);
+            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09189d);
+            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091531);
+            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09153e);
             this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ed);
             this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ee);
             this.o = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ab);
             this.q = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907af);
-            this.r = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091c41);
+            this.r = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091c42);
             this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ec);
-            this.s = (SwanAppScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091402);
+            this.s = (SwanAppScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091403);
             this.t = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090431);
             this.u = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907aa);
             this.A = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907bc);
-            this.B = viewGroup.findViewById(R.id.obfuscated_res_0x7f091577);
+            this.B = viewGroup.findViewById(R.id.obfuscated_res_0x7f091578);
             if (qc3.k() || qc3.l()) {
                 int dimensionPixelSize = this.c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012c);
                 this.c.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
             SwanAppActivity activity = wl2.U().getActivity();
-            if (og4.d() && sc3.d(activity) && og4.e(activity)) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) (og4.a(activity) * 0.8f), -2);
+            if (ng4.d() && sc3.d(activity) && ng4.e(activity)) {
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams((int) (ng4.a(activity) * 0.8f), -2);
                 layoutParams.gravity = 17;
                 this.r.setLayoutParams(layoutParams);
             }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt4;
+import com.repackage.vt4;
 /* loaded from: classes2.dex */
 public class FrsTabTestHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -94,19 +94,19 @@ public class FrsTabTestHelper {
     public static int getFrsNewAreaTabSort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? wt4.k().l(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? vt4.k().l(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT) : invokeV.intValue;
     }
 
     public static String getUserLastAccessTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? wt4.k().q(generateUserLastAccessKey(), HOT_TAB_NAME) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? vt4.k().q(generateUserLastAccessKey(), HOT_TAB_NAME) : (String) invokeV.objValue;
     }
 
     public static void storeFrsNewAreaTabSort(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            wt4.k().w(generateFrsNewAreaTabSortKey(), i);
+            vt4.k().w(generateFrsNewAreaTabSortKey(), i);
         }
     }
 
@@ -114,7 +114,7 @@ public class FrsTabTestHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
             if (HOT_TAB_NAME.equals(str) || NEW_AREA_TAB_NAME.equals(str)) {
-                wt4.k().y(generateUserLastAccessKey(), str);
+                vt4.k().y(generateUserLastAccessKey(), str);
             }
         }
     }

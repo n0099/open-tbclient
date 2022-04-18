@@ -14,7 +14,7 @@ public final class ab2 {
         if (interceptable == null || interceptable.invokeV(65536, null) == null) {
             File b = b();
             if (b.exists()) {
-                ng4.j(b);
+                mg4.j(b);
             }
         }
     }

@@ -109,7 +109,7 @@ public class u82 {
                                 if (rk3Var == null) {
                                     rk3Var.run(Pair.create(str + substring, file2));
                                 } else {
-                                    ng4.L(file2);
+                                    mg4.L(file2);
                                 }
                             } else {
                                 if (!set.contains(substring)) {
@@ -168,7 +168,7 @@ public class u82 {
                                 if (z) {
                                     if (set.contains(substring)) {
                                     }
-                                    J = ng4.J(file2);
+                                    J = mg4.J(file2);
                                     if (a) {
                                         Log.i("PurgerUtils", "originFile:" + file2.getAbsolutePath() + ", renameFile:" + J);
                                     }
@@ -178,7 +178,7 @@ public class u82 {
                                 } else {
                                     if (!set.contains(substring)) {
                                     }
-                                    J = ng4.J(file2);
+                                    J = mg4.J(file2);
                                     if (a) {
                                     }
                                     if (TextUtils.isEmpty(J)) {

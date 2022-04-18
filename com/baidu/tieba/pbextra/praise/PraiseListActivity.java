@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m08;
 import com.repackage.ni;
-import com.repackage.p08;
-import com.repackage.q08;
 import com.repackage.qc5;
+import com.repackage.t08;
+import com.repackage.w08;
+import com.repackage.x08;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements p08.b, View.OnClickListener, AdapterView.OnItemClickListener {
+public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements w08.b, View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTENT_KEY_PRAISE_TOTAL = "KeyIntentPraiseId";
     public transient /* synthetic */ FieldHolder $fh;
-    public p08 mZanListModel;
-    public q08 mZanListView;
+    public w08 mZanListModel;
+    public x08 mZanListView;
     public int pageType;
 
     public PraiseListActivity() {
@@ -51,12 +51,12 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     }
 
     private void beforeFinishActivity() {
-        p08 p08Var;
+        w08 w08Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (p08Var = this.mZanListModel) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (w08Var = this.mZanListModel) == null) {
             return;
         }
-        p08Var.v();
+        w08Var.v();
     }
 
     public void changSkinType(View view2) {
@@ -103,23 +103,23 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             if (bundle != null) {
                 this.pageType = bundle.getInt(IntentConfig.LIST_TYPE, 0);
                 z = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
-                p08 p08Var = new p08(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-                this.mZanListModel = p08Var;
-                p08Var.u(bundle.getInt(INTENT_KEY_PRAISE_TOTAL));
+                w08 w08Var = new w08(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
+                this.mZanListModel = w08Var;
+                w08Var.u(bundle.getInt(INTENT_KEY_PRAISE_TOTAL));
             } else if (getIntent() != null) {
                 this.pageType = getIntent().getIntExtra(IntentConfig.LIST_TYPE, 0);
                 z = getIntent().getBooleanExtra(PraiseListActivityConfig.IS_AUTHOR, false);
-                this.mZanListModel = new p08(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
+                this.mZanListModel = new w08(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
             } else {
                 z = false;
             }
             if (this.mZanListModel == null) {
-                this.mZanListModel = new p08();
+                this.mZanListModel = new w08();
             }
             this.mZanListModel.t(z);
-            q08 q08Var = new q08(this, this.mZanListModel.i());
-            this.mZanListView = q08Var;
-            q08Var.k(false);
+            x08 x08Var = new x08(this, this.mZanListModel.i());
+            this.mZanListView = x08Var;
+            x08Var.k(false);
             this.mZanListModel.m(this.pageType);
         }
     }
@@ -135,7 +135,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        m08 j2;
+        t08 j2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (j2 = this.mZanListModel.j(i)) == null) {
             return;
@@ -143,20 +143,20 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         qc5.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
     }
 
-    @Override // com.repackage.p08.b
+    @Override // com.repackage.w08.b
     public void onLoadFailed(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             if (ni.isEmpty(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
             }
             this.mZanListView.l();
             this.mZanListView.j(str, this.pageType);
         }
     }
 
-    @Override // com.repackage.p08.b
-    public void onLoadSuccessed(int i, List<m08> list, int i2, int i3) {
+    @Override // com.repackage.w08.b
+    public void onLoadSuccessed(int i, List<t08> list, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), list, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             this.mZanListView.m(i, list, i2, i3);

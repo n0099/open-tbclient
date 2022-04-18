@@ -34,7 +34,7 @@ import com.repackage.h35;
 import com.repackage.ig;
 import com.repackage.ni;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class GridImageLayout extends RelativeLayout {
@@ -198,7 +198,7 @@ public class GridImageLayout extends RelativeLayout {
         this.a = null;
         this.b = null;
         this.m = true;
-        this.q = new int[]{R.id.obfuscated_res_0x7f090cea, R.id.obfuscated_res_0x7f090ceb, R.id.obfuscated_res_0x7f090cec, R.id.obfuscated_res_0x7f090ced, R.id.obfuscated_res_0x7f090cee, R.id.obfuscated_res_0x7f090cef, R.id.obfuscated_res_0x7f090cf0, R.id.obfuscated_res_0x7f090cf1, R.id.obfuscated_res_0x7f090cf2};
+        this.q = new int[]{R.id.obfuscated_res_0x7f090ceb, R.id.obfuscated_res_0x7f090cec, R.id.obfuscated_res_0x7f090ced, R.id.obfuscated_res_0x7f090cee, R.id.obfuscated_res_0x7f090cef, R.id.obfuscated_res_0x7f090cf0, R.id.obfuscated_res_0x7f090cf1, R.id.obfuscated_res_0x7f090cf2, R.id.obfuscated_res_0x7f090cf3};
         this.t = new a(this);
         this.v = new b(this);
         m();
@@ -240,7 +240,7 @@ public class GridImageLayout extends RelativeLayout {
             eMTextView.setPadding(f, 0, f, 0);
             eMTextView.setGravity(16);
             eMTextView.setText(this.h);
-            wr4 d = wr4.d(eMTextView);
+            vr4 d = vr4.d(eMTextView);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0101);
             d.A(R.string.F_X02);
@@ -765,7 +765,7 @@ public class GridImageLayout extends RelativeLayout {
         this.a = null;
         this.b = null;
         this.m = true;
-        this.q = new int[]{R.id.obfuscated_res_0x7f090cea, R.id.obfuscated_res_0x7f090ceb, R.id.obfuscated_res_0x7f090cec, R.id.obfuscated_res_0x7f090ced, R.id.obfuscated_res_0x7f090cee, R.id.obfuscated_res_0x7f090cef, R.id.obfuscated_res_0x7f090cf0, R.id.obfuscated_res_0x7f090cf1, R.id.obfuscated_res_0x7f090cf2};
+        this.q = new int[]{R.id.obfuscated_res_0x7f090ceb, R.id.obfuscated_res_0x7f090cec, R.id.obfuscated_res_0x7f090ced, R.id.obfuscated_res_0x7f090cee, R.id.obfuscated_res_0x7f090cef, R.id.obfuscated_res_0x7f090cf0, R.id.obfuscated_res_0x7f090cf1, R.id.obfuscated_res_0x7f090cf2, R.id.obfuscated_res_0x7f090cf3};
         this.t = new a(this);
         this.v = new b(this);
         m();
@@ -793,7 +793,7 @@ public class GridImageLayout extends RelativeLayout {
         this.a = null;
         this.b = null;
         this.m = true;
-        this.q = new int[]{R.id.obfuscated_res_0x7f090cea, R.id.obfuscated_res_0x7f090ceb, R.id.obfuscated_res_0x7f090cec, R.id.obfuscated_res_0x7f090ced, R.id.obfuscated_res_0x7f090cee, R.id.obfuscated_res_0x7f090cef, R.id.obfuscated_res_0x7f090cf0, R.id.obfuscated_res_0x7f090cf1, R.id.obfuscated_res_0x7f090cf2};
+        this.q = new int[]{R.id.obfuscated_res_0x7f090ceb, R.id.obfuscated_res_0x7f090cec, R.id.obfuscated_res_0x7f090ced, R.id.obfuscated_res_0x7f090cee, R.id.obfuscated_res_0x7f090cef, R.id.obfuscated_res_0x7f090cf0, R.id.obfuscated_res_0x7f090cf1, R.id.obfuscated_res_0x7f090cf2, R.id.obfuscated_res_0x7f090cf3};
         this.t = new a(this);
         this.v = new b(this);
         m();

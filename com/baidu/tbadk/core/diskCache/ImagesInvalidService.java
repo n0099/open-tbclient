@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ob;
 import com.repackage.rb;
-import com.repackage.tr4;
+import com.repackage.sr4;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class ImagesInvalidService extends BdBaseService {
@@ -54,7 +54,7 @@ public class ImagesInvalidService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 super.callback(z);
-                tr4.stopService();
+                sr4.stopService();
                 ImagesInvalidReceiver.broadcast(z);
             }
         }
@@ -86,7 +86,7 @@ public class ImagesInvalidService extends BdBaseService {
     public static void setSuccess(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            tr4.e(z);
+            sr4.e(z);
         }
     }
 

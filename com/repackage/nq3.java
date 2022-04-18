@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public class nq3 implements tx3 {
+public class nq3 implements sx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -91,7 +91,7 @@ public class nq3 implements tx3 {
         }
     }
 
-    @Override // com.repackage.tx3
+    @Override // com.repackage.sx3
     public View a(Context context, GameCloseGuidePopView.e eVar) {
         InterceptResult invokeLL;
         hq3 hq3Var;
@@ -123,7 +123,7 @@ public class nq3 implements tx3 {
         return (View) invokeLL.objValue;
     }
 
-    @Override // com.repackage.tx3
+    @Override // com.repackage.sx3
     public void b(int i) {
         hq3 hq3Var;
         GameGuideViewContainer B;
@@ -136,7 +136,7 @@ public class nq3 implements tx3 {
         B.setLayoutParams(layoutParams);
     }
 
-    @Override // com.repackage.tx3
+    @Override // com.repackage.sx3
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -144,7 +144,7 @@ public class nq3 implements tx3 {
         }
     }
 
-    @Override // com.repackage.tx3
+    @Override // com.repackage.sx3
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {

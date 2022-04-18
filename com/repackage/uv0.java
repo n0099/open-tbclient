@@ -122,12 +122,12 @@ public class uv0 extends mv0 {
         public void b(@NonNull BdVideoSeries bdVideoSeries) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdVideoSeries) == null) {
-                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ba4);
+                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ba3);
                 int a2 = jw0.a(bdVideoSeries);
                 ClarityUrlList clarityList = bdVideoSeries.getClarityList();
                 if (a2 >= 0 && clarityList != null && clarityList.size() > 0) {
-                    String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0be3, String.valueOf(clarityList.get(0).k()));
-                    this.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bdf) + z01.a(a2, false));
+                    String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0be2, String.valueOf(clarityList.get(0).k()));
+                    this.c.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0bde) + z01.a(a2, false));
                     this.d.setText(string2);
                     this.e.setVisibility(0);
                     this.d.setVisibility(0);
@@ -154,10 +154,10 @@ public class uv0 extends mv0 {
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0597, (ViewGroup) null);
                 this.b = viewGroup;
-                this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921c2);
-                this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921c3);
-                this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0914de);
-                this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921c4);
+                this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921c3);
+                this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921c4);
+                this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0914df);
+                this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921c5);
                 this.g = (Button) this.b.findViewById(R.id.obfuscated_res_0x7f0903fa);
             }
         }
@@ -186,7 +186,7 @@ public class uv0 extends mv0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             String h1 = v().h1();
-            StringBuilder sb = new StringBuilder(u().getString(R.string.obfuscated_res_0x7f0f0bb0));
+            StringBuilder sb = new StringBuilder(u().getString(R.string.obfuscated_res_0x7f0f0baf));
             if (!h1.isEmpty()) {
                 sb.append("，\n");
                 sb.append(str);
@@ -299,7 +299,7 @@ public class uv0 extends mv0 {
             BdNetUtils.NetStatus a2 = BdNetUtils.a();
             if (a2 == BdNetUtils.NetStatus.NET_MOBILE && !BdNetUtils.h() && this.h != BdNetUtils.NetStatus.NET_MOBILE) {
                 if (v().Y() && v().r() > 0 && v().S()) {
-                    L(this.c.getString(R.string.obfuscated_res_0x7f0f0be2));
+                    L(this.c.getString(R.string.obfuscated_res_0x7f0f0be1));
                 }
             } else {
                 BdNetUtils.NetStatus netStatus = BdNetUtils.NetStatus.NET_WIFI;
@@ -313,7 +313,7 @@ public class uv0 extends mv0 {
                         } else {
                             v().l0();
                         }
-                        t01.a().b(u(), R.string.obfuscated_res_0x7f0f0bb2);
+                        t01.a().b(u(), R.string.obfuscated_res_0x7f0f0bb1);
                     }
                 }
             }

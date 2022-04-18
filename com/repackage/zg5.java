@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class zg5 extends kh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ba8 i;
+    public ia8 i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zg5(ba8 ba8Var, BdUniqueId bdUniqueId) {
-        super(ba8Var.i().getPageActivity(), bdUniqueId);
+    public zg5(ia8 ia8Var, BdUniqueId bdUniqueId) {
+        super(ia8Var.i().getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ba8Var, bdUniqueId};
+            Object[] objArr = {ia8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,7 +36,7 @@ public class zg5 extends kh5 {
                 return;
             }
         }
-        this.i = ba8Var;
+        this.i = ia8Var;
     }
 
     @Override // com.repackage.kh5, com.repackage.ho

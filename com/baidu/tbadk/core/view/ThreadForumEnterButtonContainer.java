@@ -147,9 +147,9 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
         }
         this.a = oi.f(TbadkApplication.getInst(), R.dimen.tbds22);
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0829, this);
-        this.b = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a41);
-        this.c = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a43);
-        this.d = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a42);
+        this.b = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a42);
+        this.c = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a44);
+        this.d = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a43);
         this.e = findViewById(R.id.obfuscated_res_0x7f0903dc);
         int k = (((oi.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
         int k2 = (((oi.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;

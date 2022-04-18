@@ -24,10 +24,10 @@ public class fv3 extends n32 {
     public xu3 c;
     @NonNull
     public gv3 d;
-    public z74<j94> e;
+    public y74<i94> e;
 
     /* loaded from: classes6.dex */
-    public class a extends w74<j94> {
+    public class a extends v74<i94> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fv3 a;
@@ -51,15 +51,15 @@ public class fv3 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.z74
+        @Override // com.repackage.y74
         /* renamed from: l */
-        public String d(j94 j94Var) {
+        public String d(i94 i94Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, j94Var)) == null) ? yw3.d.g().getPath() : (String) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, i94Var)) == null) ? yw3.d.g().getPath() : (String) invokeL.objValue;
         }
 
-        @Override // com.repackage.b84
+        @Override // com.repackage.a84
         @NonNull
         public Bundle m(@NonNull Bundle bundle, Set<String> set) {
             InterceptResult invokeLL;
@@ -68,30 +68,30 @@ public class fv3 extends n32 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: o */
-        public void e(j94 j94Var, c94 c94Var) {
+        public void e(i94 i94Var, b94 b94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, j94Var, c94Var) == null) {
-                super.e(j94Var, c94Var);
+            if (interceptable == null || interceptable.invokeLL(1048583, this, i94Var, b94Var) == null) {
+                super.e(i94Var, b94Var);
                 if (fv3.f) {
-                    Log.e("ConsoleJsDownload", "onDownloadError: " + c94Var.toString());
+                    Log.e("ConsoleJsDownload", "onDownloadError: " + b94Var.toString());
                 }
                 this.a.c.a(false);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: p */
-        public void i(j94 j94Var) {
+        public void i(i94 i94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j94Var) == null) {
-                super.i(j94Var);
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i94Var) == null) {
+                super.i(i94Var);
                 if (fv3.f) {
-                    Log.i("ConsoleJsDownload", "onDownloadFinish: " + j94Var.toString());
+                    Log.i("ConsoleJsDownload", "onDownloadFinish: " + i94Var.toString());
                 }
-                if (!wd3.a(new File(j94Var.a), j94Var.m)) {
+                if (!wd3.a(new File(i94Var.a), i94Var.m)) {
                     if (fv3.f) {
                         Log.e("ConsoleJsDownload", "onDownloadFinish: 校验签名失败");
                     }
@@ -100,39 +100,39 @@ public class fv3 extends n32 {
                 }
                 File a = this.a.d.a();
                 if (a.exists()) {
-                    ng4.j(a);
+                    mg4.j(a);
                 } else {
-                    ng4.l(a);
+                    mg4.l(a);
                 }
-                boolean U = ng4.U(j94Var.a, a.getAbsolutePath());
+                boolean U = mg4.U(i94Var.a, a.getAbsolutePath());
                 if (U) {
-                    this.a.d.b(j94Var.j, j94Var.i);
+                    this.a.d.b(i94Var.j, i94Var.i);
                 }
-                ng4.k(j94Var.a);
+                mg4.k(i94Var.a);
                 this.a.c.a(U);
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: q */
-        public void c(j94 j94Var) {
+        public void c(i94 i94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, j94Var) == null) {
-                super.c(j94Var);
+            if (interceptable == null || interceptable.invokeL(1048585, this, i94Var) == null) {
+                super.c(i94Var);
                 if (fv3.f) {
-                    Log.i("ConsoleJsDownload", "onDownloadStart: " + j94Var.toString());
+                    Log.i("ConsoleJsDownload", "onDownloadStart: " + i94Var.toString());
                 }
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.w74, com.repackage.z74
+        @Override // com.repackage.v74, com.repackage.y74
         /* renamed from: r */
-        public void f(j94 j94Var) {
+        public void f(i94 i94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, j94Var) == null) {
-                super.f(j94Var);
+            if (interceptable == null || interceptable.invokeL(1048586, this, i94Var) == null) {
+                super.f(i94Var);
                 if (fv3.f) {
                     Log.i("ConsoleJsDownload", "onDownloading: 其它地方正在下载此包");
                 }
@@ -176,19 +176,19 @@ public class fv3 extends n32 {
         this.d = gv3Var;
     }
 
-    @Override // com.repackage.d84
-    public void D(c94 c94Var) {
+    @Override // com.repackage.c84
+    public void D(b94 b94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c94Var) == null) {
-            super.D(c94Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, b94Var) == null) {
+            super.D(b94Var);
             if (f) {
-                Log.e("ConsoleJsDownload", "onFetchError: " + c94Var.toString());
+                Log.e("ConsoleJsDownload", "onFetchError: " + b94Var.toString());
             }
             this.c.a(false);
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -199,7 +199,7 @@ public class fv3 extends n32 {
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -211,21 +211,21 @@ public class fv3 extends n32 {
         }
     }
 
-    @Override // com.repackage.d84
-    public void H(qd4 qd4Var) {
+    @Override // com.repackage.c84
+    public void H(pd4 pd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qd4Var) == null) {
-            super.H(qd4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, pd4Var) == null) {
+            super.H(pd4Var);
             if (f) {
                 Log.i("ConsoleJsDownload", "onPrepareDownload");
             }
         }
     }
 
-    @Override // com.repackage.d84
-    public z74<j94> y() {
+    @Override // com.repackage.c84
+    public y74<i94> y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (z74) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (y74) invokeV.objValue;
     }
 }

@@ -31,16 +31,16 @@ public class ki5 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             try {
                 String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String q = wt4.k().q("version_name", "");
+                String q = vt4.k().q("version_name", "");
                 if (TextUtils.isEmpty(versionName)) {
                     return null;
                 }
                 if (versionName.equals(q)) {
-                    return wt4.k().q("apk_md5", "");
+                    return vt4.k().q("apk_md5", "");
                 }
-                wt4.k().y("version_name", versionName);
+                vt4.k().y("version_name", versionName);
                 String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                wt4.k().y("apk_md5", aPKMd5);
+                vt4.k().y("apk_md5", aPKMd5);
                 return aPKMd5;
             } catch (PackageManager.NameNotFoundException e) {
                 BdLog.detailException(e);
@@ -129,7 +129,7 @@ public class ki5 {
     public static boolean c(Context context, CombineDownload combineDownload) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) ? (combineDownload == null || zj8.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) ? (combineDownload == null || gk8.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true : invokeLL.booleanValue;
     }
 
     public static void d() {
@@ -137,7 +137,7 @@ public class ki5 {
         if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || TbSingleton.getInstance().getSyncModel() == null) {
             return;
         }
-        gy4 syncModel = TbSingleton.getInstance().getSyncModel();
+        fy4 syncModel = TbSingleton.getInstance().getSyncModel();
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().s(), syncModel.j())));
     }
 }

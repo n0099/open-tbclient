@@ -57,12 +57,12 @@ public class o53 extends u53<e> {
 
             /* renamed from: com.repackage.o53$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class C0483a implements e53 {
+            public class C0486a implements e53 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0483a(a aVar) {
+                public C0486a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class o53 extends u53<e> {
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.isFinishing()) {
                     return;
                 }
-                h53.u(this.a, this.c.c.M(), this.b, null, new C0483a(this));
+                h53.u(this.a, this.c.c.M(), this.b, null, new C0486a(this));
             }
         }
 

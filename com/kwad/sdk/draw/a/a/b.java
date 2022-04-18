@@ -97,8 +97,8 @@ public class b extends com.kwad.sdk.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09101c);
-        this.c = (DrawCardApp) a(R.id.obfuscated_res_0x7f091043);
-        this.d = (DrawCardH5) a(R.id.obfuscated_res_0x7f09104c);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09101d);
+        this.c = (DrawCardApp) a(R.id.obfuscated_res_0x7f091044);
+        this.d = (DrawCardH5) a(R.id.obfuscated_res_0x7f09104d);
     }
 }

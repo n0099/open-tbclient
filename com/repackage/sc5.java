@@ -123,7 +123,7 @@ public class sc5 {
                 if (z) {
                     if (mi.H()) {
                         TbImageHelper.getInstance().setNetworkIsWifi(true);
-                        mc8.e().f();
+                        tc8.e().f();
                     } else if (mi.x()) {
                         TbImageHelper.getInstance().setNetworkIsWifi(false);
                     }

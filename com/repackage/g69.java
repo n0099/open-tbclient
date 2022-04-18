@@ -1,81 +1,80 @@
 package com.repackage;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.ubs.analytics.SampleResult;
+import com.repackage.i69;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class g69 {
+public class g69 {
     public static /* synthetic */ Interceptable $ic;
-    public static g69 c;
-    public static SQLiteOpenHelper d;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicInteger a;
-    public SQLiteDatabase b;
 
-    public g69() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755725945, "Lcom/repackage/g69;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = new AtomicInteger();
-    }
-
-    public static synchronized g69 a() {
-        InterceptResult invokeV;
-        g69 g69Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (g69.class) {
-                if (c == null) {
-                    b(b69.h().getContext());
-                }
-                g69Var = c;
-            }
-            return g69Var;
-        }
-        return (g69) invokeV.objValue;
-    }
-
-    public static synchronized void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            synchronized (g69.class) {
-                if (c == null) {
-                    c = new g69();
-                    d = new e69(context);
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755725945, "Lcom/repackage/g69;");
         }
     }
 
-    public final synchronized SQLiteDatabase c() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a.incrementAndGet() == 1) {
-                    c79.a("***************新建立了 一个数据库的实例****************");
-                    this.b = d.getWritableDatabase();
-                }
-                sQLiteDatabase = this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a) {
+                return i69.a.a.f(str);
             }
-            return sQLiteDatabase;
+            return SampleResult.OTHERE;
         }
-        return (SQLiteDatabase) invokeV.objValue;
+        return (SampleResult) invokeL.objValue;
+    }
+
+    public static void b(h69 h69Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, h69Var) == null) || h69Var == null) {
+            return;
+        }
+        c79.b(h69Var);
+    }
+
+    public static void c(String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65539, null, str, str2, str3, map) == null) && a && str != null) {
+            f79.a(str, str2, str3, map);
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
+            a79.a().b(str);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
+            a79.a().c(str);
+        }
+    }
+
+    public static void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            a = z;
+        }
     }
 }

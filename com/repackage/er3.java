@@ -18,7 +18,7 @@ import com.baidubce.AbstractBceClient;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class er3 {
     public static /* synthetic */ Interceptable $ic;
     public static er3 a;
@@ -327,7 +327,7 @@ public class er3 {
                 jSONObject.put("package", str);
                 jSONObject.put("appid", str2);
                 jSONObject.put("url", str3);
-                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) m74.h(qj2.c()).postRequest().cookieManager(qj2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
+                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) l74.h(qj2.c()).postRequest().cookieManager(qj2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
             } catch (Exception unused) {
             }
         }
@@ -355,7 +355,7 @@ public class er3 {
                 if (!TextUtils.isEmpty(str3)) {
                     jSONObject.put("fileMd5", str3);
                 }
-                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) m74.h(qj2.c()).postRequest().cookieManager(qj2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
+                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) l74.h(qj2.c()).postRequest().cookieManager(qj2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
             } catch (Exception unused) {
             }
         }

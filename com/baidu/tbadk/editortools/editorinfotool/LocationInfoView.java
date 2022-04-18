@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mu4;
+import com.repackage.lu4;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class LocationInfoView extends LinearLayout implements View.OnClickListener {
@@ -58,17 +58,17 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(0);
             setGravity(16);
-            mu4 mu4Var = new mu4();
-            mu4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
-            mu4Var.i(R.drawable.obfuscated_res_0x7f08060f, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            mu4Var.h(R.color.CAM_X0110);
-            mu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            mu4Var.m(oi.f(getContext(), R.dimen.M_W_X004), oi.f(getContext(), R.dimen.M_W_X004));
-            mu4Var.n(oi.f(getContext(), R.dimen.M_H_X002));
-            mu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            lu4 lu4Var = new lu4();
+            lu4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
+            lu4Var.i(R.drawable.obfuscated_res_0x7f08060f, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            lu4Var.h(R.color.CAM_X0110);
+            lu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            lu4Var.m(oi.f(getContext(), R.dimen.M_W_X004), oi.f(getContext(), R.dimen.M_W_X004));
+            lu4Var.n(oi.f(getContext(), R.dimen.M_H_X002));
+            lu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
             this.a = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(mu4Var);
+            tBSpecificationBtn.setConfig(lu4Var);
             this.a.setTextSize(R.dimen.T_X09);
             this.a.setOnClickListener(this);
             this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a4a));

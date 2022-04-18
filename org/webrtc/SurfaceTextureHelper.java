@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.my9;
+import com.repackage.ty9;
 import java.util.concurrent.Callable;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
@@ -127,7 +127,7 @@ public class SurfaceTextureHelper {
     public void returnTextureFrame() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            this.handler.post(new Runnable() { // from class: com.repackage.yx9
+            this.handler.post(new Runnable() { // from class: com.repackage.fy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -174,7 +174,7 @@ public class SurfaceTextureHelper {
                 }
                 int i2 = this.textureWidth;
                 if (i2 != 0 && (i = this.textureHeight) != 0) {
-                    VideoFrame videoFrame = new VideoFrame(new TextureBufferImpl(i2, i, VideoFrame.TextureBuffer.Type.OES, this.oesTextureId, RendererCommon.convertMatrixToAndroidGraphicsMatrix(fArr), this.handler, this.yuvConverter, new Runnable() { // from class: com.repackage.xx9
+                    VideoFrame videoFrame = new VideoFrame(new TextureBufferImpl(i2, i, VideoFrame.TextureBuffer.Type.OES, this.oesTextureId, RendererCommon.convertMatrixToAndroidGraphicsMatrix(fArr), this.handler, this.yuvConverter, new Runnable() { // from class: com.repackage.ey9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -232,7 +232,7 @@ public class SurfaceTextureHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Logging.d(TAG, "dispose()");
-            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.repackage.wx9
+            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.repackage.dy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -282,7 +282,7 @@ public class SurfaceTextureHelper {
     public void setFrameRotation(final int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.handler.post(new Runnable() { // from class: com.repackage.ux9
+            this.handler.post(new Runnable() { // from class: com.repackage.by9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -304,7 +304,7 @@ public class SurfaceTextureHelper {
                 throw new IllegalArgumentException("Texture width must be positive, but was " + i);
             } else if (i2 > 0) {
                 this.surfaceTexture.setDefaultBufferSize(i, i2);
-                this.handler.post(new Runnable() { // from class: com.repackage.zx9
+                this.handler.post(new Runnable() { // from class: com.repackage.gy9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -339,7 +339,7 @@ public class SurfaceTextureHelper {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             Logging.d(TAG, "stopListening()");
             this.handler.removeCallbacks(this.setListenerRunnable);
-            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.repackage.vx9
+            ThreadUtils.invokeAtFrontUninterruptibly(this.handler, new Runnable() { // from class: com.repackage.cy9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -418,7 +418,7 @@ public class SurfaceTextureHelper {
         if (handler.getLooper().getThread() == Thread.currentThread()) {
             this.handler = handler;
             this.timestampAligner = z ? new TimestampAligner() : null;
-            EglBase c = my9.c(context, EglBase.CONFIG_PIXEL_BUFFER);
+            EglBase c = ty9.c(context, EglBase.CONFIG_PIXEL_BUFFER);
             this.eglBase = c;
             try {
                 c.createDummyPbufferSurface();
@@ -426,7 +426,7 @@ public class SurfaceTextureHelper {
                 this.oesTextureId = GlUtil.generateTexture(36197);
                 SurfaceTexture surfaceTexture = new SurfaceTexture(this.oesTextureId);
                 this.surfaceTexture = surfaceTexture;
-                setOnFrameAvailableListener(surfaceTexture, new SurfaceTexture.OnFrameAvailableListener() { // from class: com.repackage.tx9
+                setOnFrameAvailableListener(surfaceTexture, new SurfaceTexture.OnFrameAvailableListener() { // from class: com.repackage.ay9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

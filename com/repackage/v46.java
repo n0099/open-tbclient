@@ -1,18 +1,21 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.FrsTabInfo;
+import tbclient.GetForumSquare.DataRes;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes7.dex */
 public class v46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<u46> a;
+    public List<RecommendForumInfo> a;
+    public List<String> b;
+    public Page c;
+    public String d;
 
     public v46() {
         Interceptable interceptable = $ic;
@@ -28,21 +31,14 @@ public class v46 {
         }
     }
 
-    public void a(List<FrsTabInfo> list) {
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            this.a.clear();
-            if (list == null) {
-                return;
-            }
-            for (FrsTabInfo frsTabInfo : list) {
-                if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                    this.a.add(new u46(frsTabInfo));
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
+            return;
         }
+        this.d = dataRes.class_name;
+        this.c = dataRes.page;
+        this.b = dataRes.page_structure;
+        this.a = dataRes.forum_info;
     }
 }

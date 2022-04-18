@@ -1,9 +1,11 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface oe6 {
-    void G(boolean z);
+    void A();
 
-    void p();
+    void C();
 
-    void z0();
+    void m();
+
+    void r();
 }

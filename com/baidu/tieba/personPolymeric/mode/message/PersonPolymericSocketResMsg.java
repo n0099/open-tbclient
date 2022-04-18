@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s08;
+import com.repackage.z08;
 import com.squareup.wire.Wire;
 import tbclient.Personal.PersonalResIdl;
 /* loaded from: classes3.dex */
@@ -45,7 +45,7 @@ public class PersonPolymericSocketResMsg extends SocketResponsedMessage {
                 if (getError() != 0) {
                     return;
                 }
-                s08 personCenterData = personPolymericReqMsg.getPersonCenterData();
+                z08 personCenterData = personPolymericReqMsg.getPersonCenterData();
                 if (personalResIdl.data == null || personCenterData == null) {
                     return;
                 }

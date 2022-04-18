@@ -43,7 +43,7 @@ public class vv3 extends va2<dw3, ew3> {
         }
 
         @Override // com.repackage.ra2.a
-        public int c() {
+        public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

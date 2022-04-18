@@ -1,24 +1,24 @@
 package com.repackage;
 
-import android.util.Log;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes6.dex */
-public final class nm9 implements Runnable {
+public final class nm9 extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ mm9 b;
+    public final /* synthetic */ InstallActivity a;
 
-    public nm9(mm9 mm9Var, AtomicBoolean atomicBoolean) {
+    public nm9(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mm9Var, atomicBoolean};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,19 +28,14 @@ public final class nm9 implements Runnable {
                 return;
             }
         }
-        this.b = mm9Var;
-        this.a = atomicBoolean;
+        this.a = installActivity;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+    public final void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.getAndSet(true)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            this.a.showSpinner();
         }
-        Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-        mm9 mm9Var = this.b;
-        hm9 hm9Var = mm9Var.c;
-        hm9.n(mm9Var.a, mm9Var.b);
     }
 }

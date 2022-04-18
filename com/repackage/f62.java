@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class f62 extends h94 {
+public class f62 extends g94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String q;
@@ -26,7 +26,7 @@ public class f62 extends h94 {
         }
     }
 
-    @Override // com.repackage.g94
+    @Override // com.repackage.f94
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

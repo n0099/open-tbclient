@@ -8,12 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ns7 implements uo {
+public class ns7 implements uo {
     public static /* synthetic */ Interceptable $ic;
-    @JvmField
     public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,9 +27,7 @@ public final class ns7 implements uo {
                 return;
             }
         }
-        BdUniqueId gen = BdUniqueId.gen();
-        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
-        a = gen;
+        a = BdUniqueId.gen();
     }
 
     public ns7() {

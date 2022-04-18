@@ -22,14 +22,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mg;
-import com.repackage.r77;
+import com.repackage.u77;
 import com.repackage.ya;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r77 addGroupView;
+    public u77 addGroupView;
     public ya searchGroupCallback;
     public SearchGroupModel searchGroupModel;
 
@@ -127,11 +127,11 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65543, this, str, i) == null) {
             if (i < 0) {
-                showToast(R.string.obfuscated_res_0x7f0f0c18);
+                showToast(R.string.obfuscated_res_0x7f0f0c17);
             } else if (!TextUtils.isEmpty(str)) {
                 showToast(str);
             } else {
-                showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c18));
+                showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c17));
             }
         }
     }
@@ -151,7 +151,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
                     return;
                 }
             }
-            showToast(R.string.obfuscated_res_0x7f0f0e59);
+            showToast(R.string.obfuscated_res_0x7f0f0e58);
         }
     }
 
@@ -189,7 +189,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.addGroupView = new r77(this);
+            this.addGroupView = new u77(this);
             this.searchGroupModel = new SearchGroupModel(this);
             registerListener(this.searchGroupCallback);
         }

@@ -78,7 +78,7 @@ public class wd3 {
                 }
                 return false;
             } finally {
-                ng4.d(readableByteChannel);
+                mg4.d(readableByteChannel);
             }
         }
         return invokeLLL.booleanValue;
@@ -101,7 +101,7 @@ public class wd3 {
                 }
                 return false;
             }
-            String c = pg4.c(false, readableByteChannel);
+            String c = og4.c(false, readableByteChannel);
             if (qe3Var != null) {
                 qe3Var.a = c;
             }

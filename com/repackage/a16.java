@@ -1,26 +1,26 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class a16 extends u06 {
+public final class a16 extends w06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<Integer> b;
+    public boolean b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a16() {
-        super(8);
+    public a16(boolean z) {
+        super(64);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,25 +31,24 @@ public final class a16 extends u06 {
                 return;
             }
         }
-        this.b = new LinkedHashSet();
+        this.b = z;
     }
 
-    @Override // com.repackage.u06
-    public boolean b(d06 item, g26 timer, xz5 config) {
+    @Override // com.repackage.w06
+    public boolean b(f06 item, i26 timer, zz5 config) {
         InterceptResult invokeLLL;
+        Long o;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(timer, "timer");
             Intrinsics.checkNotNullParameter(config, "config");
-            return (this.b.isEmpty() ^ true) && !this.b.contains(Integer.valueOf(c(item.e())));
+            return this.b && (o = item.e().o()) != null && o.longValue() == 0;
         }
         return invokeLLL.booleanValue;
     }
 
-    public final int c(e06 e06Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e06Var)) == null) ? e06Var.m() & 16777215 : invokeL.intValue;
+    public /* synthetic */ a16(boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? false : z);
     }
 }

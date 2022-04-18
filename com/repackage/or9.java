@@ -1,29 +1,23 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.constants.Constants;
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class or9 implements Runnable {
+public class or9 implements wo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ boolean a;
-    public final /* synthetic */ String b;
-    public final /* synthetic */ rr9 c;
+    public final /* synthetic */ ur9 a;
 
-    public or9(rr9 rr9Var, boolean z, String str) {
+    public or9(ur9 ur9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rr9Var, Boolean.valueOf(z), str};
+            Object[] objArr = {ur9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,47 +27,39 @@ public class or9 implements Runnable {
                 return;
             }
         }
-        this.c = rr9Var;
-        this.a = z;
-        this.b = str;
+        this.a = ur9Var;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        String x;
+    @Override // com.repackage.wo9
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String str = this.a ? qu9.b : qu9.c;
-            HashMap b = au9.b(this.c.a);
-            try {
-                str = str + au9.a(b);
-            } catch (UnsupportedEncodingException unused) {
-            }
-            String str2 = this.b;
-            try {
-                mq9 mq9Var = new mq9(str, "POST", pp9.k(null));
-                mq9Var.b = pp9.L(str2);
-                pq9 a = mq9Var.a();
-                byte[] bArr = a.b;
-                if (a.a == 200) {
-                    JSONObject jSONObject = new JSONObject(new String(bArr, "UTF-8"));
-                    jSONObject.optInt(Constants.KEYS.RET);
-                    jSONObject.optString("msg");
-                    try {
-                        x = pp9.x(jSONObject.optString("data"));
-                    } catch (Exception unused2) {
-                    }
-                    if (TextUtils.isEmpty(x)) {
-                        new JSONObject();
-                    } else {
-                        new JSONObject(x);
-                    }
-                }
-            } catch (JSONException e) {
-                e.getMessage();
-            } catch (Exception e2) {
-                e2.getMessage();
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
+    }
+
+    @Override // com.repackage.wo9
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            ur9 ur9Var = this.a;
+            if (ar9.d(ur9Var.c, ur9Var.h)) {
+                this.a.h = System.currentTimeMillis();
+                ur9 ur9Var2 = this.a;
+                ar9.a(ur9Var2.a, str, ur9Var2.c, ur9Var2.g, str2);
+                yr9 a = cs9.a(this.a.a);
+                a.h(new gs9(this.a.c), str);
+                a.l("desc", str2);
+                a.m();
+                is9 is9Var = this.a.f;
+                if (is9Var != null) {
+                    is9Var.onClicked();
+                }
+                wp9.p(this.a.c, str2);
+                return true;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

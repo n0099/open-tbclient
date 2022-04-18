@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import com.meizu.cloud.pushsdk.handler.a.b.e;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.repackage.rm9;
+import com.repackage.ym9;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
@@ -69,7 +69,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         sb.append(str);
         sb.append(i == 0 ? " canNotificationMessage " : " canThroughMessage ");
         sb.append(z);
-        rm9.b("AbstractMessageHandler", sb.toString());
+        ym9.b("AbstractMessageHandler", sb.toString());
         return z;
     }
 
@@ -86,16 +86,16 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
                 e.a aVar = new e.a((String) com.meizu.cloud.pushsdk.b.a.a("https://api-push.meizu.com/garcia/api/server/getPublicKey").a().a().a());
                 if (!TextUtils.isEmpty(aVar.a())) {
                     k = aVar.a();
-                    rm9.d("AbstractMessageHandler", "down load public key: " + k);
+                    ym9.d("AbstractMessageHandler", "down load public key: " + k);
                     com.meizu.cloud.pushsdk.util.b.k(c(), messageV3.getPackageName(), aVar.a());
                 }
             }
             String a2 = com.meizu.cloud.pushsdk.util.c.a(k, a);
-            rm9.b("AbstractMessageHandler", "decryptSign " + a2);
+            ym9.b("AbstractMessageHandler", "decryptSign " + a2);
             if (!TextUtils.isEmpty(a2) && com.meizu.cloud.pushsdk.handler.a.b.e.a(a2, messageV3)) {
                 return true;
             }
-            rm9.b("AbstractMessageHandler", "force update public key " + i + " time");
+            ym9.b("AbstractMessageHandler", "force update public key " + i + " time");
             i++;
             if (i >= 2) {
                 return false;
@@ -108,7 +108,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         try {
             return c().getPackageName().equals(new JSONObject(str).getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
         } catch (Exception unused) {
-            rm9.b("AbstractMessageHandler", "parse notification error");
+            ym9.b("AbstractMessageHandler", "parse notification error");
             return false;
         }
     }
@@ -122,7 +122,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
             JSONObject jSONObject = new JSONObject(str).getJSONObject("launcher");
             return (!jSONObject.has("pkg") || TextUtils.isEmpty(jSONObject.getString("pkg"))) ? "" : jSONObject.getString("pkg");
         } catch (Exception unused) {
-            rm9.b("AbstractMessageHandler", "parse desk top json error");
+            ym9.b("AbstractMessageHandler", "parse desk top json error");
             return "";
         }
     }
@@ -130,7 +130,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     public void b(MessageV3 messageV3) {
         com.meizu.cloud.pushsdk.notification.model.a a = com.meizu.cloud.pushsdk.notification.model.a.a(messageV3);
         if (a != null) {
-            rm9.b("AbstractMessageHandler", "delete notifyKey " + a.b() + " notifyId " + a.a());
+            ym9.b("AbstractMessageHandler", "delete notifyKey " + a.b() + " notifyId " + a.a());
             if (TextUtils.isEmpty(a.b())) {
                 com.meizu.cloud.pushsdk.notification.c.b.c(c(), messageV3.getUploadDataPackageName(), a.a());
             } else {
@@ -147,45 +147,45 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         String str;
         boolean z = false;
         if (a(intent)) {
-            rm9.b("AbstractMessageHandler", "current message Type " + a(a()));
+            ym9.b("AbstractMessageHandler", "current message Type " + a(a()));
             T c = c(intent);
             if (!g((a<T>) c)) {
-                rm9.b("AbstractMessageHandler", "invalid push message");
+                ym9.b("AbstractMessageHandler", "invalid push message");
                 return false;
             }
-            rm9.b("AbstractMessageHandler", "current Handler message " + c);
+            ym9.b("AbstractMessageHandler", "current Handler message " + c);
             b((a<T>) c);
             int d = d((a<T>) c);
             boolean z2 = true;
             if (d != 0) {
                 if (d == 1) {
-                    rm9.b("AbstractMessageHandler", "expire notification, dont show message");
+                    ym9.b("AbstractMessageHandler", "expire notification, dont show message");
                 } else if (d == 2) {
                     str = "notification on time ,show message";
                 } else if (d == 3) {
-                    rm9.b("AbstractMessageHandler", "schedule notification");
+                    ym9.b("AbstractMessageHandler", "schedule notification");
                     e((a<T>) c);
                     z = true;
                 }
                 z2 = false;
                 boolean f = f((a<T>) c);
-                rm9.b("AbstractMessageHandler", "can send message " + f);
+                ym9.b("AbstractMessageHandler", "can send message " + f);
                 if (z && z2 && f) {
                     a((a<T>) c, a((a<T>) c));
                     c((a<T>) c);
-                    rm9.b("AbstractMessageHandler", "send message end ");
+                    ym9.b("AbstractMessageHandler", "send message end ");
                 }
             } else {
                 str = "schedule send message off, send message directly";
             }
-            rm9.b("AbstractMessageHandler", str);
+            ym9.b("AbstractMessageHandler", str);
             z = true;
             boolean f2 = f((a<T>) c);
-            rm9.b("AbstractMessageHandler", "can send message " + f2);
+            ym9.b("AbstractMessageHandler", "can send message " + f2);
             if (z) {
                 a((a<T>) c, a((a<T>) c));
                 c((a<T>) c);
-                rm9.b("AbstractMessageHandler", "send message end ");
+                ym9.b("AbstractMessageHandler", "send message end ");
             }
         }
         return z;
@@ -201,7 +201,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         if (!MinSdkChecker.isSupportSetDrawableSmallIcon()) {
             b().b(c(), MzPushMessage.fromMessageV3(messageV3));
         } else if (MzSystemUtils.isRunningProcess(c(), messageV3.getUploadDataPackageName())) {
-            rm9.d("AbstractMessageHandler", "send notification arrived message to " + messageV3.getUploadDataPackageName());
+            ym9.d("AbstractMessageHandler", "send notification arrived message to " + messageV3.getUploadDataPackageName());
             Intent intent = new Intent();
             intent.putExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE, messageV3);
             intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_ARRIVED);
@@ -220,7 +220,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
         String stringExtra = intent != null ? intent.getStringExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY) : null;
         if (TextUtils.isEmpty(stringExtra)) {
             String deviceId = MzSystemUtils.getDeviceId(c());
-            rm9.b("AbstractMessageHandler", "force get deviceId " + deviceId);
+            ym9.b("AbstractMessageHandler", "force get deviceId " + deviceId);
             return deviceId;
         }
         return stringExtra;
@@ -252,7 +252,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     public String h(Intent intent) {
         String stringExtra = intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_TASK_TIMES_TAMP);
-        rm9.b("AbstractMessageHandler", "receive push timestamp from pushservice " + stringExtra);
+        ym9.b("AbstractMessageHandler", "receive push timestamp from pushservice " + stringExtra);
         return TextUtils.isEmpty(stringExtra) ? String.valueOf(System.currentTimeMillis() / 1000) : stringExtra;
     }
 

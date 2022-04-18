@@ -230,7 +230,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     private void checkNeedAgreeNoPwdPay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            ja1.e(this, R.drawable.obfuscated_res_0x7f080639, "加载中");
+            ja1.e(this, R.drawable.obfuscated_res_0x7f080638, "加载中");
             b81.j().k(this.bduss, this.payChannel, this.appKey, new a(this));
         }
     }
@@ -238,11 +238,11 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.agreeNoticeLayout = findViewById(R.id.obfuscated_res_0x7f09187a);
-            this.agreeResultLayout = findViewById(R.id.obfuscated_res_0x7f09187b);
-            this.closeNoticeBtn = findViewById(R.id.obfuscated_res_0x7f091866);
+            this.agreeNoticeLayout = findViewById(R.id.obfuscated_res_0x7f09187b);
+            this.agreeResultLayout = findViewById(R.id.obfuscated_res_0x7f09187c);
+            this.closeNoticeBtn = findViewById(R.id.obfuscated_res_0x7f091867);
             this.gotoAgreeBtn = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f090161);
-            this.resultKnownBtn = findViewById(R.id.obfuscated_res_0x7f09186e);
+            this.resultKnownBtn = findViewById(R.id.obfuscated_res_0x7f09186f);
             this.gotoAgreeBtn.setText("立即开启小额免密支付");
             this.closeNoticeBtn.setOnClickListener(this);
             this.gotoAgreeBtn.setOnClickListener(this);
@@ -265,7 +265,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     private void processIsNeedAgreementGuide(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, this, str, str2, str3) == null) {
-            ja1.e(this, R.drawable.obfuscated_res_0x7f080639, "加载中");
+            ja1.e(this, R.drawable.obfuscated_res_0x7f080638, "加载中");
             b81.j().l(str, str2, str3, new b(this));
         }
     }
@@ -316,7 +316,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091866) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091867) {
                 finish();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f090161) {
                 this.gotoAgreeBtn.b();
@@ -324,7 +324,7 @@ public class GuideAgreeNoPwdPayActivity extends Activity implements View.OnClick
                 this.gotoAgreeBtn.setPressed(true);
                 c91.e(new z81(Info.kBaiduPIDValue));
                 processIsNeedAgreementGuide(this.bduss, this.payChannel, this.appKey);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09186e) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09186f) {
                 finish();
             }
         }

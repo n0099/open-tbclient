@@ -101,7 +101,7 @@ public class do1 extends xz1 {
         FragmentActivity activity;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (activity = getActivity()) != null && this.m0 == null) {
-            this.m0 = new p64(activity, this.l0, f3(), qj2.K(), new sf3());
+            this.m0 = new o64(activity, this.l0, f3(), qj2.K(), new sf3());
             new zp2(this.m0, this).z();
         }
     }

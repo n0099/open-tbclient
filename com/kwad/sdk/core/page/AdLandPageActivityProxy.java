@@ -76,9 +76,9 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
     }
 
     private void initTipBarView() {
-        this.mWebTipBarLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09118a);
-        this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09118b);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09118c);
+        this.mWebTipBarLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09118b);
+        this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09118c);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09118d);
         this.mWebTipBarCloseBtn = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdLandPageActivityProxy.6
             @Override // android.view.View.OnClickListener
@@ -106,7 +106,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
     private void initView() {
         KsAdWebView ksAdWebView;
         String G;
-        KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091181);
+        KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091182);
         this.mAdWebView = ksAdWebView2;
         handlerLandingPageAtEndCard(ksAdWebView2);
         this.mAdWebView.setTemplateData(this.mAdTemplate);
@@ -119,10 +119,10 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.h.a {
                 }
             }
         });
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a5);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a6);
-        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a7);
-        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910ac);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a6);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a7);
+        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a8);
+        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910ad);
         List<AdInfo> list = this.mAdTemplate.adInfoList;
         if (list != null && list.size() > 0 && this.mAdTemplate.adInfoList.get(0) != null) {
             AdInfo.AdBaseInfo adBaseInfo = this.mAdTemplate.adInfoList.get(0).adBaseInfo;

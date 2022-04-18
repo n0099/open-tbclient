@@ -196,7 +196,7 @@ public class ca1 extends Dialog {
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0905a0);
             this.c = frameLayout;
             frameLayout.setVisibility(8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fbf);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc0);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
             setOnCancelListener(new b(this));

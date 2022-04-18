@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf4;
+import com.repackage.bf4;
 import com.repackage.tg1;
 import com.repackage.vy2;
 /* loaded from: classes2.dex */
@@ -134,7 +134,7 @@ public class PullToRefreshBaseWebView<T extends View> extends PullToRefreshBase<
             if (getScrollYValue() == 0 && this.x) {
                 return false;
             }
-            boolean a2 = cf4.a(this.p, -1);
+            boolean a2 = bf4.a(this.p, -1);
             if (y) {
                 Log.d("PullToRefreshWebView", "isReadyForPullDown result: " + a2);
             }

@@ -60,8 +60,8 @@ public class si3 implements tl1 {
                 if (si3.b) {
                     Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
                 }
-                ng4.j(si3.e());
-                ng4.N(String.valueOf(this.a), si3.e());
+                mg4.j(si3.e());
+                mg4.N(String.valueOf(this.a), si3.e());
             }
         }
     }
@@ -144,7 +144,7 @@ public class si3 implements tl1 {
             if (!r43.l() || (a0 = j03.a0()) == null || (V = a0.V()) == null) {
                 return false;
             }
-            f(str, pf4.g().v(AppRuntime.getAppContext()), qj2.h0().i(qj2.c()), jg3.i(a0.getApplicationContext()), str2, str3, qj2.n().a(), V.T());
+            f(str, of4.g().v(AppRuntime.getAppContext()), qj2.h0().i(qj2.c()), jg3.i(a0.getApplicationContext()), str2, str3, qj2.n().a(), V.T());
             return true;
         }
         return invokeLLL.booleanValue;
@@ -154,7 +154,7 @@ public class si3 implements tl1 {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String E = ng4.E(e());
+            String E = mg4.E(e());
             long currentTimeMillis = System.currentTimeMillis() / 1000;
             if (!TextUtils.isEmpty(E)) {
                 try {

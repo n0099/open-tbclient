@@ -1,25 +1,26 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes6.dex */
 public class p6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static PayFlowType a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "Empty";
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i == PayFlowType.DIOALOG_PAY_FLOW.getTypeId()) {
+                return PayFlowType.DIOALOG_PAY_FLOW;
             }
-            String[] split = str.split("\\?");
-            return split.length > 0 ? split[0] : V8ExceptionInfo.V8_EXCEPTION_ERROR;
+            if (i == PayFlowType.WALLET_PAY_FLOW.getTypeId()) {
+                return PayFlowType.WALLET_PAY_FLOW;
+            }
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (PayFlowType) invokeI.objValue;
     }
 }

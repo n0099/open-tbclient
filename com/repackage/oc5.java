@@ -37,10 +37,10 @@ public class oc5 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
                 List<ActivityManager.AppTask> appTasks = ((ActivityManager) context.getSystemService("activity")).getAppTasks();
-                ks4.x("AMNoTaskList", 100);
+                js4.x("AMNoTaskList", 100);
                 for (ActivityManager.AppTask appTask : appTasks) {
-                    ks4.v(appTask);
-                    ls4.a().c(appTask);
+                    js4.v(appTask);
+                    ks4.a().c(appTask);
                     if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseActivity != null && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(appTask.getTaskInfo().baseActivity.getClassName()) && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(appTask.getTaskInfo().topActivity.getClassName())) {
                         return true;
                     }
@@ -57,14 +57,14 @@ public class oc5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             Object d = yb.d(Looper.myQueue(), "mMessages");
-            ks4.x("MQNoMsg", 100);
+            js4.x("MQNoMsg", 100);
             boolean z = false;
             if (d != null && (d instanceof Message)) {
                 Message message = (Message) d;
                 int i = 0;
                 while (message != null && !z && i < 10) {
                     i++;
-                    ks4.w(message);
+                    js4.w(message);
                     z = d(message);
                     Object d2 = yb.d(message, "next");
                     message = d2 instanceof Message ? (Message) d2 : null;
@@ -84,7 +84,7 @@ public class oc5 {
                 Object d = yb.d(obj, "intent");
                 if (d instanceof Intent) {
                     Intent intent = (Intent) d;
-                    ls4.a().d(intent);
+                    ks4.a().d(intent);
                     ComponentName component = intent.getComponent();
                     if (component != null) {
                         return SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(component.getClassName());

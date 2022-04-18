@@ -1,45 +1,51 @@
 package com.repackage;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import org.json.JSONObject;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.payui.YYPayUIKit;
-import tv.athena.revenue.payui.model.NativeOperationParams;
-import tv.athena.revenue.payui.model.PayFlowModel;
-import tv.athena.revenue.payui.model.PayFlowType;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayWayView;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.FormBody;
+import okhttp3.HttpUrl;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes5.dex */
 public class d4a {
     public static /* synthetic */ Interceptable $ic;
+    public static OkHttpClient b;
+    public static volatile d4a c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, List<Cookie>> a;
 
     /* loaded from: classes5.dex */
-    public static class a implements IPayCallback<CurrencyChargeMessage> {
+    public class a implements CookieJar {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IPayCallback a;
+        public final /* synthetic */ d4a a;
 
-        public a(IPayCallback iPayCallback) {
+        public a(d4a d4aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iPayCallback};
+                Object[] objArr = {d4aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,126 +55,233 @@ public class d4a {
                     return;
                 }
             }
-            this.a = iPayCallback;
+            this.a = d4aVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(CurrencyChargeMessage currencyChargeMessage, PayCallBackBean payCallBackBean) {
+        @Override // okhttp3.CookieJar
+        public List<Cookie> loadForRequest(HttpUrl httpUrl) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, currencyChargeMessage, payCallBackBean) == null) {
-                RLog.debug("PayWebViewCallHelper", "onSuccess");
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onSuccess(currencyChargeMessage, payCallBackBean);
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpUrl)) == null) {
+                List<Cookie> list = (List) this.a.a.get(httpUrl.host());
+                return list != null ? list : new ArrayList();
             }
+            return (List) invokeL.objValue;
         }
 
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+        @Override // okhttp3.CookieJar
+        public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) {
-                RLog.debug("PayWebViewCallHelper", "onFail code:" + i + " failReason:" + str);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                RLog.debug("PayWebViewCallHelper", "onPayStart");
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) {
-                RLog.debug("PayWebViewCallHelper", "onPayStatus");
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, list) == null) {
+                this.a.a.put(httpUrl.host(), list);
             }
         }
     }
 
-    public static void a(int i, int i2, PayFlowType payFlowType, NativeOperationParams nativeOperationParams) {
-        AbsViewEventHandler absViewEventHandler;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, nativeOperationParams}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation null yyPayUIKit", new Object[0]);
-            } else if (nativeOperationParams.params == null) {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation error h5 params null", new Object[0]);
-            } else {
-                BannerConfigItem.BannerInfo bannerInfo = new BannerConfigItem.BannerInfo();
+    /* loaded from: classes5.dex */
+    public class b implements Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e4a a;
+        public final /* synthetic */ Request b;
+
+        public b(d4a d4aVar, e4a e4aVar, Request request) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d4aVar, e4aVar, request};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = e4aVar;
+            this.b = request;
+        }
+
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                boolean isCanceled = call.isCanceled();
+                RLog.error("HttpCore", "onFailure isCanceled:" + isCanceled, new Object[0]);
+                this.a.a(this.b, isCanceled, iOException);
+                RLog.error("HttpCore", "HttpCore -- enqueuePost--1-onFailure:" + iOException.getMessage(), new Object[0]);
+            }
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                String unused = d4a.d = response.body().string();
                 try {
-                    JSONObject jSONObject = new JSONObject(nativeOperationParams.params);
-                    bannerInfo.id = jSONObject.optString("id");
-                    bannerInfo.jumpType = jSONObject.optInt("jumpType");
-                    bannerInfo.jumpData = jSONObject.optString("jumpData", "");
-                    bannerInfo.imageUrl = jSONObject.optString("imageUrl", "");
-                    PayFlowModel payFlowModel = uIKit.getPayFlowModel(payFlowType);
-                    if (payFlowModel != null && (absViewEventHandler = payFlowModel.viewEventListener) != null) {
-                        absViewEventHandler.onBannerClick(bannerInfo);
-                    } else {
-                        RLog.error("PayWebViewCallHelper", "onNativeOperation error h5PayFlowModel null", new Object[0]);
-                    }
+                    this.a.b(d4a.d);
+                    RLog.debug("HttpCore", "HttpCore -- enqueuePost-onResponse:" + d4a.d);
                 } catch (Exception e) {
-                    RLog.error("PayWebViewCallHelper", "get bannerInfo error:", e.getLocalizedMessage());
+                    RLog.error("HttpCore", "HttpCore -- enqueuePost--2-onFailure:" + e.getMessage(), new Object[0]);
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    public static void b(int i, int i2, Activity activity, NativeOperationParams nativeOperationParams, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), activity, nativeOperationParams, iPayCallback}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation null yyPayUIKit", new Object[0]);
-            } else if (nativeOperationParams.params == null) {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation error h5 params null", new Object[0]);
-            } else {
-                ProductInfo productInfo = new ProductInfo();
-                try {
-                    JSONObject jSONObject = new JSONObject(nativeOperationParams.params);
-                    productInfo.cid = jSONObject.optInt("cid");
-                    productInfo.productId = jSONObject.optString(AdUploadHttpRequest.KEY_PRODUCT_ID, "");
-                    productInfo.srcCurrencySymbol = jSONObject.optString("srcCurrencySymbol", "");
-                    productInfo.destAmount = jSONObject.optInt("destAmount");
-                    productInfo.srcAmount = jSONObject.optDouble("srcAmount", 0.0d);
-                    IYYPayWayView.b bVar = new IYYPayWayView.b();
-                    PayUIKitConfig payUIKitConfig = uIKit.getPayUIKitConfig();
-                    MiddleRevenueConfig middleRevenueConfig = payUIKitConfig != null ? payUIKitConfig.revenueConfig : null;
-                    if (middleRevenueConfig != null) {
-                        bVar.b = new r5a(productInfo, middleRevenueConfig.getCurrencyType());
-                    } else {
-                        bVar.b = new r5a(productInfo);
-                    }
-                    RLog.info("PayWebViewCallHelper", "startPayChannelDialog: payAmount:%s", bVar.b);
-                    uIKit.startPayChannelDialog(activity, bVar, new a(iPayCallback));
-                } catch (Exception e) {
-                    RLog.error("PayWebViewCallHelper", "get productInfo error:", e.getLocalizedMessage());
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755816000, "Lcom/repackage/d4a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-    }
-
-    public static void c(int i, int i2, PayFlowType payFlowType, NativeOperationParams nativeOperationParams) {
-        AbsViewEventHandler absViewEventHandler;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), payFlowType, nativeOperationParams}) == null) {
-            YYPayUIKit uIKit = YYPayUIKit.getUIKit(i, i2);
-            if (uIKit == null) {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation null yyPayUIKit", new Object[0]);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755816000, "Lcom/repackage/d4a;");
                 return;
             }
-            PayFlowModel payFlowModel = uIKit.getPayFlowModel(payFlowType);
-            if (payFlowModel != null && (absViewEventHandler = payFlowModel.viewEventListener) != null) {
-                absViewEventHandler.onHandleUrl(nativeOperationParams.params);
+        }
+        MediaType.parse("application/json;charset=utf-8");
+        MediaType.parse("application/octet-stream");
+        MediaType.parse("text/x-markdown;charset=utf-8");
+    }
+
+    public d4a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        OkHttpClient.Builder cookieJar = new OkHttpClient.Builder().addInterceptor(new g4a(3)).connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).cookieJar(new a(this));
+        cookieJar.dns(f4a.b());
+        b = cookieJar.build();
+        RLog.info("HttpCore", "HttpCore -- init");
+    }
+
+    public static d4a f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == null) {
+                synchronized (d4a.class) {
+                    if (c == null) {
+                        c = new d4a();
+                    }
+                }
+            }
+            return c;
+        }
+        return (d4a) invokeV.objValue;
+    }
+
+    public static String i(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, map)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (map == null) {
+                new HashMap();
             } else {
-                RLog.error("PayWebViewCallHelper", "onNativeOperation error h5PayFlowModel null", new Object[0]);
+                boolean z = true;
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (z && !str.contains("?")) {
+                        z = false;
+                        sb.append("?");
+                    } else {
+                        sb.append("&");
+                    }
+                    sb.append(entry.getKey());
+                    sb.append("=");
+                    if (entry.getValue() == null) {
+                        sb.append(" ");
+                    } else {
+                        sb.append(entry.getValue());
+                    }
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            String g = g(i, i2);
+            RLog.info("HttpCore", "cancelAllRequest appId:" + i + " useChannel:" + i2 + " requestTag：" + g);
+            OkHttpClient okHttpClient = b;
+            if (okHttpClient != null && okHttpClient.dispatcher() != null) {
+                for (Call call : b.dispatcher().queuedCalls()) {
+                    if (g.equals(call.request().tag())) {
+                        RLog.info("HttpCore", "cancel queued call:" + call);
+                        call.cancel();
+                    }
+                }
+                for (Call call2 : b.dispatcher().runningCalls()) {
+                    if (g.equals(call2.request().tag())) {
+                        RLog.info("HttpCore", "cancel running call:" + call2);
+                        call2.cancel();
+                    }
+                }
+                return;
+            }
+            RLog.error("HttpCore", "cancelAllRequest error okHttpClient null", new Object[0]);
+        }
+    }
+
+    public String e(String str, Map<String, String> map, int i, int i2, String str2, String str3, String str4, String str5, int i3, e4a e4aVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, map, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, Integer.valueOf(i3), e4aVar})) == null) {
+            String g = g(i, i2);
+            RLog.info("HttpCore", "enqueuePost requestTag=" + g);
+            if (map == null) {
+                map = new HashMap<>();
+            }
+            FormBody.Builder builder = new FormBody.Builder();
+            h(map, builder);
+            FormBody build = builder.build();
+            String i4 = i(str, null);
+            RLog.debug("HttpCore", "HttpCore -- enqueuePost--url:" + i4);
+            Request.Builder url = new Request.Builder().url(i4);
+            Request build2 = url.addHeader("X-AppId", i + "").addHeader("traceid", str2).addHeader("version", str3).addHeader("pakagename", str4).addHeader("X-HostId", str5).addHeader("X-AuthType", String.valueOf(i3)).tag(g).post(build).build();
+            try {
+                b.newCall(build2).enqueue(new b(this, e4aVar, build2));
+            } catch (Exception e) {
+                e.printStackTrace();
+                RLog.error("HttpCore", "HttpCore -- enqueuePost--3-onFailure:" + e.getMessage(), new Object[0]);
+            }
+            return d;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public String g(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            return "payhttp:appId=" + i + "&userchanel=" + i2;
+        }
+        return (String) invokeII.objValue;
+    }
+
+    public final void h(Map<String, String> map, FormBody.Builder builder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, map, builder) == null) {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                builder.add(entry.getKey(), entry.getValue() == null ? "" : entry.getValue());
             }
         }
     }

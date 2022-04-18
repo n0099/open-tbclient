@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class CountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -101,7 +101,7 @@ public class CountDownView extends LinearLayout {
     private void setTimeSkin(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, textView) == null) {
-            wr4 d = wr4.d(textView);
+            vr4 d = vr4.d(textView);
             d.n(R.string.J_X06);
             d.z(R.dimen.T_X04);
             d.v(R.color.CAM_X0302);
@@ -116,7 +116,7 @@ public class CountDownView extends LinearLayout {
             this.e = new TextView(getContext());
             this.e.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             this.e.setText(getContext().getResources().getString(i));
-            wr4 d = wr4.d(this.e);
+            vr4 d = vr4.d(this.e);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X08);
             addView(this.e);
@@ -128,7 +128,7 @@ public class CountDownView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                wr4 d = wr4.d(textView);
+                vr4 d = vr4.d(textView);
                 d.v(R.color.CAM_X0108);
                 d.z(R.dimen.T_X08);
             }
@@ -172,14 +172,14 @@ public class CountDownView extends LinearLayout {
             this.c.setLayoutParams(layoutParams2);
             this.c.setGravity(17);
             addView(this.c);
-            b(R.string.obfuscated_res_0x7f0f0abd);
+            b(R.string.obfuscated_res_0x7f0f0abc);
             this.d = new TextView(getContext());
             LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(oi.f(getContext(), R.dimen.tbds104), oi.f(getContext(), R.dimen.tbds104));
             layoutParams3.setMargins(oi.f(getContext(), R.dimen.M_W_X004), 0, oi.f(getContext(), R.dimen.M_W_X004), 0);
             this.d.setLayoutParams(layoutParams3);
             this.d.setGravity(17);
             addView(this.d);
-            b(R.string.obfuscated_res_0x7f0f13cf);
+            b(R.string.obfuscated_res_0x7f0f13ce);
         }
     }
 

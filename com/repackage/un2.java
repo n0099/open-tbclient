@@ -474,7 +474,7 @@ public class un2 extends BaseAdapter {
             view2.setBackgroundColor(-1);
             jVar.a.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060a6d));
             jVar.c.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a78));
-            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08114c));
+            jVar.h.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081150));
             jVar.g.setTextColor(-1);
             jVar.b.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060a7b));
             jVar.a.setLayoutParams(this.f);
@@ -484,7 +484,7 @@ public class un2 extends BaseAdapter {
             jVar.f.setVisibility(8);
             jVar.h.setVisibility(8);
             jVar.f.setVisibility(0);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08115a);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08115e);
             jVar.h.setVisibility(0);
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) jVar.h.getLayoutParams();
             layoutParams.width = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07066a);
@@ -594,7 +594,7 @@ public class un2 extends BaseAdapter {
             if (ao2.d() >= zn2.c) {
                 zn2.j(zn2.d);
             } else if (xd3.c() < 52428800) {
-                b03.g(AppRuntime.getAppContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1264)).G();
+                b03.g(AppRuntime.getAppContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1263)).G();
             } else {
                 p(this.a);
             }
@@ -610,10 +610,10 @@ public class un2 extends BaseAdapter {
                     zn2.j(zn2.d);
                     return;
                 } else if (d2 > 0 && TextUtils.equals(zn2.d, "single") && !TextUtils.equals(ao2.b(), mediaModel.getType())) {
-                    b03.f(this.a, R.string.obfuscated_res_0x7f0f126c).G();
+                    b03.f(this.a, R.string.obfuscated_res_0x7f0f126b).G();
                     return;
                 } else if (mediaModel.getSize() <= 52428800 || !TextUtils.equals(mediaModel.getType(), "image")) {
-                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081158);
+                    jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08115c);
                     jVar.c.setVisibility(0);
                     jVar.c.setText(String.valueOf(ao2.c(mediaModel) + 1));
                     ao2.i(mediaModel);
@@ -625,12 +625,12 @@ public class un2 extends BaseAdapter {
                     notifyDataSetChanged();
                     return;
                 } else {
-                    b03.f(this.a, R.string.obfuscated_res_0x7f0f126b).G();
+                    b03.f(this.a, R.string.obfuscated_res_0x7f0f126a).G();
                     return;
                 }
             }
             ao2.h(mediaModel);
-            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08115a);
+            jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08115e);
             jVar.c.setVisibility(8);
             go2 go2Var2 = this.c;
             if (go2Var2 != null) {
@@ -656,10 +656,10 @@ public class un2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
             if (j2 < 3000) {
-                b03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1272)).G();
+                b03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1271)).G();
                 return true;
             } else if (j2 > 300000) {
-                b03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1271)).G();
+                b03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1270)).G();
                 return true;
             } else {
                 return false;
@@ -677,7 +677,7 @@ public class un2 extends BaseAdapter {
             long j5 = j3 % 3600;
             String format = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 / 60));
             String format2 = String.format(Locale.getDefault(), "%02d", Long.valueOf(j5 % 60));
-            return j4 == 0 ? this.a.getString(R.string.obfuscated_res_0x7f0f12f2, new Object[]{format, format2}) : this.a.getString(R.string.obfuscated_res_0x7f0f12f3, new Object[]{String.format(Locale.getDefault(), "%02d", Long.valueOf(j4)), format, format2});
+            return j4 == 0 ? this.a.getString(R.string.obfuscated_res_0x7f0f12f1, new Object[]{format, format2}) : this.a.getString(R.string.obfuscated_res_0x7f0f12f2, new Object[]{String.format(Locale.getDefault(), "%02d", Long.valueOf(j4)), format, format2});
         }
         return (String) invokeJ.objValue;
     }
@@ -704,11 +704,11 @@ public class un2 extends BaseAdapter {
             view2.setClickable(true);
             ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090235);
             if (TextUtils.equals(zn2.b, "Image")) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081142);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f081146);
                 view2.setOnClickListener(new a(this));
                 return;
             }
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f081146);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08114a);
             view2.setOnClickListener(new b(this));
         }
     }
@@ -744,7 +744,7 @@ public class un2 extends BaseAdapter {
                 }
                 if (TextUtils.isEmpty(str2)) {
                 }
-                b03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1273)).G();
+                b03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1272)).G();
                 return false;
             }
             if (mediaMetadataRetriever != null) {
@@ -759,7 +759,7 @@ public class un2 extends BaseAdapter {
             if (TextUtils.isEmpty(str2) && str2.startsWith(FileUtils.VIDEO_FILE_START)) {
                 return TextUtils.equals(MimeTypes.VIDEO_MP4, str2) || TextUtils.equals("video/3gp", str2) || TextUtils.equals(MimeTypes.VIDEO_WEBM, str2) || TextUtils.equals("video/mkv", str2);
             }
-            b03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1273)).G();
+            b03.g(AppRuntime.getAppContext(), this.a.getString(R.string.obfuscated_res_0x7f0f1272)).G();
             return false;
         }
         return invokeL.booleanValue;
@@ -783,7 +783,7 @@ public class un2 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048595, this, mediaModel, jVar, i2) == null) {
             if (ao2.f(mediaModel)) {
-                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f081158);
+                jVar.d.setImageResource(R.drawable.obfuscated_res_0x7f08115c);
                 jVar.c.setVisibility(0);
                 jVar.c.setText(String.valueOf(ao2.c(mediaModel) + 1));
             }
@@ -795,9 +795,9 @@ public class un2 extends BaseAdapter {
             if (!yn2.d) {
                 jVar.h.setVisibility(8);
             } else if (zn2.d(mediaModel.getPath())) {
-                jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1268));
+                jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1267));
             } else if (zn2.e(mediaModel.getPath())) {
-                jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1269));
+                jVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1268));
             } else {
                 jVar.h.setVisibility(8);
             }

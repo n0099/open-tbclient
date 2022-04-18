@@ -1,243 +1,286 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gift.giftTab.CategoryGiftListModel;
+import com.baidu.tieba.gift.giftTab.DefaultGiftListModel;
+import com.baidu.tieba.gift.giftTab.FreeGiftChanceModel;
+import com.baidu.tieba.gift.giftTab.GiftTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetMyGift.DataRes;
-import tbclient.GetMyGift.presentMoneyTxt;
-import tbclient.PresentMyList;
+import java.util.HashMap;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class bt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public b c;
-    public c d;
-    public ArrayList<a> e;
-    public long f;
-    public bp4 g;
-    public int h;
+    public b9<GiftTabActivity> a;
+    public DefaultGiftListModel b;
+    public CategoryGiftListModel c;
+    public FreeGiftChanceModel d;
+    public ArrayList<ys6> e;
+    public ArrayList<ws6> f;
+    public ArrayList<at6> g;
+    public HashMap<Integer, ArrayList<zo4>> h;
+    public int i;
+    public String j;
+    public int k;
+    public ap4 l;
+    public e m;
+    public d n;
+    public DefaultGiftListModel.b o;
+    public CategoryGiftListModel.b p;
+    public FreeGiftChanceModel.b q;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a implements DefaultGiftListModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public String c;
-        public String d;
-        public long e;
-        public long f;
-        public long g;
-        public int h;
-        public String i;
+        public final /* synthetic */ bt6 a;
 
-        public a() {
+        public a(bt6 bt6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bt6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bt6Var;
+        }
+
+        @Override // com.baidu.tieba.gift.giftTab.DefaultGiftListModel.b
+        public void a(int i, String str, int i2, String str2, int i3, ap4 ap4Var, ArrayList<ws6> arrayList, ArrayList<zo4> arrayList2, ArrayList<at6> arrayList3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, Integer.valueOf(i3), ap4Var, arrayList, arrayList2, arrayList3}) == null) {
+                if (i == 0) {
+                    int i4 = 0;
+                    if (arrayList != null && arrayList.size() >= 1 && arrayList.get(0) != null) {
+                        i4 = arrayList.get(0).a();
+                    }
+                    this.a.f = arrayList;
+                    this.a.h.put(Integer.valueOf(i4), arrayList2);
+                    this.a.g = arrayList3;
+                    this.a.j = str2;
+                    this.a.i = i2;
+                    bt6 bt6Var = this.a;
+                    bt6Var.k = i3;
+                    bt6Var.l = ap4Var;
+                    bt6Var.q();
+                }
+                if (this.a.m != null) {
+                    e eVar = this.a.m;
+                    String str3 = this.a.j;
+                    bt6 bt6Var2 = this.a;
+                    eVar.a(i, str, true, str3, bt6Var2.k, bt6Var2.l, bt6Var2.e, this.a.f, this.a.g);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public class b implements CategoryGiftListModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
+        public final /* synthetic */ bt6 a;
 
-        public b() {
+        public b(bt6 bt6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bt6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bt6Var;
+        }
+
+        @Override // com.baidu.tieba.gift.giftTab.CategoryGiftListModel.b
+        public void a(int i, String str, int i2, ArrayList<zo4> arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), arrayList}) == null) {
+                if (i == 0) {
+                    this.a.h.put(Integer.valueOf(i2), arrayList);
+                    this.a.q();
+                }
+                if (this.a.m != null) {
+                    e eVar = this.a.m;
+                    String str2 = this.a.j;
+                    bt6 bt6Var = this.a;
+                    eVar.a(i, str, false, str2, bt6Var.k, bt6Var.l, bt6Var.e, this.a.f, this.a.g);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c {
+    public class c implements FreeGiftChanceModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
+        public final /* synthetic */ bt6 a;
 
-        public c() {
+        public c(bt6 bt6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bt6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bt6Var;
+        }
+
+        @Override // com.baidu.tieba.gift.giftTab.FreeGiftChanceModel.b
+        public void a(int i, String str, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && i == 0) {
+                this.a.i = i2;
+                if (this.a.n != null) {
+                    this.a.n.a(this.a.i);
                 }
             }
         }
     }
 
-    public bt6() {
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a(int i);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e {
+        void a(int i, String str, boolean z, String str2, int i2, ap4 ap4Var, ArrayList<ys6> arrayList, ArrayList<ws6> arrayList2, ArrayList<at6> arrayList3);
+    }
+
+    public bt6(b9<GiftTabActivity> b9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.h = new HashMap<>();
+        this.o = new a(this);
+        this.p = new b(this);
+        this.q = new c(this);
+        this.a = b9Var;
+        DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(b9Var);
+        this.b = defaultGiftListModel;
+        defaultGiftListModel.K(this.o);
+        CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.a);
+        this.c = categoryGiftListModel;
+        categoryGiftListModel.C(this.p);
+        FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.a);
+        this.d = freeGiftChanceModel;
+        freeGiftChanceModel.C(this.q);
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (this.d == null) {
+                FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.a);
+                this.d = freeGiftChanceModel;
+                freeGiftChanceModel.C(this.q);
+            }
+            this.d.B(str);
         }
     }
 
-    public ArrayList<a> a() {
-        InterceptResult invokeV;
+    public void o(String str, long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (ArrayList) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            if (this.b == null) {
+                DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(this.a);
+                this.b = defaultGiftListModel;
+                defaultGiftListModel.K(this.o);
+            }
+            this.b.J(str, j);
+        }
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public void p(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (this.c == null) {
+                CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.a);
+                this.c = categoryGiftListModel;
+                categoryGiftListModel.C(this.p);
+            }
+            this.c.B(i);
+        }
     }
 
-    public b c() {
-        InterceptResult invokeV;
+    public final void q() {
+        HashMap<Integer, ArrayList<zo4>> hashMap;
+        ArrayList<ws6> arrayList;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (b) invokeV.objValue;
-    }
-
-    public c d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (c) invokeV.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public void f(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, dataRes) == null) || dataRes == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (hashMap = this.h) == null || hashMap.size() <= 0 || (arrayList = this.f) == null || arrayList.size() <= 0) {
             return;
         }
-        this.a = dataRes.total_num.intValue();
-        this.b = dataRes.money.intValue();
-        dataRes.scene_id.intValue();
-        this.f = dataRes.blue_diamond.intValue();
-        if (dataRes.blue_diamond_txt != null) {
-            bp4 bp4Var = new bp4();
-            this.g = bp4Var;
-            String str = dataRes.blue_diamond_txt.txt;
-            if (str != null) {
-                bp4Var.a = str;
-            }
-            String str2 = dataRes.blue_diamond_txt.url;
-            if (str2 != null) {
-                this.g.b = str2;
-            }
-        }
-        if (dataRes.page != null) {
-            b bVar = new b();
-            this.c = bVar;
-            bVar.a = dataRes.page.cur_page.intValue();
-            this.c.b = dataRes.page.has_more.intValue();
-            this.c.c = dataRes.page.total.intValue();
-        }
-        if (dataRes.money_txt != null) {
-            c cVar = new c();
-            this.d = cVar;
-            presentMoneyTxt presentmoneytxt = dataRes.money_txt;
-            cVar.a = presentmoneytxt.txt;
-            cVar.b = presentmoneytxt.url;
-        }
-        List<PresentMyList> list = dataRes.gift_list;
-        if (list != null && list.size() > 0) {
+        if (this.e == null) {
             this.e = new ArrayList<>();
-            for (int i = 0; i < dataRes.gift_list.size(); i++) {
-                PresentMyList presentMyList = dataRes.gift_list.get(i);
-                if (presentMyList != null) {
-                    a aVar = new a();
-                    aVar.h = i + 1;
-                    aVar.a = presentMyList.pay_userid.longValue();
-                    aVar.b = presentMyList.pay_username;
-                    aVar.c = presentMyList.portrait;
-                    presentMyList.gift_id.intValue();
-                    String str3 = presentMyList.gift_name;
-                    String str4 = presentMyList.play_url;
-                    aVar.d = presentMyList.thumbnail_url;
-                    aVar.e = presentMyList.create_time.intValue();
-                    aVar.f = presentMyList.num.intValue();
-                    presentMyList.currency_unit.intValue();
-                    String str5 = presentMyList.currency_type;
-                    aVar.g = presentMyList.present_scores.longValue();
-                    aVar.i = presentMyList.name_show;
-                    this.e.add(aVar);
+        }
+        this.e.clear();
+        Iterator<ws6> it = this.f.iterator();
+        while (it.hasNext()) {
+            ws6 next = it.next();
+            if (next != null && !StringUtils.isNull(next.b())) {
+                ys6 ys6Var = new ys6();
+                ys6Var.c(next.a());
+                ys6Var.d(next.b());
+                ArrayList<zo4> arrayList2 = this.h.get(Integer.valueOf(next.a()));
+                if (arrayList2 != null) {
+                    ys6Var.e(arrayList2);
                 }
+                this.e.add(ys6Var);
             }
         }
-        this.h = dataRes.currency.intValue();
     }
 
-    public void g(ArrayList<a> arrayList) {
+    public void r(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
-            this.e = arrayList;
+        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
+            this.n = dVar;
         }
     }
 
-    public void h(long j) {
+    public void s(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public void i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    public void j(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.d = cVar;
-        }
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.b = j;
+        if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
+            this.m = eVar;
         }
     }
 }

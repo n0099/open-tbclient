@@ -84,8 +84,8 @@ public class rd5 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091755);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091754);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091756);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091755);
         }
     }
 
@@ -229,7 +229,7 @@ public class rd5 extends BaseAdapter {
                 view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0140, (ViewGroup) null, false);
                 a aVar = new a(this, view2);
                 if (!ListUtils.isEmpty(this.c) && this.c.size() > i && !TextUtils.isEmpty(this.c.get(i))) {
-                    aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f081207);
+                    aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f08120b);
                     aVar.a.K(this.c.get(i), 10, false);
                 }
                 if (!ListUtils.isEmpty(this.d) && this.d.size() > i && !TextUtils.isEmpty(this.d.get(i))) {

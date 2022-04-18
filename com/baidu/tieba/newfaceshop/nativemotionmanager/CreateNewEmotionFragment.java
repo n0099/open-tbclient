@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ho7;
+import com.repackage.ko7;
 import com.repackage.oi;
-import com.repackage.so7;
+import com.repackage.vo7;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class CreateNewEmotionFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public so7 a;
+    public vo7 a;
     public CustomMessageListener b;
 
     /* loaded from: classes3.dex */
@@ -119,9 +119,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        if (ho7.l().r()) {
+        if (ko7.l().r()) {
             this.a.j();
-        } else if (ho7.l().k() == null) {
+        } else if (ko7.l().k() == null) {
             this.a.i();
         } else {
             this.a.m(getString(R.string.obfuscated_res_0x7f0f053b));
@@ -146,9 +146,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            so7 so7Var = this.a;
-            if (so7Var != null) {
-                so7Var.g(i);
+            vo7 vo7Var = this.a;
+            if (vo7Var != null) {
+                vo7Var.g(i);
             }
         }
     }
@@ -159,9 +159,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             registerListener(this.b);
-            so7 so7Var = new so7(getPageContext(), D0());
-            this.a = so7Var;
-            return so7Var.f();
+            vo7 vo7Var = new vo7(getPageContext(), D0());
+            this.a = vo7Var;
+            return vo7Var.f();
         }
         return (View) invokeLLL.objValue;
     }
@@ -171,9 +171,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            so7 so7Var = this.a;
-            if (so7Var != null) {
-                so7Var.h();
+            vo7 vo7Var = this.a;
+            if (vo7Var != null) {
+                vo7Var.h();
             }
         }
     }

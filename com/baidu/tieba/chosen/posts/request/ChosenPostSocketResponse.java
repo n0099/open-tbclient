@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vy5;
+import com.repackage.xy5;
 import tbclient.HotThread.HotThreadResIdl;
 /* loaded from: classes3.dex */
-public class ChosenPostSocketResponse extends MvcSocketResponsedMessage<vy5, HotThreadResIdl> {
+public class ChosenPostSocketResponse extends MvcSocketResponsedMessage<xy5, HotThreadResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

@@ -163,7 +163,7 @@ public class z75 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return wt4.k().l("page_stay_max_cost", 0);
+                return vt4.k().l("page_stay_max_cost", 0);
             }
             return this.b;
         }
@@ -205,7 +205,7 @@ public class z75 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.b = i;
-            wt4.k().w("page_stay_max_cost", this.b);
+            vt4.k().w("page_stay_max_cost", this.b);
         }
     }
 

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r94;
+import com.repackage.q94;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
@@ -66,16 +66,16 @@ public abstract class t32 extends r03 implements x32 {
         return (Bundle) invokeL.objValue;
     }
 
-    @Override // com.repackage.r94
-    public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, r94.a aVar) {
+    @Override // com.repackage.q94
+    public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, q94.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
             qj2.r0().a(str, map, map2, jSONObject, aVar);
         }
     }
 
-    @Override // com.repackage.r94
-    public void j(String str, Map<String, String> map, Map<String, String> map2, r94.a aVar) {
+    @Override // com.repackage.q94
+    public void j(String str, Map<String, String> map, Map<String, String> map2, q94.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
             qj2.r0().j(str, map, map2, aVar);

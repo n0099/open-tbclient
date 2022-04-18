@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yn7;
+import com.repackage.bo7;
 /* loaded from: classes3.dex */
 public class NewFaceSyncUploadModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -72,7 +72,7 @@ public class NewFaceSyncUploadModel extends FaceBaseModel {
             httpMessage.addParam("package_ids", str);
             httpMessage.addParam("pkg_update_time", currentTimeMillis);
             sendMessage(httpMessage);
-            yn7.t(currentTimeMillis);
+            bo7.t(currentTimeMillis);
         }
     }
 }

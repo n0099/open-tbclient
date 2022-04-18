@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ez7;
-import com.repackage.yr7;
+import com.repackage.bs7;
+import com.repackage.lz7;
 /* loaded from: classes3.dex */
 public class VideoPbViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ez7 a;
+    public lz7 a;
     public PbModel b;
     public int c;
 
@@ -38,7 +38,7 @@ public class VideoPbViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new ez7();
+        this.a = new lz7();
         this.c = 0;
     }
 
@@ -55,16 +55,16 @@ public class VideoPbViewModel extends ViewModel {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (MutableLiveData) invokeV.objValue;
     }
 
-    public yr7 c() {
+    public bs7 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.b() : (yr7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.b() : (bs7) invokeV.objValue;
     }
 
-    public yr7 d() {
+    public bs7 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.c() : (yr7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.c() : (bs7) invokeV.objValue;
     }
 
     public MutableLiveData<Boolean> e() {
@@ -150,7 +150,7 @@ public class VideoPbViewModel extends ViewModel {
         if (!(interceptable == null || interceptable.invokeZ(1048591, this, z) == null) || this.a.g().getValue() == null) {
             return;
         }
-        yr7 d0 = this.b.d0(this.a.g().getValue());
+        bs7 d0 = this.b.d0(this.a.g().getValue());
         if (d0 != null) {
             this.a.k().addLast(this.a.b());
             this.a.o(d0);
@@ -163,7 +163,7 @@ public class VideoPbViewModel extends ViewModel {
     }
 
     public void q() {
-        yr7 pollLast;
+        bs7 pollLast;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (pollLast = this.a.k().pollLast()) == null) {
             return;
@@ -176,7 +176,7 @@ public class VideoPbViewModel extends ViewModel {
     }
 
     public void r(ThreadData threadData) {
-        yr7 d0;
+        bs7 d0;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) || threadData == null || (d0 = this.b.d0(threadData)) == null) {
             return;
@@ -190,27 +190,27 @@ public class VideoPbViewModel extends ViewModel {
         this.a.s(true);
     }
 
-    public void s(yr7 yr7Var, int i) {
+    public void s(bs7 bs7Var, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048594, this, yr7Var, i) == null) || i < this.c) {
+        if (!(interceptable == null || interceptable.invokeLI(1048594, this, bs7Var, i) == null) || i < this.c) {
             return;
         }
         this.c = i;
-        this.a.p(yr7Var);
-        if (yr7Var != null) {
-            ez7 ez7Var = this.a;
+        this.a.p(bs7Var);
+        if (bs7Var != null) {
+            lz7 lz7Var = this.a;
             boolean z = true;
-            if (yr7Var.s() != 1 && !yr7Var.g0()) {
+            if (bs7Var.s() != 1 && !bs7Var.g0()) {
                 z = false;
             }
-            ez7Var.q(z);
+            lz7Var.q(z);
         }
     }
 
-    public void t(yr7 yr7Var, int i) {
+    public void t(bs7 bs7Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048595, this, yr7Var, i) == null) && i == 3) {
-            this.a.o(yr7Var);
+        if ((interceptable == null || interceptable.invokeLI(1048595, this, bs7Var, i) == null) && i == 3) {
+            this.a.o(bs7Var);
         }
     }
 

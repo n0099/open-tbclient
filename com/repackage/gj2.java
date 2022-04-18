@@ -27,8 +27,8 @@ public class gj2 extends hj2.f {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final g94 d;
-    public final a84 e;
+    public final f94 d;
+    public final z74 e;
     public ma3 f;
 
     /* loaded from: classes6.dex */
@@ -81,13 +81,13 @@ public class gj2 extends hj2.f {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gj2(g94 g94Var, a84 a84Var) {
+    public gj2(f94 f94Var, z74 z74Var) {
         super("extract");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g94Var, a84Var};
+            Object[] objArr = {f94Var, z74Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -98,8 +98,8 @@ public class gj2 extends hj2.f {
                 return;
             }
         }
-        this.d = g94Var;
-        this.e = a84Var;
+        this.d = f94Var;
+        this.e = z74Var;
     }
 
     @Override // com.repackage.hj2.f
@@ -110,7 +110,7 @@ public class gj2 extends hj2.f {
             if (b().getBoolean("result_output_dir_allow_rollback", false)) {
                 String string = b().getString("result_output_dir");
                 jx1.k("SwanExtractor", "#onInstallFaild del: " + string);
-                ng4.M(string);
+                mg4.M(string);
             }
         }
     }
@@ -140,9 +140,9 @@ public class gj2 extends hj2.f {
     }
 
     public final void j() {
-        g94 g94Var;
+        f94 f94Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (g94Var = this.d) == null || g94Var.h != 0 || fj2.w()) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (f94Var = this.d) == null || f94Var.h != 0 || fj2.w()) {
             return;
         }
         fj2.e(this.d.g + File.separator + this.d.i);
@@ -228,12 +228,12 @@ public class gj2 extends hj2.f {
     }
 
     public final void p(String str, String str2) {
-        a84 a84Var;
+        z74 z74Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || (a84Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) || (z74Var = this.e) == null) {
             return;
         }
-        a84Var.n(str, str2);
+        z74Var.n(str, str2);
     }
 
     public final cc3 q(@NonNull BufferedInputStream bufferedInputStream, String str) {
@@ -243,8 +243,8 @@ public class gj2 extends hj2.f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, bufferedInputStream, str)) == null) {
             ol2 d = ol2.d(str);
-            g94 g94Var = this.d;
-            if (g94Var == null) {
+            f94 f94Var = this.d;
+            if (f94Var == null) {
                 cc3 cc3Var = new cc3();
                 cc3Var.k(11L);
                 cc3Var.i(2320L);
@@ -252,14 +252,14 @@ public class gj2 extends hj2.f {
                 gc3.a().f(cc3Var);
                 return cc3Var;
             }
-            int i2 = g94Var.h;
+            int i2 = f94Var.h;
             boolean z = true;
             if (i2 == 1) {
                 rh1 g2 = rj2.g();
-                g94 g94Var2 = this.d;
-                i = g2.a(g94Var2.g, String.valueOf(g94Var2.i));
+                f94 f94Var2 = this.d;
+                i = g2.a(f94Var2.g, String.valueOf(f94Var2.i));
             } else if (i2 == 0) {
-                i = fj2.e.i(g94Var.g, String.valueOf(g94Var.i));
+                i = fj2.e.i(f94Var.g, String.valueOf(f94Var.i));
             } else {
                 cc3 cc3Var2 = new cc3();
                 cc3Var2.k(11L);
@@ -318,7 +318,7 @@ public class gj2 extends hj2.f {
                             z = false;
                         }
                     } else {
-                        z = qg4.d(bufferedInputStream, i.getPath());
+                        z = pg4.d(bufferedInputStream, i.getPath());
                         bVar = null;
                         i4 = 0;
                     }
@@ -330,7 +330,7 @@ public class gj2 extends hj2.f {
                     if (this.e != null) {
                         Bundle bundle = new Bundle();
                         bundle.putInt("download_package_type_id", i4);
-                        e84.a(this.e, bundle, "event_download_package_type");
+                        d84.a(this.e, bundle, "event_download_package_type");
                     }
                     o();
                     if (z) {

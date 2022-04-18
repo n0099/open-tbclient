@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mb4;
+import com.repackage.lb4;
 import com.repackage.o53;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -41,7 +41,7 @@ import org.json.JSONObject;
 public class n13 extends g23 {
     public static /* synthetic */ Interceptable $ic;
     public static p72 c;
-    public static final ef3<List<mb4.b>, List<String>> d;
+    public static final ef3<List<lb4.b>, List<String>> d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -171,7 +171,7 @@ public class n13 extends g23 {
         public final /* synthetic */ String b;
 
         /* loaded from: classes6.dex */
-        public class a implements x74 {
+        public class a implements w74 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -194,13 +194,13 @@ public class n13 extends g23 {
                 this.a = dVar;
             }
 
-            @Override // com.repackage.x74
+            @Override // com.repackage.w74
             public void a(@Nullable Map<String, String> map) {
                 Interceptable interceptable = $ic;
                 if (!(interceptable == null || interceptable.invokeL(1048576, this, map) == null) || map == null) {
                     return;
                 }
-                for (mb4.b bVar : this.a.a) {
+                for (lb4.b bVar : this.a.a) {
                     String b = bVar.b();
                     String str = map.get(b);
                     if (!TextUtils.equals(b, str)) {
@@ -211,7 +211,7 @@ public class n13 extends g23 {
                 zy1.a(dVar.a, dVar.b, null);
             }
 
-            @Override // com.repackage.x74
+            @Override // com.repackage.w74
             public void onFail(Exception exc) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
@@ -242,10 +242,10 @@ public class n13 extends g23 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!xc4.e().g(!de3.G())) {
+                if (!wc4.e().g(!de3.G())) {
                     zy1.a(this.a, this.b, null);
-                } else if (PMSConstants.a(t74.b())) {
-                    s74.e((List) n13.d.a(this.a), n13.c.c(), new a(this));
+                } else if (PMSConstants.a(s74.b())) {
+                    r74.e((List) n13.d.a(this.a), n13.c.c(), new a(this));
                 } else {
                     jx1.c("DownloadPackagesAction", "STOP :: Not Support BDTLS");
                 }
@@ -254,7 +254,7 @@ public class n13 extends g23 {
     }
 
     /* loaded from: classes6.dex */
-    public static class e implements ef3<List<mb4.b>, List<String>> {
+    public static class e implements ef3<List<lb4.b>, List<String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -275,7 +275,7 @@ public class n13 extends g23 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.repackage.ef3
         /* renamed from: b */
-        public List<String> a(List<mb4.b> list) {
+        public List<String> a(List<lb4.b> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
@@ -283,7 +283,7 @@ public class n13 extends g23 {
                     return Collections.emptyList();
                 }
                 ArrayList arrayList = new ArrayList();
-                for (mb4.b bVar : list) {
+                for (lb4.b bVar : list) {
                     arrayList.add(bVar.b());
                 }
                 return arrayList;
@@ -326,12 +326,12 @@ public class n13 extends g23 {
                 if (h.isEmpty()) {
                     return;
                 }
-                jb4 jb4Var = new jb4((Collection<String>) h, (ld4) he3.b());
-                jb4Var.e(this.b);
-                jb4Var.d("1");
+                ib4 ib4Var = new ib4((Collection<String>) h, (kd4) he3.b());
+                ib4Var.e(this.b);
+                ib4Var.d("1");
                 g32 g32Var = new g32();
                 g32Var.M(5);
-                s74.f(jb4Var, g32Var);
+                r74.f(ib4Var, g32Var);
             }
         }
     }
@@ -487,7 +487,7 @@ public class n13 extends g23 {
             }
             p72 p72Var = c;
             if (p72Var == null || !p72Var.d(a2)) {
-                c = new p72(a2, uc4.a(a2));
+                c = new p72(a2, tc4.a(a2));
             }
             if (c.e()) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(o(jSONArray2, 402, "over max limit"), 402, "over max limit"));
@@ -503,7 +503,7 @@ public class n13 extends g23 {
                     if (optJSONObject != null) {
                         String optString = optJSONObject.optString("appKey");
                         if (!TextUtils.isEmpty(optString)) {
-                            mb4.b bVar = new mb4.b(optString);
+                            lb4.b bVar = new lb4.b(optString);
                             JSONArray optJSONArray = optJSONObject.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES);
                             JSONArray jSONArray3 = new JSONArray();
                             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -597,7 +597,7 @@ public class n13 extends g23 {
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (!TextUtils.isEmpty(next)) {
-                    mb4.b bVar = new mb4.b(next);
+                    lb4.b bVar = new lb4.b(next);
                     JSONObject optJSONObject = jSONObject.optJSONObject(next);
                     if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("commands")) != null && optJSONArray.length() > 0) {
                         ArrayList arrayList2 = new ArrayList();
@@ -631,7 +631,7 @@ public class n13 extends g23 {
     }
 
     @WorkerThread
-    public final void x(String str, List<mb4.b> list) {
+    public final void x(String str, List<lb4.b> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, list) == null) {
             d dVar = new d(this, list, str);

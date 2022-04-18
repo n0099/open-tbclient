@@ -41,7 +41,7 @@ public class oi5 {
         ni5 ni5Var = new ni5();
         this.c = ni5Var;
         this.b = new li5(ni5Var, this.a);
-        g(wt4.k().l("key_abtest_channel", 0));
+        g(vt4.k().l("key_abtest_channel", 0));
     }
 
     public static oi5 c() {
@@ -89,7 +89,7 @@ public class oi5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             if (ni.isEmpty(str) || (ni5Var = this.c) == null || !ni5Var.g()) {
-                z59.d(str);
+                g69.d(str);
             }
         }
     }
@@ -99,7 +99,7 @@ public class oi5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             if (ni.isEmpty(str) || (ni5Var = this.c) == null || !ni5Var.g()) {
-                z59.e(str);
+                g69.e(str);
             }
         }
     }
@@ -159,6 +159,6 @@ public class oi5 {
                 hashMap.put(obj2, obj3 != null ? obj3.toString() : "");
             }
         }
-        z59.c(str2 + statisticItem.getKey(), str, "", hashMap);
+        g69.c(str2 + statisticItem.getKey(), str, "", hashMap);
     }
 }

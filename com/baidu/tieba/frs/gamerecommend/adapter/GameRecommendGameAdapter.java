@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.dg;
 import com.repackage.eg;
-import com.repackage.id6;
+import com.repackage.kd6;
 import com.repackage.oi;
-import com.repackage.r26;
+import com.repackage.t26;
 /* loaded from: classes3.dex */
-public class GameRecommendGameAdapter extends id6<r26, CardFrsGameRecommendGameHolder> {
+public class GameRecommendGameAdapter extends kd6<t26, CardFrsGameRecommendGameHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String t;
@@ -62,9 +62,9 @@ public class GameRecommendGameAdapter extends id6<r26, CardFrsGameRecommendGameH
                 }
             }
             this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090531);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c56);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c55);
-            CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c54);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c57);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c56);
+            CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c55);
             this.d = cardFrsGameRecommendGameLayout;
             cardFrsGameRecommendGameLayout.setItemSpace(oi.f(view2.getContext(), R.dimen.tbds27));
             this.d.setItemWidth(oi.f(view2.getContext(), R.dimen.tbds192));
@@ -189,18 +189,18 @@ public class GameRecommendGameAdapter extends id6<r26, CardFrsGameRecommendGameH
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.id6, com.repackage.ho
+    @Override // com.repackage.kd6, com.repackage.ho
     /* renamed from: o0 */
-    public View S(int i, View view2, ViewGroup viewGroup, r26 r26Var, CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, t26 t26Var, CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r26Var, cardFrsGameRecommendGameHolder})) == null) {
-            if (r26Var != null && r26Var.a() != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t26Var, cardFrsGameRecommendGameHolder})) == null) {
+            if (t26Var != null && t26Var.a() != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                cardFrsGameRecommendGameHolder.b.setText(r26Var.a().title);
+                cardFrsGameRecommendGameHolder.b.setText(t26Var.a().title);
                 cardFrsGameRecommendGameHolder.b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
                 cardFrsGameRecommendGameHolder.d.setPageContext(this.k);
-                cardFrsGameRecommendGameHolder.d.setData(r26Var.a().sub_nodes);
+                cardFrsGameRecommendGameHolder.d.setData(t26Var.a().sub_nodes);
                 cardFrsGameRecommendGameHolder.c.setMaxOverScrollDistance(cardFrsGameRecommendGameHolder.d.getChildItemWidth());
                 cardFrsGameRecommendGameHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0201));
                 SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.e, R.color.CAM_X0205);

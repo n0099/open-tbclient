@@ -1,7 +1,5 @@
 package com.repackage;
 
-import android.media.MediaFormat;
-import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,739 +7,319 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.audioedit.AudioChangeConfig;
-import java.io.IOException;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.repackage.u89;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class s89 implements d99, Runnable {
+public class s89 implements u89.a {
     public static /* synthetic */ Interceptable $ic;
-    public static AudioChangeConfig A;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public Object b;
-    public Object c;
-    public volatile long d;
-    public volatile q89 e;
-    public volatile long f;
-    public volatile long g;
-    public volatile w89 h;
-    public volatile na9 i;
-    public volatile boolean j;
-    public volatile boolean k;
-    public volatile boolean l;
-    public volatile boolean m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public float r;
-    public int s;
-    public volatile boolean t;
-    public byte[] u;
-    public List<b99> v;
-    public int[] w;
-    public int x;
-    public int y;
-    public oa9 z;
+    public r89 a;
+    public b b;
+    public Thread c;
+    public List<u89> d;
+    public int e;
+    public int f;
 
-    public s89(int i, String str, float f, float f2, int[] iArr) throws Exception {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s89 a;
+
+        public a(s89 s89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s89Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s89Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                s89 s89Var = this.a;
+                if (s89Var.j(s89Var.a)) {
+                    if (fc9.e(this.a.d)) {
+                        this.a.m(" start mix chains error:mMixtureChains empty ");
+                        return;
+                    } else {
+                        ((u89) this.a.d.get(0)).d(this.a.a);
+                        return;
+                    }
+                }
+                s89 s89Var2 = this.a;
+                StringBuilder sb = new StringBuilder();
+                sb.append(" start mix chains error:initChainConfig ");
+                sb.append(this.a.a == null);
+                s89Var2.m(sb.toString());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onAudioMixtureCancel();
+
+        void onAudioMixtureFail(String str);
+
+        void onAudioMixtureProgress(int i);
+
+        void onAudioMixtureSuccess(q89 q89Var);
+    }
+
+    public s89(r89 r89Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Float.valueOf(f), Float.valueOf(f2), iArr};
+            Object[] objArr = {r89Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = Long.MIN_VALUE;
-        this.g = Long.MIN_VALUE;
-        this.r = 1.0f;
-        this.s = 0;
-        this.t = false;
-        this.u = null;
-        this.n = i;
-        this.w = iArr;
-        q(str);
-        this.h = p();
-        this.a = new Object();
-        this.b = new Object();
-        this.c = new Object();
-        this.j = true;
-        this.k = false;
-        this.l = false;
-        this.m = false;
+        this.a = r89Var;
+        this.d = new ArrayList();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public s89(int i, String str, int[] iArr) throws Exception {
-        this(i, str, 1.0f, 1.0f, iArr);
+    @Override // com.repackage.u89.a
+    public void a(u89 u89Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, iArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], ((Float) objArr2[2]).floatValue(), ((Float) objArr2[3]).floatValue(), (int[]) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeL(1048576, this, u89Var) == null) {
+            l();
+        }
+    }
+
+    @Override // com.repackage.u89.a
+    public void b(u89 u89Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u89Var) == null) {
+            int k = this.e + u89Var.k();
+            this.e = k;
+            n(k);
+            if (u89Var == null || !u89Var.m()) {
                 return;
+            }
+            q89 k2 = k(u89Var.n());
+            if (k2 != null) {
+                o(k2);
+            } else {
+                m("onChainFinished result error");
             }
         }
     }
 
-    public static boolean o(int[] iArr) {
+    @Override // com.repackage.u89.a
+    public void c(int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || (i3 = (int) (this.e + (((i * 1.0f) / 100.0f) * i2))) <= this.f) {
+            return;
+        }
+        n(i3);
+        this.f = i3;
+    }
+
+    @Override // com.repackage.u89.a
+    public void d(String str, u89 u89Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, u89Var) == null) {
+            m(str);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!fc9.e(this.d)) {
+                for (u89 u89Var : this.d) {
+                    u89Var.b();
+                }
+            }
+            Thread thread = this.c;
+            if (thread != null) {
+                thread.interrupt();
+            }
+        }
+    }
+
+    public final boolean j(r89 r89Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iArr)) == null) {
-            if (iArr == null || iArr.length == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, r89Var)) == null) {
+            if (r89Var == null || fc9.e(r89Var.c())) {
                 return false;
             }
+            List<t89> c = r89Var.c();
+            q89 q89Var = null;
             boolean z = false;
-            for (int i : iArr) {
-                if (i > 700 || i > 300 || i > 200 || i > 100) {
+            boolean z2 = false;
+            boolean z3 = false;
+            int i = 0;
+            for (int i2 = 0; i2 < c.size(); i2++) {
+                if (z89.o(c.get(i2).b())) {
                     z = true;
+                }
+                if (!fc9.e(c.get(i2).a())) {
+                    for (p89 p89Var : c.get(i2).a()) {
+                        if (p89Var != null) {
+                            if (p89Var.c()) {
+                                if (q89Var == null) {
+                                    q89Var = p89Var.a();
+                                }
+                                if (q89Var != null) {
+                                    int k = q89Var.k(p89Var.a());
+                                    z2 = ((q89.g & k) == 0 && (q89.i & k) == 0 && (k & q89.h) == 0) ? false : true;
+                                }
+                                if (p89Var.b().mSpeed != 1.0f) {
+                                    z = true;
+                                }
+                                if (MimeTypes.AUDIO_RAW.equals(p89Var.a().f())) {
+                                    z = true;
+                                }
+                                z3 = true;
+                            }
+                            i++;
+                            if (i > 1) {
+                                z2 = true;
+                            }
+                            if (z2 && z && z3) {
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (z2 && z && z3) {
                     break;
                 }
-                if (i > 0) {
-                    z = true;
-                }
             }
-            AudioChangeConfig audioChangeConfig = A;
-            return audioChangeConfig != null ? audioChangeConfig.configEnabled(z) : z;
+            if (z) {
+                w89 w89Var = new w89();
+                w89Var.c(z2 ? 50 : 90);
+                w89Var.e(this);
+                this.d.add(w89Var);
+                v89 v89Var = new v89();
+                v89Var.c(z2 ? 50 : 10);
+                v89Var.e(this);
+                this.d.add(v89Var);
+                w89Var.f(v89Var);
+            } else {
+                v89 v89Var2 = new v89();
+                v89Var2.c(100);
+                v89Var2.e(this);
+                this.d.add(v89Var2);
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final void A() {
+    public final q89 k(r89 r89Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || A == null) {
-            return;
-        }
-        A = null;
-    }
-
-    public abstract void B(long j);
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.i == null || this.k) {
-            return;
-        }
-        long currentPosition = this.e.getCurrentPosition();
-        long duration = this.e.getDuration();
-        this.i.onProgressChanged(this.n, (currentPosition == 0 || duration == 0) ? 0.0d : currentPosition / duration, currentPosition);
-    }
-
-    public void D(int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, iArr) == null) {
-            E(iArr, null, null);
-        }
-    }
-
-    public void E(int[] iArr, int[] iArr2, double[] dArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, iArr, iArr2, dArr) == null) {
-            this.w = iArr;
-            u89 f = f();
-            if (iArr2 == null && dArr == null) {
-                f.b(this.w);
-            } else {
-                f.c(this.w, iArr2, dArr);
-            }
-        }
-    }
-
-    public void F(na9 na9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, na9Var) == null) {
-            this.i = na9Var;
-        }
-    }
-
-    public void G(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
-            if (this.v == null) {
-                this.v = new ArrayList();
-            }
-            t89 t89Var = null;
-            Iterator<b99> it = this.v.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, r89Var)) == null) {
+            if (r89Var != null && fc9.b(r89Var.c()) == 1 && fc9.b(r89Var.c().get(0).a()) == 1) {
+                p89 p89Var = r89Var.c().get(0).a().get(0);
+                if (p89Var.b() == null || p89Var.b().isNeedEdit() || !p89Var.c()) {
+                    return null;
                 }
-                b99 next = it.next();
-                if (next instanceof t89) {
-                    t89Var = (t89) next;
-                    break;
-                }
-            }
-            if (t89Var == null) {
-                t89Var = new t89();
-                t89Var.a(this.n, this.o, this.p, this.q);
-                this.v.add(0, t89Var);
-            }
-            t89Var.b(f);
-        }
-    }
-
-    public void H(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-            this.r = f;
-            if (this.v == null) {
-                this.v = new ArrayList();
-            }
-            v89 v89Var = null;
-            Iterator<b99> it = this.v.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                b99 next = it.next();
-                if (next instanceof v89) {
-                    v89Var = (v89) next;
-                    break;
-                }
-            }
-            if (v89Var == null) {
-                v89Var = new v89();
-                v89Var.a(this.n, this.o, this.p, this.q);
-                List<b99> list = this.v;
-                list.add(list.size(), v89Var);
-            }
-            v89Var.b(this.r);
-        }
-    }
-
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this.a) {
-                u();
-                this.j = false;
-                this.m = false;
-                this.k = false;
-                this.l = false;
-                this.a.notifyAll();
-            }
-        }
-    }
-
-    public void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.j) {
-                synchronized (this.a) {
-                    this.j = false;
-                    this.a.notifyAll();
-                }
-            }
-            v();
-            this.k = true;
-        }
-    }
-
-    @Override // com.repackage.d99
-    public void a(MediaFormat mediaFormat) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mediaFormat) == null) {
-            try {
-                this.o = this.e.e();
-                this.p = this.e.b();
-                r();
-                if (this.h instanceof a99) {
-                    ((a99) this.h).c(m(), i());
-                }
-            } catch (Exception e) {
-                oa9 oa9Var = this.z;
-                if (oa9Var != null) {
-                    oa9Var.onExceptionThrown(dc9.g(e));
-                }
-            }
-        }
-    }
-
-    public final byte[] b() throws IOException {
-        InterceptResult invokeV;
-        byte[] l;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.t) {
-                return null;
-            }
-            this.t = true;
-            if (l(Math.abs(this.s)).length > 0) {
-                synchronized (this.b) {
-                    this.d += this.h.write(l, 0, length);
-                    tb9.j("VideoMuxer: ", "bytesWritten ：" + this.d + " ， empty bytesWritten time ：" + (((float) this.d) / ((this.q * this.p) * this.o)) + 1000);
-                }
-                return null;
+                return p89Var.a();
             }
             return null;
         }
-        return (byte[]) invokeV.objValue;
+        return (q89) invokeL.objValue;
     }
 
-    public void c() {
+    public final void l() {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || yb9.e(this.v)) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bVar = this.b) == null) {
             return;
         }
-        for (b99 b99Var : this.v) {
-            if (b99Var != null) {
-                b99Var.e();
-            }
-        }
+        bVar.onAudioMixtureCancel();
     }
 
-    public final byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
+    public final void m(String str) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, bArr)) == null) {
-            if (!this.t) {
-                this.t = true;
-                this.u = l(Math.abs(this.s));
-            }
-            byte[] bArr2 = this.u;
-            if (bArr2 == null) {
-                return bArr;
-            }
-            if (bArr.length < bArr2.length) {
-                int length = bArr2.length - bArr.length;
-                byte[] bArr3 = new byte[length];
-                System.arraycopy(bArr2, bArr.length, bArr3, 0, length);
-                this.u = bArr3;
-                tb9.j("VideoMuxer: ", "----discardAudioData-----,result.length : " + this.u.length);
-                return null;
-            }
-            tb9.j("VideoMuxer: ", "----discardAudioData-----, audioData.length >= result.length ， audioData.length : " + bArr.length + " ， result.length : " + this.u.length);
-            int length2 = bArr.length;
-            byte[] bArr4 = this.u;
-            int length3 = length2 - bArr4.length;
-            byte[] bArr5 = new byte[length3];
-            System.arraycopy(bArr, bArr4.length, bArr5, 0, length3);
-            this.u = null;
-            tb9.j("VideoMuxer: ", "----discardAudioData-----, audioData.length >= result.length ，new baffle length : " + length3);
-            return bArr5;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || yb9.e(this.v)) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (bVar = this.b) == null) {
             return;
         }
-        for (b99 b99Var : this.v) {
-            if (b99Var != null) {
-                b99Var.c();
-            }
+        bVar.onAudioMixtureFail(str);
+    }
+
+    public final void n(int i) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (bVar = this.b) == null) {
+            return;
+        }
+        bVar.onAudioMixtureProgress(i);
+    }
+
+    public final void o(q89 q89Var) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, q89Var) == null) || (bVar = this.b) == null) {
+            return;
+        }
+        bVar.onAudioMixtureProgress(100);
+        this.b.onAudioMixtureSuccess(q89Var);
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || fc9.e(this.d)) {
+            return;
+        }
+        for (u89 u89Var : this.d) {
+            u89Var.h();
         }
     }
 
-    public final u89 f() {
-        InterceptResult invokeV;
+    public void q(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (this.v == null) {
-                this.v = new ArrayList();
-            }
-            u89 u89Var = null;
-            Iterator<b99> it = this.v.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                b99 next = it.next();
-                if (next instanceof u89) {
-                    u89Var = (u89) next;
-                    break;
-                }
-            }
-            if (u89Var == null) {
-                u89 u89Var2 = new u89();
-                u89Var2.a(this.n, this.o, this.p, this.q * 8);
-                List<b99> list = this.v;
-                list.add(list.size(), u89Var2);
-                return u89Var2;
-            }
-            return u89Var;
-        }
-        return (u89) invokeV.objValue;
-    }
-
-    public int[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.w : (int[]) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.q : invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            this.y = this.o;
-            if (n()) {
-                this.y = 1;
-            }
-            return this.y;
-        }
-        return invokeV.intValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            synchronized (this.c) {
-                if (this.e != null) {
-                    return this.e.getCurrentPosition();
-                }
-                return Long.MIN_VALUE;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (this.e != null) {
-                return this.e.getDuration();
-            }
-            return Long.MIN_VALUE;
-        }
-        return invokeV.longValue;
-    }
-
-    public final byte[] l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            int m = (((this.q * m()) * i()) / 1000) * i;
-            tb9.j("VideoMuxer: ", "byte size is : " + m);
-            return new byte[m];
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            this.x = this.p;
-            tb9.b("SoundStreamRunnable: mTargetSampleRate=" + this.x);
-            return this.x;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? o(this.w) : invokeV.booleanValue;
-    }
-
-    public abstract w89 p() throws IOException;
-
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            synchronized (this.a) {
-                t();
-                this.j = true;
-            }
-        }
-    }
-
-    public final void q(String str) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            if (Build.VERSION.SDK_INT < 16) {
-                if (this.i == null || this.l) {
-                    return;
-                }
-                this.i.onExceptionThrown("Only API level >= 16 supported.");
-                return;
-            }
-            this.e = new c99(str);
-            ((c99) this.e).k(this);
-            this.o = this.e.e();
-            this.p = this.e.b();
-            this.q = this.e.a();
-            tb9.d("SoundStreamRunnable: channels=" + this.o + ";samplingRate=" + this.p + ";byteWidth=" + this.q);
+        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 
     public void r() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048603, this) == null) || yb9.e(this.v)) {
-            return;
-        }
-        for (b99 b99Var : this.v) {
-            if (b99Var != null) {
-                b99Var.a(this.n, this.o, this.p, this.q);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            while (!this.k) {
-                try {
-                    try {
-                        if (!this.m) {
-                            y();
-                            synchronized (this.c) {
-                                this.e.d();
-                            }
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        if (this.i != null && !this.l) {
-                            this.i.onExceptionThrown(dc9.g(e));
-                        }
-                        this.k = true;
-                        z();
-                        A();
-                        synchronized (this.b) {
-                            try {
-                                this.h.close();
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                            }
-                            this.h = null;
-                            synchronized (this.c) {
-                                if (this.e != null) {
-                                    this.e.close();
-                                }
-                                this.e = null;
-                                return;
-                            }
-                        }
-                    }
-                } catch (Throwable th) {
-                    this.k = true;
-                    z();
-                    A();
-                    synchronized (this.b) {
-                        try {
-                            this.h.close();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                        this.h = null;
-                        synchronized (this.c) {
-                            if (this.e != null) {
-                                this.e.close();
-                            }
-                            this.e = null;
-                            throw th;
-                        }
-                    }
-                }
-            }
-            this.k = true;
-            z();
-            A();
-            synchronized (this.b) {
-                try {
-                    this.h.close();
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                this.h = null;
-            }
-            synchronized (this.c) {
-                if (this.e != null) {
-                    this.e.close();
-                }
-                this.e = null;
-            }
-        }
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? (this.f == Long.MIN_VALUE || this.g == Long.MIN_VALUE) ? false : true : invokeV.booleanValue;
-    }
-
-    public abstract void t();
-
-    public abstract void u();
-
-    public abstract void v();
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            synchronized (this.a) {
-                while (this.j) {
-                    try {
-                        this.a.wait();
-                    } catch (InterruptedException unused) {
-                    }
-                }
-            }
-        }
-    }
-
-    public final int x(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, bArr)) == null) {
-            if (bArr == null) {
-                return 0;
-            }
-            if (yb9.e(this.v)) {
-                length = bArr.length;
-            } else {
-                length = bArr.length;
-                for (b99 b99Var : this.v) {
-                    if (!b99Var.b()) {
-                        b99Var.a(this.n, this.o, this.p, this.q);
-                    }
-                    if (b99Var.a() && bArr != null) {
-                        int length2 = bArr.length;
-                        b99Var.a(bArr, length2);
-                        bArr = b99Var.a(length2);
-                        length = bArr != null ? bArr.length : 0;
-                    }
-                }
-            }
-            if (length > 0) {
-                synchronized (this.b) {
-                    this.d += this.h.write(bArr, 0, length);
-                }
-            }
-            return length;
-        }
-        return invokeL.intValue;
-    }
-
-    public final void y() throws IOException {
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
-            while (true) {
-                boolean z = false;
-                if ((this.e.f() || j() >= k() + this.s) && !s()) {
-                    break;
-                }
-                w();
-                if (this.k) {
-                    break;
-                }
-                if (s() && this.e.getCurrentPosition() >= this.g) {
-                    B(this.f);
-                    this.t = false;
-                }
-                synchronized (this.c) {
-                    try {
-                        z = this.e.c();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        if (this.i != null && !this.l) {
-                            this.i.onExceptionThrown(dc9.g(e));
-                        }
-                    }
-                }
-                if (z) {
-                    byte[] g = this.e.g();
-                    int i = this.s;
-                    if (i != 0) {
-                        if (i > 0) {
-                            b();
-                        } else {
-                            g = d(g);
-                        }
-                    }
-                    C();
-                    x(g);
-                }
-            }
-            tb9.j("VideoMuxer: ", "----解码结束-----");
-            if (this.l) {
-                if (this.i != null) {
-                    this.i.onCancel();
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d.clear();
+            this.e = 0;
+            this.f = 0;
+            q89 k = k(this.a);
+            if (k != null && k.i()) {
+                o(k);
                 return;
             }
-            if (!yb9.e(this.v)) {
-                for (int i2 = 0; i2 < this.v.size(); i2++) {
-                    if (this.v.get(i2).a()) {
-                        this.v.get(i2).c();
-                        do {
-                            byte[] a = this.v.get(i2).a(4096);
-                            if (a != null && a.length != 0) {
-                                length = a.length;
-                                int i3 = length;
-                                for (int i4 = i2 + 1; i4 < this.v.size(); i4++) {
-                                    if (this.v.get(i4).a()) {
-                                        int length2 = a.length;
-                                        this.v.get(i4).a(a, length2);
-                                        a = this.v.get(i4).a(length2);
-                                        i3 = a != null ? a.length : 0;
-                                    }
-                                }
-                                if (i3 > 0) {
-                                    synchronized (this.b) {
-                                        tb9.j("VideoMuxer: ", "----getLastBuffer-----");
-                                        this.d += this.h.write(a, 0, i3);
-                                    }
-                                    continue;
-                                }
-                            }
-                        } while (length > 0);
-                    }
-                }
+            Thread thread = this.c;
+            if (thread != null) {
+                thread.interrupt();
+                this.c = null;
             }
-            e();
-            if (this.i != null) {
-                this.i.onTrackEnd(this.n);
-                tb9.j("VideoMuxer: ", "----所有数据输入编码器onTrackEnd-----,bytesWritten:" + this.d);
-            }
-            this.m = true;
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || yb9.e(this.v)) {
-            return;
-        }
-        for (b99 b99Var : this.v) {
-            if (b99Var != null) {
-                b99Var.d();
-            }
+            Thread thread2 = new Thread(new a(this));
+            this.c = thread2;
+            thread2.start();
         }
     }
 }

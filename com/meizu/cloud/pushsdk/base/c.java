@@ -8,7 +8,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.repackage.rm9;
+import com.repackage.ym9;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -35,15 +35,15 @@ public class c {
             fileInputStream.close();
         } catch (FileNotFoundException unused) {
             str2 = "getMacAddressWithIfName File not found Exception";
-            rm9.b("DeviceUtils", str2);
+            ym9.b("DeviceUtils", str2);
             return r1;
         } catch (IOException unused2) {
             str2 = "getMacAddressWithIfName IOException";
-            rm9.b("DeviceUtils", str2);
+            ym9.b("DeviceUtils", str2);
             return r1;
         } catch (Exception unused3) {
             str2 = "getMacAddressWithIfName Exception ";
-            rm9.b("DeviceUtils", str2);
+            ym9.b("DeviceUtils", str2);
             return r1;
         }
         return r1;
@@ -52,10 +52,10 @@ public class c {
     public static boolean a() {
         String a2 = j.a("ro.target.product");
         if (TextUtils.isEmpty(a2)) {
-            rm9.d("DeviceUtils", "current product is phone");
+            ym9.d("DeviceUtils", "current product is phone");
             return true;
         }
-        rm9.d("DeviceUtils", "current product is " + a2);
+        ym9.d("DeviceUtils", "current product is " + a2);
         return false;
     }
 
@@ -73,7 +73,7 @@ public class c {
             try {
                 str = null;
             } catch (Exception unused) {
-                rm9.b("DeviceUtils", "get address exception ");
+                ym9.b("DeviceUtils", "get address exception ");
             }
             if (Build.VERSION.SDK_INT < 23) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
@@ -100,7 +100,7 @@ public class c {
             }
             a = str;
             return a;
-            rm9.b("DeviceUtils", "get address exception ");
+            ym9.b("DeviceUtils", "get address exception ");
             return a;
         }
         return a;
@@ -109,11 +109,11 @@ public class c {
     public static String c(Context context) {
         StringBuilder sb = new StringBuilder();
         String str = Build.SERIAL;
-        rm9.d("DeviceUtils", "device serial " + str);
+        ym9.d("DeviceUtils", "device serial " + str);
         if (!TextUtils.isEmpty(str)) {
             sb.append(str);
             String b2 = b(context);
-            rm9.b("DeviceUtils", "mac address " + b2);
+            ym9.b("DeviceUtils", "mac address " + b2);
             if (!TextUtils.isEmpty(b2)) {
                 sb.append(b2.replace(":", "").toUpperCase());
                 return sb.toString();

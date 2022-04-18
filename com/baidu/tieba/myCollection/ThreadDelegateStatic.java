@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.m45;
 import com.repackage.n45;
-import com.repackage.qm4;
+import com.repackage.pm4;
 /* loaded from: classes3.dex */
 public class ThreadDelegateStatic extends m45 {
     public static /* synthetic */ Interceptable $ic;
@@ -56,11 +56,11 @@ public class ThreadDelegateStatic extends m45 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             n45 b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof qm4)) {
-                qm4 qm4Var = (qm4) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016207 && (customResponsedMessage.getData() instanceof pm4)) {
+                pm4 pm4Var = (pm4) customResponsedMessage.getData();
                 ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-                qm4Var.a(threadDelegateStatic);
-                if (qm4Var.getContext() == null || (b = threadDelegateStatic.b()) == null) {
+                pm4Var.a(threadDelegateStatic);
+                if (pm4Var.getContext() == null || (b = threadDelegateStatic.b()) == null) {
                     return;
                 }
                 b.a.setArguments(new Bundle());

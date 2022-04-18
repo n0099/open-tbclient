@@ -28,9 +28,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import com.repackage.ya;
-import com.repackage.zx4;
+import com.repackage.yx4;
 /* loaded from: classes4.dex */
 public class MsgRemindModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
@@ -95,7 +95,7 @@ public class MsgRemindModel extends BdBaseModel {
                     FriendAndStrangerSwitchResMsg friendAndStrangerSwitchResMsg = (FriendAndStrangerSwitchResMsg) httpResponsedMessage;
                     if (friendAndStrangerSwitchResMsg.getError() == 0) {
                         GetFriendAndStrangerSwitchModel.FRIEND_AND_STRANGER_MASK_TYPE = friendAndStrangerReqMsg.mMaskType;
-                        wt4 k = wt4.k();
+                        vt4 k = vt4.k();
                         k.w(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", friendAndStrangerReqMsg.mMaskType);
                     }
                     int i = friendAndStrangerReqMsg.mMaskType;
@@ -279,12 +279,12 @@ public class MsgRemindModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
             if (z) {
                 BaseActivity baseActivity = this.a;
-                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f11f9));
+                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f11f8));
                 e eVar = this.b;
                 if (eVar != null) {
                     eVar.a(i, true, z2);
                     if (i != 14) {
-                        if (zx4.d().q() || zx4.d().r() || zx4.d().t() || zx4.d().v() || zx4.d().y() || zx4.d().p() || zx4.d().B()) {
+                        if (yx4.d().q() || yx4.d().r() || yx4.d().t() || yx4.d().v() || yx4.d().y() || yx4.d().p() || yx4.d().B()) {
                             return;
                         }
                         this.b.a(14, true, false);
@@ -303,7 +303,7 @@ public class MsgRemindModel extends BdBaseModel {
             if (!TextUtils.isEmpty(str)) {
                 this.a.showToast(str);
             } else {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f10f9);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f10f8);
             }
             e eVar2 = this.b;
             if (eVar2 != null) {

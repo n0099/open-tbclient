@@ -61,7 +61,7 @@ public class ChooseColorView extends View {
             this.d.setAntiAlias(true);
             this.d.setStyle(Paint.Style.STROKE);
             this.d.setStrokeWidth(this.c);
-            this.h = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080a0f);
+            this.h = BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f080a13);
         }
     }
 

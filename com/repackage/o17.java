@@ -1,58 +1,83 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
+import com.baidu.tieba.homepage.tabfeed.view.NearbyForumFriendCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActivityPage.HotTopic;
-import tbclient.RecomTopicList;
 /* loaded from: classes6.dex */
-public class o17 extends yw6 {
+public class o17 extends ho<ym7, AdapterViewHolder<NearbyForumFriendCardView>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
+    public TbPageContext i;
+    public AdapterViewHolder<NearbyForumFriendCardView> j;
 
-    public o17() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o17(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), ym7.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f62);
+        this.i = tbPageContext;
     }
 
-    public void i(HotTopic hotTopic) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: Z */
+    public AdapterViewHolder<NearbyForumFriendCardView> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hotTopic) == null) || hotTopic == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder = new AdapterViewHolder<>(new NearbyForumFriendCardView(this.i.getPageActivity()));
+            this.j = adapterViewHolder;
+            return adapterViewHolder;
         }
-        this.floorPosition = hotTopic.floor_position.intValue();
-        parserProtobuf(hotTopic.topic_list);
+        return (AdapterViewHolder) invokeL.objValue;
     }
 
-    public void parserProtobuf(List<RecomTopicList> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ho
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, ym7 ym7Var, AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ym7Var, adapterViewHolder})) == null) {
+            NearbyForumFriendCardView c = adapterViewHolder.c();
+            c.a(ym7Var);
+            c.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return adapterViewHolder.b();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void b0(boolean z) {
+        AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || (adapterViewHolder = this.j) == null) {
             return;
         }
-        int min = Math.min(list.size(), 6);
-        ArrayList arrayList = new ArrayList(list.size());
-        for (int i = 0; i < min; i++) {
-            arrayList.add(new xw6(list.get(i), i));
-        }
-        g(arrayList);
+        adapterViewHolder.c().setNeedCompleteProfile(z);
     }
 }

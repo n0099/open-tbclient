@@ -1,126 +1,41 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.text.Editable;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.write.accountAccess.AccountAccessActivity;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class ez8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fz8 a;
-    public final NewWriteModel b;
-    public boolean c;
-    public final NewWriteModel.g d;
+    public ArrayList<String> a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public boolean h;
+    public boolean i;
 
-    /* loaded from: classes6.dex */
-    public class a implements NewWriteModel.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ez8 a;
-
-        public a(ez8 ez8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ez8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ez8Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, rx4 rx4Var, WriteData writeData, AntiData antiData) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, rx4Var, writeData, antiData}) == null) || this.a.a == null || this.a.b == null || this.a.b.b0() == null) {
-                return;
-            }
-            this.a.a.o(false);
-            if (writeData == null) {
-                writeData = this.a.b.b0();
-            }
-            WriteData writeData2 = writeData;
-            if (z) {
-                this.a.c = true;
-                if (writeData2.getType() != 0 || writeData2.isUserFeedback()) {
-                    if (postWriteCallBackData == null) {
-                        xm8.b(this.a.a.getContext().getActivity(), this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10ed), null, null);
-                    } else {
-                        xm8.b(this.a.a.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                    }
-                }
-                Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent.putExtras(bundle);
-                BaseActivity context = this.a.a.getContext();
-                this.a.a.getContext();
-                context.setResult(-1, intent);
-                this.a.a.getContext().finish();
-            } else if (writeData2 != null && rx4Var != null && !TextUtils.isEmpty(rx4Var.d())) {
-                writeData2.setVcodeMD5(rx4Var.b());
-                writeData2.setVcodeUrl(rx4Var.c());
-                writeData2.setVcodeExtra(rx4Var.a());
-                this.a.a.getContext().setVisible(false);
-                if (qd5.b(rx4Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData2, false, rx4Var.d())));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.getContext().getActivity(), writeData2, 12006)));
-                }
-            } else if (postWriteCallBackData == null || !postWriteCallBackData.isSensitiveError()) {
-                if (postWriteCallBackData != null) {
-                    xm8.b(this.a.a.getContext().getActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
-                    BaseActivity context2 = this.a.a.getContext();
-                    this.a.a.getContext();
-                    context2.setResult(0, null);
-                }
-                this.a.a.getContext().finish();
-            } else {
-                Intent intent2 = new Intent();
-                Bundle bundle2 = new Bundle();
-                bundle2.putSerializable("post_write_callback_data", postWriteCallBackData);
-                intent2.putExtras(bundle2);
-                BaseActivity context3 = this.a.a.getContext();
-                this.a.a.getContext();
-                context3.setResult(0, intent2);
-                this.a.a.getContext().finish();
-            }
-        }
-    }
-
-    public ez8(fz8 fz8Var, NewWriteModel newWriteModel) {
+    public ez8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {fz8Var, newWriteModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -130,86 +45,162 @@ public class ez8 {
                 return;
             }
         }
-        a aVar = new a(this);
-        this.d = aVar;
-        this.a = fz8Var;
-        this.b = newWriteModel;
-        newWriteModel.n0(aVar);
+        this.g = -1;
+        this.h = false;
+        this.i = false;
     }
 
-    public void d() {
-        fz8 fz8Var;
+    public ArrayList<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fz8Var = this.a) == null) {
-            return;
-        }
-        fz8Var.r(500);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
     }
 
-    public void e() {
-        fz8 fz8Var;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (fz8Var = this.a) == null) {
-            return;
-        }
-        fz8Var.o(false);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    public boolean f(String str) {
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.booleanValue;
+    }
+
+    public SpannableStringBuilder f(Editable editable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.a == null || str == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, editable)) == null) {
+            if (editable == null || StringUtils.isNull(editable.toString()) || ListUtils.isEmpty(this.a)) {
+                return null;
             }
-            if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_CANCEL)) {
-                this.a.getContext().finish();
-                return true;
-            } else if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_INPUT_FOCUS)) {
-                this.a.n(0, UtilHelper.getImmersiveStickyBarHeight(), 0, 0);
-                if (this.a.g() != this.a.h()) {
-                    fz8 fz8Var = this.a;
-                    fz8Var.m(fz8Var.g());
-                    this.a.s();
+            String obj = editable.toString();
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(obj);
+            boolean z = this.g >= 0;
+            this.g = -1;
+            Iterator<String> it = this.a.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!StringUtils.isNull(next)) {
+                    m(spannableStringBuilder, obj, next);
                 }
-                this.a.i().setVisibility(0);
-                return true;
-            } else if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_VALID_SUCCESS)) {
-                g();
-                return true;
-            } else if (str.equals(AccountAccessActivity.ACCOUNT_ACCESS_FEEDBACK_HTTP) || str.equals(AccountAccessActivity.ACCOUNT_ACCESS_FEEDBACK_HTTPS)) {
-                this.a.getContext().finish();
-                UrlManager.getInstance().dealOneLink(this.a.getContext().getPageContext(), new String[]{UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK});
-                return true;
-            } else {
-                return true;
+            }
+            if (this.g >= 0 || z) {
+                ImageSpan[] imageSpanArr = (ImageSpan[]) editable.getSpans(0, obj.length(), ImageSpan.class);
+                if (imageSpanArr != null) {
+                    for (ImageSpan imageSpan : imageSpanArr) {
+                        if (imageSpan != null) {
+                            spannableStringBuilder.setSpan(imageSpan, editable.getSpanStart(imageSpan), editable.getSpanEnd(imageSpan), editable.getSpanFlags(imageSpan));
+                        }
+                    }
+                }
+                return spannableStringBuilder;
+            }
+            return null;
+        }
+        return (SpannableStringBuilder) invokeL.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int i = this.c;
+            if (i != 0) {
+                this.e = SkinManager.getColor(i);
+            }
+            int i2 = this.d;
+            if (i2 != 0) {
+                this.f = SkinManager.getColor(i2);
             }
         }
-        return invokeL.booleanValue;
     }
 
-    public final void g() {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null || this.b == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d = i;
+            this.f = SkinManager.getColor(i);
         }
-        if (!oi.C()) {
-            this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c18);
-            this.a.getContext().finish();
-            return;
-        }
-        this.a.o(true);
-        this.b.r0();
     }
 
-    public void h(String str) {
-        fz8 fz8Var;
+    public void i(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (fz8Var = this.a) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
+            this.a = arrayList;
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.c = i;
+            this.e = SkinManager.getColor(i);
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public final void m(SpannableStringBuilder spannableStringBuilder, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048588, this, spannableStringBuilder, str, str2) == null) || spannableStringBuilder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        fz8Var.p(true);
-        this.a.q(false);
-        this.a.i().loadUrl(str);
+        if (this.e == 0 && this.f == 0) {
+            return;
+        }
+        int indexOf = str.indexOf(str2);
+        int length = str2.length();
+        if (indexOf >= 0) {
+            int i = this.g;
+            if (i == -1) {
+                this.g = indexOf + length;
+            } else {
+                int i2 = indexOf + length;
+                if (i2 < i) {
+                    this.g = i2;
+                }
+            }
+        }
+        while (indexOf >= 0) {
+            if (this.e != 0) {
+                spannableStringBuilder.setSpan(new ForegroundColorSpan(this.e), indexOf, indexOf + length, 33);
+            }
+            if (this.f != 0) {
+                spannableStringBuilder.setSpan(new BackgroundColorSpan(this.f), indexOf, indexOf + length, 33);
+            }
+            indexOf = str.indexOf(str2, indexOf + 1);
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.b = str;
+        }
     }
 }

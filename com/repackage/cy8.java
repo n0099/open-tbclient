@@ -1,82 +1,41 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class cy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public float c;
-    public long d;
-    public Bitmap e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public ay8 j;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cy8 a;
-
-        public a(cy8 cy8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cy8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cy8Var;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return str + ".jpg";
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Bitmap bitmap;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                cy8 cy8Var = this.a;
-                if (cy8Var.j == null || (bitmap = cy8Var.e) == null || bitmap.isRecycled()) {
-                    return;
-                }
-                cy8 cy8Var2 = this.a;
-                cy8Var2.j.a(cy8Var2.f, cy8Var2.e);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 
-    public cy8() {
+    public static String b(String str, long j, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            if (i == 0) {
+                return jc9.b(str);
             }
+            return jc9.b(str) + "_" + j;
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public void a() {
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            lc9.a().post(new a(this));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return str + File.separator + str2 + ".jpg";
         }
+        return (String) invokeLL.objValue;
     }
 }

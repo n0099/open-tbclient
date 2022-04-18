@@ -1,17 +1,17 @@
 package com.repackage;
 
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hi4;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
 /* loaded from: classes6.dex */
-public final class ji4 extends hi4.c {
+public class ji4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ji4 b;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,24 +27,15 @@ public final class ji4 extends hi4.c {
                 return;
             }
         }
-        b = new ji4();
+        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ji4() {
-        super(new hi4.b());
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((hi4.b) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new File(a + File.separator + "libzeuswebviewchromium.so").exists();
         }
+        return invokeV.booleanValue;
     }
 }

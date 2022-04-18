@@ -42,13 +42,13 @@ public class d43 extends g23 {
 
         /* renamed from: com.repackage.d43$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0396a implements Runnable {
+        public class RunnableC0398a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ a b;
 
-            public RunnableC0396a(a aVar, Bitmap bitmap) {
+            public RunnableC0398a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class d43 extends g23 {
                 if (y == null) {
                     this.d.n(this.a, this.b, "can't get screenshot");
                 } else {
-                    dd3.k(new RunnableC0396a(this, y), "savescreenshot");
+                    dd3.k(new RunnableC0398a(this, y), "savescreenshot");
                 }
             }
         }

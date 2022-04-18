@@ -1,69 +1,62 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.TbErrInfo;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class uv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public uv4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            File file = new File(str);
-            try {
-                if (file.exists()) {
-                    return file.delete();
-                }
-                return false;
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-                TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "FileHelper DelFile error: " + th.getMessage(), str);
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.booleanValue;
+        this.a = null;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? FileHelper.getStoreFile(str, 1) : (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1513);
+                case 2:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1518);
+                case 3:
+                    return gj.a(R.string.obfuscated_res_0x7f0f0c17);
+                case 4:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1516);
+                case 5:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1514);
+                case 6:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1517);
+                case 7:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1515);
+                default:
+                    return "";
             }
-            return "tb/voice/" + str;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? ii.t(c(str)) : (String) invokeL.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ri.a() : (String) invokeV.objValue;
+        return (String) invokeI.objValue;
     }
 }

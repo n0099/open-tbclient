@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a15;
-import com.repackage.d46;
+import com.repackage.f46;
 import com.repackage.i05;
 import com.repackage.v05;
 import java.util.ArrayList;
@@ -240,9 +240,9 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
             removeAllViews();
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0271, (ViewGroup) this, true);
-            this.a = (EmotionTabContentView) findViewById(R.id.obfuscated_res_0x7f090961);
-            this.b = (EmotionTabWidgetView) findViewById(R.id.obfuscated_res_0x7f090967);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0908b9);
+            this.a = (EmotionTabContentView) findViewById(R.id.obfuscated_res_0x7f090962);
+            this.b = (EmotionTabWidgetView) findViewById(R.id.obfuscated_res_0x7f090968);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0908ba);
             this.b.setOnTabSelectedListener(this);
             this.a.setOnEmotionSwitchedListener(this);
             setOrientation(1);
@@ -265,7 +265,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             ArrayList<a15> arrayList = new ArrayList<>();
-            Iterator<a15> it = d46.j().i().iterator();
+            Iterator<a15> it = f46.j().i().iterator();
             while (it.hasNext()) {
                 a15 next = it.next();
                 if (next.h() != EmotionGroupType.BIG_EMOTION || this.i) {
@@ -293,13 +293,13 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.d = d46.j().i();
+            this.d = f46.j().i();
             if (this.i && this.j) {
-                this.e = d46.j().i();
+                this.e = f46.j().i();
             } else {
                 this.e = j();
                 if (!this.j && this.d != null) {
-                    this.d = new ArrayList<>(d46.j().i());
+                    this.d = new ArrayList<>(f46.j().i());
                     int i2 = 0;
                     while (true) {
                         if (i2 >= this.d.size()) {
@@ -316,7 +316,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements EmotionTabW
             ArrayList<a15> arrayList = this.d;
             if ((arrayList == null || arrayList.size() <= 0) && (i = this.k) < 3) {
                 this.k = i + 1;
-                d46.j().r();
+                f46.j().r();
                 return;
             }
             this.b.setDatas(this.d);

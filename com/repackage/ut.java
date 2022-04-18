@@ -25,13 +25,13 @@ public class ut {
 
         /* renamed from: com.repackage.ut$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0530a implements Runnable {
+        public class RunnableC0532a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0530a(a aVar, byte[] bArr) {
+            public RunnableC0532a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class ut {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0530a(this, bArr), "HandshakeRequest");
+                ExecutorUtilsExt.postOnSerial(new RunnableC0532a(this, bArr), "HandshakeRequest");
             }
         }
 

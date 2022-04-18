@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cb4;
-import com.repackage.jb4;
-import com.repackage.mb4;
+import com.repackage.bb4;
+import com.repackage.ib4;
+import com.repackage.lb4;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -88,7 +88,7 @@ public final class zy1 implements da2 {
         }
 
         @Override // com.repackage.d32
-        public void c(@NonNull cb4.a aVar) {
+        public void c(@NonNull bb4.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
                 super.c(aVar);
@@ -111,11 +111,11 @@ public final class zy1 implements da2 {
         }
 
         @Override // com.repackage.d32
-        public void f(c94 c94Var) {
+        public void f(b94 b94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, c94Var) == null) {
-                super.f(c94Var);
-                if (c94Var.a != 1010) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, b94Var) == null) {
+                super.f(b94Var);
+                if (b94Var.a != 1010) {
                     this.a = true;
                     b bVar = this.b;
                     if (bVar != null) {
@@ -126,11 +126,11 @@ public final class zy1 implements da2 {
         }
 
         @Override // com.repackage.d32
-        public void g(@NonNull i94 i94Var) {
+        public void g(@NonNull h94 h94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, i94Var) == null) {
-                super.g(i94Var);
-                j(i94Var.o);
+            if (interceptable == null || interceptable.invokeL(1048581, this, h94Var) == null) {
+                super.g(h94Var);
+                j(h94Var.o);
             }
         }
 
@@ -183,7 +183,7 @@ public final class zy1 implements da2 {
         a = tg1.a;
     }
 
-    public static void a(@NonNull List<mb4.b> list, @Nullable String str, b bVar) {
+    public static void a(@NonNull List<lb4.b> list, @Nullable String str, b bVar) {
         String[] i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, list, str, bVar) == null) {
@@ -199,7 +199,7 @@ public final class zy1 implements da2 {
             }
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
-            for (mb4.b bVar2 : list) {
+            for (lb4.b bVar2 : list) {
                 if (bVar2 != null) {
                     if (bVar2.i() != null && bVar2.i().length != 0) {
                         Set set = (Set) hashMap.get(bVar2.b());
@@ -231,33 +231,33 @@ public final class zy1 implements da2 {
                 }
                 return;
             }
-            mb4 mb4Var = new mb4(arrayList, he3.b());
-            mb4Var.e(str);
-            mb4Var.d("1");
+            lb4 lb4Var = new lb4(arrayList, he3.b());
+            lb4Var.e(str);
+            lb4Var.d("1");
             g32 g32Var = new g32(new a(bVar, hashMap));
             g32Var.M(p32.a(str));
-            s74.f(mb4Var, g32Var);
+            r74.f(lb4Var, g32Var);
         }
     }
 
-    public static void b(@NonNull List<jb4.a> list, @NonNull String str, @NonNull d32 d32Var) {
+    public static void b(@NonNull List<ib4.a> list, @NonNull String str, @NonNull d32 d32Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, list, str, d32Var) == null) {
             if (!c(x83.a().getString("predownload_network_switch", "1"))) {
                 d32Var.b(6);
                 return;
             }
-            List<jb4.a> i = z32.i(list);
+            List<ib4.a> i = z32.i(list);
             if (i.isEmpty()) {
                 d32Var.d();
                 return;
             }
-            jb4 jb4Var = new jb4((List<? extends jb4.a>) i, (ld4) he3.b());
-            jb4Var.d("1");
-            jb4Var.e(str);
+            ib4 ib4Var = new ib4((List<? extends ib4.a>) i, (kd4) he3.b());
+            ib4Var.d("1");
+            ib4Var.e(str);
             g32 g32Var = new g32(d32Var);
             g32Var.M(p32.a(str));
-            s74.f(jb4Var, g32Var);
+            r74.f(ib4Var, g32Var);
         }
     }
 
@@ -302,7 +302,7 @@ public final class zy1 implements da2 {
     public static void e(@NonNull String str, @Nullable String str2, @Nullable String str3, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, bVar) == null) {
-            mb4.b bVar2 = new mb4.b(str);
+            lb4.b bVar2 = new lb4.b(str);
             if (!TextUtils.isEmpty(str2)) {
                 bVar2.l(new String[]{str2});
             }
@@ -323,8 +323,8 @@ public final class zy1 implements da2 {
                 }
             } else {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new jb4.a(str));
-                List<jb4.a> i = z32.i(arrayList);
+                arrayList.add(new ib4.a(str));
+                List<ib4.a> i = z32.i(arrayList);
                 if (i.isEmpty()) {
                     if (a) {
                         Log.e("SwanPreDownload", "pre download has record");
@@ -332,12 +332,12 @@ public final class zy1 implements da2 {
                     }
                     return;
                 }
-                jb4 jb4Var = new jb4((List<? extends jb4.a>) i, (ld4) he3.b());
-                jb4Var.e(str2);
-                jb4Var.d("1");
+                ib4 ib4Var = new ib4((List<? extends ib4.a>) i, (kd4) he3.b());
+                ib4Var.e(str2);
+                ib4Var.d("1");
                 g32 g32Var = new g32();
                 g32Var.M(p32.a(str2));
-                s74.f(jb4Var, g32Var);
+                r74.f(ib4Var, g32Var);
             }
         }
     }

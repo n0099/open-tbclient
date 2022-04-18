@@ -57,7 +57,7 @@ public class aq2 extends ap1 {
             if (js1Var.isSuccess()) {
                 String optString = ((JSONObject) s.second).optString("imageURL");
                 if (TextUtils.isEmpty(optString)) {
-                    return new js1(202, qj2.c().getString(R.string.obfuscated_res_0x7f0f147e));
+                    return new js1(202, qj2.c().getString(R.string.obfuscated_res_0x7f0f147d));
                 }
                 return y(optString);
             }

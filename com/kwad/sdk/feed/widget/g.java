@@ -41,11 +41,11 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091052)).setRatio(0.56f);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09100d);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091013);
-        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f09100f);
-        this.h = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09107f);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091053)).setRatio(0.56f);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09100e);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091014);
+        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f091010);
+        this.h = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091080);
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a

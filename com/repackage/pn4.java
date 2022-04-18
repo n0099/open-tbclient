@@ -1,58 +1,36 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.RomTypeUtil;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.UsbAbTestSwitch;
+import com.baidu.tbadk.abtest.group.HomeGroupUbsABTest;
+import com.baidu.tbadk.abtest.group.IThreadCardUbsABTest;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class pn4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static pn4 b;
+public abstract class pn4 extends BaseCardInfo implements IThreadCardUbsABTest {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int BIG_IMG = 2;
+    public static final int CONTENT = 1;
+    public static final int HEAD_IMG = 4;
+    public static final int HEAD_VIDEO = 5;
+    public static final int USER_NAME = 3;
     public transient /* synthetic */ FieldHolder $fh;
-    public Runnable a;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pn4 a;
-
-        public a(pn4 pn4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pn4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pn4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d(0);
-            }
-        }
-    }
+    public SparseArray<String> feedBackReasonMap;
+    public int floorPosition;
+    public Map<BdUniqueId, UsbAbTestSwitch> mABTestMap;
+    public int objType;
 
     public pn4() {
         Interceptable interceptable = $ic;
@@ -67,53 +45,176 @@ public class pn4 {
                 return;
             }
         }
-        this.a = new a(this);
+        this.objType = 1;
+        this.floorPosition = -1;
+        this.mABTestMap = new HashMap();
+        this.feedBackReasonMap = null;
     }
 
-    public static pn4 c() {
+    private UsbAbTestSwitch getCurUsbAbTestSwitchByKey(BdUniqueId bdUniqueId) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bdUniqueId)) == null) {
+            if (bdUniqueId == null) {
+                return null;
+            }
+            return this.mABTestMap.get(bdUniqueId);
+        }
+        return (UsbAbTestSwitch) invokeL.objValue;
+    }
+
+    public abstract lp4 getNegFeedBackData();
+
+    public String getPbInputLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (pn4.class) {
-                    if (b == null) {
-                        b = new pn4();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String getRecomReason() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (getThreadData() == null) {
+                return null;
+            }
+            return getThreadData().getRecomReason();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public abstract ThreadData getThreadData();
+
+    public boolean isFromFrs() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null) {
+                return false;
+            }
+            return threadData.isFromFrs();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isSelf() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ThreadCardUtils.isSelf(getThreadData()) : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public void setABTest(BdUniqueId bdUniqueId, UsbAbTestSwitch usbAbTestSwitch) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, bdUniqueId, usbAbTestSwitch) == null) || bdUniqueId == null) {
+            return;
+        }
+        this.mABTestMap.put(bdUniqueId, usbAbTestSwitch);
+    }
+
+    public boolean showCardBottomOpWeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null) {
+                return false;
+            }
+            return threadData.isFromHomPage || threadData.isFromConcern || threadData.isFromPersonPolymeric || threadData.isFromVideoTab || threadData.isFromEnterFroumTabFeed || threadData.isFromFeedTab;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean showCardEnterFourm() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null) {
+                return false;
+            }
+            return threadData.isFromConcern || threadData.isFromPersonPolymeric || threadData.isWorksInfo();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean showCardGoodsFourm() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null) {
+                return false;
+            }
+            return threadData.isFromConcern || threadData.isFromPersonPolymeric || threadData.isFromHomPage;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean showFollowBtn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null || threadData.getAuthor() == null || threadData.isFromLocal || ThreadCardUtils.isSelf(threadData)) {
+                return false;
+            }
+            boolean z = threadData.isBjhDynamicThread() || threadData.isBJHArticleThreadType() || threadData.isBJHVideoThreadType();
+            if ((!threadData.isFromHomPage || (!z && !threadData.isWorksInfo())) && ((!threadData.isFromVideoTab || (!z && !threadData.isWorksInfo())) && (!threadData.isFromFrs() || (!z && !threadData.isWorksInfo())))) {
+                if (!threadData.isFromFeedTab) {
+                    return false;
+                }
+                if (!z && !threadData.isWorksInfo()) {
+                    return false;
                 }
             }
-            return b;
+            return true;
         }
-        return (pn4) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public boolean a() {
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public boolean showNewPicCut() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? RomTypeUtil.check("EMUI") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_B) : invokeV.booleanValue;
     }
 
-    public void b() {
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public boolean showNewUI() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (a() || DeviceInfoUtil.isHonor()) {
-                d(1);
-                pg.a().postDelayed(this.a, 500L);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_A) : invokeV.booleanValue;
     }
 
-    public void d(int i) {
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public boolean showNoName() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            try {
-                Bundle bundle = new Bundle();
-                bundle.putString("package", "com.baidu.tieba");
-                bundle.putString(DealIntentService.KEY_CLASS, SpeedRuntimeProvider.MAIN_ACTIVITY_NAME);
-                bundle.putInt("badgenumber", i);
-                TbadkApplication.getInst().getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
-            } catch (Throwable th) {
-                Log.i("huawei_corner", th.getMessage());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public boolean showNoReadState() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_E) : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
+    public boolean showWeakenName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -472,7 +472,7 @@ public class bg5 {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
             ViewGroup viewGroup = this.c;
             if (viewGroup != null) {
-                View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f091625);
+                View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f091626);
                 if (z) {
                     findViewById.setOnTouchListener(this.p);
                 } else {

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hb8;
+import com.repackage.ob8;
 /* loaded from: classes3.dex */
 public class RecAppDownloadReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -40,23 +40,23 @@ public class RecAppDownloadReceiver extends BroadcastReceiver {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || (downloadData = (DownloadData) intent.getSerializableExtra("download_data")) == null) {
             return;
         }
-        int l = hb8.l(downloadData);
+        int l = ob8.l(downloadData);
         if ("action_pause_download".equals(intent.getAction())) {
             if (downloadData.getDownloadStaticsData() != null) {
                 downloadData.getDownloadStaticsData().setDa_range_nt("1");
             }
             if (l == 7) {
                 downloadData.setStatus(5);
-                hb8.j().v(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
-                hb8.j().r(downloadData);
+                ob8.j().v(downloadData.getId(), downloadData.getUrl(), downloadData.getName(), downloadData.getPosition(), downloadData.getNotifyId(), downloadData.getTag(), downloadData.isNeedInvokeApk(), downloadData.isForceDownload(), downloadData.isNeedNotify(), downloadData.getApp_icon(), downloadData.getDownloadStaticsData(), downloadData.getUser_name());
+                ob8.j().r(downloadData);
             } else if (l == 1 || l == 5) {
                 downloadData.setStatus(4);
-                hb8.j().f(downloadData.getUrl(), downloadData.getId(), true);
-                hb8.j().o(downloadData);
+                ob8.j().f(downloadData.getUrl(), downloadData.getId(), true);
+                ob8.j().o(downloadData);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
         } else if ("action_cancel_download".equals(intent.getAction())) {
-            hb8.j().g(downloadData);
+            ob8.j().g(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016483, downloadData));
         }
     }

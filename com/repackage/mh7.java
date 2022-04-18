@@ -1,14 +1,14 @@
 package com.repackage;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.YYPayService;
+import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mh7 extends fc1<YYPayService> {
+public class mh7 extends fc1<NetworkAgentService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,9 +29,9 @@ public class mh7 extends fc1<YYPayService> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fc1
     /* renamed from: a */
-    public YYPayService createService() throws ServiceNotFoundException {
+    public NetworkAgentService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new nh7() : (YYPayService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new nh7() : (NetworkAgentService) invokeV.objValue;
     }
 }

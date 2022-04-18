@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cu4;
 import com.repackage.du4;
-import com.repackage.eu4;
 import com.repackage.g45;
 import com.repackage.h45;
 import com.repackage.mi;
-import com.repackage.n27;
-import com.repackage.o27;
 import com.repackage.oi;
+import com.repackage.q27;
+import com.repackage.r27;
 import com.repackage.uo;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -35,11 +35,11 @@ public class TopicListView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public TbPageContext<?> b;
-    public n27 c;
+    public q27 c;
     public BdSwipeRefreshLayout d;
     public BdTypeRecyclerView e;
-    public o27 f;
-    public eu4 g;
+    public r27 f;
+    public du4 g;
     public g45 h;
     public h45 i;
     public ScrollFragmentTabHost j;
@@ -156,9 +156,9 @@ public class TopicListView extends FrameLayout {
             return;
         }
         this.a = skinType;
-        eu4 eu4Var = this.g;
-        if (eu4Var != null) {
-            eu4Var.H(skinType);
+        du4 du4Var = this.g;
+        if (du4Var != null) {
+            du4Var.H(skinType);
         }
         g45 g45Var = this.h;
         if (g45Var != null) {
@@ -168,9 +168,9 @@ public class TopicListView extends FrameLayout {
         if (h45Var != null) {
             h45Var.onChangeSkinType();
         }
-        o27 o27Var = this.f;
-        if (o27Var != null) {
-            o27Var.a();
+        r27 r27Var = this.f;
+        if (r27Var != null) {
+            r27Var.a();
         }
         PbListView pbListView = this.k;
         if (pbListView != null) {
@@ -235,7 +235,7 @@ public class TopicListView extends FrameLayout {
             this.k.f();
             this.k.L(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.k.t(oi.f(this.b.getPageActivity(), R.dimen.tbds150));
-            this.k.C(getResources().getString(R.string.obfuscated_res_0x7f0f0f31));
+            this.k.C(getResources().getString(R.string.obfuscated_res_0x7f0f0f30));
         }
     }
 
@@ -270,33 +270,33 @@ public class TopicListView extends FrameLayout {
         this.f.b(list);
     }
 
-    public void setListPullRefreshListener(du4.g gVar) {
-        eu4 eu4Var;
+    public void setListPullRefreshListener(cu4.g gVar) {
+        du4 du4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, gVar) == null) || (eu4Var = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, gVar) == null) || (du4Var = this.g) == null) {
             return;
         }
-        eu4Var.f(gVar);
+        du4Var.f(gVar);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
-            o27 o27Var = this.f;
-            if (o27Var != null) {
-                o27Var.c(bdUniqueId);
+            r27 r27Var = this.f;
+            if (r27Var != null) {
+                r27Var.c(bdUniqueId);
             }
-            eu4 eu4Var = this.g;
-            if (eu4Var != null) {
-                eu4Var.a0(bdUniqueId);
+            du4 du4Var = this.g;
+            if (du4Var != null) {
+                du4Var.a0(bdUniqueId);
             }
         }
     }
 
-    public void setPresenter(n27 n27Var) {
+    public void setPresenter(q27 q27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, n27Var) == null) {
-            this.c = n27Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, q27Var) == null) {
+            this.c = q27Var;
         }
     }
 

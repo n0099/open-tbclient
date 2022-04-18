@@ -46,7 +46,7 @@ public class uh3 extends ProviderDelegation {
         public Bundle create() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.a(this.a) : (Bundle) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.b(this.a) : (Bundle) invokeV.objValue;
         }
     }
 
@@ -64,7 +64,7 @@ public class uh3 extends ProviderDelegation {
         }
     }
 
-    public Bundle a(@NonNull Bundle bundle) {
+    public Bundle b(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {

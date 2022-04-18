@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn4;
+import com.repackage.bn4;
 /* loaded from: classes3.dex */
 public class ForeDrawableImageView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -49,7 +49,7 @@ public class ForeDrawableImageView extends TbImageView {
 
     public final void Q(Canvas canvas, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) || StringUtils.isNull(this.w0) || cn4.c().g()) {
+        if (!(interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) || StringUtils.isNull(this.w0) || bn4.c().g()) {
             return;
         }
         canvas.drawText(this.w0, (int) (i - (this.y0.measureText(this.w0) / 2.0f)), i2 + this.x0, this.y0);

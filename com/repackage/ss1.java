@@ -237,7 +237,7 @@ public class ss1 {
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
                 decodeByteArray.compress(Bitmap.CompressFormat.JPEG, i, bufferedOutputStream);
                 bufferedOutputStream.flush();
-                ng4.d(bufferedOutputStream);
+                mg4.d(bufferedOutputStream);
                 return true;
             } catch (Exception e) {
                 if (c) {

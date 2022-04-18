@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.hk5;
-import com.repackage.jy4;
-import com.repackage.ly4;
+import com.repackage.iy4;
+import com.repackage.ky4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
@@ -50,7 +50,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public List<jy4> B() {
+    public List<iy4> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c() : (List) invokeV.objValue;
@@ -77,7 +77,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void F(List<jy4> list) {
+    public void F(List<iy4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a.g(list);
@@ -111,22 +111,22 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeV.booleanValue;
     }
 
-    public void y(jy4 jy4Var) {
+    public void y(iy4 iy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jy4Var) == null) {
-            this.a.a(jy4Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, iy4Var) == null) {
+            this.a.a(iy4Var);
         }
     }
 
     public int z(String str) {
         InterceptResult invokeL;
-        List<jy4> c;
+        List<iy4> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (ly4.a(str) && (c = this.a.c()) != null) {
-                for (jy4 jy4Var : c) {
-                    if (str.equals(jy4Var.a())) {
-                        return c.indexOf(jy4Var);
+            if (ky4.a(str) && (c = this.a.c()) != null) {
+                for (iy4 iy4Var : c) {
+                    if (str.equals(iy4Var.a())) {
+                        return c.indexOf(iy4Var);
                     }
                 }
                 return -1;

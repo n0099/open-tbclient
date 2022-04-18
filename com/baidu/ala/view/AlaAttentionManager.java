@@ -26,10 +26,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.dr4;
-import com.repackage.vl4;
-import com.repackage.wt4;
-import com.repackage.zx4;
+import com.repackage.cr4;
+import com.repackage.ul4;
+import com.repackage.vt4;
+import com.repackage.yx4;
 import java.util.HashMap;
 import java.util.LinkedList;
 import org.json.JSONObject;
@@ -256,7 +256,7 @@ public class AlaAttentionManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            wt4 k = wt4.k();
+            vt4 k = vt4.k();
             return k.m("ala_live_push_remind_showtime" + getUserId(), 0L);
         }
         return invokeV.longValue;
@@ -280,7 +280,7 @@ public class AlaAttentionManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            wt4 k = wt4.k();
+            vt4 k = vt4.k();
             k.x("ala_live_push_remind_showtime" + getUserId(), currentTimeMillis);
         }
     }
@@ -330,10 +330,10 @@ public class AlaAttentionManager {
                 String optString4 = optJSONObject.optString("block_cancel");
                 if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
                     aVar.i = true;
-                    dr4 dr4Var = new dr4(b9Var.getPageActivity());
-                    dr4Var.setAutoNight(z);
-                    dr4Var.setMessage(optString);
-                    dr4Var.setPositiveButton(optString3, new dr4.e(this, b9Var, optString2) { // from class: com.baidu.ala.view.AlaAttentionManager.1
+                    cr4 cr4Var = new cr4(b9Var.getPageActivity());
+                    cr4Var.setAutoNight(z);
+                    cr4Var.setMessage(optString);
+                    cr4Var.setPositiveButton(optString3, new cr4.e(this, b9Var, optString2) { // from class: com.baidu.ala.view.AlaAttentionManager.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AlaAttentionManager this$0;
@@ -360,17 +360,17 @@ public class AlaAttentionManager {
                             this.val$dealurl = optString2;
                         }
 
-                        @Override // com.repackage.dr4.e
-                        public void onClick(dr4 dr4Var2) {
+                        @Override // com.repackage.cr4.e
+                        public void onClick(cr4 cr4Var2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, dr4Var2) == null) {
-                                vl4.m(this.val$pageContext.getPageActivity(), this.val$dealurl);
-                                dr4Var2.dismiss();
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, cr4Var2) == null) {
+                                ul4.m(this.val$pageContext.getPageActivity(), this.val$dealurl);
+                                cr4Var2.dismiss();
                                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                             }
                         }
                     });
-                    dr4Var.setNegativeButton(optString4, new dr4.e(this) { // from class: com.baidu.ala.view.AlaAttentionManager.2
+                    cr4Var.setNegativeButton(optString4, new cr4.e(this) { // from class: com.baidu.ala.view.AlaAttentionManager.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AlaAttentionManager this$0;
@@ -393,16 +393,16 @@ public class AlaAttentionManager {
                             this.this$0 = this;
                         }
 
-                        @Override // com.repackage.dr4.e
-                        public void onClick(dr4 dr4Var2) {
+                        @Override // com.repackage.cr4.e
+                        public void onClick(cr4 cr4Var2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, dr4Var2) == null) {
-                                dr4Var2.dismiss();
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, cr4Var2) == null) {
+                                cr4Var2.dismiss();
                                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                             }
                         }
                     });
-                    dr4Var.create(b9Var).show();
+                    cr4Var.create(b9Var).show();
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                     return true;
                 }
@@ -455,7 +455,7 @@ public class AlaAttentionManager {
     public void showAttentionSuccessTipAndLivePushDialog(TbPageContext tbPageContext, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048583, this, tbPageContext, z) == null) {
-            if (System.currentTimeMillis() - getLastShowTime() >= 86400000 && !zx4.d().u()) {
+            if (System.currentTimeMillis() - getLastShowTime() >= 86400000 && !yx4.d().u()) {
                 showLivePushRemindDialog(tbPageContext, z);
             } else if (z) {
                 showAttentionSucceedTip(tbPageContext);
@@ -465,7 +465,7 @@ public class AlaAttentionManager {
 
     public void showLivePushRemindDialog(TbPageContext tbPageContext, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, z) == null) || zx4.d().u()) {
+        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext, z) == null) || yx4.d().u()) {
             return;
         }
         new AlaLivePushRemindDialog(tbPageContext).showDialog(z);

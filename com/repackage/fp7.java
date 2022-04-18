@@ -1,137 +1,208 @@
 package com.repackage;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleATitleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cp7;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class fp7 extends ho<pp7, InterestedForumStyleATitleViewHolder> {
+public class fp7 extends cp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements dp {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ op7 a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ fp7 d;
 
-        public a(fp7 fp7Var) {
+        public a(fp7 fp7Var, op7 op7Var, b bVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fp7Var};
+                Object[] objArr = {fp7Var, op7Var, bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = fp7Var;
+            this.a = op7Var;
+            this.b = bVar;
+            this.c = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                op7 op7Var = this.a;
+                op7Var.l(!op7Var.g());
+                this.d.g(this.b, this.a);
+                this.d.d(this.a);
+                fp7 fp7Var = this.d;
+                cp7.a aVar = fp7Var.d;
+                if (aVar != null) {
+                    aVar.A0(fp7Var.a);
+                }
+                if (this.a.g()) {
+                    StatisticItem statisticItem = new StatisticItem("c13682");
+                    statisticItem.param("obj_type", 2);
+                    statisticItem.param("obj_locate", 1);
+                    statisticItem.param("obj_source", this.c);
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public LinearLayout a;
+        public TbImageView b;
+        public TextView c;
+
+        public b(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        }
-
-        @Override // com.repackage.dp
-        public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(uoVar instanceof pp7)) {
-            }
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f1e);
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f14);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f22);
+            int k = (oi.k(TbadkCoreApplication.getInst()) / 4) + oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+            this.a.setLayoutParams(new LinearLayout.LayoutParams(k, k));
+            int i3 = k / 3;
+            this.b.setLayoutParams(new LinearLayout.LayoutParams(i3, i3));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fp7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public fp7(List<op7> list, Context context) {
+        super(list, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {list, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((List) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.d = bdUniqueId;
-        V(new a(this));
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, pp7 pp7Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
-        a0(i, view2, viewGroup, pp7Var, interestedForumStyleATitleViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: Z */
-    public InterestedForumStyleATitleViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        View inflate;
+    public final Bitmap f(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            if (UbsABTestHelper.isInterestGuideStyleA()) {
-                inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03ff, viewGroup, false);
-            } else {
-                inflate = UbsABTestHelper.isInterestGuideStyleB() ? LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0402, viewGroup, false) : null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bitmap, i)) == null) {
+            if (bitmap == null) {
+                return null;
             }
-            return new InterestedForumStyleATitleViewHolder(inflate);
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+            Canvas canvas = new Canvas(createBitmap);
+            Paint paint = new Paint();
+            paint.setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, paint);
+            return createBitmap;
         }
-        return (InterestedForumStyleATitleViewHolder) invokeL.objValue;
+        return (Bitmap) invokeLI.objValue;
     }
 
-    public View a0(int i, View view2, ViewGroup viewGroup, pp7 pp7Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
-        InterceptResult invokeCommon;
+    public final void g(b bVar, op7 op7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pp7Var, interestedForumStyleATitleViewHolder})) == null) {
-            if (pp7Var == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, op7Var) == null) {
+            if (op7Var.g()) {
+                TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0302).setShapeRadius(oi.f(this.b, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0807).setShadowSide(ShadowDrawable.ALL).setShadowRadius(oi.f(this.b, R.dimen.tbds20)).setOffsetX(0).setOffsetY(oi.f(this.b, R.dimen.tbds10)).into(bVar.a);
+                vr4 d = vr4.d(bVar.c);
+                d.v(R.color.CAM_X0313);
+                d.A(R.dimen.T_X06);
+                if (bVar.b.getBdImage() == null || StringUtils.isNull(bVar.b.getBdImage().q())) {
+                    return;
+                }
+                bVar.b.setImageBitmap(f(bVar.b.getBdImage().p(), -1));
+                return;
+            }
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0201).setShapeRadius(oi.f(this.b, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(oi.f(this.b, R.dimen.tbds20)).setOffsetX(0).setOffsetY(oi.f(this.b, R.dimen.tbds10)).into(bVar.a);
+            vr4 d2 = vr4.d(bVar.c);
+            d2.v(R.color.CAM_X0105);
+            d2.A(R.dimen.T_X06);
+            bVar.b.setImageBitmap(null);
+            bVar.b.setPlaceHolder(1);
+            bVar.b.K(op7Var.a(), 25, false);
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d04fe, viewGroup, false);
+                bVar = new b(view2);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
+            }
+            op7 op7Var = this.c.get(i);
+            if (op7Var == null) {
                 return view2;
             }
-            c0(interestedForumStyleATitleViewHolder);
-            b0(interestedForumStyleATitleViewHolder, pp7Var);
+            bVar.c.setText(op7Var.b());
+            g(bVar, op7Var);
+            view2.setOnClickListener(new a(this, op7Var, bVar, i));
             return view2;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void b0(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder, pp7 pp7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleATitleViewHolder, pp7Var) == null) {
-            interestedForumStyleATitleViewHolder.b.setDefaultResource(R.drawable.obfuscated_res_0x7f08077e);
-            interestedForumStyleATitleViewHolder.b.K(pp7Var.a(), 10, false);
-            interestedForumStyleATitleViewHolder.c.setText(pp7Var.b());
-        }
-    }
-
-    public final void c0(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, interestedForumStyleATitleViewHolder) == null) {
-            wr4 d = wr4.d(interestedForumStyleATitleViewHolder.c);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X06);
-            d.A(R.string.F_X02);
-            if (UbsABTestHelper.isInterestGuideStyleB()) {
-                wr4 d2 = wr4.d(interestedForumStyleATitleViewHolder.a);
-                d2.n(R.string.J_X14);
-                d2.f(R.color.CAM_X0201);
-            }
-        }
+        return (View) invokeILL.objValue;
     }
 }

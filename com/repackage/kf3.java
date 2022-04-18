@@ -224,7 +224,7 @@ public class kf3 {
                     int t = ae3.t();
                     View view3 = new View(this.a);
                     view3.setTag("IMMERSION_VIEW");
-                    view3.setId(R.id.obfuscated_res_0x7f090ee3);
+                    view3.setId(R.id.obfuscated_res_0x7f090ee4);
                     this.b.addView(view3, new ViewGroup.LayoutParams(-1, t));
                     this.d = view3;
                     return view3;

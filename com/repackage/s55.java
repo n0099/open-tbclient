@@ -39,21 +39,21 @@ public class s55 implements i55<AgreeEvent> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
             if (agreeEvent != null && agreeEvent.agreeData != null) {
-                lk8 lk8Var = new lk8();
-                lk8Var.b = agreeEvent.agreeData;
+                sk8 sk8Var = new sk8();
+                sk8Var.b = agreeEvent.agreeData;
                 String str = agreeEvent.agreeExtra;
                 if (TbadkCoreApplication.isLogin() && TbadkCoreApplication.getInst().isMainProcess(true) && agreeEvent.agreeData.hasAgree) {
                     if (TbSingleton.getInstance().showStampMissionDialog && UbsABTestHelper.isStampMissionDialogABTestB()) {
-                        gi8.r().A(0, 3);
-                        gi8.r().G();
+                        ni8.r().A(0, 3);
+                        ni8.r().G();
                     }
-                    gi8.r().z(StampMission.Type.LIKE_THREAD);
+                    ni8.r().z(StampMission.Type.LIKE_THREAD);
                 }
                 if (AgreeEvent.IS_THREAD.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, lk8Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, sk8Var));
                     return true;
                 } else if (AgreeEvent.IS_POST.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, lk8Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, sk8Var));
                     return true;
                 }
             }

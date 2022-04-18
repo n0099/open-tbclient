@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l94;
+import com.repackage.k94;
 import okhttp3.Callback;
 import org.json.JSONObject;
 @Service
@@ -70,7 +70,7 @@ public class gj3 implements wj1 {
     }
 
     @Override // com.repackage.wj1
-    public void f(String str, String str2, l94.c cVar) {
+    public void f(String str, String str2, k94.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, cVar) == null) {
             new wj3().k(str, str2, cVar);

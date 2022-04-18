@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lp7;
-import com.repackage.sp7;
+import com.repackage.op7;
+import com.repackage.vp7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BaseInterestedForumFragment extends BaseFragment {
@@ -18,7 +18,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
     public int a;
     public boolean b;
     public String[] c;
-    public List<lp7> d;
+    public List<op7> d;
     public View e;
 
     public BaseInterestedForumFragment() {
@@ -56,7 +56,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         }
     }
 
-    public void E0(List<lp7> list) {
+    public void E0(List<op7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.d = list;
@@ -69,7 +69,7 @@ public class BaseInterestedForumFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 2) {
-                sp7.c(2, this.a);
+                vp7.c(2, this.a);
             }
         }
     }

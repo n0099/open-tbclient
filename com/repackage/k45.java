@@ -50,18 +50,18 @@ public class k45 extends a45 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view2 = this.attachedView) == null) {
             return;
         }
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091326);
-        EMTextView eMTextView = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091327);
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091327);
+        EMTextView eMTextView = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091328);
         this.b = eMTextView;
         eMTextView.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a49));
-        EMTextView eMTextView2 = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091325);
+        EMTextView eMTextView2 = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091326);
         this.c = eMTextView2;
         eMTextView2.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a48));
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09131c);
+        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09131d);
         this.d = tBSpecificationBtn;
         tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0964));
         this.d.setTextSize(R.dimen.T_X05);
-        this.d.setConfig(new lu4());
+        this.d.setConfig(new ku4());
     }
 
     public void b(View.OnClickListener onClickListener) {
@@ -76,13 +76,13 @@ public class k45 extends a45 {
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wr4 d = wr4.d(this.b);
+            vr4 d = vr4.d(this.b);
             d.z(R.dimen.T_X06);
             d.v(R.color.CAM_X0107);
-            wr4 d2 = wr4.d(this.c);
+            vr4 d2 = vr4.d(this.c);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0108);
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080e31, null);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080e35, null);
             TBSpecificationBtn tBSpecificationBtn = this.d;
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.k();

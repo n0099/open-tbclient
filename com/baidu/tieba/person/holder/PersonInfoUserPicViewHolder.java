@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.uo;
-import com.repackage.yz4;
+import com.repackage.xz4;
 /* loaded from: classes3.dex */
 public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -47,20 +47,20 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.e = 3;
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091827);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091828);
         this.a = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f0915b0);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff9);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f0915b1);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ffa);
     }
 
     public void c(uo uoVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, uoVar) == null) && (uoVar instanceof yz4)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, uoVar) == null) && (uoVar instanceof xz4)) {
             this.d = uoVar;
-            yz4 yz4Var = (yz4) uoVar;
-            if (yz4Var.e()) {
-                String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(yz4Var.b());
+            xz4 xz4Var = (xz4) uoVar;
+            if (xz4Var.e()) {
+                String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(xz4Var.b());
                 this.b.setVisibility(0);
                 if (StringUtils.isNull(headPortraitFilter)) {
                     this.a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
@@ -68,9 +68,9 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                     this.a.K(headPortraitFilter, 25, false);
                 }
             } else {
-                this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080b76);
+                this.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080b7a);
                 this.b.setVisibility(8);
-                this.a.K(yz4Var.b(), 10, false);
+                this.a.K(xz4Var.b(), 10, false);
             }
             b().setOnClickListener(this.f);
             e(TbadkCoreApplication.getInst().getSkinType());

@@ -239,21 +239,21 @@ public class sd3 {
             try {
                 try {
                     String readLine = bufferedReader.readLine();
-                    ng4.d(bufferedReader);
+                    mg4.d(bufferedReader);
                     return readLine;
                 } catch (IOException e2) {
                     e = e2;
                     if (a) {
                         Log.e("SwanAppRomUtils", "Unable to read prop " + str, e);
                     }
-                    ng4.d(bufferedReader);
-                    ng4.d(bufferedReader);
+                    mg4.d(bufferedReader);
+                    mg4.d(bufferedReader);
                     return null;
                 }
             } catch (Throwable th) {
                 th = th;
                 bufferedReader2 = bufferedReader;
-                ng4.d(bufferedReader2);
+                mg4.d(bufferedReader2);
                 throw th;
             }
         } catch (IOException e3) {
@@ -261,7 +261,7 @@ public class sd3 {
             bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;
-            ng4.d(bufferedReader2);
+            mg4.d(bufferedReader2);
             throw th;
         }
     }

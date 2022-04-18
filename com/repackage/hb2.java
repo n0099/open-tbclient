@@ -123,7 +123,7 @@ public class hb2 extends g23 {
                 if (g23.b) {
                     Log.d("replaceSwanCore", "swanCoreZipFile: " + d + " swanCoreDir: " + c);
                 }
-                if (d.exists() && ng4.U(d.getPath(), c.getPath())) {
+                if (d.exists() && mg4.U(d.getPath(), c.getPath())) {
                     iw2.M(true);
                     b03.f(this.a, R.string.obfuscated_res_0x7f0f0148).G();
                     this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());

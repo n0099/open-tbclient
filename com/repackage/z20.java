@@ -37,7 +37,7 @@ public class z20 {
     public static c30 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? sf8.a() : (c30) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? zf8.a() : (c30) invokeV.objValue;
     }
 
     @Inject(force = false)
@@ -51,6 +51,6 @@ public class z20 {
     public static e30 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? uf8.a() : (e30) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? bg8.a() : (e30) invokeV.objValue;
     }
 }

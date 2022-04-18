@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.al8;
-import com.repackage.iw4;
+import com.repackage.hl8;
+import com.repackage.hw4;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -111,18 +111,18 @@ public class ShowStatisticUploadRequest extends HttpMessage {
         if (netType != null) {
             addParam("net_type", netType);
         }
-        iw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+        hw4 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         TASK.setUrl((adAdSense == null || adAdSense.d()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
     }
 
-    public static void sendFRS(boolean z, String str, String str2, String str3, List<al8.c> list, String str4) {
+    public static void sendFRS(boolean z, String str, String str2, String str3, List<hl8.c> list, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), str, str2, str3, list, str4}) == null) {
             ShowStatisticUploadRequest init = new ShowStatisticUploadRequest(z).init(1, str, str2, str4);
             init.addParam("fid", str3);
             if (list != null && list.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                for (al8.c cVar : list) {
+                for (hl8.c cVar : list) {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
@@ -140,14 +140,14 @@ public class ShowStatisticUploadRequest extends HttpMessage {
         }
     }
 
-    public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<al8.c> list, String str5) {
+    public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<hl8.c> list, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), str, str2, str3, str4, list, str5}) == null) {
             ShowStatisticUploadRequest init = new ShowStatisticUploadRequest(z).init(2, str, str2, str5);
             init.addParam("fid", str3);
             if (list != null && list.size() > 0) {
                 JSONArray jSONArray = new JSONArray();
-                for (al8.c cVar : list) {
+                for (hl8.c cVar : list) {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {

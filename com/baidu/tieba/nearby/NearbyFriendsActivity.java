@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bn7;
+import com.repackage.cn7;
 import com.repackage.n15;
 import com.repackage.o15;
-import com.repackage.ym7;
-import com.repackage.zm7;
 /* loaded from: classes3.dex */
 public class NearbyFriendsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -22,7 +22,7 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
     public CustomMessageListener mCompleteInfoListener;
     public CustomMessageListener mLocalInputListener;
     public NearbyFriendsModel mModel;
-    public ym7 mView;
+    public bn7 mView;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -100,7 +100,7 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
                 return;
             }
             NearbyFriendsActivity nearbyFriendsActivity = this.a;
-            new n15(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f09152d), o15Var).m();
+            new n15(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f09152e), o15Var).m();
         }
     }
 
@@ -145,9 +145,9 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0046);
             initListeners();
-            zm7 zm7Var = new zm7(this);
-            this.mView = zm7Var;
-            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(zm7Var, getUniqueId());
+            cn7 cn7Var = new cn7(this);
+            this.mView = cn7Var;
+            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(cn7Var, getUniqueId());
             this.mModel = nearbyFriendsModel;
             nearbyFriendsModel.G(getIntent());
             this.mView.l(this.mModel);

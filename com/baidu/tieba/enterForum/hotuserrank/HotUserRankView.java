@@ -33,9 +33,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.h56;
-import com.repackage.k56;
-import com.repackage.l56;
+import com.repackage.j56;
+import com.repackage.m56;
+import com.repackage.n56;
 import com.repackage.oi;
 import com.repackage.pg;
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class HotUserRankView {
     public CustomViewPager g;
     public FragmentAdapter h;
     public List<e> i;
-    public h56 j;
+    public j56 j;
     public View k;
     public TextView l;
     public String m;
@@ -305,14 +305,14 @@ public class HotUserRankView {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof k56) || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() == null || !customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof m56) || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() == null || !customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
                 return;
             }
-            k56 k56Var = (k56) customResponsedMessage.getData();
-            if (k56Var.c == null) {
+            m56 m56Var = (m56) customResponsedMessage.getData();
+            if (m56Var.c == null) {
                 return;
             }
-            this.a.j.e(k56Var);
+            this.a.j.e(m56Var);
         }
     }
 
@@ -363,7 +363,7 @@ public class HotUserRankView {
         this.a = baseFragmentActivity;
         View inflate = LayoutInflater.from(baseFragmentActivity).inflate(R.layout.obfuscated_res_0x7f0d003d, (ViewGroup) null);
         this.b = inflate;
-        NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091514);
+        NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f091515);
         this.c = navigationBar;
         View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.k = addSystemImageButton;
@@ -371,12 +371,12 @@ public class HotUserRankView {
         TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getString(R.string.obfuscated_res_0x7f0f088b));
         this.l = addTextButton;
         addTextButton.setOnClickListener(this.s);
-        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e46);
+        TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e47);
         this.d = tbTabLayout;
         tbTabLayout.setTabTextSize(oi.f(baseFragmentActivity, R.dimen.tbds46));
-        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f091e29);
-        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f091e2a);
-        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923c0);
+        this.e = this.b.findViewById(R.id.obfuscated_res_0x7f091e2a);
+        this.f = this.b.findViewById(R.id.obfuscated_res_0x7f091e2b);
+        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923c1);
         this.g = customViewPager;
         customViewPager.addOnPageChangeListener(this.t);
         this.g.setViewPagerScroll(0);
@@ -384,10 +384,10 @@ public class HotUserRankView {
         this.h = fragmentAdapter;
         this.g.setAdapter(fragmentAdapter);
         this.d.setupWithViewPager(this.g);
-        this.j = new h56(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f0903ed));
+        this.j = new j56(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f0903ed));
         this.a.registerListener(this.u);
-        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f092269);
-        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09226a);
+        this.n = this.b.findViewById(R.id.obfuscated_res_0x7f09226a);
+        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09226b);
         this.p = this.b.findViewById(R.id.obfuscated_res_0x7f0903ee);
     }
 
@@ -407,7 +407,7 @@ public class HotUserRankView {
             SkinManager.setBackgroundColor(this.d, R.color.CAM_X0207);
             SkinManager.setViewTextColorSelector(this.l, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
             this.j.d(i);
-            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0810eb, R.color.CAM_X0302, null);
+            Drawable pureDrawable = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0810ef, R.color.CAM_X0302, null);
             int f = oi.f(this.a, R.dimen.tbds63);
             int f2 = oi.f(this.a, R.dimen.tbds2);
             if (pureDrawable != null) {
@@ -429,7 +429,7 @@ public class HotUserRankView {
         }
     }
 
-    public void l(List<l56> list, long j, int i, String str) {
+    public void l(List<n56> list, long j, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
             this.m = str;
@@ -446,14 +446,14 @@ public class HotUserRankView {
                     this.j.f(1);
                     return;
                 }
-                for (l56 l56Var : list) {
+                for (n56 n56Var : list) {
                     this.d.d(this.d.z());
                     e eVar2 = new e(this);
                     HotUserRankFragment hotUserRankFragment2 = new HotUserRankFragment();
                     eVar2.a = hotUserRankFragment2;
-                    hotUserRankFragment2.N0(l56Var.b);
+                    hotUserRankFragment2.N0(n56Var.b);
                     eVar2.a.P0(this.q);
-                    eVar2.b = l56Var.a;
+                    eVar2.b = n56Var.a;
                     this.i.add(eVar2);
                 }
                 if (this.q) {

@@ -30,16 +30,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a97;
 import com.repackage.ad5;
-import com.repackage.c67;
 import com.repackage.dd5;
+import com.repackage.f67;
 import com.repackage.g55;
 import com.repackage.ic5;
-import com.repackage.l67;
-import com.repackage.m67;
+import com.repackage.o67;
 import com.repackage.oi;
-import com.repackage.s77;
-import com.repackage.x87;
+import com.repackage.p67;
+import com.repackage.v77;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.OnClickListener {
@@ -88,7 +88,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c67.h().l(this.a.getGroupId(), this.b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(f67.h().l(this.a.getGroupId(), this.b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -161,7 +161,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(m67.t().m(x87.m(this.a), this.b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(p67.t().m(a97.m(this.a), this.b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -234,7 +234,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(m67.t().m(x87.m(this.a), this.b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(p67.t().m(a97.m(this.a), this.b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -307,7 +307,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(l67.t().m(x87.m(this.a), this.b, false)) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(o67.t().m(a97.m(this.a), this.b, false)) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -433,12 +433,12 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0911a5);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ede);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090edf);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f06);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090edd);
-            this.e = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09191c);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0911a6);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090edf);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee0);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091f07);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ede);
+            this.e = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09191d);
         }
     }
 
@@ -465,7 +465,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                 }
                 this.e.setVisibility(4);
                 j();
-                VoiceMsgData n = x87.n(this.g);
+                VoiceMsgData n = a97.n(this.g);
                 if (n == null || n.getHas_read() == 1) {
                     return;
                 }
@@ -477,7 +477,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
                     CommonGroupChatMessage commonGroupChatMessage = (CommonGroupChatMessage) chatMessage;
                     LinkedList linkedList = new LinkedList();
                     linkedList.add(new CommonMsgPojo(commonGroupChatMessage));
-                    if (!commonGroupChatMessage.getGroupId().equals(String.valueOf(s77.i))) {
+                    if (!commonGroupChatMessage.getGroupId().equals(String.valueOf(v77.i))) {
                         dd5.c(new a(this, commonGroupChatMessage, linkedList), new b(this));
                         return;
                     } else {
@@ -566,7 +566,7 @@ public class ChatVoiceView extends LinearLayout implements VoiceManager.i, View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, chatMessage) == null) {
             boolean z = true;
-            if (x87.p(chatMessage) || ((n = x87.n(chatMessage)) != null && n.getHas_read() == 1)) {
+            if (a97.p(chatMessage) || ((n = a97.n(chatMessage)) != null && n.getHas_read() == 1)) {
                 z = false;
             }
             if (z) {

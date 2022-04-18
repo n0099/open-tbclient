@@ -69,7 +69,7 @@ public class SimpleAdInfoView extends FrameLayout {
             }
             int id = view2.getId();
             String str2 = "";
-            if (id == R.id.obfuscated_res_0x7f091498) {
+            if (id == R.id.obfuscated_res_0x7f091499) {
                 mo0.b bVar = this.a.e.g;
                 if (bVar != null) {
                     str2 = bVar.b;
@@ -77,16 +77,16 @@ public class SimpleAdInfoView extends FrameLayout {
                 }
                 str = "";
             } else {
-                if (id == R.id.obfuscated_res_0x7f091497) {
+                if (id == R.id.obfuscated_res_0x7f091498) {
                     mo0.a aVar = this.a.e.h;
                     if (aVar != null) {
                         str2 = aVar.b;
                         str = ClogBuilder.Area.APP_PERMISSION.type;
                     }
-                } else if (id == R.id.obfuscated_res_0x7f0914c3) {
+                } else if (id == R.id.obfuscated_res_0x7f0914c4) {
                     Toast.makeText(this.a.getContext(), this.a.e.d, 1).show();
                     return;
-                } else if (id == R.id.obfuscated_res_0x7f091499) {
+                } else if (id == R.id.obfuscated_res_0x7f09149a) {
                     Toast.makeText(this.a.getContext(), this.a.e.f, 1).show();
                     return;
                 }
@@ -196,10 +196,10 @@ public class SimpleAdInfoView extends FrameLayout {
                 return;
             }
             LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091499);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c3);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091498);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091497);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09149a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0914c4);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091499);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091498);
             TextView textView = this.c;
             if (textView != null) {
                 textView.setOnClickListener(this.g);

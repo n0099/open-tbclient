@@ -1,22 +1,25 @@
 package com.repackage;
 
-import android.view.View;
+import android.os.AsyncTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class ft9 implements Runnable {
+public class ft9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ zp9 a;
+    public bt9 a;
+    public Set b;
 
-    public ft9(zp9 zp9Var) {
+    public ft9(bt9 bt9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zp9Var};
+            Object[] objArr = {bt9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,19 +29,15 @@ public class ft9 implements Runnable {
                 return;
             }
         }
-        this.a = zp9Var;
+        this.b = new HashSet();
+        this.a = bt9Var;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        View view2;
+    public void a(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zp9 zp9Var = this.a;
-            if (zp9Var.h == null || zp9Var.i == null || (view2 = zp9Var.j) == null) {
-                return;
-            }
-            view2.setVisibility(0);
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) || this.b.contains(str)) {
+            return;
         }
+        new qs9(this, str, z).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
     }
 }

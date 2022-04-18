@@ -183,8 +183,8 @@ public class th5 {
             } else {
                 linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05ef, (ViewGroup) this.f, false);
             }
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f09121a);
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091aa5);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f09121b);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091aa6);
             nEGFeedBackReasonCheckBox.a();
             nEGFeedBackReasonCheckBox2.a();
             nEGFeedBackReasonCheckBox.setChecked(false);
@@ -234,8 +234,8 @@ public class th5 {
             } else {
                 linearLayout = (LinearLayout) LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05ef, (ViewGroup) this.f, false);
             }
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f09121a);
-            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091aa5);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f09121b);
+            NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox2 = (NEGFeedBackReasonCheckBox) linearLayout.findViewById(R.id.obfuscated_res_0x7f091aa6);
             nEGFeedBackReasonCheckBox.a();
             nEGFeedBackReasonCheckBox2.a();
             nEGFeedBackReasonCheckBox.setChecked(false);
@@ -347,13 +347,13 @@ public class th5 {
         }
     }
 
-    public void j(mp4 mp4Var) {
+    public void j(lp4 lp4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, mp4Var) == null) || mp4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, lp4Var) == null) || lp4Var == null) {
             return;
         }
-        this.c = mp4Var.b();
-        this.d = mp4Var.g;
+        this.c = lp4Var.b();
+        this.d = lp4Var.g;
     }
 
     public void k(String[] strArr) {

@@ -64,7 +64,7 @@ public class wv3 extends g23 {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 File c = xv3.c();
                 File b = xv3.b();
-                if (c.exists() && ng4.U(c.getPath(), b.getPath())) {
+                if (c.exists() && mg4.U(c.getPath(), b.getPath())) {
                     Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f012c, 1).show();
                 } else {
                     Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f012b, 1).show();

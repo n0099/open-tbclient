@@ -61,7 +61,7 @@ public class wh5 {
                 if (mi.A()) {
                     wh5.e(jSONArray, this.b.a(), this.b.b(), this.c);
                 } else {
-                    oi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c18);
+                    oi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         }
@@ -102,7 +102,7 @@ public class wh5 {
                 if (mi.A()) {
                     wh5.e(jSONArray, this.b.a(), this.b.b(), this.c);
                 } else {
-                    oi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c18);
+                    oi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         }
@@ -118,7 +118,7 @@ public class wh5 {
         if (zh5Var != null) {
             yh5Var.w(z);
         }
-        AntiData c = zc6.f().c();
+        AntiData c = bd6.f().c();
         SparseArray<String> sparseArray = new SparseArray<>();
         if (c != null && c.getDelThreadInfoList() != null) {
             List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
@@ -130,7 +130,7 @@ public class wh5 {
         }
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();
-        List<ThreadData> g = zc6.f().g();
+        List<ThreadData> g = bd6.f().g();
         for (int i2 = 0; i2 < g.size(); i2++) {
             if (g.get(i2) != null) {
                 jSONArray.put(g.get(i2).getTid());
@@ -143,15 +143,15 @@ public class wh5 {
                 }
             }
         }
-        mp4 mp4Var = new mp4();
-        mp4Var.j(sparseArray);
+        lp4 lp4Var = new lp4();
+        lp4Var.j(sparseArray);
         if (zh5Var != null) {
-            mp4Var.i(zh5Var.getType());
+            lp4Var.i(zh5Var.getType());
         }
-        mp4Var.p(jSONArray);
-        mp4Var.m(jSONArray2);
-        mp4Var.l(zc6.f().d());
-        yh5Var.x(mp4Var);
+        lp4Var.p(jSONArray);
+        lp4Var.m(jSONArray2);
+        lp4Var.l(bd6.f().d());
+        yh5Var.x(lp4Var);
         yh5Var.y(new String[]{TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a9), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04aa), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ab), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ac), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04ad)});
         yh5Var.A("1");
         yh5Var.z(new b(tbPageContext, zh5Var, z));
@@ -167,7 +167,7 @@ public class wh5 {
         if (zh5Var != null) {
             bi5Var.C(z);
         }
-        AntiData c = zc6.f().c();
+        AntiData c = bd6.f().c();
         SparseArray<String> sparseArray = new SparseArray<>();
         if (c != null && c.getDelThreadInfoList() != null) {
             List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
@@ -179,7 +179,7 @@ public class wh5 {
         }
         JSONArray jSONArray = new JSONArray();
         JSONArray jSONArray2 = new JSONArray();
-        List<ThreadData> g = zc6.f().g();
+        List<ThreadData> g = bd6.f().g();
         for (int i2 = 0; i2 < g.size(); i2++) {
             if (g.get(i2) != null) {
                 jSONArray.put(g.get(i2).getTid());
@@ -192,15 +192,15 @@ public class wh5 {
                 }
             }
         }
-        mp4 mp4Var = new mp4();
-        mp4Var.j(sparseArray);
+        lp4 lp4Var = new lp4();
+        lp4Var.j(sparseArray);
         if (zh5Var != null) {
-            mp4Var.i(zh5Var.getType());
+            lp4Var.i(zh5Var.getType());
         }
-        mp4Var.p(jSONArray);
-        mp4Var.m(jSONArray2);
-        mp4Var.l(zc6.f().d());
-        bi5Var.D(mp4Var);
+        lp4Var.p(jSONArray);
+        lp4Var.m(jSONArray2);
+        lp4Var.l(bd6.f().d());
+        bi5Var.D(lp4Var);
         bi5Var.E(new String[]{TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a4), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a5), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a6), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a7), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a8)});
         bi5Var.G("1");
         bi5Var.F(new a(tbPageContext, zh5Var, z));

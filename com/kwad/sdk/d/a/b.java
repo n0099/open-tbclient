@@ -152,24 +152,24 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
 
     private void c(boolean z) {
         setClickable(true);
-        this.c = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09109a);
-        this.b = findViewById(R.id.obfuscated_res_0x7f091095);
-        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091167);
-        this.d = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091018);
-        this.g = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09109d);
-        this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09109b);
-        this.f = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091094);
-        this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09100e);
-        this.k = findViewById(R.id.obfuscated_res_0x7f091091);
+        this.c = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09109b);
+        this.b = findViewById(R.id.obfuscated_res_0x7f091096);
+        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091168);
+        this.d = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091019);
+        this.g = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09109e);
+        this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09109c);
+        this.f = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091095);
+        this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09100f);
+        this.k = findViewById(R.id.obfuscated_res_0x7f091092);
         this.f.setTextDimen(bb.a(getContext(), 10.0f));
         this.f.setTextColor(-1);
-        this.j = (CompoundButton) findViewById(R.id.obfuscated_res_0x7f091097);
-        this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091092);
-        this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091096);
-        this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091098);
-        this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f091093);
-        this.q = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09102c);
-        this.l = findViewById(R.id.obfuscated_res_0x7f091011);
+        this.j = (CompoundButton) findViewById(R.id.obfuscated_res_0x7f091098);
+        this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091093);
+        this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091097);
+        this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091099);
+        this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f091094);
+        this.q = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09102d);
+        this.l = findViewById(R.id.obfuscated_res_0x7f091012);
         new f(this, this);
         new f(this.e, this);
         new f(this.f, this);
@@ -180,7 +180,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         new f(this.l, this);
         new f(this.i, this);
         this.j.setOnCheckedChangeListener(this);
-        this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09109c);
+        this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09109d);
         a(this.c, z);
     }
 
@@ -212,13 +212,13 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         String at;
         if (com.kwad.sdk.core.response.a.a.B(adInfo)) {
             this.n.setVisibility(0);
-            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b9b);
+            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b9f);
             KSImageLoader.loadWithRadius(this.n, com.kwad.sdk.core.response.a.a.au(adInfo), adTemplate, 4);
             textView = this.o;
             at = com.kwad.sdk.core.response.a.a.t(adInfo);
         } else {
             this.n.setVisibility(0);
-            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b9b);
+            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080b9f);
             KSImageLoader.loadWithRadius(this.n, com.kwad.sdk.core.response.a.d.o(adTemplate), adTemplate, 4);
             textView = this.o;
             at = com.kwad.sdk.core.response.a.a.at(adInfo);

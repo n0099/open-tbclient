@@ -2,8 +2,10 @@ package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Personalized.LiveAnswer;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.AlaLiveInfo;
+import tbclient.Personalized.UserFollowLive;
 /* loaded from: classes6.dex */
-public class pz6 extends BaseCardInfo {
+public class pz6 extends pn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
+    public List<AlaLiveInfo> a;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public class pz6 extends BaseCardInfo {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public pz6() {
@@ -50,44 +50,66 @@ public class pz6 extends BaseCardInfo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public void e(LiveAnswer liveAnswer) {
+    public List<AlaLiveInfo> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, liveAnswer) == null) || liveAnswer == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public StatisticItem g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13620");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", 0);
+            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
+            return statisticItem;
         }
-        this.c = liveAnswer.banner_url;
-        this.a = liveAnswer.banner_high.intValue();
-        this.b = liveAnswer.banner_width.intValue();
-        this.d = liveAnswer.jump_url;
+        return (StatisticItem) invokeV.objValue;
+    }
+
+    @Override // com.repackage.pn4
+    public lp4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (lp4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.pn4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void i(UserFollowLive userFollowLive) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("img_width", this.b);
-                jSONObject.put(BigdayActivityConfig.IMG_URL, this.c);
-                jSONObject.put("img_height", this.a);
-                jSONObject.put(BigdayActivityConfig.JUMP_URL, this.d);
-                return jSONObject.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048581, this, userFollowLive) == null) {
+            this.a.clear();
+            if (userFollowLive == null || userFollowLive._switch.intValue() == 0 || ListUtils.isEmpty(userFollowLive.user_follow_live)) {
+                return;
             }
+            this.a.addAll(userFollowLive.user_follow_live);
         }
-        return (String) invokeV.objValue;
     }
 }

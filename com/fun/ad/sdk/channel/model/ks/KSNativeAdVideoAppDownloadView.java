@@ -23,7 +23,7 @@ import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
-import com.repackage.nk9;
+import com.repackage.uk9;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class KSNativeAdVideoAppDownloadView extends x {
@@ -133,7 +133,7 @@ public class KSNativeAdVideoAppDownloadView extends x {
             }
             this.g.setText(ksNativeAd.getAppName());
             this.h.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new nk9(ksNativeAd.getActionDescription(), this.h));
+            ksNativeAd.setDownloadListener(new uk9(ksNativeAd.getActionDescription(), this.h));
         }
     }
 

@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.o65;
-import com.repackage.xg6;
+import com.repackage.zg6;
 /* loaded from: classes3.dex */
-public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, xg6, T> {
+public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, zg6, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -79,9 +79,9 @@ public class FrsDynamicModel<T> extends NetAutoModel<FrsDynamicRequestData, xg6,
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<xg6> getResponseDataClass() {
+    public Class<zg6> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? xg6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? zg6.class : (Class) invokeV.objValue;
     }
 }

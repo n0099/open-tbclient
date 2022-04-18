@@ -1,94 +1,105 @@
 package com.repackage;
 
-import android.text.SpannableString;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.os.Handler;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.tieba.face.SearchEmotionModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qy;
 /* loaded from: classes6.dex */
-public class jx7 extends gx7 {
+public class jx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout f;
-    public TextView g;
+    public Handler a;
+    public SearchEmotionModel b;
+    public String c;
+    public SearchEmotionModel.b d;
+    public Runnable e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jx7(TbPageContext tbPageContext, int i) {
-        super(tbPageContext);
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jx7 a;
+
+        public a(jx7 jx7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jx7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jx7Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a.c) || this.a.d == null) {
+                return;
+            }
+            if (this.a.b == null) {
+                this.a.b = new SearchEmotionModel();
+            }
+            this.a.b.z(this.a.c, 0, 30, this.a.d);
+        }
+    }
+
+    public jx7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = new a(this);
+        this.a = new Handler();
     }
 
-    @Override // com.repackage.gx7
-    public View a() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d021c, (ViewGroup) null);
-            this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091f07);
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.gx7
-    public void b(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
-            return;
-        }
-        this.e = i;
-        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-    }
-
-    @Override // com.repackage.gx7
-    public void c(OriginalThreadInfo originalThreadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.g.setText(new SpannableString(this.a.getString(R.string.obfuscated_res_0x7f0f0ce5)));
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SearchEmotionModel searchEmotionModel = this.b;
+            if (searchEmotionModel != null) {
+                searchEmotionModel.cancelLoadData();
+            }
+            this.a.removeCallbacks(this.e);
         }
     }
 
-    @Override // com.repackage.gx7
-    public void d(qy.a aVar) {
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            super.d(aVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                this.c = "";
+                return;
+            }
+            this.a.removeCallbacks(this.e);
+            this.a.postDelayed(this.e, 300L);
+            this.c = str;
         }
     }
 
-    @Override // com.repackage.gx7
-    public void e(rx5 rx5Var) {
+    public void g(SearchEmotionModel.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, rx5Var) == null) {
-            super.e(rx5Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 }

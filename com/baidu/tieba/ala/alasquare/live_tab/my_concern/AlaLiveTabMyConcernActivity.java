@@ -18,10 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cp5;
-import com.repackage.fp5;
+import com.repackage.ep5;
 import com.repackage.h45;
 import com.repackage.hp5;
+import com.repackage.jp5;
 import com.repackage.mi;
 import com.repackage.oi;
 import com.repackage.uo;
@@ -32,14 +32,14 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasNotificationAccessOpen;
     public boolean isLoading;
-    public hp5 mAlaLiveTabMyConcernView;
+    public jp5 mAlaLiveTabMyConcernView;
     public MyConcernTabModel.b mDataCallback;
     public boolean mHasMore;
     public MyConcernTabModel mModel;
     public View.OnClickListener mNetRefreshListener;
     public h45 mNetRefreshView;
     public CustomMessageListener mNotificationRemovedListener;
-    public hp5.f onListViewCallBack;
+    public jp5.f onListViewCallBack;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -73,13 +73,13 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.deleteItem(cp5.class);
+                this.a.deleteItem(ep5.class);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements hp5.f {
+    public class b implements jp5.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaLiveTabMyConcernActivity a;
@@ -102,7 +102,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             this.a = alaLiveTabMyConcernActivity;
         }
 
-        @Override // com.repackage.hp5.f
+        @Override // com.repackage.jp5.f
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -117,7 +117,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             }
         }
 
-        @Override // com.repackage.hp5.f
+        @Override // com.repackage.jp5.f
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && oi.C() && this.a.mHasMore && !this.a.isLoading) {
@@ -245,9 +245,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             if (myConcernTabModel != null) {
                 myConcernTabModel.G(cls);
             }
-            hp5 hp5Var = this.mAlaLiveTabMyConcernView;
-            if (hp5Var != null) {
-                hp5Var.o(cls);
+            jp5 jp5Var = this.mAlaLiveTabMyConcernView;
+            if (jp5Var != null) {
+                jp5Var.o(cls);
             }
         }
     }
@@ -256,7 +256,7 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     public void errorDealing(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(65548, this, z) == null) && z) {
-            showNetRefreshView(R.drawable.new_pic_emotion_08, getResources().getString(R.string.obfuscated_res_0x7f0f0f6a), this.mNetRefreshListener);
+            showNetRefreshView(R.drawable.new_pic_emotion_08, getResources().getString(R.string.obfuscated_res_0x7f0f0f69), this.mNetRefreshListener);
         }
     }
 
@@ -273,9 +273,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            hp5 hp5Var = new hp5(getPageContext());
-            this.mAlaLiveTabMyConcernView = hp5Var;
-            hp5Var.r(this.onListViewCallBack);
+            jp5 jp5Var = new jp5(getPageContext());
+            this.mAlaLiveTabMyConcernView = jp5Var;
+            jp5Var.r(this.onListViewCallBack);
             setContentView(this.mAlaLiveTabMyConcernView.h());
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -314,9 +314,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            hp5 hp5Var = this.mAlaLiveTabMyConcernView;
-            if (hp5Var != null) {
-                hp5Var.l(i);
+            jp5 jp5Var = this.mAlaLiveTabMyConcernView;
+            if (jp5Var != null) {
+                jp5Var.l(i);
             }
         }
     }
@@ -331,12 +331,12 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
                 return;
             }
             initView();
-            this.hasNotificationAccessOpen = fp5.a(getPageContext());
+            this.hasNotificationAccessOpen = hp5.a(getPageContext());
             MyConcernTabModel myConcernTabModel = new MyConcernTabModel(getPageContext());
             this.mModel = myConcernTabModel;
             myConcernTabModel.H(this.mDataCallback);
             if (!oi.C()) {
-                showNetRefreshView(R.drawable.new_pic_emotion_08, getResources().getString(R.string.obfuscated_res_0x7f0f0f6a), this.mNetRefreshListener);
+                showNetRefreshView(R.drawable.new_pic_emotion_08, getResources().getString(R.string.obfuscated_res_0x7f0f0f69), this.mNetRefreshListener);
             } else {
                 showLoadingView(this.mAlaLiveTabMyConcernView.g(), false, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a8));
                 refreshData();
@@ -354,13 +354,13 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
             if (myConcernTabModel != null) {
                 myConcernTabModel.onDestroy();
             }
-            hp5 hp5Var = this.mAlaLiveTabMyConcernView;
-            if (hp5Var != null && hp5Var.g() != null) {
+            jp5 jp5Var = this.mAlaLiveTabMyConcernView;
+            if (jp5Var != null && jp5Var.g() != null) {
                 hideLoadingView(this.mAlaLiveTabMyConcernView.g());
             }
-            hp5 hp5Var2 = this.mAlaLiveTabMyConcernView;
-            if (hp5Var2 != null) {
-                hp5Var2.m();
+            jp5 jp5Var2 = this.mAlaLiveTabMyConcernView;
+            if (jp5Var2 != null) {
+                jp5Var2.m();
             }
         }
     }
@@ -380,9 +380,9 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onPause();
             this.isLoading = false;
-            hp5 hp5Var = this.mAlaLiveTabMyConcernView;
-            if (hp5Var != null) {
-                hp5Var.q(false);
+            jp5 jp5Var = this.mAlaLiveTabMyConcernView;
+            if (jp5Var != null) {
+                jp5Var.q(false);
             }
         }
     }
@@ -392,10 +392,10 @@ public class AlaLiveTabMyConcernActivity extends BaseActivity<AlaLiveTabMyConcer
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            if (this.hasNotificationAccessOpen || !fp5.a(getPageContext())) {
+            if (this.hasNotificationAccessOpen || !hp5.a(getPageContext())) {
                 return;
             }
-            deleteItem(cp5.class);
+            deleteItem(ep5.class);
         }
     }
 

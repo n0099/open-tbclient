@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
+import com.repackage.ov4;
 import com.repackage.pv4;
-import com.repackage.qv4;
+import com.repackage.rv4;
 import com.repackage.sv4;
-import com.repackage.tv4;
 import com.repackage.uo;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -26,8 +26,8 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public pv4 c;
-    public tv4 d;
+    public ov4 c;
+    public sv4 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,8 +54,8 @@ public class BannerFlowView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setSelector(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806ea));
-            this.b.setDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806e9));
+            this.b.setSelector(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806e9));
+            this.b.setDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0806e8));
         }
     }
 
@@ -67,8 +67,8 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new pv4(context, this.a, this.b, null);
-            this.d = new tv4(context, sv4.a);
+            this.c = new ov4(context, this.a, this.b, null);
+            this.d = new sv4(context, rv4.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
@@ -100,13 +100,13 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(qv4.a<sv4, tv4.a> aVar) {
-        tv4 tv4Var;
+    public void setOnItemClickListener(pv4.a<rv4, sv4.a> aVar) {
+        sv4 sv4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (tv4Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (sv4Var = this.d) == null) {
             return;
         }
-        tv4Var.e(aVar);
+        sv4Var.e(aVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

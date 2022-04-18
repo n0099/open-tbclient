@@ -19,12 +19,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ei0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,26 +155,26 @@ public class ei0 {
                                 if (i != 302) {
                                     switch (i) {
                                         case 401:
-                                            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bbf);
+                                            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bbe);
                                         case 402:
-                                            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bbc);
+                                            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bbb);
                                         case 403:
-                                            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bbd);
+                                            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bbc);
                                         default:
-                                            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bc4);
+                                            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bc3);
                                     }
                                 }
-                                return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bbe);
+                                return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bbd);
                             }
-                            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bc0);
+                            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bbf);
                         }
-                        return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bc3);
+                        return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bc2);
                     }
-                    return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bc4);
+                    return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bc3);
                 }
-                return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bc1);
+                return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bc0);
             }
-            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bc2);
+            return hi0.b().getString(R.string.obfuscated_res_0x7f0f0bc1);
         }
         return (String) invokeI.objValue;
     }

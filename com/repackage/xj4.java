@@ -1,19 +1,18 @@
 package com.repackage;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class xj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yj4 a;
+    public Map<String, String> a;
 
     public xj4() {
         Interceptable interceptable = $ic;
@@ -28,41 +27,24 @@ public class xj4 {
                 return;
             }
         }
-        this.a = new yj4();
+        HashMap hashMap = new HashMap();
+        this.a = hashMap;
+        hashMap.put("@@ya", "_");
+        this.a.put("@@yb", "-");
+        this.a.put("@@yc", ".");
     }
 
-    public wj4 a(String str) {
+    public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = null;
-            if (ni.isEmpty(str)) {
-                return null;
-            }
-            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,200}[#$]", 2).matcher(str);
-            if (matcher.find()) {
-                String group = matcher.group();
-                Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
-                String d = matcher2.find() ? ak4.d(matcher2.group()) : null;
-                if (d != null && d.startsWith("Y")) {
-                    zj4.a(d);
-                    str2 = b(group);
-                }
-                return new wj4(group, str2, d);
-            }
-            return null;
-        }
-        return (wj4) invokeL.objValue;
-    }
-
-    public final String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            return this.a.a(ak4.f(str.replaceAll("\\$", "")));
+            for (Map.Entry<String, String> entry : this.a.entrySet()) {
+                str = str.replaceAll(entry.getKey(), entry.getValue());
+            }
+            return str;
         }
         return (String) invokeL.objValue;
     }

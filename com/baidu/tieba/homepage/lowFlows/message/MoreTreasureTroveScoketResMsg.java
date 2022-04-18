@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ox6;
-import com.repackage.tx6;
+import com.repackage.qx6;
 import com.repackage.uo;
+import com.repackage.vx6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
 /* loaded from: classes3.dex */
-public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements ox6 {
+public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implements qx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<uo> mMoreTreasureTroveDataList;
@@ -38,7 +38,7 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
         }
     }
 
-    @Override // com.repackage.ox6
+    @Override // com.repackage.qx6
     public List<uo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,6 +58,6 @@ public class MoreTreasureTroveScoketResMsg extends SocketResponsedMessage implem
             setError(error.errorno.intValue());
             setErrorString(moreTreasureTroveResIdl.error.usermsg);
         }
-        this.mMoreTreasureTroveDataList = tx6.b(moreTreasureTroveResIdl);
+        this.mMoreTreasureTroveDataList = vx6.b(moreTreasureTroveResIdl);
     }
 }

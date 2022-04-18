@@ -340,7 +340,7 @@ public class SVProgressHUD {
     public void setCancelable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            View findViewById = this.rootView.findViewById(R.id.obfuscated_res_0x7f091dd5);
+            View findViewById = this.rootView.findViewById(R.id.obfuscated_res_0x7f091dd6);
             if (z) {
                 findViewById.setOnTouchListener(this.onCancelableTouchListener);
             } else {

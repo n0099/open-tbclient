@@ -1,135 +1,82 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.BusinessPromot;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes5.dex */
 public class dk8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public TiebaPlusInfo b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755764416, "Lcom/repackage/dk8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public dk8() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755764416, "Lcom/repackage/dk8;");
-        }
-    }
-
-    public static String a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            return TbConfig.SERVER_ADDRESS + str + "?cmd=" + i;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static k95 b(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, cls)) == null) {
-            try {
-                k95 k95Var = new k95(i, cls.newInstance());
-                MessageManager.getInstance().registerTask(k95Var);
-                return k95Var;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (k95) invokeIL.objValue;
     }
 
-    public static TbHttpMessageTask c(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
-        InterceptResult invokeCommon;
+    public TiebaPlusInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i2, a(str, i));
-            tbHttpMessageTask.setIsNeedLogin(z);
-            tbHttpMessageTask.setIsNeedTbs(z2);
-            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
-            tbHttpMessageTask.setResponsedClass(cls);
-            MessageManager.getInstance().unRegisterTask(i2);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            return tbHttpMessageTask;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (TiebaPlusInfo) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public void c(BusinessPromot businessPromot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromot) == null) {
+            this.a = businessPromot.is_download.booleanValue();
+            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
+            builder.app_company = businessPromot.download_developer;
+            builder.title = businessPromot.download_appname;
+            builder.app_privacy = businessPromot.download_privacy_policy;
+            builder.download_url = businessPromot.download_url;
+            builder.app_icon = businessPromot.download_img;
+            builder.app_version = businessPromot.download_version;
+            builder.app_power = businessPromot.download_user_power;
+            builder.app_package = businessPromot.download_package_name;
+            builder.app_id = businessPromot.download_appid;
+            builder.item_id = businessPromot.download_item_id;
+            this.b = builder.build(true);
         }
-        return (TbHttpMessageTask) invokeCommon.objValue;
     }
 
-    public static void d(int i, int i2, String str, Class<? extends HttpResponsedMessage> cls, Class<? extends SocketResponsedMessage> cls2) {
+    public void d(HeadImgs headImgs) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, cls, cls2}) == null) {
-            h(i2, cls2, false, false);
-            c(i2, i, str, cls, false, true, true, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, headImgs) == null) {
+            this.a = headImgs.download_is_thirdpage.intValue() == 1;
+            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
+            builder.app_company = headImgs.download_developer;
+            builder.title = headImgs.download_appname;
+            builder.app_privacy = headImgs.download_privacy_policy;
+            builder.download_url = headImgs.download_url;
+            builder.app_icon = headImgs.download_img;
+            builder.app_version = headImgs.download_version;
+            builder.app_power = headImgs.download_user_power;
+            builder.app_package = headImgs.download_package_name;
+            builder.app_id = headImgs.download_appid;
+            builder.item_id = String.valueOf(headImgs.download_item_id);
+            this.b = builder.build(true);
         }
-    }
-
-    public static TbHttpMessageTask e(int i, String str, Class<? extends HttpResponsedMessage> cls, boolean z, boolean z2, boolean z3, boolean z4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, cls, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, TbConfig.SERVER_ADDRESS + str);
-            tbHttpMessageTask.setIsNeedLogin(z);
-            tbHttpMessageTask.setIsNeedTbs(z2);
-            tbHttpMessageTask.setIsNeedAddCommenParam(z3);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(z4);
-            tbHttpMessageTask.setResponsedClass(cls);
-            MessageManager.getInstance().unRegisterTask(i);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            return tbHttpMessageTask;
-        }
-        return (TbHttpMessageTask) invokeCommon.objValue;
-    }
-
-    public static l95 f(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) ? g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, true) : (l95) invokeCommon.objValue;
-    }
-
-    public static l95 g(int i, Class<? extends SocketResponsedMessage> cls, boolean z, SocketMessageTask.DupLicateMode dupLicateMode, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), dupLicateMode, Boolean.valueOf(z2)})) == null) {
-            l95 l95Var = new l95(i);
-            l95Var.setResponsedClass(cls);
-            l95Var.h(z);
-            l95Var.f(dupLicateMode);
-            l95Var.setRetry(a);
-            MessageManager.getInstance().unRegisterTask(i);
-            MessageManager.getInstance().registerTask(l95Var);
-            l95Var.setNeedEncrypt(z2);
-            return l95Var;
-        }
-        return (l95) invokeCommon.objValue;
-    }
-
-    public static l95 h(int i, Class<? extends SocketResponsedMessage> cls, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? g(i, cls, z, SocketMessageTask.DupLicateMode.NONE, z2) : (l95) invokeCommon.objValue;
     }
 }

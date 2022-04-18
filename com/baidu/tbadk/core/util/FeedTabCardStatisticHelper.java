@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mp4;
+import com.repackage.lp4;
 /* loaded from: classes3.dex */
 public class FeedTabCardStatisticHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -96,15 +96,15 @@ public class FeedTabCardStatisticHelper {
         return (StatisticItem) invokeLL.objValue;
     }
 
-    public static StatisticItem clickThreadNEGFeedbackStatisticLog(mp4 mp4Var, String str) {
+    public static StatisticItem clickThreadNEGFeedbackStatisticLog(lp4 lp4Var, String str) {
         InterceptResult invokeLL;
         StatisticItem statisticItem;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, mp4Var, str)) == null) {
-            if (mp4Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, lp4Var, str)) == null) {
+            if (lp4Var == null) {
                 return null;
             }
-            int i = mp4Var.o;
+            int i = lp4Var.o;
             if (i != 2 && i != 6 && i != 8) {
                 statisticItem = new StatisticItem(KEY_TAB_FEED_PICTURE_TEXT_THREAD_NEG_FEEDBACK_CLICK);
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 1);
@@ -113,8 +113,8 @@ public class FeedTabCardStatisticHelper {
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, 2);
             }
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("tid", mp4Var.f());
-            statisticItem.param("fid", mp4Var.c());
+            statisticItem.param("tid", lp4Var.f());
+            statisticItem.param("fid", lp4Var.c());
             statisticItem.param(TiebaStatic.Params.RESOURCE_ID, str);
             return statisticItem;
         }

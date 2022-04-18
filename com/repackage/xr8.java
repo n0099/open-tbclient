@@ -1,35 +1,71 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class xr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TbPageContext<?> tbPageContext, String str) {
+    public static byte[] a(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
-            b(tbPageContext, str, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                sb.append(list.get(i));
+                sb.append("\n");
+            }
+            return sb.toString().getBytes();
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    public static void b(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
+    public static byte[] b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, str, bundle) == null) || StringUtils.isNull(str) || tbPageContext == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return jSONObject.toString().getBytes();
         }
-        if (bundle == null) {
-            bundle = new Bundle();
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean c(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
+            if (bArr == null) {
+                return false;
+            }
+            of ofVar = new of();
+            ofVar.b().t(str);
+            ofVar.b().r(HttpMessageTask.HTTP_METHOD.POST);
+            ofVar.b().c("", bArr);
+            new lf(ofVar).m(3, -1, -1);
+            int i = ofVar.c().b;
+            byte[] bArr2 = ofVar.c().i;
+            if (bArr2 == null || i != 200) {
+                return false;
+            }
+            try {
+                return new JSONObject(new String(bArr2, IMAudioTransRequest.CHARSET)).optJSONObject("error").optInt("errno") == 0;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
         }
-        if (bundle.get(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM) == null) {
-            bundle.putBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, false);
-        }
-        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str}, bundle);
+        return invokeLL.booleanValue;
     }
 }

@@ -169,11 +169,11 @@ public class nd5 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
                 StringBuilder sb = new StringBuilder();
-                String q = wt4.k().q("key_default_useragent", "");
+                String q = vt4.k().q("key_default_useragent", "");
                 try {
                     if (TextUtils.isEmpty(q)) {
                         q = WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst());
-                        wt4.k().y("key_default_useragent", q);
+                        vt4.k().y("key_default_useragent", q);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -46,8 +46,8 @@ public class db5 {
             }
             this.b = true;
             this.c = R.drawable.new_pic_emotion_05;
-            this.d = db5.c(R.string.obfuscated_res_0x7f0f0c2f, new Object[0]);
-            this.e = db5.c(R.string.obfuscated_res_0x7f0f0f69, new Object[0]);
+            this.d = db5.c(R.string.obfuscated_res_0x7f0f0c2e, new Object[0]);
+            this.e = db5.c(R.string.obfuscated_res_0x7f0f0f68, new Object[0]);
             this.f = false;
             this.g = oi.f(db5.getContext(), R.dimen.obfuscated_res_0x7f0702c2);
         }
@@ -82,8 +82,8 @@ public class db5 {
             this.b = true;
             this.c = R.drawable.new_pic_emotion_08;
             this.d = oi.f(db5.getContext(), R.dimen.obfuscated_res_0x7f070295);
-            this.e = db5.c(R.string.obfuscated_res_0x7f0f0f69, new Object[0]);
-            this.f = db5.c(R.string.obfuscated_res_0x7f0f0f6a, new Object[0]);
+            this.e = db5.c(R.string.obfuscated_res_0x7f0f0f68, new Object[0]);
+            this.f = db5.c(R.string.obfuscated_res_0x7f0f0f69, new Object[0]);
             this.g = db5.c(R.string.obfuscated_res_0x7f0f0473, new Object[0]);
         }
     }
@@ -117,7 +117,7 @@ public class db5 {
             this.a = oi.f(db5.getContext(), R.dimen.tbds182);
             this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
             this.c = db5.c(R.string.obfuscated_res_0x7f0f0a2e, new Object[0]);
-            this.d = db5.c(R.string.obfuscated_res_0x7f0f0daa, new Object[0]);
+            this.d = db5.c(R.string.obfuscated_res_0x7f0f0da9, new Object[0]);
             this.e = db5.c(R.string.obfuscated_res_0x7f0f09e8, new Object[0]);
             this.f = db5.c(R.string.obfuscated_res_0x7f0f03e3, new Object[0]);
             this.g = false;

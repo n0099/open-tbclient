@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yt5;
+import com.repackage.au5;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext mContext;
-    public yt5 mPersonCenterController;
+    public au5 mPersonCenterController;
 
     public AlaPersonCenterActivity() {
         Interceptable interceptable = $ic;
@@ -57,9 +57,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
             super.onCreate(bundle);
             TbPageContext<AlaPersonCenterActivity> pageContext = getPageContext();
             this.mContext = pageContext;
-            yt5 yt5Var = new yt5(pageContext, false);
-            this.mPersonCenterController = yt5Var;
-            setContentView(yt5Var.i());
+            au5 au5Var = new au5(pageContext, false);
+            this.mPersonCenterController = au5Var;
+            setContentView(au5Var.i());
             Intent intent = getIntent();
             if (intent != null) {
                 this.mPersonCenterController.k(intent.getStringExtra("user_id"), intent.getStringExtra("user_name"), intent.getStringExtra(AlaPersonCenterActivityConfig.PORTRAIT_URL), intent.getBooleanExtra(AlaPersonCenterActivityConfig.IS_SELF, false));
@@ -102,9 +102,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            yt5 yt5Var = this.mPersonCenterController;
-            if (yt5Var != null) {
-                yt5Var.p();
+            au5 au5Var = this.mPersonCenterController;
+            if (au5Var != null) {
+                au5Var.p();
             }
         }
     }

@@ -14,7 +14,7 @@ public class v25 extends u05 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v25(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dd5), 32, i);
+        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dd4), 32, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

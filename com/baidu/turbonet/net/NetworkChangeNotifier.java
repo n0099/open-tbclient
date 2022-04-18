@@ -14,7 +14,7 @@ import com.baidu.turbonet.base.annotations.CalledByNative;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
 import com.baidu.turbonet.net.NetworkChangeNotifierAutoDetect;
-import com.repackage.c39;
+import com.repackage.j39;
 import java.util.ArrayList;
 import java.util.Iterator;
 @JNINamespace
@@ -25,7 +25,7 @@ public class NetworkChangeNotifier {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public final ArrayList<Long> b;
-    public final c39<ConnectionTypeObserver> c;
+    public final j39<ConnectionTypeObserver> c;
     public NetworkChangeNotifierAutoDetect d;
     public int e;
     public double f;
@@ -144,7 +144,7 @@ public class NetworkChangeNotifier {
         this.g = 0;
         this.a = context.getApplicationContext();
         this.b = new ArrayList<>();
-        this.c = new c39<>();
+        this.c = new j39<>();
     }
 
     public static NetworkChangeNotifier e() {

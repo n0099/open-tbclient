@@ -26,13 +26,13 @@ public class pj0 extends fc1<h21> {
 
         /* renamed from: com.repackage.pj0$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0493a extends el0<vj0> {
+        public class C0495a extends el0<vj0> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h21.b b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0493a(a aVar, Class cls, h21.b bVar) {
+            public C0495a(a aVar, Class cls, h21.b bVar) {
                 super(cls);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -90,7 +90,7 @@ public class pj0 extends fc1<h21> {
         public void a(Object obj, h21.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
-                al0.a().b(obj, new C0493a(this, vj0.class, bVar));
+                al0.a().b(obj, new C0495a(this, vj0.class, bVar));
             }
         }
 

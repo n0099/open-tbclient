@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qi6;
-import com.repackage.ri6;
+import com.repackage.si6;
 import com.repackage.ti6;
+import com.repackage.vi6;
 /* loaded from: classes3.dex */
 public class UniversityEvaluationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qi6 mEvaluationView;
+    public si6 mEvaluationView;
     public ForumWriteData mForumWriteData;
     public SerializableItemInfo mItemInfo;
     public boolean mItemIsSchool;
@@ -67,9 +67,9 @@ public class UniversityEvaluationActivity extends BaseFragmentActivity {
                 this.mItemIsSchool = getIntent().getBooleanExtra("item_is_school", false);
             }
             if (this.mItemIsSchool) {
-                this.mEvaluationView = new ti6(this, this.mForumWriteData, this.mItemInfo);
+                this.mEvaluationView = new vi6(this, this.mForumWriteData, this.mItemInfo);
             } else {
-                this.mEvaluationView = new ri6(this, this.mForumWriteData, this.mItemInfo);
+                this.mEvaluationView = new ti6(this, this.mForumWriteData, this.mItemInfo);
             }
             this.mEvaluationView.c();
             setContentView(this.mEvaluationView.d());

@@ -88,8 +88,8 @@ public class rm {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
             int i = 1;
             if ("rom_size".equals(str2)) {
-                str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e8a);
-                str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e87);
+                str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e89);
+                str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e86);
             } else if ("plugin_install_retry_timeout".equals(str2) || "plugin_install_timeout".equals(str2)) {
                 return;
             } else {
@@ -99,22 +99,22 @@ public class rm {
                         if (!lowerCase.contains("read-only_file_system") && !lowerCase.contains("read-only file system")) {
                             if (!lowerCase.contains("permission_denied") && !lowerCase.contains("permission denied")) {
                                 if (!lowerCase.contains("fsync_failed") && !lowerCase.contains("fsync failed")) {
-                                    string = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e8d);
-                                    string2 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e88);
+                                    string = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e8c);
+                                    string2 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e87);
                                 } else {
-                                    String string3 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e8d);
-                                    str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e88);
+                                    String string3 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e8c);
+                                    str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e87);
                                     str5 = string3;
                                     i = 5;
                                 }
                             } else {
-                                str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e89);
-                                str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e86);
+                                str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e88);
+                                str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e85);
                                 i = 4;
                             }
                         } else {
-                            str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e89);
-                            str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e86);
+                            str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e88);
+                            str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e85);
                             i = 3;
                         }
                         b2 = b(str);
@@ -128,11 +128,11 @@ public class rm {
                         b2.e = false;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, b2));
                     }
-                    str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e8a);
-                    str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e87);
+                    str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e89);
+                    str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e86);
                 } else {
-                    string = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e8d);
-                    string2 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e88);
+                    string = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e8c);
+                    string2 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e87);
                 }
                 String str6 = string;
                 str4 = string2;
@@ -180,8 +180,8 @@ public class rm {
             }
             b2.a = PluginPackageManager.PluginStatus.ERROR;
             b2.b = 100;
-            b2.c = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e8d);
-            b2.d = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e88);
+            b2.c = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e8c);
+            b2.d = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e87);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, b2));
         }
     }

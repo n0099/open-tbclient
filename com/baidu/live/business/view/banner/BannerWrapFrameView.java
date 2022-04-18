@@ -52,8 +52,8 @@ public class BannerWrapFrameView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d050a, this);
             this.d = inflate;
-            this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09128c);
-            this.c = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09128e);
+            this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09128d);
+            this.c = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f09128f);
         }
     }
 

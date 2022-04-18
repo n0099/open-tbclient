@@ -95,12 +95,12 @@ public class so2 implements qo2 {
                         InputStream openInputStream = context.getContentResolver().openInputStream(uri);
                         try {
                             Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
-                            ng4.d(openInputStream);
+                            mg4.d(openInputStream);
                             bitmap = decodeStream;
                         } catch (Throwable th) {
                             th = th;
                             inputStream = openInputStream;
-                            ng4.d(inputStream);
+                            mg4.d(inputStream);
                             throw th;
                         }
                     } catch (Throwable th2) {

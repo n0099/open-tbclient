@@ -123,7 +123,7 @@ public class yv3 extends g23 {
                 if (g23.b) {
                     Log.d("replaceGameCore", "gameCoreZipFile: " + c + " gameCoreDir: " + b);
                 }
-                if (c.exists() && ng4.U(c.getPath(), b.getPath())) {
+                if (c.exists() && mg4.U(c.getPath(), b.getPath())) {
                     iw2.L(true);
                     b03.f(this.a, R.string.obfuscated_res_0x7f0f0127).G();
                     this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());

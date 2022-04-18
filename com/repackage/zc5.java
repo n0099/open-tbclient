@@ -40,10 +40,10 @@ public class zc5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (UbsABTestHelper.isSearchLoginTestA()) {
-                Date date = new Date(wt4.k().m("show_login_dialog_strategy_key", 0L));
+                Date date = new Date(vt4.k().m("show_login_dialog_strategy_key", 0L));
                 long currentTimeMillis = System.currentTimeMillis();
                 Date date2 = new Date(currentTimeMillis);
-                wt4.k().x("show_login_dialog_strategy_key", currentTimeMillis);
+                vt4.k().x("show_login_dialog_strategy_key", currentTimeMillis);
                 return !TimeHelper.isSameDay(date, date2);
             }
             return false;

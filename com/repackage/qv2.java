@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.PushManager;
 import com.repackage.cs1;
-import com.repackage.hb4;
+import com.repackage.gb4;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -162,7 +162,7 @@ public class qv2 {
                 String str = fw2Var.a;
                 String str2 = fw2Var.b;
                 long j = fw2Var.c;
-                s74.g(new lb4(str, str2, j, fw2Var.d), new pv2(str, str2, j, new c(str)));
+                r74.g(new kb4(str, str2, j, fw2Var.d), new pv2(str, str2, j, new c(str)));
                 return;
             }
             bw2.b("plugin is invalid");
@@ -204,7 +204,7 @@ public class qv2 {
         return (File) invokeL.objValue;
     }
 
-    public static List<b94> e(String str, long j) {
+    public static List<a94> e(String str, long j) {
         InterceptResult invokeLJ;
         SwanAppConfigData.d dVar;
         List<dw2> list;
@@ -216,13 +216,13 @@ public class qv2 {
             }
             ArrayList arrayList = new ArrayList();
             for (dw2 dw2Var : b2.k.a) {
-                b94 b94Var = new b94();
-                b94Var.a = dw2Var.a;
-                b94Var.b = dw2Var.g;
-                b94Var.c = dw2Var.c;
-                b94Var.e = dw2Var.i;
-                b94Var.d = dw2Var.h;
-                arrayList.add(b94Var);
+                a94 a94Var = new a94();
+                a94Var.a = dw2Var.a;
+                a94Var.b = dw2Var.g;
+                a94Var.c = dw2Var.c;
+                a94Var.e = dw2Var.i;
+                a94Var.d = dw2Var.h;
+                arrayList.add(a94Var);
             }
             return arrayList;
         }
@@ -292,15 +292,15 @@ public class qv2 {
         return (String) invokeL.objValue;
     }
 
-    public static File g(@Nullable j94 j94Var) {
+    public static File g(@Nullable i94 i94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, j94Var)) == null) {
-            if (j94Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, i94Var)) == null) {
+            if (i94Var == null) {
                 return null;
             }
-            File t = fj2.t(j94Var.g, String.valueOf(j94Var.i));
-            return (t == null || !t.exists()) ? fj2.t(j94Var.g, String.valueOf(yd3.c(j94Var.j))) : t;
+            File t = fj2.t(i94Var.g, String.valueOf(i94Var.i));
+            return (t == null || !t.exists()) ? fj2.t(i94Var.g, String.valueOf(yd3.c(i94Var.j))) : t;
         }
         return (File) invokeL.objValue;
     }
@@ -348,7 +348,7 @@ public class qv2 {
         return (String) invokeL.objValue;
     }
 
-    public static Set<hb4.a> i(PMSAppInfo pMSAppInfo) {
+    public static Set<gb4.a> i(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, pMSAppInfo)) == null) {
@@ -360,25 +360,25 @@ public class qv2 {
         return (Set) invokeL.objValue;
     }
 
-    public static Set<hb4.a> j(String str, long j) {
+    public static Set<gb4.a> j(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, null, str, j)) == null) {
-            List<b94> l = t74.b().l(str, j);
+            List<a94> l = s74.b().l(str, j);
             if (l == null || l.isEmpty()) {
                 return null;
             }
             HashSet hashSet = new HashSet();
             ArrayList arrayList = new ArrayList();
-            for (b94 b94Var : l) {
-                if (!b94Var.b && od4.b(b94Var.a, b94Var.d, b94Var.e, arrayList) == null) {
-                    hb4.a aVar = new hb4.a(b94Var.a);
-                    aVar.f(b94Var.d, b94Var.e);
+            for (a94 a94Var : l) {
+                if (!a94Var.b && nd4.b(a94Var.a, a94Var.d, a94Var.e, arrayList) == null) {
+                    gb4.a aVar = new gb4.a(a94Var.a);
+                    aVar.f(a94Var.d, a94Var.e);
                     hashSet.add(aVar);
                 }
             }
             if (!arrayList.isEmpty()) {
-                f84.i().g(arrayList);
+                e84.i().g(arrayList);
             }
             return hashSet;
         }
@@ -467,7 +467,7 @@ public class qv2 {
         if (!(interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{list, jSONObject, jSONObject2, Boolean.valueOf(z)}) == null) || list == null || list.size() == 0) {
             return;
         }
-        List<j94> w = f84.i().w(hw2.d(list));
+        List<i94> w = e84.i().w(hw2.d(list));
         for (fw2 fw2Var2 : list) {
             File file2 = null;
             try {
@@ -484,25 +484,25 @@ public class qv2 {
                 boolean z4 = false;
                 z3 = true;
                 boolean z5 = false;
-                for (j94 j94Var : w) {
-                    if (fw2Var2.a.equals(j94Var.g)) {
-                        bw2.b("pluginName = " + fw2Var2.a + " latestPlugin versionCode = " + j94Var.i + " cur model versionCode = " + fw2Var2.c);
+                for (i94 i94Var : w) {
+                    if (fw2Var2.a.equals(i94Var.g)) {
+                        bw2.b("pluginName = " + fw2Var2.a + " latestPlugin versionCode = " + i94Var.i + " cur model versionCode = " + fw2Var2.c);
                         long j4 = fw2Var2.c;
                         if (j4 >= j3) {
-                            c2 = j94Var.i;
+                            c2 = i94Var.i;
                         } else {
-                            c2 = yd3.c(j94Var.j);
+                            c2 = yd3.c(i94Var.j);
                             j4 = yd3.c(fw2Var2.b);
                         }
                         if (c2 > j4) {
-                            file2 = g(j94Var);
+                            file2 = g(i94Var);
                             z5 = true;
                         }
                         if (z5) {
-                            fw2Var.b = j94Var.j;
-                            fw2Var.c = j94Var.i;
+                            fw2Var.b = i94Var.j;
+                            fw2Var.c = i94Var.i;
                         }
-                        if (!j94Var.c()) {
+                        if (!i94Var.c()) {
                             bw2.b("plugin is new, not yet expired");
                             z3 = false;
                         }
@@ -559,7 +559,7 @@ public class qv2 {
             }
             File file2 = new File(str, fw2Var.f);
             if (file2.exists()) {
-                String E = ng4.E(file2);
+                String E = mg4.E(file2);
                 if (a) {
                     bw2.b("pages info = " + E);
                 }
@@ -575,7 +575,7 @@ public class qv2 {
         }
     }
 
-    public static j94 p(String str, String str2, long j) {
+    public static i94 p(String str, String str2, long j) {
         InterceptResult invokeCommon;
         String[] strArr;
         String str3;
@@ -595,23 +595,23 @@ public class qv2 {
                 str3 = "bundle_id = ?  and version_name = ? ";
                 strArr = strArr2;
             }
-            List<j94> r = f84.i().r(str3, strArr);
+            List<i94> r = e84.i().r(str3, strArr);
             if (r == null || r.size() <= 0) {
                 return null;
             }
             return r.get(0);
         }
-        return (j94) invokeCommon.objValue;
+        return (i94) invokeCommon.objValue;
     }
 
-    public static List<j94> q(String str) {
+    public static List<i94> q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return f84.i().r("bundle_id = ? ", new String[]{str});
+            return e84.i().r("bundle_id = ? ", new String[]{str});
         }
         return (List) invokeL.objValue;
     }

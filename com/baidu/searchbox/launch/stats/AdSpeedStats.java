@@ -9,20 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class AdSpeedStats extends AbstractSpeedStats {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_BEAR_LOAD_DURATION = "bearLoad";
+    public static final String AD_FAIL_COUNT = "adFailCount";
     public static final String AD_LOAD_HANDLER_A_DURATION = "loadHandlerA";
     public static final String AD_LOAD_HANDLER_B_DURATION = "loadHandlerB";
     public static final String AD_LOAD_IDLE_DURATION = "loadIdle";
     public static final String AD_LOAD_METHOD_DURATION = "loadMethod";
+    public static final String AD_LOAD_RESULT = "adResult";
     public static final String AD_LOAD_TOTAL_DURATION = "loadTotal";
+    public static final String AD_NET_TYPE = "adNetType";
     public static final String AD_NO_SHOW_DURATION = "adDurNoShow";
     public static final String AD_POLICY_SO_DURATION = "policySo";
     public static final String AD_POST_SHOW_GAP_DURATION = "postShowGap";
@@ -56,9 +59,12 @@ public final class AdSpeedStats extends AbstractSpeedStats {
     public long mAdShowPolicySoEndStamp;
     public long mAdShowStartTimeStamp;
     public long mAdViewEndTimeStamp;
-    public ConcurrentHashMap<String, Long> mLaunchTaskDuration;
+    public int mFailCount;
+    public HashMap<String, Long> mLaunchTaskDuration;
     public long mLoadBearEndTimeStamp;
     public long mLoadPrologueEndTimeStamp;
+    public int mLoadResult;
+    public String mNetType;
     public long mSecondDrawDispatchedTimeStamp;
 
     public AdSpeedStats() {
@@ -88,11 +94,13 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         this.mAdViewEndTimeStamp = -1L;
         this.mSecondDrawDispatchedTimeStamp = -1L;
         this.adSource = "0";
+        this.mLoadResult = 0;
         this.isTimeout = false;
         this.mAdLoadCostPure = -1L;
-        this.mLaunchTaskDuration = new ConcurrentHashMap<>();
+        this.mLaunchTaskDuration = new HashMap<>();
         this.isNeedBear = true;
         this.isNeedPlg = true;
+        this.mFailCount = 0;
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
@@ -100,7 +108,9 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
             super.addStatsDuration(str, j);
-            this.mLaunchTaskDuration.put(str, Long.valueOf(j));
+            synchronized (this.mLaunchTaskDuration) {
+                this.mLaunchTaskDuration.put(str, Long.valueOf(j));
+            }
         }
     }
 
@@ -112,6 +122,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
             if (i != 5054) {
                 switch (i) {
                     case SpeedStatsStampTable.AD_LOAD_METHOD_START_STAMP_KEY /* 3301 */:
+                        this.mNetType = mi.m();
                         this.mAdLoadMethodStartTimeStamp = j;
                         return;
                     case SpeedStatsStampTable.AD_LOAD_METHOD_END_STAMP_KEY /* 3302 */:
@@ -214,7 +225,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         return invokeCommon.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:176:0x02f6 A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:182:0x0313 A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:37:0x006e  */
     /* JADX WARN: Removed duplicated region for block: B:38:0x0073  */
     /* JADX WARN: Removed duplicated region for block: B:41:0x007d  */
@@ -250,8 +261,6 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         int i2;
         int i3;
         int i4;
-        Object obj;
-        Object obj2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, jSONObject)) != null) {
             return invokeL.booleanValue;
@@ -338,17 +347,13 @@ public final class AdSpeedStats extends AbstractSpeedStats {
                     hashMap.put(AD_WITH_SHOW_DURATION, String.valueOf(j10));
                     hashMap.put(AD_NO_SHOW_DURATION, String.valueOf(j42));
                     hashMap.put(AD_SHOW_SOURCE, String.valueOf(this.adSource));
+                    hashMap.put(AD_LOAD_RESULT, String.valueOf(this.mLoadResult));
                     hashMap.put(IS_AD_SHOW_SOURCE, String.valueOf(j8));
-                    if (this.isTimeout) {
-                        obj2 = "1";
-                        obj = obj2;
-                    } else {
-                        obj = "1";
-                        obj2 = "0";
-                    }
-                    hashMap.put(IS_AD_TIMEOUT, obj2);
-                    hashMap.put(IS_NEED_BEAR, this.isNeedBear ? obj : "0");
-                    hashMap.put(IS_NEED_PLG, this.isNeedPlg ? obj : "0");
+                    hashMap.put(IS_AD_TIMEOUT, this.isTimeout ? "1" : "0");
+                    hashMap.put(IS_NEED_BEAR, this.isNeedBear ? "1" : "0");
+                    hashMap.put(IS_NEED_PLG, this.isNeedPlg ? "1" : "0");
+                    hashMap.put(AD_FAIL_COUNT, String.valueOf(this.mFailCount));
+                    hashMap.put(AD_NET_TYPE, this.mNetType);
                     hashMap.put(AD_LOAD_METHOD_DURATION, String.valueOf(j12));
                     hashMap.put(AD_WAIT_LOAD_DURATION, String.valueOf(j25));
                     hashMap.put(AD_LOAD_TOTAL_DURATION, String.valueOf(j30));
@@ -381,8 +386,10 @@ public final class AdSpeedStats extends AbstractSpeedStats {
                     if (appLaunchEndTimeStamp > 0 && appLaunchEndTimeStamp < 60000) {
                         hashMap.put(AD_TO_END_DURATION, String.valueOf(appLaunchEndTimeStamp));
                     }
-                    for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
-                        hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
+                    synchronized (this.mLaunchTaskDuration) {
+                        for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
+                            hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
+                        }
                     }
                     JSONObject jsonData = SpeedStatsUtils.getJsonData(j42, hashMap);
                     if (jsonData != null) {
@@ -486,30 +493,44 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         }
     }
 
+    public void setAdFailCount(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mFailCount = i;
+        }
+    }
+
+    public void setAdLoadResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mLoadResult = i;
+        }
+    }
+
     public void setAdSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.adSource = str;
         }
     }
 
     public void setIsNeedBear(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.isNeedBear = z;
         }
     }
 
     public void setIsNeedPlg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.isNeedPlg = z;
         }
     }
 
     public void setIsTimeout(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.isTimeout = z;
         }
     }

@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gz;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class InterestForumTagLayout extends LinearLayout implements gz {
@@ -197,7 +197,7 @@ public class InterestForumTagLayout extends LinearLayout implements gz {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eMTextView = this.e) == null) {
             return;
         }
-        wr4 d = wr4.d(eMTextView);
+        vr4 d = vr4.d(eMTextView);
         d.v(R.color.CAM_X0110);
         d.z(R.dimen.T_X06);
     }
@@ -217,7 +217,7 @@ public class InterestForumTagLayout extends LinearLayout implements gz {
             addView(relativeLayout, layoutParams);
             ImageView imageView = new ImageView(getContext());
             this.f = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f090f11);
+            imageView.setId(R.id.obfuscated_res_0x7f090f12);
             int f = oi.f(getContext(), R.dimen.tbds42);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(f, f);
             layoutParams2.addRule(11, -1);
@@ -229,7 +229,7 @@ public class InterestForumTagLayout extends LinearLayout implements gz {
             this.d.setMinimumHeight(oi.f(getContext(), R.dimen.tbds68));
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams3.addRule(15, -1);
-            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f090f11);
+            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f090f12);
             relativeLayout.addView(this.d, layoutParams3);
             onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -241,7 +241,7 @@ public class InterestForumTagLayout extends LinearLayout implements gz {
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                wr4 d = wr4.d(textView);
+                vr4 d = vr4.d(textView);
                 d.v(R.color.CAM_X0109);
                 d.z(R.dimen.T_X06);
             }
@@ -277,7 +277,7 @@ public class InterestForumTagLayout extends LinearLayout implements gz {
             return;
         }
         if (z) {
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080924, SkinManager.getColor(R.color.CAM_X0301), null);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080928, SkinManager.getColor(R.color.CAM_X0301), null);
             if (pureDrawable != null) {
                 this.c.setCompoundDrawablePadding(oi.f(getContext(), R.dimen.M_W_X002));
                 this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, pureDrawable, (Drawable) null);

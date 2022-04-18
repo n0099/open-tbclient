@@ -1,190 +1,147 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tbadk.core.util.TbEnum;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.constant.WBConstants;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class qs4 implements us4 {
+public class qs4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final c a;
+    public static final c b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ys4 a;
-    public final HashMap<String, Method> b;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.repackage.qs4 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public qs4(ys4 ys4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ys4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = ys4Var;
-        this.b = new HashMap<>();
-        b(getClass());
-        if (this.b.isEmpty()) {
-            throw new IllegalStateException("No native methods found!");
-        }
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.repackage.us4
-    public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
-        Object invoke;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
-            Method method = this.b.get(str);
-            if (method != null) {
-                bt4 bt4Var = (bt4) method.getAnnotation(bt4.class);
-                String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
-                try {
-                    Class<?>[] parameterTypes = method.getParameterTypes();
-                    if (!bt4Var.isAsync()) {
-                        if (parameterTypes.length == 2) {
-                            invoke = method.invoke(this, optString, jSONObject);
-                        } else if (parameterTypes.length == 1) {
-                            invoke = method.invoke(this, jSONObject);
-                        } else if (parameterTypes.length == 0) {
-                            rs4.a("native method " + getClass().getSimpleName() + ":" + bt4Var.value() + " ignored all parameters.");
-                            invoke = method.invoke(this, new Object[0]);
-                        } else {
-                            e(str, jSONObject2, "500", "parameters too much!");
-                            return;
-                        }
-                        if (TextUtils.isEmpty(optString)) {
-                            return;
-                        }
-                        d(optString, (JSONObject) invoke);
-                        return;
-                    } else if (parameterTypes.length == 2) {
-                        method.invoke(this, optString, jSONObject);
-                        return;
-                    } else if (parameterTypes.length == 1) {
-                        method.invoke(this, jSONObject);
-                        if (TextUtils.isEmpty(optString)) {
-                            return;
-                        }
-                        d(optString, null);
-                        return;
-                    } else if (parameterTypes.length == 0) {
-                        rs4.a("native method " + getClass().getSimpleName() + ":" + bt4Var.value() + " ignored all parameters.");
-                        method.invoke(this, new Object[0]);
-                        if (TextUtils.isEmpty(optString)) {
-                            return;
-                        }
-                        d(optString, null);
-                        return;
-                    } else {
-                        e(str, jSONObject2, "500", "parameters too much!");
-                        return;
-                    }
-                } catch (IllegalAccessException e) {
-                    rs4.a("native method call error:" + e.getMessage());
-                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT, "IllegalAccessException:" + e.getMessage());
-                    return;
-                } catch (InvocationTargetException e2) {
-                    rs4.a("native method call error:" + e2.getMessage());
-                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC, "InvocationTargetException:" + e2.getMessage());
-                    return;
-                } catch (Exception e3) {
-                    rs4.a("native method call error:" + e3.getMessage());
-                    e(str, jSONObject2, TbEnum.SystemMessage.EVENT_ID_OFFLINE_DEBUG, "Native call exception:" + e3.getMessage());
-                    return;
+    /* loaded from: classes7.dex */
+    public static final class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            e(str, jSONObject2, "403", "method " + str + " not exists");
+        }
+
+        @Override // com.repackage.qs4.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                if (str2 != null) {
+                    str3 = "code:" + str2 + " message:" + str3;
+                }
+                Log.e("BridgeLogger", str3);
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    public final void b(Class<? extends qs4> cls) {
-        Method[] declaredMethods;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls) == null) {
-            for (Method method : cls.getDeclaredMethods()) {
-                bt4 bt4Var = (bt4) method.getAnnotation(bt4.class);
-                if (bt4Var != null) {
-                    String value = bt4Var.value();
-                    String str = TextUtils.isEmpty(value) ? null : value;
-                    if (bt4Var.isAsync() && !Void.TYPE.equals(method.getReturnType())) {
-                        throw new IllegalArgumentException("Method with async flag should return void.");
-                    }
-                    if (TextUtils.isEmpty(str)) {
-                        str = method.getName();
-                    }
-                    method.setAccessible(true);
-                    this.b.put(str, method);
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(String str, String str2, String str3);
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class d implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            Class<? super Object> superclass = cls.getSuperclass();
-            if (superclass == null || superclass == cls) {
+        }
+
+        @Override // com.repackage.qs4.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                StatisticItem statisticItem = new StatisticItem("c10729");
+                statisticItem.param("obj_param1", str);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+                if (BdBaseApplication.getInst() != null) {
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755369569, "Lcom/repackage/qs4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755369569, "Lcom/repackage/qs4;");
                 return;
             }
-            b(superclass);
+        }
+        a = new b(null);
+        b = new d(null);
+        c = BdBaseApplication.getInst() == null || BdBaseApplication.getInst().isDebugMode();
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && c) {
+            a.a(null, null, str);
         }
     }
 
-    public void c(Message<?> message) {
+    public static void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-            ns4.a(message);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            a(str3);
         }
     }
 
-    public void d(String str, JSONObject jSONObject) {
+    public static void c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, jSONObject) == null) {
-            if (TextUtils.isEmpty(str)) {
-                rs4.a("sendResponseToJS got empty callbackId.");
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            if (c) {
+                a.a(str, str2, str3);
             }
-            HashMap hashMap = new HashMap(4);
-            hashMap.put("errNo", "0");
-            hashMap.put(StatConstants.KEY_EXT_ERR_MSG, "success");
-            if (jSONObject != null) {
-                hashMap.put("data", jSONObject);
-            }
-            this.a.c(zs4.k(str, hashMap));
+            b.a(str, str2, str3);
         }
-    }
-
-    public final void e(String str, JSONObject jSONObject, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, jSONObject, str2, str3) == null) {
-            String optString = jSONObject.optString(WBConstants.SHARE_CALLBACK_ID);
-            if (TextUtils.isEmpty(optString)) {
-                rs4.a("method " + str + " not found!");
-                return;
-            }
-            HashMap hashMap = new HashMap(4);
-            hashMap.put("errNo", str2);
-            hashMap.put(StatConstants.KEY_EXT_ERR_MSG, str3);
-            this.a.c(zs4.k(optString, hashMap));
-        }
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
     }
 }

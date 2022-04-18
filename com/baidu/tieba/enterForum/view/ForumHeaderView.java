@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m46;
+import com.repackage.o46;
 import com.repackage.oi;
 /* loaded from: classes3.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
@@ -31,7 +31,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public LinearLayout a;
     public TextView b;
     public ImageView c;
-    public m46 d;
+    public o46 d;
     public int e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,9 +61,9 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0491, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c12);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c3a);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c24);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c13);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c3b);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c25);
             setDescendantFocusability(262144);
             this.a.setOnClickListener(this);
         }
@@ -72,9 +72,9 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m46 m46Var = this.d;
-            if (m46Var != null && m46Var.a) {
-                if (m46Var.b > 0) {
+            o46 o46Var = this.d;
+            if (o46Var != null && o46Var.a) {
+                if (o46Var.b > 0) {
                     SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
                     SkinManager.setViewTextColor(this.b, (int) R.color.white_alpha50);
                     SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_ad_bg);
@@ -115,10 +115,10 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         }
     }
 
-    public void setAdState(m46 m46Var) {
+    public void setAdState(o46 o46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m46Var) == null) {
-            this.d = m46Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, o46Var) == null) {
+            this.d = o46Var;
             b();
         }
     }

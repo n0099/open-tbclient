@@ -1,112 +1,40 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.Toast;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vq9 {
+public class vq9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final vq9 a;
-    public static ConcurrentHashMap b;
-    public static Context c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ yq9 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755222381, "Lcom/repackage/vq9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755222381, "Lcom/repackage/vq9;");
-                return;
-            }
-        }
-        a = new vq9();
-        b = new ConcurrentHashMap();
-    }
-
-    public vq9() {
+    public vq9(yq9 yq9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yq9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = yq9Var;
     }
 
-    public static vq9 b(Context context) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            c = context.getApplicationContext();
-            return a;
-        }
-        return (vq9) invokeL.objValue;
-    }
-
-    public long a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Long l = (Long) b.get(str);
-            if (l == null || l.longValue() <= 0) {
-                try {
-                    String C = fr9.C(c);
-                    if (!TextUtils.isEmpty(C)) {
-                        JSONObject jSONObject = new JSONObject(C);
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            if (TextUtils.equals(str, next)) {
-                                return jSONObject.optLong(next, 0L);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return 0L;
-            }
-            return l.longValue();
-        }
-        return invokeL.longValue;
-    }
-
-    public void c(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            b.put(str, Long.valueOf(j));
-            try {
-                String C = fr9.C(c);
-                JSONObject jSONObject = !TextUtils.isEmpty(C) ? new JSONObject(C) : new JSONObject();
-                jSONObject.put(str, j);
-                Context context = c;
-                String jSONObject2 = jSONObject.toString();
-                SharedPreferences.Editor edit = context.getSharedPreferences("res_prefs", 0).edit();
-                edit.putString("key_local_res", jSONObject2);
-                edit.apply();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Toast.makeText(this.a.b.getApplicationContext(), (int) R.string.obfuscated_res_0x7f0f1563, 0).show();
         }
     }
 }

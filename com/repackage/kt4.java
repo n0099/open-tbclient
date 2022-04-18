@@ -1,163 +1,35 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.PopupWindow;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import android.text.TextUtils;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kt4 extends PopupWindow {
+public class kt4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jt4 a;
-    public int b;
-    public int c;
-    public int d;
-    public View e;
-    public View f;
-    public Activity g;
 
-    /* loaded from: classes6.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kt4 a;
-
-        public a(kt4 kt4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kt4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2, Integer.valueOf(i2), str3, objArr}) == null) {
+            ug ugVar = new ug();
+            ugVar.c("cmd", Integer.valueOf(i));
+            if (!TextUtils.isEmpty(str2)) {
+                ugVar.b("action", str2);
             }
-            this.a = kt4Var;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.e == null) {
-                return;
+            ugVar.b("errNo", String.valueOf(i2));
+            if (!TextUtils.isEmpty(str3) && i2 != 0) {
+                ugVar.b(StatConstants.KEY_EXT_ERR_MSG, str3);
             }
-            this.a.e();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kt4(Activity activity) {
-        super(activity);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            if (objArr != null && objArr.length > 0) {
+                ugVar.c(objArr);
             }
-        }
-        this.g = activity;
-        View inflate = ((LayoutInflater) activity.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d040f, (ViewGroup) null, false);
-        this.e = inflate;
-        setContentView(inflate);
-        setSoftInputMode(21);
-        setInputMethodMode(1);
-        this.f = activity.findViewById(16908290);
-        setWidth(0);
-        setHeight(-1);
-        this.e.getViewTreeObserver().addOnGlobalLayoutListener(new a(this));
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            dismiss();
-        }
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g.getResources().getConfiguration().orientation : invokeV.intValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Point point = new Point();
-            this.g.getWindowManager().getDefaultDisplay().getSize(point);
-            Rect rect = new Rect();
-            this.e.getWindowVisibleDisplayFrame(rect);
-            int d = d();
-            int i = point.y - rect.bottom;
-            if (i == 0) {
-                f(0, d);
-            } else if (d == 1) {
-                this.d = i;
-                f(i, d);
+            if (i2 == 0) {
+                BdStatisticsManager.getInstance().debug(str, j, null, ugVar);
             } else {
-                this.c = i;
-                f(i, d);
+                BdStatisticsManager.getInstance().error(str, j, (String) null, ugVar);
             }
         }
-    }
-
-    public final void f(int i, int i2) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            if (i <= 0) {
-                this.b = i;
-                i3 = 0;
-            } else {
-                i3 = i - this.b;
-            }
-            jt4 jt4Var = this.a;
-            if (jt4Var != null) {
-                jt4Var.onKeyboardHeightChanged(i3, i2);
-            }
-        }
-    }
-
-    public void g(jt4 jt4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jt4Var) == null) {
-            this.a = jt4Var;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || isShowing() || this.f.getWindowToken() == null) {
-            return;
-        }
-        setBackgroundDrawable(new ColorDrawable(0));
-        showAtLocation(this.f, 0, 0, 0);
     }
 }

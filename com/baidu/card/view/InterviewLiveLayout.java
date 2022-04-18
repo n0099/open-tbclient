@@ -33,25 +33,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cn4;
+import com.repackage.bn4;
 import com.repackage.fo;
 import com.repackage.fz;
 import com.repackage.h35;
 import com.repackage.ig;
 import com.repackage.oi;
-import com.repackage.qn4;
-import com.repackage.qq4;
-import com.repackage.rx5;
+import com.repackage.pn4;
+import com.repackage.pq4;
+import com.repackage.tx5;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class InterviewLiveLayout extends FrameLayout implements fz<qn4> {
+public class InterviewLiveLayout extends FrameLayout implements fz<pn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public rx5<qn4> c;
-    public qn4 d;
+    public tx5<pn4> c;
+    public pn4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -131,7 +131,7 @@ public class InterviewLiveLayout extends FrameLayout implements fz<qn4> {
                 }
                 return;
             }
-            oi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0e67);
+            oi.M(this.a.getContext(), R.string.obfuscated_res_0x7f0f0e66);
         }
     }
 
@@ -249,13 +249,13 @@ public class InterviewLiveLayout extends FrameLayout implements fz<qn4> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03f1, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090eb4);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090eb5);
             this.e = tbImageView;
             tbImageView.s(15);
             this.e.setPlaceHolder(3);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f3d);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f3e);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090f3c);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f3e);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f3f);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090f3d);
             l(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -263,13 +263,13 @@ public class InterviewLiveLayout extends FrameLayout implements fz<qn4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: k */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn4Var) == null) {
-            this.d = qn4Var;
-            if (qn4Var != null && this.e != null) {
-                ThreadData threadData = qn4Var.getThreadData();
-                qq4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pn4Var) == null) {
+            this.d = pn4Var;
+            if (pn4Var != null && this.e != null) {
+                ThreadData threadData = pn4Var.getThreadData();
+                pq4 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -277,7 +277,7 @@ public class InterviewLiveLayout extends FrameLayout implements fz<qn4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.f();
-                if (cn4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.i())) {
+                if (bn4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.i())) {
                     this.i.clear();
                     this.i.add(taskInfoData.i());
                     setVisibility(0);
@@ -326,10 +326,10 @@ public class InterviewLiveLayout extends FrameLayout implements fz<qn4> {
         tbImageView.setPageId(bdUniqueId);
     }
 
-    public void setSubClickListener(rx5<qn4> rx5Var) {
+    public void setSubClickListener(tx5<pn4> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, rx5Var) == null) {
-            this.c = rx5Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, tx5Var) == null) {
+            this.c = tx5Var;
         }
     }
 

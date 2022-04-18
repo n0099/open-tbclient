@@ -540,7 +540,7 @@ public class h72 {
                 }
                 return arrayList;
             } finally {
-                ng4.d(k);
+                mg4.d(k);
             }
         }
         return (List) invokeV.objValue;
@@ -775,7 +775,7 @@ public class h72 {
                         }
                     }
                 } finally {
-                    ng4.d(k);
+                    mg4.d(k);
                 }
             }
         }
@@ -807,7 +807,7 @@ public class h72 {
                         }
                     }
                 } finally {
-                    ng4.d(s);
+                    mg4.d(s);
                 }
             }
             return arrayList;
@@ -848,14 +848,14 @@ public class h72 {
                         }
                     }
                 } while (query2.moveToNext());
-                ng4.d(query2);
+                mg4.d(query2);
                 if (a) {
                 }
                 query = AppRuntime.getAppContext().getContentResolver().query(e(), null, null, null, null);
                 HashMap hashMap2 = new HashMap();
                 if (query == null) {
                 }
-                ng4.d(query);
+                mg4.d(query);
                 if (a) {
                 }
                 ArrayList<d> arrayList = new ArrayList();
@@ -875,7 +875,7 @@ public class h72 {
                 }
                 return matrixCursor;
             }
-            ng4.d(query2);
+            mg4.d(query2);
             if (a) {
                 Log.d("favorite_migrate_pms", "^ Aps & Favorite 查询到 " + hashMap.size() + " 条收藏");
             }
@@ -891,7 +891,7 @@ public class h72 {
                         Log.v("favorite_migrate_pms", "Favotite == " + cVar2.a);
                     }
                 } while (query.moveToNext());
-                ng4.d(query);
+                mg4.d(query);
                 if (a) {
                 }
                 ArrayList<d> arrayList3 = new ArrayList();
@@ -911,12 +911,12 @@ public class h72 {
                 }
                 return matrixCursor2;
             }
-            ng4.d(query);
+            mg4.d(query);
             if (a) {
                 Log.d("favorite_migrate_pms", "^ Favorite 库查询到 " + hashMap22.size() + " 条收藏");
             }
             ArrayList<d> arrayList32 = new ArrayList();
-            for (PMSAppInfo pMSAppInfo : new ArrayList(f84.i().v().values())) {
+            for (PMSAppInfo pMSAppInfo : new ArrayList(e84.i().v().values())) {
                 if (a) {
                     Log.v("favorite_migrate_pms", "Pms == " + pMSAppInfo.appId);
                 }
@@ -988,7 +988,7 @@ public class h72 {
                             }
                         }
                     } finally {
-                        ng4.d(query);
+                        mg4.d(query);
                     }
                 }
             }

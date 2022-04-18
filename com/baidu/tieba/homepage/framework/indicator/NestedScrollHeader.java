@@ -46,8 +46,8 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.repackage.fo;
 import com.repackage.hg;
 import com.repackage.ig;
-import com.repackage.uz4;
-import com.repackage.wr4;
+import com.repackage.tz4;
+import com.repackage.vr4;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class NestedScrollHeader extends RelativeLayout {
@@ -155,13 +155,13 @@ public class NestedScrollHeader extends RelativeLayout {
                 super.onLoaded((b) foVar, str, i);
                 if (foVar == null || foVar.p() == null || foVar.p().isRecycled()) {
                     this.b.e = null;
-                    this.b.b.setImageResource(R.drawable.obfuscated_res_0x7f0807da);
-                    this.b.b.setTag(R.id.obfuscated_res_0x7f090dab, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+                    this.b.b.setImageResource(R.drawable.obfuscated_res_0x7f0807d9);
+                    this.b.b.setTag(R.id.obfuscated_res_0x7f090dac, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
                     return;
                 }
                 this.b.e = foVar.p();
                 this.b.b.setImageBitmap(this.b.e);
-                this.b.b.setTag(R.id.obfuscated_res_0x7f090dab, this.a);
+                this.b.b.setTag(R.id.obfuscated_res_0x7f090dac, this.a);
                 this.b.b.invalidate();
             }
         }
@@ -197,7 +197,7 @@ public class NestedScrollHeader extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 try {
                     if (this.a.b == view2) {
-                        Object tag = this.a.b.getTag(R.id.obfuscated_res_0x7f090dab);
+                        Object tag = this.a.b.getTag(R.id.obfuscated_res_0x7f090dac);
                         if (tag instanceof String) {
                             String str = (String) tag;
                             if (TextUtils.isEmpty(str)) {
@@ -218,7 +218,7 @@ public class NestedScrollHeader extends RelativeLayout {
                             }
                         } else if (WriteActivityConfig.isAsyncWriting()) {
                         } else {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new uz4(1)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921452, new tz4(1)));
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.UBS_TEST_PUBLISH_BUTTON_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()));
                         }
                     } else {
@@ -351,11 +351,11 @@ public class NestedScrollHeader extends RelativeLayout {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4012);
             this.i = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b0, (ViewGroup) this, true);
-            this.a = (PublishButton) findViewById(R.id.obfuscated_res_0x7f09193f);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091edd);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c05);
-            this.g = findViewById(R.id.obfuscated_res_0x7f090c4f);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c43);
+            this.a = (PublishButton) findViewById(R.id.obfuscated_res_0x7f091940);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091ede);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091c06);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090c50);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c44);
             this.a.setOnClickListener(this.j);
             this.c.setOnClickListener(this.j);
             this.h.setOnClickListener(this.j);
@@ -395,7 +395,7 @@ public class NestedScrollHeader extends RelativeLayout {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            wr4 d2 = wr4.d(this.c);
+            vr4 d2 = vr4.d(this.c);
             d2.v(R.color.CAM_X0109);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0210);
@@ -403,7 +403,7 @@ public class NestedScrollHeader extends RelativeLayout {
             WebPManager.setMaskDrawable(this.h, R.drawable.icon_home_new_games, WebPManager.ResourceStateType.NORMAL);
             Bitmap bitmap = this.e;
             if (bitmap == null) {
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f0807da);
+                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f0807d9);
             } else {
                 TbImageView tbImageView = this.b;
                 if (tbImageView != null) {
@@ -411,7 +411,7 @@ public class NestedScrollHeader extends RelativeLayout {
                 }
             }
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a0d, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a11, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL);
             pureDrawable.setBounds(0, 0, dimenPixelSize, dimenPixelSize);
             this.c.setCompoundDrawables(pureDrawable, null, null, null);
         }
@@ -427,8 +427,8 @@ public class NestedScrollHeader extends RelativeLayout {
                 return;
             }
             this.e = null;
-            this.b.setTag(R.id.obfuscated_res_0x7f090dab, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
-            this.b.setImageResource(R.drawable.obfuscated_res_0x7f0807da);
+            this.b.setTag(R.id.obfuscated_res_0x7f090dac, "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
+            this.b.setImageResource(R.drawable.obfuscated_res_0x7f0807d9);
         }
     }
 

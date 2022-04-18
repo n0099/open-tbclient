@@ -30,7 +30,7 @@ public class r42 implements q42 {
     public String a(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? pg4.d(str.getBytes(), false) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? og4.d(str.getBytes(), false) : (String) invokeL.objValue;
     }
 
     @NonNull

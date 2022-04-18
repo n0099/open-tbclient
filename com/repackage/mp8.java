@@ -1,30 +1,32 @@
 package com.repackage;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import protobuf.ConfigVersion;
 /* loaded from: classes6.dex */
-public class mp8 extends CustomMessageListener {
+public class mp8 extends ya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final pn8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mp8(MainTabActivity mainTabActivity, pn8 pn8Var) {
-        super(2921452);
+    public mp8(MainTabActivity mainTabActivity, wn8 wn8Var) {
+        super(1001);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pn8Var};
+            Object[] objArr = {mainTabActivity, wn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,36 +38,41 @@ public class mp8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = pn8Var;
     }
 
-    public final void a() {
-        pn8 pn8Var;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nn8 nn8Var = this.a.mMainTabTopicTipController;
-            if (nn8Var != null) {
-                nn8Var.h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (-1 == this.a.mLastSyncTime) {
+                return true;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921032));
-            MainTabActivity mainTabActivity = this.a;
-            if (mainTabActivity.mWriteTab == null) {
-                mainTabActivity.mWriteTab = new az8(mainTabActivity.getPageContext(), this.a.rootView, "main_tab", 3, null);
-                this.a.mWriteTab.H("8");
-            }
-            if (this.a.mUegForwardCheckController.d() || (pn8Var = this.b) == null || pn8Var.z() == null || this.b.z().getFragmentTabWidget() == null) {
-                return;
-            }
-            this.a.mWriteTab.L(false, this.b.z().getTabWrapper(), this.b.z().getFragmentTabWidget().getWriteView());
+            long currentTimeMillis = System.currentTimeMillis() - this.a.mLastSyncTime;
+            return currentTimeMillis <= 0 || currentTimeMillis >= 300000;
         }
+        return invokeV.booleanValue;
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null || TbadkCoreApplication.getInst().getConfigVersion() == null || !a()) {
+            return;
+        }
+        this.a.mLastSyncTime = System.currentTimeMillis();
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        ConfigVersion configVersion;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof uz4) && ViewHelper.checkUpIsLogin(this.a.getPageContext().getPageActivity())) {
-            a();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
+            ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+            if (socketResponsedMessage.getError() != 0 || (configVersion = responseOnlineMessage.getConfigVersion()) == null) {
+                return;
+            }
+            b(configVersion.sync);
         }
     }
 }

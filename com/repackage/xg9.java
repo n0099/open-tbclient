@@ -8,27 +8,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.CustomInflater;
 import com.fun.ad.sdk.ExpressInflater;
 import com.fun.ad.sdk.FunAdInteractionListener;
 import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
 import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.repackage.tg9;
 /* loaded from: classes7.dex */
-public class xg9 implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
+public class xg9 implements FunNativeAd2Bridger<TTNativeAd, com.fun.module.csj.f0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ vg9 b;
+    public final TTNativeAd.AdInteractionListener a;
+    public final /* synthetic */ tg9 b;
 
-    public xg9(vg9 vg9Var) {
+    public xg9(tg9 tg9Var, TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vg9Var};
+            Object[] objArr = {tg9Var, tTNativeAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,39 +39,43 @@ public class xg9 implements FunNativeAd2Bridger<TTNativeExpressAd, View> {
                 return;
             }
         }
-        this.b = vg9Var;
+        this.b = tg9Var;
+        this.a = new tg9.b(tg9Var, tTNativeAd);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.csj.f0, android.view.View] */
     @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(TTNativeExpressAd tTNativeExpressAd) {
+    public com.fun.module.csj.f0 createExpressView(TTNativeAd tTNativeAd) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tTNativeExpressAd)) == null) ? tTNativeExpressAd.getExpressAdView() : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tTNativeAd)) == null) ? ug9.a(tTNativeAd) : (View) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
     @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, TTNativeExpressAd tTNativeExpressAd, BaseNativeAd2<TTNativeExpressAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, TTNativeAd tTNativeAd, BaseNativeAd2<TTNativeAd, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, tTNativeExpressAd, baseNativeAd2, funAdInteractionListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, tTNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.b.c(activity, tTNativeAd, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.a, funAdInteractionListener);
         }
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
     @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, TTNativeExpressAd tTNativeExpressAd, BaseNativeAd2<TTNativeExpressAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, TTNativeAd tTNativeAd, BaseNativeAd2<TTNativeAd, com.fun.module.csj.f0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, tTNativeExpressAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            expressInflater.inflate();
-            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.b.j.get(tTNativeExpressAd);
-            if (expressAdListenerWrapper != null) {
-                expressAdListenerWrapper.funListener = funAdInteractionListener;
-            } else {
-                LogPrinter.e("Can not get correspond listener by csjDrawVideoAd.", new Object[0]);
-            }
-            this.b.onShowStart(this.a);
-            this.a = true;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, tTNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
+            TTNativeAd tTNativeAd2 = tTNativeAd;
+            tg9 tg9Var = this.b;
+            FunNativeAdListenerHelper<TTNativeAd, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = tg9Var.j;
+            pid = tg9Var.mPid;
+            funNativeAdListenerHelper.startShow(tTNativeAd2, str, pid, this.a, funAdInteractionListener);
+            tg9 tg9Var2 = this.b;
+            tg9Var2.getClass();
+            tg9Var2.b(activity, tTNativeAd2, expressInflater.inflate(), baseNativeAd2.getExpressView(), new vg9(tg9Var2, funAdInteractionListener, str, tTNativeAd2));
         }
     }
 }

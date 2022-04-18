@@ -1,19 +1,20 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.forumMember.member.ForumMemberReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.member.ForumMemberReadCacheResponseMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qe;
 /* loaded from: classes6.dex */
-public class ib6 implements CustomMessageTask.CustomRunnable<Object> {
+public class ib6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public qe<byte[]> a;
 
     public ib6() {
         Interceptable interceptable = $ic;
@@ -25,27 +26,49 @@ public class ib6 implements CustomMessageTask.CustomRunnable<Object> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        b();
+    }
+
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
+            qe<byte[]> qeVar = this.a;
+            qe.b<byte[]> h = qeVar != null ? qeVar.h(str2) : null;
+            if (h == null || (bArr = h.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            br4.f();
+            this.a = br4.d("tb.forum_member_info");
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    public void c(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage instanceof ForumMemberReadCacheRequestMessage) {
-                byte[] a = new gb6().a(((ForumMemberReadCacheRequestMessage) customMessage).getForumName());
-                ForumMemberReadCacheResponseMessage forumMemberReadCacheResponseMessage = new ForumMemberReadCacheResponseMessage();
-                try {
-                    forumMemberReadCacheResponseMessage.decodeInBackGround(2003009, a);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return forumMemberReadCacheResponseMessage;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(str)) {
+                return;
             }
-            return null;
+            b();
+            qe<byte[]> qeVar = this.a;
+            qeVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

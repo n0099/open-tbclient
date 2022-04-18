@@ -1,163 +1,98 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class kv8 extends k05 {
+public class kv8 {
     public static /* synthetic */ Interceptable $ic;
+    public static Set<String> a;
+    public static Set<String> b;
+    public static Set<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
 
-    /* loaded from: classes6.dex */
-    public class a implements j05 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jv8 a;
-        public final /* synthetic */ kv8 b;
-
-        public a(kv8 kv8Var, jv8 jv8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755545308, "Lcom/repackage/kv8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kv8Var, jv8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = kv8Var;
-            this.a = jv8Var;
-        }
-
-        @Override // com.repackage.j05
-        public void onAction(i05 i05Var) {
-            jv8 jv8Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, i05Var) == null) || (jv8Var = this.a) == null || jv8Var.a() == null || i05Var == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755545308, "Lcom/repackage/kv8;");
                 return;
             }
-            int i = i05Var.a;
-            if (i == 4) {
-                this.a.u((String) i05Var.c);
-            } else if (i == 7) {
-                this.a.getContext().showToast((int) R.string.obfuscated_res_0x7f0f0cf1);
-            } else if (i != 8) {
-            } else {
-                this.a.y();
-                if (this.b.h(this.a.getContext(), 25066)) {
-                    this.a.o();
-                    if (this.b.a != null) {
-                        this.b.a.a(this.a.l());
-                    }
-                }
-            }
+        }
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            b.add(str);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str);
-    }
-
-    public kv8() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            c.add(str);
         }
     }
 
-    @Override // com.repackage.k05
-    public m05 b(Context context) {
-        InterceptResult invokeL;
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setHideBigEmotion(true);
-            editorTools.setBarLauncherType(4);
-            editorTools.setBackgroundColorId(R.color.CAM_X0207);
-            return new jv8(editorTools);
-        }
-        return (m05) invokeL.objValue;
-    }
-
-    @Override // com.repackage.k05
-    public void c(m05 m05Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m05Var) == null) && (m05Var instanceof jv8)) {
-            EditorTools a2 = m05Var.a();
-            a aVar = new a(this, (jv8) m05Var);
-            a2.setActionListener(4, aVar);
-            a2.setActionListener(7, aVar);
-            a2.setActionListener(8, aVar);
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a.add(str);
         }
     }
 
-    @Override // com.repackage.k05
-    public void d(m05 m05Var) {
+    public static void d(String str, Set<String> set) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m05Var) == null) || m05Var == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, set) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14295");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_locate", str);
+            statisticItem.param("obj_type", set.size());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || b.size() == 0) {
             return;
         }
-        EditorTools a2 = m05Var.a();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(5);
-        a2.h(arrayList);
-        u05 n = a2.n(5);
-        if (n != null) {
-            n.e(false);
-            n.d = 0;
-        }
-        a2.d(new lv8(a2.getContext()));
-        a2.f();
-        a2.A(new i05(35, 5, Boolean.FALSE));
-        a2.o();
+        d(str, b);
+        b.clear();
     }
 
-    public m05 g(Context context, b bVar) {
-        InterceptResult invokeLL;
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
-            this.a = bVar;
-            return super.a(context);
+        if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || c.size() == 0) {
+            return;
         }
-        return (m05) invokeLL.objValue;
+        d(str, c);
+        c.clear();
     }
 
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
+    public static void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null || currentAccount.length() <= 0) {
-                TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-                return false;
-            }
-            return true;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, str) == null) || a.size() == 0) {
+            return;
         }
-        return invokeLI.booleanValue;
+        d(str, a);
+        a.clear();
     }
 }

@@ -22,29 +22,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ae5;
+import com.repackage.bp4;
 import com.repackage.ce5;
-import com.repackage.cp4;
-import com.repackage.do4;
+import com.repackage.co4;
 import com.repackage.f9;
 import com.repackage.fz;
 import com.repackage.gz;
-import com.repackage.im4;
+import com.repackage.hm4;
+import com.repackage.jm4;
 import com.repackage.km4;
-import com.repackage.lm4;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import java.util.List;
 /* loaded from: classes.dex */
-public class GridIconLayout extends FrameLayout implements gz, fz<cp4> {
+public class GridIconLayout extends FrameLayout implements gz, fz<bp4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public XGridLayout a;
-    public lm4<do4> b;
-    public im4 c;
-    public km4<do4> d;
+    public km4<co4> b;
+    public hm4 c;
+    public jm4<co4> d;
     public ae5 e;
 
     /* loaded from: classes.dex */
-    public class a implements km4<do4> {
+    public class a implements jm4<co4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GridIconLayout a;
@@ -68,23 +68,23 @@ public class GridIconLayout extends FrameLayout implements gz, fz<cp4> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.km4
+        @Override // com.repackage.jm4
         /* renamed from: b */
-        public void a(View view2, do4 do4Var, int i, long j) {
+        public void a(View view2, co4 co4Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, do4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (do4Var != null) {
-                    this.a.c(do4Var.c());
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, co4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                if (co4Var != null) {
+                    this.a.c(co4Var.c());
                 }
                 if (this.a.b != null) {
-                    this.a.b.a(view2, do4Var, i, j);
+                    this.a.b.a(view2, co4Var, i, j);
                 }
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class b extends ae5<do4> {
+    public class b extends ae5<co4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GridIconLayout g;
@@ -114,20 +114,20 @@ public class GridIconLayout extends FrameLayout implements gz, fz<cp4> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.repackage.ae5
         /* renamed from: i */
-        public void f(ce5 ce5Var, do4 do4Var, int i) {
+        public void f(ce5 ce5Var, co4 co4Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ce5Var, do4Var, i) == null) {
-                TbImageView tbImageView = (TbImageView) ce5Var.b(R.id.obfuscated_res_0x7f090fd2);
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ce5Var, co4Var, i) == null) {
+                TbImageView tbImageView = (TbImageView) ce5Var.b(R.id.obfuscated_res_0x7f090fd3);
                 tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                 tbImageView.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
                 tbImageView.setPlaceHolder(1);
-                tbImageView.K(do4Var.d(), 10, false);
+                tbImageView.K(co4Var.d(), 10, false);
                 tbImageView.setUseNightOrDarkMask(false);
-                TextView textView = (TextView) ce5Var.b(R.id.obfuscated_res_0x7f092201);
+                TextView textView = (TextView) ce5Var.b(R.id.obfuscated_res_0x7f092202);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
-                textView.setText(do4Var.e());
+                textView.setText(co4Var.e());
                 if (this.g.b != null) {
-                    this.g.b.c(ce5Var.a(), do4Var, i, i);
+                    this.g.b.c(ce5Var.a(), co4Var, i, i);
                 }
             }
         }
@@ -181,12 +181,12 @@ public class GridIconLayout extends FrameLayout implements gz, fz<cp4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: e */
-    public void a(cp4 cp4Var) {
+    public void a(bp4 bp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cp4Var) == null) {
-            if (cp4Var != null && !ListUtils.isEmpty(cp4Var.a)) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bp4Var) == null) {
+            if (bp4Var != null && !ListUtils.isEmpty(bp4Var.a)) {
                 setVisibility(0);
-                List<do4> list = cp4Var.a;
+                List<co4> list = bp4Var.a;
                 int size = list != null ? list.size() : 0;
                 if (size != 5 && size >= 4 && size < 9) {
                     this.a.setAutoGridSpan(list, 4);
@@ -215,7 +215,7 @@ public class GridIconLayout extends FrameLayout implements gz, fz<cp4> {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            wr4 d = wr4.d(this);
+            vr4 d = vr4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
             XGridLayout xGridLayout = this.a;
@@ -243,10 +243,10 @@ public class GridIconLayout extends FrameLayout implements gz, fz<cp4> {
         }
     }
 
-    public void setIWindowChangedListener(im4 im4Var) {
+    public void setIWindowChangedListener(hm4 hm4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, im4Var) == null) {
-            this.c = im4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hm4Var) == null) {
+            this.c = hm4Var;
         }
     }
 
@@ -268,10 +268,10 @@ public class GridIconLayout extends FrameLayout implements gz, fz<cp4> {
         }
     }
 
-    public void setOnItemCoverListener(lm4<do4> lm4Var) {
+    public void setOnItemCoverListener(km4<co4> km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, lm4Var) == null) {
-            this.b = lm4Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, km4Var) == null) {
+            this.b = km4Var;
         }
     }
 

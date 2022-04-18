@@ -86,11 +86,11 @@ public class ow3 extends r32 {
     }
 
     @Override // com.repackage.r32
-    public cc3 c0(d94 d94Var) {
+    public cc3 c0(c94 c94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, d94Var)) == null) {
-            if (d94Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, c94Var)) == null) {
+            if (c94Var == null) {
                 cc3 cc3Var = new cc3();
                 cc3Var.k(14L);
                 cc3Var.b(2908L);
@@ -98,10 +98,10 @@ public class ow3 extends r32 {
                 return cc3Var;
             }
             pb2 pb2Var = new pb2();
-            pb2Var.b = d94Var.i;
-            pb2Var.a = d94Var.j;
-            pb2Var.c = d94Var.a;
-            pb2Var.d = d94Var.m;
+            pb2Var.b = c94Var.i;
+            pb2Var.a = c94Var.j;
+            pb2Var.c = c94Var.a;
+            pb2Var.d = c94Var.m;
             if (sa2.b(1, pb2Var) == null) {
                 if (k) {
                     Log.i("SwanGameUpdateCore", "小游戏Extension包解压成功");
@@ -119,22 +119,22 @@ public class ow3 extends r32 {
     }
 
     @Override // com.repackage.r32
-    public cc3 d0(f94 f94Var) {
+    public cc3 d0(e94 e94Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, f94Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e94Var)) == null) {
             if (k) {
-                Log.d("SwanGameUpdateCore", "onFrameworkDownloadFinish framework = " + f94Var);
+                Log.d("SwanGameUpdateCore", "onFrameworkDownloadFinish framework = " + e94Var);
             }
-            if (f94Var == null) {
+            if (e94Var == null) {
                 cc3 cc3Var = new cc3();
                 cc3Var.k(13L);
                 cc3Var.b(2907L);
                 cc3Var.d("小游戏GameCore包 Framework null");
                 return cc3Var;
             }
-            t93.b c = t93.c(f94Var, 1);
-            ng4.k(f94Var.a);
+            t93.b c = t93.c(e94Var, 1);
+            mg4.k(e94Var.a);
             if (c.c()) {
                 if (k) {
                     Log.d("SwanGameUpdateCore", "小游戏GameCore解压成功");

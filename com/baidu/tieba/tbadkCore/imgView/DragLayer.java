@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fl8;
-import com.repackage.gl8;
+import com.repackage.ml8;
+import com.repackage.nl8;
 /* loaded from: classes4.dex */
 public class DragLayer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fl8 a;
-    public gl8 b;
+    public ml8 a;
+    public nl8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DragLayer(Context context) {
@@ -44,12 +44,12 @@ public class DragLayer extends FrameLayout {
     }
 
     public void a() {
-        gl8 gl8Var;
+        nl8 nl8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gl8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nl8Var = this.b) == null) {
             return;
         }
-        Bitmap bitmap = gl8Var.b;
+        Bitmap bitmap = nl8Var.b;
         if (bitmap != null) {
             bitmap.recycle();
             this.b.b = null;
@@ -68,24 +68,24 @@ public class DragLayer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            gl8 gl8Var = this.b;
-            if (gl8Var == null || !this.a.f) {
+            nl8 nl8Var = this.b;
+            if (nl8Var == null || !this.a.f) {
                 return;
             }
-            gl8Var.a(canvas);
+            nl8Var.a(canvas);
         }
     }
 
-    public fl8 getDragController() {
+    public ml8 getDragController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (fl8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (ml8) invokeV.objValue;
     }
 
-    public gl8 getDragObject() {
+    public nl8 getDragObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (gl8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (nl8) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -119,17 +119,17 @@ public class DragLayer extends FrameLayout {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) ? this.a.d(motionEvent) : invokeL.booleanValue;
     }
 
-    public void setDragController(fl8 fl8Var) {
+    public void setDragController(ml8 ml8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, fl8Var) == null) {
-            this.a = fl8Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ml8Var) == null) {
+            this.a = ml8Var;
         }
     }
 
-    public void setDragObject(gl8 gl8Var) {
+    public void setDragObject(nl8 nl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, gl8Var) == null) {
-            this.b = gl8Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, nl8Var) == null) {
+            this.b = nl8Var;
             invalidate();
         }
     }

@@ -35,7 +35,7 @@ public class t41 extends u41 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (imageView = this.t) == null) {
             return;
         }
-        imageView.setBackground(v31.a().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d96));
+        imageView.setBackground(v31.a().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d9a));
         this.t.setVisibility(0);
     }
 

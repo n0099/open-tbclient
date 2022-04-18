@@ -1,137 +1,71 @@
 package com.repackage;
 
-import android.text.Editable;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
-import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.UrlParser.DataRes;
+import tbclient.UrlParser.UrlParserResIdl;
 /* loaded from: classes6.dex */
-public class kv4 extends fv4<kv4> {
+public class kv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
     public String i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755545432, "Lcom/repackage/kv4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755545432, "Lcom/repackage/kv4;");
+        }
+    }
 
     public kv4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static kv4 u(@NonNull kv4 kv4Var, @NonNull Editable editable) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, kv4Var, editable)) == null) {
-            kv4 kv4Var2 = new kv4();
-            kv4Var2.b(kv4Var);
-            kv4Var2.n(editable);
-            return kv4Var2;
-        }
-        return (kv4) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.fv4
-    public void a(Editable editable, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
-            super.a(editable, i, i2, i3);
-        }
-    }
-
-    @Override // com.repackage.fv4
-    public void p(Editable editable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            i(sb);
-        }
-    }
-
-    @Override // com.repackage.fv4
-    public void q(Editable editable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            i(sb);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o(true);
-            v();
-        }
-    }
-
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "#[视频]" + this.i + "#";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            i(s());
-            if (hc5.g(this.c, f())) {
-                return;
-            }
-            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f0809e8, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
-            eMRichTextAnyIconSpan.b(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-            eMRichTextAnyIconSpan.d(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-            l(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);
-            l(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
-        }
-    }
-
-    public kv4(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.i = str;
+    }
+
+    public void a(UrlParserResIdl urlParserResIdl) {
+        DataRes dataRes;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, urlParserResIdl) == null) || urlParserResIdl == null || (dataRes = urlParserResIdl.data) == null) {
+            return;
+        }
+        this.a = dataRes.status.intValue();
+        this.b = urlParserResIdl.data.url_type.intValue();
+        DataRes dataRes2 = urlParserResIdl.data;
+        this.d = dataRes2.image;
+        this.e = dataRes2.title;
+        this.f = dataRes2.link_from;
+        this.g = dataRes2.price_txt;
+        this.h = dataRes2.is_recognize.intValue() == 1;
+        this.i = urlParserResIdl.data.description;
     }
 }

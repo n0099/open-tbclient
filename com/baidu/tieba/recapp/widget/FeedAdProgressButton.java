@@ -25,11 +25,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gd8;
+import com.repackage.nd8;
 import com.repackage.oi;
 @SuppressLint({"DrawAllocation"})
 /* loaded from: classes4.dex */
-public class FeedAdProgressButton extends View implements gd8 {
+public class FeedAdProgressButton extends View implements nd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -90,7 +90,7 @@ public class FeedAdProgressButton extends View implements gd8 {
         e(context, attributeSet);
     }
 
-    @Override // com.repackage.gd8
+    @Override // com.repackage.nd8
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -101,7 +101,7 @@ public class FeedAdProgressButton extends View implements gd8 {
         }
     }
 
-    @Override // com.repackage.gd8
+    @Override // com.repackage.nd8
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -265,7 +265,7 @@ public class FeedAdProgressButton extends View implements gd8 {
         }
     }
 
-    @Override // com.repackage.gd8
+    @Override // com.repackage.nd8
     public void setButtonText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
@@ -274,7 +274,7 @@ public class FeedAdProgressButton extends View implements gd8 {
         }
     }
 
-    @Override // com.repackage.gd8
+    @Override // com.repackage.nd8
     public void setButtonTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -283,14 +283,14 @@ public class FeedAdProgressButton extends View implements gd8 {
         }
     }
 
-    @Override // com.repackage.gd8
+    @Override // com.repackage.nd8
     public void setButtonTextNightColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.gd8
+    @Override // com.repackage.nd8
     public void setButtonTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
@@ -313,7 +313,7 @@ public class FeedAdProgressButton extends View implements gd8 {
         }
     }
 
-    @Override // com.repackage.gd8
+    @Override // com.repackage.nd8
     public void setInitText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
@@ -328,7 +328,7 @@ public class FeedAdProgressButton extends View implements gd8 {
         }
     }
 
-    @Override // com.repackage.gd8
+    @Override // com.repackage.nd8
     public void setProgress(int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048596, this, i) == null) || i > this.m || i < this.e) {
@@ -339,7 +339,7 @@ public class FeedAdProgressButton extends View implements gd8 {
         postInvalidate();
     }
 
-    @Override // com.repackage.gd8
+    @Override // com.repackage.nd8
     public void setRatio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
@@ -371,7 +371,7 @@ public class FeedAdProgressButton extends View implements gd8 {
         }
     }
 
-    @Override // com.repackage.gd8
+    @Override // com.repackage.nd8
     public void setButtonText(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {

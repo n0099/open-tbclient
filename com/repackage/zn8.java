@@ -1,188 +1,62 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class zn8 {
+public class zn8 extends yn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final pn8 b;
-    public lz5 c;
-    public lz5 d;
-    public lz5 e;
-    public boolean f;
-    public boolean g;
+    public final WeakReference<View> b;
 
-    public zn8(MainTabActivity mainTabActivity, pn8 pn8Var) {
+    public zn8(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, pn8Var};
+            Object[] objArr = {view2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = false;
-        this.g = false;
-        this.a = mainTabActivity;
-        this.b = pn8Var;
+        this.b = new WeakReference<>(view2);
+        this.a = i;
     }
 
-    public void a() {
-        lz5 lz5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lz5Var = this.e) != null && lz5Var.J()) {
-            this.e.I();
-        }
-    }
-
+    @Override // com.repackage.yn8
     public void b() {
-        lz5 lz5Var;
+        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (lz5Var = this.d) != null && lz5Var.J()) {
-            this.d.I();
-            this.d = null;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.b.get()) == null) {
+            return;
         }
+        view2.setVisibility(0);
     }
 
+    @Override // com.repackage.yn8
     public void c() {
-        lz5 lz5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (lz5Var = this.c) != null && lz5Var.J()) {
-            this.c.I();
-            this.c = null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            sn8.a = Math.max(sn8.a, this.a + 1);
         }
     }
 
+    @Override // com.repackage.yn8
     public void d() {
-        pn8 pn8Var;
+        View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (pn8Var = this.b) == null || pn8Var.z() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (view2 = this.b.get()) == null) {
             return;
         }
-        FragmentTabWidget fragmentTabWidget = this.b.z().getFragmentTabWidget();
-        if (fragmentTabWidget.getChildCount() < 2) {
-            return;
-        }
-        lz5 lz5Var = new lz5(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
-        this.e = lz5Var;
-        lz5Var.g0(R.drawable.obfuscated_res_0x7f0802eb);
-        this.e.L(2);
-        this.e.O(32);
-        this.e.h0(true);
-        this.e.k0(-oi.f(this.a, R.dimen.tbds10));
-        this.e.X(R.color.CAM_X0101);
-        this.e.P(R.dimen.tbds54);
-        this.e.T(1);
-        this.e.N(4000);
-        this.e.a0(oi.f(this.a, R.dimen.tbds44));
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        FragmentTabWidget fragmentTabWidget = this.b.z().getFragmentTabWidget();
-        if (fragmentTabWidget.getChildCount() < 2) {
-            return;
-        }
-        lz5 lz5Var = new lz5(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
-        this.c = lz5Var;
-        lz5Var.g0(R.drawable.obfuscated_res_0x7f0802eb);
-        this.c.L(2);
-        this.c.O(32);
-        this.c.h0(true);
-        this.c.k0(-oi.f(this.a, R.dimen.tbds10));
-        this.c.X(R.color.CAM_X0101);
-        this.c.P(R.dimen.tbds54);
-        this.c.T(999);
-        this.c.N(5000);
-        this.c.a0(oi.f(this.a, R.dimen.tbds44));
-        this.c.o0(str, "categoryUpdate", false, true);
-    }
-
-    public void f() {
-        pn8 pn8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (pn8Var = this.b) == null || pn8Var.z() == null) {
-            return;
-        }
-        FragmentTabWidget fragmentTabWidget = this.b.z().getFragmentTabWidget();
-        if (fragmentTabWidget.getChildCount() < 4) {
-            return;
-        }
-        String string = this.a.getString(R.string.obfuscated_res_0x7f0f0b24);
-        lz5 lz5Var = new lz5(this.a.getPageContext(), fragmentTabWidget.getChildAt(4));
-        this.d = lz5Var;
-        lz5Var.g0(R.drawable.obfuscated_res_0x7f0802ee);
-        this.d.L(2);
-        this.d.O(48);
-        this.d.h0(true);
-        this.d.j0(-oi.f(this.a, R.dimen.tbds62));
-        this.d.X(R.color.CAM_X0101);
-        this.d.e0(R.dimen.T_X08);
-        this.d.T(1);
-        this.d.N(3000);
-        this.d.d0(oi.f(this.a, R.dimen.tbds25));
-        this.d.a0(oi.f(this.a, R.dimen.tbds33));
-        this.d.b0(oi.f(this.a, R.dimen.tbds36));
-        this.d.c0(oi.f(this.a, R.dimen.tbds36));
-        this.d.o0(string, "mycreatecentertip", true, true);
-    }
-
-    public void g() {
-        pn8 pn8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (pn8Var = this.b) == null || pn8Var.z() == null) {
-            return;
-        }
-        String string = this.a.getString(R.string.obfuscated_res_0x7f0f13c5);
-        if (TextUtils.isEmpty(string)) {
-            return;
-        }
-        FragmentTabWidget fragmentTabWidget = this.b.z().getFragmentTabWidget();
-        if (fragmentTabWidget.getChildCount() < 2) {
-            return;
-        }
-        lz5 lz5Var = new lz5(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
-        this.c = lz5Var;
-        lz5Var.g0(R.drawable.obfuscated_res_0x7f0802ef);
-        this.c.L(2);
-        this.c.O(32);
-        this.c.h0(true);
-        this.c.k0(-oi.f(this.a, R.dimen.tbds10));
-        this.c.X(R.color.CAM_X0101);
-        this.c.P(R.dimen.tbds109);
-        this.c.T(1);
-        this.c.N(3000);
-        this.c.a0(oi.f(this.a, R.dimen.tbds44));
-        this.c.o0(string, "videoChannelComming", true, false);
-    }
-
-    public void h() {
-        lz5 lz5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (lz5Var = this.e) == null || lz5Var.J()) {
-            return;
-        }
-        lz5 lz5Var2 = this.e;
-        String string = this.a.getString(R.string.obfuscated_res_0x7f0f0570);
-        lz5Var2.m0(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
+        view2.setVisibility(8);
     }
 }

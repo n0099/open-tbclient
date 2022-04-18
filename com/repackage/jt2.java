@@ -44,7 +44,7 @@ public class jt2 extends ProviderDelegation {
         }
     }
 
-    public static long a() {
+    public static long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {

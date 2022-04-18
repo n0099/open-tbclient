@@ -32,7 +32,7 @@ public abstract class ma5<T> extends na5<T> {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) ? i(list) : (List) invokeL.objValue;
     }
 
-    public abstract List<qn4> e();
+    public abstract List<pn4> e();
 
     public abstract List<ThreadData> f();
 

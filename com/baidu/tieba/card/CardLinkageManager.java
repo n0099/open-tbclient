@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ub5;
 import com.repackage.uo;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import com.repackage.zo;
 import java.util.ArrayList;
 import java.util.List;
@@ -122,7 +122,7 @@ public final class CardLinkageManager {
                             boolean isSupportFull = baseCardInfo2.isSupportFull();
                             int i3 = R.color.CAM_X0206;
                             if (isSupportFull) {
-                                wr4 d = wr4.d(findViewByPosition);
+                                vr4 d = vr4.d(findViewByPosition);
                                 d.m(0);
                                 d.n(R.string.J_X06);
                                 if (!z) {
@@ -130,7 +130,7 @@ public final class CardLinkageManager {
                                 }
                                 d.f(i3);
                             } else if (baseCardInfo2.isSupportTop()) {
-                                wr4 d2 = wr4.d(findViewByPosition);
+                                vr4 d2 = vr4.d(findViewByPosition);
                                 d2.m(1);
                                 d2.n(R.string.J_X06);
                                 if (!z) {
@@ -138,7 +138,7 @@ public final class CardLinkageManager {
                                 }
                                 d2.f(i3);
                             } else if (baseCardInfo2.isSupportBottom()) {
-                                wr4 d3 = wr4.d(findViewByPosition);
+                                vr4 d3 = vr4.d(findViewByPosition);
                                 d3.m(2);
                                 d3.n(R.string.J_X06);
                                 if (!z) {

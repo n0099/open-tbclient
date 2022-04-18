@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.fo;
 import com.repackage.g35;
 import com.repackage.k35;
-import com.repackage.mu4;
+import com.repackage.lu4;
 import com.repackage.oi;
 import com.repackage.u35;
 /* loaded from: classes4.dex */
@@ -211,7 +211,7 @@ public class PreviewVideoView extends FrameLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080813, WebPManager.ResourceStateType.NORMAL));
+            this.c.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080812, WebPManager.ResourceStateType.NORMAL));
             this.h.setColor(SkinManager.getColor(R.color.CAM_X0618));
             this.i.setColor(SkinManager.getColor(R.color.CAM_X0302));
         }
@@ -235,15 +235,15 @@ public class PreviewVideoView extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(oi.f(context, R.dimen.tbds94), oi.f(context, R.dimen.tbds94));
             layoutParams.gravity = 53;
             addView(this.c, layoutParams);
-            mu4 mu4Var = new mu4();
-            mu4Var.q();
+            lu4 lu4Var = new lu4();
+            lu4Var.q();
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(oi.f(context, R.dimen.tbds96), oi.f(context, R.dimen.tbds48));
             layoutParams2.gravity = 83;
             layoutParams2.bottomMargin = oi.f(context, R.dimen.M_H_X002);
             layoutParams2.leftMargin = oi.f(context, R.dimen.M_W_X003);
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
             this.d = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(mu4Var);
+            tBSpecificationBtn.setConfig(lu4Var);
             this.d.setText(context.getString(R.string.obfuscated_res_0x7f0f0513));
             this.d.setTextSize(R.dimen.T_X10);
             addView(this.d, layoutParams2);
@@ -253,7 +253,7 @@ public class PreviewVideoView extends FrameLayout {
             layoutParams3.rightMargin = oi.f(context, R.dimen.M_W_X003);
             TBSpecificationBtn tBSpecificationBtn2 = new TBSpecificationBtn(context);
             this.e = tBSpecificationBtn2;
-            tBSpecificationBtn2.setConfig(mu4Var);
+            tBSpecificationBtn2.setConfig(lu4Var);
             this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0452));
             this.e.setTextSize(R.dimen.T_X10);
             addView(this.e, layoutParams3);

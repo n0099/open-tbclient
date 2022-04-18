@@ -1,130 +1,177 @@
 package com.repackage;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import android.content.Context;
+import android.graphics.Bitmap;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes6.dex */
 public class fy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long[] a(int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            if (i < 0) {
-                i = 0;
-            }
-            float[] fArr = new float[i];
-            if (i > 1) {
-                float f = 1.0f / i;
-                int i2 = 0;
-                while (i2 < i) {
-                    int i3 = i2 + 1;
-                    if (i3 == i) {
-                        int i4 = i2 - 1;
-                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
-                    } else {
-                        fArr[i2] = i3 * f;
-                    }
-                    i2 = i3;
-                }
-            } else if (i == 1) {
-                fArr[0] = 0.5f;
-            }
-            long[] jArr = new long[i];
-            for (int i5 = 0; i5 < i; i5++) {
-                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
-            }
-            return jArr;
-        }
-        return (long[]) invokeCommon.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements hy8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hy8 a;
 
-    public static iy8 b(ky8 ky8Var, ay8 ay8Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ky8Var, ay8Var)) == null) {
-            if (ky8Var == null || ay8Var == null || ky8Var.e == null) {
-                return null;
-            }
-            long[] a = a(ky8Var.b, ky8Var.a);
-            MultiMediaData multiMediaData = ky8Var.e;
-            iy8 iy8Var = new iy8();
-            iy8Var.e = new ArrayList();
-            iy8Var.a = multiMediaData.path;
-            iy8Var.c = ky8Var.c;
-            iy8Var.d = ky8Var.d;
-            iy8Var.b = multiMediaData.rotation;
-            for (int i = 0; i < ky8Var.b; i++) {
-                long j = multiMediaData.start + a[i];
-                cy8 cy8Var = new cy8();
-                cy8Var.a = vx8.b(multiMediaData.path, j, multiMediaData.type);
-                cy8Var.b = multiMediaData.path;
-                cy8Var.f = i;
-                cy8Var.g = multiMediaData.type;
-                cy8Var.h = ky8Var.c;
-                cy8Var.i = ky8Var.d;
-                cy8Var.j = ay8Var;
-                cy8Var.d = j;
-                cy8Var.c = multiMediaData.rotation;
-                iy8Var.e.add(cy8Var);
-            }
-            return iy8Var;
-        }
-        return (iy8) invokeLL.objValue;
-    }
-
-    public static List<iy8> c(jy8 jy8Var, ay8 ay8Var) {
-        InterceptResult invokeLL;
-        List<cy8> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jy8Var, ay8Var)) == null) {
-            MultiMediaData multiMediaData = null;
-            if (jy8Var == null || ay8Var == null || jy8Var.b <= 0 || yb9.e(jy8Var.e) || yb9.e(jy8Var.f)) {
-                return null;
-            }
-            long[] a = a(jy8Var.b, jy8Var.a);
-            ArrayList arrayList = new ArrayList();
-            iy8 iy8Var = null;
-            for (int i = 0; i < jy8Var.b; i++) {
-                long j = ((float) a[i]) / 1000.0f;
-                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(jy8Var.e, j);
-                MultiMediaData multiMediaData2 = (MultiMediaData) yb9.c(jy8Var.f, findInputIndexInSegments);
-                if (multiMediaData2 != null) {
-                    if (multiMediaData2 != multiMediaData) {
-                        iy8Var = new iy8();
-                        iy8Var.e = new ArrayList();
-                        iy8Var.a = multiMediaData2.path;
-                        iy8Var.c = jy8Var.c;
-                        iy8Var.d = jy8Var.d;
-                        iy8Var.b = multiMediaData2.rotation;
-                        arrayList.add(iy8Var);
-                    }
-                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) yb9.c(jy8Var.e, findInputIndexInSegments), j) * 1000;
-                    cy8 cy8Var = new cy8();
-                    cy8Var.a = vx8.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
-                    cy8Var.b = multiMediaData2.path;
-                    cy8Var.f = i;
-                    cy8Var.g = multiMediaData2.type;
-                    cy8Var.h = jy8Var.c;
-                    cy8Var.i = jy8Var.d;
-                    cy8Var.d = multiMediaDataSeekTime;
-                    cy8Var.j = ay8Var;
-                    cy8Var.c = multiMediaData2.rotation;
-                    if (iy8Var != null && (list = iy8Var.e) != null) {
-                        list.add(cy8Var);
-                    }
-                    multiMediaData = multiMediaData2;
+        public a(hy8 hy8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hy8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return arrayList;
+            this.a = hy8Var;
         }
-        return (List) invokeLL.objValue;
+
+        @Override // com.repackage.hy8
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                hy8 hy8Var = this.a;
+                if (hy8Var != null) {
+                    hy8Var.a(i, bitmap);
+                }
+                ac9.d("single-frameResult: " + i);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements hy8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hy8 a;
+
+        public b(hy8 hy8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hy8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hy8Var;
+        }
+
+        @Override // com.repackage.hy8
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                hy8 hy8Var = this.a;
+                if (hy8Var != null) {
+                    hy8Var.a(i, bitmap);
+                }
+                ac9.d("multi-frameResult: " + i);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755691380, "Lcom/repackage/fy8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755691380, "Lcom/repackage/fy8;");
+        }
+    }
+
+    public static TbMultiMediaData a(VideoInfo videoInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
+            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
+            tbMultiMediaData.path = videoInfo.getVideoPath();
+            tbMultiMediaData.coverPath = videoInfo.getThumbPath();
+            tbMultiMediaData.height = videoInfo.getVideoHeight();
+            tbMultiMediaData.width = videoInfo.getVideoWidth();
+            tbMultiMediaData.type = 1;
+            tbMultiMediaData.start = 0L;
+            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.scaleType = "center_inside";
+            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
+            return tbMultiMediaData;
+        }
+        return (TbMultiMediaData) invokeL.objValue;
+    }
+
+    public static void b(VlogEditManager vlogEditManager, Context context, int i, int i2, int i3, hy8 hy8Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{vlogEditManager, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), hy8Var}) == null) || vlogEditManager == null || context == null || i <= 0) {
+            return;
+        }
+        qy8 qy8Var = new qy8();
+        qy8Var.a = vlogEditManager.getDuration();
+        qy8Var.b = i;
+        qy8Var.f = vlogEditManager.getInputMultiMediaData();
+        MediaTrack mediaTrack = (MediaTrack) fc9.c(vlogEditManager.getUpdateMediaTracks(), 0);
+        if (mediaTrack == null) {
+            return;
+        }
+        qy8Var.e = mediaTrack.mediaSegments;
+        if (i2 == 0) {
+            i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+        }
+        qy8Var.c = i2;
+        if (i3 == 0) {
+            i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+        }
+        qy8Var.d = i3;
+        ky8.f().i(qy8Var, new b(hy8Var));
+    }
+
+    public static void c(MultiMediaData multiMediaData, Context context, int i, int i2, int i3, hy8 hy8Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{multiMediaData, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), hy8Var}) == null) || multiMediaData == null || context == null || i <= 0) {
+            return;
+        }
+        ry8 ry8Var = new ry8();
+        ry8Var.b = i;
+        ry8Var.a = multiMediaData.originalDuration;
+        ry8Var.e = multiMediaData;
+        if (i2 == 0) {
+            i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+        }
+        ry8Var.c = i2;
+        if (i3 == 0) {
+            i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+        }
+        ry8Var.d = i3;
+        ky8.f().j(ry8Var, new a(hy8Var));
     }
 }

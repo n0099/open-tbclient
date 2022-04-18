@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.net.UrlRequest;
-import com.repackage.g39;
+import com.repackage.n39;
 import java.io.File;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -179,7 +179,7 @@ public abstract class TurbonetEngine {
                 }
                 r(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
                 if (i() == null) {
-                    u(g39.a(this.a));
+                    u(n39.a(this.a));
                 }
                 return TurbonetEngine.c(this);
             }

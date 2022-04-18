@@ -1,134 +1,65 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.cb4;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class v94 {
     public static /* synthetic */ Interceptable $ic;
+    public static final jd4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> void a(@NonNull na4 na4Var, @NonNull List<ka4<T>> list) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755276352, "Lcom/repackage/v94;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755276352, "Lcom/repackage/v94;");
+                return;
+            }
+        }
+        a = jd4.e();
+    }
+
+    public v94() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, na4Var, list) == null) {
-            for (ka4<T> ka4Var : list) {
-                na4Var.c(ia4.b().a(ka4Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @NonNull
-    public static na4 b(cb4 cb4Var, d84 d84Var) {
-        InterceptResult invokeLL;
+    public Integer a(Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cb4Var, d84Var)) == null) {
-            List<ka4<cb4.a>> f = ma4.f(cb4Var.a, d84Var);
-            na4 na4Var = new na4(d84Var);
-            for (ka4<cb4.a> ka4Var : f) {
-                na4Var.c(ia4.b().a(ka4Var));
-            }
-            return na4Var;
-        }
-        return (na4) invokeLL.objValue;
-    }
-
-    public static synchronized void c(db4 db4Var, d84 d84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, db4Var, d84Var) == null) {
-            synchronized (v94.class) {
-                ka4<f94> d = ma4.d(db4Var.d, d84Var);
-                ka4<h94> g = ma4.g(db4Var.a, d84Var);
-                ka4<d94> c = ma4.c(db4Var.f, d84Var);
-                List<ka4<i94>> h = ma4.h(db4Var.b, d84Var);
-                List<ka4<j94>> e = ma4.e(db4Var.c, d84Var);
-                na4 na4Var = new na4(d84Var);
-                na4Var.c(ia4.b().a(d));
-                na4Var.c(ia4.b().a(g));
-                na4Var.c(ia4.b().a(c));
-                a(na4Var, h);
-                a(na4Var, e);
-                na4Var.e();
-            }
-        }
-    }
-
-    public static synchronized void d(eb4 eb4Var, d84 d84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, eb4Var, d84Var) == null) {
-            synchronized (v94.class) {
-                ka4<j94> i = ma4.i(eb4Var.a, d84Var);
-                na4 na4Var = new na4(d84Var);
-                na4Var.c(ia4.b().a(i));
-                na4Var.e();
-            }
-        }
-    }
-
-    public static synchronized void e(fb4 fb4Var, d84 d84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, fb4Var, d84Var) == null) {
-            synchronized (v94.class) {
-                List<ka4<i94>> h = ma4.h(fb4Var.a, d84Var);
-                na4 na4Var = new na4(d84Var);
-                for (ka4<i94> ka4Var : h) {
-                    na4Var.c(ia4.b().a(ka4Var));
-                }
-                na4Var.e();
-            }
-        }
-    }
-
-    public static synchronized void f(ad4 ad4Var, d84 d84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, ad4Var, d84Var) == null) {
-            synchronized (v94.class) {
-                ka4<f94> d = ma4.d(ad4Var.b, d84Var);
-                ka4<f94> d2 = ma4.d(ad4Var.a, d84Var);
-                ka4<d94> c = ma4.c(ad4Var.c, d84Var);
-                na4 na4Var = new na4(d84Var);
-                if (d != null) {
-                    na4Var.c(ia4.b().a(d));
-                }
-                if (d2 != null) {
-                    na4Var.c(ia4.b().a(d2));
-                }
-                if (c != null) {
-                    na4Var.c(ia4.b().a(c));
-                }
-                if (ad4Var.d != null) {
-                    for (k94 k94Var : ad4Var.d) {
-                        ka4<k94> j = ma4.j(k94Var, d84Var);
-                        if (j != null) {
-                            na4Var.c(ia4.b().a(j));
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
+            if (map != null && !map.isEmpty() && map.containsKey("queue_priority")) {
+                try {
+                    int intValue = ((Integer) map.get("queue_priority")).intValue();
+                    if (intValue == 200 || intValue == 300) {
+                        return Integer.valueOf(intValue);
                     }
+                } catch (Exception e) {
+                    a.h("QueuePriorityOptionHelper", "#parseOption error", e, false);
                 }
-                if (ad4Var.e != null) {
-                    for (j94 j94Var : ad4Var.e) {
-                        ka4<j94> i = ma4.i(j94Var, d84Var);
-                        if (i != null) {
-                            na4Var.c(ia4.b().a(i));
-                        }
-                    }
-                }
-                na4Var.e();
             }
+            return 100;
         }
-    }
-
-    public static synchronized void g(List<j94> list, d84 d84Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, list, d84Var) == null) {
-            synchronized (v94.class) {
-                List<ka4<j94>> e = ma4.e(list, d84Var);
-                na4 na4Var = new na4(d84Var);
-                a(na4Var, e);
-                na4Var.e();
-            }
-        }
+        return (Integer) invokeL.objValue;
     }
 }

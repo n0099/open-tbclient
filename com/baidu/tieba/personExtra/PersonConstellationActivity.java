@@ -227,10 +227,10 @@ public class PersonConstellationActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 SkinManager.setBackgroundResource(view2, R.drawable.person_birthday_select_top_bg);
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917a6);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917a7);
                 textView.setOnClickListener(new a(this));
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1, TbadkCoreApplication.getInst().getSkinType());
-                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917a5);
+                TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917a6);
                 SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1, TbadkCoreApplication.getInst().getSkinType());
                 textView2.setOnClickListener(new b(this));
             }
@@ -268,7 +268,7 @@ public class PersonConstellationActivity extends BaseActivity {
                 return;
             }
             if (date.getTime() > System.currentTimeMillis()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0de9);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0de8);
                 return;
             }
             this.a.mConsNameView.setText(StringHelper.dateToConstellation(date));
@@ -361,34 +361,34 @@ public class PersonConstellationActivity extends BaseActivity {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d06b9);
             initData();
-            this.mRootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0917a8);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            this.mRootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0917a9);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e01)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e00)).setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
             View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05e6, (View.OnClickListener) null);
             this.mCompleteLayout = addCustomView;
-            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091aa8);
+            TextView textView = (TextView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091aa9);
             this.mCompleteView = textView;
             textView.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.tbfontsize44));
-            this.mCompleteView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0dfd));
+            this.mCompleteView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0dfc));
             SkinManager.setViewTextColor(this.mCompleteView, R.color.navi_op_text, 1);
             this.mCompleteLayout.setOnClickListener(this.mClickListener);
             ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d089e, (View.OnClickListener) null);
             this.mBackImg = imageView;
             imageView.setOnClickListener(this.mClickListener);
             SkinManager.setImageResource(this.mBackImg, R.drawable.selector_topbar_return_black);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f0917a9);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f0917aa);
             this.mSwitchView = bdSwitchView;
             bdSwitchView.setOnSwitchStateChangeListener(this.mSwitchChangeListener);
             oi.b(getPageContext().getPageActivity(), this.mSwitchView, 10, 10, 10, 10);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0917a4);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0917a5);
             this.mBirthdayLayout = relativeLayout;
             relativeLayout.setOnClickListener(this.mClickListener);
             this.mConsNameView = (TextView) findViewById(R.id.obfuscated_res_0x7f0906d0);
             this.mBirthdayView = (TextView) findViewById(R.id.obfuscated_res_0x7f0906ce);
             this.mBirthdayLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f09037b);
-            this.mShowStatusLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f0917a7);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0917aa);
+            this.mShowStatusLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f0917a8);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0917ab);
             this.mShowStatusTipView = textView2;
             if (this.mBirthdayTime == 0) {
                 textView2.setVisibility(0);

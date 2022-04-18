@@ -19,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.gs5;
-import com.repackage.hs5;
+import com.repackage.is5;
+import com.repackage.js5;
 import com.repackage.uo;
-import com.repackage.us5;
+import com.repackage.ws5;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -167,21 +167,21 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
             LinkedList linkedList = new LinkedList();
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
-                us5 us5Var = new us5();
+                ws5 ws5Var = new ws5();
                 ThreadData threadData = list.get(i);
-                us5Var.a = threadData;
+                ws5Var.a = threadData;
                 if (threadData.getAuthor() != null) {
-                    TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", us5Var.a.getAuthor().getUserId()));
+                    TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", ws5Var.a.getAuthor().getUserId()));
                 }
                 int i2 = i + 1;
                 if (i2 < size) {
                     ThreadData threadData2 = list.get(i2);
-                    us5Var.b = threadData2;
+                    ws5Var.b = threadData2;
                     if (threadData2.getAuthor() != null) {
-                        TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", us5Var.b.getAuthor().getUserId()));
+                        TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", ws5Var.b.getAuthor().getUserId()));
                     }
                 }
-                linkedList.add(us5Var);
+                linkedList.add(ws5Var);
             }
             return linkedList;
         }
@@ -231,13 +231,13 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
                 this.l.addAll(this.j);
                 this.d = true;
             } else {
-                this.l.add(new gs5());
+                this.l.add(new is5());
                 this.d = false;
             }
             if (ListUtils.getCount(this.k) <= 0 || this.f) {
                 return;
             }
-            this.l.add(new hs5());
+            this.l.add(new js5());
             for (int i = 0; i < 3 && i < ListUtils.getCount(this.k); i++) {
                 if (this.k.get(i) != null) {
                     this.l.add(this.k.get(i));

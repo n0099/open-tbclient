@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.n47;
+import com.repackage.br4;
+import com.repackage.q47;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetSugTopic.DataRes;
@@ -19,10 +19,10 @@ import tbclient.GetSugTopic.GetSugTopicResIdl;
 public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n47 mBangTopic;
-    public n47 mSugTopic;
-    public n47 mUserHisTopic;
-    public n47 mVideoTopic;
+    public q47 mBangTopic;
+    public q47 mSugTopic;
+    public q47 mUserHisTopic;
+    public q47 mVideoTopic;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotSelectHttpResponseMessage(int i) {
@@ -44,34 +44,34 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public n47 getBangTopic() {
+    public q47 getBangTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mBangTopic : (n47) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mBangTopic : (q47) invokeV.objValue;
     }
 
-    public n47 getSugTopic() {
+    public q47 getSugTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSugTopic : (n47) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mSugTopic : (q47) invokeV.objValue;
     }
 
-    public n47 getUserHisTopic() {
+    public q47 getUserHisTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mUserHisTopic : (n47) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mUserHisTopic : (q47) invokeV.objValue;
     }
 
-    public n47 getVideoTopic() {
+    public q47 getVideoTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mVideoTopic : (n47) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mVideoTopic : (q47) invokeV.objValue;
     }
 
-    public void setVideoTopic(n47 n47Var) {
+    public void setVideoTopic(q47 q47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, n47Var) == null) {
-            this.mVideoTopic = n47Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, q47Var) == null) {
+            this.mVideoTopic = q47Var;
         }
     }
 
@@ -84,8 +84,8 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
             if (bArr == null || bArr.length <= 0 || getError() != 0) {
                 return;
             }
-            cr4.f();
-            cr4.e("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
+            br4.f();
+            br4.e("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
         }
     }
 
@@ -107,26 +107,26 @@ public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         if (dataRes.user_his_topic != null) {
-            n47 n47Var = new n47();
-            n47Var.d(getSugTopicResIdl.data.user_his_topic);
-            n47Var.f(0);
-            this.mUserHisTopic = n47Var;
+            q47 q47Var = new q47();
+            q47Var.d(getSugTopicResIdl.data.user_his_topic);
+            q47Var.f(0);
+            this.mUserHisTopic = q47Var;
         }
         if (getSugTopicResIdl.data.bang_topic != null) {
-            n47 n47Var2 = new n47();
-            n47Var2.f(1);
-            n47Var2.d(getSugTopicResIdl.data.bang_topic);
-            this.mBangTopic = n47Var2;
+            q47 q47Var2 = new q47();
+            q47Var2.f(1);
+            q47Var2.d(getSugTopicResIdl.data.bang_topic);
+            this.mBangTopic = q47Var2;
         }
         if (getSugTopicResIdl.data.sug_topic != null) {
-            n47 n47Var3 = new n47();
-            n47Var3.d(getSugTopicResIdl.data.sug_topic);
-            this.mSugTopic = n47Var3;
+            q47 q47Var3 = new q47();
+            q47Var3.d(getSugTopicResIdl.data.sug_topic);
+            this.mSugTopic = q47Var3;
         }
         if (getSugTopicResIdl.data.video_topic != null) {
-            n47 n47Var4 = new n47();
-            n47Var4.d(getSugTopicResIdl.data.video_topic);
-            this.mVideoTopic = n47Var4;
+            q47 q47Var4 = new q47();
+            q47Var4.d(getSugTopicResIdl.data.video_topic);
+            this.mVideoTopic = q47Var4;
         }
     }
 }

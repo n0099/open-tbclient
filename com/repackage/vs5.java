@@ -1,106 +1,146 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.ala.data.AlaSquareTabInfo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.ala.livecard.holder.FrsPageAlaInsertRecLiveHolder;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class vs5 extends id6<dj8, FrsPageAlaInsertRecLiveHolder> implements px5 {
+public class vs5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String t;
-    public gt5 u;
+    public TbPageContext a;
+    public ArrayList<AlaSquareTabInfo> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vs5(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TextView b;
+
+        public a(vs5 vs5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vs5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public vs5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.t = "";
+        this.a = tbPageContext;
     }
 
-    @Override // com.repackage.id6, com.repackage.ho
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        m0(i, view2, viewGroup, (dj8) obj, (FrsPageAlaInsertRecLiveHolder) viewHolder);
-        return view2;
-    }
-
-    @Override // com.repackage.px5
-    public void a(String str) {
+    public ArrayList<AlaSquareTabInfo> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.t = str;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+    }
+
+    public void b(ArrayList<AlaSquareTabInfo> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+            this.b = arrayList;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: l0 */
-    public FrsPageAlaInsertRecLiveHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            TbPageContext<?> tbPageContext = this.k;
-            if (tbPageContext == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (ListUtils.isEmpty(this.b)) {
+                return 0;
+            }
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (ListUtils.isEmpty(this.b)) {
                 return null;
             }
-            gt5 gt5Var = new gt5(tbPageContext);
-            this.u = gt5Var;
-            gt5Var.a(this.t);
-            return new FrsPageAlaInsertRecLiveHolder(this.u);
+            return this.b.get(i);
         }
-        return (FrsPageAlaInsertRecLiveHolder) invokeL.objValue;
+        return invokeI.objValue;
     }
 
-    public View m0(int i, View view2, ViewGroup viewGroup, dj8 dj8Var, FrsPageAlaInsertRecLiveHolder frsPageAlaInsertRecLiveHolder) {
-        InterceptResult invokeCommon;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dj8Var, frsPageAlaInsertRecLiveHolder})) == null) {
-            super.S(i, view2, viewGroup, dj8Var, frsPageAlaInsertRecLiveHolder);
-            if (dj8Var != null) {
-                FrsViewData frsViewData = this.j;
-                int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-                List<ThreadData> list = dj8Var.a;
-                if (list != null && list.get(0) != null) {
-                    dj8Var.a.get(0).statFloor = (i + 1) - topThreadSize;
-                }
-                frsPageAlaInsertRecLiveHolder.a.a(this.t);
-                frsPageAlaInsertRecLiveHolder.a.l(dj8Var);
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                aVar = new a(this);
+                view3 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ec, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f09070e);
+                aVar.a = tbImageView;
+                tbImageView.setDrawerType(1);
+                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0801ce);
+                aVar.a.setDefaultBgResource(R.color.transparent);
+                aVar.a.setRadius(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
+                TextView textView = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f092013);
+                aVar.b = textView;
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
+                view3.setTag(aVar);
+            } else {
+                view3 = view2;
+                aVar = (a) view2.getTag();
             }
-            return view2;
+            aVar.a.K(this.b.get(i).iconUrl, 10, false);
+            aVar.b.setText(this.b.get(i).name);
+            return view3;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.repackage.px5
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
+        return (View) invokeILL.objValue;
     }
 }

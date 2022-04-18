@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ey7;
-import com.repackage.ht7;
-import com.repackage.iy7;
+import com.repackage.ly7;
+import com.repackage.ot7;
+import com.repackage.py7;
 /* loaded from: classes3.dex */
-public class SubPbReplyAdapter extends ey7<iy7, SubPbReplyViewHolder> {
+public class SubPbReplyAdapter extends ly7<py7, SubPbReplyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean k;
@@ -51,8 +51,8 @@ public class SubPbReplyAdapter extends ey7<iy7, SubPbReplyViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909e8);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0909e9);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0909e9);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0909ea);
         }
 
         public void d() {
@@ -78,19 +78,19 @@ public class SubPbReplyAdapter extends ey7<iy7, SubPbReplyViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SubPbReplyAdapter(ht7 ht7Var, BdUniqueId bdUniqueId) {
-        super(ht7Var, bdUniqueId);
+    public SubPbReplyAdapter(ot7 ot7Var, BdUniqueId bdUniqueId) {
+        super(ot7Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ht7Var, bdUniqueId};
+            Object[] objArr = {ot7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((ht7) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((ot7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -109,13 +109,13 @@ public class SubPbReplyAdapter extends ey7<iy7, SubPbReplyViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ey7, com.repackage.ho
+    @Override // com.repackage.ly7, com.repackage.ho
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, iy7 iy7Var, SubPbReplyViewHolder subPbReplyViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, py7 py7Var, SubPbReplyViewHolder subPbReplyViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iy7Var, subPbReplyViewHolder})) == null) {
-            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11f4), String.valueOf(iy7Var == null ? 0 : iy7Var.a()));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py7Var, subPbReplyViewHolder})) == null) {
+            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11f3), String.valueOf(py7Var == null ? 0 : py7Var.a()));
             subPbReplyViewHolder.e(this.k);
             ((SubPbReplyViewHolder) this.g).a.setText(format);
             ((SubPbReplyViewHolder) this.g).d();

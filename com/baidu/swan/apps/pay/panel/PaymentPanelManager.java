@@ -26,7 +26,7 @@ import com.repackage.i03;
 import com.repackage.j71;
 import com.repackage.js1;
 import com.repackage.k71;
-import com.repackage.pg4;
+import com.repackage.og4;
 import com.repackage.pz1;
 import com.repackage.qj2;
 import com.repackage.qz2;
@@ -757,7 +757,7 @@ public class PaymentPanelManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            return pg4.d((i03.J().getAppId() + "_" + str).getBytes(), true);
+            return og4.d((i03.J().getAppId() + "_" + str).getBytes(), true);
         }
         return (String) invokeL.objValue;
     }

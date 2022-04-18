@@ -46,7 +46,7 @@ public class mh3 extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (i == 0) {
-                    this.a.j();
+                    this.a.k();
                     return;
                 }
                 this.a.mResult.putString("errorMsg", "login failed");
@@ -87,7 +87,7 @@ public class mh3 extends ActivityDelegation {
                     this.a.mResult.putString("errorMsg", "addressId == null");
                     this.a.finish();
                 }
-                this.a.k(str);
+                this.a.l(str);
             }
         }
 
@@ -186,23 +186,23 @@ public class mh3 extends ActivityDelegation {
         }
     }
 
-    public static String i() {
+    public static String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? String.format("%s/ma/address/detail", "https://mbd.baidu.com") : (String) invokeV.objValue;
     }
 
-    public final void j() {
+    public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             jg3.d(getAgent(), new b(this));
         }
     }
 
-    public final void k(String str) {
+    public final void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            m74.g().getRequest().url(fx1.v(i())).addUrlParam(AddressField.KEY_ADDR_ID, str).cookieManager(qj2.q().a()).build().executeAsync(new c(this));
+            l74.g().getRequest().url(fx1.v(j())).addUrlParam(AddressField.KEY_ADDR_ID, str).cookieManager(qj2.q().a()).build().executeAsync(new c(this));
         }
     }
 
@@ -215,7 +215,7 @@ public class mh3 extends ActivityDelegation {
                 jg3.L(getAgent(), null, new a(this));
                 return false;
             }
-            j();
+            k();
             return false;
         }
         return invokeV.booleanValue;

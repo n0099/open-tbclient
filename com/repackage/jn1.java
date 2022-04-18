@@ -218,11 +218,11 @@ public class jn1 {
                 newBuilder.addQueryParameter("ai_sign", r);
                 newBuilder.addQueryParameter(Constants.API_KEY, N);
                 newBuilder.addQueryParameter("timestamp", String.valueOf(a2));
-                newBuilder.addQueryParameter("host_app", t74.b().c());
-                newBuilder.addQueryParameter("host_app_ver", t74.b().h());
-                newBuilder.addQueryParameter("sdk_ver", t74.b().b());
-                newBuilder.addQueryParameter("host_os", kg4.f());
-                newBuilder.addQueryParameter("host_os_ver", kg4.g());
+                newBuilder.addQueryParameter("host_app", s74.b().c());
+                newBuilder.addQueryParameter("host_app_ver", s74.b().h());
+                newBuilder.addQueryParameter("sdk_ver", s74.b().b());
+                newBuilder.addQueryParameter("host_os", jg4.f());
+                newBuilder.addQueryParameter("host_os_ver", jg4.g());
                 Request.Builder post = new Request.Builder().url(newBuilder.build()).post(type.build());
                 String d = qj2.h0().d(AppRuntime.getAppContext());
                 String str = "BDUSS=" + d;
@@ -448,11 +448,11 @@ public class jn1 {
     public static void p(String str, RequestBody requestBody, ResponseCallback responseCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65552, null, str, requestBody, responseCallback) == null) {
-            l74 l74Var = new l74(str, requestBody, responseCallback);
-            l74Var.f = true;
-            l74Var.g = true;
-            l74Var.h = true;
-            m74.g().e(l74Var);
+            k74 k74Var = new k74(str, requestBody, responseCallback);
+            k74Var.f = true;
+            k74Var.g = true;
+            k74Var.h = true;
+            l74.g().e(k74Var);
         }
     }
 
@@ -487,9 +487,9 @@ public class jn1 {
                 if (sb2.endsWith("&")) {
                     sb2 = sb2.substring(0, sb2.length() - 1);
                 }
-                String d = pg4.d(sb2.getBytes(), false);
-                byte[] copyOf = Arrays.copyOf(Base64.decode(pg4.d(str.getBytes(), false), 0), 24);
-                byte[] copyOf2 = Arrays.copyOf(Base64.decode(pg4.d(String.format("%s%d", str2, Long.valueOf(j)).getBytes(), false).getBytes(), 0), 16);
+                String d = og4.d(sb2.getBytes(), false);
+                byte[] copyOf = Arrays.copyOf(Base64.decode(og4.d(str.getBytes(), false), 0), 24);
+                byte[] copyOf2 = Arrays.copyOf(Base64.decode(og4.d(String.format("%s%d", str2, Long.valueOf(j)).getBytes(), false).getBytes(), 0), 16);
                 Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
                 cipher.init(1, new SecretKeySpec(copyOf, "AES"), new IvParameterSpec(copyOf2));
                 String str4 = new String(Base64.encode(cipher.doFinal(d.getBytes()), 0), StandardCharsets.UTF_8);

@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mi;
-import com.repackage.pe8;
-import com.repackage.wt4;
+import com.repackage.vt4;
+import com.repackage.we8;
 /* loaded from: classes4.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pe8 privacyMarkView;
+    public we8 privacyMarkView;
     public HttpMessageListener setPrivateHttpListener;
 
     /* loaded from: classes4.dex */
@@ -64,7 +64,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                 int type = privacySettingMessage.getType();
                 if (httpResponsedMessage.getError() == 0 && !httpResponsedMessage.hasError()) {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    wt4 k = wt4.k();
+                    vt4 k = vt4.k();
                     k.w(operation + currentAccount, type);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921499, null));
                     return;
@@ -75,9 +75,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     this.a.privacyMarkView.n();
                 }
                 if (httpResponsedMessage.getError() != -1 && mi.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0ec7);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0ec6);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c17);
                 }
             }
         }
@@ -121,9 +121,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            pe8 pe8Var = new pe8(getPageContext(), (intExtra << 2) | intExtra2);
-            this.privacyMarkView = pe8Var;
-            setContentView(pe8Var.j());
+            we8 we8Var = new we8(getPageContext(), (intExtra << 2) | intExtra2);
+            this.privacyMarkView = we8Var;
+            setContentView(we8Var.j());
             registerListener(this.setPrivateHttpListener);
         }
     }

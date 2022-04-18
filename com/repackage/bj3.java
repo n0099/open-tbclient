@@ -49,7 +49,7 @@ public class bj3 extends ActivityDelegation {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 if (i == 0) {
-                    this.a.l();
+                    this.a.m();
                     return;
                 }
                 this.a.mResult.putString("errorMsg", "login failed");
@@ -90,7 +90,7 @@ public class bj3 extends ActivityDelegation {
                     this.a.mResult.putString("errorMsg", "invoiceId == null or invoiceType == null");
                     this.a.finish();
                 }
-                this.a.j(str, str2);
+                this.a.k(str, str2);
             }
         }
 
@@ -194,24 +194,24 @@ public class bj3 extends ActivityDelegation {
         }
     }
 
-    public static String k() {
+    public static String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? String.format("%s/ma/invoice/detail", "https://mbd.baidu.com") : (String) invokeV.objValue;
     }
 
-    public final void j(String str, String str2) {
+    public final void k(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             if (!SwanAppNetworkUtils.i(getAgent())) {
                 b03.f(getAgent(), R.string.obfuscated_res_0x7f0f0958);
             } else {
-                m74.h(AppRuntime.getAppContext()).getRequest().url(fx1.v(k())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(qj2.q().a()).build().executeAsync(new c(this));
+                l74.h(AppRuntime.getAppContext()).getRequest().url(fx1.v(l())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(qj2.q().a()).build().executeAsync(new c(this));
             }
         }
     }
 
-    public final void l() {
+    public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             jg3.f(getAgent(), new b(this));
@@ -227,7 +227,7 @@ public class bj3 extends ActivityDelegation {
                 jg3.L(getAgent(), null, new a(this));
                 return false;
             }
-            l();
+            m();
             return false;
         }
         return invokeV.booleanValue;

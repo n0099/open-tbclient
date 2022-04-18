@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.forumMember.member.PrivateMgrApplyViewHolder;
+import com.baidu.tieba.forumMember.member.ManagerApplyViewHolder;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,17 +24,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qb6 extends id6<rb6, PrivateMgrApplyViewHolder> {
+/* loaded from: classes7.dex */
+public class qb6 extends kd6<rb6, ManagerApplyViewHolder> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: v */
-    public static final int obfuscated = 2131302638;
+    public static final int obfuscated = 2131296951;
     public transient /* synthetic */ FieldHolder $fh;
-    public xy4 t;
+    public wy4 t;
     public View.OnClickListener u;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,15 +62,12 @@ public class qb6 extends id6<rb6, PrivateMgrApplyViewHolder> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    Object tag = view2.getTag(qb6.obfuscated);
-                    if (tag == null || tag.toString().equals("")) {
-                        return;
-                    }
+                Object tag = view2.getTag(qb6.obfuscated);
+                if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
+                    this.a.q0(TbadkCoreApplication.getCurrentAccountInfo());
+                } else {
                     UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(this.a.a), new String[]{tag.toString()});
-                    return;
                 }
-                this.a.q0(TbadkCoreApplication.getCurrentAccountInfo());
             }
         }
     }
@@ -112,89 +109,59 @@ public class qb6 extends id6<rb6, PrivateMgrApplyViewHolder> {
         this.u = new a(this);
     }
 
-    @Override // com.repackage.id6, com.repackage.ho
+    @Override // com.repackage.kd6, com.repackage.ho
     public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        p0(i, view2, viewGroup, (rb6) obj, (PrivateMgrApplyViewHolder) viewHolder);
+        p0(i, view2, viewGroup, (rb6) obj, (ManagerApplyViewHolder) viewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: o0 */
-    public PrivateMgrApplyViewHolder M(ViewGroup viewGroup) {
+    public ManagerApplyViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PrivateMgrApplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0701, (ViewGroup) null)) : (PrivateMgrApplyViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new ManagerApplyViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d033e, (ViewGroup) null)) : (ManagerApplyViewHolder) invokeL.objValue;
     }
 
     public void onDestroy() {
-        xy4 xy4Var;
+        wy4 wy4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (xy4Var = this.t) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (wy4Var = this.t) == null) {
             return;
         }
-        xy4Var.s();
+        wy4Var.s();
     }
 
-    public View p0(int i, View view2, ViewGroup viewGroup, rb6 rb6Var, PrivateMgrApplyViewHolder privateMgrApplyViewHolder) {
+    public View p0(int i, View view2, ViewGroup viewGroup, rb6 rb6Var, ManagerApplyViewHolder managerApplyViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rb6Var, privateMgrApplyViewHolder})) == null) {
-            super.S(i, view2, viewGroup, rb6Var, privateMgrApplyViewHolder);
-            if (rb6Var != null && !rb6Var.f() && privateMgrApplyViewHolder != null) {
-                if (rb6Var.f()) {
-                    privateMgrApplyViewHolder.e.setVisibility(8);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rb6Var, managerApplyViewHolder})) == null) {
+            super.S(i, view2, viewGroup, rb6Var, managerApplyViewHolder);
+            if (rb6Var != null && !rb6Var.e() && managerApplyViewHolder != null) {
+                if (rb6Var.e()) {
+                    managerApplyViewHolder.d.setVisibility(8);
                     return view2;
                 }
-                boolean z = true;
-                if (privateMgrApplyViewHolder.f != this.n) {
-                    SkinManager.setBackgroundColor(privateMgrApplyViewHolder.d, R.color.CAM_X0204);
-                    SkinManager.setViewTextColor(privateMgrApplyViewHolder.b, R.color.CAM_X0109, 1);
-                    SkinManager.setViewTextColor(privateMgrApplyViewHolder.a, R.color.CAM_X0105, 1);
-                    SkinManager.setBackgroundResource(privateMgrApplyViewHolder.c, R.drawable.frs_member_manito_bg);
+                if (managerApplyViewHolder.e != this.n) {
+                    SkinManager.setViewTextColor(managerApplyViewHolder.b, R.color.CAM_X0109, 1);
+                    SkinManager.setViewTextColor(managerApplyViewHolder.a, R.color.CAM_X0105, 1);
+                    SkinManager.setBackgroundResource(managerApplyViewHolder.c, R.drawable.frs_member_manito_bg);
                 }
-                int a2 = rb6Var.a();
-                String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f137a);
-                if (a2 == -1) {
-                    int e = rb6Var.e();
-                    String numberUniformFormat = StringHelper.numberUniformFormat(e);
-                    if (e > 0) {
-                        string = String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1374), numberUniformFormat);
-                        privateMgrApplyViewHolder.c.setOnClickListener(this.u);
-                        privateMgrApplyViewHolder.b.setText(string);
-                        privateMgrApplyViewHolder.c.setTag(obfuscated, rb6Var.b());
-                        privateMgrApplyViewHolder.c.setEnabled(z);
-                        privateMgrApplyViewHolder.c.setClickable(z);
-                        privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                        privateMgrApplyViewHolder.f = this.n;
-                    }
-                    z = false;
-                    privateMgrApplyViewHolder.c.setOnClickListener(this.u);
-                    privateMgrApplyViewHolder.b.setText(string);
-                    privateMgrApplyViewHolder.c.setTag(obfuscated, rb6Var.b());
-                    privateMgrApplyViewHolder.c.setEnabled(z);
-                    privateMgrApplyViewHolder.c.setClickable(z);
-                    privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                    privateMgrApplyViewHolder.f = this.n;
+                int b = rb6Var.b();
+                if (b > 0) {
+                    managerApplyViewHolder.b.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0294), StringHelper.numberUniformFormat(b)));
+                    managerApplyViewHolder.c.setTag(obfuscated, rb6Var.a());
+                    managerApplyViewHolder.c.setOnClickListener(this.u);
+                    managerApplyViewHolder.c.setEnabled(true);
+                    managerApplyViewHolder.c.setClickable(true);
                 } else {
-                    if (a2 == 0) {
-                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1378);
-                    } else if (a2 == 1) {
-                        string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1376);
-                    } else {
-                        if (a2 == 2) {
-                            string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1375);
-                        }
-                        z = false;
-                    }
-                    privateMgrApplyViewHolder.c.setOnClickListener(this.u);
-                    privateMgrApplyViewHolder.b.setText(string);
-                    privateMgrApplyViewHolder.c.setTag(obfuscated, rb6Var.b());
-                    privateMgrApplyViewHolder.c.setEnabled(z);
-                    privateMgrApplyViewHolder.c.setClickable(z);
-                    privateMgrApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                    privateMgrApplyViewHolder.f = this.n;
+                    managerApplyViewHolder.b.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0296));
+                    managerApplyViewHolder.c.setEnabled(false);
+                    managerApplyViewHolder.c.setClickable(false);
                 }
+                managerApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                managerApplyViewHolder.e = this.n;
             }
             return view2;
         }
@@ -207,7 +174,7 @@ public class qb6 extends id6<rb6, PrivateMgrApplyViewHolder> {
             b9<?> a2 = f9.a(this.a);
             Activity pageActivity = a2 instanceof TbPageContext ? ((TbPageContext) a2).getPageActivity() : null;
             if (this.t == null) {
-                this.t = new xy4(pageActivity);
+                this.t = new wy4(pageActivity);
             }
             this.t.p();
             this.t.u(accountData);

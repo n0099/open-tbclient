@@ -30,21 +30,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.du4;
+import com.repackage.aa7;
+import com.repackage.cu4;
 import com.repackage.i65;
 import com.repackage.oi;
 import com.repackage.r65;
 import com.repackage.s65;
 import com.repackage.v65;
-import com.repackage.x97;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements du4.g, r65 {
+public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements cu4.g, r65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtMeModelController atMeModelController;
-    public x97 atMeViewController;
+    public aa7 atMeViewController;
     public CustomMessageListener mMessageFromNotifyCenterListener;
     public ViewEventCenter viewEventController;
 
@@ -196,12 +196,12 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     }
 
     public void hideNetRefreshView() {
-        x97 x97Var;
+        aa7 aa7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (x97Var = this.atMeViewController) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (aa7Var = this.atMeViewController) == null) {
             return;
         }
-        BdListView bdListView = x97Var.b;
+        BdListView bdListView = aa7Var.b;
         if (bdListView != null) {
             bdListView.setVisibility(0);
         }
@@ -242,7 +242,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             this.atMeModelController = new AtMeModelController(this);
             registerListener(this.mMessageFromNotifyCenterListener);
             this.atMeModelController.setUniqueId(getUniqueId());
-            this.atMeViewController = new x97(this);
+            this.atMeViewController = new aa7(this);
             if (bundle != null) {
                 this.atMeModelController.B(bundle);
             } else {
@@ -298,7 +298,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.du4.g
+    @Override // com.repackage.cu4.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
@@ -331,7 +331,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (bdListView != null) {
             bdListView.setVisibility(8);
         }
-        showNetRefreshView(this.atMeViewController.c, getString(R.string.obfuscated_res_0x7f0f0f6a), null, getString(R.string.obfuscated_res_0x7f0f0f69), true, getNetRefreshListener());
+        showNetRefreshView(this.atMeViewController.c, getString(R.string.obfuscated_res_0x7f0f0f69), null, getString(R.string.obfuscated_res_0x7f0f0f68), true, getNetRefreshListener());
         setNetRefreshViewEmotionMarginTop(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds530));
     }
 

@@ -7,10 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.MalformedURLException;
+import com.repackage.yw3;
+import java.io.File;
 @Service
 /* loaded from: classes6.dex */
-public class mx3 implements qh1 {
+public class mx3 implements rh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,35 +29,24 @@ public class mx3 implements qh1 {
         }
     }
 
-    @Override // com.repackage.qh1
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.rh1
+    public File a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? eu3.g() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? yw3.d.h(str, str2) : (File) invokeLL.objValue;
     }
 
-    @Override // com.repackage.qh1
-    public boolean b() {
+    @Override // com.repackage.rh1
+    public File b() {
         InterceptResult invokeV;
-        pz1 m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (j03.L() == null || !j03.L().v0()) {
-                return false;
-            }
-            sz1 V = wl2.U().V();
-            if (V == null || (m = V.m()) == null || !(m instanceof fw3)) {
-                return true;
-            }
-            return ((fw3) m).C3();
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? yw3.d() : (File) invokeV.objValue;
     }
 
-    @Override // com.repackage.qh1
-    public String c(String str) throws MalformedURLException {
-        InterceptResult invokeL;
+    @Override // com.repackage.rh1
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? eu3.d(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? yw3.d.g().getPath() : (String) invokeV.objValue;
     }
 }

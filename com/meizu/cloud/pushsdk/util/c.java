@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.util;
 
 import android.text.TextUtils;
 import com.baidu.android.common.security.RSAUtil;
-import com.repackage.rm9;
+import com.repackage.ym9;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.security.KeyFactory;
@@ -24,7 +24,7 @@ public class c {
                 }
                 return new String(a(a(str), b(str2)), a);
             } catch (Exception e) {
-                rm9.b("RSAUtils", "decrypt " + e.getMessage());
+                ym9.b("RSAUtils", "decrypt " + e.getMessage());
                 return null;
             }
         }
@@ -41,21 +41,21 @@ public class c {
             sb.append("loadPublicKey IOException ");
             message = e.getMessage();
             sb.append(message);
-            rm9.b("RSAUtils", sb.toString());
+            ym9.b("RSAUtils", sb.toString());
             return null;
         } catch (NoSuchAlgorithmException e2) {
             sb = new StringBuilder();
             sb.append("loadPublicKey NoSuchAlgorithmException ");
             message = e2.getMessage();
             sb.append(message);
-            rm9.b("RSAUtils", sb.toString());
+            ym9.b("RSAUtils", sb.toString());
             return null;
         } catch (InvalidKeySpecException e3) {
             sb = new StringBuilder();
             sb.append("loadPublicKey InvalidKeySpecException ");
             message = e3.getMessage();
             sb.append(message);
-            rm9.b("RSAUtils", sb.toString());
+            ym9.b("RSAUtils", sb.toString());
             return null;
         }
     }

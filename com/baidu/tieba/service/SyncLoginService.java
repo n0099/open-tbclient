@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitFactory;
+import com.repackage.bn4;
 import com.repackage.ci;
-import com.repackage.cn4;
 import com.repackage.ki5;
 import com.repackage.oi;
-import com.repackage.ol7;
-import com.repackage.zx4;
+import com.repackage.rl7;
+import com.repackage.yx4;
 /* loaded from: classes4.dex */
 public class SyncLoginService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
@@ -157,7 +157,7 @@ public class SyncLoginService extends BdBaseService {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<String, Integer, ol7> {
+    public class b extends BdAsyncTask<String, Integer, rl7> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -185,13 +185,13 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public ol7 doInBackground(String... strArr) {
+        public rl7 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, strArr)) != null) {
-                return (ol7) invokeL.objValue;
+                return (rl7) invokeL.objValue;
             }
-            ol7 ol7Var = null;
+            rl7 rl7Var = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/switch");
                 this.a = netWork;
@@ -205,7 +205,7 @@ public class SyncLoginService extends BdBaseService {
                 this.a.addPostData("scr_h", String.valueOf(oi.i(TbadkCoreApplication.getInst().getApp())));
                 this.a.addPostData("scr_dip", String.valueOf(oi.h(TbadkCoreApplication.getInst().getApp())));
                 String str = "0";
-                if (zx4.d().e() > 0) {
+                if (yx4.d().e() > 0) {
                     this.a.addPostData("_msg_status", "0");
                 } else {
                     this.a.addPostData("_msg_status", "1");
@@ -217,7 +217,7 @@ public class SyncLoginService extends BdBaseService {
                     }
                     this.a.addPostData("_active", str);
                 }
-                this.a.addPostData("_pic_quality", String.valueOf(cn4.c().e()));
+                this.a.addPostData("_pic_quality", String.valueOf(bn4.c().e()));
                 if (SyncLoginService.mStatistics != null) {
                     this.a.addPostData("_msg_type", SyncLoginService.mStatistics);
                 }
@@ -239,16 +239,16 @@ public class SyncLoginService extends BdBaseService {
                 netWork4.addPostData("support_abi", str2);
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    ol7 ol7Var2 = new ol7();
+                    rl7 rl7Var2 = new rl7();
                     try {
-                        ol7Var2.a(postNetData);
+                        rl7Var2.a(postNetData);
                         String unused = SyncLoginService.mStatistics = null;
-                        return ol7Var2;
+                        return rl7Var2;
                     } catch (Exception e) {
                         e = e;
-                        ol7Var = ol7Var2;
+                        rl7Var = rl7Var2;
                         BdLog.e(e.getMessage());
-                        return ol7Var;
+                        return rl7Var;
                     }
                 }
                 return null;
@@ -260,10 +260,10 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(ol7 ol7Var) {
+        public void onPostExecute(rl7 rl7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ol7Var) == null) {
-                super.onPostExecute(ol7Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rl7Var) == null) {
+                super.onPostExecute(rl7Var);
                 this.b.mSyncTask = null;
             }
         }

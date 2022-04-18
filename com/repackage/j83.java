@@ -83,7 +83,7 @@ public abstract class j83 implements n83 {
                     if (!file.exists()) {
                         file.createNewFile();
                     }
-                    ng4.O(String.valueOf(e() + j).getBytes(), file);
+                    mg4.O(String.valueOf(e() + j).getBytes(), file);
                 } catch (Exception e) {
                     if (tg1.a) {
                         e.printStackTrace();
@@ -116,7 +116,7 @@ public abstract class j83 implements n83 {
             }
             File file = this.a;
             if (file.exists() && file.isFile()) {
-                String E = ng4.E(file);
+                String E = mg4.E(file);
                 try {
                     if (!TextUtils.isEmpty(E) && TextUtils.isDigitsOnly(E.trim())) {
                         return Long.parseLong(E.trim());

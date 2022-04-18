@@ -45,10 +45,10 @@ public class x25 implements y25 {
         }
         View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d029e, (ViewGroup) null);
         this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909e0);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909e2);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909de);
-        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909e1);
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909e1);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909e3);
+        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909df);
+        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909e2);
         this.d.setText(R.string.obfuscated_res_0x7f0f06c9);
         b();
     }
@@ -62,7 +62,7 @@ public class x25 implements y25 {
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
         this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right_n, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
         TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0302).setShape(0).setAlpha(com.kuaishou.weapon.un.w0.A).tlRadius(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
-        this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080803, WebPManager.ResourceStateType.NORMAL));
+        this.b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080802, WebPManager.ResourceStateType.NORMAL));
     }
 
     @Override // com.repackage.y25

@@ -29,17 +29,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.gz5;
-import com.repackage.l29;
-import com.repackage.m29;
-import com.repackage.ns8;
+import com.repackage.iz5;
+import com.repackage.s29;
+import com.repackage.t29;
+import com.repackage.us8;
 import java.util.Arrays;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
 @Metadata(d1 = {"\u0000t\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u000f\u0018\u00002\u00020\u00012\u00020\u0002B\u0011\b\u0016\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004¢\u0006\u0002\u0010\u0005B\u001b\b\u0016\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bB#\b\u0016\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007\u0012\u0006\u0010\t\u001a\u00020\n¢\u0006\u0002\u0010\u000bJ\u0006\u00101\u001a\u000202J\u0006\u00103\u001a\u000204J\u0006\u00105\u001a\u000202J\b\u00106\u001a\u000202H\u0016J\u0006\u00107\u001a\u000202J\b\u00108\u001a\u000202H\u0016J\b\u00109\u001a\u000202H\u0016J\u0006\u0010:\u001a\u000202J\u0006\u0010;\u001a\u000202J\u0012\u0010<\u001a\u0002022\n\u0010=\u001a\u0006\u0012\u0002\b\u00030 J\u0016\u0010>\u001a\u0002022\u0006\u0010/\u001a\u0002002\u0006\u0010?\u001a\u000204J\u0018\u0010@\u001a\u0002022\u0006\u0010A\u001a\u00020\n2\u0006\u0010B\u001a\u00020\nH\u0002R\u0014\u0010\f\u001a\u00020\nX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR\u0014\u0010\u000f\u001a\u00020\nX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u000eR\u0014\u0010\u0011\u001a\u00020\nX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0012\u0010\u000eR\u0014\u0010\u0013\u001a\u00020\nX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0014\u0010\u000eR\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0017\u001a\u0004\u0018\u00010\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001eR\u0012\u0010\u001f\u001a\u0006\u0012\u0002\b\u00030 X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\"X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020$X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020$X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010&\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020\u0001X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020$X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020*X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020,X\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010-\u001a\u0004\u0018\u00010.X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010/\u001a\u0004\u0018\u000100X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006C"}, d2 = {"Lcom/baidu/tieba/write/write/work/videoview/WorkPublishMixVideoView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/write/write/work/interf/IWriteVideoPreviewListener;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "STATE_FAILED", "getSTATE_FAILED", "()I", "STATE_MIXING", "getSTATE_MIXING", "STATE_NONE", "getSTATE_NONE", "STATE_SUCCESS", "getSTATE_SUCCESS", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/tieba/video/EditVideoTaskDataAndCallback;", "editData", "Lcom/baidu/tieba/video/EditVideoData;", "iWorkVideoMixListener", "Lcom/baidu/tieba/write/write/work/interf/IWorkVideoMixListener;", "getIWorkVideoMixListener", "()Lcom/baidu/tieba/write/write/work/interf/IWorkVideoMixListener;", "setIWorkVideoMixListener", "(Lcom/baidu/tieba/write/write/work/interf/IWorkVideoMixListener;)V", "mContext", "Lcom/baidu/tbadk/TbPageContext;", "mRootView", "Landroid/view/View;", "mixPercentText", "Landroid/widget/TextView;", "mixRetryText", "mixState", "mixStateLayout", "mixStateText", "muxerProgressUpdateListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "publishVideoView", "Lcom/baidu/tieba/write/write/work/videoview/WorkPublishVideoView;", "saveEditVideoController", "Lcom/baidu/tieba/controller/ISaveEditVideoController;", TbPreviewVideoActivityConfig.KEY_VIDEO_INFO, "Lcom/baidu/tbadk/coreExtra/data/VideoInfo;", "initView", "", "isVisible", "", "onChangeSkin", "onCoverEditClick", MissionEvent.MESSAGE_DESTROY, "onEditClick", "onPlayClick", "onStart", MissionEvent.MESSAGE_STOP, "setPageContext", "tbPageContext", "setVideoInfo", "isDraft", "updateStateTexts", "state", "percent", "write_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes4.dex */
-public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
+public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -54,11 +54,11 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
     public TextView j;
     public TextView k;
     public TextView l;
-    public ns8 m;
-    public gz5 n;
+    public us8 m;
+    public iz5 n;
     public VideoInfo o;
     public EditVideoData p;
-    public l29 q;
+    public s29 q;
     public final CustomMessageListener r;
 
     /* loaded from: classes4.dex */
@@ -138,7 +138,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
         e();
     }
 
-    @Override // com.repackage.m29
+    @Override // com.repackage.t29
     public void a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e == this.b) {
@@ -173,7 +173,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
         }
     }
 
-    @Override // com.repackage.m29
+    @Override // com.repackage.t29
     public void b() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.e == this.b || this.o == null) {
@@ -187,7 +187,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbPreviewVideoActivityConfig(tbPageContext.getPageActivity(), this.o)));
     }
 
-    @Override // com.repackage.m29
+    @Override // com.repackage.t29
     public void c() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.e == this.b) {
@@ -232,7 +232,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 inflate = null;
             }
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09248a);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09248b);
             Intrinsics.checkNotNullExpressionValue(findViewById, "mRootView.findViewById(R.id.write_video_preview)");
             WorkPublishVideoView workPublishVideoView = (WorkPublishVideoView) findViewById;
             this.h = workPublishVideoView;
@@ -246,7 +246,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view3 = null;
             }
-            View findViewById2 = view3.findViewById(R.id.obfuscated_res_0x7f092488);
+            View findViewById2 = view3.findViewById(R.id.obfuscated_res_0x7f092489);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "mRootView.findViewById(R…e_video_mix_state_layout)");
             this.i = (LinearLayout) findViewById2;
             View view4 = this.f;
@@ -254,7 +254,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view4 = null;
             }
-            View findViewById3 = view4.findViewById(R.id.obfuscated_res_0x7f09248c);
+            View findViewById3 = view4.findViewById(R.id.obfuscated_res_0x7f09248d);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "mRootView.findViewById(R…d.write_video_state_text)");
             this.j = (TextView) findViewById3;
             View view5 = this.f;
@@ -262,7 +262,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view5 = null;
             }
-            View findViewById4 = view5.findViewById(R.id.obfuscated_res_0x7f092489);
+            View findViewById4 = view5.findViewById(R.id.obfuscated_res_0x7f09248a);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "mRootView.findViewById(R.id.write_video_percent)");
             this.k = (TextView) findViewById4;
             View view6 = this.f;
@@ -271,7 +271,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
             } else {
                 view2 = view6;
             }
-            View findViewById5 = view2.findViewById(R.id.obfuscated_res_0x7f09248b);
+            View findViewById5 = view2.findViewById(R.id.obfuscated_res_0x7f09248c);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "mRootView.findViewById(R.id.write_video_retry)");
             this.l = (TextView) findViewById5;
             f();
@@ -313,24 +313,24 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ns8 ns8Var = this.m;
-            if (ns8Var != null) {
-                Intrinsics.checkNotNull(ns8Var);
-                ns8Var.i(true);
+            us8 us8Var = this.m;
+            if (us8Var != null) {
+                Intrinsics.checkNotNull(us8Var);
+                us8Var.i(true);
             }
-            gz5 gz5Var = this.n;
-            if (gz5Var != null) {
-                Intrinsics.checkNotNull(gz5Var);
-                gz5Var.cancel();
+            iz5 iz5Var = this.n;
+            if (iz5Var != null) {
+                Intrinsics.checkNotNull(iz5Var);
+                iz5Var.cancel();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921585));
         }
     }
 
-    public final l29 getIWorkVideoMixListener() {
+    public final s29 getIWorkVideoMixListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.q : (l29) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.q : (s29) invokeV.objValue;
     }
 
     public final int getSTATE_FAILED() {
@@ -372,7 +372,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
                 Intrinsics.throwUninitializedPropertyAccessException("mContext");
                 tbPageContext = null;
             }
-            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f14dd);
+            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f14dc);
             Intrinsics.checkNotNullExpressionValue(string, "mContext.getString(R.string.video_mix_percent)");
             String format = String.format(string, Arrays.copyOf(new Object[]{Integer.valueOf(i2)}, 1));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
@@ -396,7 +396,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext2 = null;
                     }
-                    textView3.setText(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f14e0));
+                    textView3.setText(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f14df));
                     TextView textView4 = this.k;
                     if (textView4 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");
@@ -420,7 +420,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext3 = null;
                     }
-                    textView6.setText(tbPageContext3.getString(R.string.obfuscated_res_0x7f0f14dc));
+                    textView6.setText(tbPageContext3.getString(R.string.obfuscated_res_0x7f0f14db));
                     TextView textView7 = this.k;
                     if (textView7 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");
@@ -444,7 +444,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext4 = null;
                     }
-                    textView9.setText(tbPageContext4.getString(R.string.obfuscated_res_0x7f0f14df));
+                    textView9.setText(tbPageContext4.getString(R.string.obfuscated_res_0x7f0f14de));
                     TextView textView10 = this.k;
                     if (textView10 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");
@@ -458,9 +458,9 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
                     }
                     textView11.setVisibility(8);
                 }
-                l29 l29Var = this.q;
-                if (l29Var != null) {
-                    l29Var.onMixStateChanged(this.e);
+                s29 s29Var = this.q;
+                if (s29Var != null) {
+                    s29Var.onMixStateChanged(this.e);
                 }
             }
             WorkPublishVideoView workPublishVideoView2 = this.h;
@@ -473,10 +473,10 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
         }
     }
 
-    public final void setIWorkVideoMixListener(l29 l29Var) {
+    public final void setIWorkVideoMixListener(s29 s29Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, l29Var) == null) {
-            this.q = l29Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, s29Var) == null) {
+            this.q = s29Var;
         }
     }
 
@@ -556,13 +556,13 @@ public final class WorkPublishMixVideoView extends LinearLayout implements m29 {
                 workPublishVideoView = workPublishVideoView6;
             }
             workPublishVideoView.i();
-            ns8 ns8Var = this.m;
-            if (ns8Var != null) {
-                ns8Var.i(true);
+            us8 us8Var = this.m;
+            if (us8Var != null) {
+                us8Var.i(true);
             }
-            gz5 gz5Var = this.n;
-            if (gz5Var != null) {
-                gz5Var.cancel();
+            iz5 iz5Var = this.n;
+            if (iz5Var != null) {
+                iz5Var.cancel();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921585));
         }

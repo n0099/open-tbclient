@@ -1,75 +1,87 @@
 package com.repackage;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ml6 extends at4 {
+public class ml6 extends m45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ml6(ys4 ys4Var) {
-        super(ys4Var);
+    public ml6(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ys4Var};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ys4) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @bt4(isAsync = false, value = "isGameInstall")
-    private JSONObject isGameInstall(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        n45 n45Var = this.a;
+        n45Var.e = i;
+        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) n45Var.a;
+        specialFrsWebFragment.u1(i);
+        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
+            if (str.contains("&ufanS=1")) {
+                str = str + "&_client_version=" + TbConfig.getVersion();
+            } else if (str.contains("?ufanS=1")) {
+                str = str + "&_client_version=" + TbConfig.getVersion();
             }
-            JSONObject jSONObject2 = new JSONObject();
-            String optString = jSONObject.optString("packagename");
-            try {
-                PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(optString, 0);
-                if (packageInfo != null && packageInfo.packageName.equals(optString)) {
-                    jSONObject2.put("isInstall", true);
-                } else {
-                    jSONObject2.put("isInstall", false);
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                try {
-                    jSONObject2.put("isInstall", false);
-                } catch (JSONException unused) {
-                    BdLog.e(e.getMessage());
-                }
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
-            }
-            return jSONObject2;
         }
-        return (JSONObject) invokeL.objValue;
+        specialFrsWebFragment.J0(str);
     }
 
-    @Override // com.repackage.at4
-    public String f() {
+    @Override // com.repackage.m45
+    public n45 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_IS_GAME_INSTALL" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            n45 n45Var = new n45();
+            n45Var.a = new SpecialFrsWebFragment();
+            n45Var.e = 101;
+            n45Var.i = n45.l;
+            return n45Var;
+        }
+        return (n45) invokeV.objValue;
+    }
+
+    @Override // com.repackage.m45
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
+        }
+        return (TbFragmentTabIndicator) invokeL.objValue;
+    }
+
+    @Override // com.repackage.m45
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

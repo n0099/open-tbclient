@@ -51,25 +51,25 @@ public class jk5 {
         return (jk5) invokeV.objValue;
     }
 
-    public final int a(w57 w57Var) {
+    public final int a(z57 z57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, w57Var)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, z57Var)) != null) {
             return invokeL.intValue;
         }
-        SQLiteDatabase c = g67.c();
+        SQLiteDatabase c = j67.c();
         int i = 0;
         if (c == null) {
             return 0;
         }
         try {
-            if (o(c, w57Var.b())) {
+            if (o(c, z57Var.b())) {
                 ContentValues contentValues = new ContentValues();
-                long correctUserIdAfterOverflowCut = UtilHelper.getCorrectUserIdAfterOverflowCut(w57Var.b());
+                long correctUserIdAfterOverflowCut = UtilHelper.getCorrectUserIdAfterOverflowCut(z57Var.b());
                 contentValues.put("uid", Long.valueOf(correctUserIdAfterOverflowCut));
-                int update = h67.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(w57Var.b())});
+                int update = k67.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(z57Var.b())});
                 try {
-                    w57Var.h(correctUserIdAfterOverflowCut);
+                    z57Var.h(correctUserIdAfterOverflowCut);
                     return update;
                 } catch (Exception e) {
                     e = e;
@@ -87,7 +87,7 @@ public class jk5 {
     public boolean b(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? c(g67.c(), j) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? c(j67.c(), j) : invokeJ.booleanValue;
     }
 
     public final boolean c(SQLiteDatabase sQLiteDatabase, long j) {
@@ -95,7 +95,7 @@ public class jk5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, j)) == null) {
             try {
-                return h67.d().delete("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
+                return k67.d().delete("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;
@@ -109,14 +109,14 @@ public class jk5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sQLiteDatabase)) == null) {
             if (sQLiteDatabase == null) {
-                sQLiteDatabase = g67.c();
+                sQLiteDatabase = j67.c();
             }
             if (sQLiteDatabase != null) {
                 Cursor cursor = null;
                 try {
                     try {
                         try {
-                            cursor = h67.d().e("select * from tb_new_friends", new String[0]);
+                            cursor = k67.d().e("select * from tb_new_friends", new String[0]);
                             if (cursor != null && cursor.moveToNext()) {
                                 return cursor.getLong(cursor.getColumnIndex("uid"));
                             }
@@ -136,22 +136,22 @@ public class jk5 {
         return invokeL.longValue;
     }
 
-    public synchronized w57 e(long j) {
+    public synchronized z57 e(long j) {
         InterceptResult invokeJ;
-        w57 w57Var;
+        z57 z57Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
             synchronized (this) {
-                w57Var = new w57();
+                z57Var = new z57();
                 Cursor cursor = null;
                 try {
-                    cursor = h67.d().e("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
+                    cursor = k67.d().e("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
                     if (cursor != null && cursor.moveToNext()) {
-                        w57Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                        w57Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                        w57Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                        w57Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                        w57Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                        z57Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                        z57Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                        z57Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                        z57Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                        z57Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
                     }
                 } catch (SQLiteException e) {
                     e.printStackTrace();
@@ -160,12 +160,12 @@ public class jk5 {
                 }
                 pi.a(cursor);
             }
-            return w57Var;
+            return z57Var;
         }
-        return (w57) invokeJ.objValue;
+        return (z57) invokeJ.objValue;
     }
 
-    public List<w57> g() {
+    public List<z57> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -173,17 +173,17 @@ public class jk5 {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = h67.d().e("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
+                    cursor = k67.d().e("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
-                            w57 w57Var = new w57();
-                            w57Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
-                            w57Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                            w57Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                            w57Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                            w57Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                            w57Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                            arrayList.add(w57Var);
+                            z57 z57Var = new z57();
+                            z57Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
+                            z57Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                            z57Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                            z57Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                            z57Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                            z57Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                            arrayList.add(z57Var);
                         }
                         p();
                     }
@@ -207,7 +207,7 @@ public class jk5 {
             Cursor cursor = null;
             try {
                 try {
-                    cursor = h67.d().e("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
+                    cursor = k67.d().e("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
                     if (cursor != null && cursor.moveToNext()) {
                         return cursor.getInt(0);
                     }
@@ -229,7 +229,7 @@ public class jk5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, sQLiteDatabase)) == null) {
             if (sQLiteDatabase == null) {
-                sQLiteDatabase = g67.c();
+                sQLiteDatabase = j67.c();
             }
             Cursor cursor = null;
             try {
@@ -237,7 +237,7 @@ public class jk5 {
                     return 0;
                 }
                 try {
-                    cursor = h67.d().e("select * from tb_new_friends", new String[0]);
+                    cursor = k67.d().e("select * from tb_new_friends", new String[0]);
                     if (cursor != null && cursor.moveToFirst()) {
                         return cursor.getCount();
                     }
@@ -254,31 +254,31 @@ public class jk5 {
         return invokeL.intValue;
     }
 
-    public List<w57> j() {
+    public List<z57> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            SQLiteDatabase c = g67.c();
+            SQLiteDatabase c = j67.c();
             ArrayList arrayList = new ArrayList();
             if (c != null) {
                 Cursor cursor = null;
                 try {
                     try {
                         try {
-                            cursor = h67.d().e("select * from tb_new_friends ORDER BY _id DESC", null);
+                            cursor = k67.d().e("select * from tb_new_friends ORDER BY _id DESC", null);
                             if (cursor != null) {
                                 while (cursor.moveToNext()) {
-                                    w57 w57Var = new w57();
-                                    w57Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
-                                    if (w57Var.b() < 0) {
-                                        a(w57Var);
+                                    z57 z57Var = new z57();
+                                    z57Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
+                                    if (z57Var.b() < 0) {
+                                        a(z57Var);
                                     }
-                                    w57Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                                    w57Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                                    w57Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                                    w57Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                                    w57Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                                    arrayList.add(w57Var);
+                                    z57Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                                    z57Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                                    z57Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                                    z57Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                                    z57Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                                    arrayList.add(z57Var);
                                 }
                             }
                         } catch (Exception e) {
@@ -296,49 +296,49 @@ public class jk5 {
         return (List) invokeV.objValue;
     }
 
-    public final void k(SQLiteDatabase sQLiteDatabase, w57 w57Var) throws Exception {
+    public final void k(SQLiteDatabase sQLiteDatabase, z57 z57Var) throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, w57Var) == null) || w57Var == null || w57Var.b() == 0 || TextUtils.isEmpty(w57Var.d())) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, z57Var) == null) || z57Var == null || z57Var.b() == 0 || TextUtils.isEmpty(z57Var.d())) {
             return;
         }
         if (sQLiteDatabase == null) {
-            sQLiteDatabase = g67.c();
+            sQLiteDatabase = j67.c();
         }
         if (sQLiteDatabase != null) {
-            c(sQLiteDatabase, w57Var.b());
+            c(sQLiteDatabase, z57Var.b());
             if (i(sQLiteDatabase) >= 200) {
                 b(d(sQLiteDatabase));
             }
             if (sQLiteDatabase != null) {
                 ContentValues contentValues = new ContentValues();
-                contentValues.put("uid", Long.valueOf(w57Var.b()));
-                contentValues.put("uname", w57Var.d());
-                contentValues.put("uportrait", w57Var.e());
-                contentValues.put("ucontent", w57Var.a());
-                contentValues.put("ustatus", Integer.valueOf(w57Var.f()));
-                contentValues.put("isread", Integer.valueOf(w57Var.c()));
-                h67.d().insert("tb_new_friends", null, contentValues);
+                contentValues.put("uid", Long.valueOf(z57Var.b()));
+                contentValues.put("uname", z57Var.d());
+                contentValues.put("uportrait", z57Var.e());
+                contentValues.put("ucontent", z57Var.a());
+                contentValues.put("ustatus", Integer.valueOf(z57Var.f()));
+                contentValues.put("isread", Integer.valueOf(z57Var.c()));
+                k67.d().insert("tb_new_friends", null, contentValues);
             }
         }
     }
 
-    public void l(w57 w57Var) {
+    public void l(z57 z57Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, w57Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, z57Var) == null) {
             try {
-                k(g67.c(), w57Var);
+                k(j67.c(), z57Var);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void m(List<w57> list) {
+    public void m(List<z57> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             try {
-                for (w57 w57Var : list) {
-                    k(g67.c(), w57Var);
+                for (z57 z57Var : list) {
+                    k(j67.c(), z57Var);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -349,7 +349,7 @@ public class jk5 {
     public boolean n(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) ? o(g67.c(), j) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) ? o(j67.c(), j) : invokeJ.booleanValue;
     }
 
     public final boolean o(SQLiteDatabase sQLiteDatabase, long j) {
@@ -357,14 +357,14 @@ public class jk5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, sQLiteDatabase, j)) == null) {
             if (sQLiteDatabase == null) {
-                sQLiteDatabase = g67.c();
+                sQLiteDatabase = j67.c();
             }
             boolean z = false;
             if (sQLiteDatabase != null) {
                 Cursor cursor = null;
                 try {
                     try {
-                        cursor = h67.d().e("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
+                        cursor = k67.d().e("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
                         if (cursor != null) {
                             if (cursor.moveToFirst()) {
                                 z = true;
@@ -389,26 +389,26 @@ public class jk5 {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("isread", (Integer) 1);
-            h67.d().update("tb_new_friends", contentValues, null, null);
+            k67.d().update("tb_new_friends", contentValues, null, null);
         }
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x0056 -> B:22:0x005b). Please submit an issue!!! */
-    public int q(w57 w57Var) {
+    public int q(z57 z57Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, w57Var)) == null) {
-            SQLiteDatabase c = g67.c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, z57Var)) == null) {
+            SQLiteDatabase c = j67.c();
             int i = 0;
             if (c != null) {
                 try {
-                    if (o(c, w57Var.b())) {
+                    if (o(c, z57Var.b())) {
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put("ustatus", Integer.valueOf(w57Var.f()));
-                        contentValues.put("isread", Integer.valueOf(w57Var.c()));
-                        i = h67.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(w57Var.b())});
+                        contentValues.put("ustatus", Integer.valueOf(z57Var.f()));
+                        contentValues.put("isread", Integer.valueOf(z57Var.c()));
+                        i = k67.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(z57Var.b())});
                     } else {
-                        k(c, w57Var);
+                        k(c, z57Var);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

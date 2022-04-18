@@ -1,19 +1,15 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
 /* loaded from: classes5.dex */
-public abstract class aw9 implements cw9 {
+public final class aw9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public byte[] a;
+    public int[] b;
 
     public aw9() {
         Interceptable interceptable = $ic;
@@ -29,42 +25,23 @@ public abstract class aw9 implements cw9 {
         }
     }
 
-    @Override // com.repackage.cw9
-    public void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, qw9 qw9Var, xw9 xw9Var) throws InvalidDataException {
+    public static void a(aw9 aw9Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, webSocket, qw9Var, xw9Var) == null) {
+        if (interceptable == null || interceptable.invokeLI(65537, null, aw9Var, i) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                int[] iArr = aw9Var.b;
+                byte[] bArr = aw9Var.a;
+                int i3 = i2 * 4;
+                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
+            }
         }
     }
 
-    @Override // com.repackage.cw9
-    public yw9 onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, qw9 qw9Var) throws InvalidDataException {
-        InterceptResult invokeLLL;
+    public static void b(aw9 aw9Var, byte[] bArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, draft, qw9Var)) == null) ? new uw9() : (yw9) invokeLLL.objValue;
-    }
-
-    @Override // com.repackage.cw9
-    public void onWebsocketHandshakeSentAsClient(WebSocket webSocket, qw9 qw9Var) throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webSocket, qw9Var) == null) {
-        }
-    }
-
-    @Deprecated
-    public abstract void onWebsocketMessageFragment(WebSocket webSocket, Framedata framedata);
-
-    @Override // com.repackage.cw9
-    public void onWebsocketPing(WebSocket webSocket, Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, webSocket, framedata) == null) {
-            webSocket.sendFrame(new ow9((nw9) framedata));
-        }
-    }
-
-    @Override // com.repackage.cw9
-    public void onWebsocketPong(WebSocket webSocket, Framedata framedata) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, webSocket, framedata) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65538, null, aw9Var, bArr, iArr) == null) {
+            aw9Var.a = bArr;
+            aw9Var.b = iArr;
         }
     }
 }

@@ -206,8 +206,8 @@ public class b02 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d009f, (ViewGroup) null);
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922c7);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09165e);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922c8);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09165f);
             this.f = textView;
             textView.setOnEditorActionListener(new a(this));
             String replace = this.a.getText(R.string.obfuscated_res_0x7f0f01c2).toString().replace("[(s1)]", this.b).replace("[(s2)]", this.c);

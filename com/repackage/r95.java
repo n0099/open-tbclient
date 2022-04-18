@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b00;
 import com.repackage.m00;
 /* loaded from: classes7.dex */
-public class r95 extends s95<rq4, ThreadCardViewHolder<rq4>> {
+public class r95 extends s95<qq4, ThreadCardViewHolder<qq4>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rx5<rq4> o;
+    public tx5<qq4> o;
 
     /* loaded from: classes7.dex */
-    public class a extends rx5<rq4> {
+    public class a extends tx5<qq4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r95 b;
@@ -49,12 +49,12 @@ public class r95 extends s95<rq4, ThreadCardViewHolder<rq4>> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.rx5
+        @Override // com.repackage.tx5
         /* renamed from: d */
-        public void a(View view2, rq4 rq4Var) {
+        public void a(View view2, qq4 qq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, rq4Var) == null) {
-                this.b.b0(view2, rq4Var);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, qq4Var) == null) {
+                this.b.b0(view2, qq4Var);
             }
         }
     }
@@ -116,10 +116,10 @@ public class r95 extends s95<rq4, ThreadCardViewHolder<rq4>> {
 
     public final void t0(View view2, uo uoVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, uoVar) == null) && (uoVar instanceof rq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-            ThreadData threadData = ((rq4) uoVar).s;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, uoVar) == null) && (uoVar instanceof qq4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            ThreadData threadData = ((qq4) uoVar).s;
             threadData.objType = 1;
-            ThreadCardUtils.jumpToPB((qn4) threadData, view2.getContext(), h0(), false);
+            ThreadCardUtils.jumpToPB((pn4) threadData, view2.getContext(), h0(), false);
             ((ThreadCardViewHolder) view2.getTag()).c().o(new m00.a(1));
         }
     }
@@ -127,7 +127,7 @@ public class r95 extends s95<rq4, ThreadCardViewHolder<rq4>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: u0 */
-    public ThreadCardViewHolder<rq4> M(ViewGroup viewGroup) {
+    public ThreadCardViewHolder<qq4> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
@@ -139,20 +139,20 @@ public class r95 extends s95<rq4, ThreadCardViewHolder<rq4>> {
             bVar.n(new ry(this.k.getPageActivity()));
             bVar.h(new az(this.k.getPageActivity()));
             d00 d00Var = new d00(this.k.getPageActivity());
-            wn4 wn4Var = new wn4();
-            wn4Var.b = c0();
-            wn4Var.h = d0();
-            d00Var.v(wn4Var);
-            d00Var.w(f0());
-            d00Var.A(g0());
-            d00Var.x(h0());
+            vn4 vn4Var = new vn4();
+            vn4Var.b = c0();
+            vn4Var.h = d0();
+            d00Var.v(vn4Var);
+            d00Var.x(f0());
+            d00Var.C(g0());
+            d00Var.y(h0());
             bVar.m(d00Var);
             bVar.l().h(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds35));
             bVar.l().b(R.drawable.addresslist_item_bg);
             bVar.l().g(oi.f(this.k.getPageActivity(), R.dimen.tbds17));
             b00 k = bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.l);
             k.r(h0());
-            ThreadCardViewHolder<rq4> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            ThreadCardViewHolder<qq4> threadCardViewHolder = new ThreadCardViewHolder<>(k);
             threadCardViewHolder.k(this.e);
             V(new b(this));
             return threadCardViewHolder;
@@ -163,19 +163,19 @@ public class r95 extends s95<rq4, ThreadCardViewHolder<rq4>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: v0 */
-    public View S(int i, View view2, ViewGroup viewGroup, rq4 rq4Var, ThreadCardViewHolder<rq4> threadCardViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, qq4 qq4Var, ThreadCardViewHolder<qq4> threadCardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq4Var, threadCardViewHolder})) == null) {
-            if (rq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qq4Var, threadCardViewHolder})) == null) {
+            if (qq4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
                 return null;
             }
-            rq4Var.s.statFloor = C(i) + 1;
+            qq4Var.s.statFloor = C(i) + 1;
             threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(rq4Var);
+            threadCardViewHolder.g(qq4Var);
             threadCardViewHolder.c().p(this.o);
             threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            r0(threadCardViewHolder.b(), rq4Var, i, i);
+            r0(threadCardViewHolder.b(), qq4Var, i, i);
             return threadCardViewHolder.b();
         }
         return (View) invokeCommon.objValue;

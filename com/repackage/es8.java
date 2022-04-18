@@ -1,33 +1,35 @@
 package com.repackage;
 
-import android.content.Context;
-import android.hardware.SensorManager;
-import android.os.Build;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class es8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static void a(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                return Integer.valueOf(Build.VERSION.SDK).intValue();
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return 0;
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
+            b(tbPageContext, str, null);
         }
-        return invokeV.intValue;
     }
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    public static void b(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? ((SensorManager) context.getSystemService("sensor")).getDefaultSensor(4) != null : invokeL.booleanValue;
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, str, bundle) == null) || StringUtils.isNull(str) || tbPageContext == null) {
+            return;
+        }
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+        if (bundle.get(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM) == null) {
+            bundle.putBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, false);
+        }
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str}, bundle);
     }
 }

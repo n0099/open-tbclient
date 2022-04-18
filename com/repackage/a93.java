@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes5.dex */
-public class a93 extends qg1 implements lg4 {
+public class a93 extends qg1 implements kg4 {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -117,28 +117,28 @@ public class a93 extends qg1 implements lg4 {
         }
     }
 
-    @Override // com.repackage.lg4
+    @Override // com.repackage.kg4
     public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HashSet(Arrays.asList(super.getAllKeys())) : (Set) invokeV.objValue;
     }
 
-    @Override // com.repackage.lg4
+    @Override // com.repackage.kg4
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.getMode() == 2 : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.lg4
+    @Override // com.repackage.kg4
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.contentSize() : invokeV.longValue;
     }
 
-    @Override // com.baidu.storage.swankv.SwanKV, com.repackage.lg4
+    @Override // com.baidu.storage.swankv.SwanKV, com.repackage.kg4
     @NonNull
     public File getFile() {
         InterceptResult invokeV;

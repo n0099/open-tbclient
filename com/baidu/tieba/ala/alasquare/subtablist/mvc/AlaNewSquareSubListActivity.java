@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr5;
+import com.repackage.pr5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nr5 mAlaNewSquareSubListController;
+    public pr5 mAlaNewSquareSubListController;
     public String mBitmapRatio;
     public String mEntryName;
     public String mLableName;
@@ -75,9 +75,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            nr5 nr5Var = this.mAlaNewSquareSubListController;
-            if (nr5Var != null) {
-                nr5Var.h(getPageContext(), i);
+            pr5 pr5Var = this.mAlaNewSquareSubListController;
+            if (pr5Var != null) {
+                pr5Var.h(getPageContext(), i);
             }
         }
     }
@@ -87,7 +87,7 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mAlaNewSquareSubListController = new nr5(getPageContext(), true);
+            this.mAlaNewSquareSubListController = new pr5(getPageContext(), true);
             if (getIntent() != null) {
                 handleIntent(getIntent());
             } else {
@@ -101,9 +101,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            nr5 nr5Var = this.mAlaNewSquareSubListController;
-            if (nr5Var != null) {
-                nr5Var.i();
+            pr5 pr5Var = this.mAlaNewSquareSubListController;
+            if (pr5Var != null) {
+                pr5Var.i();
             }
         }
     }

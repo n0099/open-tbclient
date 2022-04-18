@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.d89;
+import com.repackage.fc9;
 import com.repackage.pf0;
 import com.repackage.uf0;
-import com.repackage.w79;
-import com.repackage.yb9;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -45,7 +45,7 @@ public class AEffectProcessor extends BaseEffectProcessor {
         this.runOnDraw = new LinkedList<>();
         uf0 uf0Var = new uf0();
         this.mVlogEditCore = uf0Var;
-        uf0Var.j(w79.c().getContext());
+        uf0Var.j(d89.c().getContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,8 +54,8 @@ public class AEffectProcessor extends BaseEffectProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.isCamera = false;
-            MediaTrack mediaTrack = (MediaTrack) yb9.c(this.mUpdateMediaTracks, 0);
-            if (mediaTrack == null || (mediaSegment = (MediaSegment) yb9.c(mediaTrack.mediaSegments, 0)) == null || !TextUtils.equals(mediaSegment.type, "camera")) {
+            MediaTrack mediaTrack = (MediaTrack) fc9.c(this.mUpdateMediaTracks, 0);
+            if (mediaTrack == null || (mediaSegment = (MediaSegment) fc9.c(mediaTrack.mediaSegments, 0)) == null || !TextUtils.equals(mediaSegment.type, "camera")) {
                 return;
             }
             this.isCamera = true;

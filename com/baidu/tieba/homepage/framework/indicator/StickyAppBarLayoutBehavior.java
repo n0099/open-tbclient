@@ -258,11 +258,11 @@ public class StickyAppBarLayoutBehavior extends AppBarLayout.Behavior {
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048587, this, coordinatorLayout, appBarLayout, i)) == null) {
             if (this.b == null) {
                 this.b = appBarLayout;
-                View findViewById = appBarLayout.findViewById(R.id.obfuscated_res_0x7f090d87);
+                View findViewById = appBarLayout.findViewById(R.id.obfuscated_res_0x7f090d88);
                 if (findViewById instanceof NestedScrollHeader) {
                     this.d = (NestedScrollHeader) findViewById;
                 }
-                View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f090d8f);
+                View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f090d90);
                 if (findViewById2 instanceof HomeTabBarView) {
                     this.e = (HomeTabBarView) findViewById2;
                 }

@@ -130,7 +130,7 @@ public class kn3 extends UnitedSchemeBaseDispatcher {
                 if (view2 == null) {
                     view2 = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00d4, null);
                 }
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f07);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f08);
                 textView.setTextColor(this.c);
                 textView.setText(getItem(i));
                 return view2;
@@ -1769,7 +1769,7 @@ public class kn3 extends UnitedSchemeBaseDispatcher {
             aVar.B(R.string.obfuscated_res_0x7f0f0108, new p(this, callbackHandler, unitedSchemeEntity));
             aVar.K(new o(this, callbackHandler, unitedSchemeEntity));
             View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d00d3, null);
-            ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f09126c);
+            ListView listView = (ListView) inflate.findViewById(R.id.obfuscated_res_0x7f09126d);
             listView.setAdapter((ListAdapter) new a(this, arrayList, context, i2));
             aVar.W(inflate);
             aVar.j();

@@ -387,7 +387,7 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
         if (context == null) {
             return null;
         }
-        return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080ca0);
+        return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080ca4);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd

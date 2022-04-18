@@ -149,7 +149,7 @@ public class h51 extends Dialog {
                         ty0.j(this.b, this.a);
                     }
                     if (this.b.size() == 0) {
-                        this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b6f));
+                        this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b6e));
                     }
                     this.d.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06024e));
                     return;
@@ -159,7 +159,7 @@ public class h51 extends Dialog {
                     ty0.b(this.b, this.a);
                 }
                 this.d.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06025c));
-                this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b70));
+                this.c.setText(view2.getContext().getResources().getText(R.string.obfuscated_res_0x7f0f0b6f));
             }
         }
     }
@@ -198,18 +198,18 @@ public class h51 extends Dialog {
             ArrayList arrayList = new ArrayList();
             ViewGroup viewGroup = null;
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a6, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09216f);
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09124a);
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0b6f));
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092170);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09124b);
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0b6e));
             textView.setOnClickListener(new a(this, arrayList, adBaseModel));
-            inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d88));
+            inflate.setBackground(inflate.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d8c));
             Resources resources = inflate.getContext().getResources();
             int i2 = R.color.obfuscated_res_0x7f06024e;
             textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06024e));
             findViewById.setBackgroundColor(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602a7));
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0911cd);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0911ce);
             LayoutInflater from = LayoutInflater.from(inflate.getContext());
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092213);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092214);
             if (adBaseModel != null && (sn0Var = adBaseModel.g) != null && !TextUtils.isEmpty(sn0Var.c)) {
                 if (!TextUtils.isEmpty(adBaseModel.g.a)) {
                     textView2.setText(adBaseModel.g.a);
@@ -232,7 +232,7 @@ public class h51 extends Dialog {
                     i = i3;
                 } else {
                     View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d05b3, viewGroup);
-                    TextView textView3 = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f09218c);
+                    TextView textView3 = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f09218d);
                     textView3.setText(aVar.a());
                     textView3.setTextColor(inflate.getContext().getResources().getColor(i2));
                     i = i3;

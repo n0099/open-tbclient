@@ -71,30 +71,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.al4;
+import com.repackage.aw7;
 import com.repackage.b55;
-import com.repackage.cw7;
-import com.repackage.dk8;
-import com.repackage.et7;
-import com.repackage.ft7;
-import com.repackage.ij4;
-import com.repackage.kr8;
+import com.repackage.ew7;
+import com.repackage.ey7;
+import com.repackage.hj4;
+import com.repackage.jw7;
+import com.repackage.kk8;
 import com.repackage.l95;
+import com.repackage.ls4;
+import com.repackage.lt7;
 import com.repackage.mc5;
 import com.repackage.mg;
-import com.repackage.ms4;
+import com.repackage.mt7;
 import com.repackage.nd5;
 import com.repackage.od5;
 import com.repackage.oi;
 import com.repackage.qg;
-import com.repackage.qu7;
-import com.repackage.tv7;
-import com.repackage.tz4;
+import com.repackage.rr8;
+import com.repackage.sz4;
+import com.repackage.vz4;
 import com.repackage.w45;
-import com.repackage.wz4;
 import com.repackage.x45;
-import com.repackage.xv7;
-import com.repackage.xx7;
+import com.repackage.xk4;
+import com.repackage.xu7;
 import com.repackage.yk4;
 import com.repackage.zk4;
 import java.util.ArrayList;
@@ -145,16 +145,16 @@ public class PbActivityStatic {
                 }
                 for (DownloadData downloadData : downloadMessage.getData()) {
                     if (downloadData != null) {
-                        for (wz4 wz4Var : TiePlusHelper.t) {
-                            if (!StringUtils.isNull(wz4Var.f) && wz4Var.f.equals(downloadData.getId())) {
+                        for (vz4 vz4Var : TiePlusHelper.t) {
+                            if (!StringUtils.isNull(vz4Var.f) && vz4Var.f.equals(downloadData.getId())) {
                                 int status = downloadData.getStatus();
                                 if (status != 0) {
                                     if (status == 1) {
-                                        wz4Var.e = false;
+                                        vz4Var.e = false;
                                     }
-                                } else if (!wz4Var.e) {
-                                    wz4Var.e = true;
-                                    TiePlusStat.e(wz4Var.a, wz4Var.b, wz4Var.c, wz4Var.d);
+                                } else if (!vz4Var.e) {
+                                    vz4Var.e = true;
+                                    TiePlusStat.e(vz4Var.a, vz4Var.b, vz4Var.c, vz4Var.d);
                                 }
                             }
                         }
@@ -192,10 +192,10 @@ public class PbActivityStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            tz4 tz4Var;
+            sz4 sz4Var;
             String a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof tz4) || (a = (tz4Var = (tz4) customResponsedMessage.getData()).a()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof sz4) || (a = (sz4Var = (sz4) customResponsedMessage.getData()).a()) == null) {
                 return;
             }
             try {
@@ -211,19 +211,19 @@ public class PbActivityStatic {
                 baijiahaoData.oriUgcVid = parse.getQueryParameter("ori_ugc_vid");
                 if (!StringUtils.isNull(queryParameter3)) {
                     int e = mg.e(queryParameter3, 0);
-                    if (tz4Var.b() != null) {
-                        mc5.a(queryParameter2, queryParameter, queryParameter4, e, tz4Var.b(), baijiahaoData);
+                    if (sz4Var.b() != null) {
+                        mc5.a(queryParameter2, queryParameter, queryParameter4, e, sz4Var.b(), baijiahaoData);
                     } else {
-                        mc5.a(queryParameter2, queryParameter, queryParameter4, e, tz4Var.b(), baijiahaoData);
+                        mc5.a(queryParameter2, queryParameter, queryParameter4, e, sz4Var.b(), baijiahaoData);
                     }
                 } else {
                     if (StringUtils.isNull(queryParameter2)) {
                         queryParameter2 = "0";
                     }
-                    if (tz4Var.b() != null) {
-                        mc5.a(queryParameter2, queryParameter, queryParameter4, 0, tz4Var.b(), baijiahaoData);
+                    if (sz4Var.b() != null) {
+                        mc5.a(queryParameter2, queryParameter, queryParameter4, 0, sz4Var.b(), baijiahaoData);
                     } else {
-                        mc5.a(queryParameter2, queryParameter, queryParameter4, 0, tz4Var.b(), baijiahaoData);
+                        mc5.a(queryParameter2, queryParameter, queryParameter4, 0, sz4Var.b(), baijiahaoData);
                     }
                 }
             } catch (Exception e2) {
@@ -274,7 +274,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements al4 {
+    public static class d implements zk4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -292,12 +292,12 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.repackage.al4
+        @Override // com.repackage.zk4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = zk4.a(context);
+                TextView a = yk4.a(context);
                 if (a != null) {
                     FloatingLayout.LayoutParams layoutParams = new FloatingLayout.LayoutParams(-2, -2);
                     ((LinearLayout.LayoutParams) layoutParams).gravity = 16;
@@ -312,7 +312,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class e implements al4 {
+    public static class e implements zk4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -330,12 +330,12 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.repackage.al4
+        @Override // com.repackage.zk4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = zk4.a(context);
+                TextView a = yk4.a(context);
                 if (a != null) {
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
@@ -350,7 +350,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class f implements al4 {
+    public static class f implements zk4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -368,12 +368,12 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.repackage.al4
+        @Override // com.repackage.zk4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = zk4.a(context);
+                TextView a = yk4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
@@ -388,7 +388,7 @@ public class PbActivityStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class g implements al4 {
+    public static class g implements zk4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -406,12 +406,12 @@ public class PbActivityStatic {
             }
         }
 
-        @Override // com.repackage.al4
+        @Override // com.repackage.zk4
         public View a(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                TextView a = zk4.a(context);
+                TextView a = yk4.a(context);
                 if (a != null) {
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                     SkinManager.setViewTextColor(a, (int) R.color.CAM_X0302);
@@ -735,14 +735,14 @@ public class PbActivityStatic {
                     if (StringUtils.isNull(c, z3) || tbPageContext == null) {
                         if (!z || TextUtils.isEmpty(c)) {
                             if (z2) {
-                                tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f0d09);
+                                tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f0d08);
                                 return 1;
                             }
                             return 3;
                         }
-                        qg.startService(TbadkCoreApplication.getInst(), xv7.f(TbadkCoreApplication.getInst(), c));
+                        qg.startService(TbadkCoreApplication.getInst(), ew7.f(TbadkCoreApplication.getInst(), c));
                         StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", 3).param("obj_type", 2).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                        ij4.a(param, lowerCase);
+                        hj4.a(param, lowerCase);
                         TiebaStatic.log(param);
                         return 1;
                     } else if (!z4 && !z5) {
@@ -775,8 +775,8 @@ public class PbActivityStatic {
                         if (lowerCase != null && lowerCase.contains("fr=collect")) {
                             createNormalCfg.setJumpToCommentArea(true);
                         }
-                        if (ms4.a().d() && et7.a().e() && !et7.a().d() && lowerCase != null && lowerCase.contains(UrlSchemaHelper.FROM_YUN_PUSH)) {
-                            ft7.m(createNormalCfg.getIntent());
+                        if (ls4.a().d() && lt7.a().e() && !lt7.a().d() && lowerCase != null && lowerCase.contains(UrlSchemaHelper.FROM_YUN_PUSH)) {
+                            mt7.m(createNormalCfg.getIntent());
                         }
                         tbPageContext.sendMessage(new CustomMessage(2004001, createNormalCfg));
                         return (TextUtils.isEmpty(lowerCase) || lowerCase.contains("from=threadcard2") || z8) ? 0 : 0;
@@ -794,7 +794,7 @@ public class PbActivityStatic {
                         return 0;
                     }
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001609, new tz4(tbPageContext, lowerCase)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001609, new sz4(tbPageContext, lowerCase)));
                 return 0;
             }
             return invokeLL.intValue;
@@ -821,14 +821,14 @@ public class PbActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<kr8> run(CustomMessage<Context> customMessage) {
+        public CustomResponsedMessage<rr8> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921343, new xx7(customMessage.getData()));
+                return new CustomResponsedMessage<>(2921343, new ey7(customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -858,7 +858,7 @@ public class PbActivityStatic {
         d();
         h();
         o();
-        SwitchManager.getInstance().registerSwitch(qu7.class);
+        SwitchManager.getInstance().registerSwitch(xu7.class);
         p();
         m();
         CustomMessageTask customMessageTask = new CustomMessageTask(2004001, new h());
@@ -872,7 +872,7 @@ public class PbActivityStatic {
         iVar.execute(new Void[0]);
         ItemCardHelper.t();
         ItemCardHelper.s();
-        w45.a(b55.a, new tv7());
+        w45.a(b55.a, new aw7());
     }
 
     public PbActivityStatic() {
@@ -892,10 +892,10 @@ public class PbActivityStatic {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            yk4.b().c(2, new d());
-            yk4.b().c(3, new e());
-            yk4.b().c(4, new f());
-            yk4.b().c(6, new g());
+            xk4.b().c(2, new d());
+            xk4.b().c(3, new e());
+            xk4.b().c(4, new f());
+            xk4.b().c(6, new g());
         }
     }
 
@@ -953,8 +953,8 @@ public class PbActivityStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, null) == null) {
             TbadkCoreApplication.getInst().RegisterIntent(SubPbActivityConfig.class, NewSubPbActivity.class);
-            l95 h2 = dk8.h(302002, SubPbSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = dk8.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
+            l95 h2 = kk8.h(302002, SubPbSocketResponseMessage.class, false, false);
+            TbHttpMessageTask c2 = kk8.c(302002, CmdConfigHttp.SubPb_HTTP_CMD, "c/f/pb/floor", SubPbHttpResponseMessage.class, false, false, false, false);
             h2.setParallel(a);
             c2.setParallel(a);
         }
@@ -980,7 +980,7 @@ public class PbActivityStatic {
     public static void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            dk8.b(2004003, cw7.class);
+            kk8.b(2004003, jw7.class);
         }
     }
 
@@ -994,8 +994,8 @@ public class PbActivityStatic {
     public static void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            dk8.h(302001, pbPageSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, dk8.a("c/f/pb/page", 302001));
+            kk8.h(302001, pbPageSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PAGE_HTTP_CMD, kk8.a("c/f/pb/page", 302001));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);

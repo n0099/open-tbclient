@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gd7;
-import com.repackage.sn4;
+import com.repackage.jd7;
+import com.repackage.rn4;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -317,7 +317,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                             gVar2.a = optInt;
                             gVar2.b = jSONObject3.optString("content", "");
                             gVar2.c = jSONObject3.optString("tag", "");
-                            gd7.a(this.itemList, gVar2);
+                            jd7.a(this.itemList, gVar2);
                             continue;
                         case 2:
                             c cVar2 = new c();
@@ -326,7 +326,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                             cVar2.d = jSONObject3.optString("check_str", "");
                             cVar2.e = jSONObject3.optString("post_url", "");
                             cVar2.c = jSONObject3.optString("tag", "");
-                            gd7.a(this.itemList, cVar2);
+                            jd7.a(this.itemList, cVar2);
                             continue;
                         case 3:
                         case 4:
@@ -343,7 +343,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                                 hVar.c = jSONObject2.optString("tag");
                                 dVar.e = hVar;
                             }
-                            gd7.a(this.itemList, dVar);
+                            jd7.a(this.itemList, dVar);
                             continue;
                         case 6:
                         case 7:
@@ -361,7 +361,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                                 }
                                 eVar.d = strArr;
                             }
-                            gd7.a(this.itemList, eVar);
+                            jd7.a(this.itemList, eVar);
                             continue;
                         default:
                             continue;
@@ -404,13 +404,13 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
-    public sn4 getAppInfoModel() {
+    public rn4 getAppInfoModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return null;
         }
-        return (sn4) invokeV.objValue;
+        return (rn4) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert

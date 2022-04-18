@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ks4;
+import com.repackage.js4;
 /* loaded from: classes3.dex */
 public class PbActivity extends AbsPbActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public class PbActivity extends AbsPbActivity {
     public /* synthetic */ boolean a(int i, int i2) {
         long currentTimeMillis = System.currentTimeMillis() - getCreateTime();
         StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
-        statisticItem.addParam("obj_type", i).addParam("obj_locate", i2).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, ks4.e());
+        statisticItem.addParam("obj_type", i).addParam("obj_locate", i2).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, js4.e());
         TiebaStatic.log(statisticItem);
         return false;
     }
@@ -83,7 +83,7 @@ public class PbActivity extends AbsPbActivity {
         } else if (getPbModel() == null || !getPbModel().y1()) {
             i2 = 3;
         }
-        Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.repackage.yt7
+        Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.repackage.fu7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

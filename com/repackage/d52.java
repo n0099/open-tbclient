@@ -50,7 +50,7 @@ public final class d52 extends InputStream {
             super.close();
             this.b.c(this.a);
             this.b.a();
-            ng4.d(this.a);
+            mg4.d(this.a);
         }
     }
 

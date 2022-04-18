@@ -18,9 +18,9 @@ public abstract class h32 extends n32 {
     public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
     public final AtomicInteger c;
-    public qd4 d;
+    public pd4 d;
     public cc3 e;
-    public final z74<j94> f;
+    public final y74<i94> f;
 
     /* loaded from: classes6.dex */
     public class a extends o32<h32> {
@@ -50,21 +50,21 @@ public abstract class h32 extends n32 {
         }
 
         @Override // com.repackage.o32
-        public void r(@NonNull j94 j94Var) {
+        public void r(@NonNull i94 i94Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, j94Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, i94Var) == null) {
                 if (h32.g) {
-                    Log.v("SwanAppDependentPkgDownloadCallback", "onDownloadAndUnzipSuccess:" + j94Var);
+                    Log.v("SwanAppDependentPkgDownloadCallback", "onDownloadAndUnzipSuccess:" + i94Var);
                 }
                 this.b.c.incrementAndGet();
             }
         }
 
         @Override // com.repackage.o32
-        public void u(j94 j94Var, cc3 cc3Var) {
+        public void u(i94 i94Var, cc3 cc3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j94Var, cc3Var) == null) {
-                jx1.k("SwanAppDependentPkgDownloadCallback", "onDownloadOrUnzipFail:" + j94Var + StringUtil.ARRAY_ELEMENT_SEPARATOR + cc3Var);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i94Var, cc3Var) == null) {
+                jx1.k("SwanAppDependentPkgDownloadCallback", "onDownloadOrUnzipFail:" + i94Var + StringUtil.ARRAY_ELEMENT_SEPARATOR + cc3Var);
                 if (this.b.e == null) {
                     this.b.e = cc3Var;
                 }
@@ -105,20 +105,20 @@ public abstract class h32 extends n32 {
         this.f = new a(this, this);
     }
 
-    @Override // com.repackage.d84
-    public void D(c94 c94Var) {
+    @Override // com.repackage.c84
+    public void D(b94 b94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c94Var) == null) {
-            super.D(c94Var);
-            jx1.k("SwanAppDependentPkgDownloadCallback", "onFetchError: " + c94Var.toString());
+        if (interceptable == null || interceptable.invokeL(1048576, this, b94Var) == null) {
+            super.D(b94Var);
+            jx1.k("SwanAppDependentPkgDownloadCallback", "onFetchError: " + b94Var.toString());
             cc3 cc3Var = new cc3();
             cc3Var.k(17L);
-            cc3Var.c(c94Var);
+            cc3Var.c(b94Var);
             R(cc3Var);
         }
     }
 
-    @Override // com.repackage.d84
+    @Override // com.repackage.c84
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -132,16 +132,16 @@ public abstract class h32 extends n32 {
         }
     }
 
-    @Override // com.repackage.d84
-    public void H(qd4 qd4Var) {
+    @Override // com.repackage.c84
+    public void H(pd4 pd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qd4Var) == null) {
-            super.H(qd4Var);
-            this.d = qd4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pd4Var) == null) {
+            super.H(pd4Var);
+            this.d = pd4Var;
             if (g) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("mStartDownload=");
-                sb.append(qd4Var == null ? 0 : qd4Var.n());
+                sb.append(pd4Var == null ? 0 : pd4Var.n());
                 Log.e("SwanAppDependentPkgDownloadCallback", sb.toString());
             }
         }
@@ -151,14 +151,14 @@ public abstract class h32 extends n32 {
 
     public abstract void S();
 
-    @Override // com.repackage.d84, com.repackage.a84
+    @Override // com.repackage.c84, com.repackage.z74
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.b();
             jx1.k("SwanAppDependentPkgDownloadCallback", "onTotalPkgDownloadFinish");
-            qd4 qd4Var = this.d;
-            if (qd4Var == null) {
+            pd4 pd4Var = this.d;
+            if (pd4Var == null) {
                 cc3 cc3Var = new cc3();
                 cc3Var.k(17L);
                 cc3Var.i(2900L);
@@ -166,7 +166,7 @@ public abstract class h32 extends n32 {
                 R(cc3Var);
                 return;
             }
-            int n = qd4Var.n() - this.c.get();
+            int n = pd4Var.n() - this.c.get();
             if (n == 0) {
                 S();
                 return;
@@ -184,10 +184,10 @@ public abstract class h32 extends n32 {
         }
     }
 
-    @Override // com.repackage.d84
-    public z74<j94> r() {
+    @Override // com.repackage.c84
+    public y74<i94> r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (z74) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (y74) invokeV.objValue;
     }
 }

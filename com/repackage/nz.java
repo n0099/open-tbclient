@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class nz extends qy<qn4> {
+public class nz extends qy<pn4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgSingleHorizontalLayout f;
@@ -54,20 +54,20 @@ public class nz extends qy<qn4> {
     }
 
     @Override // com.repackage.qy
-    public void l(rx5<qn4> rx5Var) {
+    public void l(tx5<pn4> tx5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rx5Var) == null) {
-            this.f.setSubClickListener(rx5Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, tx5Var) == null) {
+            this.f.setSubClickListener(tx5Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.fz
     /* renamed from: o */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qn4Var) == null) {
-            this.f.a(qn4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, pn4Var) == null) {
+            this.f.a(pn4Var);
         }
     }
 

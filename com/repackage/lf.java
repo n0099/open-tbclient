@@ -783,7 +783,7 @@ public class lf {
                         } catch (SocketTimeoutException e2) {
                             this.a.c().c = -13;
                             this.a.c().g = e2.getMessage();
-                            nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                            nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                             BdLog.e(e2.getMessage());
                             this.a.e(nfVar);
                             if (this.d <= 0 && (kfVar3 = this.b) != null) {
@@ -796,7 +796,7 @@ public class lf {
                     } catch (SocketException e3) {
                         this.a.c().c = -12;
                         this.a.c().g = e3.getMessage();
-                        nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                        nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                         BdLog.e(e3.getMessage());
                         this.a.e(nfVar);
                         if (this.d <= 0 && (kfVar2 = this.b) != null) {
@@ -810,7 +810,7 @@ public class lf {
                     try {
                         this.a.c().c = -14;
                         this.a.c().g = e4.getMessage();
-                        nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                        nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                         this.a.e(nfVar);
                         if (this.d <= 0 && (kfVar = this.b) != null) {
                             this.d = kfVar.i();
@@ -909,7 +909,7 @@ public class lf {
                         } catch (SocketTimeoutException e2) {
                             this.a.c().c = -13;
                             this.a.c().g = e2.getMessage();
-                            nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                            nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                             BdLog.e(e2.getMessage());
                             this.a.e(nfVar);
                             if (this.d <= 0 && (kfVar4 = this.b) != null) {
@@ -930,7 +930,7 @@ public class lf {
                         try {
                             this.a.c().c = -14;
                             this.a.c().g = e3.getMessage();
-                            nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                            nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                             this.a.e(nfVar);
                             if (this.d <= 0 && (kfVar3 = this.b) != null) {
                                 this.d = kfVar3.i();
@@ -947,7 +947,7 @@ public class lf {
                 } catch (SocketException e4) {
                     this.a.c().c = -12;
                     this.a.c().g = e4.getMessage();
-                    nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
+                    nfVar.h = BdBaseApplication.getInst().getApp().getApplicationContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c17);
                     BdLog.e(e4.getMessage());
                     this.a.e(nfVar);
                     if (this.d <= 0 && (kfVar = this.b) != null) {

@@ -14,17 +14,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ld7;
-import com.repackage.o68;
-import com.repackage.p68;
-import com.repackage.vd7;
+import com.repackage.od7;
+import com.repackage.v68;
+import com.repackage.w68;
+import com.repackage.yd7;
 /* loaded from: classes3.dex */
-public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements p68, o68 {
+public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx> implements w68, v68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup m;
-    public vd7 n;
-    public ld7 o;
+    public yd7 n;
+    public od7 o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ImmersiveVideoCardViewEx(TbPageContext tbPageContext) {
@@ -47,12 +47,12 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
     }
 
     public void D() {
-        ld7 ld7Var;
+        od7 od7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ld7Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (od7Var = this.o) == null) {
             return;
         }
-        ld7Var.n();
+        od7Var.n();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,79 +82,79 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         D();
     }
 
-    @Override // com.repackage.o68
+    @Override // com.repackage.v68
     public void a() {
-        ld7 ld7Var;
+        od7 od7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (ld7Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (od7Var = this.o) == null) {
             return;
         }
-        ld7Var.j();
+        od7Var.j();
     }
 
-    @Override // com.repackage.o68
+    @Override // com.repackage.v68
     public void c() {
-        ld7 ld7Var;
+        od7 od7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ld7Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (od7Var = this.o) == null) {
             return;
         }
-        ld7Var.k();
+        od7Var.k();
     }
 
-    @Override // com.repackage.o68
+    @Override // com.repackage.v68
     public void d() {
-        ld7 ld7Var;
+        od7 od7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (ld7Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (od7Var = this.o) == null) {
             return;
         }
-        ld7Var.m();
+        od7Var.m();
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            vd7 vd7Var = this.n;
-            if (vd7Var != null) {
-                return vd7Var.k();
+            yd7 yd7Var = this.n;
+            if (yd7Var != null) {
+                return yd7Var.k();
             }
             return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            vd7 vd7Var = this.n;
-            if (vd7Var != null) {
-                return vd7Var.m();
+            yd7 yd7Var = this.n;
+            if (yd7Var != null) {
+                return yd7Var.m();
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            vd7 vd7Var = this.n;
-            if (vd7Var != null) {
-                return vd7Var.n();
+            yd7 yd7Var = this.n;
+            if (yd7Var != null) {
+                return yd7Var.n();
             }
             return null;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -164,24 +164,24 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            vd7 vd7Var = this.n;
-            return vd7Var != null && vd7Var.p();
+            yd7 yd7Var = this.n;
+            return yd7Var != null && yd7Var.p();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            vd7 vd7Var = this.n;
-            return vd7Var != null && vd7Var.q();
+            yd7 yd7Var = this.n;
+            return yd7Var != null && yd7Var.q();
         }
         return invokeV.booleanValue;
     }
@@ -193,32 +193,32 @@ public class ImmersiveVideoCardViewEx extends BaseCardView<ImmersiveVideoCardEx>
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01aa, (ViewGroup) null);
             this.m = viewGroup;
-            this.n = new vd7(this.i, viewGroup.findViewById(R.id.obfuscated_res_0x7f0911f3));
-            ld7 ld7Var = new ld7(this.i, this.m);
-            this.o = ld7Var;
-            this.n.s(ld7Var);
+            this.n = new yd7(this.i, viewGroup.findViewById(R.id.obfuscated_res_0x7f0911f4));
+            od7 od7Var = new od7(this.i, this.m);
+            this.o = od7Var;
+            this.n.s(od7Var);
             return this.m;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public void startPlay() {
-        vd7 vd7Var;
+        yd7 yd7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (vd7Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (yd7Var = this.n) == null) {
             return;
         }
-        vd7Var.v();
+        yd7Var.v();
     }
 
-    @Override // com.repackage.p68
+    @Override // com.repackage.w68
     public void stopPlay() {
-        vd7 vd7Var;
+        yd7 yd7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (vd7Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (yd7Var = this.n) == null) {
             return;
         }
-        vd7Var.w();
+        yd7Var.w();
     }
 }

@@ -69,7 +69,7 @@ public abstract class pz1 extends Fragment implements SlideInterceptor {
     public kq2 j0;
     public View k0;
     public SwanAppActionBar l0;
-    public p64 m0;
+    public o64 m0;
     public SwanAppMenuHeaderView n0;
     public View o0;
     public TextView p0;
@@ -525,7 +525,7 @@ public abstract class pz1 extends Fragment implements SlideInterceptor {
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (activity = this.a.i0) != null && (activity instanceof SwanAppActivity)) {
                 j03 a0 = j03.a0();
                 if (a0 != null && !TextUtils.isEmpty(a0.getAppId())) {
-                    if (wc3.f() && nc4.a().d()) {
+                    if (wc3.f() && mc4.a().d()) {
                         a0.d0().g(a0.x(), "mapp_emit_app_close", new a(this));
                         return;
                     } else {
@@ -717,7 +717,7 @@ public abstract class pz1 extends Fragment implements SlideInterceptor {
                             jx1.b("SwanAppBaseFragment", "view为null");
                             return;
                         }
-                        pz1Var.r0 = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091de1);
+                        pz1Var.r0 = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091de2);
                     }
                     this.d.r0.setVisibility(0);
                     if (this.a) {
@@ -725,7 +725,7 @@ public abstract class pz1 extends Fragment implements SlideInterceptor {
                     }
                     if (this.b) {
                         this.d.s0 = new AtomicBoolean(false);
-                        this.d.r0.setText(R.string.obfuscated_res_0x7f0f12d7);
+                        this.d.r0.setText(R.string.obfuscated_res_0x7f0f12d6);
                         this.d.r0.setOnClickListener(new b(this));
                     }
                 }
@@ -1191,10 +1191,10 @@ public abstract class pz1 extends Fragment implements SlideInterceptor {
         return invokeV.booleanValue;
     }
 
-    public p64 N1() {
+    public o64 N1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.m0 : (p64) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.m0 : (o64) invokeV.objValue;
     }
 
     public final void N2(boolean z, float f2) {
@@ -1277,7 +1277,7 @@ public abstract class pz1 extends Fragment implements SlideInterceptor {
         AtomicBoolean atomicBoolean = this.s0;
         atomicBoolean.set(!atomicBoolean.get());
         boolean z = this.s0.get();
-        this.r0.setText(z ? R.string.obfuscated_res_0x7f0f12d8 : R.string.obfuscated_res_0x7f0f12d7);
+        this.r0.setText(z ? R.string.obfuscated_res_0x7f0f12d7 : R.string.obfuscated_res_0x7f0f12d6);
         h63.j(z);
     }
 
@@ -1376,7 +1376,7 @@ public abstract class pz1 extends Fragment implements SlideInterceptor {
         }
         this.l0 = (SwanAppActionBar) view2.findViewById(R.id.obfuscated_res_0x7f090186);
         this.k0 = view2.findViewById(R.id.obfuscated_res_0x7f090187);
-        this.o0 = view2.findViewById(R.id.obfuscated_res_0x7f09203b);
+        this.o0 = view2.findViewById(R.id.obfuscated_res_0x7f09203c);
         this.l0.setLeftBackViewMinWidth(ae3.f(this.i0, 38.0f));
         g gVar = new g(this);
         this.l0.setLeftBackViewClickListener(gVar);
@@ -1632,9 +1632,9 @@ public abstract class pz1 extends Fragment implements SlideInterceptor {
             R2();
             if (this.m0 != null) {
                 boolean d2 = qj2.y0().d();
-                p64 p64Var = this.m0;
-                if (d2 != p64Var.p) {
-                    p64Var.z();
+                o64 o64Var = this.m0;
+                if (d2 != o64Var.p) {
+                    o64Var.z();
                     this.m0.p = qj2.y0().d();
                 }
             }

@@ -1,37 +1,27 @@
 package com.repackage;
 
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.R;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class cq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<BaseFragmentActivity> a;
-    public Animation b;
 
-    public cq6(TbPageContext<BaseFragmentActivity> tbPageContext) {
+    public static PackageInfo a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        this.a = tbPageContext;
-        this.b = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), R.anim.obfuscated_res_0x7f010070);
+        return (PackageInfo) invokeL.objValue;
     }
 }

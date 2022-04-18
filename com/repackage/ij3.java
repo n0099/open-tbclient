@@ -105,7 +105,7 @@ public class ij3 {
                     a2.k(aesEncrypt.length);
                     a2.j(aesEncrypt);
                 }
-                a2.l(xc4.e().d().longValue());
+                a2.l(wc4.e().d().longValue());
                 return vj3.b(a2);
             } catch (Exception e) {
                 if (ej3.a) {
@@ -185,7 +185,7 @@ public class ij3 {
                 rj3 a2 = rj3.j.a();
                 a2.r((byte) 22);
                 a2.q((short) b.length);
-                a2.l(xc4.e().d().longValue());
+                a2.l(wc4.e().d().longValue());
                 a2.o(b);
                 return vj3.b(a2);
             } catch (Exception e) {

@@ -1,32 +1,134 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.view.MotionEvent;
+import android.view.View;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.R;
+import com.baidu.tieba.write.write.WriteActivity;
+import com.baidu.tieba.write.write.WriteImageGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.f19;
 /* loaded from: classes6.dex */
 public class g19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public Bitmap b;
-    public Rect c;
+    public TbPageContext<WriteActivity> a;
+    public WriteImageGridView b;
+    public WriteImagesInfo c;
+    public f19 d;
+    public k35 e;
+    public String f;
+    public String g;
+    public boolean h;
+    public f19.f i;
 
-    public g19(Context context) {
+    /* loaded from: classes6.dex */
+    public class a implements f19.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g19 a;
+
+        public a(g19 g19Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g19Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g19Var;
+        }
+
+        @Override // com.repackage.f19.f
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.c == null || this.a.c.getChosedFiles() == null || i < 0 || i >= this.a.c.getChosedFiles().size()) {
+                return;
+            }
+            ImageFileInfo remove = this.a.c.getChosedFiles().remove(i);
+            if (remove.isTempFile()) {
+                rb.f().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+            }
+            g19 g19Var = this.a;
+            g19Var.d.f(g19Var.c);
+            this.a.d.notifyDataSetChanged();
+            if (ListUtils.isEmpty(this.a.c.getChosedFiles()) && this.a.a.getOrignalPage() != null) {
+                ((WriteActivity) this.a.a.getOrignalPage()).refreshPostButton();
+                ((WriteActivity) this.a.a.getOrignalPage()).changeAssociatedItemContainerLayoutParams(false);
+                this.a.b.setVisibility(8);
+            }
+            if (this.a.a.getPageActivity() instanceof WriteActivity) {
+                ((WriteActivity) this.a.a.getPageActivity()).refreshImageLauncher();
+                ((WriteActivity) this.a.a.getPageActivity()).refreshVideoLauncher();
+            }
+        }
+
+        @Override // com.repackage.f19.f
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.c == null) {
+                return;
+            }
+            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.a.a.getPageActivity(), this.a.c.toJsonString(), true, true);
+            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.a.g);
+            albumFloatActivityConfig.getIntent().putExtra("from", this.a.f);
+            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+            if (this.a.a.getPageActivity() instanceof WriteActivity) {
+                albumFloatActivityConfig.setCanSelectVideo(false);
+                albumFloatActivityConfig.setCanSelectOnlyVideo(false);
+                albumFloatActivityConfig.setCanEditImage(false);
+                AntiData antiData = new AntiData();
+                antiData.voice_message = ((WriteActivity) this.a.a.getPageActivity()).mDisableAudioMessage;
+                antiData.setIfVoice(((WriteActivity) this.a.a.getPageActivity()).isVoiceEnable);
+                albumFloatActivityConfig.setStatisticFrom(((WriteActivity) this.a.a.getPageActivity()).mData.getStatisticFrom());
+                albumFloatActivityConfig.setExtraData(antiData, ((WriteActivity) this.a.a.getPageActivity()).mPrefixData, ((WriteActivity) this.a.a.getPageActivity()).mData.getFirstDir(), ((WriteActivity) this.a.a.getPageActivity()).mData.getSecondDir());
+            }
+            albumFloatActivityConfig.setFromWrite(3);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
+        }
+
+        @Override // com.repackage.f19.f
+        public void c(int i) {
+            int count;
+            ImageFileInfo imageInfoAt;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.a.c == null || (count = ListUtils.getCount(this.a.c.getChosedFiles())) == 0 || i < 0 || i >= count || (imageInfoAt = this.a.c.getImageInfoAt(i)) == null || imageInfoAt.getImageType() == 1) {
+                return;
+            }
+            this.a.a.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.a.getPageActivity(), 12012, this.a.c, i)));
+        }
+    }
+
+    public g19(TbPageContext<WriteActivity> tbPageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,40 +138,73 @@ public class g19 {
                 return;
             }
         }
-        this.a = context;
-        this.c = new Rect();
+        this.e = new k35();
+        this.f = AlbumActivityConfig.FROM_WRITE;
+        this.g = "";
+        this.i = new a(this);
+        this.a = tbPageContext;
+        this.b = (WriteImageGridView) view2.findViewById(R.id.obfuscated_res_0x7f09247c);
+        f19 f19Var = new f19(view2.getContext(), this.e, null, this.i);
+        this.d = f19Var;
+        this.b.setAdapter((ListAdapter) f19Var);
     }
 
-    public void a(Canvas canvas, float f, float f2) {
-        Bitmap bitmap;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) == null) || (bitmap = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.b();
         }
-        this.c.left = (int) (f - (bitmap.getWidth() / 2));
-        this.c.right = (int) (f + (this.b.getWidth() / 2));
-        this.c.top = (int) (f2 - (this.b.getHeight() / 2));
-        this.c.bottom = (int) (f2 + (this.b.getHeight() / 2));
-        canvas.drawBitmap(this.b, (Rect) null, this.c, (Paint) null);
     }
 
-    public boolean b(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public GridView g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (GridView) invokeV.objValue;
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.h = z;
+            l();
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d.g(z);
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.d.h(z);
+        }
+    }
+
+    public void k(WriteImagesInfo writeImagesInfo, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, writeImagesInfo, str, str2) == null) {
+            this.f = str;
+            this.g = str2;
+            this.c = writeImagesInfo;
+            this.d.f(writeImagesInfo);
+            this.d.notifyDataSetChanged();
+            l();
+        }
+    }
+
+    public final void l() {
+        WriteImagesInfo writeImagesInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (!this.h && (writeImagesInfo = this.c) != null && writeImagesInfo.getChosedFiles() != null) {
+                this.b.setVisibility(0);
+            } else {
+                this.b.setVisibility(8);
             }
-            Rect rect = this.c;
-            return motionEvent.getX(0) >= ((float) rect.left) && motionEvent.getX(0) <= ((float) rect.right) && motionEvent.getY(0) >= ((float) rect.top) && motionEvent.getY(0) <= ((float) rect.bottom);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = BitmapHelper.getResBitmap(this.a, i);
         }
     }
 }

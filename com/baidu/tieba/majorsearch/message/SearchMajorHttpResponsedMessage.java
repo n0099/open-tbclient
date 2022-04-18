@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hg7;
+import com.repackage.kg7;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class SearchMajorHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hg7 mSearchMajorResultData;
+    public kg7 mSearchMajorResultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchMajorHttpResponsedMessage() {
@@ -42,16 +42,16 @@ public class SearchMajorHttpResponsedMessage extends JsonHttpResponsedMessage {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("major_list");
-                hg7 hg7Var = new hg7();
-                this.mSearchMajorResultData = hg7Var;
-                hg7Var.a(optJSONArray);
+                kg7 kg7Var = new kg7();
+                this.mSearchMajorResultData = kg7Var;
+                kg7Var.a(optJSONArray);
             }
         }
     }
 
-    public hg7 getData() {
+    public kg7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchMajorResultData : (hg7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchMajorResultData : (kg7) invokeV.objValue;
     }
 }

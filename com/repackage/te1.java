@@ -25,13 +25,13 @@ public class te1 {
 
         /* renamed from: com.repackage.te1$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0521a extends pf1 {
+        public class C0519a extends pf1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ie1.a b;
             public final /* synthetic */ a c;
 
-            public C0521a(a aVar, ie1.a aVar2) {
+            public C0519a(a aVar, ie1.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,7 +91,7 @@ public class te1 {
                 for (int i = 0; i < this.d.size(); i++) {
                     ie1.a aVar = (ie1.a) this.d.get(i);
                     if (aVar != null) {
-                        rf1.c().b(new C0521a(this, aVar));
+                        rf1.c().b(new C0519a(this, aVar));
                     }
                 }
             }

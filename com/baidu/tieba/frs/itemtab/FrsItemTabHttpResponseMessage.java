@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tl6;
+import com.repackage.vl6;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemPage.ItemPageResIdl;
 /* loaded from: classes3.dex */
-public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<tl6, ItemPageResIdl> {
+public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<vl6, ItemPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,9 +48,9 @@ public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessa
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            tl6 tl6Var = new tl6();
+            vl6 vl6Var = new vl6();
             ItemPageResIdl itemPageResIdl = (ItemPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemPageResIdl.class);
-            tl6Var.a(itemPageResIdl.data);
+            vl6Var.a(itemPageResIdl.data);
             Error error = itemPageResIdl.error;
             if (error != null) {
                 Integer num = error.errorno;
@@ -59,7 +59,7 @@ public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessa
                 }
                 setErrorString(itemPageResIdl.error.usermsg);
             }
-            setData(tl6Var);
+            setData(vl6Var);
         }
     }
 }

@@ -122,11 +122,11 @@ public class LiveBannerStatusAnimView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0509, this);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a6);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a7);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a8);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a5);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09128d);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a7);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912a8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a9);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a6);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09128e);
             this.l = new LottieDrawable();
             c();
             this.l.loop(true);
@@ -170,24 +170,24 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                     this.b.setBackgroundDrawable(gradientDrawable2);
                     if (!Config.TRACE_VISIT_RECENT_DAY.equals(fc0.e().o()) && !this.h) {
                         if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d21);
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d25);
                         } else {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d22);
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d26);
                         }
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d21);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d25);
                     }
                 } else if (i == 0) {
                     gradientDrawable2.setColors(new int[]{fc0.e().a(this.a, this.h, "color_4E6EF2"), fc0.e().a(this.a, this.h, "color_4E6EF2")});
                     this.b.setBackgroundDrawable(gradientDrawable2);
                     if (!Config.TRACE_VISIT_RECENT_DAY.equals(fc0.e().o()) && !this.h) {
                         if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d23);
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d27);
                         } else {
-                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d24);
+                            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d28);
                         }
                     } else {
-                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d23);
+                        this.b.setImageResource(R.drawable.obfuscated_res_0x7f080d27);
                     }
                 } else {
                     gradientDrawable2.setColors(new int[]{fc0.e().a(this.a, this.h, "color_FF3333"), fc0.e().a(this.a, this.h, "color_FF3333")});
@@ -283,14 +283,14 @@ public class LiveBannerStatusAnimView extends FrameLayout {
                     if (i2 == 3) {
                         this.g = false;
                         this.b.setVisibility(0);
-                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d26);
+                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2a);
                         this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f6));
                         this.d.setPadding(y90.a(this.a, 2.0f), 0, y90.a(this.a, 4.0f), 0);
                         this.e.setVisibility(8);
                     } else if (i2 == 0) {
                         this.g = false;
                         this.b.setVisibility(0);
-                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d26);
+                        this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d2a);
                         this.d.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f09f8));
                         this.d.setPadding(y90.a(this.a, 2.0f), 0, y90.a(this.a, 4.0f), 0);
                         this.e.setVisibility(8);

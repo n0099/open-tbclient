@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.t86;
+import com.repackage.v86;
 /* loaded from: classes3.dex */
 public class SearchEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -78,7 +78,7 @@ public class SearchEmotionModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(String str, t86 t86Var);
+        void a(String str, v86 v86Var);
 
         void onFail(int i, String str);
     }

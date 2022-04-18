@@ -1,132 +1,167 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
 /* loaded from: classes7.dex */
 public final class z2a {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a extends az9<T> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vy9 e;
 
-        public a(vy9 vy9Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vy9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.e = vy9Var;
         }
 
-        @Override // com.repackage.vy9
-        public void onCompleted() {
+        public int a(Class cls) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.onCompleted();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public int b(Class cls) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public boolean c(Object obj, long j, long j2, long j3) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{obj, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+                return false;
+            }
+            return invokeCommon.booleanValue;
+        }
+
+        public long d(Object obj, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, obj, j)) == null) {
+                return 0L;
+            }
+            return invokeLJ.longValue;
+        }
+
+        public Object e(Object obj, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, obj, j)) == null) {
+                return null;
+            }
+            return invokeLJ.objValue;
+        }
+
+        public Object f(Object obj, long j) {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, obj, j)) == null) {
+                return null;
+            }
+            return invokeLJ.objValue;
+        }
+
+        public long g(Field field) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, field)) == null) {
+                return 0L;
+            }
+            return invokeL.longValue;
+        }
+
+        public void h(Object obj, long j, Object obj2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, Long.valueOf(j), obj2}) == null) {
             }
         }
 
-        @Override // com.repackage.vy9
-        public void onError(Throwable th) {
+        public void i(Object obj, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.e.onError(th);
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{obj, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             }
         }
 
-        @Override // com.repackage.vy9
-        public void onNext(T t) {
+        public void j(Object obj, long j, Object obj2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.e.onNext(t);
+            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{obj, Long.valueOf(j), obj2}) == null) {
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b extends az9<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ az9 e;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(az9 az9Var, az9 az9Var2) {
-            super(az9Var);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755162520, "Lcom/repackage/z2a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {az9Var, az9Var2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((az9) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.e = az9Var2;
-        }
-
-        @Override // com.repackage.vy9
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.onCompleted();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755162520, "Lcom/repackage/z2a;");
+                return;
             }
         }
-
-        @Override // com.repackage.vy9
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.e.onError(th);
-            }
+        System.getProperty("rx.unsafe-disable");
+        a aVar = null;
+        try {
+            Field declaredField = a.class.getDeclaredField("theUnsafe");
+            declaredField.setAccessible(true);
+            aVar = (a) declaredField.get(null);
+        } catch (Throwable unused) {
         }
-
-        @Override // com.repackage.vy9
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                this.e.onNext(t);
-            }
-        }
+        a = aVar;
     }
 
-    public static <T> az9<T> a() {
+    public static long a(Class<?> cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
+            try {
+                return a.g(cls.getDeclaredField(str));
+            } catch (NoSuchFieldException e) {
+                InternalError internalError = new InternalError();
+                internalError.initCause(e);
+                throw internalError;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b(u2a.a()) : (az9) invokeV.objValue;
-    }
-
-    public static <T> az9<T> b(vy9<? super T> vy9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vy9Var)) == null) ? new a(vy9Var) : (az9) invokeL.objValue;
-    }
-
-    public static <T> az9<T> c(az9<? super T> az9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, az9Var)) == null) ? new b(az9Var, az9Var) : (az9) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

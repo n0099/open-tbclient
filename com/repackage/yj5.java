@@ -29,12 +29,12 @@ import tbclient.App;
 public class yj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kb8 a;
+    public final rb8 a;
     public final int b;
     public final int c;
     public final int d;
     public final List<String> e;
-    public final List<lb8> f;
+    public final List<sb8> f;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -132,7 +132,7 @@ public class yj5 {
     }
 
     /* loaded from: classes7.dex */
-    public class d extends BdAsyncTask<Integer, Integer, List<lb8>> {
+    public class d extends BdAsyncTask<Integer, Integer, List<sb8>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yj5 a;
@@ -158,7 +158,7 @@ public class yj5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public List<lb8> doInBackground(Integer... numArr) {
+        public List<sb8> doInBackground(Integer... numArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
@@ -173,11 +173,11 @@ public class yj5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(List<lb8> list) {
+        public void onPostExecute(List<sb8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 super.onPostExecute(list);
-                if (gd7.e(list)) {
+                if (jd7.e(list)) {
                     return;
                 }
                 this.a.f.addAll(list);
@@ -213,7 +213,7 @@ public class yj5 {
     }
 
     /* loaded from: classes7.dex */
-    public class f extends BdAsyncTask<lb8, Integer, Void> {
+    public class f extends BdAsyncTask<sb8, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ yj5 a;
@@ -239,14 +239,14 @@ public class yj5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public Void doInBackground(lb8... lb8VarArr) {
+        public Void doInBackground(sb8... sb8VarArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lb8VarArr)) == null) {
-                if (lb8VarArr == null || lb8VarArr.length <= 0 || lb8VarArr[0] == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sb8VarArr)) == null) {
+                if (sb8VarArr == null || sb8VarArr.length <= 0 || sb8VarArr[0] == null) {
                     return null;
                 }
-                this.a.a.g(lb8VarArr[0]);
+                this.a.a.g(sb8VarArr[0]);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -280,31 +280,31 @@ public class yj5 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? e.a : (yj5) invokeV.objValue;
     }
 
-    public final lb8 c(IDownloadModel iDownloadModel) {
+    public final sb8 c(IDownloadModel iDownloadModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iDownloadModel)) == null) {
-            lb8 lb8Var = new lb8();
-            lb8Var.f = iDownloadModel.getAppJson();
-            lb8Var.b = iDownloadModel.getPkgName();
-            lb8Var.a = iDownloadModel.getDownloadKey();
-            lb8Var.d = 0;
-            lb8Var.e = System.currentTimeMillis();
-            lb8Var.c = System.currentTimeMillis();
-            return lb8Var;
+            sb8 sb8Var = new sb8();
+            sb8Var.f = iDownloadModel.getAppJson();
+            sb8Var.b = iDownloadModel.getPkgName();
+            sb8Var.a = iDownloadModel.getDownloadKey();
+            sb8Var.d = 0;
+            sb8Var.e = System.currentTimeMillis();
+            sb8Var.c = System.currentTimeMillis();
+            return sb8Var;
         }
-        return (lb8) invokeL.objValue;
+        return (sb8) invokeL.objValue;
     }
 
     public final boolean d(@NonNull Cmatch cmatch) {
         InterceptResult invokeL;
-        lb8 lb8Var;
+        sb8 sb8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cmatch)) == null) {
-            if (!this.e.contains(cmatch.value) || gd7.e(this.f) || (lb8Var = (lb8) gd7.d(this.f, 0)) == null) {
+            if (!this.e.contains(cmatch.value) || jd7.e(this.f) || (sb8Var = (sb8) jd7.d(this.f, 0)) == null) {
                 return false;
             }
-            return this.c <= ((int) ((System.currentTimeMillis() - lb8Var.e) / 60000));
+            return this.c <= ((int) ((System.currentTimeMillis() - sb8Var.e) / 60000));
         }
         return invokeL.booleanValue;
     }
@@ -319,7 +319,7 @@ public class yj5 {
     public final void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            Iterator<lb8> it = this.f.iterator();
+            Iterator<sb8> it = this.f.iterator();
             while (it.hasNext()) {
                 if (TextUtils.equals(it.next().a, str)) {
                     it.remove();
@@ -331,31 +331,31 @@ public class yj5 {
 
     public final App h(@NonNull App app, @NonNull Cmatch cmatch) {
         InterceptResult invokeLL;
-        lb8 lb8Var;
+        sb8 sb8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, app, cmatch)) == null) {
-            if (gd7.e(this.f)) {
+            if (jd7.e(this.f)) {
                 return null;
             }
-            Iterator<lb8> it = this.f.iterator();
+            Iterator<sb8> it = this.f.iterator();
             while (true) {
                 if (!it.hasNext()) {
-                    lb8Var = null;
+                    sb8Var = null;
                     break;
                 }
-                lb8Var = it.next();
-                if (!ga8.r(lb8Var.b)) {
+                sb8Var = it.next();
+                if (!na8.r(sb8Var.b)) {
                     break;
                 }
-                lb8Var.h = 2;
-                o(lb8Var);
+                sb8Var.h = 2;
+                o(sb8Var);
                 it.remove();
             }
-            if (lb8Var == null) {
+            if (sb8Var == null) {
                 return null;
             }
             try {
-                JSONObject jSONObject = new JSONObject(lb8Var.f);
+                JSONObject jSONObject = new JSONObject(sb8Var.f);
                 jSONObject.put("pos_name", app.pos_name);
                 App parseAppFromJson = JsonTransHelper.parseAppFromJson(jSONObject);
                 if (j(cmatch, parseAppFromJson)) {
@@ -374,11 +374,11 @@ public class yj5 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, cmatch, app)) == null) {
-            if (cmatch == Cmatch.PB_BANNER && g98.i(app) == 14 && !g98.q(app)) {
+            if (cmatch == Cmatch.PB_BANNER && n98.i(app) == 14 && !n98.q(app)) {
                 return false;
             }
             if (cmatch == Cmatch.VIDEO_PB_COMMENT) {
-                return (g98.i(app) == 14 || g98.i(app) == 7) ? false : true;
+                return (n98.i(app) == 14 || n98.i(app) == 7) ? false : true;
             }
             return true;
         }
@@ -390,9 +390,9 @@ public class yj5 {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        for (lb8 lb8Var : this.f) {
-            if (lb8Var != null && TextUtils.equals(lb8Var.a, str)) {
-                p(lb8Var);
+        for (sb8 sb8Var : this.f) {
+            if (sb8Var != null && TextUtils.equals(sb8Var.a, str)) {
+                p(sb8Var);
             }
         }
     }
@@ -402,7 +402,7 @@ public class yj5 {
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, downloadStatus, iDownloadModel) == null) || TextUtils.isEmpty(iDownloadModel.getDownloadKey()) || TextUtils.isEmpty(iDownloadModel.getPkgName())) {
             return;
         }
-        lb8 c2 = c(iDownloadModel);
+        sb8 c2 = c(iDownloadModel);
         if (downloadStatus == DownloadStatus.STATUS_INSTALL_SUCCESS) {
             c2.h = 2;
             this.f.remove(c2);
@@ -421,7 +421,7 @@ public class yj5 {
             try {
                 new d(this, null).execute(Integer.valueOf(i), Integer.valueOf(i2));
             } catch (Exception e2) {
-                if (vm4.e()) {
+                if (um4.e()) {
                     throw new RuntimeException(e2);
                 }
             }
@@ -432,7 +432,7 @@ public class yj5 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, app, cmatch)) == null) {
-            if (d(cmatch) && app != null && g98.o(app)) {
+            if (d(cmatch) && app != null && n98.o(app)) {
                 return h(app, cmatch);
             }
             return null;
@@ -440,24 +440,24 @@ public class yj5 {
         return (App) invokeLL.objValue;
     }
 
-    public final void o(lb8 lb8Var) {
+    public final void o(sb8 sb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, lb8Var) == null) {
-            new f(this, null).execute(lb8Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, sb8Var) == null) {
+            new f(this, null).execute(sb8Var);
         }
     }
 
-    public final void p(@NonNull lb8 lb8Var) {
+    public final void p(@NonNull sb8 sb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, lb8Var) == null) {
-            int i = lb8Var.d + 1;
-            lb8Var.d = i;
+        if (interceptable == null || interceptable.invokeL(1048587, this, sb8Var) == null) {
+            int i = sb8Var.d + 1;
+            sb8Var.d = i;
             if (i >= this.b) {
-                f(lb8Var.a);
+                f(sb8Var.a);
                 return;
             }
-            lb8Var.e = System.currentTimeMillis();
-            o(lb8Var);
+            sb8Var.e = System.currentTimeMillis();
+            o(sb8Var);
         }
     }
 
@@ -474,7 +474,7 @@ public class yj5 {
                 return;
             }
         }
-        this.a = kb8.e();
+        this.a = rb8.e();
         this.b = rg5.h().f();
         this.c = rg5.h().e();
         this.d = rg5.h().d();

@@ -71,12 +71,12 @@ public class ue3 extends wc3.a {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             String str = fj2.g().getPath() + File.separator + "js_native" + File.separator;
             if ((i & 1) != 0) {
-                z = ng4.M(str + "swan_js_native_v8_ab.txt");
+                z = mg4.M(str + "swan_js_native_v8_ab.txt");
             } else {
                 z = true;
             }
             if ((i & 2) != 0) {
-                return z & ng4.M(str + "swan_js_native_webview_ab.txt");
+                return z & mg4.M(str + "swan_js_native_webview_ab.txt");
             }
             return z;
         }
@@ -98,10 +98,10 @@ public class ue3 extends wc3.a {
                     }
                 }
                 if (file.exists()) {
-                    ng4.L(file);
+                    mg4.L(file);
                 }
-                ng4.h(file);
-                ng4.P(arrayList, file);
+                mg4.h(file);
+                mg4.P(arrayList, file);
                 return arrayList;
             }
             return null;
@@ -113,7 +113,7 @@ public class ue3 extends wc3.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            if (jSONArray.length() <= 0 || !ng4.v(this.b)) {
+            if (jSONArray.length() <= 0 || !mg4.v(this.b)) {
                 return false;
             }
             return te3.a(jSONArray, new File(this.b), SchemeCollecter.getSchemesDesListSize(this.a ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW));
@@ -128,17 +128,17 @@ public class ue3 extends wc3.a {
             if (c) {
                 Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
             }
-            if (!pc4.b() && !TextUtils.equals(pc4.a(), "0")) {
+            if (!oc4.b() && !TextUtils.equals(oc4.a(), "0")) {
                 File file = new File(this.b);
                 if (file.exists()) {
-                    ng4.L(file);
+                    mg4.L(file);
                 }
             }
-            if (ng4.v(this.b)) {
+            if (mg4.v(this.b)) {
                 if (c) {
                     Log.d("SwanAppCompat", "start create cache");
                 }
-                return ng4.F(new File(this.b));
+                return mg4.F(new File(this.b));
             }
             return b(this.a, this.b);
         }

@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-import com.repackage.fx8;
-import com.repackage.kc9;
+import com.repackage.mx8;
 import com.repackage.oi;
+import com.repackage.rc9;
 /* loaded from: classes4.dex */
 public class RecordPreviewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -264,11 +264,11 @@ public class RecordPreviewContainer extends FrameLayout {
             if (motionEvent.getAction() == 1) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.c || x < kc9.k(R.dimen.obfuscated_res_0x7f070258)) {
+                if (y > this.c || x < rc9.k(R.dimen.obfuscated_res_0x7f070258)) {
                     return true;
                 }
-                int a2 = fx8.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
-                int a3 = fx8.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
+                int a2 = mx8.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
+                int a3 = mx8.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
                 e eVar = this.u;
                 if (eVar != null) {
                     eVar.b(motionEvent, 308, 308, a2, a3);
@@ -367,7 +367,7 @@ public class RecordPreviewContainer extends FrameLayout {
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.s == null) {
             ImageView imageView = new ImageView(getContext());
             this.s = imageView;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0809fd);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080a01);
             if (this.s != null) {
                 int width = getWidth();
                 int width2 = this.s.getWidth();

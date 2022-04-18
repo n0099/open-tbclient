@@ -57,7 +57,7 @@ public class m92 implements i92 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            File file2 = new File(tg4.d());
+            File file2 = new File(sg4.d());
             ArraySet<String> arraySet = new ArraySet<>();
             for (Pair<String, String> pair : this.b) {
                 arraySet.addAll((ArraySet<? extends String>) u82.e(file, (String) pair.first, ((String) pair.second) + "shared_prefs/", null, true));
@@ -75,14 +75,14 @@ public class m92 implements i92 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            String d = tg4.d();
+            String d = sg4.d();
             ArraySet<String> arraySet = new ArraySet<>();
             for (String str : this.a) {
-                String J = ng4.J(new File(d, str + SwanKV.PREFS_SUFFIX));
+                String J = mg4.J(new File(d, str + SwanKV.PREFS_SUFFIX));
                 if (!TextUtils.isEmpty(J)) {
                     arraySet.add(J);
                 }
-                String J2 = ng4.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
+                String J2 = mg4.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
                 if (!TextUtils.isEmpty(J2)) {
                     arraySet.add(J2);
                 }
@@ -98,7 +98,7 @@ public class m92 implements i92 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArraySet<String> arraySet = new ArraySet<>();
-            String J = ng4.J(new File(a93.e()));
+            String J = mg4.J(new File(a93.e()));
             if (!TextUtils.isEmpty(J)) {
                 arraySet.add(J);
             }

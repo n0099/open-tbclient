@@ -1,0 +1,72 @@
+package com.baidu.tieba.pb.ejection.value;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* loaded from: classes3.dex */
+public final class Direction {
+    public static final /* synthetic */ Direction[] $VALUES;
+    public static /* synthetic */ Interceptable $ic;
+    public static final Direction BOTTOM;
+    public static final Direction LEFT;
+    public static final Direction RIGHT;
+    public static final Direction TOP;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1962836099, "Lcom/baidu/tieba/pb/ejection/value/Direction;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1962836099, "Lcom/baidu/tieba/pb/ejection/value/Direction;");
+                return;
+            }
+        }
+        LEFT = new Direction("LEFT", 0);
+        RIGHT = new Direction("RIGHT", 1);
+        TOP = new Direction("TOP", 2);
+        Direction direction = new Direction("BOTTOM", 3);
+        BOTTOM = direction;
+        $VALUES = new Direction[]{LEFT, RIGHT, TOP, direction};
+    }
+
+    public Direction(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                String str2 = (String) objArr2[0];
+                ((Integer) objArr2[1]).intValue();
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static Direction valueOf(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Direction) Enum.valueOf(Direction.class, str) : (Direction) invokeL.objValue;
+    }
+
+    public static Direction[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Direction[]) $VALUES.clone() : (Direction[]) invokeV.objValue;
+    }
+}

@@ -428,12 +428,12 @@ public final class fs2 {
     public final void j(String str, String str2, RequestBody requestBody, List<is2> list, ArrayMap<String, String> arrayMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048583, this, str, str2, requestBody, list, arrayMap) == null) {
-            l74 l74Var = new l74(str2, requestBody, new a(this, str, list, arrayMap, str2));
-            l74Var.f = true;
-            l74Var.g = true;
-            l74Var.h = false;
-            l74Var.k = 20;
-            m74.g().e(l74Var);
+            k74 k74Var = new k74(str2, requestBody, new a(this, str, list, arrayMap, str2));
+            k74Var.f = true;
+            k74Var.g = true;
+            k74Var.h = false;
+            k74Var.k = 20;
+            l74.g().e(k74Var);
             o73.a(SwanInterfaceType.UPDATE);
         }
     }
@@ -465,7 +465,7 @@ public final class fs2 {
             if (h <= 0) {
                 return true;
             }
-            return System.currentTimeMillis() - h > sc4.b(i03.J().getAppId());
+            return System.currentTimeMillis() - h > rc4.b(i03.J().getAppId());
         }
         return invokeV.booleanValue;
     }

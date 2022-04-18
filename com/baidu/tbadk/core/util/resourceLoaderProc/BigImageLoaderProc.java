@@ -30,8 +30,8 @@ import com.repackage.gg;
 import com.repackage.gi;
 import com.repackage.jc5;
 import com.repackage.jg;
+import com.repackage.kt4;
 import com.repackage.lg;
-import com.repackage.lt4;
 import com.repackage.mi;
 import com.repackage.oi;
 import com.repackage.rb;
@@ -401,11 +401,11 @@ public class BigImageLoaderProc implements jg<fo> {
                         needCache = webClient.needCache();
                         if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                             BdLog.e("BIGIMAGE imagesize too big");
-                            lt4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                            kt4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                         }
                         if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                             try {
-                                InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b78, new TypedValue());
+                                InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b7c, new TypedValue());
                                 downloadImageBytes = bg.d(openRawResource);
                                 lg.c(openRawResource);
                             } catch (Throwable th) {
@@ -442,10 +442,10 @@ public class BigImageLoaderProc implements jg<fo> {
                 needCache = webClient.needCache();
                 if (webClient.IsRequestSuccess()) {
                     BdLog.e("BIGIMAGE imagesize too big");
-                    lt4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                    kt4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
                 }
                 if (webClient.responseCode == 302) {
-                    InputStream openRawResource2 = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b78, new TypedValue());
+                    InputStream openRawResource2 = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b7c, new TypedValue());
                     downloadImageBytes = bg.d(openRawResource2);
                     lg.c(openRawResource2);
                 }

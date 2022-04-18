@@ -1,101 +1,48 @@
 package com.repackage;
 
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class mc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static float b;
-    public static int c;
-    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755503954, "Lcom/repackage/mc9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755503954, "Lcom/repackage/mc9;");
-        }
-    }
-
-    public static int a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            if (!a) {
-                f();
-            }
-            return (int) ((f * b) + 0.5f);
-        }
-        return invokeF.intValue;
-    }
-
-    public static int b() {
+    public static float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!a) {
-                f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long[] b = b();
+            if (b[0] <= 0) {
+                return 0.0f;
             }
-            return d;
+            return 1.0f - (((float) ((b[1] + b[2]) + b[3])) / ((float) b[0]));
         }
-        return invokeV.intValue;
+        return invokeV.floatValue;
     }
 
-    public static int c() {
+    public static long[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!a) {
-                f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            long[] jArr = new long[4];
+            try {
+                Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
+                long[] jArr2 = {30, -30};
+                Object[] objArr = {new String(HardwareInfoUtils.MEM_INFO_FILE), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
+                if (method != null) {
+                    method.invoke(null, objArr);
+                    for (int i = 0; i < 4; i++) {
+                        jArr[i] = jArr2[i] / 1024;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return c;
+            return jArr;
         }
-        return invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b() : invokeV.intValue;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c() : invokeV.intValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            WindowManager windowManager = (WindowManager) w79.c().getContext().getSystemService("window");
-            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-            int orientation = windowManager.getDefaultDisplay().getOrientation();
-            if (orientation != 1 && orientation != 3) {
-                c = displayMetrics.widthPixels;
-                d = displayMetrics.heightPixels;
-            } else {
-                c = displayMetrics.heightPixels;
-                d = displayMetrics.widthPixels;
-            }
-            b = displayMetrics.density;
-            a = true;
-        }
+        return (long[]) invokeV.objValue;
     }
 }

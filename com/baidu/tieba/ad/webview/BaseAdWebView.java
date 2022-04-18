@@ -29,10 +29,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bm4;
 import com.repackage.ck5;
-import com.repackage.cm4;
 import com.repackage.lj5;
-import com.repackage.vm4;
+import com.repackage.um4;
 import java.lang.reflect.Method;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -182,7 +182,7 @@ public abstract class BaseAdWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                cm4.a("BaseAdWebView", webView);
+                bm4.a("BaseAdWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -322,7 +322,7 @@ public abstract class BaseAdWebView extends WebView {
             setScrollBarStyle(0);
             setAcceptThirdPartyCookies(true);
             setDownloadListener(new b(this));
-            if (vm4.e()) {
+            if (um4.e()) {
                 Log.e(h, "init webview succeed");
             }
         }
@@ -350,12 +350,12 @@ public abstract class BaseAdWebView extends WebView {
             return;
         }
         if (this.d == null) {
-            if (vm4.e()) {
+            if (um4.e()) {
                 throw new IllegalArgumentException("cache key is null");
             }
             return;
         }
-        if (vm4.e()) {
+        if (um4.e()) {
             Log.e(h, "start downloading.....");
             String str4 = h;
             Log.e(str4, "download url：" + str);

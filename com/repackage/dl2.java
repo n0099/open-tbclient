@@ -243,7 +243,7 @@ public class dl2 {
         long h = cc3Var.h();
         String r = cc3Var.r();
         boolean z2 = 1020 == h && !TextUtils.isEmpty(r);
-        String a3 = z2 ? r : gc4.b().a(h);
+        String a3 = z2 ? r : fc4.b().a(h);
         String format = String.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f019b), de3.D(), i2, String.valueOf(cc3Var.a()));
         if (!qj2.T().a(context, str, cc3Var)) {
             if (i == 0) {
@@ -253,7 +253,7 @@ public class dl2 {
                 bg3.c().n(cc3Var);
                 l(context, d, cc3Var, forbiddenInfo, bundle);
             } else if (i == 1) {
-                m(context, str, a3, z2 ? r : gc4.b().c(h), format, (z ? SwanAppProcessInfo.current() : SwanAppProcessInfo.UNKNOWN).index);
+                m(context, str, a3, z2 ? r : fc4.b().c(h), format, (z ? SwanAppProcessInfo.current() : SwanAppProcessInfo.UNKNOWN).index);
             }
         }
         StringBuilder sb = new StringBuilder();
@@ -275,7 +275,7 @@ public class dl2 {
                 return;
             }
             File file = new File(a2.getPath(), "error_dialog_info.txt");
-            ng4.j(file);
+            mg4.j(file);
             StringBuilder sb2 = new StringBuilder();
             if (!TextUtils.isEmpty(format)) {
                 sb2.append(format);
@@ -283,7 +283,7 @@ public class dl2 {
             }
             sb2.append(y);
             sb2.append("\n");
-            ng4.N(sb2.toString(), file);
+            mg4.N(sb2.toString(), file);
         }
     }
 
@@ -335,7 +335,7 @@ public class dl2 {
     public static void k(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, context, str, str2) == null) {
-            String format = String.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f129c), str, str2);
+            String format = String.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f129b), str, str2);
             if (a) {
                 Log.d("LaunchError", "show normal err toast: " + format);
             }

@@ -35,12 +35,12 @@ import com.repackage.r72;
 import com.repackage.sz1;
 import com.repackage.tg1;
 import com.repackage.wl2;
-import com.repackage.y64;
+import com.repackage.x64;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AudioPlayer implements hn2, y64 {
+public class AudioPlayer implements hn2, x64 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean o;
     public transient /* synthetic */ FieldHolder $fh;
@@ -1008,7 +1008,7 @@ public class AudioPlayer implements hn2, y64 {
         }
     }
 
-    @Override // com.repackage.y64
+    @Override // com.repackage.x64
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048610, this) == null) {

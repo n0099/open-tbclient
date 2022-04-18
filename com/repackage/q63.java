@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +17,7 @@ public class q63 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return new p63(g() ? qj2.A0().beginFlow(str) : null, pf4.d(str));
+            return new p63(g() ? qj2.A0().beginFlow(str) : null, of4.d(str));
         }
         return (p63) invokeL.objValue;
     }
@@ -99,7 +99,7 @@ public class q63 {
             if (g()) {
                 qj2.A0().i(str, str2);
             }
-            pf4.h(str, str2);
+            of4.h(str, str2);
         }
     }
 
@@ -109,7 +109,7 @@ public class q63 {
             if (g()) {
                 qj2.A0().f(str, jSONObject);
             }
-            pf4.l(str2, jSONObject);
+            of4.l(str2, jSONObject);
         }
     }
 
@@ -119,7 +119,7 @@ public class q63 {
             if (g()) {
                 qj2.A0().d(str, map);
             }
-            pf4.j(str, map);
+            of4.j(str, map);
         }
     }
 
@@ -129,7 +129,7 @@ public class q63 {
             if (g()) {
                 qj2.A0().f(str, jSONObject);
             }
-            pf4.l(str, jSONObject);
+            of4.l(str, jSONObject);
         }
     }
 

@@ -1,68 +1,64 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.NewTopicList;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class dq7 implements uo {
+public class dq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public String c;
-    public String d;
-    public long e;
-    public String f;
-    public int g;
-    public int h;
+    public TbPageContext a;
+    public List<ho> b;
+    public zo c;
 
-    public dq7(@NonNull NewTopicList newTopicList, int i) {
+    public dq7(TbPageContext tbPageContext, zo zoVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {newTopicList, Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext, zoVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = i + 1;
-        this.c = newTopicList.topic_name;
-        this.d = newTopicList.topic_desc;
-        this.e = newTopicList.discuss_num.longValue();
-        this.f = newTopicList.topic_image;
-        this.g = newTopicList.topic_tag.intValue();
-        this.a = newTopicList.topic_id.longValue();
-        this.h = newTopicList.is_video_topic.intValue();
+        this.a = tbPageContext;
+        this.c = zoVar;
+        a();
+        this.c.a(this.b);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            this.b = arrayList;
+            arrayList.add(new eq7(this.a));
+        }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void b() {
+        zo zoVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h == 1 : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (zoVar = this.c) == null) {
+            return;
+        }
+        zoVar.getListAdapter().notifyDataSetChanged();
     }
 
-    @Override // com.repackage.uo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void c(List<uo> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? cq7.a : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.setData(list);
+        }
     }
 }

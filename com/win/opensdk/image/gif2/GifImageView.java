@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ct9;
 import com.repackage.du9;
-import com.repackage.gt9;
-import com.repackage.hu9;
-import com.repackage.kt9;
-import com.repackage.st9;
-import com.repackage.wt9;
+import com.repackage.gu9;
+import com.repackage.jt9;
+import com.repackage.ku9;
+import com.repackage.nt9;
+import com.repackage.ou9;
+import com.repackage.rt9;
 import com.repackage.zt9;
 /* loaded from: classes8.dex */
 public class GifImageView extends ImageView implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ct9 a;
+    public jt9 a;
     public Bitmap b;
     public final Handler c;
     public boolean d;
@@ -56,8 +56,8 @@ public class GifImageView extends ImageView implements Runnable {
         }
         this.c = new Handler(Looper.getMainLooper());
         this.h = -1L;
-        this.i = new st9(this);
-        this.j = new wt9(this);
+        this.i = new zt9(this);
+        this.j = new du9(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,8 +81,8 @@ public class GifImageView extends ImageView implements Runnable {
         }
         this.c = new Handler(Looper.getMainLooper());
         this.h = -1L;
-        this.i = new st9(this);
-        this.j = new wt9(this);
+        this.i = new zt9(this);
+        this.j = new du9(this);
     }
 
     public void a() {
@@ -99,8 +99,8 @@ public class GifImageView extends ImageView implements Runnable {
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            ct9 ct9Var = this.a;
-            if (ct9Var.n == i || !ct9Var.g(i - 1) || this.d) {
+            jt9 jt9Var = this.a;
+            if (jt9Var.n == i || !jt9Var.g(i - 1) || this.d) {
                 return;
             }
             this.e = true;
@@ -163,22 +163,22 @@ public class GifImageView extends ImageView implements Runnable {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.p.f : invokeV.intValue;
     }
 
-    public du9 getOnAnimationStop() {
+    public ku9 getOnAnimationStop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return null;
         }
-        return (du9) invokeV.objValue;
+        return (ku9) invokeV.objValue;
     }
 
-    public hu9 getOnFrameAvailable() {
+    public ou9 getOnFrameAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (hu9) invokeV.objValue;
+        return (ou9) invokeV.objValue;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -200,8 +200,8 @@ public class GifImageView extends ImageView implements Runnable {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void run() {
-        ct9 ct9Var;
-        kt9 kt9Var;
+        jt9 jt9Var;
+        rt9 rt9Var;
         int i;
         int i2;
         int i3;
@@ -211,17 +211,17 @@ public class GifImageView extends ImageView implements Runnable {
                 if (!this.d && !this.e) {
                     break;
                 }
-                ct9 ct9Var2 = this.a;
-                int i4 = ct9Var2.p.c;
+                jt9 jt9Var2 = this.a;
+                int i4 = jt9Var2.p.c;
                 int i5 = -1;
                 boolean z = true;
                 if (i4 > 0) {
-                    if (ct9Var2.n == i4 - 1) {
-                        ct9Var2.o++;
+                    if (jt9Var2.n == i4 - 1) {
+                        jt9Var2.o++;
                     }
-                    int i6 = ct9Var2.p.m;
-                    if (i6 == -1 || ct9Var2.o <= i6) {
-                        ct9Var2.n = (ct9Var2.n + 1) % ct9Var2.p.c;
+                    int i6 = jt9Var2.p.m;
+                    if (i6 == -1 || jt9Var2.o <= i6) {
+                        jt9Var2.n = (jt9Var2.n + 1) % jt9Var2.p.c;
                         long nanoTime = System.nanoTime();
                         this.b = this.a.h();
                         long j = (System.nanoTime() - nanoTime) / 1000000;
@@ -232,14 +232,14 @@ public class GifImageView extends ImageView implements Runnable {
                             break;
                         }
                         try {
-                            ct9Var = this.a;
-                            kt9Var = ct9Var.p;
-                            i = kt9Var.c;
+                            jt9Var = this.a;
+                            rt9Var = jt9Var.p;
+                            i = rt9Var.c;
                         } catch (InterruptedException unused) {
                         }
-                        if (i > 0 && (i3 = ct9Var.n) >= 0) {
+                        if (i > 0 && (i3 = jt9Var.n) >= 0) {
                             if (i3 >= 0 && i3 < i) {
-                                i5 = ((gt9) kt9Var.e.get(i3)).i;
+                                i5 = ((nt9) rt9Var.e.get(i3)).i;
                             }
                             i2 = (int) (i5 - j);
                             if (i2 > 0) {
@@ -273,10 +273,10 @@ public class GifImageView extends ImageView implements Runnable {
     public void setBytes(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bArr) == null) {
-            ct9 ct9Var = new ct9();
-            this.a = ct9Var;
+            jt9 jt9Var = new jt9();
+            this.a = jt9Var;
             try {
-                ct9Var.a(bArr);
+                jt9Var.a(bArr);
                 if (this.d) {
                     e();
                 } else {
@@ -295,21 +295,21 @@ public class GifImageView extends ImageView implements Runnable {
         }
     }
 
-    public void setOnAnimationStart(zt9 zt9Var) {
+    public void setOnAnimationStart(gu9 gu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, zt9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, gu9Var) == null) {
         }
     }
 
-    public void setOnAnimationStop(du9 du9Var) {
+    public void setOnAnimationStop(ku9 ku9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, du9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, ku9Var) == null) {
         }
     }
 
-    public void setOnFrameAvailable(hu9 hu9Var) {
+    public void setOnFrameAvailable(ou9 ou9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, hu9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, ou9Var) == null) {
         }
     }
 }

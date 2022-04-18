@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class NavigationBar extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -311,9 +311,9 @@ public class NavigationBar extends RelativeLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.mClickIsVaild) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f09150c) {
+                if (id == R.id.obfuscated_res_0x7f09150d) {
                     this.a.mCurrentActivity.finish();
-                } else if (id == R.id.obfuscated_res_0x7f09150e) {
+                } else if (id == R.id.obfuscated_res_0x7f09150f) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002004, this.a.mCurrentActivity));
                 }
             }
@@ -467,7 +467,7 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             View view2 = new View(getContext());
-            view2.setId(R.id.obfuscated_res_0x7f09151b);
+            view2.setId(R.id.obfuscated_res_0x7f09151c);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight());
             layoutParams.addRule(10, -1);
             view2.setLayoutParams(layoutParams);
@@ -490,20 +490,20 @@ public class NavigationBar extends RelativeLayout {
             this.mCurrentActivity = (Activity) context;
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08c0, (ViewGroup) this, true);
             this.mRootView = inflate;
-            this.mContentLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091516);
-            this.mLeftBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091205);
+            this.mContentLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091517);
+            this.mLeftBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091206);
             this.mCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0905d5);
-            this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091a8c);
+            this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091a8d);
             this.mAbsoluteCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090025);
             this.mCenterImgBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0905e2);
             this.mCenterIcon = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0905e1);
             this.mCenterText = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0905e4);
             this.mBottomLine = this.mRootView.findViewById(R.id.obfuscated_res_0x7f0903d4);
-            View findViewById = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09151d);
+            View findViewById = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09151e);
             this.topCoverBgView = findViewById;
             boolean z2 = false;
-            findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, (int) R.drawable.obfuscated_res_0x7f080e22));
-            this.barBgView = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09151c);
+            findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, (int) R.drawable.obfuscated_res_0x7f080e26));
+            this.barBgView = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09151d);
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011b});
                 z = obtainStyledAttributes.getBoolean(0, true);
@@ -535,10 +535,10 @@ public class NavigationBar extends RelativeLayout {
     private void initUnloginView() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65546, this) == null) && this.mUnloginView == null) {
-            View inflate = ((ViewStub) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092263)).inflate();
+            View inflate = ((ViewStub) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092264)).inflate();
             this.mUnloginView = inflate;
-            this.mRegisterView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920a9);
-            TextView textView = (TextView) this.mUnloginView.findViewById(R.id.obfuscated_res_0x7f0920a8);
+            this.mRegisterView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0920aa);
+            TextView textView = (TextView) this.mUnloginView.findViewById(R.id.obfuscated_res_0x7f0920a9);
             this.mLoginView = textView;
             textView.setOnClickListener(this.mLoginListener);
             this.mRegisterView.setOnClickListener(this.mRegisterListener);
@@ -811,7 +811,7 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048611, this, b9Var, i) == null) {
             if (this.mIsCorner) {
-                wr4 d2 = wr4.d(this);
+                vr4 d2 = vr4.d(this);
                 d2.m(1);
                 d2.n(R.string.J_X14);
                 d2.f(R.color.CAM_X0208);
@@ -1161,10 +1161,10 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, controlAlign, controlType, onClickListener)) == null) {
             if (controlType == ControlType.BACK_BUTTON) {
-                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09150c);
+                LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09150d);
                 if (linearLayout == null) {
                     LinearLayout linearLayout2 = (LinearLayout) getViewFromLayoutFile(R.layout.obfuscated_res_0x7f0d08c2);
-                    ImageView imageView = (ImageView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f09244a);
+                    ImageView imageView = (ImageView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f09244b);
                     this.mBackImageView = imageView;
                     imageView.setContentDescription("返回");
                     onBackBtnOnChangeSkin();
@@ -1202,9 +1202,9 @@ public class NavigationBar extends RelativeLayout {
             if (i3 > 0 && (i2 = this.mBackImagelightResId) > 0) {
                 SkinManager.setNavbarIconSrc(this.mBackImageView, i3, i2, i);
             } else if (this.mIsClose) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f0809b7, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f0809bb, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080623, R.color.CAM_X0105, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080622, R.color.CAM_X0105, null);
             }
         }
     }
@@ -1227,7 +1227,7 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{controlAlign, str, onClickListener, Boolean.valueOf(z)})) == null) {
             View viewFromLayoutFile = getViewFromLayoutFile(R.layout.obfuscated_res_0x7f0d05e6);
-            TextView textView = (TextView) viewFromLayoutFile.findViewById(R.id.obfuscated_res_0x7f091aa8);
+            TextView textView = (TextView) viewFromLayoutFile.findViewById(R.id.obfuscated_res_0x7f091aa9);
             textView.setText(str);
             if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
@@ -1312,9 +1312,9 @@ public class NavigationBar extends RelativeLayout {
             if (i4 > 0 && (i3 = this.mBackImagelightResId) > 0) {
                 SkinManager.setNavbarIconSrc(this.mBackImageView, i4, i3, i);
             } else if (this.mIsClose) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f0809b7, i2, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f0809bb, i2, null);
             } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080623, i2, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080622, i2, null);
             }
         }
     }

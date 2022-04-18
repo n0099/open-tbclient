@@ -1,63 +1,168 @@
 package com.repackage;
 
-import com.baidu.android.common.security.RSAUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 /* loaded from: classes6.dex */
-public class o79 implements m79 {
+public final class o79 {
     public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
+    public static File b;
+    public static RandomAccessFile c;
     public transient /* synthetic */ FieldHolder $fh;
-    public PublicKey a;
 
-    public o79(String str) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755486656, "Lcom/repackage/o79;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755486656, "Lcom/repackage/o79;");
                 return;
             }
         }
-        b(str);
+        a = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
     }
 
-    @Override // com.repackage.m79
-    public String a(String str) throws Exception {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!u79.a(str)) {
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, this.a);
-                return q79.r(cipher.doFinal(str.getBytes()));
-            }
-            throw new Exception("Plaintext can not be blank.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            return file.exists();
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final void b(String str) throws Exception {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (!u79.a(str)) {
-                this.a = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(q79.n(str.replaceAll("-----BEGIN PUBLIC KEY-----", "").replaceAll("-----END PUBLIC KEY-----", ""))));
-                return;
-            }
-            throw new Exception("PubKey can not be blank.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            return file.delete();
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String externalStorageState = Environment.getExternalStorageState();
+            if (Build.VERSION.SDK_INT >= 23) {
+                return i69.h().getContext().checkCallingOrSelfPermission(a[0]) == 0 && externalStorageState.equals("mounted");
+            }
+            return externalStorageState.equals("mounted");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static synchronized boolean d(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
+            synchronized (o79.class) {
+                if (c() && f(str2, str3)) {
+                    try {
+                        b = new File(str2 + str3);
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(b, "rwd");
+                        c = randomAccessFile;
+                        randomAccessFile.seek(b.length());
+                        c.write((str + "\r\n").getBytes("UTF-8"));
+                        c.close();
+                        return true;
+                    } catch (Exception e) {
+                        r79.e(e);
+                        return false;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static synchronized String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            synchronized (o79.class) {
+                if (c()) {
+                    if (a(str + str2)) {
+                        try {
+                            b = new File(str + str2);
+                            c = new RandomAccessFile(b, "r");
+                            StringBuffer stringBuffer = new StringBuffer();
+                            while (true) {
+                                String readLine = c.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                stringBuffer.append(new String(readLine.getBytes("ISO-8859-1"), IMAudioTransRequest.CHARSET));
+                                stringBuffer.append(",");
+                            }
+                            String stringBuffer2 = stringBuffer.toString();
+                            try {
+                                c.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return stringBuffer2;
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            try {
+                                c.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                    }
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            try {
+                b = new File(str);
+                if (!a(str)) {
+                    b.mkdirs();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                File file = new File(str + str2);
+                b = file;
+                if (file.exists()) {
+                    return true;
+                }
+                return b.createNewFile();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -36,7 +36,7 @@ public class KSRatingBar extends LinearLayout {
         this.l = 1;
         this.m = false;
         setOrientation(0);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c8b));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c8f));
         setShowDividers(2);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040347, R.attr.obfuscated_res_0x7f04035b, R.attr.obfuscated_res_0x7f040373, R.attr.obfuscated_res_0x7f040374, R.attr.obfuscated_res_0x7f040375, R.attr.obfuscated_res_0x7f040376, R.attr.obfuscated_res_0x7f040377, R.attr.obfuscated_res_0x7f040378, R.attr.obfuscated_res_0x7f040379, R.attr.obfuscated_res_0x7f040393});
         this.k = obtainStyledAttributes.getDrawable(5);

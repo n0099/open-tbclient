@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fj4;
+import com.repackage.ej4;
 import com.repackage.fo;
 import com.repackage.ig;
 import com.repackage.oi;
@@ -33,7 +33,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public ImageView mBgImage;
     public ImageView mCloseBtnImage;
     public NewUserRedPackageData mData;
-    public fj4 mGetMoneyModel;
+    public ej4 mGetMoneyModel;
     public View.OnClickListener mOnClickListener;
     public RoundRelativeLayout mRoundCornerLayout;
 
@@ -163,16 +163,16 @@ public class NewUserRedPackageActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0047);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ae7);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ae8);
             this.mRoundCornerLayout = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(oi.f(this, R.dimen.tbds31));
-            this.mBgImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9b);
-            this.mCloseBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9e);
+            this.mBgImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9c);
+            this.mCloseBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e9f);
             this.mBgImage.setOnClickListener(this.mOnClickListener);
             this.mCloseBtnImage.setOnClickListener(this.mOnClickListener);
             setData();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.mGetMoneyModel = new fj4();
+            this.mGetMoneyModel = new ej4();
         }
     }
 }

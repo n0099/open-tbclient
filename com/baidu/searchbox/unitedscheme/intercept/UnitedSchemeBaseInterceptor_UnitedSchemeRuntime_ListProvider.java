@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ce2;
-import com.repackage.hy3;
+import com.repackage.gy3;
 import com.repackage.k43;
 import com.repackage.l43;
 import com.repackage.m43;
@@ -41,7 +41,7 @@ public class UnitedSchemeBaseInterceptor_UnitedSchemeRuntime_ListProvider implem
             arrayList.add(new k43());
             arrayList.add(new l43());
             arrayList.add(new m43());
-            arrayList.add(new hy3());
+            arrayList.add(new gy3());
             return arrayList;
         }
         return invokeV.objValue;

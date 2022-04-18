@@ -146,7 +146,7 @@ public class fi5 implements wg5, View.OnClickListener, TbTabLayout.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
             TiebaStatic.log(new StatisticItem("c13994").param("obj_type", fVar.e() + 1));
-            wt4.k().w(this.b, fVar.e());
+            vt4.k().w(this.b, fVar.e());
         }
     }
 
@@ -192,7 +192,7 @@ public class fi5 implements wg5, View.OnClickListener, TbTabLayout.c {
             this.h = selectForumPagerAdapter;
             this.g.setAdapter(selectForumPagerAdapter);
             this.f.setupWithViewPager(this.g);
-            i(wt4.k().l(this.b, 0));
+            i(vt4.k().l(this.b, 0));
             this.f.setOnTabSelectedListener(this);
             this.g.addOnPageChangeListener(new a(this));
         }

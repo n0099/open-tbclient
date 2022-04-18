@@ -29,13 +29,13 @@ public class xv0 extends wv0 {
 
         /* renamed from: com.repackage.xv0$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0553a implements Runnable {
+        public class RunnableC0554a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ rs0 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0553a(a aVar, rs0 rs0Var) {
+            public RunnableC0554a(a aVar, rs0 rs0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class xv0 extends wv0 {
                 super.handleMessage(message);
                 Object obj = message.obj;
                 if (obj instanceof rs0) {
-                    si0.b(new RunnableC0553a(this, (rs0) obj));
+                    si0.b(new RunnableC0554a(this, (rs0) obj));
                 }
             }
         }

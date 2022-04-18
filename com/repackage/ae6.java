@@ -8,8 +8,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ae6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+    public int a;
+    public se6 b;
+    public boolean c;
 
     public ae6() {
         Interceptable interceptable = $ic;
@@ -21,7 +22,9 @@ public class ae6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = true;
     }
 }

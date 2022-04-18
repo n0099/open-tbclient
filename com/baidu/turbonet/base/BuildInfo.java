@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-import com.repackage.b39;
+import com.repackage.i39;
 /* loaded from: classes4.dex */
 public class BuildInfo {
     public static /* synthetic */ Interceptable $ic;
@@ -131,7 +131,7 @@ public class BuildInfo {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 return packageInfo.versionCode > 0 ? Integer.toString(packageInfo.versionCode) : "";
             } catch (PackageManager.NameNotFoundException unused) {
-                b39.a("BuildInfo", "versionCode not available.");
+                i39.a("BuildInfo", "versionCode not available.");
                 return "versionCode not available.";
             }
         }
@@ -147,7 +147,7 @@ public class BuildInfo {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 return packageInfo.versionName != null ? packageInfo.versionName : "";
             } catch (PackageManager.NameNotFoundException unused) {
-                b39.a("BuildInfo", "versionName not available");
+                i39.a("BuildInfo", "versionName not available");
                 return "versionName not available";
             }
         }

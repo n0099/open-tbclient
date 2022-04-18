@@ -331,9 +331,9 @@ public class MultiImgToolView extends DragContainer implements v05, DragHorizonS
                 }
                 int measuredWidth = (viewGroup.getMeasuredWidth() - (this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702f1) * 2)) + this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
                 FrameLayout frameLayout = (FrameLayout) view2;
-                LinearLayout linearLayout = (LinearLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f090fc2);
-                FrameLayout frameLayout2 = (FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f091ca1);
-                TbImageView tbImageView = (TbImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090fb2);
+                LinearLayout linearLayout = (LinearLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f090fc3);
+                FrameLayout frameLayout2 = (FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f091ca2);
+                TbImageView tbImageView = (TbImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090fb3);
                 tbImageView.setGifIconSupport(true);
                 tbImageView.setLongIconSupport(true);
                 tbImageView.setIsLongPic(imageFileInfo.isLong());
@@ -481,9 +481,9 @@ public class MultiImgToolView extends DragContainer implements v05, DragHorizonS
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.e = (DragHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f09148b);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091488);
-            this.g = (DragLayer) findViewById(R.id.obfuscated_res_0x7f09148a);
+            this.e = (DragHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f09148c);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091489);
+            this.g = (DragLayer) findViewById(R.id.obfuscated_res_0x7f09148b);
         }
     }
 

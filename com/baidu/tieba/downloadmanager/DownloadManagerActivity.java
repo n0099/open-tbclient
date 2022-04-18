@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.n45;
 import com.repackage.oi;
-import com.repackage.w26;
+import com.repackage.y26;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -85,11 +85,11 @@ public class DownloadManagerActivity extends BaseFragmentActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof w26)) {
-                w26 w26Var = (w26) customResponsedMessage.getData();
-                View a = w26Var.a();
-                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) w26Var.a()).getText())) {
-                    ItemCardHelper.f(w26Var.e(), w26Var.d(), ItemCardHelper.e(((TBSpecificationBtn) w26Var.a()).getText()), w26Var.c(), w26Var.b(), true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof y26)) {
+                y26 y26Var = (y26) customResponsedMessage.getData();
+                View a = y26Var.a();
+                if (!ItemCardHelper.d.equals(((TBSpecificationBtn) y26Var.a()).getText())) {
+                    ItemCardHelper.f(y26Var.e(), y26Var.d(), ItemCardHelper.e(((TBSpecificationBtn) y26Var.a()).getText()), y26Var.c(), y26Var.b(), true);
                 }
                 DownloadManagerActivity downloadManagerActivity = this.a;
                 ItemCardHelper.l(downloadManagerActivity, downloadManagerActivity.getUniqueId(), a, (ViewGroup) this.a.findViewById(16908290));

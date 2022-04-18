@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.o65;
-import com.repackage.wg6;
+import com.repackage.yg6;
 /* loaded from: classes3.dex */
-public class FrsCommonTabNetModel<T> extends NetAutoModel<FrsCommonTabRequestData, wg6, T> {
+public class FrsCommonTabNetModel<T> extends NetAutoModel<FrsCommonTabRequestData, yg6, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,6 +82,6 @@ public class FrsCommonTabNetModel<T> extends NetAutoModel<FrsCommonTabRequestDat
     public Class getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? wg6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? yg6.class : (Class) invokeV.objValue;
     }
 }

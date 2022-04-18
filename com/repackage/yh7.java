@@ -1,68 +1,37 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.Button;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Environment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.player.LivePlayer;
-import com.baidu.searchbox.player.annotation.PublicMethod;
-import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
-import com.baidu.searchbox.player.constants.PlayerConstant;
-import com.baidu.searchbox.player.context.IPlayerContext;
-import com.baidu.searchbox.player.helper.OrientationHelper;
-import com.baidu.searchbox.player.helper.VideoSystemHelper;
-import com.baidu.searchbox.player.kernel.AbsVideoKernel;
-import com.baidu.searchbox.player.layer.BaseKernelLayer;
-import com.baidu.searchbox.player.utils.BdActivityUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.io.File;
 import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class yh7 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean n;
+    public static yh7 c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public boolean b;
-    public String c;
-    public HashMap<Class, IPlayerContext> d;
-    public IVideoPlayerCallback e;
-    public List<LivePlayer.OnInfoListener> f;
-    public List<LivePlayer.OnProgressChangeListener> g;
-    public String h;
-    public ViewGroup i;
-    public OrientationHelper j;
-    public boolean k;
-    public BaseKernelLayer l;
-    public Button m;
+    public int b;
 
     /* loaded from: classes7.dex */
-    public class a implements OrientationHelper.IOrientationChange {
+    public class a implements CyberPlayerManager.InstallListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Activity a;
-        public boolean b;
-        public boolean c;
-        public long d;
-        public final /* synthetic */ yh7 e;
+        public final /* synthetic */ CyberPlayerManager.InstallListener a;
+        public final /* synthetic */ yh7 b;
 
-        public a(yh7 yh7Var, Activity activity) {
+        public a(yh7 yh7Var, CyberPlayerManager.InstallListener installListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yh7Var, activity};
+                Object[] objArr = {yh7Var, installListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -72,64 +41,111 @@ public class yh7 {
                     return;
                 }
             }
-            this.e = yh7Var;
-            this.d = 0L;
-            this.a = activity;
+            this.b = yh7Var;
+            this.a = installListener;
         }
 
-        @Override // com.baidu.searchbox.player.helper.OrientationHelper.IOrientationChange
-        public void onOrientationChanged(int i) {
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || !this.e.k || yh7.n || OrientationHelper.isSystemOrientationLocked(this.a)) {
-                return;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (this.b.b >= 3) {
+                    this.b.b = 0;
+                    CyberPlayerManager.InstallListener installListener = this.a;
+                    if (installListener != null) {
+                        installListener.onInstallError(i, i2, str);
+                        return;
+                    }
+                    return;
+                }
+                yh7.c(this.b);
+                this.b.g(this.a);
             }
-            if (!this.e.d()) {
-                this.b = false;
-                if (OrientationHelper.isPortrait(i)) {
-                    this.c = true;
-                }
-                if (!this.c || System.currentTimeMillis() - this.d <= 1000) {
-                    return;
-                }
-                if (OrientationHelper.isReverseLandscape(i)) {
-                    this.b = true;
-                    BdActivityUtils.requestLandscape(this.a, true);
-                    return;
-                } else if (OrientationHelper.isLandscape(i)) {
-                    this.b = true;
-                    BdActivityUtils.requestLandscape(this.a, false);
-                    return;
-                } else {
-                    return;
-                }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             }
-            this.c = false;
-            if (OrientationHelper.isReverseLandscape(i)) {
-                this.b = true;
-                BdActivityUtils.requestLandscape(this.a, true);
-            } else if (OrientationHelper.isLandscape(i)) {
-                this.b = true;
-                BdActivityUtils.requestLandscape(this.a, false);
-            } else if (OrientationHelper.isPortrait(i) && this.b && System.currentTimeMillis() - this.d > 1000) {
-                this.d = System.currentTimeMillis();
-                this.b = false;
-                BdActivityUtils.requestPortrait(this.a);
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                this.b.b = 0;
+                this.b.a = true;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallSuccess(i, str);
+                }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755141719, "Lcom/repackage/yh7;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class b implements CyberPlayerManager.InstallListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CyberPlayerManager.InstallListener a;
+        public final /* synthetic */ yh7 b;
+
+        public b(yh7 yh7Var, CyberPlayerManager.InstallListener installListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yh7Var, installListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = yh7Var;
+            this.a = installListener;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                if (this.b.b >= 3) {
+                    this.b.b = 0;
+                    CyberPlayerManager.InstallListener installListener = this.a;
+                    if (installListener != null) {
+                        installListener.onInstallError(i, i2, str);
+                        return;
+                    }
+                    return;
+                }
+                yh7.c(this.b);
+                this.b.g(this.a);
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755141719, "Lcom/repackage/yh7;");
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                this.b.b = 0;
+                this.b.a = true;
+                CyberPlayerManager.InstallListener installListener = this.a;
+                if (installListener != null) {
+                    installListener.onInstallSuccess(i, str);
+                }
+            }
         }
     }
 
@@ -137,270 +153,101 @@ public class yh7 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+        this.a = true;
+    }
+
+    public static /* synthetic */ int c(yh7 yh7Var) {
+        int i = yh7Var.b;
+        yh7Var.b = i + 1;
+        return i;
+    }
+
+    public static yh7 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == null) {
+                i();
+            }
+            return c;
+        }
+        return (yh7) invokeV.objValue;
+    }
+
+    public static synchronized void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (yh7.class) {
+                if (c == null) {
+                    c = new yh7();
+                }
+            }
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            boolean isCoreLoaded = CyberPlayerManager.isCoreLoaded(3);
+            if (isCoreLoaded && !this.a) {
+                this.a = true;
+            }
+            return isCoreLoaded;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(CyberPlayerManager.InstallListener installListener) {
+        String absolutePath;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, installListener) == null) || CyberPlayerManager.isCoreLoaded(3)) {
+            return;
         }
         this.a = false;
-        this.b = false;
-        this.c = "lp_bdrtc";
-        this.d = new HashMap<>();
-        this.f = new ArrayList();
-        this.g = new ArrayList();
-        this.h = PlayerConstant.HALF_MODE;
-        this.k = true;
-        this.l = null;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.b) {
-            Log.d("lp_bdrtc", str);
+        String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+        File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+        if (cacheDir != null) {
+            absolutePath = cacheDir.getAbsolutePath();
+        } else {
+            absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.put("cache-path", absolutePath);
+        try {
+            CyberPlayerManager.install(TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, 3, (Class<?>) null, hashMap, new a(this, installListener));
+        } catch (Exception unused) {
         }
     }
 
-    public void addOnInfoListener(LivePlayer.OnInfoListener onInfoListener) {
+    public void h(CyberPlayerManager.InstallListener installListener, int i) {
+        String absolutePath;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onInfoListener) == null) || onInfoListener == null || this.f.contains(onInfoListener)) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, installListener, i) == null) || CyberPlayerManager.isCoreLoaded(i)) {
             return;
         }
-        this.f.add(onInfoListener);
-    }
-
-    public void addProgressListener(LivePlayer.OnProgressChangeListener onProgressChangeListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onProgressChangeListener) == null) || onProgressChangeListener == null || this.g.contains(onProgressChangeListener)) {
-            return;
+        this.a = false;
+        String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+        File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
+        if (cacheDir != null) {
+            absolutePath = cacheDir.getAbsolutePath();
+        } else {
+            absolutePath = Environment.getDownloadCacheDirectory().getAbsolutePath();
         }
-        this.g.add(onProgressChangeListener);
-    }
-
-    public void attachKernelLayer(BaseKernelLayer baseKernelLayer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, baseKernelLayer) == null) {
-            a("attachKernelLayer " + baseKernelLayer);
-            this.l = baseKernelLayer;
-            detachKernelLayer();
-        }
-    }
-
-    public void attachToContainer(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, viewGroup) == null) {
-            this.i = viewGroup;
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i >= 3;
-            this.a = i >= 2;
-        }
-    }
-
-    public void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            a("initHelper");
-            OrientationHelper orientationHelper = new OrientationHelper(context, 3);
-            this.j = orientationHelper;
-            if (orientationHelper.canDetectOrientation()) {
-                this.j.enableSensor();
-                this.j.setListener(new a(this, (Activity) context));
-            }
-        }
-    }
-
-    public boolean checkMode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? TextUtils.equals(this.h, str) : invokeL.booleanValue;
-    }
-
-    @PublicMethod
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? TextUtils.equals(this.h, PlayerConstant.FULL_MODE) : invokeV.booleanValue;
-    }
-
-    public BaseKernelLayer detachKernelLayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            a("detachKernelLayer ");
-            getPlayerKernelLayer();
-            Button button = this.m;
-            if (button != null) {
-                ((ViewGroup) button.getParent()).removeView(this.m);
-            }
-            return this.l;
-        }
-        return (BaseKernelLayer) invokeV.objValue;
-    }
-
-    public void disableOrientationEventHelper() {
-        OrientationHelper orientationHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (orientationHelper = this.j) == null) {
-            return;
-        }
-        this.k = false;
-        orientationHelper.disable();
-    }
-
-    public void e(int i, int i2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(1048587, this, i, i2, obj) == null) || this.f == null) {
-            return;
-        }
-        for (int i3 = 0; i3 < this.f.size(); i3++) {
-            this.f.get(i3).onInfo(i, i2, obj);
-        }
-    }
-
-    public void enableOrientationEventHelper() {
-        OrientationHelper orientationHelper;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (orientationHelper = this.j) != null && orientationHelper.canDetectOrientation()) {
-            this.k = this.j.enableSensor();
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, str) == null) && this.a) {
-            Log.v(this.c, str);
-        }
-    }
-
-    @PublicMethod
-    public String getCurrentMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public <T extends IPlayerContext> T getPlayerContext(Class<T> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, cls)) == null) {
-            a("getPlayerContext " + cls);
-            T t = (T) this.d.get(cls);
-            if (t != null) {
-                return t;
-            }
-            return null;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public BaseKernelLayer getPlayerKernelLayer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            a("getPlayerKernelLayer ");
-            if (this.l == null && this.i != null) {
-                this.m = new Button(this.i.getContext());
-                this.l = new BaseKernelLayer(AbsVideoKernel.NORMAL_PLAYER);
-            }
-            return this.l;
-        }
-        return (BaseKernelLayer) invokeV.objValue;
-    }
-
-    public void goBackOrForeground(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            if (z) {
-                enableOrientationEventHelper();
-            } else {
-                disableOrientationEventHelper();
-            }
-            ViewGroup viewGroup = this.i;
-            if (viewGroup == null || !(viewGroup.getContext() instanceof Activity)) {
-                return;
-            }
-            VideoSystemHelper.setKeepScreenOnOff((Activity) this.i.getContext(), z);
-        }
-    }
-
-    @PublicMethod
-    public boolean isFloatingMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? TextUtils.equals(this.h, PlayerConstant.FLOATING_MODE) : invokeV.booleanValue;
-    }
-
-    public void registerContext(Class<? extends IPlayerContext> cls, IPlayerContext iPlayerContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, cls, iPlayerContext) == null) {
-            a("registerContext " + iPlayerContext);
-            this.d.put(cls, iPlayerContext);
-        }
-    }
-
-    public void release() {
-        OrientationHelper orientationHelper;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (orientationHelper = this.j) == null) {
-            return;
-        }
-        orientationHelper.disable();
-    }
-
-    public void removeOnInfoListener(LivePlayer.OnInfoListener onInfoListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, onInfoListener) == null) || onInfoListener == null) {
-            return;
-        }
-        this.f.remove(onInfoListener);
-    }
-
-    public void removeProgressListener(LivePlayer.OnProgressChangeListener onProgressChangeListener) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, onProgressChangeListener) == null) || onProgressChangeListener == null) {
-            return;
-        }
-        this.g.remove(onProgressChangeListener);
-    }
-
-    public void setMode(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            a("setMode mode= " + str);
-            this.h = str;
-        }
-    }
-
-    public void setOrientationLock(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            n = z;
-            if (z) {
-                return;
-            }
-            enableOrientationEventHelper();
-        }
-    }
-
-    public void setPlayerListener(IVideoPlayerCallback iVideoPlayerCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, iVideoPlayerCallback) == null) {
-            this.e = iVideoPlayerCallback;
-        }
-    }
-
-    public void switchToHalf() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && this.i != null && d() && (this.i.getContext() instanceof Activity)) {
-            BdActivityUtils.requestPortrait((Activity) this.i.getContext());
+        HashMap hashMap = new HashMap();
+        hashMap.put("cache-path", absolutePath);
+        try {
+            CyberPlayerManager.install(TbadkCoreApplication.getInst(), cuidGalaxy2, (String) null, i, (Class<?>) null, hashMap, new b(this, installListener));
+        } catch (Exception unused) {
         }
     }
 }

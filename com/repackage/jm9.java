@@ -1,25 +1,23 @@
 package com.repackage;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.AugmentedFace;
+import com.google.ar.core.Session;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class jm9 implements ServiceConnection {
+public final class jm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ hm9 a;
+    public final Map<Long, AugmentedFace> a;
 
-    public jm9(hm9 hm9Var) {
+    public jm9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hm9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,22 +27,23 @@ public final class jm9 implements ServiceConnection {
                 return;
             }
         }
-        this.a = hm9Var;
+        this.a = new com.google.ar.core.j(1, 0.75f, true);
     }
 
-    @Override // android.content.ServiceConnection
-    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    public final synchronized AugmentedFace a(long j, Session session) {
+        InterceptResult invokeJL;
+        AugmentedFace augmentedFace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            this.a.f(iBinder);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
+            synchronized (this) {
+                augmentedFace = this.a.get(Long.valueOf(j));
+                if (augmentedFace == null) {
+                    augmentedFace = new AugmentedFace(j, session);
+                    this.a.put(Long.valueOf(j), augmentedFace);
+                }
+            }
+            return augmentedFace;
         }
-    }
-
-    @Override // android.content.ServiceConnection
-    public final void onServiceDisconnected(ComponentName componentName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            this.a.q();
-        }
+        return (AugmentedFace) invokeJL.objValue;
     }
 }

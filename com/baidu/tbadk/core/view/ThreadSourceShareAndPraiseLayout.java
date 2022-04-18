@@ -99,8 +99,8 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
         }
         this.d = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0828, (ViewGroup) this, true);
-        this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09239f);
-        this.b = (ThreadCommentAndPraiseInfoLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0911ec);
+        this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923a0);
+        this.b = (ThreadCommentAndPraiseInfoLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0911ed);
         this.a.setOnClickListener(new a(this));
     }
 
@@ -172,7 +172,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     public void setSourceFromForPb(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b.N = i;
+            this.b.Q = i;
         }
     }
 

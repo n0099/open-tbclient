@@ -33,11 +33,11 @@ import com.repackage.d9;
 import com.repackage.el;
 import com.repackage.gi;
 import com.repackage.ii0;
-import com.repackage.ks4;
+import com.repackage.js4;
 import com.repackage.nb;
 import com.repackage.oc5;
 import com.repackage.s85;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import com.repackage.yb1;
 import com.repackage.yf;
 import java.util.Collections;
@@ -111,7 +111,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             }
             HashSet<String> hashSet = new HashSet<>();
             if (SpeedRuntime.getSpeedContext().isMainProcess()) {
-                String q = wt4.k().q("key_sync_task_switch", "");
+                String q = vt4.k().q("key_sync_task_switch", "");
                 if (!StringUtils.isNull(q) && (split = q.split("_")) != null && split.length > 0) {
                     Collections.addAll(hashSet, split);
                 }
@@ -192,7 +192,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             AppRuntimeInit.onApplicationattachBaseContext(this);
             yb1.b(this);
             if (isMainProcess(false, context)) {
-                ks4.b(context);
+                js4.b(context);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(1004);
             NPSHookManager.init(this);
@@ -215,7 +215,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(2000);
             TbadkApplication.sApp = this;
             if (isMainProcess(false)) {
-                ks4.a();
+                js4.a();
             }
             this.mAppInitHandler = new a(this, Looper.getMainLooper());
             d9.a().c(super.getResources());
@@ -232,7 +232,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             }
             s85.b().F(System.currentTimeMillis());
             if (isMainProcess(false)) {
-                ks4.j();
+                js4.j();
             }
             yf.a().b();
             SpeedStatsManager.getInstance().addStatsTimeStamp(2004);

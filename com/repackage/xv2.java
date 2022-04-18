@@ -133,11 +133,11 @@ public abstract class xv2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tv2Var, str, v12Var) == null) {
             bw2.b("local has not main pkg, download fun page main pkg");
-            kb4 kb4Var = new kb4(str, i03.J().l());
-            kb4Var.q(0L);
-            kb4Var.t(tv2Var.c);
-            kb4Var.d("3");
-            s74.c(kb4Var, new y32(str, new a(this, tv2Var, v12Var)));
+            jb4 jb4Var = new jb4(str, i03.J().l());
+            jb4Var.q(0L);
+            jb4Var.t(tv2Var.c);
+            jb4Var.d("3");
+            r74.c(jb4Var, new y32(str, new a(this, tv2Var, v12Var)));
         }
     }
 
@@ -170,7 +170,7 @@ public abstract class xv2 {
             bw2.b("main pkg is exist, download fun page sub pkg");
             String str = sv2Var.a;
             int i = sv2Var.d;
-            s74.h(new nb4(str, i, hw2.e(sv2Var.c, sv2Var.b), 0), new a42(str, String.valueOf(i), new b(this, tv2Var, v12Var)));
+            r74.h(new mb4(str, i, hw2.e(sv2Var.c, sv2Var.b), 0), new a42(str, String.valueOf(i), new b(this, tv2Var, v12Var)));
         }
     }
 

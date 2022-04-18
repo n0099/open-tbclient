@@ -49,12 +49,12 @@ public class v60 extends EventListener {
 
         /* renamed from: com.repackage.v60$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0531a implements c {
+        public class C0533a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0531a(a aVar) {
+            public C0533a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class v60 extends EventListener {
         public BufferedSource source() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.c(this.a.source(), new C0531a(this)) : (BufferedSource) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.c(this.a.source(), new C0533a(this)) : (BufferedSource) invokeV.objValue;
         }
     }
 

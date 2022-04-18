@@ -120,10 +120,10 @@ public class pq3 extends Dialog {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092171);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09218b);
-            f44.a(textView);
-            f44.a(textView2);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092172);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09218c);
+            e44.a(textView);
+            e44.a(textView2);
             textView.setOnClickListener(new a(this));
             textView2.setOnClickListener(new b(this));
         }

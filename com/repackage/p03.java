@@ -30,8 +30,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.NodeJS;
+import com.repackage.gb4;
 import com.repackage.gl2;
-import com.repackage.hb4;
 import com.repackage.n03;
 import com.repackage.wz1;
 import java.io.File;
@@ -48,7 +48,7 @@ public final class p03 extends r03 implements da2 {
     public boolean d;
     public boolean e;
     public boolean f;
-    public Set<hb4.a> g;
+    public Set<gb4.a> g;
     public int h;
     public boolean i;
     public final j03 j;
@@ -360,13 +360,13 @@ public final class p03 extends r03 implements da2 {
             this.h = p03Var;
         }
 
-        @Override // com.repackage.h32, com.repackage.d84
-        public void H(qd4 qd4Var) {
+        @Override // com.repackage.h32, com.repackage.c84
+        public void H(pd4 pd4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, qd4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, pd4Var) == null) {
                 this.h.c = true;
                 i03.J().q("event_pkg_download_start");
-                super.H(qd4Var);
+                super.H(pd4Var);
             }
         }
 
@@ -394,7 +394,7 @@ public final class p03 extends r03 implements da2 {
             }
         }
 
-        @Override // com.repackage.h32, com.repackage.d84, com.repackage.a84
+        @Override // com.repackage.h32, com.repackage.c84, com.repackage.z74
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -410,16 +410,16 @@ public final class p03 extends r03 implements da2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
-        public final /* synthetic */ kb4 b;
+        public final /* synthetic */ jb4 b;
         public final /* synthetic */ HybridUbcFlow c;
         public final /* synthetic */ p03 d;
 
-        public h(p03 p03Var, boolean z, kb4 kb4Var, HybridUbcFlow hybridUbcFlow) {
+        public h(p03 p03Var, boolean z, jb4 jb4Var, HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p03Var, Boolean.valueOf(z), kb4Var, hybridUbcFlow};
+                Object[] objArr = {p03Var, Boolean.valueOf(z), jb4Var, hybridUbcFlow};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -431,7 +431,7 @@ public final class p03 extends r03 implements da2 {
             }
             this.d = p03Var;
             this.a = z;
-            this.b = kb4Var;
+            this.b = jb4Var;
             this.c = hybridUbcFlow;
         }
 
@@ -584,18 +584,18 @@ public final class p03 extends r03 implements da2 {
             this.G = z;
         }
 
-        @Override // com.repackage.k32, com.repackage.j32, com.repackage.d84
-        public void H(qd4 qd4Var) {
+        @Override // com.repackage.k32, com.repackage.j32, com.repackage.c84
+        public void H(pd4 pd4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, qd4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, pd4Var) == null) {
                 jx1.k("SwanPkgMaintainer", "mFlagDownloading set onPrepareDownload isRetry = " + this.G);
                 this.H.c = true;
                 i03.J().q("event_pkg_download_start");
-                super.H(qd4Var);
+                super.H(pd4Var);
             }
         }
 
-        @Override // com.repackage.d84, com.repackage.a84
+        @Override // com.repackage.c84, com.repackage.z74
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -674,8 +674,8 @@ public final class p03 extends r03 implements da2 {
                     c();
                     return;
                 }
-                boolean j = s74.j(string);
-                boolean k = s74.k(string);
+                boolean j = r74.j(string);
+                boolean k = r74.k(string);
                 if (jw2.e) {
                     Log.d("MDelegate-Delegation", "isDownloading: " + j + ", isInQueue: " + k);
                 }
@@ -876,7 +876,7 @@ public final class p03 extends r03 implements da2 {
                     return -1;
                 }
                 if (!this.f) {
-                    Set<hb4.a> i2 = qv2.i(this.m);
+                    Set<gb4.a> i2 = qv2.i(this.m);
                     boolean z = i2 == null || i2.isEmpty();
                     this.f = z;
                     if (!z) {
@@ -1012,7 +1012,7 @@ public final class p03 extends r03 implements da2 {
         }
     }
 
-    public void I0(Set<hb4.a> set) {
+    public void I0(Set<gb4.a> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, set) == null) {
             this.g = set;
@@ -1041,11 +1041,11 @@ public final class p03 extends r03 implements da2 {
             }
             if (!q0) {
                 if (!this.f) {
-                    Set<hb4.a> set = this.g;
+                    Set<gb4.a> set = this.g;
                     if (set == null || set.isEmpty()) {
                         this.g = qv2.i(this.m);
                     }
-                    Set<hb4.a> set2 = this.g;
+                    Set<gb4.a> set2 = this.g;
                     if (set2 != null && !set2.isEmpty()) {
                         z = false;
                     }
@@ -1072,25 +1072,25 @@ public final class p03 extends r03 implements da2 {
             a0("KEY_PKG_STATE", "event_pms_check_finish", this.h);
             d0(this.j.V().H(), new f(this, i0));
             String appId = getAppId();
-            kb4 kb4Var = new kb4(appId, i0.G());
-            kb4Var.d("3");
+            jb4 jb4Var = new jb4(appId, i0.G());
+            jb4Var.d("3");
             PMSAppInfo pMSAppInfo = this.m;
-            kb4Var.u(pMSAppInfo == null ? 0L : pMSAppInfo.versionCode);
+            jb4Var.u(pMSAppInfo == null ? 0L : pMSAppInfo.versionCode);
             PMSAppInfo pMSAppInfo2 = this.m;
-            kb4Var.o(pMSAppInfo2 != null ? pMSAppInfo2.appSign : 0L);
+            jb4Var.o(pMSAppInfo2 != null ? pMSAppInfo2.appSign : 0L);
             String f2 = be3.f(i0.e0());
             if (!TextUtils.isEmpty(f2)) {
                 if (f2.startsWith(File.separator)) {
                     f2 = f2.substring(1);
                 }
-                kb4Var.t(f2);
+                jb4Var.t(f2);
             }
             UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("updatePkgOnPresetUnavailableRequest");
             ubcFlowEvent2.a(true);
             p.F(ubcFlowEvent2);
             A((n03.a) new n03.a("event_on_still_maintaining").t(" event_params_pkg_update", this.l));
             el2.b().g(appId);
-            e0(kb4Var, false, null);
+            e0(jb4Var, false, null);
             UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("updatePkgOnPresetUnavailableReturn");
             ubcFlowEvent3.a(true);
             p.F(ubcFlowEvent3);
@@ -1169,23 +1169,23 @@ public final class p03 extends r03 implements da2 {
         return invokeL.intValue;
     }
 
-    public final boolean Z(@NonNull kb4 kb4Var, cc3 cc3Var) {
+    public final boolean Z(@NonNull jb4 jb4Var, cc3 cc3Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, kb4Var, cc3Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, jb4Var, cc3Var)) == null) {
             String appId = getAppId();
             if (cc3Var != null && SwanAppNetworkUtils.i(qj2.c()) && el2.b().f(appId)) {
                 jx1.k("SwanPkgMaintainer", "checkGetPkgResult appId=" + appId + " errCode=" + cc3Var.a());
                 if (cc3Var.h() == 2101) {
                     el2.b().a(appId);
                     ot2.p(NodeJS.STARTUP_SCRIPT_NAME).F(new UbcFlowEvent("pkg_download_retry"));
-                    e0(kb4Var, true, cc3Var);
+                    e0(jb4Var, true, cc3Var);
                     return true;
                 } else if (cc3Var.h() == 2205) {
                     v82.c().d().u(ne3.a(appId), true, 12);
                     el2.b().a(appId);
                     ot2.p(NodeJS.STARTUP_SCRIPT_NAME).F(new UbcFlowEvent("pkg_download_retry"));
-                    e0(kb4Var, true, cc3Var);
+                    e0(jb4Var, true, cc3Var);
                     return true;
                 }
             }
@@ -1255,7 +1255,7 @@ public final class p03 extends r03 implements da2 {
                     p.F(new UbcFlowEvent("na_query_db_start"));
                     PMSAppInfo f0 = this.j.V().f0();
                     if (f0 == null || f0.isMaxAgeExpires()) {
-                        f0 = f84.i().u(getAppId());
+                        f0 = e84.i().u(getAppId());
                     }
                     p.F(new UbcFlowEvent("na_query_db"));
                     boolean e2 = ql2.e(f0);
@@ -1298,30 +1298,30 @@ public final class p03 extends r03 implements da2 {
         }
     }
 
-    public final void e0(@NonNull kb4 kb4Var, boolean z, @Nullable cc3 cc3Var) {
+    public final void e0(@NonNull jb4 jb4Var, boolean z, @Nullable cc3 cc3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{kb4Var, Boolean.valueOf(z), cc3Var}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{jb4Var, Boolean.valueOf(z), cc3Var}) == null) {
             HybridUbcFlow p = ot2.p(NodeJS.STARTUP_SCRIPT_NAME);
-            kb4Var.v(z ? 1L : 0L);
+            jb4Var.v(z ? 1L : 0L);
             j jVar = new j(this, this.j, z);
             jVar.f0(new i(this, p));
-            jVar.h0(new h(this, z, kb4Var, p));
+            jVar.h0(new h(this, z, jb4Var, p));
             jVar.M(this.i ? 2 : 1);
             if (z && cc3Var != null) {
-                kb4Var.p(cc3Var.h());
+                jb4Var.p(cc3Var.h());
             }
-            s74.c(kb4Var, jVar);
+            r74.c(jb4Var, jVar);
         }
     }
 
-    public final void f0(Set<hb4.a> set) {
+    public final void f0(Set<gb4.a> set) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, set) == null) {
-            hb4 hb4Var = new hb4(set);
-            hb4Var.d("3");
+            gb4 gb4Var = new gb4(set);
+            gb4Var.d("3");
             g gVar = new g(this);
             gVar.M(this.i ? 2 : 1);
-            s74.d(hb4Var, gVar);
+            r74.d(gb4Var, gVar);
         }
     }
 

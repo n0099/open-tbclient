@@ -38,8 +38,8 @@ public class u55 implements i55<CompeteTaskEvent> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, competeTaskEvent)) == null) {
             if (competeTaskEvent != null && (completeTaskToastData = competeTaskEvent.taskToastData) != null) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity instanceof bj4) {
-                    ((bj4) currentActivity).onMissionCompleted(completeTaskToastData);
+                if (currentActivity instanceof aj4) {
+                    ((aj4) currentActivity).onMissionCompleted(completeTaskToastData);
                     return true;
                 }
             }

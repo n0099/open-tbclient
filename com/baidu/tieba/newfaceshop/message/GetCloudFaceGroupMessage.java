@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bo7;
 import com.repackage.i35;
 import com.repackage.ui;
-import com.repackage.yn7;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -135,11 +135,11 @@ public class GetCloudFaceGroupMessage extends JsonHttpResponsedMessage {
             return;
         }
         this.mCollectUpdateTime = jSONObject.optLong("pic_update_time");
-        if (yn7.k() < this.mCollectUpdateTime) {
+        if (bo7.k() < this.mCollectUpdateTime) {
             parseCollectData(jSONObject.optJSONArray("pic_ids"));
         }
         this.mFaceGroupUpdateTime = jSONObject.optLong("pkg_update_time");
-        if (yn7.l() < this.mFaceGroupUpdateTime) {
+        if (bo7.l() < this.mFaceGroupUpdateTime) {
             parseFaceGroupData(jSONObject.optString("package_ids"));
         }
     }

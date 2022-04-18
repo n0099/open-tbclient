@@ -1,24 +1,32 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class c24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String value;
 
-    public static void a(r72 r72Var) {
+    public c24(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, r72Var) == null) && r72Var != null && r72Var.p().hasEventListener("audiointerruptionbegin") && lu3.h().i()) {
-            r72Var.dispatchEvent(new JSEvent("audiointerruptionbegin"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-    }
-
-    public static void b(r72 r72Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, r72Var) == null) && r72Var != null && r72Var.p().hasEventListener("audiointerruptionend")) {
-            r72Var.dispatchEvent(new JSEvent("audiointerruptionend"));
-        }
+        this.value = str;
     }
 }

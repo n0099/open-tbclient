@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.q77;
-import com.repackage.xx4;
+import com.repackage.t77;
+import com.repackage.wx4;
 import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes3.dex */
 public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivity> implements RecommendDetailModel.d, BdSwitchView.b {
@@ -27,7 +27,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     public RecommendDetailModel mModel;
     public long mUserId;
     public String mUserName;
-    public q77 mView;
+    public t77 mView;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -114,7 +114,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.mView == null) {
             return;
         }
-        if (!xx4.g0().N(String.valueOf(this.mUserId))) {
+        if (!wx4.g0().N(String.valueOf(this.mUserId))) {
             this.mView.g();
         } else {
             this.mView.a();
@@ -154,7 +154,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
-                showToast(R.string.obfuscated_res_0x7f0f11f9);
+                showToast(R.string.obfuscated_res_0x7f0f11f8);
                 TbadkCoreApplication.getInst().setPromotedMessage(String.valueOf(this.mUserId), true);
                 return;
             }
@@ -167,9 +167,9 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            q77 q77Var = this.mView;
-            if (q77Var != null) {
-                q77Var.d(i);
+            t77 t77Var = this.mView;
+            if (t77Var != null) {
+                t77Var.d(i);
             }
         }
     }
@@ -179,7 +179,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new q77(this);
+            this.mView = new t77(this);
             this.mModel = new RecommendDetailModel(getPageContext(), this);
             initData(bundle);
             checkIsShowAcceptSwitch();
@@ -211,7 +211,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
                 return;
             }
             if (oi.C()) {
-                this.mView.h(R.string.obfuscated_res_0x7f0f0c30);
+                this.mView.h(R.string.obfuscated_res_0x7f0f0c2f);
             } else {
                 this.mView.h(R.string.obfuscated_res_0x7f0f077d);
             }
@@ -230,12 +230,12 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.d
     public void onSuccess(UserInfoBigVip userInfoBigVip, boolean z) {
-        q77 q77Var;
+        t77 t77Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, userInfoBigVip, z) == null) || (q77Var = this.mView) == null || userInfoBigVip == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, userInfoBigVip, z) == null) || (t77Var = this.mView) == null || userInfoBigVip == null) {
             return;
         }
-        q77Var.b();
+        t77Var.b();
         this.mView.i(userInfoBigVip, z);
     }
 
@@ -245,7 +245,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
                 TbadkCoreApplication.getInst().setPromotedMessage(String.valueOf(this.mUserId), false);
-                showToast(R.string.obfuscated_res_0x7f0f11f9);
+                showToast(R.string.obfuscated_res_0x7f0f11f8);
                 return;
             }
             this.mHandler.postDelayed(new b(this), 500L);

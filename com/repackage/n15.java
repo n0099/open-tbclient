@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f25;
-import com.repackage.yj8;
+import com.repackage.fk8;
 /* loaded from: classes6.dex */
 public class n15 {
     public static /* synthetic */ Interceptable $ic;
@@ -88,7 +88,7 @@ public class n15 {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             EditorTools a = ((v15) new w15(this.d).a(this.b)).a();
             this.a = a;
-            a.setId(R.id.obfuscated_res_0x7f091317);
+            a.setId(R.id.obfuscated_res_0x7f091318);
             this.a.setOnCancelClickListener(new View.OnClickListener() { // from class: com.repackage.l15
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -173,11 +173,11 @@ public class n15 {
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (q15Var = this.e) == null) {
             return;
         }
-        q15Var.d(new yj8.g() { // from class: com.repackage.j15
+        q15Var.d(new fk8.g() { // from class: com.repackage.j15
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.repackage.yj8.g
+            @Override // com.repackage.fk8.g
             public final void a(String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {

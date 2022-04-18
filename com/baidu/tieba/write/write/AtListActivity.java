@@ -52,18 +52,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b09;
 import com.repackage.h95;
 import com.repackage.ni;
 import com.repackage.oi;
-import com.repackage.r09;
-import com.repackage.rz8;
-import com.repackage.uz8;
-import com.repackage.wr4;
+import com.repackage.vr4;
 import com.repackage.xo;
+import com.repackage.y09;
+import com.repackage.yz8;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class AtListActivity extends SuspendedActivity implements h95, AdapterView.OnItemClickListener, r09.c {
+public class AtListActivity extends SuspendedActivity implements h95, AdapterView.OnItemClickListener, y09.c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_AT = "0";
     public static final String FROM_BJH = "2";
@@ -78,7 +78,7 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
     public boolean isForBjh;
     public boolean isForChat;
     public boolean isNeedMultiple;
-    public r09 mAdapter;
+    public y09 mAdapter;
     public Button mButtonPost;
     public LinearLayout mCandidateContainer;
     public AtSelectFriendList mCandidateList;
@@ -93,7 +93,7 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
     public ArrayList<AtSelectData> mLastPageAtSelectDataList;
     public View mListFooter;
     public BdListView mListView;
-    public uz8 mModel;
+    public b09 mModel;
     public View mNaviSearchEditView;
     public View mNaviSearchFindView;
     public TextView mNaviTitleTV;
@@ -321,7 +321,7 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
                         return;
                     }
                     AtListActivity atListActivity = this.a;
-                    atListActivity.showToastWithIcon(String.format(atListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0937), 5), R.drawable.obfuscated_res_0x7f080a66);
+                    atListActivity.showToastWithIcon(String.format(atListActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0937), 5), R.drawable.obfuscated_res_0x7f080a6a);
                     tbCheckBox.setChecked(false);
                     ((MetaData) obj).setChecked(false);
                     return;
@@ -662,7 +662,7 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
     private void initData(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65572, this, bundle) == null) {
-            this.mModel = new uz8();
+            this.mModel = new b09();
             if (bundle != null) {
                 this.isNeedMultiple = bundle.getBoolean(IntentConfig.IS_NEED_MULTIPLE);
                 this.isForChat = bundle.getBoolean(AtListActivityConfig.IS_FOR_CHAT, false);
@@ -684,18 +684,18 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
     private void initNavigationBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65573, this) == null) {
-            this.mNaviTitleTV = this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f10cc));
+            this.mNaviTitleTV = this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f10cb));
             View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d007f, new i(this));
             this.mNaviSearchFindView = addCustomView;
-            this.mSearchImageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091544);
+            this.mSearchImageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091545);
             View addCustomView2 = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d05e7, (View.OnClickListener) null);
             this.mNaviSearchEditView = addCustomView2;
             addCustomView2.setVisibility(8);
-            this.mEditText = (EditText) this.mNaviSearchEditView.findViewById(R.id.obfuscated_res_0x7f090919);
-            this.mSearchIcon = (ImageView) this.mNaviSearchEditView.findViewById(R.id.obfuscated_res_0x7f090915);
+            this.mEditText = (EditText) this.mNaviSearchEditView.findViewById(R.id.obfuscated_res_0x7f09091a);
+            this.mSearchIcon = (ImageView) this.mNaviSearchEditView.findViewById(R.id.obfuscated_res_0x7f090916);
             this.mEditText.addTextChangedListener(new j(this));
             this.mEditText.setOnFocusChangeListener(new k(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09091a);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09091b);
             this.mDelete = textView;
             textView.setOnClickListener(new a(this));
         }
@@ -704,17 +704,17 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65574, this) == null) {
-            this.mParent = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091641);
-            this.mNoDataView = NoDataViewFactory.b(getPageContext().getContext(), this.mParent, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, oi.f(getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c2c)), null, true);
+            this.mParent = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091642);
+            this.mNoDataView = NoDataViewFactory.b(getPageContext().getContext(), this.mParent, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, oi.f(getActivity(), R.dimen.obfuscated_res_0x7f0702a1)), NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c2b)), null, true);
             this.mDivLine = findViewById(R.id.obfuscated_res_0x7f0902bb);
             this.mNoDataView.setOnTouchListener(new d(this));
             initNavigationBar();
             this.mSearchBox = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090401);
             this.mContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906d2);
-            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f09126c);
-            r09 r09Var = new r09(this, this.isNeedMultiple);
-            this.mAdapter = r09Var;
-            r09Var.g(this);
+            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f09126d);
+            y09 y09Var = new y09(this, this.isNeedMultiple);
+            this.mAdapter = y09Var;
+            y09Var.g(this);
             this.mAdapter.e(new e(this));
             this.mListView.setAdapter((ListAdapter) this.mAdapter);
             this.mListView.setOnItemClickListener(this);
@@ -723,7 +723,7 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
                 ((View) this.mEditText.getParent()).setFocusable(true);
                 ((View) this.mEditText.getParent()).setFocusableInTouchMode(true);
             }
-            this.mCandidateContainer = (LinearLayout) this.mParent.findViewById(R.id.obfuscated_res_0x7f090f4d);
+            this.mCandidateContainer = (LinearLayout) this.mParent.findViewById(R.id.obfuscated_res_0x7f090f4e);
             Button button = (Button) this.mParent.findViewById(R.id.obfuscated_res_0x7f090467);
             this.mButtonPost = button;
             button.setOnClickListener(new g(this));
@@ -816,13 +816,13 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
                 this.mListView.setVisibility(8);
                 hideNetRefreshView(this.mContainer);
                 this.mNoDataView.setVisibility(0);
-                this.mNoDataView.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c2c)));
+                this.mNoDataView.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c2b)));
                 this.mCandidateContainer.setVisibility(8);
             } else if (i2 == 1) {
                 this.mListView.setVisibility(8);
                 hideNetRefreshView(this.mContainer);
                 this.mNoDataView.setVisibility(0);
-                this.mNoDataView.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c5d)));
+                this.mNoDataView.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.obfuscated_res_0x7f0f0c5c)));
                 this.mCandidateContainer.setVisibility(8);
             } else if (i2 == 0) {
                 this.mListView.setVisibility(0);
@@ -866,7 +866,7 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
         return (h95) invokeLL.objValue;
     }
 
-    @Override // com.repackage.r09.c
+    @Override // com.repackage.y09.c
     public void handlerItem(View view2, MetaData metaData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, metaData) == null) || metaData == null) {
@@ -921,21 +921,21 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
             this.mAdapter.notifyDataSetChanged();
             SkinManager.setBackgroundResource(this.mListFooter, R.drawable.invite_friend_list_item_bg_color);
             SkinManager.setBackgroundResource(this.mButtonPost, R.drawable.post_button_bg);
-            wr4 d2 = wr4.d(this.mButtonPost);
+            vr4 d2 = vr4.d(this.mButtonPost);
             d2.n(R.string.J_X03);
             d2.f(R.color.CAM_X0302);
             SkinManager.setViewTextColor(this.mButtonPost, R.color.CAM_X0101, 3);
-            this.mSearchImageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809c7, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.mSearchImageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809cb, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             SkinManager.setViewTextColor(this.mContainer, (int) R.color.CAM_X0201);
-            WebPManager.setPureDrawable(this.mSearchIcon, R.drawable.obfuscated_res_0x7f080a0d, R.color.CAM_X0109, null);
-            wr4 d3 = wr4.d(this.mSearchBox);
+            WebPManager.setPureDrawable(this.mSearchIcon, R.drawable.obfuscated_res_0x7f080a11, R.color.CAM_X0109, null);
+            vr4 d3 = vr4.d(this.mSearchBox);
             d3.n(R.string.J_X07);
             d3.l(R.dimen.L_X01);
             d3.k(R.color.CAM_X0615);
             d3.f(R.color.CAM_X0209);
-            wr4.d(this.mEditText).v(R.color.CAM_X0109);
-            wr4.d(this.mDelete).A(R.string.F_X01);
-            wr4.d(this.mCancel).v(R.color.CAM_X0109);
+            vr4.d(this.mEditText).v(R.color.CAM_X0109);
+            vr4.d(this.mDelete).A(R.string.F_X01);
+            vr4.d(this.mCancel).v(R.color.CAM_X0109);
         }
     }
 
@@ -993,7 +993,7 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
                 if (item.isChecked()) {
                     removeCandidate(item);
                 } else if (5 <= this.mCandidateList.getItemLength()) {
-                    showToastWithIcon(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0937), 5), R.drawable.obfuscated_res_0x7f080a66);
+                    showToastWithIcon(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0937), 5), R.drawable.obfuscated_res_0x7f080a6a);
                     return;
                 } else {
                     addCandidate(item);
@@ -1087,7 +1087,7 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
     }
 
     /* loaded from: classes4.dex */
-    public class l extends BdAsyncTask<String, Integer, rz8> {
+    public class l extends BdAsyncTask<String, Integer, yz8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -1115,7 +1115,7 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public rz8 doInBackground(String... strArr) {
+        public yz8 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -1141,21 +1141,21 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
                 }
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    rz8 rz8Var = new rz8();
-                    rz8Var.b(postNetData);
-                    return rz8Var;
+                    yz8 yz8Var = new yz8();
+                    yz8Var.b(postNetData);
+                    return yz8Var;
                 }
                 return null;
             }
-            return (rz8) invokeL.objValue;
+            return (yz8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(rz8 rz8Var) {
+        public void onPostExecute(yz8 yz8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rz8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yz8Var) == null) {
                 this.b.mFriendListTask = null;
                 AtListActivity atListActivity = this.b;
                 atListActivity.hideNetRefreshView(atListActivity.mContainer);
@@ -1163,17 +1163,17 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
                     this.b.mDivLine.setVisibility(0);
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.b.mModel.b(rz8Var);
+                    this.b.mModel.b(yz8Var);
                     if (this.b.mAdapter == null) {
                         return;
                     }
-                    if (rz8Var == null || rz8Var.a() == null || !rz8Var.a().isEmpty()) {
+                    if (yz8Var == null || yz8Var.a() == null || !yz8Var.a().isEmpty()) {
                         this.b.setNoFriends(0);
                     } else {
                         this.b.setNoFriends(2);
                     }
-                    if (rz8Var != null) {
-                        this.b.mFriendList = rz8Var.a();
+                    if (yz8Var != null) {
+                        this.b.mFriendList = yz8Var.a();
                     }
                     this.b.mAdapter.f(this.b.mFriendList);
                     this.b.mAdapter.notifyDataSetInvalidated();
@@ -1181,9 +1181,9 @@ public class AtListActivity extends SuspendedActivity implements h95, AdapterVie
                 } else {
                     this.b.showToast(this.a.getErrorString());
                     AtListActivity atListActivity2 = this.b;
-                    atListActivity2.showNetRefreshView(atListActivity2.mContainer, this.b.getString(R.string.obfuscated_res_0x7f0f0f6a), null, this.b.getString(R.string.obfuscated_res_0x7f0f0f69), true, this.b.getNetRefreshListener());
+                    atListActivity2.showNetRefreshView(atListActivity2.mContainer, this.b.getString(R.string.obfuscated_res_0x7f0f0f69), null, this.b.getString(R.string.obfuscated_res_0x7f0f0f68), true, this.b.getNetRefreshListener());
                 }
-                super.onPostExecute(rz8Var);
+                super.onPostExecute(yz8Var);
             }
         }
 

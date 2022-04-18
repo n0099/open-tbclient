@@ -144,7 +144,7 @@ public class lc2 extends l83 {
                 return d(-1, "fail unzip failed");
             }
             List<String> o = tc2.o(g2, true);
-            if (!ng4.U(g, g2)) {
+            if (!mg4.U(g, g2)) {
                 return d(-1, "fail unzip failed");
             }
             if (str2.startsWith(gc2.USER_DATA_PATH)) {
@@ -253,8 +253,8 @@ public class lc2 extends l83 {
                                 length = decode.length;
                                 if (this.d.a(length)) {
                                     ic2 d2 = d(-1, p());
-                                    ng4.d(null);
-                                    ng4.d(null);
+                                    mg4.d(null);
+                                    mg4.d(null);
                                     return d2;
                                 }
                                 FileOutputStream fileOutputStream3 = new FileOutputStream(file, z);
@@ -269,8 +269,8 @@ public class lc2 extends l83 {
                                     length2 = str3.getBytes().length;
                                     if (!this.d.a(length2)) {
                                         ic2 d3 = d(-1, p());
-                                        ng4.d(null);
-                                        ng4.d(null);
+                                        mg4.d(null);
+                                        mg4.d(null);
                                         return d3;
                                     }
                                     BufferedWriter bufferedWriter2 = new BufferedWriter(TextUtils.isEmpty(str4) ? new OutputStreamWriter(new FileOutputStream(file, z)) : new OutputStreamWriter(new FileOutputStream(file, z), str4.toLowerCase()));
@@ -285,15 +285,15 @@ public class lc2 extends l83 {
                                         bufferedWriter = bufferedWriter2;
                                         d = d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
                                         fileOutputStream = r13;
-                                        ng4.d(bufferedWriter);
-                                        ng4.d(fileOutputStream);
+                                        mg4.d(bufferedWriter);
+                                        mg4.d(fileOutputStream);
                                         return d;
                                     } catch (Throwable th) {
                                         th = th;
                                         r13 = 0;
                                         bufferedWriter = bufferedWriter2;
-                                        ng4.d(bufferedWriter);
-                                        ng4.d(r13);
+                                        mg4.d(bufferedWriter);
+                                        mg4.d(r13);
                                         throw th;
                                     }
                                 }
@@ -307,8 +307,8 @@ public class lc2 extends l83 {
                             length = bArr.length;
                             if (this.d.a(length)) {
                                 ic2 d4 = d(-1, p());
-                                ng4.d(null);
-                                ng4.d(null);
+                                mg4.d(null);
+                                mg4.d(null);
                                 return d4;
                             }
                             FileOutputStream fileOutputStream4 = new FileOutputStream(g, z);
@@ -334,8 +334,8 @@ public class lc2 extends l83 {
                 th = th3;
                 r13 = 0;
             }
-            ng4.d(bufferedWriter);
-            ng4.d(fileOutputStream);
+            mg4.d(bufferedWriter);
+            mg4.d(fileOutputStream);
             return d;
         }
         return (ic2) invokeCommon.objValue;
@@ -532,7 +532,7 @@ public class lc2 extends l83 {
             }
             ic2 d = d(0, "ok");
             d.e = file.exists() ? file.length() : 0L;
-            d.g = file.exists() ? pg4.b(file, false) : null;
+            d.g = file.exists() ? og4.b(file, false) : null;
             return d;
         }
         return (ic2) invokeL.objValue;
@@ -814,7 +814,7 @@ public class lc2 extends l83 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            String n = ng4.n(this.d.getMaxSize());
+            String n = mg4.n(this.d.getMaxSize());
             return String.format("fail file size over %s", (TextUtils.isEmpty(n) || TextUtils.equals(n, FileUtils.UNKNOW)) ? "" : "");
         }
         return (String) invokeV.objValue;
@@ -912,7 +912,7 @@ public class lc2 extends l83 {
             e.printStackTrace();
             return "";
         } finally {
-            ng4.d(fileInputStream);
+            mg4.d(fileInputStream);
         }
     }
 
@@ -943,7 +943,7 @@ public class lc2 extends l83 {
                 if (listFiles != null) {
                     for (File file2 : listFiles) {
                         if (file2 != null && file2.exists() && !TextUtils.equals(file2.getAbsolutePath(), this.e)) {
-                            arrayList.add(ng4.s(file2.getAbsolutePath()));
+                            arrayList.add(mg4.s(file2.getAbsolutePath()));
                         }
                     }
                 }
@@ -1154,8 +1154,8 @@ public class lc2 extends l83 {
                         fileOutputStream.write(bArr, 0, read);
                         fileOutputStream.flush();
                     }
-                    ng4.d(fileInputStream2);
-                    ng4.d(fileOutputStream);
+                    mg4.d(fileInputStream2);
+                    mg4.d(fileOutputStream);
                     if (!TextUtils.isEmpty(str2)) {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(str2);
@@ -1171,8 +1171,8 @@ public class lc2 extends l83 {
                     try {
                         e.printStackTrace();
                         ic2 d2 = d(-1, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                        ng4.d(fileInputStream);
-                        ng4.d(fileOutputStream);
+                        mg4.d(fileInputStream);
+                        mg4.d(fileOutputStream);
                         if (!TextUtils.isEmpty("")) {
                             ArrayList arrayList2 = new ArrayList();
                             arrayList2.add(str2);
@@ -1184,8 +1184,8 @@ public class lc2 extends l83 {
                         return d2;
                     } catch (Throwable th) {
                         th = th;
-                        ng4.d(fileInputStream);
-                        ng4.d(fileOutputStream);
+                        mg4.d(fileInputStream);
+                        mg4.d(fileOutputStream);
                         if (TextUtils.isEmpty("")) {
                             ArrayList arrayList3 = new ArrayList();
                             arrayList3.add(str2);
@@ -1199,8 +1199,8 @@ public class lc2 extends l83 {
                 } catch (Throwable th2) {
                     th = th2;
                     fileInputStream = fileInputStream2;
-                    ng4.d(fileInputStream);
-                    ng4.d(fileOutputStream);
+                    mg4.d(fileInputStream);
+                    mg4.d(fileOutputStream);
                     if (TextUtils.isEmpty("")) {
                     }
                     throw th;
@@ -1231,7 +1231,7 @@ public class lc2 extends l83 {
             }
             String L = tc2.L(str2);
             if (TextUtils.isEmpty(L)) {
-                L = gc2.USER_DATA_PATH + File.separator + ng4.s(str);
+                L = gc2.USER_DATA_PATH + File.separator + mg4.s(str);
             }
             if (!L.startsWith(gc2.USER_DATA_PATH)) {
                 return d(-1, tc2.F("fail permission denied, open ", null, str2, null));

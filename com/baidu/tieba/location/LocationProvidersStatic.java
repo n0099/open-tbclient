@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.af7;
 import com.repackage.bf7;
+import com.repackage.df7;
+import com.repackage.ef7;
 import com.repackage.gf;
 import com.repackage.u05;
-import com.repackage.xe7;
-import com.repackage.ye7;
 /* loaded from: classes3.dex */
 public class LocationProvidersStatic {
     public static /* synthetic */ Interceptable $ic;
@@ -67,13 +67,13 @@ public class LocationProvidersStatic {
                 EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                 int indexOf = editorTools.getCollectTools().indexOf(7);
                 if (indexOf != -1) {
-                    editorTools.d(new bf7(editorTools.getContext(), indexOf + 1));
+                    editorTools.d(new ef7(editorTools.getContext(), indexOf + 1));
                 }
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
                     if (editorTools.t()) {
-                        editorTools.d(new af7(editorTools.getContext(), true));
+                        editorTools.d(new df7(editorTools.getContext(), true));
                     } else {
-                        editorTools.d(new af7(editorTools.getContext()));
+                        editorTools.d(new df7(editorTools.getContext()));
                     }
                 }
             }
@@ -103,7 +103,7 @@ public class LocationProvidersStatic {
         public CustomResponsedMessage<u05> run(CustomMessage<Context> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016556, new bf7(customMessage.getData(), 0)) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2016556, new ef7(customMessage.getData(), 0)) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -170,13 +170,13 @@ public class LocationProvidersStatic {
                 return;
             }
         }
-        gf.n().r(ye7.t());
+        gf.n().r(bf7.t());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            gf.n().r(xe7.j());
+            gf.n().r(af7.j());
         }
         MessageManager.getInstance().registerListener(new a(2010044));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016556, new b());

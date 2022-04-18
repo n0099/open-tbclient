@@ -1,44 +1,145 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.flow.CoverFlowView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.faceshop.CollectEmotionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y96;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.repackage.s96;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class u96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Pattern a;
-    public TbPageContext<?> b;
-    public View c;
-    public CoverFlowView<bs4> d;
-    public y96 e;
-    public es4<bs4> f;
+    public s96 a;
+    public Handler b;
 
     /* loaded from: classes7.dex */
-    public class a extends cs4 {
+    public class a implements s96.l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u96 a;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ u96 c;
 
-        public a(u96 u96Var) {
+        public a(u96 u96Var, List list, Map map) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u96Var, list, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = u96Var;
+            this.a = list;
+            this.b = map;
+        }
+
+        @Override // com.repackage.s96.l
+        public void onResult(int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+                this.c.d(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ u96 c;
+
+        /* loaded from: classes7.dex */
+        public class a implements s96.l {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.repackage.s96.l
+            public void onResult(int i, int i2, int i3) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+                    b bVar = this.a;
+                    bVar.c.g(bVar.b);
+                }
+            }
+        }
+
+        public b(u96 u96Var, List list, List list2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u96Var, list, list2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = u96Var;
+            this.a = list;
+            this.b = list2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.a.h(this.a, false, new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements s96.l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(u96 u96Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,104 +151,27 @@ public class u96 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = u96Var;
         }
 
-        @Override // com.repackage.cs4, com.repackage.as4
-        public ds4 a() {
-            InterceptResult invokeV;
+        @Override // com.repackage.s96.l
+        public void onResult(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ds4 a = super.a();
-                if (a != null) {
-                    a.d(81);
-                    a.e(R.dimen.obfuscated_res_0x7f0701d5);
+            if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+                if (i2 > 0) {
+                    BdLog.e("NewFaceSyncUtil setCollectUpdateTime reSortLocalFace Called:" + System.currentTimeMillis());
+                    bo7.s(System.currentTimeMillis());
                 }
-                return a;
-            }
-            return (ds4) invokeV.objValue;
-        }
-
-        @Override // com.repackage.cs4, com.repackage.as4
-        public fs4 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                fs4 fs4Var = new fs4();
-                fs4Var.a((int) (oi.k(this.a.b.getPageActivity()) / 2.5714285f));
-                return fs4Var;
-            }
-            return (fs4) invokeV.objValue;
-        }
-
-        @Override // com.repackage.cs4, com.repackage.as4
-        public TbImageView d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                TbImageView tbImageView = new TbImageView(context);
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                tbImageView.setGifIconSupport(false);
-                return tbImageView;
-            }
-            return (TbImageView) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements es4<bs4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u96 a;
-
-        public b(u96 u96Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u96Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u96Var;
-        }
-
-        @Override // com.repackage.es4
-        public void a(int i, bs4 bs4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(1048576, this, i, bs4Var) != null) || bs4Var == null) {
-            }
-        }
-
-        @Override // com.repackage.es4
-        public void b(int i, String str) {
-            y96.a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || (aVar = (y96.a) this.a.d.n(i)) == null) {
-                return;
-            }
-            Matcher matcher = this.a.a.matcher(aVar.b());
-            if (matcher.find()) {
-                this.a.b.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.b.getPageActivity()).createNormalCfg(matcher.group(1), null, null)));
+                bo7.m().u(false);
             }
         }
     }
 
-    public u96(TbPageContext<?> tbPageContext) {
+    public u96() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -157,60 +181,103 @@ public class u96 {
                 return;
             }
         }
-        this.a = Pattern.compile("http[s]?://tieba.baidu.com/p/([\\d]+)");
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = new b(this);
-        this.b = tbPageContext;
-        d();
+        this.a = s96.s();
+        this.b = new Handler(Looper.getMainLooper());
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    public final void d(List<CollectEmotionData> list, Map<String, CollectEmotionData> map) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
-    }
-
-    public final void d() {
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.b) == null) {
-            return;
-        }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0790, (ViewGroup) null);
-        this.c = inflate;
-        if (inflate == null) {
-            return;
-        }
-        this.d = (CoverFlowView) inflate.findViewById(R.id.obfuscated_res_0x7f091d55);
-        a aVar = new a(this);
-        this.d.setDisableParentEvent(false);
-        this.d.setCoverFlowFactory(aVar);
-        this.d.setCallback(this.f);
-    }
-
-    public void e(y96 y96Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y96Var) == null) || y96Var == null || y96Var == this.e) {
-            return;
-        }
-        this.d.setData(y96Var.a());
-        this.e = y96Var;
-    }
-
-    public void f(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bdUniqueId) != null) || bdUniqueId == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, list, map) == null) {
+            ArrayList<CollectEmotionData> arrayList = new ArrayList();
+            for (CollectEmotionData collectEmotionData : list) {
+                if (collectEmotionData != null && !map.containsKey(collectEmotionData.pid) && !TextUtils.isEmpty(collectEmotionData.picUrl)) {
+                    arrayList.add(collectEmotionData);
+                }
+            }
+            if (!arrayList.isEmpty()) {
+                ArrayList arrayList2 = new ArrayList();
+                for (CollectEmotionData collectEmotionData2 : arrayList) {
+                    l35 l35Var = new l35();
+                    l35Var.f = collectEmotionData2.pkgId;
+                    l35Var.a = collectEmotionData2.pid;
+                    l35Var.d = collectEmotionData2.picUrl;
+                    l35Var.b = collectEmotionData2.width;
+                    l35Var.c = collectEmotionData2.height;
+                    l35Var.e = collectEmotionData2.thumbnail;
+                    arrayList2.add(l35Var);
+                }
+                this.b.post(new b(this, arrayList2, list));
+                return;
+            }
+            g(list);
         }
     }
 
-    public void g() {
-        CoverFlowView<bs4> coverFlowView;
+    public final void e(List<CollectEmotionData> list, List<CollectEmotionData> list2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (coverFlowView = this.d) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
+            ArrayList arrayList = new ArrayList();
+            Map<String, CollectEmotionData> h = h(list2);
+            Map<String, CollectEmotionData> h2 = h(list);
+            for (Map.Entry<String, CollectEmotionData> entry : h.entrySet()) {
+                if (!h2.containsKey(entry.getKey())) {
+                    arrayList.add(entry.getValue());
+                }
+            }
+            if (!arrayList.isEmpty()) {
+                this.a.l(arrayList, false, new a(this, list, h));
+            } else {
+                d(list, h);
+            }
         }
-        coverFlowView.v();
+    }
+
+    public void f(List<CollectEmotionData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            s96.s().k(true);
+            List<CollectEmotionData> n = e96.k().n(TbadkCoreApplication.getCurrentAccountForEmotion());
+            for (CollectEmotionData collectEmotionData : n) {
+                String o = s96.o(collectEmotionData.pid, false);
+                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                imageFileInfo.setFilePath(o);
+                collectEmotionData.imageFileInfo = imageFileInfo;
+            }
+            BdLog.e("NewFaceSyncUtil MergeCollectFace Called CloudList:");
+            Iterator<CollectEmotionData> it = list.iterator();
+            while (it.hasNext()) {
+                BdLog.e("NewFaceSyncUtil Cloud data:" + it.next().pkgId);
+            }
+            BdLog.e("NewFaceSyncUtil MergeCollectFace Called localList:");
+            Iterator<CollectEmotionData> it2 = n.iterator();
+            while (it2.hasNext()) {
+                BdLog.e("NewFaceSyncUtil Local data:" + it2.next().pkgId);
+            }
+            e(list, n);
+        }
+    }
+
+    public final void g(List<CollectEmotionData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.a.t(list, false, new c(this));
+        }
+    }
+
+    public final Map<String, CollectEmotionData> h(List<CollectEmotionData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            HashMap hashMap = new HashMap();
+            if (list != null) {
+                for (CollectEmotionData collectEmotionData : list) {
+                    if (collectEmotionData != null && !TextUtils.isEmpty(collectEmotionData.pid)) {
+                        hashMap.put(collectEmotionData.pid, collectEmotionData);
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

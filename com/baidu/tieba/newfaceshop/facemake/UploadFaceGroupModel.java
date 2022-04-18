@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.ho7;
+import com.repackage.ko7;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -67,7 +67,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            ho7.l lVar;
+            ko7.l lVar;
             ArrayList arrayList;
             boolean z;
             Object extra;
@@ -81,7 +81,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             } else {
                 HashMap hashMap = (HashMap) extra;
                 Object obj = hashMap.get(WebChromeClient.KEY_ARG_CALLBACK);
-                lVar = (obj == null || !(obj instanceof ho7.l)) ? null : (ho7.l) obj;
+                lVar = (obj == null || !(obj instanceof ko7.l)) ? null : (ko7.l) obj;
                 Object obj2 = hashMap.get("list");
                 arrayList = (obj2 == null || !(obj2 instanceof ArrayList)) ? null : (ArrayList) obj2;
                 Object obj3 = hashMap.get("autoInstall");
@@ -103,9 +103,9 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                         if (lVar != null) {
                             lVar.a(groupId, arrayList);
                         }
-                        ho7.l().u(true, httpResponsedMessage.getErrorString());
+                        ko7.l().u(true, httpResponsedMessage.getErrorString());
                         if (z) {
-                            ho7.l().p(groupId, arrayList, null);
+                            ko7.l().p(groupId, arrayList, null);
                             return;
                         }
                         HashMap hashMap2 = new HashMap();
@@ -142,7 +142,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public void A(String str, List<FaceData> list, ho7.l lVar, int i) {
+    public void A(String str, List<FaceData> list, ko7.l lVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048576, this, str, list, lVar, i) == null) {
             if (list != null && !list.isEmpty()) {
@@ -207,13 +207,13 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         }
     }
 
-    public final void z(ho7.l lVar, String str) {
+    public final void z(ko7.l lVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, lVar, str) == null) {
             if (lVar != null) {
                 lVar.onFail(str);
             }
-            ho7.l().u(false, str);
+            ko7.l().u(false, str);
         }
     }
 }

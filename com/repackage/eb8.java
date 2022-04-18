@@ -10,7 +10,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -86,7 +85,7 @@ public class eb8 {
     public class b extends BdAsyncTask<DownloadData, DownloadData, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public NetWork a;
+        public gb8 a;
         public final /* synthetic */ eb8 b;
 
         public b(eb8 eb8Var) {
@@ -105,15 +104,15 @@ public class eb8 {
                 }
             }
             this.b = eb8Var;
-            this.a = new NetWork();
+            this.a = new gb8();
         }
 
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NetWork netWork = this.a;
-                if (netWork != null) {
-                    netWork.setCancel();
+                gb8 gb8Var = this.a;
+                if (gb8Var != null) {
+                    gb8Var.e();
                 }
                 cancel(true);
             }
@@ -141,31 +140,26 @@ public class eb8 {
                 file.delete();
             }
             if (!file.exists()) {
-                this.a.setUrl(downloadDataArr[0].getUrl());
-                NetWork netWork = this.a;
-                if (Boolean.valueOf(netWork.downloadFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", this.b.b, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
-                    File GetFile = FileHelper.GetFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
-                    if (GetFile == null) {
-                        GetFile = FileHelper.GetFileInCache(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
-                    }
-                    if (GetFile != null) {
+                this.a.f(downloadDataArr[0].getUrl());
+                if (Boolean.valueOf(this.a.a(o98.i(downloadDataArr[0].getId(), downloadDataArr[0].getName()), this.b.b, TbConfig.NET_MSG_GETLENTH, 1, 3000)).booleanValue()) {
+                    File e = o98.e(o98.i(downloadDataArr[0].getId(), downloadDataArr[0].getName()));
+                    if (e != null) {
                         try {
                             try {
-                                String parent = GetFile.getParent();
+                                String parent = e.getParent();
                                 String parent2 = file.getParent();
                                 if (parent.equals(parent2)) {
-                                    GetFile.renameTo(new File(parent2, file.getName()));
+                                    e.renameTo(new File(parent2, file.getName()));
                                 } else {
-                                    ii.f(GetFile, file);
-                                    ii.n(GetFile);
+                                    ii.f(e, file);
+                                    ii.n(e);
                                 }
-                            } catch (Exception e) {
-                                e.printStackTrace();
+                            } catch (IOException unused) {
+                                ii.n(file);
                                 return 7;
                             }
-                        } catch (IOException unused) {
-                            ii.n(file);
-                            ii.n(GetFile);
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                             return 7;
                         }
                     } else {
@@ -179,33 +173,33 @@ public class eb8 {
                 if (!ni.isEmpty(downloadDataArr[0].getCheck())) {
                     try {
                         fileInputStream = new FileInputStream(downloadDataArr[0].getPath());
-                    } catch (FileNotFoundException e2) {
-                        e = e2;
+                    } catch (FileNotFoundException e3) {
+                        e = e3;
                     }
                     try {
                         if (!ui.b(fileInputStream).equalsIgnoreCase(downloadDataArr[0].getCheck())) {
                             ii.n(new File(downloadDataArr[0].getPath()));
                             try {
                                 fileInputStream.close();
-                            } catch (IOException e3) {
-                                BdLog.d(e3.getMessage());
+                            } catch (IOException e4) {
+                                BdLog.d(e4.getMessage());
                             }
                             return 4;
                         }
                         try {
                             fileInputStream.close();
-                        } catch (IOException e4) {
-                            BdLog.d(e4.getMessage());
+                        } catch (IOException e5) {
+                            BdLog.d(e5.getMessage());
                         }
-                    } catch (FileNotFoundException e5) {
-                        e = e5;
+                    } catch (FileNotFoundException e6) {
+                        e = e6;
                         fileInputStream2 = fileInputStream;
                         BdLog.d(e.getMessage());
                         if (fileInputStream2 != null) {
                             try {
                                 fileInputStream2.close();
-                            } catch (IOException e6) {
-                                BdLog.d(e6.getMessage());
+                            } catch (IOException e7) {
+                                BdLog.d(e7.getMessage());
                             }
                         }
                         return 6;
@@ -215,8 +209,8 @@ public class eb8 {
                         if (fileInputStream2 != null) {
                             try {
                                 fileInputStream2.close();
-                            } catch (IOException e7) {
-                                BdLog.d(e7.getMessage());
+                            } catch (IOException e8) {
+                                BdLog.d(e8.getMessage());
                             }
                         }
                         throw th;
@@ -236,14 +230,14 @@ public class eb8 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 super.onCancelled();
-                this.a.setCancel();
+                this.a.e();
                 eb8.d.setStatus(4);
                 eb8.d.setStatusMsg(null);
                 if (eb8.d.getCallback() != null) {
                     eb8.d.getCallback().onFileUpdateProgress(eb8.d);
                 }
-                if (!eb8.e.isEmpty()) {
-                    eb8.e.remove(0);
+                if (!jd7.e(eb8.e)) {
+                    jd7.i(eb8.e, 0);
                 }
                 DownloadData unused = eb8.d = null;
                 this.b.m();
@@ -294,10 +288,10 @@ public class eb8 {
                     }
                 }
                 DownloadData unused = eb8.d = null;
-                if (eb8.e.isEmpty()) {
+                if (jd7.e(eb8.e)) {
                     return;
                 }
-                eb8.e.remove(0);
+                jd7.i(eb8.e, 0);
                 this.b.m();
             }
         }
@@ -376,11 +370,11 @@ public class eb8 {
                     if (next.getCallback() != null) {
                         next.getCallback().onFileUpdateProgress(next);
                     }
-                    linkedList.add(next);
+                    jd7.a(linkedList, next);
                 }
             }
             for (DownloadData downloadData2 : linkedList) {
-                e.remove(downloadData2);
+                jd7.j(e, downloadData2);
             }
         }
     }
@@ -391,9 +385,9 @@ public class eb8 {
             return;
         }
         g(downloadData.getUrl(), true);
-        File GetFile = FileHelper.GetFile(downloadData.getId() + "_" + downloadData.getName() + ".tmp");
-        if (GetFile != null) {
-            GetFile.delete();
+        File e2 = o98.e(o98.i(downloadData.getId(), downloadData.getName()));
+        if (e2 != null) {
+            e2.delete();
         }
     }
 
@@ -408,7 +402,7 @@ public class eb8 {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) || downloadData == null) {
             return;
         }
-        if (!FileHelper.checkSD()) {
+        if (!rg5.h().u() && !FileHelper.checkSD()) {
             downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04f3));
             downloadData.setStatus(2);
         }
@@ -419,17 +413,14 @@ public class eb8 {
             }
             return;
         }
-        for (int i = 0; i < e.size(); i++) {
-            DownloadData downloadData2 = e.get(i);
+        for (int i = 0; i < jd7.k(e); i++) {
+            DownloadData downloadData2 = (DownloadData) jd7.d(e, i);
             if (downloadData2 != null && downloadData2.getUrl().equals(downloadData.getUrl()) && downloadData2.getId().equals(downloadData.getId())) {
                 return;
             }
         }
         downloadData.setStatus(5);
-        if (downloadData.getCallback() != null) {
-            downloadData.getCallback().onFileUpdateProgress(downloadData);
-        }
-        e.add(downloadData);
+        jd7.a(e, downloadData);
         m();
     }
 
@@ -458,8 +449,8 @@ public class eb8 {
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d == null && !e.isEmpty()) {
-            DownloadData downloadData = e.get(0);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d == null && !jd7.e(e)) {
+            DownloadData downloadData = (DownloadData) jd7.d(e, 0);
             d = downloadData;
             if (downloadData != null) {
                 b bVar = new b(this);

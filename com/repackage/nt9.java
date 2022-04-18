@@ -1,49 +1,36 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBError;
 /* loaded from: classes6.dex */
-public class nt9 extends Handler {
+public class nt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ zp9 a;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int[] k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nt9(zp9 zp9Var, Looper looper) {
-        super(looper);
+    public nt9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zp9Var, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = zp9Var;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        zp9 zp9Var;
-        aq9 aq9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (aq9Var = (zp9Var = this.a).c) == null || zp9Var.d) {
-            return;
-        }
-        aq9Var.onFail(PBError.LOAD_TIME_OUT);
-        this.a.e = true;
     }
 }

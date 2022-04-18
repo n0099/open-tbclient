@@ -93,7 +93,7 @@ public class bd3 {
                             messageDigest.update(bArr, 0, read);
                         } else {
                             String e = e(messageDigest.digest(), "", z);
-                            ng4.d(fileInputStream);
+                            mg4.d(fileInputStream);
                             return e;
                         }
                     }
@@ -102,27 +102,27 @@ public class bd3 {
                     if (a) {
                         e.printStackTrace();
                     }
-                    ng4.d(fileInputStream);
+                    mg4.d(fileInputStream);
                     return null;
                 } catch (IOException e3) {
                     e = e3;
                     if (a) {
                         e.printStackTrace();
                     }
-                    ng4.d(fileInputStream);
+                    mg4.d(fileInputStream);
                     return null;
                 } catch (NoSuchAlgorithmException e4) {
                     e = e4;
                     if (a) {
                         e.printStackTrace();
                     }
-                    ng4.d(fileInputStream);
+                    mg4.d(fileInputStream);
                     return null;
                 }
             } catch (Throwable th) {
                 th = th;
                 r0 = interceptable;
-                ng4.d(r0);
+                mg4.d(r0);
                 throw th;
             }
         } catch (FileNotFoundException e5) {
@@ -136,7 +136,7 @@ public class bd3 {
             fileInputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            ng4.d(r0);
+            mg4.d(r0);
             throw th;
         }
     }

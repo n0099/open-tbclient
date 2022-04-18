@@ -64,8 +64,8 @@ public class y55 implements i55<LocationEvent> {
             }
             if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
                 LocationModel.C(locationData);
-                ul8.a().g(System.currentTimeMillis());
-                ul8.a().e(locationEvent.locationData);
+                bm8.a().g(System.currentTimeMillis());
+                bm8.a().e(locationEvent.locationData);
             }
             o55.i(locationEvent);
         }
@@ -111,7 +111,7 @@ public class y55 implements i55<LocationEvent> {
                 locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
                 MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
             } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
-                ul8.a().e(locationEvent.locationData);
+                bm8.a().e(locationEvent.locationData);
             } else {
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
             }

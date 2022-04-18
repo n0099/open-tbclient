@@ -56,16 +56,16 @@ public class ActionBarAppPortrait extends LinearLayout implements d {
 
     private void a() {
         LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0474, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09102f);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091033);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09102a);
-        this.d = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091032);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09102e);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09102c);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091030);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091034);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09102b);
+        this.d = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091033);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09102f);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09102d);
         this.f = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
         this.f.setTextColor(-1);
-        this.g = findViewById(R.id.obfuscated_res_0x7f091063);
+        this.g = findViewById(R.id.obfuscated_res_0x7f091064);
     }
 
     private void a(View view2, final boolean z) {

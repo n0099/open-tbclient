@@ -206,7 +206,7 @@ public class cg0 extends rh0 {
                     return true;
                 }
                 z31 z31Var = new z31(context);
-                z31Var.e(context.getString(R.string.obfuscated_res_0x7f0f0ba9));
+                z31Var.e(context.getString(R.string.obfuscated_res_0x7f0f0ba8));
                 z31Var.c(false);
                 z31Var.d(false);
                 x01.b(z31Var);

@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g57;
-import com.repackage.zx4;
+import com.repackage.j57;
+import com.repackage.yx4;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
-public class StrangerListAdapter extends g57 {
+public class StrangerListAdapter extends j57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,7 +38,7 @@ public class StrangerListAdapter extends g57 {
         }
     }
 
-    @Override // com.repackage.g57
+    @Override // com.repackage.j57
     public boolean d(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class StrangerListAdapter extends g57 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.g57
+    @Override // com.repackage.j57
     public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class StrangerListAdapter extends g57 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.g57
-    public void g(g57.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.j57
+    public void g(j57.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.b.setDrawBorder(true);
@@ -75,14 +75,14 @@ public class StrangerListAdapter extends g57 {
         }
     }
 
-    @Override // com.repackage.g57
+    @Override // com.repackage.j57
     public BasicNameValuePair p(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, imMessageCenterShowItemData, i, str)) == null) {
             String str2 = "";
             int i2 = 0;
-            if (!zx4.d().r()) {
+            if (!yx4.d().r()) {
                 str = "";
                 i = 0;
             }

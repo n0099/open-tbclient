@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.et7;
-import com.repackage.ft7;
-import com.repackage.ks4;
-import com.repackage.ms4;
-import com.repackage.vm4;
+import com.repackage.js4;
+import com.repackage.ls4;
+import com.repackage.lt7;
+import com.repackage.mt7;
+import com.repackage.um4;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -122,13 +122,13 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            ks4.u(this);
+            js4.u(this);
             super.onCreate(bundle);
             try {
                 Intent intent = getIntent();
                 if (intent != null) {
                     String uri = intent.getData().toString();
-                    ks4.t(uri, false);
+                    js4.t(uri, false);
                     if (uri.contains(PUSH_BODY)) {
                         JSONObject jSONObject = new JSONObject(uri.substring(uri.indexOf(PUSH_BODY) + 20));
                         String str2 = "";
@@ -138,7 +138,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                             String string4 = jSONObject.getString(JUME_SCHEME);
                             if (!Uri.parse(string4).isOpaque()) {
                                 str2 = string4;
-                            } else if (vm4.e()) {
+                            } else if (um4.e()) {
                                 throw new IllegalStateException(string4 + "：scheme 格式非法");
                             }
                         }
@@ -199,8 +199,8 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                         } catch (Exception e) {
                                             BdLog.e(e);
                                         }
-                                        if (ms4.a().d()) {
-                                            ms4.a().i(2);
+                                        if (ls4.a().d()) {
+                                            ls4.a().i(2);
                                         }
                                         if (needToMainTab(str2)) {
                                             int i8 = -1;
@@ -220,9 +220,9 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                                 TiebaStatic.log(param2);
                                                 i8 = 3;
                                             }
-                                            if (ms4.a().d() && et7.a().e() && this.isJumpPB) {
-                                                et7.a().g(true);
-                                                ft7.n(new String[]{str2});
+                                            if (ls4.a().d() && lt7.a().e() && this.isJumpPB) {
+                                                lt7.a().g(true);
+                                                mt7.n(new String[]{str2});
                                             }
                                             MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
                                             mainTabActivityConfig.setTargetScheme(str2);

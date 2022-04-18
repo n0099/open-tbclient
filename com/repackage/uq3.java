@@ -215,7 +215,7 @@ public class uq3 {
                         qq3Var.p("download_total_bytes", download.getTotalbytes());
                         er3.n().h("analysisFailed", new dr3(this.a.h), qq3Var.m(), qq3Var.j(), qq3Var.l());
                         String str = download.getRealDownloadDir() + File.separator + download.getFileName();
-                        er3.n().q(1001, download.getKeyByUser(), download.getUrl(), this.a.j, (TextUtils.isEmpty(str) || !new File(str).exists()) ? "" : pg4.b(new File(str), true), download.getCurrentbytes().longValue(), download.getTotalbytes().longValue());
+                        er3.n().q(1001, download.getKeyByUser(), download.getUrl(), this.a.j, (TextUtils.isEmpty(str) || !new File(str).exists()) ? "" : og4.b(new File(str), true), download.getCurrentbytes().longValue(), download.getTotalbytes().longValue());
                         b03.g(qj2.c(), qj2.c().getString(R.string.obfuscated_res_0x7f0f017c)).G();
                         this.a.s(download.getKeyByUser());
                         if (this.a.i >= 2) {
@@ -315,14 +315,14 @@ public class uq3 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    ng4.M(this.a.getFromParam());
+                    mg4.M(this.a.getFromParam());
                     String str = this.a.getFromParam() + File.separator + this.a.getFileName().replace(".zip", "");
                     String str2 = qq3.n() + File.separator + this.a.getFileName();
                     if (uq3.k) {
                         Log.d("GameNowAppManager", "unzip: " + str + " zip:  " + str2);
                     }
-                    ng4.U(str2, str);
-                    ng4.M(str2);
+                    mg4.U(str2, str);
+                    mg4.M(str2);
                 } catch (Exception e) {
                     if (uq3.k) {
                         e.printStackTrace();

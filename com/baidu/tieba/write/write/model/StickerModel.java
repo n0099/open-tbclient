@@ -15,8 +15,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.c19;
-import com.repackage.dk8;
+import com.repackage.j19;
+import com.repackage.kk8;
 import com.repackage.mi;
 import com.repackage.wa;
 import java.util.List;
@@ -24,7 +24,7 @@ import java.util.List;
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c19 a;
+    public j19 a;
     public wa b;
 
     /* loaded from: classes4.dex */
@@ -123,8 +123,8 @@ public class StickerModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (mi.A()) {
-                dk8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                dk8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+                kk8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+                kk8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
                 RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
                 requestGetStickerMessage.setTag(this.unique_id);
                 sendMessage(requestGetStickerMessage);
@@ -135,10 +135,10 @@ public class StickerModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void z(c19 c19Var) {
+    public void z(j19 j19Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c19Var) == null) {
-            this.a = c19Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, j19Var) == null) {
+            this.a = j19Var;
         }
     }
 }

@@ -44,13 +44,13 @@ public class yn3 extends Dialog {
 
         /* renamed from: com.repackage.yn3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0559a implements View.OnClickListener {
+        public class View$OnClickListenerC0560a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0559a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0560a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -349,7 +349,7 @@ public class yn3 extends Dialog {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0559a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0560a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -406,7 +406,7 @@ public class yn3 extends Dialog {
                 Resources b2 = b();
                 int i = this.a.C;
                 if (i == -1) {
-                    i = R.drawable.obfuscated_res_0x7f0810f5;
+                    i = R.drawable.obfuscated_res_0x7f0810f9;
                 }
                 relativeLayout.setBackground(b2.getDrawable(i));
                 this.a.b.setTextColor(color);
@@ -437,12 +437,12 @@ public class yn3 extends Dialog {
                 this.a.h.setBackgroundColor(color5);
                 this.a.i.setBackgroundColor(color5);
                 this.a.j.setBackgroundColor(color5);
-                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810f3));
-                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810f2));
-                this.a.g.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810f1));
+                this.a.e.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810f7));
+                this.a.f.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810f6));
+                this.a.g.setBackground(b().getDrawable(R.drawable.obfuscated_res_0x7f0810f5));
                 TextView d = d();
                 if (d != null) {
-                    d.setBackground(this.a.E ? b().getDrawable(R.drawable.obfuscated_res_0x7f0810f1) : null);
+                    d.setBackground(this.a.E ? b().getDrawable(R.drawable.obfuscated_res_0x7f0810f5) : null);
                 }
             }
         }
@@ -505,24 +505,24 @@ public class yn3 extends Dialog {
             this.D = -1;
             this.E = true;
             this.v = viewGroup;
-            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092035);
+            this.a = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092036);
             this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907bf);
             this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907b5);
             this.d = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907b6);
-            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09189c);
-            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091530);
-            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09153d);
+            this.e = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09189d);
+            this.f = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091531);
+            this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09153e);
             this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ed);
             this.j = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ee);
             this.o = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ab);
             this.q = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907af);
-            this.r = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091c41);
+            this.r = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091c42);
             this.h = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907ec);
-            this.s = (AdScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091402);
+            this.s = (AdScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091403);
             this.t = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090431);
             this.u = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907aa);
             this.A = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907bc);
-            this.B = viewGroup.findViewById(R.id.obfuscated_res_0x7f091577);
+            this.B = viewGroup.findViewById(R.id.obfuscated_res_0x7f091578);
             int color = this.v.getResources().getColor(R.color.obfuscated_res_0x7f060a1e);
             this.w = color;
             this.x = color;

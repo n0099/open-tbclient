@@ -1,41 +1,34 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public class pc8 implements va8 {
+public abstract class pc8 implements sd7<AdCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zi5 a;
-    public Map<String, AdvertAppInfo> b;
-    public lc8 c;
-    public int d;
-    public final Set<String> e;
-    public boolean f;
+    public AdCard a;
+    public AdvertAppInfo b;
+    public boolean c;
+    public Context d;
+    public TbPageContext e;
+    public vc7 f;
 
-    public pc8(IAdBaseAsyncController.a aVar) {
+    public pc8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,142 +38,105 @@ public class pc8 implements va8 {
                 return;
             }
         }
-        this.e = new LinkedHashSet();
-        this.f = false;
-        zi5 zi5Var = new zi5(PlaceId.PIC_PAGE_INSERT, "PIC_PAGE", aVar);
-        this.a = zi5Var;
-        zi5Var.f(false);
-        this.b = new HashMap();
-        this.d = rg5.h().j();
+        this.e = tbPageContext;
+        this.d = tbPageContext.getPageActivity();
     }
 
-    @Override // com.repackage.va8
-    public View b(@NonNull String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            this.f = z;
-            return this.c.b(this.b.get(str), z);
-        }
-        return (View) invokeLZ.objValue;
-    }
-
-    @Override // com.repackage.va8
-    public AdvertAppInfo e(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.b.get(str) : (AdvertAppInfo) invokeL.objValue;
-    }
-
-    @Override // com.repackage.va8
-    public void f(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, advertAppInfo) == null) {
-            this.b.put(str, advertAppInfo);
-        }
-    }
-
-    @Override // com.repackage.va8
-    public boolean g(@NonNull String str) {
-        InterceptResult invokeL;
-        AdvertAppInfo advertAppInfo;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? (TextUtils.isEmpty(str) || (advertAppInfo = this.b.get(str)) == null || g98.n(advertAppInfo)) ? false : true : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.va8
-    public int getAdCount() {
+    public AdvertAppInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = 0;
-            if (this.b.isEmpty()) {
-                return 0;
-            }
-            for (AdvertAppInfo advertAppInfo : this.b.values()) {
-                if (!g98.n(advertAppInfo)) {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (AdvertAppInfo) invokeV.objValue;
     }
 
-    @Override // com.repackage.va8
-    public void h(@NonNull vb5 vb5Var) {
+    @Override // com.repackage.sd7
+    public void b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vb5Var) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("forum_id", vb5Var.l);
-            hashMap.put("forum_name", vb5Var.m);
-            this.a.d(this.d, hashMap);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
         }
     }
 
-    @Override // com.repackage.va8
-    public void j(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z) {
+    public abstract void c();
+
+    public void d(AdCard adCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048582, this, tbPageContext, hVar, z) == null) {
-            this.c = new lc8(tbPageContext, z, hVar);
+        if (interceptable == null || interceptable.invokeL(1048579, this, adCard) == null) {
+            this.a = adCard;
+            this.b = adCard.getAdvertAppInfo();
         }
     }
 
-    @Override // com.repackage.va8
-    public void l(@NonNull String str) {
-        AdvertAppInfo advertAppInfo;
+    @Override // com.repackage.sd7
+    public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (advertAppInfo = this.b.get(str)) == null) {
-            return;
-        }
-        tc8.q(advertAppInfo);
-        bd7.g(bd7.e(advertAppInfo));
-        boolean add = this.e.add(str);
-        if (!this.f && add) {
-            this.c.d();
-        } else {
-            this.c.c();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    @Override // com.repackage.va8
-    public void m(@NonNull AdvertAppInfo advertAppInfo) {
+    @Override // com.repackage.sd7
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, advertAppInfo) == null) {
-            tc8.i(advertAppInfo, 0, 2);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.repackage.va8
-    public void n() {
+    @Override // com.repackage.sd7
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.clear();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    @Override // com.repackage.va8
-    public void onDestroy() {
+    @Override // com.repackage.sd7
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.c.e();
-            this.a.b();
-            this.e.clear();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
-    @Override // com.repackage.va8
-    public boolean p() {
-        InterceptResult invokeV;
+    @Override // com.repackage.sd7
+    public void setAfterClickSchemeListener(vc7 vc7Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? !this.b.isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vc7Var) == null) {
+            this.f = vc7Var;
+        }
     }
 
-    @Override // com.repackage.va8
-    public void q(String str) {
+    @Override // com.repackage.sd7
+    public void setBusinessType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.c.f(this.b.get(str));
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.sd7
+    public void setDownloadAppCallback(xc7 xc7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, xc7Var) == null) {
+        }
+    }
+
+    @Override // com.repackage.sd7
+    public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    @Override // com.repackage.sd7
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.sd7
+    public void update(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, obj) == null) && (obj instanceof AdCard)) {
+            this.a = (AdCard) obj;
+            c();
+            d(this.a);
         }
     }
 }

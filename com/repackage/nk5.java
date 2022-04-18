@@ -45,16 +45,16 @@ public class nk5 {
         return (List) invokeV.objValue;
     }
 
-    public final boolean b(List<rk5> list, jy4 jy4Var) {
+    public final boolean b(List<rk5> list, iy4 iy4Var) {
         InterceptResult invokeLL;
-        List<jy4> a;
+        List<iy4> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, jy4Var)) == null) {
-            if (list != null && jy4Var != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, iy4Var)) == null) {
+            if (list != null && iy4Var != null) {
                 for (rk5 rk5Var : list) {
                     if (rk5Var != null && (a = rk5Var.a()) != null) {
-                        for (jy4 jy4Var2 : a) {
-                            if (jy4Var2 != null && jy4Var2.e() == jy4Var.e()) {
+                        for (iy4 iy4Var2 : a) {
+                            if (iy4Var2 != null && iy4Var2.e() == iy4Var.e()) {
                                 return true;
                             }
                         }
@@ -96,11 +96,11 @@ public class nk5 {
                         rk5 rk5Var2 = new rk5();
                         rk5Var2.c(listdata);
                         if (rk5Var2.a() != null) {
-                            for (jy4 jy4Var : rk5Var2.a()) {
-                                if (b(this.b, jy4Var)) {
-                                    jy4Var.r(1);
+                            for (iy4 iy4Var : rk5Var2.a()) {
+                                if (b(this.b, iy4Var)) {
+                                    iy4Var.r(1);
                                 } else {
-                                    jy4Var.r(0);
+                                    iy4Var.r(0);
                                 }
                             }
                         }

@@ -1,91 +1,80 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.sharesdk.ShareHandlerActivity;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import android.os.Environment;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class te8 implements py4 {
+public class te8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public te8(Context context, oy4 oy4Var) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, oy4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            int lastIndexOf = str.lastIndexOf(File.separator);
+            return lastIndexOf == -1 ? "" : str.substring(0, lastIndexOf);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                return Environment.getExternalStorageDirectory() + File.separator + "tieba/Logs/";
+            } catch (Exception e) {
+                BdLog.e(Log.getStackTraceString(e));
+                return null;
             }
         }
-        this.a = null;
-        this.a = context;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.py4
-    public void a(ShareItem shareItem, int i, boolean z) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            b(shareItem, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d() + "tieba/Logs/";
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void b(ShareItem shareItem, int i) {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) || this.a == null || shareItem == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String path = Environment.getExternalStorageDirectory().getPath();
+            int length = path.length() - 1;
+            if (length <= 0 || path.substring(length).equals(File.separator)) {
+                return path;
+            }
+            return path + File.separator;
         }
-        IntentConfig intentConfig = new IntentConfig(this.a);
-        ShareEntity shareEntity = new ShareEntity();
-        shareEntity.setTitle(shareItem.r);
-        shareEntity.setContent(shareItem.s);
-        shareEntity.setReadCount(shareItem.R);
-        int i2 = shareItem.M;
-        shareEntity.setIsVideoThread(i2 == 2 || i2 == 6 || i2 == 8);
-        shareEntity.setImageUri(shareItem.v);
-        shareEntity.canShareBySmartApp = shareItem.m0;
-        String str = shareItem.t;
-        if (i == 6 && !StringUtils.isNull(shareItem.u)) {
-            str = shareItem.u;
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String a = a(str);
+            if (TextUtils.isEmpty(a)) {
+                return false;
+            }
+            File file = new File(a);
+            return (file.exists() && file.isDirectory()) || file.mkdirs();
         }
-        shareEntity.setLinkUrl(str);
-        shareEntity.setLocalFile(shareItem.x);
-        shareEntity.setLocation(shareItem.B);
-        shareEntity.setShareTo(i);
-        shareEntity.setStats(shareItem.e());
-        shareEntity.setPreferImageToLink(shareItem.b0);
-        shareEntity.setTid(shareItem.K);
-        shareEntity.setfName(shareItem.p);
-        shareEntity.setTypeShareToSmallApp(shareItem.y);
-        shareEntity.topic = shareItem.O;
-        if (i == 6 && !StringUtils.isNull(shareItem.Q)) {
-            shareEntity.topic = shareItem.P + shareItem.Q;
-            shareEntity.setContent("");
-        }
-        shareEntity.taskCompleteId = shareItem.S;
-        shareEntity.diskPicOperate = shareItem.A;
-        shareEntity.setExtLiveInfo(shareItem.r0);
-        Bundle bundle = new Bundle();
-        bundle.putParcelable("extra_share_data", shareEntity);
-        bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
-        intentConfig.getIntent().putExtras(bundle);
-        shareItem.j(true);
-        intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
+        return invokeL.booleanValue;
     }
 }

@@ -1,43 +1,30 @@
 package com.repackage;
+
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface hw5 {
+public class hw5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 0;
+    public static int b = 1;
+    public static int c = 2;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        boolean a(float f);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755633813, "Lcom/repackage/hw5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755633813, "Lcom/repackage/hw5;");
+        }
     }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        float a();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        boolean a();
-    }
-
-    boolean a();
-
-    boolean b();
-
-    int getMaxDuration();
-
-    float getProgress();
-
-    int getSlideNum();
-
-    boolean pause();
-
-    boolean reset();
-
-    boolean setMaxDuration(int i);
-
-    boolean setMinDuration(int i);
-
-    boolean setProgress(long j);
-
-    boolean setShowDeleteLastTip(boolean z);
-
-    boolean start();
 }

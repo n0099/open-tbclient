@@ -87,7 +87,7 @@ public class ua3 extends g23 {
             jSONObject.put("hostName", context.getPackageName());
             jSONObject.put("hostVersion", de3.D());
             jSONObject.put("model", Build.MODEL);
-            jSONObject.put("uuid", vg4.b(context).a());
+            jSONObject.put("uuid", ug4.b(context).a());
             jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
             if (h0 != null) {
                 str = h0.i(context);
@@ -96,7 +96,7 @@ public class ua3 extends g23 {
             if (c) {
                 Log.d("GetSystemRiskInfoAction", jSONObject.toString());
             }
-            String b = eh4.b(UUID.randomUUID().toString().getBytes(), false);
+            String b = dh4.b(UUID.randomUUID().toString().getBytes(), false);
             String a = bd3.a(b, jSONObject.toString(), UBCEncryptor.TRANSFORMATION, "4c6579b50ff05adb");
             String d = bd3.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b, "RSA/ECB/PKCS1Padding");
             if (c) {

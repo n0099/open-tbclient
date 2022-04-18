@@ -126,7 +126,7 @@ public final class vr0 extends as0 {
             Intrinsics.checkNotNullExpressionValue(context, "context");
             textView.setTextSize(0, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070568));
             textView.setTextColor(-1);
-            textView.setBackground(ContextCompat.getDrawable(textView.getContext(), R.drawable.obfuscated_res_0x7f080e09));
+            textView.setBackground(ContextCompat.getDrawable(textView.getContext(), R.drawable.obfuscated_res_0x7f080e0d));
             textView.setGravity(16);
             textView.setAlpha(0.0f);
             textView.setMaxEms(18);

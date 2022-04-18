@@ -32,9 +32,9 @@ public class sz extends j00 {
     }
 
     @Override // com.repackage.j00
-    public k78 p() {
+    public r78 p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new n78(this.b, this.i) : (k78) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new u78(this.b, this.i) : (r78) invokeV.objValue;
     }
 }

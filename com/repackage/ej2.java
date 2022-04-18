@@ -12,13 +12,13 @@ import com.repackage.hj2;
 import com.repackage.pl2;
 import java.io.IOException;
 import java.nio.channels.Pipe;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ej2 extends hj2.f {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
-    public final a84 e;
+    public final z74 e;
 
     static {
         InterceptResult invokeClinit;
@@ -37,13 +37,13 @@ public class ej2 extends hj2.f {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ej2(String str, a84 a84Var) {
+    public ej2(String str, z74 z74Var) {
         super("check_sign");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, a84Var};
+            Object[] objArr = {str, z74Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,7 +55,7 @@ public class ej2 extends hj2.f {
             }
         }
         this.d = str;
-        this.e = a84Var;
+        this.e = z74Var;
     }
 
     @Override // com.repackage.hj2.f

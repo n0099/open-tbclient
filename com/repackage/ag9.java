@@ -1,61 +1,110 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.qf9;
-import com.repackage.qk9;
-import java.util.HashMap;
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
 /* loaded from: classes5.dex */
-public class ag9 implements qk9.a<mf9> {
+public class ag9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final gg9<Reporter> a;
+    public static final gg9<Reporter> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ qk9 a;
 
-    public ag9(qk9 qk9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qk9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a extends gg9<Reporter> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
+        @Override // com.repackage.gg9
+        public Reporter a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new eg9("https://rpe.xdplt.com/evt/", true) : invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b extends gg9<Reporter> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
+        @Override // com.repackage.gg9
+        public Reporter a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new cg9("https://rpd.xdplt.com/evt/") : invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755857602, "Lcom/repackage/ag9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755857602, "Lcom/repackage/ag9;");
                 return;
             }
         }
-        this.a = qk9Var;
+        a = new a();
+        b = new b();
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.repackage.qk9.a
-    public void a(mf9 mf9Var) {
+    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
+    public static Reporter a() {
+        InterceptResult invokeV;
+        Reporter reporter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mf9Var) == null) {
-            LogPrinter.v("SerialSlotId:%s is totally same with oldOne", mf9Var.a);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.repackage.qk9.a
-    public void b(mf9 mf9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mf9Var) == null) {
-            mf9 mf9Var2 = mf9Var;
-            LogPrinter.v("Update SerialSlotId:%s", mf9Var2.a);
-            HashMap<String, sf9> hashMap = this.a.c;
-            String str = mf9Var2.a;
-            hashMap.put(str, new sf9(str, new yf9(this, mf9Var2)));
-            qf9 qf9Var = this.a.b;
-            synchronized (qf9Var.a) {
-                qf9Var.a(mf9Var2.a).add(new qf9.b(mf9Var2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            gg9<Reporter> gg9Var = a;
+            synchronized (gg9Var) {
+                if (gg9Var.a == null) {
+                    gg9Var.a = gg9Var.a();
+                }
+                reporter = gg9Var.a;
             }
+            return reporter;
         }
+        return (Reporter) invokeV.objValue;
     }
 }

@@ -1,59 +1,51 @@
 package com.repackage;
 
-import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import com.win.opensdk.webviewbase.AdvancedWebView;
+import com.win.opensdk.PBError;
 /* loaded from: classes6.dex */
-public class lt9 implements Runnable {
+public class lt9 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Info a;
-    public final /* synthetic */ tt9 b;
+    public final /* synthetic */ xt9 a;
 
-    public lt9(tt9 tt9Var, Info info) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lt9(xt9 xt9Var, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tt9Var, info};
+            Object[] objArr = {xt9Var, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tt9Var;
-        this.a = info;
+        this.a = xt9Var;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tt9 tt9Var = this.b;
-            if (tt9Var.g != null) {
-                Context context = tt9Var.a;
-                Info info = this.a;
-                if (tq9.c(info)) {
-                    try {
-                        ho9 a = ho9.a();
-                        if (a.a == null) {
-                            a.a = new AdvancedWebView(context.getApplicationContext());
-                        }
-                        a.a.loadUrl(info.getOpen());
-                    } catch (Throwable th) {
-                        th.printStackTrace();
-                    }
-                }
-                this.b.g.a(this.a);
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
+            this.a.e = true;
+            this.a.k.removeMessages(11);
+            int wt = this.a.e() ? this.a.f.getWt() : 0;
+            yr9 a = cs9.a(this.a.b);
+            a.e(new gs9(this.a.f), 2002, wt * 1000);
+            a.m();
+            this.a.h.onFail(PBError.TIMEOUT);
         }
     }
 }

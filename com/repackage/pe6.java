@@ -1,7 +1,11 @@
 package com.repackage;
-
-import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes6.dex */
 public interface pe6 {
-    NavigationBar d0();
+    void i();
+
+    void init();
+
+    void s(int i, int i2, ze6 ze6Var);
+
+    void v(te6 te6Var);
 }

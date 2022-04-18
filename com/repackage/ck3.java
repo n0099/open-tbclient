@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
 /* loaded from: classes5.dex */
-public class ck3 extends tg4 {
+public class ck3 extends sg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

@@ -113,8 +113,8 @@ public class yx2 {
                 if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
                     File v = fj2.v(str2, str3, false, null, null);
                     wx2.c().f(v.getAbsolutePath() + File.separator + str);
-                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f090873);
-                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090872);
+                    ViewPager viewPager = (ViewPager) viewGroup.findViewById(R.id.obfuscated_res_0x7f090874);
+                    ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090873);
                     if (imageView != null) {
                         imageView.setImageBitmap(wx2.c().d());
                     }

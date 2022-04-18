@@ -40,11 +40,11 @@ public class d63 {
 
         /* renamed from: com.repackage.d63$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public static class RunnableC0398a implements Runnable {
+        public static class RunnableC0399a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0398a() {
+            public RunnableC0399a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,7 +70,7 @@ public class d63 {
         public static void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                ExecutorUtilsExt.postOnElastic(new RunnableC0398a(), "V8SoCleaner", 3);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0399a(), "V8SoCleaner", 3);
             }
         }
     }
@@ -106,7 +106,7 @@ public class d63 {
             String D = de3.D();
             for (File file2 : listFiles) {
                 if (!TextUtils.equals(file2.getName(), D)) {
-                    ng4.L(file2);
+                    mg4.L(file2);
                 }
             }
         }
@@ -306,7 +306,7 @@ public class d63 {
                 }
                 return i(hashMap, soLoader);
             } finally {
-                ng4.d(apkZipFile);
+                mg4.d(apkZipFile);
             }
         }
         return (e63) invokeLL.objValue;

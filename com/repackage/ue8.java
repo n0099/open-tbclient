@@ -1,15 +1,15 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ue8 implements qy4 {
+public class ue8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
     public ue8() {
         Interceptable interceptable = $ic;
@@ -21,14 +21,16 @@ public class ue8 implements qy4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
     }
 
-    @Override // com.repackage.qy4
-    public py4 a(Context context, oy4 oy4Var) {
-        InterceptResult invokeLL;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, oy4Var)) == null) ? new te8(context, oy4Var) : (py4) invokeLL.objValue;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && "ok".equals(jSONObject.optString("status"))) {
+            this.a = true;
+        }
     }
 }

@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f95;
 import com.repackage.oi;
-import com.repackage.rx4;
+import com.repackage.qx4;
 /* loaded from: classes3.dex */
 public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -270,14 +270,14 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        rx4 rx4Var = new rx4();
-                        rx4Var.e(postNetData);
-                        if (rx4Var.c() != null && rx4Var.c().length() > 0) {
-                            this.c.mVcode_md5 = rx4Var.b();
+                        qx4 qx4Var = new qx4();
+                        qx4Var.e(postNetData);
+                        if (qx4Var.c() != null && qx4Var.c().length() > 0) {
+                            this.c.mVcode_md5 = qx4Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(rx4Var.c());
+                            NetWork netWork2 = new NetWork(qx4Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -381,25 +381,25 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             this.mOnClickListener = new a(this);
-            this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091add);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ade);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0457);
-            this.mNoNetView = (NoNetworkView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923ad);
+            this.mNoNetView = (NoNetworkView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923ae);
             EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09085a);
             this.mEditName = editText;
             editText.setText(this.mBarName);
             EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f09086b);
             this.mEditVcode = editText2;
             editText2.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a20);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a21);
             this.mRefreshButton = textView;
             textView.setOnClickListener(this.mOnClickListener);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e67);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e68);
             this.mImage = imageView;
             imageView.setOnClickListener(this.mOnClickListener);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1c);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1d);
             this.mCreate = textView2;
             textView2.setOnClickListener(this.mOnClickListener);
             findViewById(R.id.obfuscated_res_0x7f09039d).setOnTouchListener(new b(this));

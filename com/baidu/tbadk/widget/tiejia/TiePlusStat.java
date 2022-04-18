@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.VideoFreeFlowConfigManager;
-import com.repackage.tk4;
+import com.repackage.sk4;
 import com.repackage.uc5;
 import com.repackage.wc5;
 import java.util.concurrent.TimeUnit;
@@ -414,8 +414,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, tk4.h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, tk4.i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, sk4.h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, sk4.i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
             DOWNLOAD_FINISHED = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
@@ -666,7 +666,7 @@ public final class TiePlusStat {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), statType, locate, str, str2, str3, Integer.valueOf(i2)}) == null) {
             if (statType != StatType.EXPOSE || b.a(Integer.valueOf(i))) {
-                tk4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
+                sk4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
             }
         }
     }

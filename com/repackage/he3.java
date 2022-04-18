@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes6.dex */
-public class he3 implements ld4 {
+public class he3 implements kd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,7 +53,7 @@ public class he3 implements ld4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (he3) invokeV.objValue;
     }
 
-    @Override // com.repackage.ld4
+    @Override // com.repackage.kd4
     public boolean a(@NonNull String str, @NonNull int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;

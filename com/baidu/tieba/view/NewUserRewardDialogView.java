@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ln;
-import com.repackage.ur4;
-import com.repackage.wr4;
+import com.repackage.tr4;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class NewUserRewardDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -101,16 +101,16 @@ public class NewUserRewardDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d060f, this);
-            this.a = (AlphaVideo) findViewById(R.id.obfuscated_res_0x7f09155b);
-            this.b = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091560);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091561);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09155d);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09155c);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09155e);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09155f);
+            this.a = (AlphaVideo) findViewById(R.id.obfuscated_res_0x7f09155c);
+            this.b = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091561);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091562);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09155e);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09155d);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09155f);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091560);
             this.a.setKeepLastFrame(true);
             MessageManager.getInstance().registerListener(this.h);
-            this.b.setRoundLayoutRadius(ur4.y(R.string.J_X06));
+            this.b.setRoundLayoutRadius(tr4.y(R.string.J_X06));
         }
     }
 
@@ -121,12 +121,12 @@ public class NewUserRewardDialogView extends LinearLayout {
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
             SkinManager.setImageResource(this.e, R.drawable.icon_use_close_n);
-            wr4 d = wr4.d(this.f);
+            vr4 d = vr4.d(this.f);
             d.l(R.dimen.L_X01);
             d.k(R.color.CAM_X0902);
             d.n(R.string.J_X01);
             d.v(R.color.CAM_X0105);
-            wr4 d2 = wr4.d(this.g);
+            vr4 d2 = vr4.d(this.g);
             d2.l(R.dimen.L_X01);
             d2.k(R.color.CAM_X0304);
             d2.n(R.string.J_X01);

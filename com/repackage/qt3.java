@@ -48,12 +48,12 @@ public class qt3 extends EventTargetImpl implements nt3 {
 
         /* renamed from: com.repackage.qt3$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0498a implements if3 {
+        public class C0502a implements if3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0498a(a aVar) {
+            public C0502a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,7 +154,7 @@ public class qt3 extends EventTargetImpl implements nt3 {
                         AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
                     }
                     if (this.a.k == null) {
-                        this.a.k = new C0498a(this);
+                        this.a.k = new C0502a(this);
                         qt3.M(this.a.k);
                     }
                 } else if (this.a.e != null) {

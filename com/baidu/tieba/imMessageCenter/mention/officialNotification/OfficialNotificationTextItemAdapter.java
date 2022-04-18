@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sa7;
+import com.repackage.va7;
 /* loaded from: classes3.dex */
-public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<sa7> {
+public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<va7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext s;
@@ -51,12 +51,12 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<sa
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<sa7> msgViewHolder) {
+    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<va7> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            sa7 c = msgViewHolder.c();
+            va7 c = msgViewHolder.c();
             c.b();
             if (c != null) {
                 c.c(chatMessage);
@@ -69,12 +69,12 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<sa
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.repackage.ho
     /* renamed from: l0 */
-    public MsgCommonItemAdapter.MsgViewHolder<sa7> M(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<va7> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            sa7 sa7Var = new sa7(this.s, viewGroup, this.t);
-            return new MsgCommonItemAdapter.MsgViewHolder<>(sa7Var.a(), sa7Var);
+            va7 va7Var = new va7(this.s, viewGroup, this.t);
+            return new MsgCommonItemAdapter.MsgViewHolder<>(va7Var.a(), va7Var);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }

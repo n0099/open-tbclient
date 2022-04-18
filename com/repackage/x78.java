@@ -1,39 +1,107 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tieba.R;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.tieba.VideoPlatformStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class x78 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface x78 {
 
-    public static boolean a(h45 h45Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, h45Var)) == null) {
-            if (h45Var != null) {
-                return h45Var.isViewAttached();
+    /* loaded from: classes7.dex */
+    public static abstract class a implements x78 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final long b;
+
+        public a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.a = i;
+            this.b = System.currentTimeMillis();
         }
-        return invokeL.booleanValue;
+
+        @Override // com.repackage.x78
+        public JSONObject a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("timestamp", this.b);
+                    jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.d());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
     }
 
-    public static void b(h45 h45Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{h45Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) || a(h45Var) || context == null || view2 == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public static abstract class b implements x78 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final String b;
+        public final long c;
+
+        public b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = str;
+            this.c = System.currentTimeMillis();
         }
-        if (h45Var == null) {
-            h45Var = new h45(context, onClickListener);
+
+        @Override // com.repackage.x78
+        public JSONObject a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("source", this.b);
+                    jSONObject.put("timestamp", this.c);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
         }
-        h45Var.k(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
-        h45Var.attachView(view2, z);
-        h45Var.p();
-        h45Var.onChangeSkinType();
     }
+
+    JSONObject a();
 }

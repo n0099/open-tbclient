@@ -84,9 +84,9 @@ public class LoadingView extends FrameLayout implements sz2<LoadingView> {
             } else {
                 LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00bf, (ViewGroup) this, true);
             }
-            this.a = findViewById(R.id.obfuscated_res_0x7f091acf);
-            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091301);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0913f4);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091ad0);
+            this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f091302);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0913f5);
             setPageResources();
         }
     }

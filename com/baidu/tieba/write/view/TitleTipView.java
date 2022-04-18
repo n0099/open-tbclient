@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.pg;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class TitleTipView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -133,11 +133,11 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0839, this);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ff6);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb3);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea6);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ff);
-            this.f = findViewById(R.id.obfuscated_res_0x7f0921af);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ff7);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb4);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea7);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092200);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0921b0);
             this.e.setText(R.string.obfuscated_res_0x7f0f00d0);
             this.d.setOnClickListener(this.g);
             c(TbadkCoreApplication.getInst().getSkinType());
@@ -148,16 +148,16 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (this.a != i) {
-                wr4 d = wr4.d(this.b);
+                vr4 d = vr4.d(this.b);
                 d.n(R.string.J_X05);
                 d.l(R.dimen.L_X01);
                 d.k(R.color.CAM_X0602);
                 d.f(R.color.CAM_X0206);
-                wr4.d(this.f).f(R.color.CAM_X0203);
-                wr4.d(this.e).v(R.color.CAM_X0107);
-                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080914, SkinManager.getColor(R.color.CAM_X0107), null));
+                vr4.d(this.f).f(R.color.CAM_X0203);
+                vr4.d(this.e).v(R.color.CAM_X0107);
+                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080918, SkinManager.getColor(R.color.CAM_X0107), null));
                 if (this.c != null) {
-                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f50, SkinManager.getColor(R.color.CAM_X0302), null));
+                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f54, SkinManager.getColor(R.color.CAM_X0302), null));
                 }
             }
             this.a = i;

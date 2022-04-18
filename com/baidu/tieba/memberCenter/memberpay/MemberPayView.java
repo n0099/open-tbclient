@@ -29,11 +29,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ck7;
 import com.repackage.e85;
 import com.repackage.f95;
 import com.repackage.ni;
 import com.repackage.oi;
-import com.repackage.zj7;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MemberPayView extends LinearLayout {
@@ -68,11 +68,11 @@ public class MemberPayView extends LinearLayout {
     public TbImageView q;
     public ImageView r;
     public ImageView s;
-    public zj7 t;
-    public zj7.g u;
-    public zj7.b v;
-    public zj7.c w;
-    public zj7.a x;
+    public ck7 t;
+    public ck7.g u;
+    public ck7.b v;
+    public ck7.c w;
+    public ck7.a x;
     public String y;
     public String z;
 
@@ -117,10 +117,10 @@ public class MemberPayView extends LinearLayout {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<zj7.d> a;
+        public List<ck7.d> a;
         public final /* synthetic */ MemberPayView b;
 
-        public c(MemberPayView memberPayView, List<zj7.d> list) {
+        public c(MemberPayView memberPayView, List<ck7.d> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,12 +146,12 @@ public class MemberPayView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.h == null) {
                 return;
             }
-            zj7.d dVar = null;
+            ck7.d dVar = null;
             for (int i = 0; i < this.b.h.getChildCount(); i++) {
                 View childAt = this.b.h.getChildAt(i);
                 if (childAt != null && childAt.getTag() != null && (childAt.getTag() instanceof b) && (textView = (TextView) childAt.findViewById(R.id.obfuscated_res_0x7f0905af)) != null && textView.getTag() != null) {
-                    if (textView.getTag() instanceof zj7.d) {
-                        zj7.d dVar2 = (zj7.d) textView.getTag();
+                    if (textView.getTag() instanceof ck7.d) {
+                        ck7.d dVar2 = (ck7.d) textView.getTag();
                         if (view2 == childAt) {
                             dVar2.m = true;
                             SkinManager.setBackgroundResource(textView, R.drawable.btn_non_orange_s);
@@ -172,7 +172,7 @@ public class MemberPayView extends LinearLayout {
             if (dVar.n != 1 || !dVar.o) {
                 this.b.j(dVar.i, dVar.j / 100, dVar.l, dVar.n);
             } else {
-                oi.M(this.b.getContext(), R.string.obfuscated_res_0x7f0f13e7);
+                oi.M(this.b.getContext(), R.string.obfuscated_res_0x7f0f13e6);
             }
         }
     }
@@ -206,15 +206,15 @@ public class MemberPayView extends LinearLayout {
     }
 
     public final void d() {
-        zj7 zj7Var;
-        zj7.e eVar;
+        ck7 ck7Var;
+        ck7.e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (zj7Var = this.t) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ck7Var = this.t) == null) {
             return;
         }
-        zj7.b bVar = zj7Var.b;
+        ck7.b bVar = ck7Var.b;
         this.v = bVar;
-        zj7.g gVar = zj7Var.a;
+        ck7.g gVar = ck7Var.a;
         this.u = gVar;
         if (bVar == null || gVar == null || (eVar = gVar.c) == null) {
             return;
@@ -222,8 +222,8 @@ public class MemberPayView extends LinearLayout {
         long j = eVar.a;
         this.G = j;
         this.I = j == 2 || this.H == 2;
-        zj7.b bVar2 = this.v;
-        zj7.a aVar = bVar2.b;
+        ck7.b bVar2 = this.v;
+        ck7.a aVar = bVar2.b;
         this.x = aVar;
         if (aVar == null) {
             return;
@@ -231,7 +231,7 @@ public class MemberPayView extends LinearLayout {
         this.y = aVar.c;
         this.C = aVar.d;
         String str = aVar.e;
-        zj7.c cVar = bVar2.a;
+        ck7.c cVar = bVar2.a;
         this.w = cVar;
         if (cVar == null) {
             return;
@@ -245,20 +245,20 @@ public class MemberPayView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d053d);
-            this.d = this.a.findViewById(R.id.obfuscated_res_0x7f091ac7);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f091528);
+            this.d = this.a.findViewById(R.id.obfuscated_res_0x7f091ac8);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f091529);
             this.b = navigationBar;
             navigationBar.setTitleText("");
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
+            this.c = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923ae);
             this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906d2);
             RadioGroup radioGroup = (RadioGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09044e);
             this.e = radioGroup;
             radioGroup.setOnCheckedChangeListener(this.a);
             this.f = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f09042b);
             this.g = (RadioButton) this.a.findViewById(R.id.obfuscated_res_0x7f09042c);
-            this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0922c9);
-            this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090ce1);
+            this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0922ca);
+            this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090ce2);
             this.p = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09034e);
             this.q = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09034f);
             this.r = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090730);
@@ -280,14 +280,14 @@ public class MemberPayView extends LinearLayout {
     }
 
     public void g(boolean z) {
-        zj7.c cVar;
-        List<zj7.d> list;
-        zj7.a aVar;
+        ck7.c cVar;
+        List<ck7.d> list;
+        ck7.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.t == null) {
             return;
         }
-        List<zj7.d> list2 = null;
+        List<ck7.d> list2 = null;
         if (2 != this.F ? !((cVar = this.w) == null || (list = cVar.a) == null) : !((aVar = this.x) == null || (list = aVar.a) == null)) {
             list2 = list;
         }
@@ -295,7 +295,7 @@ public class MemberPayView extends LinearLayout {
             return;
         }
         for (int i = 0; i < list2.size(); i++) {
-            zj7.d dVar = list2.get(i);
+            ck7.d dVar = list2.get(i);
             if (dVar != null && dVar.j >= 0 && dVar.n == 1) {
                 dVar.o = z;
                 return;
@@ -328,7 +328,7 @@ public class MemberPayView extends LinearLayout {
     }
 
     public final void h() {
-        zj7.g gVar;
+        ck7.g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.t == null) {
@@ -353,8 +353,8 @@ public class MemberPayView extends LinearLayout {
         }
     }
 
-    public final void i(List<zj7.d> list, int i, b bVar) {
-        zj7.d dVar;
+    public final void i(List<ck7.d> list, int i, b bVar) {
+        ck7.d dVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLIL(1048585, this, list, i, bVar) == null) || list == null || i >= list.size() || bVar == null || (dVar = list.get(i)) == null) {
             return;
@@ -447,9 +447,9 @@ public class MemberPayView extends LinearLayout {
     }
 
     public final void n() {
-        zj7.c cVar;
-        List<zj7.d> list;
-        zj7.a aVar;
+        ck7.c cVar;
+        List<ck7.d> list;
+        ck7.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             Boolean bool = Boolean.FALSE;
@@ -463,7 +463,7 @@ public class MemberPayView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             layoutParams.setMargins(0, 0, 0, 0);
             for (int i = 0; i < list.size(); i++) {
-                zj7.d dVar = list.get(i);
+                ck7.d dVar = list.get(i);
                 if (dVar != null && dVar.j >= 0) {
                     if (dVar.n == 1) {
                         bool = Boolean.TRUE;
@@ -471,12 +471,12 @@ public class MemberPayView extends LinearLayout {
                     b bVar = new b(null);
                     View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0547, (ViewGroup) null);
                     bVar.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0905af);
-                    bVar.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921b8);
-                    bVar.d = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0913d8);
-                    bVar.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092185);
-                    bVar.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921b7);
-                    bVar.a = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ac7);
-                    bVar.g = inflate.findViewById(R.id.obfuscated_res_0x7f0922cb);
+                    bVar.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921b9);
+                    bVar.d = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0913d9);
+                    bVar.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092186);
+                    bVar.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921b8);
+                    bVar.a = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ac8);
+                    bVar.g = inflate.findViewById(R.id.obfuscated_res_0x7f0922cc);
                     bVar.c.setText(l(dVar.b, 7));
                     if (!TextUtils.isEmpty(dVar.e)) {
                         bVar.d.setVisibility(0);
@@ -510,9 +510,9 @@ public class MemberPayView extends LinearLayout {
             if (bool.booleanValue()) {
                 LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0546, (ViewGroup) null);
                 this.i = linearLayout;
-                this.j = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0921b4);
-                this.k = this.i.findViewById(R.id.obfuscated_res_0x7f092387);
-                this.l = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09216d);
+                this.j = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0921b5);
+                this.k = this.i.findViewById(R.id.obfuscated_res_0x7f092388);
+                this.l = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09216e);
                 this.j.setOnClickListener(this.a);
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                     SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204_1);
@@ -523,7 +523,7 @@ public class MemberPayView extends LinearLayout {
             }
             LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0548, (ViewGroup) null);
             this.i = linearLayout2;
-            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f0921b5);
+            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f0921b6);
             this.j = textView;
             textView.setOnClickListener(this.a);
             this.h.addView(this.i);
@@ -531,7 +531,7 @@ public class MemberPayView extends LinearLayout {
     }
 
     public final void o() {
-        zj7.c cVar;
+        ck7.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.f.setText(l(this.y, this.E));
@@ -615,14 +615,14 @@ public class MemberPayView extends LinearLayout {
         }
     }
 
-    public void setDataAndRefreshUI(zj7 zj7Var) {
+    public void setDataAndRefreshUI(ck7 ck7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, zj7Var) == null) {
-            if (zj7Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, ck7Var) == null) {
+            if (ck7Var == null) {
                 this.d.setVisibility(8);
                 return;
             }
-            this.t = zj7Var;
+            this.t = ck7Var;
             d();
             k(this.F);
         }

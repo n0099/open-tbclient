@@ -117,10 +117,10 @@ public class gw3 implements th1 {
     @Override // com.repackage.th1
     public int v(String str, long j) {
         InterceptResult invokeLJ;
-        d04 a;
+        c04 a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j)) == null) {
-            if (TextUtils.isEmpty(str) || (a = d04.a(ng4.E(new File(yw3.d.h(str, String.valueOf(j)), "game.json")))) == null) {
+            if (TextUtils.isEmpty(str) || (a = c04.a(mg4.E(new File(yw3.d.h(str, String.valueOf(j)), "game.json")))) == null) {
                 return 0;
             }
             return a.b;
@@ -132,7 +132,7 @@ public class gw3 implements th1 {
     public void w(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048586, this, str, z) == null) {
-            p24.a().d(str, z);
+            o24.a().d(str, z);
         }
     }
 }

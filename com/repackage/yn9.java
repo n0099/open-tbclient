@@ -1,89 +1,115 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.PBNativeListener;
-import com.win.opensdk.core.Info;
+import com.repackage.ao9;
+import com.squareup.wire2.FieldEncoding;
+import com.squareup.wire2.ProtoAdapter;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class yn9 implements View.OnTouchListener {
+public final class yn9<E extends ao9> extends ProtoAdapter<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ jo9 a;
+    public final Class<E> a;
+    public Method b;
 
-    public yn9(jo9 jo9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yn9(Class<E> cls) {
+        super(FieldEncoding.VARINT, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jo9Var};
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = jo9Var;
+        this.a = cls;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Info info;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: a */
+    public E decode(wn9 wn9Var) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.a.j = true;
-                this.a.k = System.currentTimeMillis();
-                this.a.l = motionEvent.getX();
-                this.a.m = motionEvent.getY();
-                this.a.n = (int) motionEvent.getRawX();
-                this.a.o = (int) motionEvent.getRawY();
-                this.a.p = (int) motionEvent.getX();
-                this.a.q = (int) motionEvent.getY();
-                this.a.v = System.currentTimeMillis();
-                jo9.e(this.a, view2);
-            } else if (action == 1) {
-                this.a.w = (int) motionEvent.getRawX();
-                this.a.x = (int) motionEvent.getRawY();
-                this.a.r = (int) motionEvent.getX();
-                this.a.s = (int) motionEvent.getY();
-                this.a.y = System.currentTimeMillis();
-                Math.abs(motionEvent.getX() - this.a.l);
-                Math.abs(motionEvent.getY() - this.a.m);
-                if (System.currentTimeMillis() - this.a.k < 2000) {
-                    jo9 jo9Var = this.a;
-                    if (jo9Var.j && (info = jo9Var.c) != null && tq9.d(info, jo9Var.h)) {
-                        this.a.h = System.currentTimeMillis();
-                        jo9 jo9Var2 = this.a;
-                        Context context = jo9Var2.a;
-                        String open = jo9Var2.c.getOpen();
-                        jo9 jo9Var3 = this.a;
-                        tq9.a(context, open, jo9Var3.c, jo9Var3.g, jo9Var3.i().toString());
-                        rr9 a = vr9.a(this.a.a);
-                        a.h(new zr9(this.a.c), null);
-                        a.l("desc", this.a.i().toString());
-                        a.m();
-                        jo9 jo9Var4 = this.a;
-                        pp9.p(jo9Var4.c, jo9Var4.i().toString());
-                        PBNativeListener pBNativeListener = this.a.f;
-                        if (pBNativeListener != null) {
-                            pBNativeListener.onClicked();
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wn9Var)) == null) {
+            int l = wn9Var.l();
+            try {
+                E e = (E) d().invoke(null, Integer.valueOf(l));
+                if (e != null) {
+                    return e;
                 }
+                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.a);
+            } catch (IllegalAccessException | InvocationTargetException e2) {
+                throw new AssertionError(e2);
             }
-            return true;
         }
-        return invokeLL.booleanValue;
+        return (E) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: b */
+    public void encode(xn9 xn9Var, E e) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xn9Var, e) == null) {
+            xn9Var.q(e.getValue());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: c */
+    public int encodedSize(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) ? xn9.i(e.getValue()) : invokeL.intValue;
+    }
+
+    public final Method d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Method method = this.b;
+            if (method != null) {
+                return method;
+            }
+            try {
+                Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
+                this.b = method2;
+                return method2;
+            } catch (NoSuchMethodException e) {
+                throw new AssertionError(e);
+            }
+        }
+        return (Method) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (obj instanceof yn9) && ((yn9) obj).a == this.a : invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.hashCode() : invokeV.intValue;
     }
 }

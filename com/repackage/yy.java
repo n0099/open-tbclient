@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.m00;
 /* loaded from: classes7.dex */
-public class yy extends qy<qn4> {
+public class yy extends qy<pn4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static int o;
@@ -35,7 +35,7 @@ public class yy extends qy<qn4> {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public qn4 h;
+    public pn4 h;
     public RoundCornerFrameLayout i;
     public FakeVideoContainer j;
     public int k;
@@ -172,8 +172,8 @@ public class yy extends qy<qn4> {
             if (this.f == null) {
                 View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01ca, (ViewGroup) null, true);
                 this.f = inflate;
-                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092352);
-                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab1);
+                this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092353);
+                this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab2);
                 FakeVideoContainer fakeVideoContainer = new FakeVideoContainer(this.b);
                 this.j = fakeVideoContainer;
                 fakeVideoContainer.setBackgroundResource(R.color.transparent);
@@ -210,10 +210,10 @@ public class yy extends qy<qn4> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(qn4 qn4Var) {
+    public void a(pn4 pn4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qn4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, pn4Var) == null) {
             int k = oi.k(TbadkCoreApplication.getInst());
             if (k != this.k) {
                 int k2 = oi.k(TbadkCoreApplication.getInst());
@@ -224,11 +224,11 @@ public class yy extends qy<qn4> {
                 r = i / 3;
                 this.k = k;
             }
-            this.h = qn4Var;
-            if (qn4Var == null || qn4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
+            this.h = pn4Var;
+            if (pn4Var == null || pn4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
                 return;
             }
-            this.j.setData(qn4Var.getThreadData());
+            this.j.setData(pn4Var.getThreadData());
             ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
             int i2 = layoutParams.width;
             int i3 = layoutParams.height;
@@ -280,12 +280,12 @@ public class yy extends qy<qn4> {
 
     @Override // com.repackage.gz
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        qn4 qn4Var;
+        pn4 pn4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) || (qn4Var = this.h) == null || qn4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) || (pn4Var = this.h) == null || pn4Var.getThreadData() == null) {
             return;
         }
-        cx5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        ex5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.i.c(i);
         this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }

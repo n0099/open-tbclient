@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ml2;
 import com.repackage.n03;
-import com.repackage.r94;
+import com.repackage.q94;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class w32 extends t32 implements r94, cf3<n03.a> {
+public final class w32 extends t32 implements q94, cf3<n03.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public final class w32 extends t32 implements r94, cf3<n03.a> {
         }
 
         @Override // com.repackage.w32.e
-        public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, r94.a aVar) {
+        public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, q94.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
                 this.a.j(str, map, map2, aVar);
@@ -81,7 +81,7 @@ public final class w32 extends t32 implements r94, cf3<n03.a> {
         }
 
         @Override // com.repackage.w32.e
-        public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, r94.a aVar) {
+        public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, q94.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
                 this.a.a(str, map, map2, jSONObject, aVar);
@@ -90,7 +90,7 @@ public final class w32 extends t32 implements r94, cf3<n03.a> {
     }
 
     /* loaded from: classes7.dex */
-    public class c implements r94.a {
+    public class c implements q94.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -115,7 +115,7 @@ public final class w32 extends t32 implements r94, cf3<n03.a> {
             this.a = str;
         }
 
-        @Override // com.repackage.r94.a
+        @Override // com.repackage.q94.a
         public void a(String str, String str2, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
@@ -123,7 +123,7 @@ public final class w32 extends t32 implements r94, cf3<n03.a> {
             }
         }
 
-        @Override // com.repackage.r94.a
+        @Override // com.repackage.q94.a
         public void b(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
@@ -131,7 +131,7 @@ public final class w32 extends t32 implements r94, cf3<n03.a> {
             }
         }
 
-        @Override // com.repackage.r94.a
+        @Override // com.repackage.q94.a
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
@@ -144,7 +144,7 @@ public final class w32 extends t32 implements r94, cf3<n03.a> {
             }
         }
 
-        @Override // com.repackage.r94.a
+        @Override // com.repackage.q94.a
         public void onStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -210,7 +210,7 @@ public final class w32 extends t32 implements r94, cf3<n03.a> {
 
     /* loaded from: classes7.dex */
     public interface e {
-        void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, r94.a aVar);
+        void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, q94.a aVar);
     }
 
     static {

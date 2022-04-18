@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wt4;
-import com.repackage.xp7;
+import com.repackage.aq7;
+import com.repackage.vt4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
@@ -23,7 +23,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<Integer> mClassIds;
     public String[] mCustomTitle;
-    public xp7 mGuideView;
+    public aq7 mGuideView;
     public boolean mOnlyShowInterestedForum;
     public int mScene;
 
@@ -56,14 +56,14 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
-            String q = wt4.k().q("key_interest_guide_show", "");
+            String q = vt4.k().q("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(q);
             sb.append(StringUtils.isNull(q) ? "" : ",");
             String sb2 = sb.toString();
-            wt4 k = wt4.k();
+            vt4 k = vt4.k();
             k.y("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            wt4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
+            vt4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 
@@ -96,9 +96,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             initData();
-            xp7 xp7Var = new xp7(this, this.mScene, this.mOnlyShowInterestedForum, this.mClassIds, this.mCustomTitle);
-            this.mGuideView = xp7Var;
-            setContentView(xp7Var.d());
+            aq7 aq7Var = new aq7(this, this.mScene, this.mOnlyShowInterestedForum, this.mClassIds, this.mCustomTitle);
+            this.mGuideView = aq7Var;
+            setContentView(aq7Var.d());
             setInterestGuideConf();
         }
     }

@@ -61,7 +61,7 @@ public class CouponEntranceView extends FrameLayout {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0206, (ViewGroup) this, true);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09070c);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09070b);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090e1b);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090e1c);
         }
     }
 

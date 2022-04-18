@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.al6;
+import com.repackage.cl6;
 import com.repackage.mg;
 import com.repackage.oi;
-import com.repackage.uk6;
+import com.repackage.wk6;
 /* loaded from: classes3.dex */
 public class SpannableTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class SpannableTextView extends TextView {
     public long f;
     public int g;
     public boolean h;
-    public uk6.a i;
+    public wk6.a i;
 
     /* loaded from: classes3.dex */
     public static class a extends LinkMovementMethod {
@@ -114,15 +114,15 @@ public class SpannableTextView extends TextView {
     public class b extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public al6 a;
+        public cl6 a;
         public final /* synthetic */ SpannableTextView b;
 
-        public b(SpannableTextView spannableTextView, al6 al6Var) {
+        public b(SpannableTextView spannableTextView, cl6 cl6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {spannableTextView, al6Var};
+                Object[] objArr = {spannableTextView, cl6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -133,7 +133,7 @@ public class SpannableTextView extends TextView {
                 }
             }
             this.b = spannableTextView;
-            this.a = al6Var;
+            this.a = cl6Var;
         }
 
         @Override // android.text.style.ClickableSpan
@@ -159,15 +159,15 @@ public class SpannableTextView extends TextView {
     public class c extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public al6 a;
+        public cl6 a;
         public final /* synthetic */ SpannableTextView b;
 
-        public c(SpannableTextView spannableTextView, al6 al6Var) {
+        public c(SpannableTextView spannableTextView, cl6 cl6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {spannableTextView, al6Var};
+                Object[] objArr = {spannableTextView, cl6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -178,7 +178,7 @@ public class SpannableTextView extends TextView {
                 }
             }
             this.b = spannableTextView;
-            this.a = al6Var;
+            this.a = cl6Var;
         }
 
         @Override // android.text.style.ClickableSpan
@@ -221,10 +221,10 @@ public class SpannableTextView extends TextView {
         h();
     }
 
-    public void e(al6 al6Var) {
+    public void e(cl6 cl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, al6Var) == null) {
-            setText(g(al6Var));
+        if (interceptable == null || interceptable.invokeL(1048576, this, cl6Var) == null) {
+            setText(g(cl6Var));
             setMovementMethod(a.a());
         }
     }
@@ -243,31 +243,31 @@ public class SpannableTextView extends TextView {
         return invokeL.intValue;
     }
 
-    public final SpannableString g(al6 al6Var) {
+    public final SpannableString g(cl6 cl6Var) {
         InterceptResult invokeL;
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, al6Var)) == null) {
-            String str3 = al6Var.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cl6Var)) == null) {
+            String str3 = cl6Var.d;
             int length = str3 != null ? str3.length() : 0;
-            if (al6Var.g) {
-                str = al6Var.d + "  楼主: ";
+            if (cl6Var.g) {
+                str = cl6Var.d + "  楼主: ";
             } else {
-                str = al6Var.d + ": ";
+                str = cl6Var.d + ": ";
             }
-            String str4 = al6Var.e;
+            String str4 = cl6Var.e;
             int length2 = str4 != null ? str4.length() : 0;
             int f = f(str + str4);
-            int f2 = f("|" + al6Var.f);
+            int f2 = f("|" + cl6Var.f);
             int i = this.g;
             if ((f % i) + f2 >= i) {
-                str2 = "\n" + al6Var.f;
+                str2 = "\n" + cl6Var.f;
             } else {
-                str2 = " " + al6Var.f;
+                str2 = " " + cl6Var.f;
             }
             int length3 = str2 != null ? str2.length() : 0;
-            boolean equals = String.valueOf(this.f).equals(al6Var.c);
+            boolean equals = String.valueOf(this.f).equals(cl6Var.c);
             String str5 = "|  删除";
             if (equals) {
                 int f3 = f(str + str4 + str2);
@@ -287,8 +287,8 @@ public class SpannableTextView extends TextView {
             sb.append(equals ? "|" : "");
             SpannableString spannableString = new SpannableString(sb.toString());
             int i3 = length + 0;
-            spannableString.setSpan(new c(this, al6Var), 0, i3, 17);
-            if (al6Var.g) {
+            spannableString.setSpan(new c(this, cl6Var), 0, i3, 17);
+            if (cl6Var.g) {
                 int i4 = i3 + 4;
                 spannableString.setSpan(new ForegroundColorSpan(this.b), i3, i4, 17);
                 i3 = i4;
@@ -298,7 +298,7 @@ public class SpannableTextView extends TextView {
             spannableString.setSpan(new ForegroundColorSpan(this.c), i5, i6, 17);
             if (equals) {
                 int i7 = length4 + i6;
-                spannableString.setSpan(new b(this, al6Var), i6, i7, 17);
+                spannableString.setSpan(new b(this, cl6Var), i6, i7, 17);
                 spannableString.setSpan(new ForegroundColorSpan(this.e), i7, i7 + 1, 17);
             }
             return spannableString;
@@ -350,7 +350,7 @@ public class SpannableTextView extends TextView {
         return invokeV.booleanValue;
     }
 
-    public void setClickListener(uk6.a aVar) {
+    public void setClickListener(wk6.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.i = aVar;

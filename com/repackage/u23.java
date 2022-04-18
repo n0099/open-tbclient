@@ -48,7 +48,7 @@ public class u23 extends t23 {
                 cc3Var.k(10L);
                 cc3Var.i(2107L);
                 cc3Var.d("app forbidden");
-                p03.x0(f84.i().u(str), qj2.c(), J.r().V(), false, null, cc3Var);
+                p03.x0(e84.i().u(str), qj2.c(), J.r().V(), false, null, cc3Var);
             }
         }
     }

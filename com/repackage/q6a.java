@@ -1,69 +1,38 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes6.dex */
-public final class q6a {
+/* loaded from: classes7.dex */
+public class q6a {
     public static /* synthetic */ Interceptable $ic;
-    public static final q6a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755426795, "Lcom/repackage/q6a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755426795, "Lcom/repackage/q6a;");
-                return;
-            }
-        }
-        a = new q6a();
-    }
-
-    public q6a() {
+    public static void a(int i, View view2, GridView gridView) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeILL(65536, null, i, view2, gridView) == null) || i == 0 || gridView == null || view2 == null) {
+            return;
         }
-    }
-
-    @TargetApi(17)
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context != null && (context instanceof Activity)) {
-                Activity activity = (Activity) context;
-                if (!activity.isFinishing()) {
-                    return Build.VERSION.SDK_INT < 17 || !activity.isDestroyed();
-                }
-                RLog.warn("ViewUtils", "activity is finishing");
-                return false;
-            }
-            RLog.warn("ViewUtils", "mContext is null or not activity");
-            return false;
+        int i2 = i >= 3 ? 82 : 110;
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+        if (i == 1) {
+            gridView.setNumColumns(1);
+            layoutParams.width = j6a.a(i2);
+        } else if (i == 2) {
+            gridView.setNumColumns(2);
+            layoutParams.width = j6a.a((i2 * 2) + 7);
+        } else if (i == 3) {
+            gridView.setNumColumns(3);
+            layoutParams.width = j6a.a((i2 * 3) + 14);
+        } else if (i != 4) {
+            gridView.setNumColumns(3);
+            layoutParams.width = j6a.a((i2 * 3) + 14);
+        } else {
+            gridView.setNumColumns(2);
+            layoutParams.width = j6a.a((i2 * 2) + 7);
         }
-        return invokeL.booleanValue;
+        view2.setLayoutParams(layoutParams);
     }
 }

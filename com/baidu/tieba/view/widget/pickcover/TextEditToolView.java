@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kc9;
-import com.repackage.mc9;
-import com.repackage.mu4;
-import com.repackage.my8;
-import com.repackage.wr4;
+import com.repackage.lu4;
+import com.repackage.rc9;
+import com.repackage.tc9;
+import com.repackage.ty8;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class TextEditToolView extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -42,7 +42,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
     public View d;
     public View e;
     public TBSpecificationBtn f;
-    public my8 g;
+    public ty8 g;
     public TextPaint h;
     public int i;
     public boolean j;
@@ -233,7 +233,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             setLayoutParams(layoutParams);
         }
         this.m = false;
-        if (!TextUtils.equals(str, kc9.l(R.string.obfuscated_res_0x7f0f1465))) {
+        if (!TextUtils.equals(str, rc9.l(R.string.obfuscated_res_0x7f0f1464))) {
             this.b.setText(str);
         }
         setVisibility(0);
@@ -247,19 +247,19 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (this.h == null) {
                 TextPaint textPaint = new TextPaint();
                 this.h = textPaint;
-                textPaint.setTextSize(kc9.j(R.dimen.obfuscated_res_0x7f0702b7));
+                textPaint.setTextSize(rc9.j(R.dimen.obfuscated_res_0x7f0702b7));
             }
-            StaticLayout staticLayout = new StaticLayout(str, this.h, mc9.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+            StaticLayout staticLayout = new StaticLayout(str, this.h, tc9.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
             if (staticLayout.getLineCount() > i) {
                 str = str.substring(0, staticLayout.getLineStart(i) - 1);
                 this.b.setText(str);
             }
             this.b.setSelection(this.b.getText() != null ? this.b.getText().length() : 0);
-            my8 my8Var = this.g;
-            if (my8Var == null || !this.m) {
+            ty8 ty8Var = this.g;
+            if (ty8Var == null || !this.m) {
                 return;
             }
-            my8Var.k(str);
+            ty8Var.k(str);
         }
     }
 
@@ -270,9 +270,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (view2 == this.f) {
                 String obj = this.b.getText().toString();
                 j();
-                my8 my8Var = this.g;
-                if (my8Var != null) {
-                    my8Var.g(obj);
+                ty8 ty8Var = this.g;
+                if (ty8Var != null) {
+                    ty8Var.g(obj);
                 }
             } else if (view2 == this.c) {
                 this.b.setText("");
@@ -298,10 +298,10 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         }
     }
 
-    public void setOnTextWordsEditListener(my8 my8Var) {
+    public void setOnTextWordsEditListener(ty8 ty8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, my8Var) == null) {
-            this.g = my8Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ty8Var) == null) {
+            this.g = ty8Var;
         }
     }
 
@@ -350,20 +350,20 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         this.n = new a(this);
         this.a = context;
         FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04e9, this);
-        this.e = findViewById(R.id.obfuscated_res_0x7f0911ca);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0911d6);
+        this.e = findViewById(R.id.obfuscated_res_0x7f0911cb);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0911d7);
         this.d = findViewById;
-        wr4 d = wr4.d(findViewById);
+        vr4 d = vr4.d(findViewById);
         d.n(R.string.J_X01);
         d.f(R.color.CAM_X0106);
-        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091f30);
-        mu4 mu4Var = new mu4();
-        mu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-        this.f.setConfig(mu4Var);
+        this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091f31);
+        lu4 lu4Var = new lu4();
+        lu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+        this.f.setConfig(lu4Var);
         this.f.setTextSize(R.dimen.T_X08);
-        this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0dc2));
+        this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0dc1));
         this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f09086a);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea5);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea6);
         this.f.setOnClickListener(this);
         if (getContext() instanceof Activity) {
             ((Activity) getContext()).getWindow().getDecorView().getViewTreeObserver().addOnGlobalLayoutListener(this.n);

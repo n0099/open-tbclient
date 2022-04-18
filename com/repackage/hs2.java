@@ -35,12 +35,12 @@ public class hs2 extends is2 {
 
         /* renamed from: com.repackage.hs2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0435a implements gs2 {
+        public class C0440a implements gs2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0435a(a aVar) {
+            public C0440a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public class hs2 extends is2 {
                     return;
                 }
                 jx1.k("SwanAppUpdateManager", "has not scope set，required request from server");
-                fs2.g().update(new C0435a(this));
+                fs2.g().update(new C0440a(this));
             }
         }
     }

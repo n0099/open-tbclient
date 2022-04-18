@@ -1,10 +1,14 @@
 package com.repackage;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.ueg.UEGCancelModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,22 +16,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
+import com.repackage.cr4;
 /* loaded from: classes7.dex */
 public class sr8 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<String> b;
-    public List<String> c;
+    public UEGCancelModel a;
+    public UEGCancelModel.b b;
+    public int c;
 
     /* loaded from: classes7.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
+    public class a implements UEGCancelModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sr8 a;
 
         public a(sr8 sr8Var) {
             Interceptable interceptable = $ic;
@@ -41,39 +44,35 @@ public class sr8 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = sr8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.ueg.UEGCancelModel.b
+        public void a(BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                tl7.a(sl7.b);
-                tl7.a(sl7.c);
-                tl7.a(sl7.d);
-                tl7.a(sl7.f);
-                tl7.a(sl7.g);
-                return null;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, blockPopInfoData) == null) || blockPopInfoData == null || sr8.d) {
+                return;
             }
-            return (Void) invokeL.objValue;
+            this.a.d(blockPopInfoData);
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b extends BdAsyncTask<Void, Void, Void> {
+    public class b implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sr8 a;
+        public final /* synthetic */ BlockPopInfoData a;
+        public final /* synthetic */ sr8 b;
 
-        public b(sr8 sr8Var) {
+        public b(sr8 sr8Var, BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sr8Var};
+                Object[] objArr = {sr8Var, blockPopInfoData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -83,41 +82,33 @@ public class sr8 {
                     return;
                 }
             }
-            this.a = sr8Var;
+            this.b = sr8Var;
+            this.a = blockPopInfoData;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                List j = sr8.j(sl7.e);
-                if (j == null) {
-                    return null;
-                }
-                int size = j.size();
-                for (int i = 0; i < size; i++) {
-                    this.a.n((rr8) j.get(i));
-                }
-                return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                cr4Var.dismiss();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
             }
-            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c extends BdAsyncTask<String, Void, Void> {
+    public class c implements cr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sr8 a;
+        public final /* synthetic */ BlockPopInfoData a;
+        public final /* synthetic */ sr8 b;
 
-        public c(sr8 sr8Var) {
+        public c(sr8 sr8Var, BlockPopInfoData blockPopInfoData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sr8Var};
+                Object[] objArr = {sr8Var, blockPopInfoData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -127,233 +118,32 @@ public class sr8 {
                     return;
                 }
             }
-            this.a = sr8Var;
+            this.b = sr8Var;
+            this.a = blockPopInfoData;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(String... strArr) {
-            InterceptResult invokeL;
+        @Override // com.repackage.cr4.e
+        public void onClick(cr4 cr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                if (strArr != null && strArr.length == 2 && !StringUtils.isNull(strArr[0]) && !StringUtils.isNull(strArr[1])) {
-                    this.a.f(strArr[0], strArr[1]);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d extends BdAsyncTask<rr8, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sr8 a;
-
-        public d(sr8 sr8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sr8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(rr8... rr8VarArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rr8VarArr)) == null) {
-                if (rr8VarArr != null && rr8VarArr.length == 1 && rr8VarArr[0] != null) {
-                    this.a.g(rr8VarArr[0]);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public static final sr8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-4247753, "Lcom/repackage/sr8$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-4247753, "Lcom/repackage/sr8$e;");
-                    return;
-                }
-            }
-            a = new sr8(null);
-        }
-    }
-
-    public /* synthetic */ sr8(a aVar) {
-        this();
-    }
-
-    public static sr8 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? e.a : (sr8) invokeV.objValue;
-    }
-
-    public static List<rr8> j(String str) {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            File file = new File(str);
-            if (file.exists() && (listFiles = file.listFiles()) != null) {
-                int length = listFiles.length;
-                ArrayList arrayList = new ArrayList(length);
-                for (int i = 0; i < length; i++) {
-                    arrayList.add(new rr8(m(tl7.e(listFiles[i])), listFiles[i].getAbsolutePath()));
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static List<String> m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            String[] split = str.split("\n");
-            int length = split.length;
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < length; i++) {
-                if (!StringUtils.isNull(split[i])) {
-                    arrayList.add(split[i]);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new a(this).execute(new Void[0]);
-        }
-    }
-
-    public final synchronized boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            synchronized (this) {
-                if (this.c.contains(str)) {
-                    return false;
-                }
-                File file = new File(str);
-                return tl7.f(file, str2 + "\n");
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final synchronized void g(rr8 rr8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rr8Var) == null) {
-            synchronized (this) {
-                try {
-                    byte[] a2 = qr8.a(rr8Var.a);
-                    if (qr8.c(a2, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(rr8Var.b)) {
-                        FileHelper.deleteFile(new File(rr8Var.b));
-                        this.c.add(rr8Var.b);
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, cr4Var) == null) {
+                this.b.e(this.a);
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
             }
         }
     }
 
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.a)) {
-                if (!ii.c()) {
-                    return null;
-                }
-                this.a = String.valueOf(System.currentTimeMillis());
-            }
-            return sl7.e + this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public synchronized void k(JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, jSONObject, z) == null) {
-            synchronized (this) {
-                if (jSONObject == null) {
-                    return;
-                }
-                this.b.add(jSONObject.toString());
-                String i = i();
-                if (ii.c()) {
-                    l(jSONObject, i);
-                }
-                if (this.b.size() >= iy4.a() || z) {
-                    n(new rr8(this.b, i));
-                    this.b.clear();
-                    this.a = null;
-                }
-            }
-        }
-    }
-
-    public final void l(JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, str) == null) && !StringUtils.isNull(str) && ii.c()) {
-            new c(this).execute(str, jSONObject.toString());
-        }
-    }
-
-    public final void n(rr8 rr8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, rr8Var) == null) || rr8Var == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755310824, "Lcom/repackage/sr8;")) == null) {
             return;
         }
-        new d(this).execute(rr8Var);
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && ii.c()) {
-            new b(this).execute(new Void[0]);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755310824, "Lcom/repackage/sr8;");
         }
     }
 
@@ -361,19 +151,97 @@ public class sr8 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        if (ii.c()) {
-            e();
+        this.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
+        this.a = new UEGCancelModel();
+        if (this.b == null) {
+            this.b = new a(this);
         }
+        this.a.A(this.b);
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.c = i;
+            this.a.z();
+        }
+    }
+
+    public final void d(BlockPopInfoData blockPopInfoData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, blockPopInfoData) == null) || blockPopInfoData == null || x8.f().b() == null) {
+            return;
+        }
+        String str = blockPopInfoData.block_id_code;
+        int i = blockPopInfoData.win_type;
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        String str2 = blockPopInfoData.ahead_url;
+        String str3 = blockPopInfoData.ok_info;
+        String str4 = blockPopInfoData.ahead_info;
+        String str5 = blockPopInfoData.block_info;
+        if ((i != 1 && i != 2 && i != 3 && i != 4) || ni.isEmpty(currentAccount) || ni.isEmpty(str)) {
+            return;
+        }
+        vt4 k = vt4.k();
+        boolean z = false;
+        boolean h = k.h(str + i + currentAccount, false);
+        if ((!ni.isEmpty(str2) || i == 4) && !ni.isEmpty(str3) && ((!ni.isEmpty(str4) || i == 4) && !ni.isEmpty(str5))) {
+            z = true;
+        }
+        if (h || !z) {
+            return;
+        }
+        vt4 k2 = vt4.k();
+        k2.u(str + i + currentAccount, true);
+        h(blockPopInfoData);
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.c).param("obj_type", i));
+    }
+
+    public final void e(BlockPopInfoData blockPopInfoData) {
+        Activity b2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, blockPopInfoData) == null) || blockPopInfoData == null || (b2 = x8.f().b()) == null) {
+            return;
+        }
+        AntiHelper.p(b2, blockPopInfoData.ahead_url);
+    }
+
+    public void f() {
+        UEGCancelModel uEGCancelModel;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (uEGCancelModel = this.a) == null) {
+            return;
+        }
+        uEGCancelModel.onDestroy();
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            d = z;
+        }
+    }
+
+    public final void h(BlockPopInfoData blockPopInfoData) {
+        Activity b2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, blockPopInfoData) == null) || blockPopInfoData == null || (b2 = x8.f().b()) == null) {
+            return;
+        }
+        cr4 cr4Var = new cr4(b2);
+        cr4Var.setMessage(blockPopInfoData.block_info);
+        cr4Var.setNegativeButton(blockPopInfoData.ok_info, new b(this, blockPopInfoData));
+        cr4Var.setPositiveButton(blockPopInfoData.ahead_info, new c(this, blockPopInfoData));
+        cr4Var.create(((c9) b2).getPageContext());
+        cr4Var.show();
     }
 }

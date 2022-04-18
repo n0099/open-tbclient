@@ -435,16 +435,16 @@ public class wd2 implements xg1 {
                 Log.d("SwanHistoryManager", "fetchHistoryDataFromServer: url=" + b2 + "  params=" + d2);
             }
             e eVar = new e(td2Var);
-            l74 l74Var = new l74();
-            l74Var.b = "POST";
-            l74Var.a = b2;
-            l74Var.f = true;
-            l74Var.g = true;
+            k74 k74Var = new k74();
+            k74Var.b = "POST";
+            k74Var.a = b2;
+            k74Var.f = true;
+            k74Var.g = true;
             if (!TextUtils.isEmpty(d2)) {
-                l74Var.d = RequestBody.create(qr2.a, d2);
+                k74Var.d = RequestBody.create(qr2.a, d2);
             }
-            l74Var.e = eVar;
-            m74.g().e(l74Var);
+            k74Var.e = eVar;
+            l74.g().e(k74Var);
         }
     }
 
@@ -476,14 +476,14 @@ public class wd2 implements xg1 {
                 Log.d("SwanHistoryManager", "reportHistoryDataToServer: 上行参数" + e2);
             }
             b bVar = new b(ud2Var);
-            l74 l74Var = new l74();
-            l74Var.b = "POST";
-            l74Var.a = c2;
-            l74Var.f = true;
-            l74Var.g = true;
-            l74Var.d = RequestBody.create(qr2.a, e2);
-            l74Var.e = bVar;
-            m74.g().e(l74Var);
+            k74 k74Var = new k74();
+            k74Var.b = "POST";
+            k74Var.a = c2;
+            k74Var.f = true;
+            k74Var.g = true;
+            k74Var.d = RequestBody.create(qr2.a, e2);
+            k74Var.e = bVar;
+            l74.g().e(k74Var);
         }
     }
 

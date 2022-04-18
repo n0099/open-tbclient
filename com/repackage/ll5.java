@@ -34,23 +34,23 @@ public class ll5 {
     public boolean d;
     public long e;
     public SplashNativePolicy f;
-    public rl4 g;
+    public ql4 g;
     public final ArrayList<ml5> h;
 
     /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rl4 a;
+        public final /* synthetic */ ql4 a;
         public final /* synthetic */ ml5 b;
         public final /* synthetic */ ll5 c;
 
-        public a(ll5 ll5Var, rl4 rl4Var, ml5 ml5Var) {
+        public a(ll5 ll5Var, ql4 ql4Var, ml5 ml5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ll5Var, rl4Var, ml5Var};
+                Object[] objArr = {ll5Var, ql4Var, ml5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,7 +61,7 @@ public class ll5 {
                 }
             }
             this.c = ll5Var;
-            this.a = rl4Var;
+            this.a = ql4Var;
             this.b = ml5Var;
         }
 
@@ -69,14 +69,14 @@ public class ll5 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rl4 rl4Var = this.a;
-                if (rl4Var != null) {
-                    rl4Var.e();
+                ql4 ql4Var = this.a;
+                if (ql4Var != null) {
+                    ql4Var.e();
                 }
                 this.b.show();
-                rl4 rl4Var2 = this.a;
-                if (rl4Var2 != null) {
-                    rl4Var2.b(String.valueOf((int) this.c.f(this.b)));
+                ql4 ql4Var2 = this.a;
+                if (ql4Var2 != null) {
+                    ql4Var2.b(String.valueOf((int) this.c.f(this.b)));
                 }
             }
         }
@@ -107,7 +107,7 @@ public class ll5 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                cs6.j().m();
+                es6.j().m();
             }
         }
     }
@@ -129,8 +129,8 @@ public class ll5 {
         this.e = -1L;
         this.g = null;
         this.h = new ArrayList<>();
-        this.a = wt4.k().l("splash_ad_strategy_key", 0);
-        this.b = wt4.k().l("splash_origin_ad_strategy_key", 1);
+        this.a = vt4.k().l("splash_ad_strategy_key", 0);
+        this.b = vt4.k().l("splash_origin_ad_strategy_key", 1);
         q();
     }
 
@@ -170,12 +170,12 @@ public class ll5 {
     }
 
     public void c() {
-        rl4 rl4Var;
+        ql4 ql4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (rl4Var = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ql4Var = this.g) == null) {
             return;
         }
-        rl4Var.c("");
+        ql4Var.c("");
     }
 
     public int d() {
@@ -227,7 +227,7 @@ public class ll5 {
                     if (ub5.q(this.a)) {
                         this.h.add(xk5Var);
                     }
-                    if (wt4.k().h("key_is_jump_splash_ad", false)) {
+                    if (vt4.k().h("key_is_jump_splash_ad", false)) {
                         j();
                         this.h.clear();
                     }
@@ -267,13 +267,13 @@ public class ll5 {
         uBCManager.onEvent("5088");
     }
 
-    public void k() {
-        rl4 rl4Var;
+    public void k(int i2) {
+        ql4 ql4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (rl4Var = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (ql4Var = this.g) == null) {
             return;
         }
-        rl4Var.a();
+        ql4Var.a(i2);
     }
 
     public void l(int i2) {
@@ -295,14 +295,14 @@ public class ll5 {
         }
     }
 
-    public synchronized void m(ul4 ul4Var) {
+    public synchronized void m(tl4 tl4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ul4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, tl4Var) == null) {
             synchronized (this) {
                 this.c = false;
-                this.e = ul4Var.c();
-                this.g = ul4Var.a();
-                this.d = ul4Var.d();
+                this.e = tl4Var.c();
+                this.g = tl4Var.a();
+                this.d = tl4Var.d();
                 if (this.f != null) {
                     this.f.onSplashEvent(96);
                 }
@@ -310,23 +310,23 @@ public class ll5 {
                 ql5.c();
                 Iterator<ml5> it = this.h.iterator();
                 while (it.hasNext()) {
-                    it.next().e(ul4Var);
+                    it.next().e(tl4Var);
                 }
             }
         }
     }
 
-    public void n(rl4 rl4Var) {
+    public void n(ql4 ql4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, rl4Var) == null) || UbsABTestHelper.newSplashStrategy()) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, ql4Var) == null) || UbsABTestHelper.newSplashStrategy()) {
             return;
         }
-        o(rl4Var, true);
+        o(ql4Var, true);
     }
 
-    public synchronized void o(rl4 rl4Var, boolean z) {
+    public synchronized void o(ql4 ql4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLZ(1048588, this, rl4Var, z) != null) {
+        if (interceptable != null && interceptable.invokeLZ(1048588, this, ql4Var, z) != null) {
             return;
         }
         synchronized (this) {
@@ -339,8 +339,8 @@ public class ll5 {
                     if (!z) {
                         StatisticItem.make(TbadkCoreStatisticKey.HOT_SPLASH_TIMEOUT).param("obj_type", "a064").param("tid", ub5.q(this.a) ? 1 : 0).param("pid", this.b != 0 ? 1 : 0).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("fid", this.e).eventStat();
                     }
-                    if (rl4Var != null) {
-                        rl4Var.c("");
+                    if (ql4Var != null) {
+                        ql4Var.c("");
                     }
                     return;
                 }
@@ -354,18 +354,18 @@ public class ll5 {
                         }
                         param.eventStat();
                         if (AdToMainTabActivitySwitch.getIsOn()) {
-                            kn8.a(MainTabScheduleStrategy.UNSCHEDULE);
-                            pg.a().post(new a(this, rl4Var, next));
+                            rn8.a(MainTabScheduleStrategy.UNSCHEDULE);
+                            pg.a().post(new a(this, ql4Var, next));
                         } else {
-                            if (rl4Var != null) {
-                                rl4Var.e();
+                            if (ql4Var != null) {
+                                ql4Var.e();
                             }
                             next.show();
-                            if (rl4Var != null) {
-                                rl4Var.b(String.valueOf((int) f(next)));
+                            if (ql4Var != null) {
+                                ql4Var.b(String.valueOf((int) f(next)));
                             }
                         }
-                        lt4.a("homePage", -1L, 0, "logo_splash", 0, "", "splashType", ni.isEmpty(next.f()) ? "bes" : next.f());
+                        kt4.a("homePage", -1L, 0, "logo_splash", 0, "", "splashType", ni.isEmpty(next.f()) ? "bes" : next.f());
                         return;
                     } else if (next.d() != AdLoadState.FAILED && z) {
                         return;
@@ -394,7 +394,7 @@ public class ll5 {
                             }
                             param.eventStat();
                             if (AdToMainTabActivitySwitch.getIsOn()) {
-                                kn8.a(MainTabScheduleStrategy.UNSCHEDULE);
+                                rn8.a(MainTabScheduleStrategy.UNSCHEDULE);
                             }
                             if (this.g != null) {
                                 this.g.e();
@@ -463,19 +463,19 @@ public class ll5 {
                 int e7 = mg.e(optJSONObject.optString("screen_fill_advertisement_bear_switch", "1"), 1);
                 int e8 = mg.e(optJSONObject.optString("screen_fill_advertisement_plj_switch", "1"), 1);
                 int e9 = mg.e(optJSONObject.optString("screen_fill_advertisement_plj_cpc_switch", "1"), 1);
-                wt4.k().w("key_splash_new_policy_bear_enable", e7);
-                wt4.k().w("key_splash_new_policy_plg_enable", e8);
-                wt4.k().w("key_splash_new_policy_plg_cpc_enable", e9);
-                wt4.k().w("key_splash_new_policy_first_timeout", e5);
-                wt4.k().w("key_splash_new_policy_second_timeout", e6);
+                vt4.k().w("key_splash_new_policy_bear_enable", e7);
+                vt4.k().w("key_splash_new_policy_plg_enable", e8);
+                vt4.k().w("key_splash_new_policy_plg_cpc_enable", e9);
+                vt4.k().w("key_splash_new_policy_first_timeout", e5);
+                vt4.k().w("key_splash_new_policy_second_timeout", e6);
             }
             xk5.s(e3);
-            wt4.k().w("splash_ad_strategy_key", e);
-            wt4.k().w("splash_origin_ad_strategy_key", e2);
-            wt4.k().w("key_splash_new_policy_enable", e4);
+            vt4.k().w("splash_ad_strategy_key", e);
+            vt4.k().w("splash_origin_ad_strategy_key", e2);
+            vt4.k().w("key_splash_new_policy_enable", e4);
             if (!h() && ub5.q(e)) {
                 if (oi.B()) {
-                    cs6.j().m();
+                    es6.j().m();
                 } else {
                     pg.a().post(new b(this));
                 }

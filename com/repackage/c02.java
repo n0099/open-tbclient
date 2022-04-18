@@ -731,10 +731,10 @@ public class c02 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, i2, i3) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00da, (ViewGroup) linearLayout, false);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d7a);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091d7b);
             textView.setTextColor(inflate.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0603d5));
             textView.setText(i2);
-            ((BdBaseImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d79)).setImageResource(i3);
+            ((BdBaseImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091d7a)).setImageResource(i3);
             linearLayout.addView(inflate);
         }
     }
@@ -769,8 +769,8 @@ public class c02 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, sslCertificate, sslError)) == null) {
             View j2 = j(sslCertificate);
-            LinearLayout linearLayout = (LinearLayout) j2.findViewById(R.id.obfuscated_res_0x7f09184d);
-            j2.findViewById(R.id.obfuscated_res_0x7f091d78).setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06038c));
+            LinearLayout linearLayout = (LinearLayout) j2.findViewById(R.id.obfuscated_res_0x7f09184e);
+            j2.findViewById(R.id.obfuscated_res_0x7f091d79).setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f06038c));
             if (sslError == null) {
                 c(linearLayout, R.string.obfuscated_res_0x7f0f01c4);
             } else {
@@ -827,9 +827,9 @@ public class c02 {
             }
             SslCertificate.DName issuedTo = sslCertificate.getIssuedTo();
             if (issuedTo != null) {
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092065)).setText(issuedTo.getCName());
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092068)).setText(issuedTo.getOName());
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09206a)).setText(issuedTo.getUName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092066)).setText(issuedTo.getCName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092069)).setText(issuedTo.getOName());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09206b)).setText(issuedTo.getUName());
             }
             SslCertificate.DName issuedBy = sslCertificate.getIssuedBy();
             if (issuedBy != null) {
@@ -837,8 +837,8 @@ public class c02 {
                 ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090487)).setText(issuedBy.getOName());
                 ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090489)).setText(issuedBy.getUName());
             }
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f51)).setText(i(sslCertificate.getValidNotBeforeDate()));
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090949)).setText(i(sslCertificate.getValidNotAfterDate()));
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090f52)).setText(i(sslCertificate.getValidNotBeforeDate()));
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09094a)).setText(i(sslCertificate.getValidNotAfterDate()));
             return inflate;
         }
         return (View) invokeL.objValue;
@@ -923,9 +923,9 @@ public class c02 {
                 return false;
             }
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00b9, (ViewGroup) null);
-            EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f0922ce);
+            EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f0922cf);
             editText.setText(str3);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913f4)).setText(str2);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913f5)).setText(str2);
             nz2.a aVar = new nz2.a(this.a);
             aVar.U(R.string.obfuscated_res_0x7f0f014e);
             aVar.W(inflate);

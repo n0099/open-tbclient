@@ -54,7 +54,7 @@ public class lv2 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, mv2Var)) == null) {
-            if (fh4.a(context, str)) {
+            if (eh4.a(context, str)) {
                 mv2Var.a("permission has already granted");
                 return true;
             }
@@ -83,7 +83,7 @@ public class lv2 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
             for (String str : strArr) {
-                if (!fh4.a(context, str)) {
+                if (!eh4.a(context, str)) {
                     arrayList.add(str);
                 }
             }

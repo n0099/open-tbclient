@@ -1,118 +1,119 @@
 package com.repackage;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.TextView;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qw8 implements View.OnTouchListener {
+public class qw8 extends TimePickerDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Spannable a;
-    public ff5 b;
-    public int c;
+    public int a;
+    public int b;
+    public boolean c;
 
-    public qw8(Spannable spannable) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qw8(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
+        super(context, onTimeSetListener, i, i2, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spannable};
+            Object[] objArr = {context, onTimeSetListener, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (TimePickerDialog.OnTimeSetListener) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.c = 0;
-        this.a = spannable;
+        this.a = -1;
+        this.b = -1;
+        this.c = false;
+        this.a = i;
+        this.b = i2;
     }
 
-    public void a(int i) {
+    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        ff5 ff5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (view2 instanceof TextView) {
-                TextView textView = (TextView) view2;
-                if (action == 3 && (ff5Var = this.b) != null) {
-                    ff5Var.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                    view2.invalidate();
-                    this.b = null;
-                    return false;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+            if (i == -1) {
+                this.c = true;
+            } else {
+                int i3 = this.a;
+                if (i3 >= 0 && (i2 = this.b) >= 0) {
+                    updateTime(i3, i2);
                 }
-                if (action == 1 || action == 0) {
-                    int x = (int) motionEvent.getX();
-                    int y = (int) motionEvent.getY();
-                    Layout layout = textView.getLayout();
-                    if (layout == null) {
-                        return false;
-                    }
-                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical((y - textView.getTotalPaddingTop()) + textView.getScrollY()), (x - textView.getTotalPaddingLeft()) + textView.getScrollX());
-                    Spannable spannable = this.a;
-                    if (spannable == null) {
-                        return false;
-                    }
-                    ff5[] ff5VarArr = (ff5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ff5.class);
-                    if (ff5VarArr != null && ff5VarArr.length != 0 && ff5VarArr[0] != null) {
-                        if (action == 1) {
-                            ff5VarArr[0].g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                            ff5VarArr[0].onClick(textView);
-                            view2.invalidate();
-                        } else {
-                            ff5 ff5Var2 = ff5VarArr[0];
-                            this.b = ff5Var2;
-                            if (ff5Var2.e()) {
-                                int i = this.c;
-                                if (i != 0) {
-                                    ff5VarArr[0].g(SkinManager.getColor(i));
-                                } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                                    ff5VarArr[0].g(SkinManager.getColor(R.color.CAM_X0204));
-                                } else {
-                                    ff5VarArr[0].g(SkinManager.getColor(R.color.cp_bg_line_z));
-                                }
-                            }
-                            Spannable spannable2 = this.a;
-                            Selection.setSelection(spannable2, spannable2.getSpanStart(ff5VarArr[0]), this.a.getSpanEnd(ff5VarArr[0]));
-                            view2.invalidate();
-                        }
-                        return true;
-                    }
-                    ff5 ff5Var3 = this.b;
-                    if (ff5Var3 != null) {
-                        ff5Var3.g(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
-                        view2.invalidate();
-                    }
-                    Selection.removeSelection(this.a);
-                }
-                return false;
             }
-            return false;
+            super.onClick(dialogInterface, i);
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public void onRestoreInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onRestoreInstanceState(bundle);
+            updateTime(0, 0);
+            this.a = bundle.getInt("hour_key");
+            int i = bundle.getInt("min_key");
+            this.b = i;
+            updateTime(this.a, i);
+        }
+    }
+
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public Bundle onSaveInstanceState() {
+        Bundle bundle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                bundle = super.onSaveInstanceState();
+            } catch (Exception unused) {
+                bundle = null;
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            bundle.putInt("hour_key", this.a);
+            bundle.putInt("min_key", this.b);
+            return bundle;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    @Override // android.app.Dialog
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (!this.c) {
+                updateTime(this.a, this.b);
+            }
+            super.onStop();
+        }
+    }
+
+    @Override // android.app.TimePickerDialog
+    public void updateTime(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            super.updateTime(i, i2);
+            this.a = i;
+            this.b = i2;
+            this.c = false;
+        }
     }
 }

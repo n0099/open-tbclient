@@ -34,16 +34,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ax4;
-import com.repackage.dz8;
 import com.repackage.i05;
-import com.repackage.mu4;
+import com.repackage.kz8;
+import com.repackage.lu4;
 import com.repackage.o15;
 import com.repackage.oi;
-import com.repackage.r86;
-import com.repackage.s86;
+import com.repackage.t86;
+import com.repackage.u86;
 import com.repackage.v05;
-import com.repackage.wr4;
+import com.repackage.vr4;
+import com.repackage.zw4;
 import java.util.regex.Matcher;
 /* loaded from: classes3.dex */
 public class LocalInputContainer extends RelativeLayout implements v05 {
@@ -198,10 +198,10 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         editorTools.A(i05Var);
     }
 
-    public final void f(ax4 ax4Var) {
+    public final void f(zw4 zw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ax4Var) == null) && ax4Var.getType() == EmotionGroupType.LOCAL) {
-            s86.b(getContext(), ax4Var, this.c);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zw4Var) == null) && zw4Var.getType() == EmotionGroupType.LOCAL) {
+            u86.b(getContext(), zw4Var, this.c);
         }
     }
 
@@ -211,7 +211,7 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
             return;
         }
         String substring = this.c.getText().toString().substring(0, this.c.getSelectionStart());
-        Matcher matcher = r86.b.matcher(substring);
+        Matcher matcher = t86.b.matcher(substring);
         if (matcher.find()) {
             this.c.getText().delete(this.c.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.c.getSelectionStart()).toString();
             return;
@@ -260,7 +260,7 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            setId(R.id.obfuscated_res_0x7f091313);
+            setId(R.id.obfuscated_res_0x7f091314);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         }
     }
@@ -277,10 +277,10 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             ImageView imageView = new ImageView(getContext());
             this.d = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f091315);
+            imageView.setId(R.id.obfuscated_res_0x7f091316);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(oi.f(getContext(), R.dimen.tbds62), oi.f(getContext(), R.dimen.tbds62));
-            layoutParams.addRule(7, R.id.obfuscated_res_0x7f091314);
-            layoutParams.addRule(8, R.id.obfuscated_res_0x7f091314);
+            layoutParams.addRule(7, R.id.obfuscated_res_0x7f091315);
+            layoutParams.addRule(8, R.id.obfuscated_res_0x7f091315);
             layoutParams.setMargins(0, 0, oi.f(getContext(), R.dimen.M_W_X006), oi.f(getContext(), R.dimen.M_H_X004));
             this.d.setLayoutParams(layoutParams);
             addView(this.d);
@@ -292,10 +292,10 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             SpanGroupEditText spanGroupEditText = new SpanGroupEditText(getContext());
             this.c = spanGroupEditText;
-            spanGroupEditText.setId(R.id.obfuscated_res_0x7f091314);
+            spanGroupEditText.setId(R.id.obfuscated_res_0x7f091315);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(9);
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f091318);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f091319);
             layoutParams.setMargins(oi.f(getContext(), R.dimen.M_W_X007), oi.f(getContext(), R.dimen.M_H_X004), oi.f(getContext(), R.dimen.tbds216), oi.f(getContext(), R.dimen.M_H_X004));
             this.c.setLayoutParams(layoutParams);
             this.c.setPadding(oi.f(getContext(), R.dimen.M_W_X006), oi.f(getContext(), R.dimen.M_H_X004), oi.f(getContext(), R.dimen.M_W_X019), oi.f(getContext(), R.dimen.M_H_X004));
@@ -366,18 +366,18 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
             this.e = tBSpecificationBtn;
-            tBSpecificationBtn.setId(R.id.obfuscated_res_0x7f091316);
+            tBSpecificationBtn.setId(R.id.obfuscated_res_0x7f091317);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(oi.f(getContext(), R.dimen.tbds151), oi.f(getContext(), R.dimen.tbds75));
             layoutParams.setMargins(0, 0, oi.f(getContext(), R.dimen.M_W_X007), 0);
-            layoutParams.addRule(8, R.id.obfuscated_res_0x7f091314);
-            layoutParams.addRule(11, R.id.obfuscated_res_0x7f091314);
+            layoutParams.addRule(8, R.id.obfuscated_res_0x7f091315);
+            layoutParams.addRule(11, R.id.obfuscated_res_0x7f091315);
             this.e.setLayoutParams(layoutParams);
-            mu4 mu4Var = new mu4();
-            mu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.e.setConfig(mu4Var);
+            lu4 lu4Var = new lu4();
+            lu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.e.setConfig(lu4Var);
             this.e.setEnabled(false);
             this.e.setTextSize(R.dimen.T_X08);
-            this.e.setText(getContext().getString(R.string.obfuscated_res_0x7f0f10e8));
+            this.e.setText(getContext().getString(R.string.obfuscated_res_0x7f0f10e7));
             addView(this.e);
         }
     }
@@ -387,7 +387,7 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             HeadImageView headImageView = new HeadImageView(getContext());
             this.a = headImageView;
-            headImageView.setId(R.id.obfuscated_res_0x7f091318);
+            headImageView.setId(R.id.obfuscated_res_0x7f091319);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(oi.f(getContext(), R.dimen.tbds62), oi.f(getContext(), R.dimen.tbds62));
             layoutParams.addRule(9);
             layoutParams.addRule(10);
@@ -399,15 +399,15 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
             addView(this.a);
             TextView textView = new TextView(getContext());
             this.b = textView;
-            textView.setId(R.id.obfuscated_res_0x7f091319);
+            textView.setId(R.id.obfuscated_res_0x7f09131a);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f091318);
-            layoutParams2.addRule(6, R.id.obfuscated_res_0x7f091318);
-            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f091318);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f091319);
+            layoutParams2.addRule(6, R.id.obfuscated_res_0x7f091319);
+            layoutParams2.addRule(8, R.id.obfuscated_res_0x7f091319);
             layoutParams2.setMargins(oi.f(getContext(), R.dimen.M_W_X004), 0, 0, 0);
             this.b.setLayoutParams(layoutParams2);
             this.b.setGravity(16);
-            wr4.d(this.b).z(R.dimen.T_X09);
+            vr4.d(this.b).z(R.dimen.T_X09);
             addView(this.b);
         }
     }
@@ -449,11 +449,11 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
                     if (TextUtils.isEmpty(str)) {
                         this.c.setText((CharSequence) null);
                     } else {
-                        s86.e(getContext(), str, new s86.g() { // from class: com.repackage.s15
+                        u86.e(getContext(), str, new u86.g() { // from class: com.repackage.s15
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
-                            @Override // com.repackage.s86.g
+                            @Override // com.repackage.u86.g
                             public final void a(SpannableStringBuilder spannableStringBuilder) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -480,17 +480,17 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            wr4.d(this).f(R.color.CAM_X0207);
-            wr4.d(this.b).v(R.color.CAM_X0107);
+            vr4.d(this).f(R.color.CAM_X0207);
+            vr4.d(this.b).v(R.color.CAM_X0107);
             if (i == 0) {
-                dz8.l(this.c, R.drawable.obfuscated_res_0x7f0804b6);
+                kz8.l(this.c, R.drawable.obfuscated_res_0x7f0804b6);
             } else {
-                dz8.l(this.c, R.drawable.obfuscated_res_0x7f0804b7);
+                kz8.l(this.c, R.drawable.obfuscated_res_0x7f0804b7);
             }
             this.c.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.c.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
             TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0209, i).setShape(0).radius(oi.f(getContext(), R.dimen.tbds21)).into(this.c);
-            this.d.setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f080962, R.drawable.obfuscated_res_0x7f080814, i));
+            this.d.setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(R.drawable.obfuscated_res_0x7f080966, R.drawable.obfuscated_res_0x7f080813, i));
             this.e.k();
         }
     }
@@ -571,10 +571,10 @@ public class LocalInputContainer extends RelativeLayout implements v05 {
     public final void t(i05 i05Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, i05Var) == null) || i05Var == null || (obj = i05Var.c) == null || !(obj instanceof ax4) || ((ax4) obj).getType() == EmotionGroupType.BIG_EMOTION || ((ax4) i05Var.c).getType() == EmotionGroupType.USER_COLLECT) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, i05Var) == null) || i05Var == null || (obj = i05Var.c) == null || !(obj instanceof zw4) || ((zw4) obj).getType() == EmotionGroupType.BIG_EMOTION || ((zw4) i05Var.c).getType() == EmotionGroupType.USER_COLLECT) {
             return;
         }
-        f((ax4) i05Var.c);
+        f((zw4) i05Var.c);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

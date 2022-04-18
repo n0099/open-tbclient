@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes7.dex */
-public class zj2 implements a94 {
+public class zj2 implements z84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,10 +28,10 @@ public class zj2 implements a94 {
         }
     }
 
-    @Override // com.repackage.a94
-    public lg4 a(String str) {
+    @Override // com.repackage.z84
+    public kg4 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new a93(str) : (lg4) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new a93(str) : (kg4) invokeL.objValue;
     }
 }

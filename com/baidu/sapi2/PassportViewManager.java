@@ -153,7 +153,7 @@ public class PassportViewManager implements NoProguard {
                 titleViewModule.bgColor = -1;
             }
             if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
-                titleViewModule.leftBtnImgResId = R.drawable.obfuscated_res_0x7f080ffc;
+                titleViewModule.leftBtnImgResId = R.drawable.obfuscated_res_0x7f081000;
             }
         }
     }

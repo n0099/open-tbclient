@@ -1,308 +1,57 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
-public class bu4 {
+public class bu4 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public View b;
-    public int c;
-    public ViewGroup.LayoutParams d;
-    public int e;
-    public Runnable f;
-    public FrameLayout g;
-    public int h;
-    public boolean i;
-    public ViewTreeObserver.OnGlobalLayoutListener j;
-    public int k;
+    public int b;
 
-    /* loaded from: classes5.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bu4 a;
-
-        public a(bu4 bu4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bu4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bu4Var;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.k();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bu4 a;
-
-        public b(bu4 bu4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bu4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bu4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.l();
-            }
-        }
-    }
-
-    public bu4(Activity activity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bu4(Drawable drawable, int i) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {drawable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3;
-        this.h = R.color.CAM_X0201;
-        this.i = false;
-        this.j = null;
-        this.k = 0;
-        h(activity, R.color.CAM_X0201, true);
+        this.a = 0;
+        this.b = 2;
     }
 
-    public static bu4 c(Activity activity) {
-        InterceptResult invokeL;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) ? new bu4(activity) : (bu4) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            super.draw(canvas, charSequence, i, i2, f + this.a, i3, i4, i5, paint);
+        }
     }
 
-    public static bu4 d(Activity activity, int i, boolean z) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? new bu4(activity, i, z) : (bu4) invokeCommon.objValue;
-    }
-
-    public static bu4 e(Activity activity, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, activity, z)) == null) ? new bu4(activity, z) : (bu4) invokeLZ.objValue;
-    }
-
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Rect rect = new Rect();
-            this.b.getWindowVisibleDisplayFrame(rect);
-            return rect.bottom;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (this.f != null) {
-                pg.a().removeCallbacks(this.f);
-                this.f = null;
-            }
-            this.f = new b(this);
-            pg.a().postDelayed(this.f, i);
-        }
-    }
-
-    public final void h(Activity activity, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.h = i;
-            this.i = z;
-            FrameLayout frameLayout = (FrameLayout) activity.findViewById(16908290);
-            this.g = frameLayout;
-            if (z) {
-                SkinManager.setBackgroundColor(frameLayout, i);
-            } else {
-                SkinManager.setBackgroundColor(frameLayout, i, 0);
-            }
-            View childAt = this.g.getChildAt(0);
-            this.b = childAt;
-            if (childAt == null) {
-                return;
-            }
-            this.j = new a(this);
-            this.b.getViewTreeObserver().addOnGlobalLayoutListener(this.j);
-            this.d = this.b.getLayoutParams();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f != null) {
-                pg.a().removeCallbacks(this.f);
-                this.f = null;
-            }
-            View view2 = this.b;
-            if (view2 != null) {
-                view2.getViewTreeObserver().removeGlobalOnLayoutListener(this.j);
-                this.j = null;
-            }
-            this.b = null;
-            this.g = null;
-        }
-    }
-
-    public void j(int i) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && this.i) {
-            if (i != this.a && (frameLayout = this.g) != null) {
-                SkinManager.setBackgroundColor(frameLayout, this.h);
-            }
-            this.a = i;
-        }
-    }
-
-    public final void k() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (view2 = this.b) == null) {
-            return;
-        }
-        int height = view2.getHeight();
-        if (height > this.e) {
-            this.e = height;
-        }
-        int f = f();
-        int i = this.k;
-        if (i > 0 && i <= this.d.height) {
-            f -= i;
-        }
-        if (f != this.c) {
-            int i2 = this.e;
-            int i3 = i2 - f;
-            if (i3 == 0) {
-                this.d.height = i2;
-                l();
-            } else if (i3 > 200) {
-                this.d.height = i2 - i3;
-                g(200);
-                if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i3) && i3 < (this.e * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i3) {
-                    TbadkCoreApplication.getInst().setKeyboardHeight(i3);
-                }
-            }
-            this.c = f;
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b.requestLayout();
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    public bu4(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        this.h = R.color.CAM_X0201;
-        this.i = false;
-        this.j = null;
-        this.k = 0;
-        h(activity, R.color.CAM_X0201, z);
-    }
-
-    public bu4(Activity activity, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 3;
-        this.h = R.color.CAM_X0201;
-        this.i = false;
-        this.j = null;
-        this.k = 0;
-        h(activity, i, z);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) ? super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.a + this.b : invokeCommon.intValue;
     }
 }

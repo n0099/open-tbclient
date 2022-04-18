@@ -45,10 +45,10 @@ public class BdBaseViewPagerContainerHolder extends TypeAdapter.ViewHolder {
         this.d = null;
         this.e = null;
         this.f = null;
-        this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092088);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f6c);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091447);
-        this.d = (IndicatorView) view2.findViewById(R.id.obfuscated_res_0x7f091e31);
+        this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092089);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f6d);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091448);
+        this.d = (IndicatorView) view2.findViewById(R.id.obfuscated_res_0x7f091e32);
         this.e = view2.findViewById(R.id.obfuscated_res_0x7f0903cc);
         this.f = (BdBaseViewPager) view2.findViewById(R.id.obfuscated_res_0x7f090344);
     }

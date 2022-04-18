@@ -1,104 +1,61 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import com.xiaomi.mipush.sdk.MiPushClient;
+import com.yy.hiidostatis.inner.util.cipher.Coder;
+import java.security.Key;
+import java.security.spec.AlgorithmParameterSpec;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.DESKeySpec;
+import javax.crypto.spec.IvParameterSpec;
 /* loaded from: classes7.dex */
 public class qp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public boolean b;
-    public np9 c;
-    public Info d;
-    public Handler e;
+    public AlgorithmParameterSpec a;
+    public Key b;
 
-    public qp9() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755372297, "Lcom/repackage/qp9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755372297, "Lcom/repackage/qp9;");
+        }
+    }
+
+    public qp9(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new no9(this, Looper.getMainLooper());
-    }
-
-    public void a(View view2, Info info, np9 np9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, info, np9Var) == null) {
-            this.a = view2;
-            this.c = np9Var;
-            this.d = info;
-            try {
-                Log.e(MiPushClient.COMMAND_REGISTER, "b111:" + this.b);
-                if (!this.b) {
-                    this.e.sendEmptyMessage(1101);
-                }
-                Log.e(MiPushClient.COMMAND_REGISTER, "b2222");
-                ViewTreeObserver viewTreeObserver = this.a.getViewTreeObserver();
-                viewTreeObserver.addOnScrollChangedListener(new ro9(this, np9Var));
-                viewTreeObserver.addOnGlobalFocusChangeListener(new vo9(this, np9Var));
-                if (Build.VERSION.SDK_INT >= 18) {
-                    viewTreeObserver.addOnWindowFocusChangeListener(new zo9(this));
-                }
-                if (Build.VERSION.SDK_INT >= 18) {
-                    viewTreeObserver.addOnWindowAttachListener(new cp9(this));
-                }
-                viewTreeObserver.addOnTouchModeChangeListener(new fp9(this));
-                if (Build.VERSION.SDK_INT >= 16) {
-                    viewTreeObserver.addOnDrawListener(new ip9(this, viewTreeObserver));
-                }
-                viewTreeObserver.addOnGlobalLayoutListener(new lp9(this, viewTreeObserver));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:20:0x004f A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean b(View view2) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) != null) {
-            return invokeL.booleanValue;
-        }
-        if (view2 == null || !view2.isShown()) {
-            return false;
-        }
-        Rect rect = new Rect();
-        if (view2.getGlobalVisibleRect(rect) && this.d != null) {
-            if (rect.width() >= this.d.getSper() * view2.getMeasuredWidth()) {
-                if (rect.height() >= this.d.getSper() * view2.getMeasuredHeight()) {
-                    z = false;
-                    return z;
-                }
-            }
-        }
-        z = true;
-        if (z) {
+        try {
+            this.a = new IvParameterSpec(str2.getBytes(IMAudioTransRequest.CHARSET));
+            this.b = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
+        } catch (Exception e) {
+            throw new RuntimeException("Error in getKey(String secretKey), Cause: " + e);
         }
     }
 }

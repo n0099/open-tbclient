@@ -78,7 +78,7 @@ public final class nv2 {
             }
             int[] iArr = new int[strArr.length];
             for (int i = 0; i < strArr.length; i++) {
-                iArr[i] = fh4.a(activity, strArr[i]) ? 0 : -1;
+                iArr[i] = eh4.a(activity, strArr[i]) ? 0 : -1;
             }
             return iArr;
         }
@@ -109,7 +109,7 @@ public final class nv2 {
             int length = strArr.length;
             for (int i = 0; i < length; i++) {
                 String str = strArr[i];
-                if (!fh4.a(activity, str) && (sd4.j(activity, str) || !e(str))) {
+                if (!eh4.a(activity, str) && (rd4.j(activity, str) || !e(str))) {
                     return str;
                 }
             }

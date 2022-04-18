@@ -147,10 +147,10 @@ public class qm3 extends om3 {
                 do {
                     arrayList.add(new b(n.getString(columnIndex), n.getString(columnIndex2), n.getLong(columnIndex3)));
                 } while (n.moveToNext());
-                ng4.d(n);
+                mg4.d(n);
                 return arrayList;
             }
-            ng4.d(n);
+            mg4.d(n);
             return arrayList;
         }
         return (List) invokeV.objValue;

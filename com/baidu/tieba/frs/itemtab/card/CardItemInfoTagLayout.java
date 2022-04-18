@@ -33,9 +33,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gz;
-import com.repackage.mu4;
+import com.repackage.lu4;
 import com.repackage.oi;
-import com.repackage.uu4;
+import com.repackage.tu4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -144,7 +144,7 @@ public class CardItemInfoTagLayout extends FrameLayout implements gz {
                             if (tBSpecificationBtn.a instanceof HashMap) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "CatetoryRecommendList", (HashMap) tBSpecificationBtn.a)));
                                 if (valueOf instanceof Integer) {
-                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new uu4(2, valueOf.intValue())));
+                                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new tu4(2, valueOf.intValue())));
                                 }
                             }
                         }
@@ -172,18 +172,18 @@ public class CardItemInfoTagLayout extends FrameLayout implements gz {
                 }
                 this.b = bVar;
                 FrameLayout frameLayout = (FrameLayout) view2;
-                mu4 mu4Var = new mu4();
-                mu4Var.i(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
-                mu4Var.h(R.color.CAM_X0107);
-                mu4Var.g(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
-                mu4Var.f(0);
-                mu4Var.t(R.color.CAM_X0105);
-                mu4Var.j(1, 0);
-                mu4Var.n(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
-                mu4Var.m(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+                lu4 lu4Var = new lu4();
+                lu4Var.i(0, R.drawable.icon_pure_arrow12_right, TBSpecificationButtonConfig.IconType.WEBP);
+                lu4Var.h(R.color.CAM_X0107);
+                lu4Var.g(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
+                lu4Var.f(0);
+                lu4Var.t(R.color.CAM_X0105);
+                lu4Var.j(1, 0);
+                lu4Var.n(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
+                lu4Var.m(oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
                 TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(view2.getContext());
                 this.a = tBSpecificationBtn;
-                tBSpecificationBtn.setConfig(mu4Var);
+                tBSpecificationBtn.setConfig(lu4Var);
                 if (this.a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) this.a.getLayoutParams()).rightMargin = TbadkApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006);
                 }

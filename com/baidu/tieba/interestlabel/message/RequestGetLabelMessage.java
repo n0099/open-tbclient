@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.rc5;
-import com.repackage.tb7;
+import com.repackage.wb7;
 import tbclient.CommonReq;
 import tbclient.GetTagList.DataReq;
 import tbclient.GetTagList.GetTagListReqIdl;
@@ -22,7 +22,7 @@ public class RequestGetLabelMessage extends NetMessage {
     /* renamed from: common  reason: collision with root package name */
     public CommonReq f1007common;
     public int from;
-    public tb7 mLabelDataSet;
+    public wb7 mLabelDataSet;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetLabelMessage() {
@@ -61,10 +61,10 @@ public class RequestGetLabelMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public tb7 getLabelDataSet() {
+    public wb7 getLabelDataSet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLabelDataSet : (tb7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLabelDataSet : (wb7) invokeV.objValue;
     }
 
     public void setCommon(CommonReq commonReq) {
@@ -81,10 +81,10 @@ public class RequestGetLabelMessage extends NetMessage {
         }
     }
 
-    public void setLabelDataSet(tb7 tb7Var) {
+    public void setLabelDataSet(wb7 wb7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, tb7Var) == null) {
-            this.mLabelDataSet = tb7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, wb7Var) == null) {
+            this.mLabelDataSet = wb7Var;
         }
     }
 }

@@ -19,18 +19,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap7;
-import com.repackage.lu4;
-import com.repackage.wp7;
-import com.repackage.zo7;
+import com.repackage.cp7;
+import com.repackage.dp7;
+import com.repackage.ku4;
+import com.repackage.zp7;
 /* loaded from: classes3.dex */
-public class InterestSelectionFragment extends BaseInterestSelectionFragment implements zo7.a {
+public class InterestSelectionFragment extends BaseInterestSelectionFragment implements cp7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout g;
     public TextView h;
     public TextView i;
-    public wp7 j;
+    public zp7 j;
     public NoScrollGridView k;
 
     public InterestSelectionFragment() {
@@ -64,17 +64,17 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
     public final void G0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.k = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f090f1c);
-            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f090f17);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090f20);
+            this.k = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f090f1d);
+            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f090f18);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090f21);
             this.h = textView;
             textView.setTypeface(Typeface.DEFAULT_BOLD);
-            this.i = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090f1b);
+            this.i = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090f1c);
             this.g = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0903e3);
-            lu4 lu4Var = new lu4();
+            ku4 ku4Var = new ku4();
             this.b.setTextSize(R.dimen.tbds42);
-            this.b.setConfig(lu4Var);
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10d0));
+            this.b.setConfig(ku4Var);
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10cf));
             this.b.setEnabled(false);
             this.b.setOnClickListener(this);
             this.k.setAdapter((ListAdapter) this.c);
@@ -99,8 +99,8 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.j = new wp7(getContext());
-            this.c = new ap7(this.j.c(), getContext());
+            this.j = new zp7(getContext());
+            this.c = new dp7(this.j.c(), getContext());
         }
     }
 

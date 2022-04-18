@@ -86,7 +86,7 @@ public class yw3 {
                     return null;
                 }
                 j03 L = j03.L();
-                String b2 = pg4.b(b, false);
+                String b2 = og4.b(b, false);
                 File d = d(b2);
                 if (L == null) {
                     if (!yw3.i(b, d, gl2Var, pe3Var)) {
@@ -118,7 +118,7 @@ public class yw3 {
                 }
                 c cVar = new c();
                 File file = new File(d, "game.json");
-                d04 a = d04.a(ng4.E(file));
+                c04 a = c04.a(mg4.E(file));
                 if (a == null) {
                     return null;
                 }
@@ -126,11 +126,11 @@ public class yw3 {
                 cVar.c = a;
                 if (!TextUtils.isEmpty(a.e)) {
                     cVar.b = cVar.a + a.e + File.separator;
-                    uz3.a().d(true);
-                    uz3.a().e(cVar.b);
-                    uz3.a().f(a.e);
+                    tz3.a().d(true);
+                    tz3.a().e(cVar.b);
+                    tz3.a().f(a.e);
                 } else {
-                    uz3.a().d(false);
+                    tz3.a().d(false);
                 }
                 if (yw3.a) {
                     Log.d("SwanGameBundleHelper", "configFile path: " + file.getPath());
@@ -214,7 +214,7 @@ public class yw3 {
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public d04 c;
+        public c04 c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -305,8 +305,8 @@ public class yw3 {
                     if (yw3.a) {
                         Log.i("SwanGameBundleHelper", "删除低版本文件夹：" + file.getAbsolutePath());
                     }
-                    f84.i().d(str, file.getName());
-                    ng4.j(file);
+                    e84.i().d(str, file.getName());
+                    mg4.j(file);
                 }
             }
         }
@@ -318,9 +318,9 @@ public class yw3 {
             }
             File e = e(str, false);
             if (e != null) {
-                ng4.L(e);
+                mg4.L(e);
             }
-            ng4.L(new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aigames_folder" + File.separator + str));
+            mg4.L(new File(AppRuntime.getAppContext().getFilesDir() + File.separator + "aigames_folder" + File.separator + str));
         }
 
         @Nullable
@@ -452,7 +452,7 @@ public class yw3 {
                 c(gl2Var.H(), gl2Var.v1());
                 c cVar = new c();
                 File file = new File(h, "game.json");
-                d04 a2 = d04.a(ng4.E(file));
+                c04 a2 = c04.a(mg4.E(file));
                 if (a2 == null) {
                     return null;
                 }
@@ -460,11 +460,11 @@ public class yw3 {
                 cVar.c = a2;
                 if (!TextUtils.isEmpty(a2.e)) {
                     cVar.b = cVar.a + File.separator + a2.e + File.separator;
-                    uz3.a().d(true);
-                    uz3.a().e(cVar.b);
-                    uz3.a().f(a2.e);
+                    tz3.a().d(true);
+                    tz3.a().e(cVar.b);
+                    tz3.a().f(a2.e);
                 } else {
-                    uz3.a().d(false);
+                    tz3.a().d(false);
                 }
                 if (yw3.a) {
                     Log.d("SwanGameBundleHelper", "configFile path: " + file.getPath());
@@ -565,7 +565,7 @@ public class yw3 {
                         U = ij2.d(j.a, file2, i2).a;
                         i = j.b;
                     } else {
-                        U = ng4.U(file.getPath(), file2.getPath());
+                        U = mg4.U(file.getPath(), file2.getPath());
                     }
                     long currentTimeMillis2 = System.currentTimeMillis();
                     if (a) {

@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk7;
-import com.repackage.fn4;
+import com.repackage.ek7;
+import com.repackage.en4;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bk7 mData;
+    public ek7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseMemberPrivilegeMessage(int i) {
@@ -47,9 +47,9 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null) {
-                bk7 bk7Var = new bk7();
-                this.mData = bk7Var;
-                bk7Var.a(jSONObject);
+                ek7 ek7Var = new ek7();
+                this.mData = ek7Var;
+                ek7Var.a(jSONObject);
             }
         }
     }
@@ -57,22 +57,22 @@ public class ResponseMemberPrivilegeMessage extends JsonHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        bk7.e eVar;
+        ek7.e eVar;
         AccountData currentAccountObj;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            bk7 bk7Var = this.mData;
-            if (bk7Var == null || (eVar = bk7Var.a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.a)) {
+            ek7 ek7Var = this.mData;
+            if (ek7Var == null || (eVar = ek7Var.a) == null || (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) == null || eVar == null || currentAccountObj.getID() == null || !currentAccountObj.getID().equals(eVar.a)) {
                 return;
             }
-            bk7.b bVar = eVar.d;
+            ek7.b bVar = eVar.d;
             if (bVar != null && bVar.b > bVar.c && !StringUtils.isNull(bVar.d)) {
                 currentAccountObj.setMemberIconUrl(bVar.d);
             } else {
                 currentAccountObj.setMemberIconUrl(null);
             }
-            fn4.g(currentAccountObj);
+            en4.g(currentAccountObj);
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
         }
     }

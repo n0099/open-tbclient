@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.oi;
-import com.repackage.wr4;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class RecommendForumInfoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -80,7 +80,7 @@ public class RecommendForumInfoView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f0919f6);
+            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f0919f7);
             this.a = barImageView;
             barImageView.setPlaceHolder(1);
             this.a.setShowOval(true);
@@ -89,10 +89,10 @@ public class RecommendForumInfoView extends LinearLayout {
             this.a.setStrokeWith(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setStrokeColorResId(R.color.CAM_X0401);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f0919f7);
+            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f0919f8);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0902cf);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa6);
-            this.e = (FollowUserButton) findViewById(R.id.obfuscated_res_0x7f091243);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091fa7);
+            this.e = (FollowUserButton) findViewById(R.id.obfuscated_res_0x7f091244);
             e();
         }
     }
@@ -106,8 +106,8 @@ public class RecommendForumInfoView extends LinearLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            wr4.d(this).f(R.color.CAM_X0201);
-            wr4 d = wr4.d(this.b);
+            vr4.d(this).f(R.color.CAM_X0201);
+            vr4 d = vr4.d(this.b);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0105);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), null);
@@ -117,10 +117,10 @@ public class RecommendForumInfoView extends LinearLayout {
                 this.b.setCompoundDrawables(null, null, pureDrawable, null);
                 this.b.setCompoundDrawablePadding(oi.f(getContext(), R.dimen.M_W_X002));
             }
-            wr4 d2 = wr4.d(this.c);
+            vr4 d2 = vr4.d(this.c);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0109);
-            wr4 d3 = wr4.d(this.d);
+            vr4 d3 = vr4.d(this.d);
             d3.z(R.dimen.T_X09);
             d3.v(R.color.CAM_X0109);
             this.e.s(TbadkCoreApplication.getInst().getSkinType());

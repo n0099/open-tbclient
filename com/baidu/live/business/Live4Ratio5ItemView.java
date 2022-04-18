@@ -108,15 +108,15 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
             setAspectRatio(1.25f);
             this.n = context;
             View inflate = RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0507, this);
-            this.k = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091298);
-            this.d = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091297);
-            this.f = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09129a);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09129d);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091293);
-            this.e = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091294);
-            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09129b);
-            this.j = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09129c);
-            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f09128a);
+            this.k = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091299);
+            this.d = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091298);
+            this.f = (LiveStatusAnimView) inflate.findViewById(R.id.obfuscated_res_0x7f09129b);
+            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09129e);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091294);
+            this.e = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091295);
+            this.i = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09129c);
+            this.j = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f09129d);
+            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f09128b);
         }
     }
 
@@ -188,7 +188,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                     this.h.setVisibility(0);
                 }
                 this.m.getLayoutParams().height = y90.a(getContext(), 61.0f);
-                this.m.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d14));
+                this.m.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d18));
                 if (liveRoomEntity.showTpl == 1) {
                     this.e.setVisibility(0);
                     this.g.setVisibility(0);
@@ -198,7 +198,7 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                     this.i.setTextSize(1, 14.0f);
                     this.i.setTypeface(Typeface.defaultFromStyle(1));
                     this.m.getLayoutParams().height = y90.a(getContext(), 35.0f);
-                    this.m.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d11));
+                    this.m.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d15));
                 }
                 RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
                 if (rightLableInfo != null && !TextUtils.isEmpty(rightLableInfo.iconUrl)) {

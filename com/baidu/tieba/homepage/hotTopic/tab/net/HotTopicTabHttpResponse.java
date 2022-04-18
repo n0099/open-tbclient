@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ax6;
-import com.repackage.jw6;
+import com.repackage.cx6;
+import com.repackage.lw6;
 import com.repackage.uo;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes3.dex */
-public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements ax6 {
+public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements cx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
@@ -39,14 +39,14 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements a
         }
     }
 
-    @Override // com.repackage.ax6
+    @Override // com.repackage.cx6
     public List<uo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.ax6
+    @Override // com.repackage.cx6
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements a
             setError(hotThreadListResIdl.error.errorno.intValue());
             setErrorString(hotThreadListResIdl.error.usermsg);
             if (getError() == 0 && hotThreadListResIdl.data != null) {
-                this.mHotTopicDataList = jw6.c(hotThreadListResIdl);
+                this.mHotTopicDataList = lw6.c(hotThreadListResIdl);
             }
         }
     }

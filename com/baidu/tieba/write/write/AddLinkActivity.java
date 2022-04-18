@@ -29,9 +29,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gj8;
 import com.repackage.ni;
-import com.repackage.wr4;
-import com.repackage.zi8;
+import com.repackage.vr4;
 /* loaded from: classes4.dex */
 public class AddLinkActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -460,12 +460,12 @@ public class AddLinkActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             this.mRootLayout = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09011d);
             this.mContentLayout = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09011e);
-            this.mCancelBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092172);
-            this.mTitleText = (TextView) findViewById(R.id.obfuscated_res_0x7f092202);
-            this.mCompleteBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092178);
+            this.mCancelBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092173);
+            this.mTitleText = (TextView) findViewById(R.id.obfuscated_res_0x7f092203);
+            this.mCompleteBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f092179);
             this.mEditAreaLayout = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09011f);
-            this.mLinkEditView = (EditText) findViewById(R.id.obfuscated_res_0x7f090917);
-            this.mDelBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc7);
+            this.mLinkEditView = (EditText) findViewById(R.id.obfuscated_res_0x7f090918);
+            this.mDelBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc8);
             this.mAddLinkTip = (TextView) findViewById(R.id.obfuscated_res_0x7f090120);
             this.mRootLayout.setOnClickListener(new c(this));
             this.mContentLayout.setClickable(true);
@@ -493,7 +493,7 @@ public class AddLinkActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
             int color = SkinManager.getColor(R.color.CAM_X0302);
-            this.mCompleteBtn.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{zi8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), zi8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            this.mCompleteBtn.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{gj8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), gj8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 
@@ -533,10 +533,10 @@ public class AddLinkActivity extends BaseActivity {
             setCompleteBtnColor();
             SkinManager.setViewTextColor(this.mLinkEditView, (int) R.color.CAM_X0105);
             this.mLinkEditView.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            wr4 d2 = wr4.d(this.mEditAreaLayout);
+            vr4 d2 = vr4.d(this.mEditAreaLayout);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0209);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mDelBtn, R.drawable.obfuscated_res_0x7f080985, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mDelBtn, R.drawable.obfuscated_res_0x7f080989, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             SkinManager.setViewTextColor(this.mAddLinkTip, (int) R.color.CAM_X0110);
         }
     }

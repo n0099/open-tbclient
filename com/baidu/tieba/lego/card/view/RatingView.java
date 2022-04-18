@@ -112,15 +112,15 @@ public class RatingView extends LinearLayout {
             }
             int intValue = valueOf.intValue() >> 1;
             for (int i = 0; i < intValue; i++) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a37)));
+                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a3b)));
             }
             int i2 = 5 - intValue;
             if (valueOf.intValue() > 0 && valueOf.intValue() % 2 == 1) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a38)));
+                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a3c)));
                 i2--;
             }
             for (int i3 = 0; i3 < i2; i3++) {
-                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a36)));
+                addView(b(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f080a3a)));
             }
         }
     }

@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cz7;
-import com.repackage.ny5;
-import com.repackage.pu7;
-import com.repackage.wr4;
+import com.repackage.jz7;
+import com.repackage.py5;
+import com.repackage.vr4;
+import com.repackage.wu7;
 /* loaded from: classes3.dex */
-public class PbRecomChildTitleAdapter extends pu7<ny5, ViewHolder> {
+public class PbRecomChildTitleAdapter extends wu7<py5, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder o;
@@ -54,19 +54,19 @@ public class PbRecomChildTitleAdapter extends pu7<ny5, ViewHolder> {
             d(view2);
         }
 
-        public void c(ny5 ny5Var) {
+        public void c(py5 py5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ny5Var) == null) {
-                this.b.setText(ny5Var.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, py5Var) == null) {
+                this.b.setText(py5Var.a);
             }
         }
 
         public final void d(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092201);
+                TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092202);
                 this.b = textView;
-                wr4.d(textView).A(R.string.F_X02);
+                vr4.d(textView).A(R.string.F_X02);
             }
         }
 
@@ -83,19 +83,19 @@ public class PbRecomChildTitleAdapter extends pu7<ny5, ViewHolder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbRecomChildTitleAdapter(cz7 cz7Var, BdUniqueId bdUniqueId) {
-        super(cz7Var, bdUniqueId);
+    public PbRecomChildTitleAdapter(jz7 jz7Var, BdUniqueId bdUniqueId) {
+        super(jz7Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cz7Var, bdUniqueId};
+            Object[] objArr = {jz7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((cz7) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((jz7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,9 +103,9 @@ public class PbRecomChildTitleAdapter extends pu7<ny5, ViewHolder> {
         }
     }
 
-    @Override // com.repackage.pu7, com.repackage.ho
+    @Override // com.repackage.wu7, com.repackage.ho
     public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        d0(i, view2, viewGroup, (ny5) obj, (ViewHolder) viewHolder);
+        d0(i, view2, viewGroup, (py5) obj, (ViewHolder) viewHolder);
         return view2;
     }
 
@@ -129,12 +129,12 @@ public class PbRecomChildTitleAdapter extends pu7<ny5, ViewHolder> {
         return (ViewHolder) invokeL.objValue;
     }
 
-    public View d0(int i, View view2, ViewGroup viewGroup, ny5 ny5Var, ViewHolder viewHolder) {
+    public View d0(int i, View view2, ViewGroup viewGroup, py5 py5Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ny5Var, viewHolder})) == null) {
-            super.S(i, view2, viewGroup, ny5Var, viewHolder);
-            viewHolder.c(ny5Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py5Var, viewHolder})) == null) {
+            super.S(i, view2, viewGroup, py5Var, viewHolder);
+            viewHolder.c(py5Var);
             viewHolder.e();
             return view2;
         }

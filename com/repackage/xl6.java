@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b00;
 /* loaded from: classes7.dex */
-public class xl6 extends id6<mm6, ThreadCardViewHolder<mm6>> {
+public class xl6 extends kd6<mm6, ThreadCardViewHolder<mm6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,7 +65,7 @@ public class xl6 extends id6<mm6, ThreadCardViewHolder<mm6>> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.id6, com.repackage.ho
+    @Override // com.repackage.kd6, com.repackage.ho
     /* renamed from: m0 */
     public View S(int i, View view2, ViewGroup viewGroup, mm6 mm6Var, ThreadCardViewHolder<mm6> threadCardViewHolder) {
         InterceptResult invokeCommon;

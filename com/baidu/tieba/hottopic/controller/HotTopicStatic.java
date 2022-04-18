@@ -39,11 +39,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dk8;
-import com.repackage.ed6;
+import com.repackage.gd6;
 import com.repackage.hc5;
-import com.repackage.j47;
+import com.repackage.kk8;
 import com.repackage.m45;
+import com.repackage.m47;
 import com.repackage.n45;
 import com.repackage.nd5;
 import java.util.Map;
@@ -124,7 +124,7 @@ public class HotTopicStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new j47(null, ThreadData.TYPE_FRS_HOTTOPIC));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new m47(null, ThreadData.TYPE_FRS_HOTTOPIC));
             }
         }
     }
@@ -201,14 +201,14 @@ public class HotTopicStatic {
         public class a extends m45 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ ed6 c;
+            public final /* synthetic */ gd6 c;
 
-            public a(e eVar, ed6 ed6Var) {
+            public a(e eVar, gd6 gd6Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar, ed6Var};
+                    Object[] objArr = {eVar, gd6Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -218,7 +218,7 @@ public class HotTopicStatic {
                         return;
                     }
                 }
-                this.c = ed6Var;
+                this.c = gd6Var;
             }
 
             @Override // com.repackage.m45
@@ -285,9 +285,9 @@ public class HotTopicStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ed6)) {
-                ed6 ed6Var = (ed6) customResponsedMessage.getData();
-                ed6Var.a(new a(this, ed6Var));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof gd6)) {
+                gd6 gd6Var = (gd6) customResponsedMessage.getData();
+                gd6Var.a(new a(this, gd6Var));
             }
         }
     }
@@ -348,8 +348,8 @@ public class HotTopicStatic {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            dk8.h(309085, BlessSocketResponseMessage.class, false, false);
-            dk8.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+            kk8.h(309085, BlessSocketResponseMessage.class, false, false);
+            kk8.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
         }
     }
 
@@ -365,16 +365,16 @@ public class HotTopicStatic {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            dk8.h(309289, ResponseSocketHotRanklistMessage.class, false, false);
-            dk8.c(309289, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, TbConfig.URL_GET_HOT_RANKLIST_DATA, ResponseHttpHotRanklistMessage.class, false, false, true, false);
+            kk8.h(309289, ResponseSocketHotRanklistMessage.class, false, false);
+            kk8.c(309289, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, TbConfig.URL_GET_HOT_RANKLIST_DATA, ResponseHttpHotRanklistMessage.class, false, false, true, false);
         }
     }
 
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            dk8.h(303050, ResponseSocketHotTopicMessage.class, false, false);
-            dk8.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+            kk8.h(303050, ResponseSocketHotTopicMessage.class, false, false);
+            kk8.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
         }
     }
 
@@ -389,8 +389,8 @@ public class HotTopicStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            dk8.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
-            dk8.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+            kk8.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
+            kk8.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
         }
     }
 }

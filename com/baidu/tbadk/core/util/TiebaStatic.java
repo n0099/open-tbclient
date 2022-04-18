@@ -46,7 +46,7 @@ import com.repackage.r75;
 import com.repackage.si;
 import com.repackage.tb5;
 import com.repackage.ui;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import com.repackage.xg;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -70,6 +70,28 @@ public class TiebaStatic {
     public static final long operateMsgUploadInterval = 86400000;
     public static Set<TiebaStatisticCallback> statisticCallbacks;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public static class AgreeNotifyValues {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int TYPE_NOT_SHOW_RED_DOT = 2;
+        public static final int TYPE_SHOW_RED_DOT = 1;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public AgreeNotifyValues() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     /* loaded from: classes3.dex */
     public static class DQPay extends LogFields {
@@ -760,10 +782,10 @@ public class TiebaStatic {
                     xgVar.C = String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
                     xgVar.D = TbSingleton.getInstance().getData();
                     boolean z2 = true;
-                    if (wt4.k().l("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
+                    if (vt4.k().l("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", 1) != 1) {
                         z2 = false;
                     }
-                    long m = z2 ? wt4.k().m("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION) : 3600000L;
+                    long m = z2 ? vt4.k().m("KEY_UPLOAD_LOG_INTERVAL", AppConfig.TIMESTAMP_AVAILABLE_DURATION) : 3600000L;
                     BdStatisticsManager.getInstance().init(context, z, TbConfig.LOG_SYNC_SWITCH, TbConfig.getTempDirName(), "newStat", TbConfig.SERVER_ADDRESS + TbConfig.LOG_UPLOAD_URL, xgVar, BdLogSetting.getInstance(), m, TbConfig.SERVER_ADDRESS + TbConfig.TRACK_LOG_UPLOAD_URL);
                     si siVar = new si() { // from class: com.baidu.tbadk.core.util.TiebaStatic.1
                         public static /* synthetic */ Interceptable $ic;
@@ -824,7 +846,7 @@ public class TiebaStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65557, null, i, str, str2) == null) {
             try {
-                BdStatisticsManager.getInstance().liveErr(OpKey.OP_LIVE, TiebaStaticHelper.getCurrentActivity(), i, str, "live_inf", str2, ThreadExpressionActivityConfig.IS_HOST, Integer.valueOf(wt4.k().h(AlaLiveRoomActivityConfig.LIVE_IS_HOST, false) ? 1 : 0), "stream_id", wt4.k().q("live_stream_id", ""));
+                BdStatisticsManager.getInstance().liveErr(OpKey.OP_LIVE, TiebaStaticHelper.getCurrentActivity(), i, str, "live_inf", str2, ThreadExpressionActivityConfig.IS_HOST, Integer.valueOf(vt4.k().h(AlaLiveRoomActivityConfig.LIVE_IS_HOST, false) ? 1 : 0), "stream_id", vt4.k().q("live_stream_id", ""));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -835,8 +857,8 @@ public class TiebaStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65558, null, i, str, str2) == null) {
             try {
-                BdStatisticsManager.getInstance().liveErr(OpKey.OP_LIVE, TiebaStaticHelper.getCurrentActivity(), i, str, "live_inf", str2, ThreadExpressionActivityConfig.IS_HOST, Integer.valueOf(wt4.k().h(AlaLiveRoomActivityConfig.LIVE_IS_HOST, false) ? 1 : 0), "stream_id", wt4.k().q("live_stream_id", ""), "err_int", Integer.valueOf(wt4.k().l("live_no_error_time", 0)));
-                wt4.k().w("live_no_error_time", 0);
+                BdStatisticsManager.getInstance().liveErr(OpKey.OP_LIVE, TiebaStaticHelper.getCurrentActivity(), i, str, "live_inf", str2, ThreadExpressionActivityConfig.IS_HOST, Integer.valueOf(vt4.k().h(AlaLiveRoomActivityConfig.LIVE_IS_HOST, false) ? 1 : 0), "stream_id", vt4.k().q("live_stream_id", ""), "err_int", Integer.valueOf(vt4.k().l("live_no_error_time", 0)));
+                vt4.k().w("live_no_error_time", 0);
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -1077,21 +1099,21 @@ public class TiebaStatic {
             synchronized (lock) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (0 == lastLogOperateMsgTime) {
-                    lastLogOperateMsgTime = wt4.k().m("operate_msg_arrive_click_date", 0L);
-                    operateMsgUploadCount = wt4.k().l("operate_msg_arrive_click_count", 0);
+                    lastLogOperateMsgTime = vt4.k().m("operate_msg_arrive_click_date", 0L);
+                    operateMsgUploadCount = vt4.k().l("operate_msg_arrive_click_count", 0);
                 }
                 if (lastLogOperateMsgTime > 0) {
                     if (currentTimeMillis - lastLogOperateMsgTime < 86400000 && operateMsgUploadCount > 3) {
                         return;
                     }
-                    wt4.k().x("operate_msg_arrive_click_date", currentTimeMillis);
+                    vt4.k().x("operate_msg_arrive_click_date", currentTimeMillis);
                     if (currentTimeMillis - lastLogOperateMsgTime >= 86400000) {
                         operateMsgUploadCount = 0;
                     }
                 }
                 lastLogOperateMsgTime = currentTimeMillis;
                 operateMsgUploadCount++;
-                wt4.k().w("operate_msg_arrive_click_count", operateMsgUploadCount);
+                vt4.k().w("operate_msg_arrive_click_count", operateMsgUploadCount);
                 BdStatisticsManager.getInstance().saveAndUploadlog("msg");
             }
         }

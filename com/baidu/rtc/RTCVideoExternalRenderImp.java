@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.my9;
+import com.repackage.ty9;
 import org.webrtc.EglBase;
 import org.webrtc.GlRectDrawer;
 import org.webrtc.Logging;
@@ -128,7 +128,7 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             Logging.d(TAG, this.userId + " : External renderer init");
-            init(my9.a().getEglBaseContext(), null);
+            init(ty9.a().getEglBaseContext(), null);
         }
     }
 

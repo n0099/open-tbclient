@@ -110,7 +110,7 @@ public class it3 extends EventTargetImpl implements lt3, kt3.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 this.a.destroy();
-                w24 A = w24.A();
+                v24 A = v24.A();
                 String str = this.a.adUnitId;
                 A.K(str, "" + System.currentTimeMillis());
                 gt3.b(this.a.g ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER, "close");
@@ -233,7 +233,7 @@ public class it3 extends EventTargetImpl implements lt3, kt3.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (TextUtils.isEmpty(this.c)) {
-                w24 A = w24.A();
+                v24 A = v24.A();
                 if (!A.k()) {
                     if (!A.l()) {
                         if (A.t(this.adUnitId)) {
@@ -301,7 +301,7 @@ public class it3 extends EventTargetImpl implements lt3, kt3.a {
             if (!C() || this.e == null) {
                 return;
             }
-            w24.A().E();
+            v24.A().E();
             this.i = pt3.d(qs1.F(jsObject));
             this.e.G(jsObject);
         }

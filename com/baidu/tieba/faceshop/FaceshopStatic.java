@@ -43,15 +43,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ao7;
+import com.repackage.bo7;
 import com.repackage.i35;
-import com.repackage.l96;
 import com.repackage.mi;
 import com.repackage.n96;
+import com.repackage.p96;
 import com.repackage.pg;
-import com.repackage.q96;
-import com.repackage.r96;
-import com.repackage.vn7;
-import com.repackage.xn7;
+import com.repackage.s96;
+import com.repackage.t96;
 import com.repackage.yn7;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -129,7 +129,7 @@ public class FaceshopStatic {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    List<MyEmotionGroupData> f = xn7.i().f();
+                    List<MyEmotionGroupData> f = ao7.i().f();
                     StringBuilder sb = new StringBuilder();
                     if (f != null) {
                         int size = f.size();
@@ -170,7 +170,7 @@ public class FaceshopStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer)) {
-                vn7.b().a(new RunnableC0182a(this, ((Integer) customResponsedMessage.getData()).intValue()));
+                yn7.b().a(new RunnableC0182a(this, ((Integer) customResponsedMessage.getData()).intValue()));
             }
         }
     }
@@ -276,9 +276,9 @@ public class FaceshopStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
                 List list = (List) customResponsedMessage.getData();
-                list.add(r96.e());
-                list.add(n96.f());
-                list.add(l96.e());
+                list.add(t96.e());
+                list.add(p96.f());
+                list.add(n96.e());
             }
         }
     }
@@ -316,10 +316,10 @@ public class FaceshopStatic {
                 return;
             }
             if (customResponsedMessage.getData() instanceof String) {
-                q96.s().g((String) customResponsedMessage.getData(), null);
+                s96.s().g((String) customResponsedMessage.getData(), null);
             } else if (customResponsedMessage.getData() instanceof i35.a) {
                 i35.a aVar = (i35.a) customResponsedMessage.getData();
-                q96.s().g(aVar.a, aVar.b);
+                s96.s().g(aVar.a, aVar.b);
             }
         }
     }
@@ -349,7 +349,7 @@ public class FaceshopStatic {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null || TextUtils.isEmpty(intent.getStringExtra(i35.b)) || !TbadkCoreApplication.getInst().isMainProcess(false)) {
                 return;
             }
-            q96.s().g(intent.getStringExtra(i35.b), intent.getStringExtra(i35.c));
+            s96.s().g(intent.getStringExtra(i35.b), intent.getStringExtra(i35.c));
         }
     }
 
@@ -377,7 +377,7 @@ public class FaceshopStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                yn7.m().v();
+                bo7.m().v();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -553,7 +553,7 @@ public class FaceshopStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2001141);
         if (mi.H() && TbadkCoreApplication.getCurrentAccount() != null) {
-            yn7.m().v();
+            bo7.m().v();
         }
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2902013, new h());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

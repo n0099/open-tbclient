@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.mg;
 import com.repackage.oi;
-import com.repackage.rv5;
+import com.repackage.tv5;
 /* loaded from: classes3.dex */
 public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     public TextView d;
     public TextView e;
     public int f;
-    public rv5 g;
+    public tv5 g;
     public BdUniqueId h;
     public View i;
     public View.OnClickListener j;
@@ -120,12 +120,12 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         this.f = 3;
         this.h = null;
         this.j = new a(this);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb2);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eb3);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setOnClickListener(this.j);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914e4);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915da);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914e5);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915db);
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090165);
         this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090446);
         this.itemView.setOnClickListener(this.j);
@@ -135,21 +135,21 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         findViewById.setOnClickListener(this.j);
     }
 
-    public void g(rv5 rv5Var) {
+    public void g(tv5 tv5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rv5Var) == null) {
-            this.g = rv5Var;
-            if (rv5Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, tv5Var) == null) {
+            this.g = tv5Var;
+            if (tv5Var == null) {
                 return;
             }
-            this.a.K(rv5Var.c, 12, false);
-            this.b.setText(rv5Var.d);
-            String valueOf = String.valueOf(rv5Var.e);
+            this.a.K(tv5Var.c, 12, false);
+            this.b.setText(tv5Var.d);
+            String valueOf = String.valueOf(tv5Var.e);
             if (valueOf != null && valueOf.length() < 4) {
-                valueOf = String.format("%04d", Long.valueOf(rv5Var.e));
+                valueOf = String.format("%04d", Long.valueOf(tv5Var.e));
             }
-            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0c9f), valueOf, Integer.valueOf(rv5Var.f)), rv5Var.j);
-            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00e1), StringHelper.numFormatOverWanWithNegative(rv5Var.g), StringHelper.numFormatOverWanWithNegative(rv5Var.h), StringHelper.numFormatOverWanWithNegative(rv5Var.i)));
+            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0c9e), valueOf, Integer.valueOf(tv5Var.f)), tv5Var.j);
+            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00e1), StringHelper.numFormatOverWanWithNegative(tv5Var.g), StringHelper.numFormatOverWanWithNegative(tv5Var.h), StringHelper.numFormatOverWanWithNegative(tv5Var.i)));
             i();
         }
     }

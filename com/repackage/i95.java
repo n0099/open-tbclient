@@ -183,8 +183,8 @@ public class i95 extends BaseAdapter {
             if (view2 == null) {
                 view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0726, viewGroup, false);
                 bVar = new b(this, null);
-                bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091826);
-                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091823);
+                bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091827);
+                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091824);
             } else {
                 bVar = (b) view2.getTag();
             }
@@ -205,7 +205,7 @@ public class i95 extends BaseAdapter {
                 bVar.b.setBorderColor(this.e);
                 bVar.b.setBorderWidth(this.g);
             }
-            bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f081207);
+            bVar.b.setDefaultResource(R.drawable.obfuscated_res_0x7f08120b);
             bVar.b.K(this.a.get(i).a(), 10, false);
             view2.setTag(bVar);
             return view2;

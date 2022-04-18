@@ -35,8 +35,8 @@ public class vk3 {
             return;
         }
         try {
-            this.b = n44.m(cls);
-            Method i3 = n44.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
+            this.b = m44.m(cls);
+            Method i3 = m44.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
             this.a = i3;
             if (i3 != null) {
                 i3.setAccessible(true);
@@ -51,7 +51,7 @@ public class vk3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                cls = n44.b("com.hisi.perfhub.PerfHub", true);
+                cls = m44.b("com.hisi.perfhub.PerfHub", true);
             } catch (Throwable unused) {
                 cls = null;
             }

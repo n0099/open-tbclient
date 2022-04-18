@@ -44,13 +44,13 @@ public class zj5 {
 
         /* renamed from: com.repackage.zj5$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class C0571a extends BdRunnable {
+        public class C0570a extends BdRunnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONObject c;
             public final /* synthetic */ a d;
 
-            public C0571a(a aVar, JSONObject jSONObject) {
+            public C0570a(a aVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class zj5 {
                     e2.printStackTrace();
                 }
                 try {
-                    zx.f().h(new C0571a(this, new JSONObject(response.body().string())));
+                    zx.f().h(new C0570a(this, new JSONObject(response.body().string())));
                 } catch (IOException e3) {
                     e3.printStackTrace();
                 } catch (JSONException e4) {
@@ -147,7 +147,7 @@ public class zj5 {
                 return;
             }
         }
-        b = vm4.e() ? "http://" : "https://";
+        b = um4.e() ? "http://" : "https://";
         c = b + "afdconf.baidu.com/afd/download";
     }
 
@@ -206,7 +206,7 @@ public class zj5 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, jSONObject)) == null) {
-            if (gd7.f(map)) {
+            if (jd7.f(map)) {
                 return jSONObject;
             }
             for (Map.Entry<String, String> entry : map.entrySet()) {

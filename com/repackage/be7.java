@@ -1,81 +1,47 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.viewpager.widget.ViewPager;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
-import com.baidu.tieba.lego.indicator.SlidingTabLayout;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.Lego.DataRes;
 /* loaded from: classes5.dex */
-public class be7 {
+public class be7 implements zd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public View b;
-    public TextView c;
-    public SlidingTabLayout d;
-    public Context e;
-    public Animation f;
-    public Animation g;
-    public boolean h;
-    public og i;
+    public final de7 a;
+    public List<ICardInfo> b;
+    public String c;
+    public String d;
+    public String e;
+    public List<ce7> f;
+    public boolean g;
+    public int h;
+    public String i;
+    public int j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
 
-    /* loaded from: classes5.dex */
-    public class a extends og {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ be7 a;
-
-        public a(be7 be7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {be7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = be7Var;
-        }
-
-        @Override // com.repackage.og
-        public void a(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.a.c == null) {
-                return;
-            }
-            if (animation == this.a.f) {
-                this.a.c.setVisibility(0);
-                this.a.c.setClickable(true);
-            } else if (animation == this.a.g) {
-                this.a.c.setVisibility(8);
-                this.a.c.setClickable(false);
-            }
-        }
-    }
-
-    public be7(Context context, View view2) {
+    public be7(de7 de7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
+            Object[] objArr = {de7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,104 +51,243 @@ public class be7 {
                 return;
             }
         }
-        this.h = true;
-        this.i = new a(this);
-        this.b = view2;
-        this.e = context;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e41);
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e3f);
-        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e40);
+        this.b = new ArrayList();
+        this.h = 1;
+        this.k = false;
+        this.l = false;
+        this.m = false;
+        this.a = de7Var;
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = true;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.clearAnimation();
-                this.c.startAnimation(f());
-            }
-            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
-        }
-    }
-
-    public final Animation e() {
+    @Override // com.repackage.zd7
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010063);
-                this.f = loadAnimation;
-                loadAnimation.setAnimationListener(this.i);
-            }
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<ICardInfo> list = this.b;
+            return list != null && list.size() > 0;
         }
-        return (Animation) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final Animation f() {
+    @Override // com.repackage.zd7
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.g == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010064);
-                this.g = loadAnimation;
-                loadAnimation.setAnimationListener(this.i);
-            }
-            return this.g;
-        }
-        return (Animation) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    public void g(int i) {
+    @Override // com.repackage.zd7
+    public void c(boolean z, Message message, boolean z2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            if (this.h) {
-                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Integer.valueOf(i)}) == null) {
+            if (z) {
+                this.l = true;
             } else {
-                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
+                this.k = true;
             }
-            SkinManager.setBackgroundResource(this.a, R.drawable.lego_btn_more_selector);
-            SlidingTabLayout slidingTabLayout = this.d;
-            if (slidingTabLayout != null) {
-                slidingTabLayout.onChangeSkinType(i);
+            DataRes dataRes = (DataRes) message;
+            if (dataRes == null) {
+                return;
             }
+            this.g = dataRes.has_more.intValue() == 1;
+            if (!TextUtils.isEmpty(dataRes.page_info)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(dataRes.page_info);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("title");
+                    if (optJSONObject != null) {
+                        this.c = optJSONObject.optString("name");
+                        this.d = optJSONObject.optString("url");
+                        this.e = optJSONObject.optString("urlNight");
+                    }
+                    JSONArray optJSONArray = jSONObject.optJSONArray("buttons");
+                    if (optJSONArray != null) {
+                        if (this.f == null) {
+                            this.f = new ArrayList();
+                        } else {
+                            this.f.clear();
+                        }
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
+                            if (optJSONObject2 != null) {
+                                ce7 ce7Var = new ce7();
+                                ce7Var.b(optJSONObject2);
+                                if (ce7Var.a()) {
+                                    this.f.add(ce7Var);
+                                }
+                            }
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            ArrayList arrayList = new ArrayList();
+            if (dataRes.cards != null) {
+                for (int i3 = 0; i3 < dataRes.cards.size(); i3++) {
+                    ICardInfo i4 = wc7.i(dataRes.cards.get(i3));
+                    if (i4 != null && i4.isValid()) {
+                        arrayList.add(i4);
+                    }
+                    if (i3 == dataRes.cards.size() - 1 && i4 != null) {
+                        o(i4.getFlipId());
+                    }
+                }
+            }
+            if (z2) {
+                this.b.addAll(arrayList);
+                this.h = i;
+                return;
+            }
+            this.h = 1;
+            this.b = arrayList;
         }
     }
 
-    public void h(View.OnClickListener onClickListener) {
-        ImageView imageView;
+    @Override // com.repackage.zd7
+    public List<ICardInfo> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) || (imageView = this.a) == null) {
-            return;
-        }
-        imageView.setOnClickListener(onClickListener);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
-    public void i(ViewPager viewPager, int i) {
-        SlidingTabLayout slidingTabLayout;
+    public List<ce7> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewPager, i) == null) || (slidingTabLayout = this.d) == null) {
-            return;
-        }
-        slidingTabLayout.setViewPager(viewPager, i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (List) invokeV.objValue;
     }
 
-    public void j() {
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h = false;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.clearAnimation();
-                this.c.setVisibility(0);
-                this.c.startAnimation(e());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.intValue;
+    }
+
+    public de7 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (de7) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zd7
+    public boolean hasMore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.booleanValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.k : invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.l : invokeV.booleanValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.m : invokeV.booleanValue;
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("page_info");
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016455, optString));
+                if (!TextUtils.isEmpty(optString)) {
+                    JSONObject jSONObject2 = new JSONObject(optString);
+                    JSONObject optJSONObject = jSONObject2.optJSONObject("title");
+                    if (optJSONObject != null) {
+                        this.c = optJSONObject.optString("name");
+                        this.d = optJSONObject.optString("url");
+                        this.e = optJSONObject.optString("urlNight");
+                    }
+                    JSONArray optJSONArray = jSONObject2.optJSONArray("buttons");
+                    if (optJSONArray != null) {
+                        if (this.f == null) {
+                            this.f = new ArrayList();
+                        } else {
+                            this.f.clear();
+                        }
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                            if (optJSONObject2 != null) {
+                                ce7 ce7Var = new ce7();
+                                ce7Var.b(optJSONObject2);
+                                if (ce7Var.a()) {
+                                    this.f.add(ce7Var);
+                                }
+                            }
+                        }
+                    }
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("cards");
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        ICardInfo i3 = wc7.i(optJSONArray2.getString(i2));
+                        if (i3 != null && i3.isValid()) {
+                            arrayList.add(i3);
+                        }
+                        if (i2 == optJSONArray2.length() - 1 && i3 != null) {
+                            o(i3.getFlipId());
+                        }
+                    }
+                }
+                this.b = arrayList;
+                if (a()) {
+                    this.m = true;
+                } else {
+                    this.m = false;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
         }
     }
 }

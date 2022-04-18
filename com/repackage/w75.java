@@ -25,7 +25,7 @@ public abstract class w75 {
                 return;
             }
         }
-        this.a = wt4.k().h("page_stay_duration_switch", false);
+        this.a = vt4.k().h("page_stay_duration_switch", false);
     }
 
     public boolean a(y75 y75Var) {
@@ -79,7 +79,7 @@ public abstract class w75 {
         if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || this.a == z) {
             return;
         }
-        wt4.k().u("page_stay_duration_switch", true);
+        vt4.k().u("page_stay_duration_switch", true);
         this.a = z;
     }
 }

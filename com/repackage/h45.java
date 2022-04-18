@@ -77,15 +77,15 @@ public class h45 extends a45 {
                 return;
             }
         }
-        this.a = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091536);
-        this.b = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091535);
-        this.c = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091538);
-        this.e = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091537);
-        this.d = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091534);
-        lu4 lu4Var = new lu4();
-        this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0f69));
+        this.a = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091537);
+        this.b = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091536);
+        this.c = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091539);
+        this.e = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091538);
+        this.d = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091535);
+        ku4 ku4Var = new ku4();
+        this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0f68));
         this.d.setTextSize(R.dimen.T_X05);
-        this.d.setConfig(lu4Var);
+        this.d.setConfig(ku4Var);
         this.f = R.drawable.new_pic_emotion_08;
         this.g = R.color.CAM_X0107;
         this.h = R.color.CAM_X0109;

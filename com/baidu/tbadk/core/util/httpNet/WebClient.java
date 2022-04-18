@@ -8,6 +8,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ImageLogger;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tbadk.switchs.ImgUaSwitch;
 import com.baidu.tbadk.switchs.UseHttpAutoRetrySwitch;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,7 +25,7 @@ import com.repackage.nf;
 import com.repackage.of;
 import com.repackage.pf;
 import com.repackage.qf;
-import com.repackage.wt4;
+import com.repackage.vt4;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -193,8 +194,10 @@ public class WebClient implements gg.a {
                     this.mContext = ofVar;
                     ofVar.b().t(str);
                     this.mContext.b().o(UseHttpAutoRetrySwitch.isOn());
-                    pf b = this.mContext.b();
-                    b.a("User-Agent", "tieba image flow version : " + TbConfig.getVersion() + " cuid : " + TbadkCoreApplication.getInst().getCuidGalaxy2());
+                    if (ImgUaSwitch.isOn()) {
+                        pf b = this.mContext.b();
+                        b.a("User-Agent", "tieba image flow version : " + TbConfig.getVersion() + " cuid : " + TbadkCoreApplication.getInst().getCuidGalaxy2());
+                    }
                     if (this.mPostList != null) {
                         for (Map.Entry<String, String> entry : this.mPostList.entrySet()) {
                             this.mContext.b().b(entry.getKey(), entry.getValue());
@@ -379,7 +382,7 @@ public class WebClient implements gg.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (wt4.k().l("image_no_cache_switch", 0) == 1) {
+            if (vt4.k().l("image_no_cache_switch", 0) == 1) {
                 return this.needCache;
             }
             return true;

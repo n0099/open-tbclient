@@ -1,19 +1,22 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qe;
+import java.util.ArrayList;
+import tbclient.BawuRoleInfoPub;
 /* loaded from: classes7.dex */
-public class ua6 {
+public class ua6 implements bb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qe<byte[]> a;
+    public ArrayList<BawuRoleInfoPub> a;
+    public boolean b;
+    public boolean c;
+    public String d;
 
     public ua6() {
         Interceptable interceptable = $ic;
@@ -28,38 +31,70 @@ public class ua6 {
                 return;
             }
         }
-        b();
+        this.a = new ArrayList<>();
+        this.b = false;
+        this.c = false;
     }
 
-    public byte[] a(String str) {
-        InterceptResult invokeL;
-        byte[] bArr;
+    @Override // com.repackage.bb6
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            qe<byte[]> qeVar = this.a;
-            qe.b<byte[]> h = (qeVar == null || str == null) ? null : qeVar.h(str);
-            if (h == null || (bArr = h.b) == null) {
-                return null;
-            }
-            return bArr;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public void b() {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            cr4.f();
-            this.a = cr4.d("tb.bawu_team_info");
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public ArrayList<BawuRoleInfoPub> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
         }
     }
 
-    public void c(String str, byte[] bArr) {
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.b = z;
         }
-        b();
-        this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
+    }
+
+    public void h(ArrayList<BawuRoleInfoPub> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
+            this.a = arrayList;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
+        }
     }
 }

@@ -65,7 +65,7 @@ public class kj2 extends HandlerThread {
                 }
                 b bVar = (b) message.obj;
                 File file = new File(this.a.b, bVar.a);
-                ng4.m(file.getParentFile());
+                mg4.m(file.getParentFile());
                 try {
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
                     fileOutputStream.write(bVar.b);

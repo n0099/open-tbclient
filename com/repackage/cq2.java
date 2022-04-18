@@ -67,7 +67,7 @@ public class cq2 extends pq1 {
                 if (m == null) {
                     return new js1(1001);
                 }
-                p64 N1 = m.N1();
+                o64 N1 = m.N1();
                 if (N1 == null) {
                     if (m instanceof wz1) {
                         ((wz1) m).i3(y);

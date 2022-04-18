@@ -31,7 +31,7 @@ public class t25 extends u05 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f08081c;
+        this.d = R.drawable.obfuscated_res_0x7f08081b;
         this.g = false;
         this.h = true;
         this.i = false;

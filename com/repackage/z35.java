@@ -30,7 +30,7 @@ public class z35 {
                 return;
             }
         }
-        boolean z = wt4.k().l("key_lcs_log_switch", 0) == 1;
+        boolean z = vt4.k().l("key_lcs_log_switch", 0) == 1;
         a = z;
         if (z) {
             a();

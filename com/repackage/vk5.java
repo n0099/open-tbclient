@@ -41,7 +41,7 @@ public class vk5 extends BdAsyncTask<Void, Void, Void> {
             if (sk5.f().b(this.a)) {
                 return null;
             }
-            wt4 k = wt4.k();
+            vt4 k = vt4.k();
             k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
             return null;
         }

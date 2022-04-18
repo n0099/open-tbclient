@@ -1,23 +1,21 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class a14 {
+public class a14 implements uh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile a14 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public volatile ArrayList<z04> b;
 
     public a14() {
         Interceptable interceptable = $ic;
@@ -29,79 +27,62 @@ public class a14 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new ArrayList<>(20);
     }
 
-    public static a14 c() {
+    @Override // com.repackage.uh1
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (a14.class) {
-                    if (c == null) {
-                        c = new a14();
-                    }
-                }
-            }
-            return c;
-        }
-        return (a14) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? z04.c().d() : (JSONObject) invokeV.objValue;
     }
 
-    public synchronized void a(z04 z04Var) {
+    @Override // com.repackage.uh1
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, z04Var) == null) {
-            synchronized (this) {
-                if (z04Var == null) {
-                    return;
-                }
-                if (this.b.size() < 20) {
-                    this.b.add(z04Var);
-                } else {
-                    this.a++;
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            c14.d(str);
         }
     }
 
-    public synchronized void b() {
+    @Override // com.repackage.uh1
+    public void c(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.b.clear();
-                this.a = 0;
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str) == null) {
+            c14.e(callbackHandler, str);
         }
     }
 
-    public synchronized JSONObject d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.uh1
+    public void d(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                int size = this.b.size();
-                if (size == 0) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("dropcnt", this.a);
-                    jSONObject.put("errorcnt", size);
-                    JSONArray jSONArray = new JSONArray();
-                    jSONObject.put("errors", jSONArray);
-                    Iterator<z04> it = this.b.iterator();
-                    while (it.hasNext()) {
-                        jSONArray.put(it.next().a());
-                    }
-                } catch (JSONException unused) {
-                }
-                this.b.clear();
-                return jSONObject;
-            }
+        if (interceptable == null || interceptable.invokeLL(1048579, this, callbackHandler, str) == null) {
+            c14.a(callbackHandler, str);
         }
-        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.repackage.uh1
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            c14.f(str);
+        }
+    }
+
+    @Override // com.repackage.uh1
+    public void f(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, callbackHandler, str) == null) {
+            c14.g(callbackHandler, str);
+        }
+    }
+
+    @Override // com.repackage.uh1
+    public void g(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, callbackHandler, str) == null) {
+            c14.b(callbackHandler, str);
+        }
     }
 }

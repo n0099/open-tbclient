@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mu4;
+import com.repackage.lu4;
 import com.repackage.oi;
-import com.repackage.qm6;
-import com.repackage.uu4;
-import com.repackage.wr4;
+import com.repackage.sm6;
+import com.repackage.tu4;
+import com.repackage.vr4;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GameCodeList;
@@ -161,9 +161,9 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                 this.b.setText(gameCodeList.label);
                 if (gameCodeList.claimed_status.intValue() == 1) {
                     this.c.setVisibility(8);
-                    mu4 mu4Var = new mu4();
-                    mu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                    this.d.setConfig(mu4Var);
+                    lu4 lu4Var = new lu4();
+                    lu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                    this.d.setConfig(lu4Var);
                     this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f047f));
                     this.d.setClickState(true);
                     this.d.setClickable(true);
@@ -171,28 +171,28 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
                 } else if (gameCodeList.claimed_status.intValue() == 2) {
                     this.c.setVisibility(0);
                     this.c.setText(gameCodeList.claimed_value);
-                    mu4 mu4Var2 = new mu4();
-                    mu4Var2.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                    mu4Var2.i(R.drawable.obfuscated_res_0x7f0808fb, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                    this.d.setConfig(mu4Var2);
+                    lu4 lu4Var2 = new lu4();
+                    lu4Var2.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                    lu4Var2.i(R.drawable.obfuscated_res_0x7f0808ff, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                    this.d.setConfig(lu4Var2);
                     this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f043c));
                     this.d.setClickState(true);
                     this.d.setClickable(true);
                     this.d.setOnClickListener(new b(this, gameCodeList));
                 } else if (gameCodeList.claimed_status.intValue() == 3) {
                     this.c.setVisibility(8);
-                    mu4 mu4Var3 = new mu4();
-                    mu4Var3.p(R.color.CAM_X0201, R.color.CAM_X0109);
-                    this.d.setConfig(mu4Var3);
+                    lu4 lu4Var3 = new lu4();
+                    lu4Var3.p(R.color.CAM_X0201, R.color.CAM_X0109);
+                    this.d.setConfig(lu4Var3);
                     this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f077c));
                     this.d.setClickState(false);
                     this.d.setClickable(false);
                     this.d.setOnClickListener(null);
                 }
                 if (gameCodeList.type.intValue() == 1) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0808d7, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0808db, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 } else if (gameCodeList.type.intValue() == 2) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08090f, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080913, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 }
             }
         }
@@ -200,10 +200,10 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         public void c(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                uu4 uu4Var = new uu4(16);
-                uu4Var.m(this.e.list_id.intValue());
-                uu4Var.o(i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, uu4Var));
+                tu4 tu4Var = new tu4(16);
+                tu4Var.m(this.e.list_id.intValue());
+                tu4Var.o(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, tu4Var));
             }
         }
 
@@ -211,14 +211,14 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (this.e.type.intValue() == 1) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0808d7, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f0808db, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 } else if (this.e.type.intValue() == 2) {
-                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f08090f, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
+                    WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080913, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
                 }
-                wr4 d = wr4.d(this.b);
+                vr4 d = vr4.d(this.b);
                 d.v(R.color.CAM_X0105);
                 d.z(R.dimen.T_X06);
-                wr4 d2 = wr4.d(this.c);
+                vr4 d2 = vr4.d(this.c);
                 d2.v(R.color.CAM_X0109);
                 d2.z(R.dimen.T_X09);
                 TBSpecificationBtn tBSpecificationBtn = this.d;
@@ -266,7 +266,7 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
     public void onBindViewHolder(@NonNull GameCodeViewHolder gameCodeViewHolder, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, gameCodeViewHolder, i) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new uu4(15, i + 1)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new tu4(15, i + 1)));
             gameCodeViewHolder.b(this.a.get(i));
             gameCodeViewHolder.d();
         }
@@ -342,21 +342,21 @@ public class GameCodeAdapter extends RecyclerView.Adapter<GameCodeViewHolder> {
         }
     }
 
-    public void g(qm6 qm6Var) {
+    public void g(sm6 sm6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qm6Var) == null) {
-            GameCodeList gameCodeList = this.a.get(qm6Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, sm6Var) == null) {
+            GameCodeList gameCodeList = this.a.get(sm6Var.a);
             GameCodeList.Builder builder = new GameCodeList.Builder();
             builder.claimed_status = 2;
-            builder.claimed_value = qm6Var.b;
+            builder.claimed_value = sm6Var.b;
             builder.type = gameCodeList.type;
             builder.label = gameCodeList.label;
             builder.begin_time = gameCodeList.begin_time;
             builder.end_time = gameCodeList.end_time;
             builder.item_id = gameCodeList.item_id;
             builder.list_id = gameCodeList.list_id;
-            this.a.set(qm6Var.a, builder.build(false));
-            notifyItemChanged(qm6Var.a);
+            this.a.set(sm6Var.a, builder.build(false));
+            notifyItemChanged(sm6Var.a);
         }
     }
 

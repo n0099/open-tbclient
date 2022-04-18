@@ -39,20 +39,20 @@ public class dl3 {
             return;
         }
         try {
-            Object m = n44.m(cls);
+            Object m = m44.m(cls);
             this.a = m;
             if (m != null) {
-                Method i3 = n44.i(cls, "hypnusSetAction", Integer.TYPE, Integer.TYPE);
+                Method i3 = m44.i(cls, "hypnusSetAction", Integer.TYPE, Integer.TYPE);
                 this.b = i3;
                 if (i3 != null) {
                     i3.setAccessible(true);
                 }
-                Method i4 = n44.i(cls, "hypnusSetSignatureAction", Integer.TYPE, Integer.TYPE, String.class);
+                Method i4 = m44.i(cls, "hypnusSetSignatureAction", Integer.TYPE, Integer.TYPE, String.class);
                 this.c = i4;
                 if (i4 != null) {
                     i4.setAccessible(true);
                 }
-                Method i5 = n44.i(cls, "isHypnusOK", new Class[0]);
+                Method i5 = m44.i(cls, "isHypnusOK", new Class[0]);
                 this.e = i5;
                 if (i5 != null) {
                     i5.setAccessible(true);
@@ -69,7 +69,7 @@ public class dl3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                cls = n44.b("com.oppo.hypnus.HypnusManager", true);
+                cls = m44.b("com.oppo.hypnus.HypnusManager", true);
             } catch (Throwable unused) {
                 cls = null;
             }
@@ -133,9 +133,9 @@ public class dl3 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                Class<?> b = n44.b("com.oppo.hypnus.Hypnus", true);
+                Class<?> b = m44.b("com.oppo.hypnus.Hypnus", true);
                 if (b != null) {
-                    Method i = n44.i(b, "getLocalSignature", new Class[0]);
+                    Method i = m44.i(b, "getLocalSignature", new Class[0]);
                     this.d = i;
                     if (i != null) {
                         i.setAccessible(true);

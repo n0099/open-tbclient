@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fa8;
-import com.repackage.jl8;
+import com.repackage.ma8;
 import com.repackage.oi;
+import com.repackage.ql8;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -36,7 +36,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
     public BaseWebView n;
-    public jl8 o;
+    public ql8 o;
     public XiubaTbJsBridge p;
 
     /* loaded from: classes3.dex */
@@ -126,9 +126,9 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
             }
         }
         this.i = tbPageContext;
-        jl8 jl8Var = new jl8();
-        this.o = jl8Var;
-        jl8Var.a(new XiubaTbJsBridge(this.i));
+        ql8 ql8Var = new ql8();
+        this.o = ql8Var;
+        ql8Var.a(new XiubaTbJsBridge(this.i));
         this.o.a(new CommonTbJsBridge(this.i.getPageActivity()));
     }
 
@@ -226,7 +226,7 @@ public class ImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard>
         if (!TextUtils.isEmpty(immersiveWebViewCard.getPageUrl())) {
             CompatibleUtile.getInstance().loadUrl(this.n, immersiveWebViewCard.getPageUrl());
         }
-        fa8.q().l().d(immersiveWebViewCard.getShowExtra(), this.a);
+        ma8.q().l().d(immersiveWebViewCard.getShowExtra(), this.a);
         immersiveWebViewCard.mHasShown = true;
     }
 

@@ -260,10 +260,10 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                     if (bVar.g()) {
                         k.this.u.n();
                         k.this.n.setVisibility(0);
-                        k.this.n.setImageDrawable(k.this.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc7));
+                        k.this.n.setImageDrawable(k.this.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ccb));
                         imageView = k.this.l;
                         resources = k.this.getContext().getResources();
-                        i = R.drawable.obfuscated_res_0x7f080cc6;
+                        i = R.drawable.obfuscated_res_0x7f080cca;
                     }
                     if (k.this.getHandler() == null) {
                         k.this.getHandler().removeCallbacks(k.this.H);
@@ -273,10 +273,10 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
                     return;
                 }
                 k.this.u.o();
-                k.this.l.setImageDrawable(k.this.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc4));
+                k.this.l.setImageDrawable(k.this.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc8));
                 imageView = k.this.n;
                 resources = k.this.getContext().getResources();
-                i = R.drawable.obfuscated_res_0x7f080cc5;
+                i = R.drawable.obfuscated_res_0x7f080cc9;
                 imageView.setImageDrawable(resources.getDrawable(i));
                 if (k.this.getHandler() == null) {
                 }
@@ -317,16 +317,16 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
     /* JADX INFO: Access modifiers changed from: private */
     public void g() {
         this.u.o();
-        this.l.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc4));
-        this.n.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc5));
+        this.l.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc8));
+        this.n.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc9));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h() {
         this.u.n();
         this.n.setVisibility(0);
-        this.n.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc7));
-        this.l.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cc6));
+        this.n.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ccb));
+        this.l.setImageDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cca));
     }
 
     private boolean i() {
@@ -492,24 +492,24 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
         this.z = new NestedScrollingChildHelper(this);
-        RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091157);
+        RatioFrameLayout ratioFrameLayout = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091158);
         this.a = ratioFrameLayout;
         ratioFrameLayout.setRatio(0.56f);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091167);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091178);
-        ScaleAnimSeekBar scaleAnimSeekBar = (ScaleAnimSeekBar) findViewById(R.id.obfuscated_res_0x7f09118d);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091168);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091179);
+        ScaleAnimSeekBar scaleAnimSeekBar = (ScaleAnimSeekBar) findViewById(R.id.obfuscated_res_0x7f09118e);
         this.k = scaleAnimSeekBar;
         scaleAnimSeekBar.setMaxProgress(100);
         this.k.setMinProgress(0);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09115f);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09115d);
-        this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f09115c);
-        this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f09115e);
-        this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f091159);
-        this.o = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091158);
-        this.s = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091080);
-        this.q = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09115a);
-        this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09115b);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091160);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09115e);
+        this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f09115d);
+        this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f09115f);
+        this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f09115a);
+        this.o = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091159);
+        this.s = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091081);
+        this.q = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09115b);
+        this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09115c);
     }
 
     public boolean d() {
@@ -597,11 +597,11 @@ public class k extends com.kwad.sdk.feed.widget.base.a implements NestedScrollin
         if (i == 101) {
             imageView = this.m;
             resources = getContext().getResources();
-            i2 = R.drawable.obfuscated_res_0x7f080cc2;
+            i2 = R.drawable.obfuscated_res_0x7f080cc6;
         } else {
             imageView = this.m;
             resources = getContext().getResources();
-            i2 = R.drawable.obfuscated_res_0x7f080cc3;
+            i2 = R.drawable.obfuscated_res_0x7f080cc7;
         }
         imageView.setImageDrawable(resources.getDrawable(i2));
         this.v = i;

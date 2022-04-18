@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError;
-import com.repackage.gl9;
+import com.repackage.nl9;
 import com.repackage.o71;
 import com.repackage.q71;
 import java.io.File;
@@ -46,14 +46,14 @@ public class ANRMonitor implements IANRMonitor {
     public static String sANRTimeStamp;
     public static long sLastTimes;
     public transient /* synthetic */ FieldHolder $fh;
-    public gl9 mANRWatchDog;
+    public nl9 mANRWatchDog;
     public int mAnrWatchTimeOut;
     public FileObserver mFileObserver;
     public boolean mMonitorStarted;
     public o71 nativeANRListener;
 
     /* loaded from: classes2.dex */
-    public static class ANRListenerImpl implements gl9.f {
+    public static class ANRListenerImpl implements nl9.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -71,7 +71,7 @@ public class ANRMonitor implements IANRMonitor {
             }
         }
 
-        @Override // com.repackage.gl9.f
+        @Override // com.repackage.nl9.f
         public void onAppNotResponding(ANRError aNRError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
@@ -360,9 +360,9 @@ public class ANRMonitor implements IANRMonitor {
             } else {
                 this.mAnrWatchTimeOut = i;
             }
-            gl9 gl9Var = new gl9(this.mAnrWatchTimeOut);
-            this.mANRWatchDog = gl9Var;
-            gl9Var.e();
+            nl9 nl9Var = new nl9(this.mAnrWatchTimeOut);
+            this.mANRWatchDog = nl9Var;
+            nl9Var.e();
             this.mANRWatchDog.c(new ANRListenerImpl());
             if (AppConfig.isDebug()) {
                 String str = TAG;
@@ -376,9 +376,9 @@ public class ANRMonitor implements IANRMonitor {
     public void stopANRMonitor() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mMonitorStarted) {
-            gl9 gl9Var = this.mANRWatchDog;
-            if (gl9Var != null) {
-                gl9Var.interrupt();
+            nl9 nl9Var = this.mANRWatchDog;
+            if (nl9Var != null) {
+                nl9Var.interrupt();
                 this.mMonitorStarted = false;
             }
             FileObserver fileObserver = this.mFileObserver;

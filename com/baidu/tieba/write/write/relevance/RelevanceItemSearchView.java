@@ -353,7 +353,7 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0f6f));
+            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0f6e));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
             layoutParams.height = oi.f(this.b.getContext(), R.dimen.tbds60);
             layoutParams.topMargin = oi.f(this.b.getContext(), R.dimen.tbds15);
@@ -363,9 +363,9 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c12);
-            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c24);
-            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091c3a);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c13);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c25);
+            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091c3b);
             this.i = editText;
             editText.addTextChangedListener(new b(this));
         }
@@ -374,7 +374,7 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e46);
+            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e47);
             this.e = tbTabLayout;
             tbTabLayout.setTabTextSize(oi.f(this.d, R.dimen.tbds46));
             this.e.setSelectedTabTextSize(oi.f(this.d, R.dimen.tbds52));
@@ -397,7 +397,7 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923c0);
+            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923c1);
             this.f = customViewPager;
             customViewPager.addOnPageChangeListener(this);
             FragmentAdapter fragmentAdapter = new FragmentAdapter(this.d.getSupportFragmentManager());

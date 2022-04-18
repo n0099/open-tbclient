@@ -263,13 +263,13 @@ public class gj1 implements rl1 {
                     e.printStackTrace();
                 }
             }
-            l74 l74Var = new l74(m(), new b(new a(this, iVar)));
-            l74Var.a(qr2.a, jSONObject.toString());
-            if (m74.g().c()) {
-                l74Var.f = true;
+            k74 k74Var = new k74(m(), new b(new a(this, iVar)));
+            k74Var.a(qr2.a, jSONObject.toString());
+            if (l74.g().c()) {
+                k74Var.f = true;
             }
-            l74Var.g = true;
-            m74.g().e(l74Var);
+            k74Var.g = true;
+            l74.g().e(k74Var);
         }
     }
 
@@ -278,7 +278,7 @@ public class gj1 implements rl1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, dd2Var) == null) {
             String h = h(b);
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) m74.g().postFormRequest().url(h)).cookieManager(qj2.q().a())).addParam("appkey", str).build().executeAsyncOnUIBack(new b(dd2Var));
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) l74.g().postFormRequest().url(h)).cookieManager(qj2.q().a())).addParam("appkey", str).build().executeAsyncOnUIBack(new b(dd2Var));
         }
     }
 
@@ -308,11 +308,11 @@ public class gj1 implements rl1 {
                     e.printStackTrace();
                 }
             }
-            l74 l74Var = new l74(h(d), new b(dd2Var));
-            l74Var.a(qr2.a, jSONObject.toString());
-            l74Var.f = true;
-            l74Var.g = true;
-            m74.g().e(l74Var);
+            k74 k74Var = new k74(h(d), new b(dd2Var));
+            k74Var.a(qr2.a, jSONObject.toString());
+            k74Var.f = true;
+            k74Var.g = true;
+            l74.g().e(k74Var);
         }
     }
 
@@ -382,7 +382,7 @@ public class gj1 implements rl1 {
     public final void o(String str, String str2, ny2 ny2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, ny2Var) == null) {
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) m74.g().postFormRequest().url(str)).cookieManager(qj2.q().a())).userAgent(a74.b().a())).addParam("appkey", str2).build().executeAsyncOnUIBack(new b(ny2Var));
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) l74.g().postFormRequest().url(str)).cookieManager(qj2.q().a())).userAgent(z64.b().a())).addParam("appkey", str2).build().executeAsyncOnUIBack(new b(ny2Var));
         }
     }
 }

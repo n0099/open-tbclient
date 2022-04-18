@@ -1,135 +1,106 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Point;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.os.Build;
+import android.util.TypedValue;
+import android.view.Display;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class b98 {
     public static /* synthetic */ Interceptable $ic;
-    public static b98 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, c98> a;
 
-    public b98() {
+    public static Bitmap a(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
+        float height;
+        float width;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentHashMap<>();
-    }
-
-    public static b98 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (b98.class) {
-                    if (b == null) {
-                        b = new b98();
-                    }
-                }
-            }
-            return b;
-        }
-        return (b98) invokeV.objValue;
-    }
-
-    public ConcurrentHashMap<String, c98> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public c98 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ConcurrentHashMap<String, c98> concurrentHashMap = this.a;
-            if (concurrentHashMap == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bitmap, i)) == null) {
+            if (bitmap == null) {
                 return null;
             }
-            return concurrentHashMap.get(str);
+            Matrix matrix = new Matrix();
+            matrix.setRotate(i, bitmap.getWidth() / 2.0f, bitmap.getHeight() / 2.0f);
+            if (i == 90) {
+                height = bitmap.getHeight();
+                width = 0.0f;
+            } else {
+                height = bitmap.getHeight();
+                width = bitmap.getWidth();
+            }
+            float[] fArr = new float[9];
+            matrix.getValues(fArr);
+            matrix.postTranslate(height - fArr[2], width - fArr[5]);
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.ARGB_8888);
+            new Canvas(createBitmap).drawBitmap(bitmap, matrix, new Paint());
+            return createBitmap;
         }
-        return (c98) invokeL.objValue;
+        return (Bitmap) invokeLI.objValue;
     }
 
-    public void d(String str) {
-        ConcurrentHashMap<String, c98> concurrentHashMap;
+    public static int b(Context context, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
-            return;
-        }
-        Iterator<String> it = concurrentHashMap.keySet().iterator();
-        while (it.hasNext()) {
-            c98 c98Var = this.a.get(it.next());
-            if (c98Var != null && str.equals(c98Var.b)) {
-                it.remove();
-            }
-        }
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) ? (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
     }
 
-    public void e(boolean z) {
-        ConcurrentHashMap<String, c98> concurrentHashMap;
+    public static final int c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (concurrentHashMap = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Point d = d(context);
+            return d.x > d.y ? 1 : 0;
         }
-        for (String str : concurrentHashMap.keySet()) {
-            c98 c98Var = this.a.get(str);
-            if (c98Var != null) {
-                c98Var.e = z;
-            }
-        }
+        return invokeL.intValue;
     }
 
-    public void f(boolean z, String str) {
-        ConcurrentHashMap<String, c98> concurrentHashMap;
+    public static Point d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
-            return;
-        }
-        for (String str2 : concurrentHashMap.keySet()) {
-            c98 c98Var = this.a.get(str2);
-            if (c98Var != null && str.equals(c98Var.b)) {
-                c98Var.e = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+            Point point = new Point();
+            if (Build.VERSION.SDK_INT >= 13) {
+                defaultDisplay.getSize(point);
+            } else {
+                point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
             }
+            return point;
         }
+        return (Point) invokeL.objValue;
     }
 
-    public void g(HashMap<String, c98> hashMap) {
+    public static Bitmap e(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            this.a.clear();
-            if (hashMap == null) {
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap, i)) == null) {
+            if (bitmap == null) {
+                return null;
             }
-            this.a.putAll(hashMap);
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+            Canvas canvas = new Canvas(createBitmap);
+            Paint paint = new Paint();
+            paint.setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, paint);
+            return createBitmap;
         }
+        return (Bitmap) invokeLI.objValue;
     }
 
-    public void h(String str, HashMap<String, c98> hashMap) {
+    public static int f(Context context, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) {
-            if (this.a == null) {
-                this.a = new ConcurrentHashMap<>();
-            }
-            d(str);
-            this.a.putAll(hashMap);
-        }
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, context, f)) == null) ? (int) TypedValue.applyDimension(2, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
     }
 }

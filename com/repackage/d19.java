@@ -1,56 +1,42 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.message.EvaluateRelevanceItemUpdatedMessage;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
-import com.baidu.tieba.write.write.relevance.RelevanceItemSearchResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class d19 {
+public class d19 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public BdUniqueId b;
-    public final String c;
-    public b d;
-    public List<String> e;
-    public HttpMessageListener f;
+    public List<String> a;
+    public c19 b;
 
     /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d19 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(d19 d19Var, int i) {
-            super(i);
+        public a(d19 d19Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {d19Var, Integer.valueOf(i)};
+                Object[] objArr = {d19Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -59,155 +45,163 @@ public class d19 {
             this.a = d19Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || this.a.d == null) {
-                return;
-            }
-            if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.a.b) {
-                RelevanceItemSearchData responseData = httpResponsedMessage instanceof RelevanceItemSearchResponse ? ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData() : null;
-                if (responseData != null && responseData.getData() != null) {
-                    if (!ListUtils.equalList(this.a.e, responseData.getData().getTab_option())) {
-                        this.a.e = responseData.getData().getTab_option();
-                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.a.e));
-                    }
-                    if (httpResponsedMessage.getError() != 0) {
-                        this.a.d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
-                        this.a.l();
-                        return;
-                    } else if (ListUtils.isEmpty(responseData.getData().getItem_list())) {
-                        if (this.a.a == 1) {
-                            this.a.d.a();
-                            return;
-                        } else {
-                            this.a.d.d();
-                            return;
-                        }
-                    } else if (responseData != null) {
-                        this.a.d.c(responseData);
-                        if (this.a.a == 1 && responseData.getData().getItem_list().size() < 20) {
-                            this.a.d.d();
-                        }
-                        d19.f(this.a);
-                        return;
-                    } else {
-                        return;
-                    }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TbImageView tbImageView = (TbImageView) view2;
+                if (this.a.b == null || tbImageView == null || tbImageView.getBdImage() == null || tbImageView.getBdImage().p() == null) {
+                    return;
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
-                this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18));
-                this.a.l();
+                this.a.b.a(tbImageView.getBdImage().p(), false);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a();
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d19 a;
 
-        void c(RelevanceItemSearchData relevanceItemSearchData);
+        public b(d19 d19Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d19Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d19Var;
+        }
 
-        void d();
-
-        void onError(int i, String str);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                TbImageView tbImageView = (TbImageView) view2;
+                if (this.a.b == null || tbImageView == null || tbImageView.getBdImage() == null || tbImageView.getBdImage().p() == null) {
+                    return;
+                }
+                this.a.b.a(tbImageView.getBdImage().p(), true);
+            }
+        }
     }
 
-    public d19(BdUniqueId bdUniqueId, String str) {
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TbImageView b;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public d19() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-        this.f = aVar;
-        this.b = bdUniqueId;
-        this.c = str;
-        aVar.setTag(bdUniqueId);
-        k();
-        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public static /* synthetic */ int f(d19 d19Var) {
-        int i = d19Var.a;
-        d19Var.a = i + 1;
-        return i;
-    }
-
-    public void g(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: b */
+    public String getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            l();
-            i(str);
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (String) ListUtils.getItem(this.a, i) : (String) invokeI.objValue;
+    }
+
+    public void c(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.a = list;
+    }
+
+    public void d(c19 c19Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c19Var) == null) {
+            this.b = c19Var;
         }
     }
 
-    public void h() {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-            httpMessage.addParam("tab_name", this.c);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.a);
-            httpMessage.addParam("rn", 20);
-            httpMessage.setTag(this.b);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (ListUtils.isEmpty(this.a)) {
+                return 0;
+            }
+            return (int) Math.ceil(this.a.size() / 2.0d);
         }
+        return invokeV.intValue;
     }
 
-    public final void i(String str) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-            httpMessage.addParam("tab_name", this.c);
-            httpMessage.addParam("keyword", str);
-            httpMessage.addParam(Config.PACKAGE_NAME, this.a);
-            httpMessage.addParam("rn", 20);
-            httpMessage.setTag(this.b);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
         }
+        return invokeI.longValue;
     }
 
-    public void j() {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().removeMessage(this.b);
-            MessageManager.getInstance().unRegisterListener(this.b);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06e2, (ViewGroup) null);
+                cVar = new c();
+                cVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920b1);
+                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0903e5);
+                view2.setTag(cVar);
+            } else {
+                cVar = (c) view2.getTag();
+            }
+            cVar.a.setGifIconSupport(false);
+            cVar.b.setGifIconSupport(false);
+            int i2 = i * 2;
+            cVar.a.K(this.a.get(i2), 10, true);
+            cVar.a.setOnClickListener(new a(this));
+            cVar.b.K(this.a.get(i2 + 1), 10, true);
+            cVar.b.setOnClickListener(new b(this));
+            return view2;
         }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.RELEVANCE_ITEM_SEARCH_URL);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(RelevanceItemSearchResponse.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = 1;
-        }
-    }
-
-    public void m(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.d = bVar;
-        }
+        return (View) invokeILL.objValue;
     }
 }

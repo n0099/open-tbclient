@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jo9;
-import com.repackage.tt9;
-import com.repackage.yt9;
+import com.repackage.au9;
+import com.repackage.fu9;
+import com.repackage.qo9;
 import com.win.opensdk.core.Info;
 import java.util.List;
 /* loaded from: classes8.dex */
@@ -24,7 +24,7 @@ public class PBNative {
     public static final String AD_TYPE_VIDEO = "video";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public jo9 b;
+    public qo9 b;
     public PBNativeListener c;
 
     public PBNative(Context context, String str) {
@@ -43,9 +43,9 @@ public class PBNative {
             }
         }
         this.a = str;
-        jo9 jo9Var = new jo9(context, str);
-        this.b = jo9Var;
-        jo9Var.f = new yt9(this);
+        qo9 qo9Var = new qo9(context, str);
+        this.b = qo9Var;
+        qo9Var.f = new fu9(this);
     }
 
     public void destroy() {
@@ -68,11 +68,11 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            jo9 jo9Var = this.b;
-            if (jo9Var == null || !jo9Var.g()) {
+            qo9 qo9Var = this.b;
+            if (qo9Var == null || !qo9Var.g()) {
                 return "unknown";
             }
-            String material_type = jo9Var.c.getMaterial_type();
+            String material_type = qo9Var.c.getMaterial_type();
             return !TextUtils.isEmpty(material_type) ? material_type : "unknown";
         }
         return (String) invokeV.objValue;
@@ -82,8 +82,8 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            jo9 jo9Var = this.b;
-            return (jo9Var == null || !jo9Var.g()) ? "" : jo9Var.c.getDesc();
+            qo9 qo9Var = this.b;
+            return (qo9Var == null || !qo9Var.g()) ? "" : qo9Var.c.getDesc();
         }
         return (String) invokeV.objValue;
     }
@@ -92,8 +92,8 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            jo9 jo9Var = this.b;
-            return (jo9Var == null || !jo9Var.g()) ? "" : jo9Var.c.getBtndesc();
+            qo9 qo9Var = this.b;
+            return (qo9Var == null || !qo9Var.g()) ? "" : qo9Var.c.getBtndesc();
         }
         return (String) invokeV.objValue;
     }
@@ -102,8 +102,8 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            jo9 jo9Var = this.b;
-            return (jo9Var == null || !jo9Var.g()) ? "" : jo9Var.c.getTitle();
+            qo9 qo9Var = this.b;
+            return (qo9Var == null || !qo9Var.g()) ? "" : qo9Var.c.getTitle();
         }
         return (String) invokeV.objValue;
     }
@@ -112,12 +112,12 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            jo9 jo9Var = this.b;
-            if (jo9Var != null) {
-                String image = jo9Var.g() ? jo9Var.c.getImage() : "";
+            qo9 qo9Var = this.b;
+            if (qo9Var != null) {
+                String image = qo9Var.g() ? qo9Var.c.getImage() : "";
                 if (TextUtils.isEmpty(image)) {
-                    jo9 jo9Var2 = this.b;
-                    return jo9Var2.g() ? jo9Var2.c.getIcon() : "";
+                    qo9 qo9Var2 = this.b;
+                    return qo9Var2.g() ? qo9Var2.c.getIcon() : "";
                 }
                 return image;
             }
@@ -130,8 +130,8 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            jo9 jo9Var = this.b;
-            return (jo9Var == null || !jo9Var.g()) ? "" : jo9Var.c.getIcon();
+            qo9 qo9Var = this.b;
+            return (qo9Var == null || !qo9Var.g()) ? "" : qo9Var.c.getIcon();
         }
         return (String) invokeV.objValue;
     }
@@ -140,11 +140,11 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            jo9 jo9Var = this.b;
-            if (jo9Var == null || !jo9Var.g()) {
+            qo9 qo9Var = this.b;
+            if (qo9Var == null || !qo9Var.g()) {
                 return 0;
             }
-            return jo9Var.c.getH();
+            return qo9Var.c.getH();
         }
         return invokeV.intValue;
     }
@@ -153,11 +153,11 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            jo9 jo9Var = this.b;
-            if (jo9Var == null || !jo9Var.g()) {
+            qo9 qo9Var = this.b;
+            if (qo9Var == null || !qo9Var.g()) {
                 return 0;
             }
-            return jo9Var.c.getW();
+            return qo9Var.c.getW();
         }
         return invokeV.intValue;
     }
@@ -172,9 +172,9 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            jo9 jo9Var = this.b;
-            if (jo9Var != null) {
-                Info info = jo9Var.c;
+            qo9 qo9Var = this.b;
+            if (qo9Var != null) {
+                Info info = qo9Var.c;
                 return info != null && info.getOpent() == 1;
             }
             return false;
@@ -186,38 +186,38 @@ public class PBNative {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            jo9 jo9Var = this.b;
-            return jo9Var != null && jo9Var.g();
+            qo9 qo9Var = this.b;
+            return qo9Var != null && qo9Var.g();
         }
         return invokeV.booleanValue;
     }
 
     public void load() {
-        jo9 jo9Var;
-        tt9 tt9Var;
+        qo9 qo9Var;
+        au9 au9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (jo9Var = this.b) == null || (tt9Var = jo9Var.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (qo9Var = this.b) == null || (au9Var = qo9Var.b) == null) {
             return;
         }
-        tt9Var.g();
+        au9Var.g();
     }
 
     public void registerViewForInteraction(View view2, PBMediaView pBMediaView) {
-        jo9 jo9Var;
+        qo9 qo9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, view2, pBMediaView) == null) || (jo9Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048589, this, view2, pBMediaView) == null) || (qo9Var = this.b) == null) {
             return;
         }
-        jo9Var.c(view2, pBMediaView);
+        qo9Var.c(view2, pBMediaView);
     }
 
     public void registerViewForInteraction(View view2, PBMediaView pBMediaView, List list) {
-        jo9 jo9Var;
+        qo9 qo9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, view2, pBMediaView, list) == null) || (jo9Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, view2, pBMediaView, list) == null) || (qo9Var = this.b) == null) {
             return;
         }
-        jo9Var.d(view2, pBMediaView, list);
+        qo9Var.d(view2, pBMediaView, list);
     }
 
     public void setNativeListener(PBNativeListener pBNativeListener) {

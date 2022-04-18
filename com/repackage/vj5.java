@@ -11,7 +11,7 @@ public class vj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public sn4 b;
+    public rn4 b;
     public String c;
 
     public vj5() {
@@ -37,7 +37,7 @@ public class vj5 {
             }
             vj5 vj5Var = new vj5();
             vj5Var.a = jSONObject.optInt("download_state");
-            vj5Var.b = sn4.b(jSONObject.optJSONObject("app_info"));
+            vj5Var.b = rn4.b(jSONObject.optJSONObject("app_info"));
             vj5Var.c = jSONObject.optString("download_hint");
             return vj5Var;
         }

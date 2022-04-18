@@ -1,24 +1,23 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
+import com.google.ar.core.ArCoreApk;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
-public final class gm9 extends AnimatorListenerAdapter {
+public class gm9 implements ArCoreApk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ InstallActivity a;
+    public final /* synthetic */ AtomicReference a;
 
-    public gm9(InstallActivity installActivity) {
+    public gm9(AtomicReference atomicReference) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
+            Object[] objArr = {atomicReference};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,14 +27,14 @@ public final class gm9 extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.a = installActivity;
+        this.a = atomicReference;
     }
 
-    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-    public final void onAnimationEnd(Animator animator) {
+    @Override // com.google.ar.core.ArCoreApk.a
+    public void a(ArCoreApk.Availability availability) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            this.a.showSpinner();
+        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
+            this.a.set(availability);
         }
     }
 }

@@ -230,7 +230,7 @@ public class j23 extends lr2 {
             HashMap<String, String> m = lr2.m(optJSONObject, true);
             String optString4 = a2.optString("__plugin__");
             if (!TextUtils.isEmpty(optString4)) {
-                j94 h = hw2.h(optString4);
+                i94 h = hw2.h(optString4);
                 if (m == null) {
                     m = new HashMap<>();
                 }
@@ -240,14 +240,14 @@ public class j23 extends lr2 {
             hashMap.putAll(bs2.a("uploadFile", a2.optString("__plugin__")));
             as2Var.a(hashMap);
             wl2.U().a0();
-            l74 l74Var = new l74(w.url().toString(), w.body(), new a(this, callbackHandler, optString, optString3, optString2, valueOf));
-            l74Var.c = hashMap;
-            l74Var.i = w.tag();
-            l74Var.f = true;
-            l74Var.g = false;
-            l74Var.h = true;
-            l74Var.k = 2;
-            m74.g().e(l74Var);
+            k74 k74Var = new k74(w.url().toString(), w.body(), new a(this, callbackHandler, optString, optString3, optString2, valueOf));
+            k74Var.c = hashMap;
+            k74Var.i = w.tag();
+            k74Var.f = true;
+            k74Var.g = false;
+            k74Var.h = true;
+            k74Var.k = 2;
+            l74.g().e(k74Var);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n(a3), 0));
             return true;
         }
@@ -280,7 +280,7 @@ public class j23 extends lr2 {
                 return null;
             }
             String optString = jSONObject.optString("filePath", "");
-            if (TextUtils.isEmpty(optString) || ng4.x(optString)) {
+            if (TextUtils.isEmpty(optString) || mg4.x(optString)) {
                 return null;
             }
             String a2 = wl2.U().G().a(optString);

@@ -324,22 +324,22 @@ public class vn3 {
             AdElementInfo adElementInfo3 = this.b;
             if (adElementInfo3 != null && adElementInfo3.getActionType() == 1) {
                 this.n.setVisibility(0);
-                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f10c0));
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f10bf));
             }
             AdElementInfo adElementInfo4 = this.b;
             if (adElementInfo4 != null && adElementInfo4.getActionType() == 2) {
                 this.n.setVisibility(0);
-                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1251));
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1250));
             }
             if (this.b == null) {
                 this.j.setVisibility(8);
                 this.i.setVisibility(8);
-                this.c.findViewById(R.id.obfuscated_res_0x7f09157b).setVisibility(0);
+                this.c.findViewById(R.id.obfuscated_res_0x7f09157c).setVisibility(0);
                 return;
             }
             this.j.setVisibility(0);
             this.i.setVisibility(0);
-            this.c.findViewById(R.id.obfuscated_res_0x7f09157b).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f09157c).setVisibility(8);
             if (this.t) {
                 this.n.setOnClickListener(this.w);
                 this.d.setOnClickListener(this.w);

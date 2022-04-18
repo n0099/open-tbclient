@@ -123,7 +123,7 @@ public class p95 {
             this.p = r95Var;
             r95Var.q0(this.c);
             this.a.add(this.p);
-            q95 q95Var = new q95(this.b, cy5.N0);
+            q95 q95Var = new q95(this.b, ey5.N0);
             this.q = q95Var;
             this.a.add(q95Var);
             this.c.a(this.a);
@@ -193,12 +193,12 @@ public class p95 {
         }
     }
 
-    public void i(lm4 lm4Var) {
+    public void i(km4 km4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lm4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, km4Var) == null) {
             for (ho hoVar : this.a) {
                 if (hoVar instanceof s95) {
-                    ((s95) hoVar).o0(lm4Var);
+                    ((s95) hoVar).o0(km4Var);
                 }
             }
         }

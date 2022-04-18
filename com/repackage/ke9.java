@@ -1,33 +1,20 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ke9 implements pb1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ke9 {
+    public static final ServiceReference a = new ServiceReference("voyager", StatConstants.VALUE_TYPE_UPLOAD);
 
-    public ke9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void a(String str, String str2, int i, je9 je9Var);
 
-    @Override // com.repackage.pb1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new re9() : invokeV.objValue;
-    }
+    void b(List<String> list, String str, long j, JSONObject jSONObject);
+
+    void c(String str, String str2, JSONObject jSONObject);
+
+    void d(String str, String str2, je9 je9Var);
+
+    void e(List<String> list, String str, long j, je9 je9Var);
 }

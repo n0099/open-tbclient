@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nq4;
 import com.repackage.oi;
-import com.repackage.oq4;
 /* loaded from: classes3.dex */
 public class PbBusinessPromotionContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -200,21 +200,21 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         }
     }
 
-    public void f(ThreadData threadData, oq4 oq4Var, boolean z) {
+    public void f(ThreadData threadData, nq4 nq4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, oq4Var, z) == null) {
-            if (threadData != null && oq4Var != null && !StringUtils.isNull(oq4Var.a())) {
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, nq4Var, z) == null) {
+            if (threadData != null && nq4Var != null && !StringUtils.isNull(nq4Var.a())) {
                 this.e = threadData;
                 i(z);
                 this.i = true;
                 setVisibility(0);
-                this.b.K(oq4Var.d(), 10, false);
-                this.c.setText(oq4Var.a());
+                this.b.K(nq4Var.d(), 10, false);
+                this.c.setText(nq4Var.a());
                 if (this.g) {
                     return;
                 }
                 this.g = true;
-                this.h = oq4Var.getIsLike();
+                this.h = nq4Var.getIsLike();
                 j();
                 return;
             }
@@ -355,10 +355,10 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         this.k = new b(this, 2001336);
         this.l = new c(this, 2001335);
         LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04a6, this);
-        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090e36);
-        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e34);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e35);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e33);
+        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090e37);
+        this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e35);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e36);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e34);
         this.b.setRadius(oi.f(context, R.dimen.tbds24));
         this.b.setConrers(5);
         this.b.setDefaultResource(17170445);

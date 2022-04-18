@@ -22,7 +22,7 @@ import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public class kq3 implements sx3 {
+public class kq3 implements rx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -240,7 +240,7 @@ public class kq3 implements sx3 {
         }
     }
 
-    @Override // com.repackage.sx3
+    @Override // com.repackage.rx3
     public boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull jo3 jo3Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -270,7 +270,7 @@ public class kq3 implements sx3 {
         return invokeLLL.booleanValue;
     }
 
-    @Override // com.repackage.sx3
+    @Override // com.repackage.rx3
     public boolean b(Context context, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -297,7 +297,7 @@ public class kq3 implements sx3 {
         return invokeLLLL.booleanValue;
     }
 
-    @Override // com.repackage.sx3
+    @Override // com.repackage.rx3
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -338,14 +338,14 @@ public class kq3 implements sx3 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? hq3.o.H() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.sx3
+    @Override // com.repackage.rx3
     public String getPackageName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? hq3.o.I() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.sx3
+    @Override // com.repackage.rx3
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {

@@ -2,41 +2,81 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
-import com.repackage.yh9;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class di9 implements yh9.e {
+public class di9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ com.fun.module.gdt.w a;
-    public final /* synthetic */ NativeUnifiedADData b;
 
-    public di9(ei9 ei9Var, com.fun.module.gdt.w wVar, NativeUnifiedADData nativeUnifiedADData) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public di9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ei9Var, wVar, nativeUnifiedADData};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = wVar;
-        this.b = nativeUnifiedADData;
     }
 
-    @Override // com.repackage.yh9.e
-    public void onADStatusChanged() {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Object findField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.b(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            try {
+                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj2.getClass().getDeclaredField("b");
+                declaredField2.setAccessible(true);
+                Object obj3 = declaredField2.get(obj2);
+                if (obj3 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.intersitial2.i", obj3)) == null) {
+                    return null;
+                }
+                Field declaredField3 = findField.getClass().getDeclaredField("x");
+                declaredField3.setAccessible(true);
+                Object obj4 = declaredField3.get(findField);
+                if (obj4 == null) {
+                    return null;
+                }
+                Field declaredField4 = obj4.getClass().getDeclaredField("L");
+                declaredField4.setAccessible(true);
+                JSONObject jSONObject = (JSONObject) declaredField4.get(obj4);
+                if (jSONObject == null) {
+                    return null;
+                }
+                return xh9.a(jSONObject);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
+            }
         }
+        return (RippedAd) invokeL.objValue;
     }
 }

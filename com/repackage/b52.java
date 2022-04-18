@@ -60,7 +60,7 @@ public final class b52 implements s42 {
                 aVar.b(this.d);
             }
         }
-        ng4.d(this.c);
+        mg4.d(this.c);
     }
 
     public final void b(File file) {
@@ -70,7 +70,7 @@ public final class b52 implements s42 {
                 if (this.c != null || file == null) {
                     return;
                 }
-                ng4.h(this.d);
+                mg4.h(this.d);
                 this.c = new FileOutputStream(file);
             } catch (Exception e) {
                 if (s42.a) {
@@ -85,7 +85,7 @@ public final class b52 implements s42 {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) || inputStream == null || this.e) {
             return;
         }
-        ng4.Q(inputStream, this.d);
+        mg4.Q(inputStream, this.d);
         this.e = true;
     }
 
@@ -102,7 +102,7 @@ public final class b52 implements s42 {
                 this.e = true;
             }
         } catch (IOException unused) {
-            ng4.d(this.c);
+            mg4.d(this.c);
             this.c = null;
             a aVar = this.b;
             if (aVar != null) {

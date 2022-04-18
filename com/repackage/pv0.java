@@ -77,12 +77,12 @@ public class pv0 extends mv0 implements View.OnClickListener {
             if (this.i == null) {
                 LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d059b, null);
                 this.i = linearLayout;
-                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091856);
+                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091857);
                 this.j = textView;
                 textView.setOnClickListener(this);
                 this.e.addView(this.i, new FrameLayout.LayoutParams(-1, -1));
             }
-            this.j.setText(R.string.obfuscated_res_0x7f0f0b4b);
+            this.j.setText(R.string.obfuscated_res_0x7f0f0b4a);
             P(v().V0());
             this.i.setVisibility(0);
         }
@@ -94,7 +94,7 @@ public class pv0 extends mv0 implements View.OnClickListener {
             if (this.f == null) {
                 LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.obfuscated_res_0x7f0d059c, null);
                 this.f = linearLayout;
-                this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09218d);
+                this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09218e);
                 Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f090400);
                 this.h = button;
                 button.setOnClickListener(this);
@@ -239,11 +239,11 @@ public class pv0 extends mv0 implements View.OnClickListener {
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090400 || view2.getId() == R.id.obfuscated_res_0x7f091856) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090400 || view2.getId() == R.id.obfuscated_res_0x7f091857) {
                 if (!BdNetUtils.f()) {
                     ViewGroup n = v().n();
                     if (n != null && v().n1().a()) {
-                        t01.a().b(n.getContext(), R.string.obfuscated_res_0x7f0f0b4c);
+                        t01.a().b(n.getContext(), R.string.obfuscated_res_0x7f0f0b4b);
                         return;
                     }
                     return;

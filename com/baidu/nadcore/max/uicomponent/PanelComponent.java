@@ -813,7 +813,7 @@ public final class PanelComponent extends AbsComponentPlugin {
                 if (view2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("panelRoot");
                 }
-                s51Var = (s51) view2.findViewById(R.id.obfuscated_res_0x7f0913b2);
+                s51Var = (s51) view2.findViewById(R.id.obfuscated_res_0x7f0913b3);
                 this.o = s51Var;
                 if (s51Var != null) {
                     View view3 = this.g;
@@ -864,7 +864,7 @@ public final class PanelComponent extends AbsComponentPlugin {
         view2 = this.g;
         if (view2 == null) {
         }
-        s51Var = (s51) view2.findViewById(R.id.obfuscated_res_0x7f0913b2);
+        s51Var = (s51) view2.findViewById(R.id.obfuscated_res_0x7f0913b3);
         this.o = s51Var;
         if (s51Var != null) {
         }

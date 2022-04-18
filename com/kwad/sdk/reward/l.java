@@ -123,13 +123,13 @@ public class l extends com.kwad.sdk.h.e {
         }
 
         private void b() {
-            this.c = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0910f6);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f7);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f4);
-            this.f = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f5);
-            this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f3);
-            this.h = (KsStyledTextButton) this.a.findViewById(R.id.obfuscated_res_0x7f0910f2);
-            this.i = this.a.findViewById(R.id.obfuscated_res_0x7f0910f1);
+            this.c = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0910f7);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f8);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f5);
+            this.f = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f6);
+            this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f4);
+            this.h = (KsStyledTextButton) this.a.findViewById(R.id.obfuscated_res_0x7f0910f3);
+            this.i = this.a.findViewById(R.id.obfuscated_res_0x7f0910f2);
             this.h.setOnClickListener(this);
             this.i.setOnClickListener(this);
             this.f.setOnClickListener(this);
@@ -194,13 +194,13 @@ public class l extends com.kwad.sdk.h.e {
         }
 
         private void b() {
-            this.c = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091113);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091117);
-            this.e = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091115);
-            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091114);
-            this.g = (KsPriceView) this.a.findViewById(R.id.obfuscated_res_0x7f091116);
-            this.h = (KsStyledTextButton) this.a.findViewById(R.id.obfuscated_res_0x7f091110);
-            this.i = this.a.findViewById(R.id.obfuscated_res_0x7f091111);
+            this.c = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091114);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091118);
+            this.e = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091116);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091115);
+            this.g = (KsPriceView) this.a.findViewById(R.id.obfuscated_res_0x7f091117);
+            this.h = (KsStyledTextButton) this.a.findViewById(R.id.obfuscated_res_0x7f091111);
+            this.i = this.a.findViewById(R.id.obfuscated_res_0x7f091112);
             this.h.setOnClickListener(this);
             this.i.setOnClickListener(this);
             this.f.setOnClickListener(this);

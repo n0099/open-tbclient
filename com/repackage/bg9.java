@@ -1,29 +1,40 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import org.json.JSONObject;
-/* compiled from: lambda */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdLoader;
+import com.repackage.zf9;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class bg9 implements RippedAd.Acceptor {
+public class bg9 implements zf9.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ bg9 a = new bg9();
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ vf9 a;
 
-    private /* synthetic */ bg9() {
+    public bg9(dg9 dg9Var, vf9 vf9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dg9Var, vf9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = vf9Var;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.RippedAd.Acceptor
-    public final String accept(Object obj) {
+    @Override // com.repackage.zf9.a
+    public FunAdLoader a(ll9 ll9Var) {
         InterceptResult invokeL;
-        String optString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            optString = ((JSONObject) obj).optString("url");
-            return optString;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ll9Var)) == null) ? new hl9(this.a, ll9Var) : (FunAdLoader) invokeL.objValue;
     }
 }

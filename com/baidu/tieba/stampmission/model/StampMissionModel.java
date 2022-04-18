@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.ii8;
+import com.repackage.pi8;
 /* loaded from: classes4.dex */
 public class StampMissionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -76,7 +76,7 @@ public class StampMissionModel extends BdBaseModel {
     public interface b {
         void a();
 
-        void b(ii8 ii8Var);
+        void b(pi8 pi8Var);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

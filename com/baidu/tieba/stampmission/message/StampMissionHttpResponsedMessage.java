@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ii8;
+import com.repackage.pi8;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class StampMissionHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ii8 data;
+    public pi8 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public StampMissionHttpResponsedMessage() {
@@ -40,14 +40,14 @@ public class StampMissionHttpResponsedMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                this.data = ii8.b(jSONObject.optJSONObject("data"));
+                this.data = pi8.b(jSONObject.optJSONObject("data"));
             }
         }
     }
 
-    public ii8 getData() {
+    public pi8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : (ii8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : (pi8) invokeV.objValue;
     }
 }

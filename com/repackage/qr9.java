@@ -1,28 +1,22 @@
 package com.repackage;
 
-import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public final class qr9 implements Runnable {
+public final class qr9 implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ byte[] a;
-    public final /* synthetic */ String b;
-    public final /* synthetic */ ts9 c;
+    public final AtomicInteger a;
 
-    public qr9(byte[] bArr, String str, ts9 ts9Var) {
+    public qr9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, str, ts9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,82 +26,16 @@ public final class qr9 implements Runnable {
                 return;
             }
         }
-        this.a = bArr;
-        this.b = str;
-        this.c = ts9Var;
+        this.a = new AtomicInteger(1);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        FileOutputStream fileOutputStream;
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            byte[] bArr = this.a;
-            String str = this.b;
-            ts9 ts9Var = this.c;
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            File file = new File(str);
-            String substring = str.substring(0, str.lastIndexOf("/"));
-            if (!file.exists()) {
-                new File(substring).mkdir();
-            }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr2 = new byte[1024];
-                while (true) {
-                    int read = byteArrayInputStream.read(bArr2);
-                    if (read == -1) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr2, 0, read);
-                }
-                fileOutputStream.flush();
-                fileOutputStream.close();
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (ts9Var != null && (handler = ts9Var.a.c.k) != null) {
-                    handler.post(new qs9(ts9Var));
-                }
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
-                }
-                if (ts9Var != null) {
-                    return;
-                }
-                return;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-            if (ts9Var != null || (handler2 = ts9Var.a.c.k) == null) {
-                return;
-            }
-            handler2.post(new ms9(ts9Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            return new Thread(runnable, "T#" + this.a.getAndIncrement());
         }
+        return (Thread) invokeL.objValue;
     }
 }

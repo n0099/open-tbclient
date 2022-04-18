@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wr4;
-import com.repackage.xr7;
+import com.repackage.as7;
+import com.repackage.vr4;
 /* loaded from: classes3.dex */
 public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -42,17 +42,17 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091690);
-        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091ac3);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921cb);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091691);
+        this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091ac4);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921cc);
         this.d = textView;
-        wr4.d(textView).A(R.string.F_X02);
+        vr4.d(textView).A(R.string.F_X02);
     }
 
-    public void c(xr7 xr7Var) {
+    public void c(as7 as7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xr7Var) == null) {
-            this.d.setText(xr7Var.b());
+        if (interceptable == null || interceptable.invokeL(1048576, this, as7Var) == null) {
+            this.d.setText(as7Var.b());
         }
     }
 

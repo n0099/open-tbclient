@@ -646,16 +646,16 @@ public class wo1 {
             }
             o(activity, j03Var, guideType);
             View inflate = LayoutInflater.from(activity).inflate(guideType == ShowFavoriteGuideApi.GuideType.TIPS ? R.layout.obfuscated_res_0x7f0d00ab : R.layout.obfuscated_res_0x7f0d00aa, (ViewGroup) null, false);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090982);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090983);
             if (textView != null && str3 != null) {
                 if (guideType.limit != -1 && str.length() > guideType.limit) {
                     str3 = str3.substring(0, guideType.limit - 1) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str3);
             }
-            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f092057);
+            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f092058);
             if (guideType != ShowFavoriteGuideApi.GuideType.TIPS) {
-                RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090981);
+                RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090982);
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
                 int i2 = guideType.showWidth4px;
                 int g2 = ae3.g(7.0f);
@@ -666,14 +666,14 @@ public class wo1 {
                 }
                 layoutParams.width = i2;
                 relativeLayout.setLayoutParams(layoutParams);
-                de3.X((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090983), str2, R.drawable.obfuscated_res_0x7f08013f);
-                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090980);
+                de3.X((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090984), str2, R.drawable.obfuscated_res_0x7f08013f);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090981);
                 if (guideType == ShowFavoriteGuideApi.GuideType.WEAK) {
                     imageView.setVisibility(8);
                 } else {
                     imageView.setOnClickListener(new a(this, guideType));
                 }
-                ((Button) inflate.findViewById(R.id.obfuscated_res_0x7f09097e)).setOnClickListener(new b(this, guideType, activity));
+                ((Button) inflate.findViewById(R.id.obfuscated_res_0x7f09097f)).setOnClickListener(new b(this, guideType, activity));
                 PopupWindow popupWindow = new PopupWindow(inflate, -1, -2);
                 this.a = popupWindow;
                 popupWindow.L(16);
@@ -681,7 +681,7 @@ public class wo1 {
             } else if (findViewById != null) {
                 int[] iArr = new int[2];
                 findViewById.getLocationOnScreen(iArr);
-                inflate.findViewById(R.id.obfuscated_res_0x7f09097f).setPadding(0, 0, ((ae3.o(null) - iArr[0]) - (findViewById.getWidth() / 2)) - ae3.g(7.0f), 0);
+                inflate.findViewById(R.id.obfuscated_res_0x7f090980).setPadding(0, 0, ((ae3.o(null) - iArr[0]) - (findViewById.getWidth() / 2)) - ae3.g(7.0f), 0);
                 this.a = new PopupWindow(inflate, -2, -2);
                 SwanAppActivity swanAppActivity2 = this.c;
                 if (swanAppActivity2 != null && !swanAppActivity2.isFinishing() && !this.c.isDestroyed() && findViewById.isAttachedToWindow()) {

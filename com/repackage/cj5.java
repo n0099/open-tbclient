@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cj5 extends at4 {
+public class cj5 extends zs4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cj5(ys4 ys4Var) {
-        super(ys4Var);
+    public cj5(xs4 xs4Var) {
+        super(xs4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ys4Var};
+            Object[] objArr = {xs4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ys4) newInitContext.callArgs[0]);
+                super((xs4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,7 +36,7 @@ public class cj5 extends at4 {
         }
     }
 
-    @bt4(isAsync = false, value = "showDeviceInfo")
+    @at4(isAsync = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class cj5 extends at4 {
         return (JSONObject) invokeV.objValue;
     }
 
-    @bt4(isAsync = false, value = "showNetStatus")
+    @at4(isAsync = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         InterceptResult invokeV;
         int i;
@@ -97,7 +97,7 @@ public class cj5 extends at4 {
         return (JSONObject) invokeV.objValue;
     }
 
-    @bt4(isAsync = false, value = "showToast")
+    @at4(isAsync = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
@@ -106,7 +106,7 @@ public class cj5 extends at4 {
         BdToast.c(getContext(), jSONObject.optString("message")).q();
     }
 
-    @Override // com.repackage.at4
+    @Override // com.repackage.zs4
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

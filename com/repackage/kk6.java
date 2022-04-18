@@ -1,143 +1,77 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.View;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kk6 extends ho<m26, CardViewHolder<tw5>> {
+public class kk6 extends m45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
-    public tw5 j;
-    public String k;
-    public String l;
-    public rx5 m;
+    public FrsGameRecommendFragment c;
 
-    /* loaded from: classes6.dex */
-    public class a extends rx5<m26> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kk6 b;
-
-        public a(kk6 kk6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kk6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = kk6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.rx5
-        /* renamed from: d */
-        public void a(View view2, m26 m26Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, m26Var) == null) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 2).param("fid", this.b.k));
-                this.b.b0(view2, m26Var);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kk6(TbPageContext tbPageContext, String str, String str2) {
-        super(tbPageContext.getPageActivity(), m26.b);
+    public kk6(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str, str2};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = str;
-        this.l = str2;
-        this.i = tbPageContext;
+        this.c = FrsGameRecommendFragment.F0(str, str2);
+        b().a = this.c;
     }
 
-    public final void b0(View view2, m26 m26Var) {
+    @Override // com.repackage.m45
+    public n45 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, m26Var) == null) {
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.i.getPageActivity()).createFromThreadCfg(m26Var.getThreadData(), null, cx5.g(), 18003, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(m26Var.getThreadData().getFid()));
-            createFromThreadCfg.setForumName(m26Var.getThreadData().getForum_name());
-            createFromThreadCfg.setStartFrom(0);
-            cx5.a(m26Var.getThreadData().getTid());
-            this.i.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
-            rx5 rx5Var = this.m;
-            if (rx5Var != null) {
-                rx5Var.a(view2, m26Var);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            n45 n45Var = new n45();
+            n45Var.e = 11;
+            n45Var.b = R.string.obfuscated_res_0x7f0f06dd;
+            n45Var.i = n45.l;
+            return n45Var;
         }
+        return (n45) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: c0 */
-    public CardViewHolder<tw5> M(ViewGroup viewGroup) {
+    @Override // com.repackage.m45
+    public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.j = new tw5(this.i, this.k, this.l);
-            return new CardViewHolder<>(this.j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ho
-    /* renamed from: d0 */
-    public View S(int i, View view2, ViewGroup viewGroup, m26 m26Var, CardViewHolder<tw5> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.m45
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, m26Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
-                return null;
-            }
-            cardViewHolder.c().l(m26Var);
-            cardViewHolder.c().m(this.i, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.c().n(new a(this));
-            return cardViewHolder.c().k();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void e0(rx5 rx5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, rx5Var) == null) {
-            this.m = rx5Var;
-        }
+        return invokeV.booleanValue;
     }
 }

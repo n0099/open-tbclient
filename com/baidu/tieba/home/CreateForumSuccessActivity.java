@@ -101,24 +101,24 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     private void initUi() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091add);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
+            this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ade);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0457);
-            this.mNoNetView = (NoNetworkView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923ad);
+            this.mNoNetView = (NoNetworkView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923ae);
             int f = oi.f(getActivity(), R.dimen.obfuscated_res_0x7f07019a);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090891), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, f), null, null);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090892), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, f), null, null);
             this.emptyView = a2;
             a2.setVisibility(0);
-            this.mTextView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f3b);
-            this.mTextView.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0c66) + this.mForumName + getActivity().getString(R.string.obfuscated_res_0x7f0f0c67));
-            this.mTextAuditTip = (TextView) findViewById(R.id.obfuscated_res_0x7f091f12);
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c62);
+            this.mTextView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f3c);
+            this.mTextView.setText(getActivity().getString(R.string.obfuscated_res_0x7f0f0c65) + this.mForumName + getActivity().getString(R.string.obfuscated_res_0x7f0f0c66));
+            this.mTextAuditTip = (TextView) findViewById(R.id.obfuscated_res_0x7f091f13);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f0c61);
             if (!StringUtils.isNull(string) && this.mTextAuditTip != null) {
                 this.mTextAuditTip.setText(string.replace("%s", this.mForumName));
             }
-            findViewById(R.id.obfuscated_res_0x7f091f1f).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f091f20).setOnClickListener(new a(this));
         }
     }
 

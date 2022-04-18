@@ -215,9 +215,9 @@ public class a extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (KsLogoView) a(R.id.obfuscated_res_0x7f091019);
-        this.c = (ActionBarAppLandscape) a(R.id.obfuscated_res_0x7f09116d);
-        this.d = (ActionBarAppPortrait) a(R.id.obfuscated_res_0x7f09116e);
-        this.e = (ActionBarH5) a(R.id.obfuscated_res_0x7f09116f);
+        this.b = (KsLogoView) a(R.id.obfuscated_res_0x7f09101a);
+        this.c = (ActionBarAppLandscape) a(R.id.obfuscated_res_0x7f09116e);
+        this.d = (ActionBarAppPortrait) a(R.id.obfuscated_res_0x7f09116f);
+        this.e = (ActionBarH5) a(R.id.obfuscated_res_0x7f091170);
     }
 }

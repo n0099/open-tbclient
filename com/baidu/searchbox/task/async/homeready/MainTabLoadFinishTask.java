@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.l30;
-import com.repackage.wt4;
+import com.repackage.vt4;
 /* loaded from: classes2.dex */
 public class MainTabLoadFinishTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -42,12 +42,12 @@ public class MainTabLoadFinishTask extends LaunchTask {
             }
             Loki.startTrack();
             try {
-                wt4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                vt4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
-                wt4.k().y("key_last_cached_oid", l30.e(TbadkCoreApplication.getInst().getContext()).f());
+                vt4.k().y("key_last_cached_oid", l30.e(TbadkCoreApplication.getInst().getContext()).f());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

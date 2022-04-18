@@ -1,396 +1,238 @@
 package com.repackage;
 
+import android.app.ActivityManager;
+import android.os.Process;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.RoundTbImageView;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.ad.download.AdDownloadData;
-import com.baidu.tieba.ad.download.DownloadCacheKey;
-import com.baidu.tieba.ad.download.state.DownloadStatus;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.view.AdAppInfoView;
-import com.baidu.tieba.recapp.widget.ApkDownloadView;
-import com.baidu.tieba.recapp.widget.CountDownTextView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oj5;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ad8 extends ed8 {
+public class ad8 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout i;
-    public RoundTbImageView j;
-    public TextView k;
-    public TextView l;
-    public ApkDownloadView m;
-    public TextView n;
-    public CountDownTextView o;
-    public AdAppInfoView p;
-    public DownloadCacheKey q;
-    public tj5 r;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(ad8 ad8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ad8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755860516, "Lcom/repackage/ad8;")) == null) {
+            return;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ad8 a;
-
-        public b(ad8 ad8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ad8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ad8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            View.OnClickListener onClickListener;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (onClickListener = this.a.h) == null) {
-                return;
-            }
-            onClickListener.onClick(view2);
-            this.a.o.c();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gc8 a;
-        public final /* synthetic */ ad8 b;
-
-        public c(ad8 ad8Var, gc8 gc8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ad8Var, gc8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ad8Var;
-            this.a = gc8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String str = this.a.d;
-                if (ga8.C(this.b.d, str)) {
-                    i = 3;
-                } else {
-                    AdvertAppInfo advertAppInfo = this.b.d;
-                    i = ga8.e(this.b.f, str, advertAppInfo.i() ? this.b.d.getDownloadId() : this.b.d.a, advertAppInfo.h, this.a.j);
-                }
-                if (i == 0) {
-                    return;
-                }
-                AdvertAppInfo advertAppInfo2 = this.b.d;
-                sc8 b = wc8.b(advertAppInfo2, 2, advertAppInfo2.position);
-                b.h("VIDEO_FLOW_TAIL");
-                uc8.b().d(b);
-                bd7.h(bd7.e(this.b.d));
-                this.b.o.c();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements oj5.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ad8 a;
-
-        public d(ad8 ad8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ad8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ad8Var;
-        }
-
-        @Override // com.repackage.oj5.a
-        public boolean b(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                vi5.a(this.a.g.getButtonCmdScheme());
-                bd7.h(bd7.e(this.a.d));
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ad8(View view2, String str) {
-        super(view2, str);
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755860516, "Lcom/repackage/ad8;");
+        }
+    }
+
+    public static void a(zc8 zc8Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65537, null, zc8Var, i) == null) {
+            zc8Var.i(706);
+            boolean z = i == 1000;
+            zc8Var.c(z ? "APP" : "URL");
+            if (!z) {
+                zc8Var.l(i);
+            }
+            zc8Var.h("DEEPLINK");
+        }
+    }
+
+    public static String b(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
+            String valueOf = hashMap != null ? String.valueOf(hashMap.get("da_area")) : null;
+            return TextUtils.isEmpty(valueOf) ? "hotarea" : valueOf;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                int myPid = Process.myPid();
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) TbadkCoreApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
+                    }
+                }
+                return "GET_PROCESS_NAME_FAIL";
+            } catch (Exception unused) {
+                return "GET_PROCESS_NAME_FAIL";
             }
         }
-        p();
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ed8
-    public void d(gc8 gc8Var) {
+    public static void d(String str, String str2, int i, int i2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gc8Var) == null) {
-            super.d(gc8Var);
-            if (gc8Var == null) {
-                return;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3}) == null) {
+            zc8 zc8Var = new zc8();
+            zc8Var.h(str);
+            zc8Var.v(str2);
+            zc8Var.d(i);
+            zc8Var.i(i2);
+            zc8Var.k(str3);
+            bd8.b().d(zc8Var);
+        }
+    }
+
+    public static void e(String str, @NonNull String str2, int i, int i2, String str3, String str4, String str5, String str6, String str7, String str8) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, str4, str5, str6, str7, str8}) == null) {
+            zc8 zc8Var = new zc8();
+            zc8Var.h(str);
+            zc8Var.v(str2);
+            zc8Var.d(i);
+            zc8Var.i(i2);
+            zc8Var.c(str3);
+            zc8Var.k(str4);
+            zc8Var.m(str5);
+            zc8Var.o(str6);
+            zc8Var.q(str7);
+            zc8Var.s(str8);
+            bd8.b().d(zc8Var);
+        }
+    }
+
+    public static void f(AdvertAppInfo advertAppInfo, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65542, null, advertAppInfo, i) == null) {
+            g(advertAppInfo, 0, "", i);
+        }
+    }
+
+    public static void g(AdvertAppInfo advertAppInfo, int i, String str, int i2) {
+        kh0 kh0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            zc8 b = dd8.b(advertAppInfo, 2, i);
+            if (TextUtils.isEmpty(str)) {
+                str = "hotarea";
             }
-            this.j.K(gc8Var.c, 30, false);
-            this.k.setText(gc8Var.b);
-            this.l.setText(gc8Var.i);
-            this.n.setOnClickListener(new b(this));
-            this.o.setFormatString(this.f.getResources().getString(R.string.obfuscated_res_0x7f0f00b5));
-            this.i.setOnClickListener(new c(this, gc8Var));
-            AdvertAppInfo advertAppInfo = this.d;
-            if (advertAppInfo == null || this.g == null || !advertAppInfo.i()) {
-                return;
+            if (advertAppInfo != null && (kh0Var = advertAppInfo.u) != null) {
+                b.o(kh0Var.a());
             }
-            this.p.setAd(this.d);
-            this.p.setAppInfo(this.d.i.getAppInfoModel());
-            q();
-            r();
+            b.c(str);
+            bd8.b().d(b);
+            a(b, i2);
+            bd8.b().d(b);
         }
     }
 
-    @Override // com.repackage.ed8
-    public void e() {
+    public static void h(AdvertAppInfo advertAppInfo, int i, HashMap hashMap, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.e();
-            this.o.update(5);
-            this.o.e();
-            s();
-            AdvertAppInfo advertAppInfo = this.d;
-            uc8.b().d(wc8.b(advertAppInfo, 103, advertAppInfo.position));
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{advertAppInfo, Integer.valueOf(i), hashMap, Integer.valueOf(i2)}) == null) {
+            g(advertAppInfo, i, b(hashMap), i2);
         }
     }
 
-    @Override // com.repackage.ed8
-    public void f() {
+    public static void i(AdvertAppInfo advertAppInfo, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.f();
-            u();
+        if (interceptable == null || interceptable.invokeLII(65545, null, advertAppInfo, i, i2) == null) {
+            j(advertAppInfo, i, i2, -999, -999);
         }
     }
 
-    @Override // com.repackage.ed8
-    public void m(CountDownTextView.c cVar) {
+    public static void j(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4) {
+        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            super.m(cVar);
-            this.o.setTimeoutListener(cVar);
-        }
-    }
-
-    public void o(DownloadCacheKey downloadCacheKey) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, downloadCacheKey) == null) || downloadCacheKey == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{advertAppInfo, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || advertAppInfo == null || (i5 = advertAppInfo.c) == 1001 || i5 == -1001) {
             return;
         }
-        this.q = downloadCacheKey;
-        u();
-        this.r = null;
-        AdDownloadData b2 = lj5.d().b(downloadCacheKey);
-        if (ga8.r(b2.getPkgName())) {
-            b2.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
+        zc8 h = dd8.h(advertAppInfo, 5, i, i2);
+        if (i3 != -999) {
+            h.l(i3);
         }
-        AdCard adCard = this.g;
-        if (adCard != null && adCard.getAdvertAppInfo() != null) {
-            String str = this.g.getAdvertAppInfo().k;
-            b2.setExtInfo(this.g.getAdvertAppInfo().h);
-            b2.setDownloadKey(this.g.getDownloadKey());
-            b2.setPage(str);
-            b2.setDeeplinkUrl(this.g.scheme);
-            b2.setCmdScheme(this.g.cmdScheme);
+        if (i4 != -999) {
+            h.n(i4);
         }
-        lj5 d2 = lj5.d();
-        ApkDownloadView apkDownloadView = this.m;
-        pj5 c2 = d2.c(apkDownloadView, apkDownloadView, b2);
-        this.r = new rj5(c2);
-        if (b2.extra().getPercent() > 0) {
-            c2.e(b2);
-        }
-        s();
-        this.m.d(b2.getCurrentState());
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.setOnClickListener(new a(this));
-            this.i = (RelativeLayout) b(R.id.obfuscated_res_0x7f090098);
-            this.j = (RoundTbImageView) b(R.id.obfuscated_res_0x7f092285);
-            this.k = (TextView) b(R.id.obfuscated_res_0x7f09229c);
-            this.l = (TextView) b(R.id.obfuscated_res_0x7f092281);
-            this.m = (ApkDownloadView) b(R.id.obfuscated_res_0x7f090820);
-            this.n = (TextView) b(R.id.obfuscated_res_0x7f091a37);
-            this.o = (CountDownTextView) b(R.id.obfuscated_res_0x7f090703);
-            this.p = (AdAppInfoView) b(R.id.obfuscated_res_0x7f0900b4);
-            this.m.setTextColorInitSkin(R.color.CAM_X0101);
-            this.m.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.m.setTextSize(R.dimen.T_X06);
-            this.m.setForegroundSkin(R.color.black_alpha15);
-            this.m.setBackgroundSkin(R.drawable.obfuscated_res_0x7f081235);
-            this.m.setRatio(0);
-            this.m.j();
-        }
-    }
-
-    public final void q() {
-        AdCard adCard;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (adCard = this.g) == null || adCard.downloadInfo == null) {
-            return;
-        }
-        this.m.setInitText(adCard.operate.b);
-        AdCard adCard2 = this.g;
-        String str = adCard2.downloadInfo.a;
-        DownloadData t = t(this.g, adCard2.getPosition());
-        if (ga8.r(str)) {
-            t.setStatus(8);
-        } else {
-            t.setStatus(this.m.getDownloadStatus());
-        }
-        this.m.setData(t);
-        this.m.setOnClickInterceptListener(new d(this));
-    }
-
-    public final void r() {
-        DownloadCacheKey i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            AdCard adCard = this.g;
-            String str = adCard.scheme;
-            String downloadId = adCard.getDownloadId();
-            if (!TextUtils.isEmpty(downloadId)) {
-                i = lj5.d().h(downloadId);
-            } else {
-                i = lj5.d().i(str);
+        if (i2 == 31) {
+            if (TextUtils.isEmpty(a)) {
+                a = c();
             }
-            if (i == null) {
-                ac8 ac8Var = this.g.downloadInfo;
-                i = DownloadCacheKey.create(downloadId, ac8Var.b, ac8Var.a);
-                lj5.d().j(i, null);
+            h.s(a);
+        }
+        bd8.b().d(h);
+    }
+
+    public static void k(cl8 cl8Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65547, null, cl8Var, i) == null) {
+            l(cl8Var, i, -999, -999);
+        }
+    }
+
+    public static void l(cl8 cl8Var, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIII(65548, null, cl8Var, i, i2, i3) == null) || cl8Var == null || cl8Var.getAdvertAppInfo() == null || cl8Var.getAdvertAppInfo().c == 1001 || cl8Var.getAdvertAppInfo().c == -1001) {
+            return;
+        }
+        zc8 e = dd8.e(cl8Var, 5);
+        e.j(i);
+        if (i2 != -999) {
+            e.l(i2);
+        }
+        if (i3 != -999) {
+            e.n(i3);
+        }
+        bd8.b().d(e);
+    }
+
+    public static void m(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, advertAppInfo) == null) {
+            bd8.b().d(dd8.b(advertAppInfo, 7, 0));
+        }
+    }
+
+    public static void n(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65550, null, advertAppInfo) == null) {
+            o(advertAppInfo, 0, "", "", "");
+        }
+    }
+
+    public static void o(AdvertAppInfo advertAppInfo, int i, String str, String str2, String str3) {
+        kh0 kh0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, str2, str3}) == null) {
+            zc8 c = dd8.c(advertAppInfo, 2, i);
+            c.w(str2);
+            if (TextUtils.isEmpty(str3)) {
+                str3 = "hotarea";
             }
-            o(i);
+            if (advertAppInfo != null && (kh0Var = advertAppInfo.u) != null) {
+                c.o(kh0Var.a());
+            }
+            c.c(str3);
+            bd8.b().d(c);
         }
     }
 
-    public final void s() {
+    public static void p(AdvertAppInfo advertAppInfo, int i, String str, String str2, HashMap hashMap) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.q == null || this.r == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, str2, hashMap}) == null) {
+            o(advertAppInfo, i, str, str2, b(hashMap));
         }
-        lj5.d().j(this.q, this.r);
     }
 
-    public DownloadData t(AdCard adCard, int i) {
-        InterceptResult invokeLI;
+    public static void q(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, adCard, i)) == null) {
-            DownloadData downloadData = new DownloadData(adCard.getDownloadId());
-            downloadData.setUrl(adCard.downloadInfo.b);
-            downloadData.setName(adCard.userName);
-            downloadData.setPosition(i);
-            downloadData.setNotifyId(mg.e(adCard.adId, 0));
-            return downloadData;
+        if (interceptable == null || interceptable.invokeL(65553, null, advertAppInfo) == null) {
+            bd8.b().d(dd8.b(advertAppInfo, 3, 0));
         }
-        return (DownloadData) invokeLI.objValue;
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.q == null || this.r == null) {
-            return;
-        }
-        lj5.d().r(this.q, this.r);
     }
 }

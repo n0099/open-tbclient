@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rw5;
-import com.repackage.uq5;
+import com.repackage.tw5;
+import com.repackage.wq5;
 /* loaded from: classes3.dex */
-public class ConcernTabEmptyView extends rw5<uq5> {
+public class ConcernTabEmptyView extends tw5<wq5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
@@ -49,7 +49,7 @@ public class ConcernTabEmptyView extends rw5<uq5> {
                 }
             }
             this.a = view2;
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09218a);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09218b);
             this.c = this.a.findViewById(R.id.obfuscated_res_0x7f090799);
         }
     }
@@ -77,14 +77,14 @@ public class ConcernTabEmptyView extends rw5<uq5> {
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d077f : invokeV.intValue;
     }
 
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -101,11 +101,11 @@ public class ConcernTabEmptyView extends rw5<uq5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.rw5
+    @Override // com.repackage.tw5
     /* renamed from: s */
-    public void l(uq5 uq5Var) {
+    public void l(wq5 wq5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, uq5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, wq5Var) == null) {
         }
     }
 }

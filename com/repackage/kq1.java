@@ -403,10 +403,10 @@ public class kq1 extends jq1 {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) ? L(str, z, new d(this)) : (js1) invokeLZ.objValue;
     }
 
-    public lg4 F(@NonNull j03 j03Var) {
+    public kg4 F(@NonNull j03 j03Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, j03Var)) == null) ? j03Var.e0().g() : (lg4) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, j03Var)) == null) ? j03Var.e0().g() : (kg4) invokeL.objValue;
     }
 
     public js1 G() {

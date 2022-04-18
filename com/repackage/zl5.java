@@ -177,7 +177,7 @@ public class zl5 implements lh3 {
 
         /* renamed from: com.repackage.zl5$b$b  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class DialogInterface$OnClickListenerC0572b implements DialogInterface.OnClickListener {
+        public class DialogInterface$OnClickListenerC0571b implements DialogInterface.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -187,14 +187,14 @@ public class zl5 implements lh3 {
             public class a implements vg1 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ DialogInterface$OnClickListenerC0572b a;
+                public final /* synthetic */ DialogInterface$OnClickListenerC0571b a;
 
-                public a(DialogInterface$OnClickListenerC0572b dialogInterface$OnClickListenerC0572b) {
+                public a(DialogInterface$OnClickListenerC0571b dialogInterface$OnClickListenerC0571b) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {dialogInterface$OnClickListenerC0572b};
+                        Object[] objArr = {dialogInterface$OnClickListenerC0571b};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -204,7 +204,7 @@ public class zl5 implements lh3 {
                             return;
                         }
                     }
-                    this.a = dialogInterface$OnClickListenerC0572b;
+                    this.a = dialogInterface$OnClickListenerC0571b;
                 }
 
                 @Override // com.repackage.vg1
@@ -220,7 +220,7 @@ public class zl5 implements lh3 {
                 }
             }
 
-            public DialogInterface$OnClickListenerC0572b(b bVar) {
+            public DialogInterface$OnClickListenerC0571b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -336,7 +336,7 @@ public class zl5 implements lh3 {
                 nz2.a aVar = new nz2.a(this.b);
                 aVar.V(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0076));
                 aVar.x(string);
-                aVar.P(string2, new DialogInterface$OnClickListenerC0572b(this));
+                aVar.P(string2, new DialogInterface$OnClickListenerC0571b(this));
                 aVar.C(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0071), new a(this));
                 aVar.X();
             }
@@ -575,7 +575,7 @@ public class zl5 implements lh3 {
             String substring = str.substring(0, 8);
             String substring2 = str.substring(8, str.length());
             String upperCase = SapiUtils.getClientId(context).toUpperCase();
-            return substring + pg4.d((substring2 + pg4.d(upperCase.getBytes(), false)).getBytes(), false);
+            return substring + og4.d((substring2 + og4.d(upperCase.getBytes(), false)).getBytes(), false);
         }
         return (String) invokeLL.objValue;
     }
@@ -755,14 +755,14 @@ public class zl5 implements lh3 {
             this.a.setCancelable(false);
             this.a.a(true);
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d0527);
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091acf);
-            ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091301);
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0913f4);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091ad0);
+            ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091302);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0913f5);
             if (findViewById != null) {
-                findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e53));
+                findViewById.setBackground(findViewById.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e57));
             }
             if (progressBar != null) {
-                progressBar.setIndeterminateDrawable(progressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d35));
+                progressBar.setIndeterminateDrawable(progressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080d39));
             }
             if (textView != null) {
                 textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f06077f));
