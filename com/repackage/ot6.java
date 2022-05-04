@@ -150,11 +150,11 @@ public class ot6 {
         this.b = inflate;
         this.a.setContentView(inflate);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f09039d);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.f.setTitleText(R.string.obfuscated_res_0x7f0f0457);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923af);
         this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f25);
         this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f24);
         this.k = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d9a);

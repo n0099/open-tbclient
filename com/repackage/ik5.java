@@ -159,7 +159,7 @@ public class ik5 extends BaseAdapter implements View.OnClickListener {
         d.put(4, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00d4));
         d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d09));
         d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d3a));
-        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f1549));
+        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f154a));
         e.put(new b(false), Integer.valueOf((int) R.drawable.btn_pass));
         e.put(new b(true), Integer.valueOf((int) R.drawable.btn_all_blue));
         f.put(new b(false), Integer.valueOf((int) R.color.btn_pass_text_color));

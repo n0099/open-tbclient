@@ -100,7 +100,7 @@ public class z09 {
             this.b.k0(-dimensionPixelSize5);
             this.b.N(3000);
         }
-        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f157a);
+        String string = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f157b);
         this.b.Y(R.drawable.obfuscated_res_0x7f080916);
         this.b.R(true);
         this.b.m0(string, "commodity_tip_show_controller");

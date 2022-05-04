@@ -406,7 +406,7 @@ public final class VideoAttentionListPageFragment extends BaseFragment implement
                         View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0922fc);
                         Intrinsics.checkNotNullExpressionValue(findViewById, "headerView.findViewById(…eo_concern_no_data_title)");
                         this.h = (EMTextView) findViewById;
-                        View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f09237f);
+                        View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f092380);
                         Intrinsics.checkNotNullExpressionValue(findViewById2, "rooView.findViewById(R.id.viedo_attention_list)");
                         BdRecyclerView bdRecyclerView2 = (BdRecyclerView) findViewById2;
                         this.e = bdRecyclerView2;

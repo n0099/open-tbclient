@@ -377,7 +377,7 @@ public class TransmitForumActivity extends BaseActivity<TransmitForumActivity> {
             this.mListView.a(this.mAdapters);
             this.mListView.setData(this.mDataList);
             setTransmitConfirmButtonText();
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0923ba);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0923bb);
             this.mTopView = findViewById2;
             findViewById2.setOnClickListener(this.mOnClickListener);
             View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0911e5);

@@ -602,7 +602,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                         oi.w(this.a.getPageContext().getPageActivity(), this.a.mEditSearch);
                         if (!this.a.navigateToHotSearch()) {
                             SquareSearchActivity squareSearchActivity = this.a;
-                            squareSearchActivity.showToast(squareSearchActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1588));
+                            squareSearchActivity.showToast(squareSearchActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1589));
                         }
                     } else {
                         String trim = this.a.mEditSearch.getText().toString().trim();
@@ -610,7 +610,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
                             this.a.doSearch(trim, false);
                         } else {
                             SquareSearchActivity squareSearchActivity2 = this.a;
-                            squareSearchActivity2.showToast(squareSearchActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f1588));
+                            squareSearchActivity2.showToast(squareSearchActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f1589));
                         }
                     }
                     return true;
@@ -1722,7 +1722,7 @@ public class SquareSearchActivity extends BaseActivity<SquareSearchActivity> imp
     private void initNavigationBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65581, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d07a4, (View.OnClickListener) null);
             this.mSearchIcon = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091c0c);

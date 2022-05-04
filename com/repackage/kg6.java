@@ -564,9 +564,9 @@ public class kg6 extends tw5<pg6> implements lg6 {
         this.l.setText(StringHelper.stringForVideoTime(pg6Var.n.e * 1000));
         long j = pg6Var.n.h;
         if (j == 0) {
-            format = this.z.getString(R.string.obfuscated_res_0x7f0f14e1);
+            format = this.z.getString(R.string.obfuscated_res_0x7f0f14e2);
         } else {
-            format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f14e0), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
+            format = String.format(this.z.getString(R.string.obfuscated_res_0x7f0f14e1), Q(String.format("%.1f", Float.valueOf(((float) j) / 1048576.0f))));
         }
         this.n.setText(format);
         this.m.setVisibility(8);

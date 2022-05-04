@@ -4317,7 +4317,7 @@ public class VideoPlayFragment extends BaseFragment implements ng5.b, nw8, OnSta
             ThreadData threadData2 = this.h0.threadData;
             if (threadData2 != null && !TextUtils.isEmpty(threadData2.getRecomReason())) {
                 TextView textView = this.K;
-                textView.setText(this.C0 + getActivity().getResources().getString(R.string.obfuscated_res_0x7f0f14f1));
+                textView.setText(this.C0 + getActivity().getResources().getString(R.string.obfuscated_res_0x7f0f14f2));
             }
             this.E.setOnClickListener(new n0(this, forum_name));
         }
@@ -4335,11 +4335,11 @@ public class VideoPlayFragment extends BaseFragment implements ng5.b, nw8, OnSta
             return;
         }
         if (textView.getId() == R.id.obfuscated_res_0x7f090162) {
-            string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14e2);
-        } else if (textView.getId() == R.id.obfuscated_res_0x7f090697) {
             string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14e3);
+        } else if (textView.getId() == R.id.obfuscated_res_0x7f090697) {
+            string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14e4);
         } else {
-            string = textView.getId() == R.id.obfuscated_res_0x7f091cb9 ? TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14e5) : "";
+            string = textView.getId() == R.id.obfuscated_res_0x7f091cb9 ? TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14e6) : "";
         }
         textView.setText(string);
     }
@@ -4503,7 +4503,7 @@ public class VideoPlayFragment extends BaseFragment implements ng5.b, nw8, OnSta
                     EMTextView eMTextView = (EMTextView) this.g.findViewById(R.id.obfuscated_res_0x7f090c14);
                     WebPManager.setPureDrawable((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c13), R.drawable.obfuscated_res_0x7f0809d8, R.color.CAM_X0101, null);
                     eMTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0102));
-                    eMTextView.setText(getString(R.string.obfuscated_res_0x7f0f14d5));
+                    eMTextView.setText(getString(R.string.obfuscated_res_0x7f0f14d6));
                     eMTextView.setGravity(17);
                     RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
                     layoutParams2.addRule(3, R.id.obfuscated_res_0x7f0922ff);
@@ -5204,7 +5204,7 @@ public class VideoPlayFragment extends BaseFragment implements ng5.b, nw8, OnSta
             }
             int i3 = this.a;
             if (((i3 != 3 && i3 != 4) || !TbSingleton.getInstance().isTipsAutoPlayInVideoChannel()) && mi.x() && isResumed() && this.l0) {
-                oi.O(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14e6), 3000);
+                oi.O(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14e7), 3000);
                 int i4 = this.a;
                 if (i4 != 3 && i4 != 4) {
                     TbSingleton.getInstance().setTipsAutoPlayInVideoMiddle(true);
@@ -6112,11 +6112,11 @@ public class VideoPlayFragment extends BaseFragment implements ng5.b, nw8, OnSta
             this.V.setConfig(ku4Var);
             this.V.setText(getString(R.string.obfuscated_res_0x7f0f029c));
             this.p0 = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09015a);
-            this.L = (ExpandableTextView) this.f.findViewById(R.id.obfuscated_res_0x7f092372);
+            this.L = (ExpandableTextView) this.f.findViewById(R.id.obfuscated_res_0x7f092373);
             this.M = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092029);
             this.N = this.f.findViewById(R.id.obfuscated_res_0x7f092028);
             this.O = this.f.findViewById(R.id.obfuscated_res_0x7f092039);
-            this.P = this.f.findViewById(R.id.obfuscated_res_0x7f092375);
+            this.P = this.f.findViewById(R.id.obfuscated_res_0x7f092376);
             this.k0 = (VideoMiddleNiaiControllerView) this.f.findViewById(R.id.obfuscated_res_0x7f0913ba);
             this.W = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f0922e2);
             this.y = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f09068b);
@@ -6126,7 +6126,7 @@ public class VideoPlayFragment extends BaseFragment implements ng5.b, nw8, OnSta
             this.v = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0912e6);
             this.w = (LinearLayout) this.f.findViewById(R.id.obfuscated_res_0x7f091ca6);
             this.b1 = (RelativeLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0922f6);
-            this.h1 = this.f.findViewById(R.id.obfuscated_res_0x7f092376);
+            this.h1 = this.f.findViewById(R.id.obfuscated_res_0x7f092377);
             this.i1 = this.f.findViewById(R.id.obfuscated_res_0x7f0922f8);
             if (UbsABTestHelper.isFeedVideoImmersionTransition() && !l3() && this.n0 != null) {
                 G3(8);

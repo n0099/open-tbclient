@@ -336,7 +336,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 return "";
             }
             int msgType = chatMessage.getMsgType();
-            String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1552);
+            String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1553);
             if (msgType == 1) {
                 return string + TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0a4c);
             } else if (msgType == 2) {

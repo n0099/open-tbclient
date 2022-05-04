@@ -262,7 +262,7 @@ public class al8 {
                     if (!this.b.endsWith(" ")) {
                         this.b += " ";
                     }
-                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14c3);
+                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14c4);
                     String str = string + this.b;
                     SpannableString spannableString4 = new SpannableString(str);
                     spannableString4.setSpan(new a(this), string.length(), str.length() - 1, 33);

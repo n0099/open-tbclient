@@ -492,7 +492,7 @@ public class eu6 extends ho<xx5, ThreadCardViewHolder<xx5>> implements qi5 {
                     no noVar = (no) uoVar;
                     if ((noVar.e() instanceof xx5) && uoVar != null && noVar.e() != null && (xx5Var = (xx5) noVar.e()) != null && (threadData = xx5Var.a) != null && xx5Var.u && threadData.getItem() != null) {
                         if (xx5Var.a.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-                            BdToast.i(this.b.j.getContext(), this.b.j.getString(R.string.obfuscated_res_0x7f0f14d7), R.drawable.obfuscated_res_0x7f0809a9, true).q();
+                            BdToast.i(this.b.j.getContext(), this.b.j.getString(R.string.obfuscated_res_0x7f0f14d8), R.drawable.obfuscated_res_0x7f0809a9, true).q();
                             return;
                         }
                         int a = uu4.a(xx5Var.a.getItem().button_link_type.intValue(), xx5Var.a.getItem().apk_detail != null ? xx5Var.a.getItem().apk_detail.pkg_source.intValue() : 0);

@@ -65,7 +65,7 @@ public class it7 extends ft7<CustomDialogData> implements View.OnClickListener {
             this.e = (TbImageView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907b0);
             this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0907bf);
             this.g = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f09079c);
-            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f092493);
+            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f092494);
             this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f091579);
             this.j = getViewGroup().findViewById(R.id.obfuscated_res_0x7f090342);
             this.k = getViewGroup().findViewById(R.id.obfuscated_res_0x7f090816);

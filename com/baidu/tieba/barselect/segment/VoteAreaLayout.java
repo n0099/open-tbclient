@@ -109,12 +109,12 @@ public class VoteAreaLayout extends CardBasicLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RoundAndShadowLinearLayout roundAndShadowLinearLayout = (RoundAndShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f0923f0);
+            RoundAndShadowLinearLayout roundAndShadowLinearLayout = (RoundAndShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f0923f1);
             this.e = roundAndShadowLinearLayout;
             roundAndShadowLinearLayout.setRadius(oi.f(this.d, R.dimen.tbds8));
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092404);
-            this.h = (TrapezoidButton) findViewById(R.id.obfuscated_res_0x7f0923f2);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f3);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092405);
+            this.h = (TrapezoidButton) findViewById(R.id.obfuscated_res_0x7f0923f3);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f4);
             this.f = findViewById(R.id.obfuscated_res_0x7f090466);
         }
     }

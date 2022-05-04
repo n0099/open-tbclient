@@ -258,10 +258,10 @@ public class he8 extends z8<AboutActivity> {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d001c);
             this.d = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091642);
             this.g = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090e76);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14c2));
+            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14c3));
             this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091f42);
             this.f = (SettingTextTestNewView) this.a.findViewById(R.id.obfuscated_res_0x7f090022);
             TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090020);
@@ -275,7 +275,7 @@ public class he8 extends z8<AboutActivity> {
             tbSettingTextTipView3.c();
             this.k = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f091fd8);
             if (CurrencySwitchUtil.isYyIsConvert()) {
-                this.k.setText(R.string.obfuscated_res_0x7f0f15b4);
+                this.k.setText(R.string.obfuscated_res_0x7f0f15b5);
             } else {
                 this.k.setText(R.string.obfuscated_res_0x7f0f1385);
             }

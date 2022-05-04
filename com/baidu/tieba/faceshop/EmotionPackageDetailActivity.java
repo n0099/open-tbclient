@@ -961,8 +961,8 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09163c);
             this.mVoteContainer = findViewById3;
             findViewById3.setOnClickListener(this);
-            this.mVoteImg = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923f9);
-            this.mVoteTxt = (TextView) findViewById(R.id.obfuscated_res_0x7f09240a);
+            this.mVoteImg = (ImageView) findViewById(R.id.obfuscated_res_0x7f0923fa);
+            this.mVoteTxt = (TextView) findViewById(R.id.obfuscated_res_0x7f09240b);
             this.previewController = new oa6(this);
         }
     }

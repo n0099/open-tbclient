@@ -53,7 +53,7 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0292, this);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092370);
+            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092371);
             this.b = findViewById(R.id.obfuscated_res_0x7f09038d);
             this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09233f);
             this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090971);
@@ -72,7 +72,7 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            BdToast.i(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f14d7), R.drawable.obfuscated_res_0x7f0809a9, true).q();
+            BdToast.i(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f14d8), R.drawable.obfuscated_res_0x7f0809a9, true).q();
         }
     }
 

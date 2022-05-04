@@ -285,7 +285,7 @@ public class ti6 extends si6 {
             this.p = this.c.findViewById(R.id.obfuscated_res_0x7f0907ea);
             this.q = (RankStarView) this.c.findViewById(R.id.obfuscated_res_0x7f090f9d);
             this.r = (EditText) this.c.findViewById(R.id.obfuscated_res_0x7f091621);
-            this.s = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09246c);
+            this.s = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09246d);
             this.m.setPlaceHolder(2);
             this.m.setConrers(15);
             this.m.setRadius(oi.f(this.a, R.dimen.tbds10));

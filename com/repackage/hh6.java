@@ -66,7 +66,7 @@ public class hh6 extends ho<qq4, ThreadCardViewHolder<ThreadData>> {
                 if (z) {
                     qq4 qq4Var = (qq4) uoVar;
                     if (qq4Var.s.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-                        BdToast.i(this.b.j.getContext(), this.b.j.getString(R.string.obfuscated_res_0x7f0f14d7), R.drawable.obfuscated_res_0x7f0809a9, true).q();
+                        BdToast.i(this.b.j.getContext(), this.b.j.getString(R.string.obfuscated_res_0x7f0f14d8), R.drawable.obfuscated_res_0x7f0809a9, true).q();
                         return;
                     }
                     ThreadData threadData = qq4Var.s;

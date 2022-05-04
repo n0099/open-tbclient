@@ -124,9 +124,9 @@ public class p19 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 cr4 cr4Var = new cr4(this.a.a.getPageActivity());
-                cr4Var.setTitle(this.a.a.getString(R.string.obfuscated_res_0x7f0f1536));
+                cr4Var.setTitle(this.a.a.getString(R.string.obfuscated_res_0x7f0f1537));
                 cr4Var.setTitleShowCenter(true);
-                cr4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f1535));
+                cr4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f1536));
                 cr4Var.setMessageShowCenter(true);
                 cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0495, new C0491a(this));
                 cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new b(this));
@@ -205,17 +205,17 @@ public class p19 {
         voteView.setVoteTitle(writeVoteData.getTitle());
         if (this.d.getIs_multi() == 1) {
             tbPageContext = this.a;
-            i = R.string.obfuscated_res_0x7f0f1541;
+            i = R.string.obfuscated_res_0x7f0f1542;
         } else {
             tbPageContext = this.a;
-            i = R.string.obfuscated_res_0x7f0f1542;
+            i = R.string.obfuscated_res_0x7f0f1543;
         }
         String string = tbPageContext.getString(i);
         int expire_type = this.d.getExpire_type();
         if (expire_type > 0) {
             Calendar calendar = Calendar.getInstance();
             calendar.add(6, expire_type);
-            str = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f159d), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
+            str = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f159e), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
         } else {
             str = "";
         }

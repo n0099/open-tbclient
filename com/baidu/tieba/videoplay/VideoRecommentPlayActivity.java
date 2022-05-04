@@ -274,7 +274,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             this.mFragment = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f09237a, this.mFragment);
+            beginTransaction.add(R.id.obfuscated_res_0x7f09237b, this.mFragment);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             ImageView imageView = new ImageView(getPageContext().getPageActivity());

@@ -120,9 +120,9 @@ public class d97 extends z8<ValidateActivity> {
             View inflate = View.inflate(this.c.getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d0861, null);
             this.a = inflate;
             this.c.setContentView(inflate);
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.g = navigationBar;
-            navigationBar.setTitleText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f14b7));
+            navigationBar.setTitleText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f14b8));
             this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             this.d = (BdListView) this.a.findViewById(R.id.obfuscated_res_0x7f0922cd);
             this.f = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091908);

@@ -114,7 +114,7 @@ public class ef5 {
             if (interceptable == null || interceptable.invokeLIL(1048579, this, view2, i, z45Var) == null) {
                 if (z45Var.n()) {
                     Context context = view2.getContext();
-                    BdToast.i(context, context.getString(R.string.obfuscated_res_0x7f0f14d0), R.drawable.obfuscated_res_0x7f0809a9, true).q();
+                    BdToast.i(context, context.getString(R.string.obfuscated_res_0x7f0f14d1), R.drawable.obfuscated_res_0x7f0809a9, true).q();
                     return;
                 }
                 if (z45Var.o()) {
@@ -230,7 +230,7 @@ public class ef5 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                BdToast.i(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.obfuscated_res_0x7f0f14d0), R.drawable.obfuscated_res_0x7f0809a9, true).q();
+                BdToast.i(SelectorHelper.getContext(), SelectorHelper.getContext().getString(R.string.obfuscated_res_0x7f0f14d1), R.drawable.obfuscated_res_0x7f0809a9, true).q();
             }
         }
     }

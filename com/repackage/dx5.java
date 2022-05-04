@@ -363,7 +363,7 @@ public class dx5 extends tw5<gy5> implements View.OnClickListener, pi5 {
                 if ((gy5Var2 == null || (threadData2 = gy5Var2.a) == null || threadData2.getThreadVideoInfo() == null || this.F.a.getThreadVideoInfo().is_vertical.intValue() != 1) ? false : true) {
                     this.P.setVisibility(0);
                     if (D()) {
-                        this.P.setText(String.format("%s | %s", this.q.getResources().getString(R.string.obfuscated_res_0x7f0f0c09), this.q.getResources().getString(R.string.obfuscated_res_0x7f0f14ef)));
+                        this.P.setText(String.format("%s | %s", this.q.getResources().getString(R.string.obfuscated_res_0x7f0f0c09), this.q.getResources().getString(R.string.obfuscated_res_0x7f0f14f0)));
                         return;
                     } else {
                         this.P.setText(this.q.getString(R.string.obfuscated_res_0x7f0f0c09));
@@ -371,7 +371,7 @@ public class dx5 extends tw5<gy5> implements View.OnClickListener, pi5 {
                     }
                 } else if (D()) {
                     this.P.setVisibility(0);
-                    this.P.setText(this.q.getString(R.string.obfuscated_res_0x7f0f14ef));
+                    this.P.setText(this.q.getString(R.string.obfuscated_res_0x7f0f14f0));
                     return;
                 } else {
                     this.P.setVisibility(8);

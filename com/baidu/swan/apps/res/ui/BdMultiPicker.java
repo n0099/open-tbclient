@@ -149,7 +149,7 @@ public class BdMultiPicker extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(0);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c3, this);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09243d);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09243e);
             this.g = ae3.f(context, this.g);
             this.j = ae3.f(context, this.j);
         }

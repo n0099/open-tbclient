@@ -1019,7 +1019,7 @@ public class CardUserInfoLayout extends LinearLayout implements gz {
                 }
                 this.e.setText(cutChineseAndEnglishWithEmoji);
             } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f14b3);
+                this.e.setText(R.string.obfuscated_res_0x7f0f14b4);
             }
         } else {
             ViewGroup.LayoutParams layoutParams = this.w.getLayoutParams();
@@ -1035,7 +1035,7 @@ public class CardUserInfoLayout extends LinearLayout implements gz {
             if (threadData.getAuthor() != null && !StringUtils.isNull(threadData.getAuthor().getName_show())) {
                 this.e.setText(threadData.getAuthor().getName_show());
             } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f14b3);
+                this.e.setText(R.string.obfuscated_res_0x7f0f14b4);
             }
         }
         HomeGroupUbsUIHelper.handleHeadSegmentTitleView(this.e);

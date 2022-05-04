@@ -2080,13 +2080,13 @@ public class PbFragment extends BaseFragment implements if5, VoiceManager.j, Use
                                                                                                     this.a.u5();
                                                                                                 } else if (id == R.id.obfuscated_res_0x7f091388) {
                                                                                                     this.a.r5();
-                                                                                                } else if (id == R.id.obfuscated_res_0x7f0924a4) {
+                                                                                                } else if (id == R.id.obfuscated_res_0x7f0924a5) {
                                                                                                     if (this.a.v0 != null && this.a.v0.T0() != null && this.a.v0.T0().A() != null) {
                                                                                                         bs7 T03 = this.a.v0.T0();
                                                                                                         TiebaStatic.log(new StatisticItem("c11679").param("fid", T03.m()));
                                                                                                         UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{T03.A().b()});
                                                                                                     }
-                                                                                                } else if (id == R.id.obfuscated_res_0x7f0924a1) {
+                                                                                                } else if (id == R.id.obfuscated_res_0x7f0924a2) {
                                                                                                     if (this.a.v0 != null && this.a.v0.T0() != null && this.a.v0.T0().A() != null) {
                                                                                                         bs7 T04 = this.a.v0.T0();
                                                                                                         TiebaStatic.log(new StatisticItem("c11678").param("fid", T04.m()));
@@ -8753,7 +8753,7 @@ public class PbFragment extends BaseFragment implements if5, VoiceManager.j, Use
             }
             if (O.getPraise() != null) {
                 if (O.getPraise().getNum() < 1) {
-                    getResources().getString(R.string.obfuscated_res_0x7f0f15e6);
+                    getResources().getString(R.string.obfuscated_res_0x7f0f15e7);
                 } else {
                     StringHelper.numFormatOver10000(O.getPraise().getNum());
                 }
@@ -8776,7 +8776,7 @@ public class PbFragment extends BaseFragment implements if5, VoiceManager.j, Use
                 }
             }
             if (O.getPraise().getNum() < 1) {
-                getResources().getString(R.string.obfuscated_res_0x7f0f15e6);
+                getResources().getString(R.string.obfuscated_res_0x7f0f15e7);
             } else {
                 String str = O.getPraise().getNum() + "";
             }
@@ -10843,8 +10843,9 @@ public class PbFragment extends BaseFragment implements if5, VoiceManager.j, Use
     }
 
     public final void j4(String str) {
+        PbModel pbModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048682, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048682, this, str) == null) || TextUtils.isEmpty(str) || (pbModel = this.v0) == null || pbModel.T0() == null) {
             return;
         }
         cl8 z3 = this.v0.T0().z();

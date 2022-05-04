@@ -638,9 +638,9 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65565, this) == null) {
             this.mMainLayout = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090ab0);
-            this.mEditContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0923a9);
+            this.mEditContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0923aa);
             this.mTopicView = (AutoChangeLineView) findViewById(R.id.obfuscated_res_0x7f0920fa);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092387);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092388);
             this.mTopicViewNums = textView;
             textView.setText(String.format("(%d/%d)", Integer.valueOf(this.mSelectedList.size()), Integer.valueOf(this.mMaxSelected)));
             this.mTopicText = (TextView) findViewById(R.id.obfuscated_res_0x7f09210e);
@@ -716,7 +716,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, navigationBar)) == null) {
-            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f1578));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f1579));
             this.mDoneText = navigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f04e7));
             LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d03a9, (ViewGroup) linearLayout, true);
             return this;
@@ -767,8 +767,8 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             this.mSkinType = i2;
             vr4.d(this.mDoneText).x(R.color.CAM_X0302);
             vr4.d(this.mTopicViewNums).v(R.color.CAM_X0107);
-            vr4.d(findViewById(R.id.obfuscated_res_0x7f092386)).v(R.color.CAM_X0105);
-            vr4.d(findViewById(R.id.obfuscated_res_0x7f0923aa)).v(R.color.CAM_X0105);
+            vr4.d(findViewById(R.id.obfuscated_res_0x7f092387)).v(R.color.CAM_X0105);
+            vr4.d(findViewById(R.id.obfuscated_res_0x7f0923ab)).v(R.color.CAM_X0105);
             vr4 d2 = vr4.d(this.mEditContainer);
             d2.n(R.string.J_X07);
             d2.f(R.color.CAM_X0209);

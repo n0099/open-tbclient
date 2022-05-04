@@ -271,7 +271,7 @@ public class MultiContentView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0560, this);
             this.b = inflate;
-            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092396);
+            this.c = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092397);
             m57 m57Var = new m57();
             this.d = m57Var.f(this.a);
             this.e = m57Var.d(this.a);

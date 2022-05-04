@@ -22,6 +22,7 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_HEIGHT;
     public static final String DEFAULT_MAX_TIME = "";
     public static final String DEFAULT_MIN_TIME = "";
+    public static final Long DEFAULT_NOTIFY_MSG_ID;
     public static final String DEFAULT_PROCESS_TYPE = "";
     public static final String DEFAULT_PUSHTIMES = "";
     public static final Integer DEFAULT_SMALLHEIGHT;
@@ -40,6 +41,8 @@ public final class DataReq extends Message {
     public final String min_time;
     @ProtoField(tag = 11)
     public final NewpushRepair newpushRepire;
+    @ProtoField(tag = 12, type = Message.Datatype.INT64)
+    public final Long notify_msg_id;
     @ProtoField(tag = 10, type = Message.Datatype.STRING)
     public final String process_type;
     @ProtoField(tag = 5, type = Message.Datatype.STRING)
@@ -61,6 +64,7 @@ public final class DataReq extends Message {
         public String max_time;
         public String min_time;
         public NewpushRepair newpushRepire;
+        public Long notify_msg_id;
         public String process_type;
         public String pushTimes;
         public Integer smallHeight;
@@ -113,6 +117,7 @@ public final class DataReq extends Message {
             this.max_time = dataReq.max_time;
             this.process_type = dataReq.process_type;
             this.newpushRepire = dataReq.newpushRepire;
+            this.notify_msg_id = dataReq.notify_msg_id;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -148,6 +153,7 @@ public final class DataReq extends Message {
         DEFAULT_SMALLWIDTH = 0;
         DEFAULT_SMALLHEIGHT = 0;
         DEFAULT_GROUPMIDS = Collections.emptyList();
+        DEFAULT_NOTIFY_MSG_ID = 0L;
     }
 
     public /* synthetic */ DataReq(Builder builder, boolean z, a aVar) {
@@ -234,7 +240,14 @@ public final class DataReq extends Message {
                 this.process_type = str5;
             }
             this.newpushRepire = builder.newpushRepire;
-            return;
+            Long l = builder.notify_msg_id;
+            if (l == null) {
+                this.notify_msg_id = DEFAULT_NOTIFY_MSG_ID;
+                return;
+            } else {
+                this.notify_msg_id = l;
+                return;
+            }
         }
         this.width = builder.width;
         this.height = builder.height;
@@ -247,5 +260,6 @@ public final class DataReq extends Message {
         this.max_time = builder.max_time;
         this.process_type = builder.process_type;
         this.newpushRepire = builder.newpushRepire;
+        this.notify_msg_id = builder.notify_msg_id;
     }
 }

@@ -173,9 +173,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ed);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923ef);
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923ee);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ee);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923f0);
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923ef);
         }
     }
 
@@ -244,7 +244,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f0923fa);
+            this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f0923fb);
             this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090eab);
             this.c = new g(writeVoteViewAdapter, this);
             this.a.setOnEditorActionListener(writeVoteViewAdapter.e);
@@ -316,7 +316,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
             writeVoteItemData.setId(this.b + 1);
             if (fd5.d(replace) > 28) {
-                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f15a4), 14));
+                this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f15a5), 14));
             }
             String n = fd5.n(replace, 28);
             if (!n.equals(editable.toString())) {
@@ -443,7 +443,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             if (viewHolder instanceof e) {
                 e eVar = (e) viewHolder;
                 String text = this.b.get(i).getText();
-                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f159f), Integer.valueOf(i + 1)));
+                eVar.a.setHint(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f15a0), Integer.valueOf(i + 1)));
                 eVar.a.setGravity(19);
                 if (i < this.b.size() - 1) {
                     eVar.a.setImeOptions(5);
@@ -469,7 +469,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                 }
             } else if (viewHolder instanceof d) {
                 d dVar = (d) viewHolder;
-                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f157d), Integer.valueOf(20 - this.b.size())));
+                dVar.a.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f157e), Integer.valueOf(20 - this.b.size())));
                 dVar.c.setOnClickListener(new c(this));
             }
             g(viewHolder);

@@ -125,9 +125,9 @@ public class MsgReplyCardView extends d57 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, str)) == null) {
             if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
                 string = N(aVar.a);
-                N = this.mContext.getString(R.string.obfuscated_res_0x7f0f15b6);
+                N = this.mContext.getString(R.string.obfuscated_res_0x7f0f15b7);
             } else {
-                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f15b6);
+                string = this.mContext.getString(R.string.obfuscated_res_0x7f0f15b7);
                 N = N(aVar.a);
             }
             return String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f00bf), string, getType(aVar.h), N);

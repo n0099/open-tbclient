@@ -232,7 +232,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 inflate = null;
             }
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09248b);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09248c);
             Intrinsics.checkNotNullExpressionValue(findViewById, "mRootView.findViewById(R.id.write_video_preview)");
             WorkPublishVideoView workPublishVideoView = (WorkPublishVideoView) findViewById;
             this.h = workPublishVideoView;
@@ -246,7 +246,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view3 = null;
             }
-            View findViewById2 = view3.findViewById(R.id.obfuscated_res_0x7f092489);
+            View findViewById2 = view3.findViewById(R.id.obfuscated_res_0x7f09248a);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "mRootView.findViewById(R…e_video_mix_state_layout)");
             this.i = (LinearLayout) findViewById2;
             View view4 = this.f;
@@ -254,7 +254,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view4 = null;
             }
-            View findViewById3 = view4.findViewById(R.id.obfuscated_res_0x7f09248d);
+            View findViewById3 = view4.findViewById(R.id.obfuscated_res_0x7f09248e);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "mRootView.findViewById(R…d.write_video_state_text)");
             this.j = (TextView) findViewById3;
             View view5 = this.f;
@@ -262,7 +262,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view5 = null;
             }
-            View findViewById4 = view5.findViewById(R.id.obfuscated_res_0x7f09248a);
+            View findViewById4 = view5.findViewById(R.id.obfuscated_res_0x7f09248b);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "mRootView.findViewById(R.id.write_video_percent)");
             this.k = (TextView) findViewById4;
             View view6 = this.f;
@@ -271,7 +271,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
             } else {
                 view2 = view6;
             }
-            View findViewById5 = view2.findViewById(R.id.obfuscated_res_0x7f09248c);
+            View findViewById5 = view2.findViewById(R.id.obfuscated_res_0x7f09248d);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "mRootView.findViewById(R.id.write_video_retry)");
             this.l = (TextView) findViewById5;
             f();
@@ -372,7 +372,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                 Intrinsics.throwUninitializedPropertyAccessException("mContext");
                 tbPageContext = null;
             }
-            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f14dc);
+            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f14dd);
             Intrinsics.checkNotNullExpressionValue(string, "mContext.getString(R.string.video_mix_percent)");
             String format = String.format(string, Arrays.copyOf(new Object[]{Integer.valueOf(i2)}, 1));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
@@ -396,7 +396,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext2 = null;
                     }
-                    textView3.setText(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f14df));
+                    textView3.setText(tbPageContext2.getString(R.string.obfuscated_res_0x7f0f14e0));
                     TextView textView4 = this.k;
                     if (textView4 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");
@@ -420,7 +420,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext3 = null;
                     }
-                    textView6.setText(tbPageContext3.getString(R.string.obfuscated_res_0x7f0f14db));
+                    textView6.setText(tbPageContext3.getString(R.string.obfuscated_res_0x7f0f14dc));
                     TextView textView7 = this.k;
                     if (textView7 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");
@@ -444,7 +444,7 @@ public final class WorkPublishMixVideoView extends LinearLayout implements t29 {
                         Intrinsics.throwUninitializedPropertyAccessException("mContext");
                         tbPageContext4 = null;
                     }
-                    textView9.setText(tbPageContext4.getString(R.string.obfuscated_res_0x7f0f14de));
+                    textView9.setText(tbPageContext4.getString(R.string.obfuscated_res_0x7f0f14df));
                     TextView textView10 = this.k;
                     if (textView10 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mixPercentText");

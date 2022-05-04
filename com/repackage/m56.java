@@ -92,7 +92,7 @@ public class m56 {
                 return "";
             }
             String str = TextUtils.isEmpty("") ? user.name_show : "";
-            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14b3) : str;
+            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14b4) : str;
         }
         return (String) invokeL.objValue;
     }

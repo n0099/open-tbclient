@@ -607,7 +607,7 @@ public class TbRichTextItem extends OrmObject {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (this.a == 32 && this.b != null) {
-                spannableStringBuilder.append((CharSequence) TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14fd));
+                spannableStringBuilder.append((CharSequence) TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14fe));
                 CharSequence C = C(arrayList);
                 if (C != null) {
                     spannableStringBuilder.append(C);

@@ -379,7 +379,7 @@ public abstract class cz8 {
                     return;
                 }
             }
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f09238b);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f09238c);
             this.f = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092236);
             this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091fb5);
             this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091fb6);
@@ -899,14 +899,14 @@ public abstract class cz8 {
             this.D = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090d9d);
             this.E = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d9e);
             this.F = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090d9f);
-            this.G = (OvalActionButton) this.a.findViewById(R.id.obfuscated_res_0x7f09247a);
+            this.G = (OvalActionButton) this.a.findViewById(R.id.obfuscated_res_0x7f09247b);
             hz8 hz8Var2 = this.c;
             if (hz8Var2 != null && "frs".equals(hz8Var2.i())) {
                 this.G.setIsCircle(true);
                 this.G.setHasShadow(false);
             }
-            this.f = this.a.findViewById(R.id.obfuscated_res_0x7f09238d);
-            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f09238c);
+            this.f = this.a.findViewById(R.id.obfuscated_res_0x7f09238e);
+            this.e = this.a.findViewById(R.id.obfuscated_res_0x7f09238d);
             GridLayout gridLayout = (GridLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092236);
             this.H = gridLayout;
             gridLayout.setMeasureAllChild(true);
@@ -1036,7 +1036,7 @@ public abstract class cz8 {
         public final void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.s = (FrsAnomalyImg) this.a.findViewById(R.id.obfuscated_res_0x7f092488);
+                this.s = (FrsAnomalyImg) this.a.findViewById(R.id.obfuscated_res_0x7f092489);
                 this.t = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09220f);
                 FrsAnomalyImg.b bVar = new FrsAnomalyImg.b();
                 bVar.a(40);

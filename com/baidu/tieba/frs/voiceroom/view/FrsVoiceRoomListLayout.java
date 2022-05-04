@@ -99,18 +99,18 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements gz, fz<tx4> 
                 }
                 this.k = horizontalAdapter;
                 this.a = 3;
-                this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923e3);
-                this.c = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0923e4);
-                this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e7);
-                this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e8);
-                this.g = (ImageOverlayView) view2.findViewById(R.id.obfuscated_res_0x7f0923e6);
+                this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923e4);
+                this.c = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0923e5);
+                this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e8);
+                this.f = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e9);
+                this.g = (ImageOverlayView) view2.findViewById(R.id.obfuscated_res_0x7f0923e7);
                 int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds58);
                 this.g.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2), R.color.CAM_X0402, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds28));
                 this.g.setStrokeStyle(1);
                 this.g.setLoadImageType(12);
-                this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e5);
-                this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e2);
-                this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923df);
+                this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e6);
+                this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e3);
+                this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e0);
                 this.itemView.setOnClickListener(this);
             }
 
@@ -163,8 +163,8 @@ public class FrsVoiceRoomListLayout extends LinearLayout implements gz, fz<tx4> 
                 }
                 this.f.setText(xr6Var.a);
                 this.g.setData(xr6Var.b);
-                this.h.setText(String.format(this.k.a.getResources().getString(R.string.obfuscated_res_0x7f0f1530), xr6Var.c));
-                this.i.setText(String.format(this.k.a.getResources().getString(R.string.obfuscated_res_0x7f0f152e), xr6Var.d));
+                this.h.setText(String.format(this.k.a.getResources().getString(R.string.obfuscated_res_0x7f0f1531), xr6Var.c));
+                this.i.setText(String.format(this.k.a.getResources().getString(R.string.obfuscated_res_0x7f0f152f), xr6Var.d));
                 this.c.setRepeatCount(Integer.MAX_VALUE);
                 this.c.setRepeatMode(1);
                 this.c.playAnimation();

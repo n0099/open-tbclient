@@ -600,10 +600,10 @@ public class EditorInfoContainer extends RelativeLayout implements v05 {
             cr4Var.setNegativeButton((String) null, (cr4.e) null);
             cr4Var.setContentViewSize(6);
             CustomPrivacyDialogView customPrivacyDialogView = new CustomPrivacyDialogView(context);
-            customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f158e));
+            customPrivacyDialogView.setMessageTextViewMessage(context.getString(R.string.obfuscated_res_0x7f0f158f));
             customPrivacyDialogView.setMessageTextViewColor(SkinManager.getColor(R.color.CAM_X0107));
-            customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f158c));
-            customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f158d));
+            customPrivacyDialogView.setPrivacyDialogCancelButtonText(context.getString(R.string.obfuscated_res_0x7f0f158d));
+            customPrivacyDialogView.setPrivacyDialogConfirmButtonText(context.getString(R.string.obfuscated_res_0x7f0f158e));
             customPrivacyDialogView.setPrivacyDialogCancelButtonListener(new a(this, gVar, cr4Var));
             customPrivacyDialogView.setPrivacyDialogConfirmButtonListener(new b(this, gVar, cr4Var));
             cr4Var.setContentView(customPrivacyDialogView);

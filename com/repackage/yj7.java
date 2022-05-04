@@ -311,7 +311,7 @@ public class yj7 {
             this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091907);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091900);
             this.h = (GridView) this.b.findViewById(R.id.obfuscated_res_0x7f0918f6);
-            this.k = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.k = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923af);
             this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0913d7);
             this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921b7);
             this.d.setBackgroundResource(R.drawable.obfuscated_res_0x7f08120b);

@@ -137,7 +137,7 @@ public class CurrencySwitchModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.isSending) {
-                oi.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f154c);
+                oi.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f154d);
                 return;
             }
             this.isSending = true;

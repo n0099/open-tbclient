@@ -366,7 +366,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             layoutParams.gravity = 17;
             this.h.setLayoutParams(layoutParams);
             this.i = this.h.findViewById(R.id.obfuscated_res_0x7f0906d5);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.h.findViewById(R.id.obfuscated_res_0x7f092390);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) this.h.findViewById(R.id.obfuscated_res_0x7f092391);
             this.j = tBLottieAnimationView;
             tBLottieAnimationView.setSpeed(1.1f);
             this.j.m();
@@ -377,7 +377,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             this.m.setDefaultBgResource(R.color.transparent);
             this.m.setConrers(15);
             this.n = (TbImageView) this.h.findViewById(R.id.obfuscated_res_0x7f09084e);
-            TextView textView = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f092391);
+            TextView textView = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f092392);
             this.k = textView;
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) textView.getLayoutParams();
             marginLayoutParams.topMargin = -oi.f(getContext(), R.dimen.M_H_X001);

@@ -926,7 +926,7 @@ public class bh6 extends nr6 {
         this.D0 = this.d.findViewById(R.id.obfuscated_res_0x7f090304);
         this.x = (ServiceAreaView) this.d.findViewById(R.id.obfuscated_res_0x7f091c8e);
         this.y = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090abf);
-        this.D = (FrsVoiceRoomListLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0923e1);
+        this.D = (FrsVoiceRoomListLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0923e2);
         this.A = (FrsTopView) this.d.findViewById(R.id.obfuscated_res_0x7f090c01);
         this.E0 = this.d.findViewById(R.id.obfuscated_res_0x7f090bf8);
         this.B = this.d.findViewById(R.id.obfuscated_res_0x7f090bf9);

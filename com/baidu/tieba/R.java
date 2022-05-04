@@ -21532,8 +21532,8 @@ public final class R {
         public static final int obfuscated_res_0x7f092473 = 0x7f092473;
         public static final int obfuscated_res_0x7f092474 = 0x7f092474;
         public static final int obfuscated_res_0x7f092475 = 0x7f092475;
-        public static final int wrap_content = 0x7f092476;
-        public static final int obfuscated_res_0x7f092477 = 0x7f092477;
+        public static final int obfuscated_res_0x7f092476 = 0x7f092476;
+        public static final int wrap_content = 0x7f092477;
         public static final int obfuscated_res_0x7f092478 = 0x7f092478;
         public static final int obfuscated_res_0x7f092479 = 0x7f092479;
         public static final int obfuscated_res_0x7f09247a = 0x7f09247a;
@@ -21602,6 +21602,7 @@ public final class R {
         public static final int obfuscated_res_0x7f0924b9 = 0x7f0924b9;
         public static final int obfuscated_res_0x7f0924ba = 0x7f0924ba;
         public static final int obfuscated_res_0x7f0924bb = 0x7f0924bb;
+        public static final int obfuscated_res_0x7f0924bc = 0x7f0924bc;
     }
 
     public static final class integer {
@@ -29560,6 +29561,7 @@ public final class R {
         public static final int obfuscated_res_0x7f0f15e7 = 0x7f0f15e7;
         public static final int obfuscated_res_0x7f0f15e8 = 0x7f0f15e8;
         public static final int obfuscated_res_0x7f0f15e9 = 0x7f0f15e9;
+        public static final int obfuscated_res_0x7f0f15ea = 0x7f0f15ea;
     }
 
     public static final class style {

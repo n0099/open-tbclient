@@ -1696,7 +1696,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
             View addSystemImageButton = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBackLogo = addSystemImageButton;
             addSystemImageButton.setOnClickListener(new v(this));
-            this.mClose = (ImageView) this.mBackLogo.findViewById(R.id.obfuscated_res_0x7f09244b);
+            this.mClose = (ImageView) this.mBackLogo.findViewById(R.id.obfuscated_res_0x7f09244c);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mClose, R.drawable.obfuscated_res_0x7f080622, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             this.mBackLogo.setVisibility(0);
         }
@@ -1863,7 +1863,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d01d4, (View.OnClickListener) null);
         this.rightView = addCustomView;
         addCustomView.setVisibility(this.mIsYoungsterMode ? 8 : 0);
-        this.alaUserPhotoLayout = this.rightView.findViewById(R.id.obfuscated_res_0x7f0923bd);
+        this.alaUserPhotoLayout = this.rightView.findViewById(R.id.obfuscated_res_0x7f0923be);
         this.alaUserPhotoView = (HeadImageView) this.rightView.findViewById(R.id.obfuscated_res_0x7f0915b3);
         this.alaUserPhotoAnimView = (TBLottieAnimationView) this.rightView.findViewById(R.id.obfuscated_res_0x7f09229b);
         this.alaUserPhotoView.setIsRound(true);
@@ -1970,7 +1970,7 @@ public class ImageViewerActivity extends BaseActivity<ImageViewerActivity> imple
         if (interceptable == null || interceptable.invokeV(65613, this) == null) {
             MultiImageView multiImageView = this.mViewpager;
             if (multiImageView == null) {
-                this.mViewpager = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0923c1);
+                this.mViewpager = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0923c2);
             } else {
                 multiImageView.q();
             }

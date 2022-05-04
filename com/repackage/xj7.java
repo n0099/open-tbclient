@@ -286,7 +286,7 @@ public class xj7 {
             return;
         }
         TextView textView = this.i;
-        textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15df) + (this.q.j / 100));
+        textView.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f15e0) + (this.q.j / 100));
         if (!ni.isEmpty(this.q.d)) {
             TextView textView2 = this.h;
             textView2.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ce3) + this.q.d);

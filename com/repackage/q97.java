@@ -79,8 +79,8 @@ public class q97 extends z8<IMBlackListActivity> {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d03c8);
             View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091ade);
             this.d = findViewById;
-            this.b = (NoNetworkView) findViewById.findViewById(R.id.obfuscated_res_0x7f0923ae);
-            NavigationBar navigationBar = (NavigationBar) this.d.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            this.b = (NoNetworkView) findViewById.findViewById(R.id.obfuscated_res_0x7f0923af);
+            NavigationBar navigationBar = (NavigationBar) this.d.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(R.string.obfuscated_res_0x7f0f03a4);

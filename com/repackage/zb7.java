@@ -135,10 +135,10 @@ public class zb7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d0040);
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0923b5);
+            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0923b6);
             this.c = this.a.findViewById(R.id.obfuscated_res_0x7f091d93);
             this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091d1b);
-            this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.e = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923af);
             this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091dad);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 this.c.getLayoutParams().height = UtilHelper.getStatusBarHeight();

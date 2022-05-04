@@ -64,12 +64,12 @@ public class YoungsterIntroduceActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0062);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.vBack = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
-            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f15d4));
+            this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f15d5));
             Intent intent = getIntent();
             if (intent != null) {
                 this.mFrom = intent.getIntExtra(YoungsterPasswordActivityConfig.KEY_YOUNGSTER_PASSWORD_FROM, 0);
@@ -77,7 +77,7 @@ public class YoungsterIntroduceActivity extends BaseActivity {
             YoungsterIntroduceView youngsterIntroduceView = new YoungsterIntroduceView(getPageContext().getPageActivity());
             this.mYoungsterIntroduceView = youngsterIntroduceView;
             youngsterIntroduceView.setFrom(this.mFrom);
-            ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f092498)).addView(this.mYoungsterIntroduceView);
+            ((FrameLayout) findViewById(R.id.obfuscated_res_0x7f092499)).addView(this.mYoungsterIntroduceView);
         }
     }
 }

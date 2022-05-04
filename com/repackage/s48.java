@@ -393,7 +393,7 @@ public class s48 extends r48 {
             this.o.setVisibility(8);
             int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070286);
             if (this.c == null) {
-                this.c = NoDataViewFactory.a(this.b.getPageActivity(), this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.b.getString(R.string.obfuscated_res_0x7f0f14b6)), null);
+                this.c = NoDataViewFactory.a(this.b.getPageActivity(), this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.ANTI, dimensionPixelSize), NoDataViewFactory.e.d(null, this.b.getString(R.string.obfuscated_res_0x7f0f14b7)), null);
             }
             SkinManager.setViewTextColor(this.c.getSuTextView(), (int) R.color.CAM_X0106);
             this.c.f(this.b, TbadkCoreApplication.getInst().getSkinType());

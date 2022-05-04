@@ -569,7 +569,7 @@ public class PersonFriendFragment extends BaseFragment implements AdapterView.On
             if (P0() == null) {
                 str = null;
             } else if (this.i) {
-                str = String.format(getString(R.string.obfuscated_res_0x7f0f0e0c), getString(R.string.obfuscated_res_0x7f0f15b6));
+                str = String.format(getString(R.string.obfuscated_res_0x7f0f0e0c), getString(R.string.obfuscated_res_0x7f0f15b7));
             } else if (this.g == 0) {
                 str = String.format(getString(R.string.obfuscated_res_0x7f0f0e0c), P0().getUtype());
             } else {

@@ -314,17 +314,17 @@ public class ej5 {
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.c.setContentView(R.layout.obfuscated_res_0x7f0d0143);
             this.a = this.c.findViewById(R.id.obfuscated_res_0x7f091ade);
-            this.d = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            this.d = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ad);
             z("");
-            this.j = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092428);
-            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f092422);
+            this.j = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092429);
+            this.p = (ApkDownloadBannerView) this.c.findViewById(R.id.obfuscated_res_0x7f092423);
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ac);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ad);
             this.j.setLayoutParams(layoutParams);
-            this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09242a);
+            this.k = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09242b);
             View addCustomView = this.d.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08c2, new a(this));
             this.f = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09244b);
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09244c);
             this.g = imageView;
             imageView.setContentDescription(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f02bb));
             this.a.addOnAttachStateChangeListener(new b(this));
@@ -430,7 +430,7 @@ public class ej5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ac);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ad);
             this.j.setLayoutParams(layoutParams);
             this.g.setBackgroundDrawable(null);
             this.h.setBackgroundDrawable(null);

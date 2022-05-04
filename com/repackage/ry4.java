@@ -170,7 +170,7 @@ public class ry4 {
         this.b = null;
         this.c = null;
         this.d = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1141);
-        this.e = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1555) + this.d;
+        this.e = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1556) + this.d;
         this.g = new a(this);
         this.h = new b(this);
         this.i = new c(this);

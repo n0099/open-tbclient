@@ -192,7 +192,7 @@ public class io6 extends fo6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.c.findViewById(R.id.obfuscated_res_0x7f090b3e).setVisibility(8);
-            this.c.findViewById(R.id.obfuscated_res_0x7f092449).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f09244a).setVisibility(8);
         }
     }
 

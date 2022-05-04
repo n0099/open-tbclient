@@ -1007,7 +1007,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
     private final void initNav() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, this) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0923ac);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0923ad);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.view_navigation_bar)");
             setNavigationBar((NavigationBar) findViewById);
             getNavigationBar().showBottomLine();
@@ -1047,7 +1047,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
                         }
                     }
                 });
-                TextView centerTextTitle = getNavigationBar().setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f156e));
+                TextView centerTextTitle = getNavigationBar().setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f156f));
                 Intrinsics.checkNotNullExpressionValue(centerTextTitle, "navigationBar.setCenterT…g(R.string.work_publish))");
                 setNavCenterText(centerTextTitle);
                 ViewGroup.LayoutParams layoutParams2 = getNavCenterText().getLayoutParams();
@@ -1142,13 +1142,13 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
                 if (this$0.checkTitleSpanLength(String.valueOf(this$0.getEdtTitle().getText()).length()) < 5) {
                     BdTopToast bdTopToast = new BdTopToast(this$0);
                     bdTopToast.i(false);
-                    bdTopToast.h(this$0.getString(R.string.obfuscated_res_0x7f0f1577));
+                    bdTopToast.h(this$0.getString(R.string.obfuscated_res_0x7f0f1578));
                     bdTopToast.j(this$0.getRootView());
                 }
                 if (this$0.checkTitleSpanLength(String.valueOf(this$0.getEdtTitle().getText()).length()) > this$0.EDIT_INPUT_TITILE_MAX_LENGTH) {
                     BdTopToast bdTopToast2 = new BdTopToast(this$0);
                     bdTopToast2.i(false);
-                    bdTopToast2.h(this$0.getString(R.string.obfuscated_res_0x7f0f1576));
+                    bdTopToast2.h(this$0.getString(R.string.obfuscated_res_0x7f0f1577));
                     bdTopToast2.j(this$0.getRootView());
                 }
             }
@@ -2044,7 +2044,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
             mixVideoView.setPageContext(pageContext);
             getMixVideoView().setIWorkVideoMixListener(this);
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f092471);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f092472);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.work_publish_edtTitle)");
             setEdtTitle((SpanGroupEditText) findViewById4);
             getEdtTitle().setTransLink(false);
@@ -2052,10 +2052,10 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
             View findViewById5 = findViewById(R.id.obfuscated_res_0x7f090854);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.edit_content)");
             setEditContent((RelativeLayout) findViewById5);
-            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f09246e);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f09246f);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.work_publish_bg)");
             setWorkPublishBg((ViewGroup) findViewById6);
-            View findViewById7 = findViewById(R.id.obfuscated_res_0x7f092470);
+            View findViewById7 = findViewById(R.id.obfuscated_res_0x7f092471);
             Intrinsics.checkNotNullExpressionValue(findViewById7, "findViewById(R.id.work_publish_container)");
             setWorkPublishContainer((ViewGroup) findViewById7);
             View findViewById8 = findViewById(R.id.obfuscated_res_0x7f091c5c);
@@ -2105,7 +2105,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
             View findViewById13 = findViewById(R.id.obfuscated_res_0x7f091c87);
             Intrinsics.checkNotNullExpressionValue(findViewById13, "findViewById(R.id.sep_line_content)");
             setContentBottomLine(findViewById13);
-            View findViewById14 = findViewById(R.id.obfuscated_res_0x7f092473);
+            View findViewById14 = findViewById(R.id.obfuscated_res_0x7f092474);
             Intrinsics.checkNotNullExpressionValue(findViewById14, "findViewById(R.id.work_publish_title_counter)");
             setCounterTitle((TextView) findViewById14);
             View findViewById15 = findViewById(R.id.obfuscated_res_0x7f091c7c);
@@ -2573,7 +2573,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
     public void onMixFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            showToastWithDefaultIcon(getString(R.string.obfuscated_res_0x7f0f159c), BdToast.DefaultIcon.FAILURE);
+            showToastWithDefaultIcon(getString(R.string.obfuscated_res_0x7f0f159d), BdToast.DefaultIcon.FAILURE);
         }
     }
 
@@ -2633,7 +2633,7 @@ public final class WorkPublishActivity extends BaseFragmentActivity implements s
             saveDraftDialogView3.setCancelVisible(d2 ? 0 : 8);
             SaveDraftDialogView saveDraftDialogView4 = this.saveDraftDialogView;
             Intrinsics.checkNotNull(saveDraftDialogView4);
-            saveDraftDialogView4.setText(getString(d2 ? R.string.obfuscated_res_0x7f0f158f : R.string.obfuscated_res_0x7f0f1590), null, getString(d2 ? R.string.obfuscated_res_0x7f0f1064 : R.string.obfuscated_res_0x7f0f1592), getString(d2 ? R.string.obfuscated_res_0x7f0f0c7c : R.string.obfuscated_res_0x7f0f1591));
+            saveDraftDialogView4.setText(getString(d2 ? R.string.obfuscated_res_0x7f0f1590 : R.string.obfuscated_res_0x7f0f1591), null, getString(d2 ? R.string.obfuscated_res_0x7f0f1064 : R.string.obfuscated_res_0x7f0f1593), getString(d2 ? R.string.obfuscated_res_0x7f0f0c7c : R.string.obfuscated_res_0x7f0f1592));
             lr4 lr4Var2 = this.saveDraftDialog;
             Intrinsics.checkNotNull(lr4Var2);
             lr4Var2.m();

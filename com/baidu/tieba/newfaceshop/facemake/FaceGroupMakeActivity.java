@@ -401,7 +401,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements jo7.c, BarInf
             this.mTitleBar.setCloseListener(new a(this));
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.mTitleBar, (View.OnClickListener) null);
             SkinManager.setBackgroundColor(this.mTitleBar, R.color.CAM_X0201);
-            this.mNoNetView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.mNoNetView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923af);
             if (isBarEmotion()) {
                 this.mTitleBar.setTitle(this.mActivity.getText(R.string.obfuscated_res_0x7f0f05d8).toString());
             } else {

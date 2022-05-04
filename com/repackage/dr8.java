@@ -61,11 +61,11 @@ public class dr8 {
         View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) null);
         this.b = inflate;
         this.a.setContentView(inflate);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.c = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.c.setTitleText(R.string.obfuscated_res_0x7f0f033c);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ab);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ac);
         this.d = memberRecommendView;
         memberRecommendView.setFromType(7);
         this.e = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f09127a);

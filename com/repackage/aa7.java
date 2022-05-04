@@ -253,7 +253,7 @@ public class aa7 extends z8<AtMessageActivity> {
             this.c = inflate;
             this.d.setContentView(inflate);
             this.b = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f0902c2);
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.h = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.h.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f029a));

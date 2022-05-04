@@ -376,7 +376,7 @@ public class HotUserRankView {
         tbTabLayout.setTabTextSize(oi.f(baseFragmentActivity, R.dimen.tbds46));
         this.e = this.b.findViewById(R.id.obfuscated_res_0x7f091e2a);
         this.f = this.b.findViewById(R.id.obfuscated_res_0x7f091e2b);
-        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923c1);
+        CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923c2);
         this.g = customViewPager;
         customViewPager.addOnPageChangeListener(this.t);
         this.g.setViewPagerScroll(0);

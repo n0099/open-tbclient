@@ -103,7 +103,7 @@ public class uz7 extends ho<PostData, VideoPbVideoInfoViewHolder> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090447 || view2.getId() == R.id.obfuscated_res_0x7f092373) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090447 || view2.getId() == R.id.obfuscated_res_0x7f092374) {
                     if (this.a.g != null) {
                         int h = ((VideoPbVideoInfoViewHolder) this.a.g).h();
                         if (h == 1) {
@@ -123,7 +123,7 @@ public class uz7 extends ho<PostData, VideoPbVideoInfoViewHolder> {
                     }
                     return;
                 }
-                if (view2.getId() == R.id.obfuscated_res_0x7f0923d3) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f0923d4) {
                     if (ViewHelper.checkUpIsLogin(TbadkCoreApplication.getInst())) {
                         r7 = view2.getTag() != null ? (String) view2.getTag() : null;
                         if (r7 != null) {

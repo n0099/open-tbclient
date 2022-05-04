@@ -182,7 +182,7 @@ public class TbErrInfo {
                     }
                     return resources.getString(R.string.obfuscated_res_0x7f0f0c17);
                 }
-                return resources.getString(R.string.obfuscated_res_0x7f0f1520);
+                return resources.getString(R.string.obfuscated_res_0x7f0f1521);
             }
             return resources.getString(R.string.obfuscated_res_0x7f0f1353);
         }

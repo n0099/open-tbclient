@@ -829,7 +829,7 @@ public abstract class AbsMsglistView extends z8<MsglistActivity<?>> implements e
     public final void initNoNetwork(TalkableActivity talkableActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, talkableActivity) == null) {
-            this.mNetworkView = (NoNetworkView) talkableActivity.findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.mNetworkView = (NoNetworkView) talkableActivity.findViewById(R.id.obfuscated_res_0x7f0923af);
         }
     }
 

@@ -74,13 +74,13 @@ public class ye8 extends z8<UserMuteListActivity> {
             this.a.setContentView((int) R.layout.obfuscated_res_0x7f0d085c);
             View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091ade);
             this.d = findViewById;
-            this.b = (NoNetworkView) findViewById.findViewById(R.id.obfuscated_res_0x7f0923ae);
-            NavigationBar navigationBar = (NavigationBar) this.d.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            this.b = (NoNetworkView) findViewById.findViewById(R.id.obfuscated_res_0x7f0923af);
+            NavigationBar navigationBar = (NavigationBar) this.d.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(R.string.obfuscated_res_0x7f0f14b0);
+            this.c.setTitleText(R.string.obfuscated_res_0x7f0f14b1);
             this.e = (BdListView) this.d.findViewById(R.id.obfuscated_res_0x7f091488);
-            this.f = NoDataViewFactory.a(this.a.getPageContext().getContext(), this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.a), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f14af), null);
+            this.f = NoDataViewFactory.a(this.a.getPageContext().getContext(), this.d, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.a), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f14b0), null);
             e();
         }
     }
@@ -90,7 +90,7 @@ public class ye8 extends z8<UserMuteListActivity> {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.e.setVisibility(8);
             this.f.setVisibility(0);
-            this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f14af));
+            this.f.setTextOption(NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f14b0));
         }
     }
 

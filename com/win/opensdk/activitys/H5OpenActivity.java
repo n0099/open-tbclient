@@ -61,7 +61,7 @@ public class H5OpenActivity extends Activity implements ko9 {
             a.f(new gs9(this.d), i, str2);
             a.m();
             this.e = false;
-            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f155d), 0).show();
+            Toast.makeText(this, getString(R.string.obfuscated_res_0x7f0f155e), 0).show();
         }
     }
 
@@ -146,8 +146,8 @@ public class H5OpenActivity extends Activity implements ko9 {
             } catch (JSONException unused) {
             }
             a.m();
-            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09245c);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09245b);
+            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09245d);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09245c);
             this.a = frameLayout;
             frameLayout.removeAllViews();
             try {

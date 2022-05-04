@@ -15,11 +15,14 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public final class Zan extends Message {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer DEFAULT_CONSENTTYPE;
     public static final Integer DEFAULT_ISLIKED;
     public static final Integer DEFAULT_LASTTIME;
     public static final List<Long> DEFAULT_LIKERID;
     public static final Integer DEFAULT_NUM;
     public transient /* synthetic */ FieldHolder $fh;
+    @ProtoField(tag = 6, type = Message.Datatype.INT32)
+    public final Integer consentType;
     @ProtoField(tag = 3, type = Message.Datatype.INT32)
     public final Integer isLiked;
     @ProtoField(tag = 4, type = Message.Datatype.INT32)
@@ -33,6 +36,7 @@ public final class Zan extends Message {
     public static final class Builder extends Message.Builder<Zan> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public Integer consentType;
         public Integer isLiked;
         public Integer lastTime;
         public List<Long> likerId;
@@ -77,6 +81,7 @@ public final class Zan extends Message {
             this.isLiked = zan.isLiked;
             this.lastTime = zan.lastTime;
             this.likerId = Message.copyOf(zan.likerId);
+            this.consentType = zan.consentType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -111,6 +116,7 @@ public final class Zan extends Message {
         DEFAULT_ISLIKED = 0;
         DEFAULT_LASTTIME = 0;
         DEFAULT_LIKERID = Collections.emptyList();
+        DEFAULT_CONSENTTYPE = 0;
     }
 
     public /* synthetic */ Zan(Builder builder, boolean z, a aVar) {
@@ -157,9 +163,15 @@ public final class Zan extends Message {
             List<Long> list = builder.likerId;
             if (list == null) {
                 this.likerId = DEFAULT_LIKERID;
-                return;
             } else {
                 this.likerId = Message.immutableCopyOf(list);
+            }
+            Integer num4 = builder.consentType;
+            if (num4 == null) {
+                this.consentType = DEFAULT_CONSENTTYPE;
+                return;
+            } else {
+                this.consentType = num4;
                 return;
             }
         }
@@ -167,5 +179,6 @@ public final class Zan extends Message {
         this.isLiked = builder.isLiked;
         this.lastTime = builder.lastTime;
         this.likerId = Message.immutableCopyOf(builder.likerId);
+        this.consentType = builder.consentType;
     }
 }

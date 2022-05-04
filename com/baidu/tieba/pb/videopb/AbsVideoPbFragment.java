@@ -6011,7 +6011,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements if5, Vo
             this.e.setAdapter(videoPbFragmentAdapter);
             this.d.setViewPager(this.e);
             this.d.setOnPageChangeListener(new q0(this));
-            this.M = this.c.findViewById(R.id.obfuscated_res_0x7f0923ca);
+            this.M = this.c.findViewById(R.id.obfuscated_res_0x7f0923cb);
             this.K = (FallingView) this.c.findViewById(R.id.obfuscated_res_0x7f090975);
             q4();
             this.K.setAnimationListener(new s0(this));
@@ -8941,7 +8941,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements if5, Vo
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048737, this) == null) {
             this.i0 = (LinearLayout) this.c.findViewById(R.id.obfuscated_res_0x7f092336);
-            this.j0 = this.c.findViewById(R.id.obfuscated_res_0x7f092394);
+            this.j0 = this.c.findViewById(R.id.obfuscated_res_0x7f092395);
             this.k0 = this.c.findViewById(R.id.obfuscated_res_0x7f0916a1);
             oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds120);
             oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070287);
@@ -9285,7 +9285,9 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements if5, Vo
             this.I0.a().b(new s05(getActivity()));
             this.I0.a().C(true);
             C4(true);
-            this.I0.O(w().v0(), w().l1(), w().r0());
+            if (w() != null) {
+                this.I0.O(w().v0(), w().l1(), w().r0());
+            }
             registerListener(this.c1);
             registerListener(this.e1);
             registerListener(this.m1);
@@ -9468,7 +9470,7 @@ public abstract class AbsVideoPbFragment extends BaseFragment implements if5, Vo
             }
             View addSystemImageButton = this.m.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.D1);
             this.p = addSystemImageButton;
-            this.q = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244b);
+            this.q = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244c);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.q, R.drawable.obfuscated_res_0x7f080622, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             View addCustomView = this.m.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05e8, this.D1);
             this.r = addCustomView;

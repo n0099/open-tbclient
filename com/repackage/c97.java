@@ -202,11 +202,11 @@ public class c97 extends y8<ValidateActivity> {
         }
         if (!TextUtils.isEmpty(this.i.getGroupName())) {
             TextView textView = this.e;
-            textView.setText(this.h.getPageContext().getString(R.string.obfuscated_res_0x7f0f14b9) + this.i.getGroupName());
+            textView.setText(this.h.getPageContext().getString(R.string.obfuscated_res_0x7f0f14ba) + this.i.getGroupName());
         }
         if (!TextUtils.isEmpty(this.i.getApplyReason())) {
             TextView textView2 = this.f;
-            textView2.setText(this.h.getPageContext().getString(R.string.obfuscated_res_0x7f0f14bb) + this.i.getApplyReason());
+            textView2.setText(this.h.getPageContext().getString(R.string.obfuscated_res_0x7f0f14bc) + this.i.getApplyReason());
         }
         if (this.i.isPass()) {
             this.g.setEnabled(false);

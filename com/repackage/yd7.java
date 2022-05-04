@@ -416,7 +416,7 @@ public class yd7 {
         this.p = a2;
         a2.H0(this);
         this.c = this.p.f0();
-        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092370);
+        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092371);
         this.f = tbImageView;
         tbImageView.setEvent(this.q);
         this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ec5);

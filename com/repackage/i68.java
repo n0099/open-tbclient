@@ -98,7 +98,7 @@ public class i68 extends tw5<g58> {
                 String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0e29);
                 Object[] objArr = new Object[1];
                 if (g58Var.a) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f15b6);
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f15b7);
                 } else if (g58Var.b == 2) {
                     string = this.c.getString(R.string.obfuscated_res_0x7f0f1157);
                 } else {

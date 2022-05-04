@@ -299,9 +299,9 @@ public class qq7 implements pq7, View.OnClickListener {
             this.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922a4);
             this.n = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09132b);
             this.o = inflate.findViewById(R.id.obfuscated_res_0x7f091982);
-            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f092439);
-            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f09243c);
-            this.r = inflate.findViewById(R.id.obfuscated_res_0x7f0924a9);
+            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f09243a);
+            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f09243d);
+            this.r = inflate.findViewById(R.id.obfuscated_res_0x7f0924aa);
             this.s = inflate.findViewById(R.id.obfuscated_res_0x7f091444);
             this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09060f);
             this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09060a);
@@ -474,15 +474,15 @@ public class qq7 implements pq7, View.OnClickListener {
                 if (f()) {
                     n();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f092439) {
+            } else if (id == R.id.obfuscated_res_0x7f09243a) {
                 if (f()) {
                     p();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f09243c) {
+            } else if (id == R.id.obfuscated_res_0x7f09243d) {
                 if (f()) {
                     r();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f0924a9) {
+            } else if (id == R.id.obfuscated_res_0x7f0924aa) {
                 if (f()) {
                     s();
                 }

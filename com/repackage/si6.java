@@ -191,7 +191,7 @@ public abstract class si6 implements View.OnClickListener {
                 this.k = lr4Var;
                 lr4Var.setContentView(this.l);
             }
-            this.l.setText(this.a.getString(R.string.obfuscated_res_0x7f0f158f), null, this.a.getString(R.string.obfuscated_res_0x7f0f1064));
+            this.l.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1590), null, this.a.getString(R.string.obfuscated_res_0x7f0f1064));
             this.k.m();
         }
     }

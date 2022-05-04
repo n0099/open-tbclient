@@ -133,7 +133,7 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08da, (ViewGroup) this, true);
             this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090f91);
             this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090f93);
-            this.e = findViewById(R.id.obfuscated_res_0x7f092484);
+            this.e = findViewById(R.id.obfuscated_res_0x7f092485);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f90);
             this.f = findViewById(R.id.obfuscated_res_0x7f090f92);
             this.g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f090f9e);

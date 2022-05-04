@@ -200,6 +200,6 @@ public class wh8 extends z8<Object> {
         du4 du4Var = new du4(tbPageContext);
         this.e = du4Var;
         this.c.setPullRefresh(du4Var);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923af);
     }
 }

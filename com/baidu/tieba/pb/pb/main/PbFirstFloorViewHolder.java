@@ -129,7 +129,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.y = new by7(tbPageContext);
         this.x = (PbBusinessPromotionContainer) view2.findViewById(R.id.obfuscated_res_0x7f09168c);
         this.u = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09161c);
-        VoteView voteView = (VoteView) view2.findViewById(R.id.obfuscated_res_0x7f092419);
+        VoteView voteView = (VoteView) view2.findViewById(R.id.obfuscated_res_0x7f09241a);
         this.z = voteView;
         voteView.setPageContext(tbPageContext);
         this.A = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092215);

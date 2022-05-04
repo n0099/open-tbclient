@@ -162,7 +162,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
         this.q = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908dc);
         this.r = (FrameLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0908dd);
         this.H = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091ec0);
-        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.a.findViewById(R.id.obfuscated_res_0x7f09237b);
+        TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.a.findViewById(R.id.obfuscated_res_0x7f09237c);
         this.l = tbVideoViewContainer;
         tbVideoViewContainer.getControl().setStageType("23");
         this.l.getControl().setContinuePlayEnable(true);
@@ -585,7 +585,7 @@ public class AdVideoFlowView extends RelativeLayout implements z98, View.OnClick
                     return;
                 }
                 this.z.getPageActivity().finish();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09237b) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09237c) {
                 w();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f0908dc || view2.getId() == R.id.obfuscated_res_0x7f090099 || view2.getId() == R.id.obfuscated_res_0x7f092288 || view2.getId() == R.id.obfuscated_res_0x7f09229d) {
                 s();

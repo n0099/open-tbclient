@@ -517,7 +517,7 @@ public class ns5 {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ff, (ViewGroup) null);
             this.f = inflate;
             if (this.q) {
-                NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f0923ac);
+                NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.obfuscated_res_0x7f0923ad);
                 this.D = navigationBar;
                 navigationBar.setVisibility(0);
                 this.D.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());

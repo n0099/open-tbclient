@@ -119,7 +119,7 @@ public final class ei5 {
             StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
             String string = tbPageContext.getString(i);
             Intrinsics.checkNotNullExpressionValue(string, "tbPageContext.getString(contentTestResId)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f0ec2), tbPageContext.getString(R.string.obfuscated_res_0x7f0f14b5)}, 2));
+            String format = String.format(string, Arrays.copyOf(new Object[]{tbPageContext.getString(R.string.obfuscated_res_0x7f0f0ec2), tbPageContext.getString(R.string.obfuscated_res_0x7f0f14b6)}, 2));
             Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
             Activity pageActivity = tbPageContext.getPageActivity();
             Intrinsics.checkNotNullExpressionValue(pageActivity, "tbPageContext.pageActivity");
@@ -131,7 +131,7 @@ public final class ei5 {
             eMTextView3.setText(i2);
             vr4.d(eMTextView3).z(R.dimen.T_X08);
             eMTextView3.setOnClickListener(listener);
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f092494);
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f092495);
             tBSpecificationBtn.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f10af));
             tBSpecificationBtn.setTextSize(R.dimen.T_X07);
             lu4 lu4Var = new lu4();
@@ -218,7 +218,7 @@ public final class ei5 {
             if (c[0] != -1) {
                 spannableString.setSpan(new a(context), c[0], c[1], 18);
             }
-            int[] c2 = c(str, R.string.obfuscated_res_0x7f0f14b5);
+            int[] c2 = c(str, R.string.obfuscated_res_0x7f0f14b6);
             if (c2[0] != -1) {
                 spannableString.setSpan(new b(context), c2[0], c2[1], 18);
             }

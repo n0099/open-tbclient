@@ -580,7 +580,7 @@ public class AlaVideoContainer extends LinearLayout {
             View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0922fd);
             this.a = findViewById;
             findViewById.setOnClickListener(this.v);
-            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.obfuscated_res_0x7f09237b);
+            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) inflate.findViewById(R.id.obfuscated_res_0x7f09237c);
             this.c = tbVideoViewContainer;
             y68 control = tbVideoViewContainer.getControl();
             this.d = control;

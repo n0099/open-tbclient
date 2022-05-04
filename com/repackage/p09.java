@@ -146,10 +146,10 @@ public class p09 implements q09 {
             } else if (str.contains("objc:finish")) {
                 if (b0 != null && b0.getVideoReviewType() == 1) {
                     NewVcodeView newVcodeView = this.a;
-                    newVcodeView.showToast(true, newVcodeView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14f6));
+                    newVcodeView.showToast(true, newVcodeView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14f7));
                 } else if (b0 != null && b0.getVideoReviewType() == 2) {
                     NewVcodeView newVcodeView2 = this.a;
-                    newVcodeView2.showToast(true, newVcodeView2.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14f5));
+                    newVcodeView2.showToast(true, newVcodeView2.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14f6));
                 } else {
                     String string = this.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10ec);
                     PostWriteCallBackData postWriteCallBackData = this.d;

@@ -1563,8 +1563,18 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         imageView.setVisibility(8);
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:32:0x007f  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x0087  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00c3  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00d1  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00e0  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x0119  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final void q0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData) {
         boolean z;
+        boolean z2;
         int i2;
         int i3;
         bs7 bs7Var;
@@ -1573,7 +1583,8 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
         if (!(interceptable == null || interceptable.invokeLL(1048607, this, pbCommenFloorItemViewHolder, postData) == null) || pbCommenFloorItemViewHolder == null || postData == null) {
             return;
         }
-        boolean z2 = true;
+        String str = null;
+        boolean z3 = true;
         if (postData.A() > 0 && (bs7Var2 = this.q) != null && !bs7Var2.g0()) {
             String format = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0961), Integer.valueOf(postData.A()));
             pbCommenFloorItemViewHolder.E.setVisibility(0);
@@ -1583,41 +1594,68 @@ public class zt7 extends ho<PostData, PbCommenFloorItemViewHolder> {
             pbCommenFloorItemViewHolder.E.setVisibility(8);
             z = false;
         }
-        nz4 M = postData.M();
-        z2 = (M == null || StringUtils.isNull(M.b()) || (bs7Var = this.q) == null || bs7Var.g0()) ? false : false;
-        if (z) {
-            pbCommenFloorItemViewHolder.i.setVisibility(0);
-            i2 = this.i;
-        } else {
-            pbCommenFloorItemViewHolder.i.setVisibility(8);
-            i2 = 0;
-        }
-        if (z2) {
-            pbCommenFloorItemViewHolder.j.setVisibility(0);
-            i3 = this.i;
-        } else {
-            pbCommenFloorItemViewHolder.j.setVisibility(8);
-            i3 = 0;
-        }
-        pbCommenFloorItemViewHolder.h.setPadding(i2, 0, i3, 0);
-        if (StringUtils.SimpleDateFormat(new Date(), "yyyy").equals(StringUtils.SimpleDateFormat(new Date(postData.X()), "yyyy"))) {
-            pbCommenFloorItemViewHolder.h.setText(StringHelper.getFormatTimeShort(postData.X()));
-        } else {
-            pbCommenFloorItemViewHolder.h.setText(StringHelper.getFormatTime(postData.X()));
-        }
-        if (z2) {
-            pbCommenFloorItemViewHolder.k.setVisibility(0);
-            pbCommenFloorItemViewHolder.k.setPadding(this.i, 0, 0, 0);
-            if (postData.Z) {
-                pbCommenFloorItemViewHolder.k.setText(StringHelper.cutStringWithSuffix(M.b(), 7, StringHelper.STRING_MORE));
-            } else {
-                pbCommenFloorItemViewHolder.k.setText(M.b());
+        if (postData.s() != null) {
+            str = postData.s().getIpAddress();
+            if (!TextUtils.isEmpty(str)) {
+                z2 = true;
+                nz4 M = postData.M();
+                z3 = (M != null || StringUtils.isNull(M.b()) || (bs7Var = this.q) == null || bs7Var.g0()) ? false : false;
+                if (!z) {
+                    pbCommenFloorItemViewHolder.i.setVisibility(0);
+                    i2 = this.i;
+                } else {
+                    pbCommenFloorItemViewHolder.i.setVisibility(8);
+                    i2 = 0;
+                }
+                if (z3 && !z2) {
+                    pbCommenFloorItemViewHolder.j.setVisibility(8);
+                    i3 = 0;
+                } else {
+                    pbCommenFloorItemViewHolder.j.setVisibility(0);
+                    i3 = this.i;
+                }
+                pbCommenFloorItemViewHolder.h.setPadding(i2, 0, i3, 0);
+                if (!StringUtils.SimpleDateFormat(new Date(), "yyyy").equals(StringUtils.SimpleDateFormat(new Date(postData.X()), "yyyy"))) {
+                    pbCommenFloorItemViewHolder.h.setText(StringHelper.getFormatTimeShort(postData.X()));
+                } else {
+                    pbCommenFloorItemViewHolder.h.setText(StringHelper.getFormatTime(postData.X()));
+                }
+                if (!z2) {
+                    pbCommenFloorItemViewHolder.k.setVisibility(0);
+                    pbCommenFloorItemViewHolder.k.setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds14), 0, 0, 0);
+                    pbCommenFloorItemViewHolder.k.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ad) + str);
+                } else if (z3) {
+                    pbCommenFloorItemViewHolder.k.setVisibility(0);
+                    pbCommenFloorItemViewHolder.k.setPadding(this.i, 0, 0, 0);
+                    if (postData.Z) {
+                        pbCommenFloorItemViewHolder.k.setText(StringHelper.cutStringWithSuffix(M.b(), 7, StringHelper.STRING_MORE));
+                    } else {
+                        pbCommenFloorItemViewHolder.k.setText(M.b());
+                    }
+                } else {
+                    pbCommenFloorItemViewHolder.k.setVisibility(8);
+                }
+                TextView textView = pbCommenFloorItemViewHolder.e0;
+                textView.setText(((Object) pbCommenFloorItemViewHolder.h.getText()) + "  • ");
             }
-        } else {
-            pbCommenFloorItemViewHolder.k.setVisibility(8);
         }
-        TextView textView = pbCommenFloorItemViewHolder.e0;
-        textView.setText(((Object) pbCommenFloorItemViewHolder.h.getText()) + "  • ");
+        z2 = false;
+        nz4 M2 = postData.M();
+        if (M2 != null) {
+        }
+        if (!z) {
+        }
+        if (z3) {
+        }
+        pbCommenFloorItemViewHolder.j.setVisibility(0);
+        i3 = this.i;
+        pbCommenFloorItemViewHolder.h.setPadding(i2, 0, i3, 0);
+        if (!StringUtils.SimpleDateFormat(new Date(), "yyyy").equals(StringUtils.SimpleDateFormat(new Date(postData.X()), "yyyy"))) {
+        }
+        if (!z2) {
+        }
+        TextView textView2 = pbCommenFloorItemViewHolder.e0;
+        textView2.setText(((Object) pbCommenFloorItemViewHolder.h.getText()) + "  • ");
     }
 
     public final void r0(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData) {

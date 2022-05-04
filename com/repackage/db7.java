@@ -139,15 +139,15 @@ public class db7 {
                 this.e = imageView2;
                 imageView2.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080824));
                 this.e.setOnClickListener(this);
-                ImageView imageView3 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092438);
+                ImageView imageView3 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
                 this.f = imageView3;
                 imageView3.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080826));
                 this.f.setOnClickListener(this);
-                ImageView imageView4 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09243a);
+                ImageView imageView4 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09243b);
                 this.g = imageView4;
                 imageView4.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080822));
                 this.g.setOnClickListener(this);
-                ImageView imageView5 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
+                ImageView imageView5 = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092438);
                 this.h = imageView5;
                 imageView5.setImageDrawable(this.a.getDrawable(R.drawable.obfuscated_res_0x7f080a2b));
                 this.h.setOnClickListener(this);

@@ -193,7 +193,7 @@ public abstract class ko6 implements mo6 {
             this.b = view2.getContext();
             this.c = view2;
             this.d = onClickListener;
-            NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.e = navigationBar;
             navigationBar.getBarBgView().setAlpha(1.0f);
             l();
@@ -218,7 +218,7 @@ public abstract class ko6 implements mo6 {
             View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.f = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this.d);
-            this.g = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09244b);
+            this.g = (ImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09244c);
         }
     }
 

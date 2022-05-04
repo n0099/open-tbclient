@@ -101,7 +101,7 @@ public class wv4 implements jg<uv4> {
                 return uv4Var;
             } else if (downloadCommonBytes == null || downloadCommonBytes.length == 0) {
                 uv4Var.c = 4;
-                uv4Var.d = gj.a(R.string.obfuscated_res_0x7f0f1516);
+                uv4Var.d = gj.a(R.string.obfuscated_res_0x7f0f1517);
                 return uv4Var;
             } else {
                 if (str == null) {

@@ -49,7 +49,7 @@ public class ImageProblemView extends z8 {
         this.a = imageProblemActivity;
         imageProblemActivity.setContentView(R.layout.obfuscated_res_0x7f0d03d2);
         this.d = this.a.findViewById(R.id.obfuscated_res_0x7f091642);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.b = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.b.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08ab));

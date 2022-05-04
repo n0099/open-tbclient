@@ -236,7 +236,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements lo7 {
             this.mTitleBar = new FaceGroupMakeTitleBar(getPageContext().getPageActivity());
             this.mTitleBar.setLayoutParams(new RelativeLayout.LayoutParams(oi.k(getPageContext().getPageActivity()), -1));
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.mTitleBar, (View.OnClickListener) null);
-            this.mNoNetView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.mNoNetView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923af);
             this.mTitleBar.setRightListener(new a(this));
             SkinManager.setBackgroundColor(this.mTitleBar, R.color.CAM_X0201);
             setTitleText(0);

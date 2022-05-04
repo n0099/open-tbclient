@@ -465,7 +465,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
                 this.mIsAiapp = getIntent().getBooleanExtra(QRCodeScanActivityConfig.IS_AIAPP, false);
             }
             this.mLoadingView = (ScanLoadingView) findViewById(R.id.obfuscated_res_0x7f09130f);
-            ZXingView zXingView = (ZXingView) findViewById(R.id.obfuscated_res_0x7f0924bb);
+            ZXingView zXingView = (ZXingView) findViewById(R.id.obfuscated_res_0x7f0924bc);
             this.mQRCodeView = zXingView;
             if (zXingView.getScanBoxView() != null) {
                 this.mQRCodeView.getScanBoxView().setToolbarHeight(UtilHelper.getStatusBarHeight());

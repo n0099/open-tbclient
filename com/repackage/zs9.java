@@ -67,7 +67,7 @@ public class zs9 extends WebViewClient {
                     a.l("desc", str + "&errcode:" + i + "&fileurl:" + str2);
                     a.m();
                 }
-                Toast.makeText(this.a.a, (int) R.string.obfuscated_res_0x7f0f1562, 0).show();
+                Toast.makeText(this.a.a, (int) R.string.obfuscated_res_0x7f0f1563, 0).show();
             }
         }
     }

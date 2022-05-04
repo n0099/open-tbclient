@@ -51,11 +51,11 @@ public class j96 {
         tbPageContext.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d028f);
         View findViewById = tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09196d);
         this.b = findViewById;
-        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.c = navigationBar;
         navigationBar.setTitleText(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0f06));
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.d = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923af);
         this.e = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f09196e);
         du4 du4Var = new du4(tbPageContext);
         this.f = du4Var;

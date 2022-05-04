@@ -323,7 +323,7 @@ public class wx6 implements gx6, View.OnClickListener, km4 {
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             View addSystemImageButton = this.l.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
             this.n = addSystemImageButton;
-            this.o = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244b);
+            this.o = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244c);
             this.p = this.l.getCenterText();
             this.l.setCenterTextTitle(str);
         }

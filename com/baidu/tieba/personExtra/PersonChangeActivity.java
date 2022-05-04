@@ -1513,11 +1513,11 @@ public class PersonChangeActivity extends BaseActivity<PersonChangeActivity> {
             this.mPersonChangeScroll = (ManualObservableScrollView) findViewById(R.id.obfuscated_res_0x7f09179e);
             this.mSexLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0917f8);
             this.mSexShow = (TextView) findViewById(R.id.obfuscated_res_0x7f091c9e);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08c5, this.mBackClickListener);
             this.mCloseView = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09244b);
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09244c);
             this.mBackIcon = imageView;
             imageView.setContentDescription(getPageContext().getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f03e8));
             this.mForumAgeLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a22);

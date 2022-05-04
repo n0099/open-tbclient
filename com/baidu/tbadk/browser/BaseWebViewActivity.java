@@ -902,12 +902,12 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (interceptable == null || interceptable.invokeL(1048602, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092432) {
+            if (id == R.id.obfuscated_res_0x7f092433) {
                 this.mView.e();
                 loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
                 pg.a().post(this.mShareRunnable);
                 this.mShareResultToFe = true;
-            } else if (id == R.id.obfuscated_res_0x7f092430) {
+            } else if (id == R.id.obfuscated_res_0x7f092431) {
                 this.mView.e();
                 String shareInfoUrl = getShareInfoUrl();
                 Activity pageActivity = getPageContext().getPageActivity();
@@ -915,7 +915,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     shareInfoUrl = this.mUrl;
                 }
                 ul4.j(pageActivity, shareInfoUrl);
-            } else if (id == R.id.obfuscated_res_0x7f09242e) {
+            } else if (id == R.id.obfuscated_res_0x7f09242f) {
                 this.mView.e();
                 String shareInfoUrl2 = getShareInfoUrl();
                 String str = this.mUrl;
@@ -940,7 +940,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 if (isTranslucent()) {
                     finish();
                 }
-            } else if (id == R.id.obfuscated_res_0x7f09244d) {
+            } else if (id == R.id.obfuscated_res_0x7f09244e) {
                 if (this.mView.x) {
                     loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
                     pg.a().post(this.mShareRunnable);

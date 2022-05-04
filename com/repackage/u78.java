@@ -1434,7 +1434,7 @@ public class u78 implements r78 {
             ((ViewGroup) view2).addView(viewGroup);
         }
         this.N = new WeakReference<>(TbadkCoreApplication.getInst());
-        this.u = (TbImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092370);
+        this.u = (TbImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f092371);
         this.v = this.Q.findViewById(R.id.obfuscated_res_0x7f09038d);
         this.w = (TBLottieAnimationView) this.Q.findViewById(R.id.obfuscated_res_0x7f092323);
         this.x = (ImageView) this.Q.findViewById(R.id.obfuscated_res_0x7f09233f);

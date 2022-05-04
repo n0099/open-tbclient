@@ -111,9 +111,9 @@ public class r09 implements q09 {
             if (z) {
                 this.a.g = true;
                 if (writeData != null && writeData.getVideoReviewType() == 1) {
-                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14f6));
+                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14f7));
                 } else if (writeData != null && writeData.getVideoReviewType() == 2) {
-                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14f5));
+                    this.a.a.showToast(true, this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14f6));
                 } else if (writeData != null) {
                     String string = this.a.a.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f10ec);
                     String str2 = null;

@@ -1056,7 +1056,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ec5);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092227);
             this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f09197b);
-            this.p = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092370);
+            this.p = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092371);
             this.q = (PbVideoWifiTipLayout) findViewById(R.id.obfuscated_res_0x7f0911f6);
             this.p.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             CallStateReceiver callStateReceiver = new CallStateReceiver();

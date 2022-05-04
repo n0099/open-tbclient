@@ -346,11 +346,11 @@ public abstract class iq7 {
                 this.b.finish();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f091982) {
                 g();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f092439) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09243a) {
                 o();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09243c) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f09243d) {
                 p();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0924a9) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0924aa) {
                 q();
             } else if (view2.getId() == R.id.obfuscated_res_0x7f091444) {
                 d();

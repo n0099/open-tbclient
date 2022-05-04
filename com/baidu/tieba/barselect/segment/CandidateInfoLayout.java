@@ -112,7 +112,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
             }
             this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09229e);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09229d);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f8);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f9);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090163);
             this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ce8);
         }

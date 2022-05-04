@@ -389,7 +389,7 @@ public class PaymentManager {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
                         x91 x91Var = this.a;
-                        PaymentManager.g(x91Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f15b0) + str);
+                        PaymentManager.g(x91Var, i, this.b.this$0.a.getString(R.string.obfuscated_res_0x7f0f15b1) + str);
                     }
                 }
             }

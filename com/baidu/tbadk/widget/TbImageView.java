@@ -859,7 +859,7 @@ public class TbImageView extends BDImageView implements Runnable, View.OnClickLi
             }
             int i = this.d.j;
             if (i == qk.c) {
-                this.k0.b(canvas, getContext().getString(R.string.obfuscated_res_0x7f0f156d), R.color.CAM_X0305);
+                this.k0.b(canvas, getContext().getString(R.string.obfuscated_res_0x7f0f156e), R.color.CAM_X0305);
             } else if (i == qk.b) {
                 this.k0.b(canvas, getContext().getString(R.string.obfuscated_res_0x7f0f07c0), R.color.CAM_X0310);
             }

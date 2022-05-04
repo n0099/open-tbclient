@@ -48,7 +48,7 @@ public class yq9 {
             a.m();
             Info info = this.a;
             WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f1565), this.b.getString(R.string.obfuscated_res_0x7f0f1566), 0);
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f1566), this.b.getString(R.string.obfuscated_res_0x7f0f1567), 0);
             try {
                 WDownLoadService.a(this.b);
             } catch (Exception e) {
@@ -64,7 +64,7 @@ public class yq9 {
             zp9.d.c = true;
             Info info = this.a;
             WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f1569), this.b.getString(R.string.obfuscated_res_0x7f0f1569), i);
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f156a), this.b.getString(R.string.obfuscated_res_0x7f0f156a), i);
         }
     }
 
@@ -105,7 +105,7 @@ public class yq9 {
             zp9.d.c = false;
             Info info = this.a;
             WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f1565), this.b.getString(R.string.obfuscated_res_0x7f0f1566), 0);
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f1566), this.b.getString(R.string.obfuscated_res_0x7f0f1567), 0);
             WDownLoadService.a(this.b);
             this.b.stopSelf();
             yr9 a = cs9.a(this.b.getApplicationContext());

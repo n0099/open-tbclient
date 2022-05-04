@@ -52,7 +52,7 @@ public class ar9 {
             } else {
                 if (info.getOpent() == 1) {
                     if (zp9.d.c) {
-                        Toast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f1567), 1).show();
+                        Toast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f1568), 1).show();
                         yr9 a = cs9.a(context);
                         a.q(new gs9(info), 5);
                         a.m();
@@ -60,7 +60,7 @@ public class ar9 {
                     }
                     if (!TextUtils.isEmpty(info.getDl_name())) {
                         Context applicationContext = context.getApplicationContext();
-                        Toast.makeText(applicationContext, context.getString(R.string.obfuscated_res_0x7f0f156b) + info.getDl_name(), 0).show();
+                        Toast.makeText(applicationContext, context.getString(R.string.obfuscated_res_0x7f0f156c) + info.getDl_name(), 0).show();
                     }
                     yr9 a2 = cs9.a(context);
                     gs9 gs9Var = new gs9(info);

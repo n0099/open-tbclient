@@ -43,7 +43,7 @@ public class gs8 {
             if (msgType == 1) {
                 content = chatMessage.getContent();
             } else if (msgType != 2) {
-                content = msgType != 3 ? "" : b9Var.getString(R.string.obfuscated_res_0x7f0f1532);
+                content = msgType != 3 ? "" : b9Var.getString(R.string.obfuscated_res_0x7f0f1533);
             } else {
                 content = a(b9Var, chatMessage.getContent());
             }

@@ -98,7 +98,7 @@ public class iq implements um8 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     iq iqVar = this.a.c;
-                    iqVar.a.onShowErr(4, iqVar.f.getString(R.string.obfuscated_res_0x7f0f1523));
+                    iqVar.a.onShowErr(4, iqVar.f.getString(R.string.obfuscated_res_0x7f0f1524));
                     gj.a = 1;
                 }
             }
@@ -282,7 +282,7 @@ public class iq implements um8 {
                         this.a.c = null;
                         return;
                     }
-                    ejVar.onShowErr(2, gj.a(R.string.obfuscated_res_0x7f0f1528));
+                    ejVar.onShowErr(2, gj.a(R.string.obfuscated_res_0x7f0f1529));
                     FieldBuilder fieldBuilder2 = new FieldBuilder();
                     fieldBuilder2.append("file", str);
                     fieldBuilder2.append("dur", Integer.valueOf(i));
@@ -322,7 +322,7 @@ public class iq implements um8 {
                     iqVar2.l(iqVar2.c, cj.a / 1000);
                     this.a.c = null;
                     iq iqVar3 = this.a;
-                    iqVar3.a.onShowErr(3, iqVar3.f.getString(R.string.obfuscated_res_0x7f0f1529));
+                    iqVar3.a.onShowErr(3, iqVar3.f.getString(R.string.obfuscated_res_0x7f0f152a));
                 } else {
                     gj.a = 1;
                     if (i == 8) {
@@ -419,7 +419,7 @@ public class iq implements um8 {
             if (!FileHelper.checkSD()) {
                 String sdErrorString = FileHelper.getSdErrorString();
                 if (sdErrorString == null) {
-                    sdErrorString = gj.a(R.string.obfuscated_res_0x7f0f1524);
+                    sdErrorString = gj.a(R.string.obfuscated_res_0x7f0f1525);
                 }
                 this.a.onShowErr(0, sdErrorString);
                 return false;

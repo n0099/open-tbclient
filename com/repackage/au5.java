@@ -399,7 +399,7 @@ public class au5 implements uu5, tu5 {
             if (this.o) {
                 addSystemImageButton.setOnClickListener(new c(this));
             }
-            this.m = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244b);
+            this.m = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244c);
             this.e.showBottomLine(false);
             if (!this.o) {
                 this.n = this.e.setCenterTextTitle(this.d.getString(R.string.obfuscated_res_0x7f0f021c));

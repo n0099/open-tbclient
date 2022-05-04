@@ -665,7 +665,7 @@ public class su8 {
             return;
         }
         cr4 cr4Var = new cr4(recordVideoActivity.getPageContext().getPageActivity());
-        cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f14f0);
+        cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f14f1);
         cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04dd, new g(this));
         cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f04d8, new h(this));
         cr4Var.setCancelable(true);

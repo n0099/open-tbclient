@@ -108,15 +108,15 @@ public class VoteStatusCard extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090325);
-            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f092408);
+            this.f = (VoteStatusView) findViewById(R.id.obfuscated_res_0x7f092409);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0902a9);
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0902a8);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092410);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092406);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092411);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092407);
             this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09193f);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09193e);
-            this.n = findViewById(R.id.obfuscated_res_0x7f0923f5);
-            this.m = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f0923f6);
+            this.n = findViewById(R.id.obfuscated_res_0x7f0923f6);
+            this.m = (NewVoteCountDownView) findViewById(R.id.obfuscated_res_0x7f0923f7);
         }
     }
 

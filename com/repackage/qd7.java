@@ -1040,7 +1040,7 @@ public class qd7 {
         ImageView imageView4 = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090ec5);
         this.t = imageView4;
         imageView4.setOnClickListener(this.k0);
-        TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092370);
+        TbImageView tbImageView = (TbImageView) this.d.findViewById(R.id.obfuscated_res_0x7f092371);
         this.v = tbImageView;
         tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
         this.Y = oi.k(this.a.getPageActivity());
@@ -1048,7 +1048,7 @@ public class qd7 {
         ImageView imageView5 = (ImageView) this.d.findViewById(R.id.obfuscated_res_0x7f090eae);
         this.y = imageView5;
         imageView5.setOnClickListener(this.k0);
-        this.z = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092372);
+        this.z = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092373);
         View findViewById2 = this.d.findViewById(R.id.obfuscated_res_0x7f0911f2);
         this.A = findViewById2;
         findViewById2.setVisibility(8);

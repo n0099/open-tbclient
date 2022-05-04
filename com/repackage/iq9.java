@@ -110,12 +110,12 @@ public class iq9 {
             return;
         }
         try {
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092463);
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092464);
             relativeLayout.removeAllViews();
             if (this.s != null) {
                 relativeLayout.addView(this.s);
             }
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092466);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092467);
             float a = wp9.a(this.a, this.t);
             float C = wp9.C(this.a) / 2.0f;
             if (a < C) {
@@ -188,11 +188,11 @@ public class iq9 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             zo9 zo9Var = this.b.a;
             long countdown = (zo9Var == null || !zo9Var.f()) ? 0L : zo9Var.c.getCountdown();
-            CircleProgressbar circleProgressbar = (CircleProgressbar) view2.findViewById(R.id.obfuscated_res_0x7f092465);
+            CircleProgressbar circleProgressbar = (CircleProgressbar) view2.findViewById(R.id.obfuscated_res_0x7f092466);
             this.d = circleProgressbar;
             circleProgressbar.setOutLineColor(0);
-            this.d.setInCircleColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f155b)));
-            this.d.setProgressColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f155a)));
+            this.d.setInCircleColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f155c)));
+            this.d.setProgressColor(Color.parseColor(this.a.getString(R.string.obfuscated_res_0x7f0f155b)));
             this.d.setProgressLineWidth(this.h);
             this.d.setProgressType(com.win.opensdk.s2.b);
             CircleProgressbar circleProgressbar2 = this.d;
@@ -364,7 +364,7 @@ public class iq9 {
             } else if (this.b.c().equals("image")) {
                 viewGroup.removeAllViews();
                 View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08d2, viewGroup);
-                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092462);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092463);
                 b(inflate);
                 imageView.setVisibility(0);
                 e(inflate);
@@ -375,7 +375,7 @@ public class iq9 {
                 viewGroup.removeAllViews();
                 View inflate2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08d2, viewGroup);
                 b(inflate2);
-                GifImageView gifImageView = (GifImageView) inflate2.findViewById(R.id.obfuscated_res_0x7f09245a);
+                GifImageView gifImageView = (GifImageView) inflate2.findViewById(R.id.obfuscated_res_0x7f09245b);
                 gifImageView.setVisibility(0);
                 byte[] bArr = this.m;
                 if (bArr != null) {

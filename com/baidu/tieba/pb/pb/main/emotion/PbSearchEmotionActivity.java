@@ -447,8 +447,8 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             this.mLayoutRoot = (LinearLayout) this.mActivity.findViewById(R.id.obfuscated_res_0x7f0911eb);
             this.mLayoutContent = (FrameLayout) this.mActivity.findViewById(R.id.obfuscated_res_0x7f0911c8);
-            this.mViewLine = this.mActivity.findViewById(R.id.obfuscated_res_0x7f0923a6);
-            NavigationBar navigationBar = (NavigationBar) this.mActivity.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            this.mViewLine = this.mActivity.findViewById(R.id.obfuscated_res_0x7f0923a7);
+            NavigationBar navigationBar = (NavigationBar) this.mActivity.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d0678, (View.OnClickListener) null);
             SearchEditView searchEditView = (SearchEditView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090869);

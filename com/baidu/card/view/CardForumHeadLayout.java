@@ -471,7 +471,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                         if (threadData.getAuthor() != null && !StringUtils.isNull(threadData.getAuthor().getName_show())) {
                             this.c.setText(threadData.getAuthor().getName_show());
                         } else {
-                            this.c.setText(R.string.obfuscated_res_0x7f0f14b3);
+                            this.c.setText(R.string.obfuscated_res_0x7f0f14b4);
                         }
                         this.d.setText(threadData.getThreadExtendInfo());
                     }

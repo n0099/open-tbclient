@@ -847,7 +847,7 @@ public class PersonThreadFragment extends BaseFragment implements PersonPostMode
                 int l = vt4.k().l(TbadkCoreApplication.getCurrentAccount() + "photolive_hostLevel", -1);
                 if (l == 0) {
                     string2 = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f13f8);
-                    str = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f14b4);
+                    str = getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f14b5);
                     dVar = NoDataViewFactory.d.c(NoDataViewFactory.ImgType.LOCAL, R.drawable.new_pic_emotion_06, dimension, -1, -1);
                     cVar = NoDataViewFactory.c.a(bVar);
                 } else {

@@ -943,7 +943,7 @@ public class ThreadData extends pn4 implements PreLoadImageProvider, uo, IVideoD
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             if ((this instanceof mp4) && "0".equals(getId())) {
-                this.threadExtendInfo = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14d9);
+                this.threadExtendInfo = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14da);
                 return;
             }
             int i = 36;
@@ -4928,10 +4928,10 @@ public class ThreadData extends pn4 implements PreLoadImageProvider, uo, IVideoD
                     if (z3 && isLiveRecordThread()) {
                         arrayList.add(new ex5.a((int) R.string.obfuscated_res_0x7f0f0a08));
                     } else if (isRealVideoThread()) {
-                        arrayList.add(new ex5.a((int) R.string.obfuscated_res_0x7f0f14fe));
+                        arrayList.add(new ex5.a((int) R.string.obfuscated_res_0x7f0f14ff));
                     }
                     if (z4) {
-                        arrayList.add(new ex5.a((int) R.string.obfuscated_res_0x7f0f14f4));
+                        arrayList.add(new ex5.a((int) R.string.obfuscated_res_0x7f0f14f5));
                     }
                 }
             }

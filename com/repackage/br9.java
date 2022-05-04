@@ -39,7 +39,7 @@ public class br9 implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Info info = this.a;
             WDownLoadService wDownLoadService = this.b;
-            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f1564), this.b.getString(R.string.obfuscated_res_0x7f0f1564), 100);
+            wDownLoadService.a(info, info != null ? info.getDl_name() : wDownLoadService.getString(R.string.obfuscated_res_0x7f0f1565), this.b.getString(R.string.obfuscated_res_0x7f0f1565), 100);
         }
     }
 }

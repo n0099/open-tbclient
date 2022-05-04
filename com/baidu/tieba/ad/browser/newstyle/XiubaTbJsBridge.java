@@ -328,7 +328,7 @@ public class XiubaTbJsBridge implements rl8 {
     private void startDownload(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            b05.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15b3), -1, -1);
+            b05.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15b4), -1, -1);
         }
     }
 

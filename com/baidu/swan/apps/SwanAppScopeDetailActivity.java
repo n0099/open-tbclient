@@ -156,7 +156,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         c.c0(new b(this));
         this.mNgWebView = c.u();
         c.loadUrl(this.mUrl);
-        c.l((FrameLayout) findViewById(R.id.obfuscated_res_0x7f092428), this.mNgWebView.covertToView());
+        c.l((FrameLayout) findViewById(R.id.obfuscated_res_0x7f092429), this.mNgWebView.covertToView());
     }
 
     private void startExitActivityAnim() {

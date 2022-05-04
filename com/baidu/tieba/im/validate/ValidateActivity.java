@@ -264,7 +264,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                                 byNoticeId.setShown(true);
                                 ValidateModel.updateValidateData(this.a.updateDataCallBack, byNoticeId);
                                 if (TextUtils.isEmpty(socketResponsedMessage.getErrorString())) {
-                                    this.a.showToast(R.string.obfuscated_res_0x7f0f14bd);
+                                    this.a.showToast(R.string.obfuscated_res_0x7f0f14be);
                                 } else {
                                     this.a.showToast(socketResponsedMessage.getErrorString());
                                 }
@@ -274,7 +274,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                             socketResponsedMessage.getError();
                             String errorString = socketResponsedMessage.getErrorString();
                             if (TextUtils.isEmpty(errorString)) {
-                                this.a.showToast(R.string.obfuscated_res_0x7f0f14b8);
+                                this.a.showToast(R.string.obfuscated_res_0x7f0f14b9);
                             } else {
                                 this.a.showToast(errorString);
                             }
@@ -300,7 +300,7 @@ public class ValidateActivity extends BaseActivity<ValidateActivity> implements 
                         ImMessageCenterPojo imMessageCenterPojo = null;
                         if (g.b().size() > 0) {
                             imMessageCenterPojo = new ImMessageCenterPojo();
-                            imMessageCenterPojo.setLast_content(g.b().get(0).getUserName() + TbadkApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f14ba) + g.b().get(0).getGroupName());
+                            imMessageCenterPojo.setLast_content(g.b().get(0).getUserName() + TbadkApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f14bb) + g.b().get(0).getGroupName());
                             imMessageCenterPojo.setLast_content_time(g.b().get(0).getApplyTime());
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001211, imMessageCenterPojo));

@@ -759,7 +759,7 @@ public class PbFullScreenEditorActivity extends BaseActivity implements zu7.c, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
             initNavigationBar();
-            this.mTopLine = findViewById(R.id.obfuscated_res_0x7f0923a6);
+            this.mTopLine = findViewById(R.id.obfuscated_res_0x7f0923a7);
             EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091bff);
             this.mScrollView = editorScrollView;
             editorScrollView.setListener(new a(this));

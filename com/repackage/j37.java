@@ -551,7 +551,7 @@ public class j37 {
             this.c.setNextPage(this.h);
         }
         this.h.t(oi.f(this.a.getPageActivity(), R.dimen.tbds178));
-        this.h.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14f9));
+        this.h.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14fa));
         this.h.B(onClickListener);
         this.h.f();
     }
@@ -622,7 +622,7 @@ public class j37 {
             this.c.setNextPage(this.h);
         }
         this.h.t(oi.f(this.a.getPageActivity(), R.dimen.tbds178));
-        this.h.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14fc));
+        this.h.C(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f14fd));
         this.h.B(null);
         this.h.f();
     }
@@ -805,8 +805,8 @@ public class j37 {
             View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0886, (ViewGroup) null);
             this.b = inflate;
             inflate.setPadding(0, 0, 0, TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.l = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09235b);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f09235e);
+            this.l = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09235c);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.b.findViewById(R.id.obfuscated_res_0x7f09235f);
             this.c = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -815,7 +815,7 @@ public class j37 {
             this.m = c78Var;
             c78Var.v(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             this.m.u(this.t);
-            this.d = (BigdaySwipeRefreshLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09235f);
+            this.d = (BigdaySwipeRefreshLayout) this.b.findViewById(R.id.obfuscated_res_0x7f092360);
             iz6 iz6Var = new iz6(this.a);
             this.e = iz6Var;
             this.d.setProgressView(iz6Var);

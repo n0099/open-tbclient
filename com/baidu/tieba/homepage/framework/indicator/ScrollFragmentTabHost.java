@@ -1600,7 +1600,7 @@ public class ScrollFragmentTabHost extends CoordinatorLayout {
             rn8.c(this.G, 4);
             this.H = (NestedScrollHeader) findViewById(R.id.obfuscated_res_0x7f090d88);
             this.c = (HomeTabBarView) findViewById(R.id.obfuscated_res_0x7f090d90);
-            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923af);
             FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090d8e);
             this.e = frameLayout;
             rn8.c(frameLayout, 5);

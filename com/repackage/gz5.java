@@ -267,7 +267,7 @@ public class gz5 extends BaseAdapter {
         } else if (i3 == 3) {
             String string = this.b.getString(R.string.obfuscated_res_0x7f0f0f3a);
             if (CurrencySwitchUtil.isYyIsConvert(ez5Var.e())) {
-                l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f15b5), g(Double.valueOf(ez5Var.i())));
+                l = String.format(this.b.getString(R.string.obfuscated_res_0x7f0f15b6), g(Double.valueOf(ez5Var.i())));
             } else {
                 l = ez5Var.l();
             }

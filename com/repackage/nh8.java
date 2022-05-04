@@ -190,11 +190,11 @@ public class nh8 {
         this.B = false;
         this.C = 0;
         this.a = (LinearLayout) forumListActivity.findViewById(R.id.obfuscated_res_0x7f090a5f);
-        ViewPager viewPager = (ViewPager) forumListActivity.findViewById(R.id.obfuscated_res_0x7f0923b1);
+        ViewPager viewPager = (ViewPager) forumListActivity.findViewById(R.id.obfuscated_res_0x7f0923b2);
         this.d = viewPager;
         viewPager.setOnPageChangeListener(forumListActivity);
         this.e = (LinearLayout) forumListActivity.findViewById(R.id.obfuscated_res_0x7f091e39);
-        NavigationBar navigationBar = (NavigationBar) forumListActivity.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) forumListActivity.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         LinearLayout linearLayout = (LinearLayout) this.f.setTitleView(R.layout.obfuscated_res_0x7f0d05e9, (View.OnClickListener) null);

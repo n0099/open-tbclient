@@ -130,7 +130,7 @@ public class w28 extends tw5<o28> {
             }
         }
         View k = k();
-        this.k = (BdBaseViewPager) k.findViewById(R.id.obfuscated_res_0x7f09241d);
+        this.k = (BdBaseViewPager) k.findViewById(R.id.obfuscated_res_0x7f09241e);
         this.l = (TbTabLayout) k.findViewById(R.id.obfuscated_res_0x7f092064);
         this.m = k.findViewById(R.id.obfuscated_res_0x7f090393);
         this.l.setTabMode(1);

@@ -363,11 +363,11 @@ public class je8 extends z8<BrowseSettingActivity> {
             if (!bn4.c().g()) {
                 this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f03e8));
             } else if (bn4.c().e() == 1) {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1504));
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1505));
             } else if (bn4.c().e() == 2) {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f150b));
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f150c));
             } else {
-                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1507));
+                this.d.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f1508));
             }
         }
     }
@@ -390,11 +390,11 @@ public class je8 extends z8<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 1) {
-                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f14cd));
+                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f14ce));
             } else if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 3) {
                 this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f03e8));
             } else if (TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2) {
-                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f14cc));
+                this.g.setTip(this.mContext.getString(R.string.obfuscated_res_0x7f0f14cd));
             }
         }
     }
@@ -494,11 +494,11 @@ public class je8 extends z8<BrowseSettingActivity> {
             int e2 = bn4.c().e();
             boolean g = bn4.c().g();
             boolean z = false;
-            this.n.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1507), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1508), g && e2 == 0));
-            this.n.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1504), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1509), g && e2 == 1));
+            this.n.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1508), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1509), g && e2 == 0));
+            this.n.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1505), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f150a), g && e2 == 1));
             ArrayList<pr4> arrayList = this.n;
-            String string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f150b);
-            String string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f150a);
+            String string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f150c);
+            String string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f150b);
             if (g && e2 == 2) {
                 z = true;
             }
@@ -527,7 +527,7 @@ public class je8 extends z8<BrowseSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d0166);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0335));
@@ -537,9 +537,9 @@ public class je8 extends z8<BrowseSettingActivity> {
             this.f = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090a0e);
             this.g = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0922f4);
             if (RichTextGifViewSwitch.isOn()) {
-                this.g.setText(R.string.obfuscated_res_0x7f0f14d6);
+                this.g.setText(R.string.obfuscated_res_0x7f0f14d7);
             } else {
-                this.g.setText(R.string.obfuscated_res_0x7f0f14cb);
+                this.g.setText(R.string.obfuscated_res_0x7f0f14cc);
             }
             MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091d1e);
             this.h = msgSettingItemView;
@@ -556,13 +556,13 @@ public class je8 extends z8<BrowseSettingActivity> {
             this.l = new gr4(this.a.getPageContext());
             this.p = new ArrayList<>();
             int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
-            this.p.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14cc), (String) null, autoPlaySwitch == 2));
-            this.p.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14cd), (String) null, autoPlaySwitch == 1));
+            this.p.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14cd), (String) null, autoPlaySwitch == 2));
+            this.p.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f14ce), (String) null, autoPlaySwitch == 1));
             this.p.add(new pr4(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f03e8), (String) null, autoPlaySwitch == 3));
             if (RichTextGifViewSwitch.isOn()) {
-                this.l.l(R.string.obfuscated_res_0x7f0f14d6);
+                this.l.l(R.string.obfuscated_res_0x7f0f14d7);
             } else {
-                this.l.l(R.string.obfuscated_res_0x7f0f14cb);
+                this.l.l(R.string.obfuscated_res_0x7f0f14cc);
             }
             this.l.k(this.p, this.u);
             this.l.c();

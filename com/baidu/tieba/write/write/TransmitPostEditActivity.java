@@ -1901,12 +1901,12 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             if (this.mAdditionData != null) {
                 this.mAdditionContainer.setVisibility(0);
                 TextView textView = this.mAdditionCreateTime;
-                textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f157e) + StringHelper.getFormatTime(this.mAdditionData.getCreateTime() * 1000));
+                textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f157f) + StringHelper.getFormatTime(this.mAdditionData.getCreateTime() * 1000));
                 if (this.mAdditionData.getAlreadyCount() == 0) {
                     this.mAdditionLastTime.setVisibility(8);
                 } else {
                     TextView textView2 = this.mAdditionLastTime;
-                    textView2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f1580) + StringHelper.getFormatTime(this.mAdditionData.getLastAdditionTime() * 1000));
+                    textView2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f1581) + StringHelper.getFormatTime(this.mAdditionData.getLastAdditionTime() * 1000));
                 }
                 String lastAdditionContent = this.mAdditionData.getLastAdditionContent();
                 if (!TextUtils.isEmpty(lastAdditionContent)) {
@@ -1914,8 +1914,8 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                 } else {
                     this.mAdditionLastContent.setVisibility(8);
                 }
-                getRealContentEdittextInstance().setHint(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f157f), Integer.valueOf(this.mAdditionData.getAlreadyCount()), Integer.valueOf(this.mAdditionData.getTotalCount())));
-                this.mName.setText(R.string.obfuscated_res_0x7f0f1582);
+                getRealContentEdittextInstance().setHint(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f1580), Integer.valueOf(this.mAdditionData.getAlreadyCount()), Integer.valueOf(this.mAdditionData.getTotalCount())));
+                this.mName.setText(R.string.obfuscated_res_0x7f0f1583);
                 return;
             }
             this.mAdditionContainer.setVisibility(8);
@@ -2083,7 +2083,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             this.mData.setWriteImagesInfo(this.writeImagesInfo);
             PostPrefixData postPrefixData = this.mPrefixData;
             if (postPrefixData != null && postPrefixData.getPrefixs().size() > 0) {
-                this.mPrefixData.getPrefixs().add(0, getPageContext().getString(R.string.obfuscated_res_0x7f0f158a));
+                this.mPrefixData.getPrefixs().add(0, getPageContext().getString(R.string.obfuscated_res_0x7f0f158b));
             }
             OriginalThreadInfo.ShareInfo shareInfo = this.mOriginalThreadInfo;
             if (shareInfo != null && (str = shareInfo.videoId) != null) {
@@ -2194,7 +2194,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
     private void initOriginalThread() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65606, this) == null) {
-            OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) findViewById(R.id.obfuscated_res_0x7f092481);
+            OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) findViewById(R.id.obfuscated_res_0x7f092482);
             this.mOriginalThreadCardView = originalThreadCardView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) originalThreadCardView.getLayoutParams();
             layoutParams.topMargin -= TBDS24;
@@ -2299,7 +2299,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d08d9, (ViewGroup) null);
             this.mRootView = inflate;
             setContentView(inflate);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             navigationBar.showBottomLine();
             this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -2310,7 +2310,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
             this.mName = centerTextTitle;
             SkinManager.setViewTextColor(centerTextTitle, (int) R.color.CAM_X0105);
             setPostView();
-            ScrollView scrollView = (ScrollView) findViewById(R.id.obfuscated_res_0x7f092482);
+            ScrollView scrollView = (ScrollView) findViewById(R.id.obfuscated_res_0x7f092483);
             this.write_scrollview = scrollView;
             scrollView.setOnTouchListener(new f(this));
             addGlobalLayoutListener();
@@ -2708,7 +2708,7 @@ public class TransmitPostEditActivity extends BaseActivity<TransmitPostEditActiv
                     i3 = 0;
                 }
                 if (i2 > i3) {
-                    String format = String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f1581), Integer.valueOf(i2 - i3));
+                    String format = String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f1582), Integer.valueOf(i2 - i3));
                     sb.append("\n");
                     sb.append(format);
                 }

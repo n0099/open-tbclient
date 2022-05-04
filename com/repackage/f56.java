@@ -399,7 +399,7 @@ public class f56 extends z8 implements NoNetworkView.b {
         B(bundle);
         z(bundle);
         y(bundle);
-        NoNetworkView noNetworkView = (NoNetworkView) this.h.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        NoNetworkView noNetworkView = (NoNetworkView) this.h.findViewById(R.id.obfuscated_res_0x7f0923af);
         this.r = noNetworkView;
         noNetworkView.a(this);
     }

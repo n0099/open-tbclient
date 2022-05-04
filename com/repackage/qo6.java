@@ -135,12 +135,12 @@ public class qo6 implements po6 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 c cVar = new c();
                 cVar.a = view2;
-                cVar.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f09244a);
-                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092448);
-                cVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092445);
+                cVar.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f09244b);
+                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092449);
+                cVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092446);
                 cVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c4b);
                 cVar.f = (MessageRedDotView) view2.findViewById(R.id.obfuscated_res_0x7f09155a);
-                cVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09244e);
+                cVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09244f);
                 return cVar;
             }
             return (c) invokeL.objValue;

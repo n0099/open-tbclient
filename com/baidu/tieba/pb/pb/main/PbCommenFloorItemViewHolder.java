@@ -163,11 +163,11 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.b = view2;
         this.d = view2.findViewById(R.id.obfuscated_res_0x7f092098);
         this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916cd);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923bc);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092389);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b3);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923bd);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09238a);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b4);
         this.F = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e16);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a8);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a9);
         this.p = view2.findViewById(R.id.obfuscated_res_0x7f091712);
         this.t = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918a6);
         this.u = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918a7);
@@ -265,7 +265,7 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
         this.b0.setAgreeAlone(true);
         this.b0.setStatisticData(vn4Var);
         this.d0 = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091714);
-        this.e0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b4);
+        this.e0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b5);
         this.f0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09043c);
         this.g0 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09170b);
         FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f092243);

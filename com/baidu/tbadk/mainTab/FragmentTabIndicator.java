@@ -249,8 +249,8 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             this.s = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
             this.t = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e);
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02da, this);
-            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092390);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092391);
+            this.q = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092391);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092392);
             this.r = textView;
             textView.setDuplicateParentStateEnabled(true);
             l();

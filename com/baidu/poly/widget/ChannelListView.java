@@ -951,15 +951,15 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
             this.j = findViewById2;
             findViewById2.setOnClickListener(this);
             this.g.setOnClickListener(this);
-            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f0923cf);
-            this.x = findViewById(R.id.obfuscated_res_0x7f09239a);
+            this.w = (DuVipGuideView) findViewById(R.id.obfuscated_res_0x7f0923d0);
+            this.x = findViewById(R.id.obfuscated_res_0x7f09239b);
             this.y = (HostMarketView) findViewById(R.id.obfuscated_res_0x7f090db8);
             CouponEntranceView couponEntranceView = (CouponEntranceView) findViewById(R.id.obfuscated_res_0x7f090705);
             this.D = couponEntranceView;
             couponEntranceView.setOnClickListener(this);
             this.z = (TextView) findViewById(R.id.obfuscated_res_0x7f091428);
             this.A = (TextView) findViewById(R.id.obfuscated_res_0x7f090755);
-            this.B = findViewById(R.id.obfuscated_res_0x7f0923bb);
+            this.B = findViewById(R.id.obfuscated_res_0x7f0923bc);
             View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0921c8);
             this.C = findViewById3;
             findViewById3.setOnClickListener(this);

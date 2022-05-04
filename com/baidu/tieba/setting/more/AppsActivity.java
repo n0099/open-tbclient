@@ -323,7 +323,7 @@ public class AppsActivity extends BaseActivity<AppsActivity> {
             this.mWebView = baseWebView;
             baseWebView.setDownloadEnabled(true);
             this.mProcess = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f090298);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09242c);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09242d);
             this.mFailView = linearLayout;
             linearLayout.setOnClickListener(new a(this));
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a1c);

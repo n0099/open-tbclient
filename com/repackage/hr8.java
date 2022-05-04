@@ -82,11 +82,11 @@ public class hr8 {
         this.u = oi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
         this.v = oi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070201);
         this.r = onClickListener;
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e39);
-        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923af);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0906f2);
         this.p = this.b.findViewById(R.id.obfuscated_res_0x7f092099);
         TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090550);

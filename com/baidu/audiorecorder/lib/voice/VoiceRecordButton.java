@@ -451,7 +451,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             if (this.S == null) {
                 cr4 cr4Var = new cr4(f9.a(getContext()).getPageActivity());
                 this.S = cr4Var;
-                cr4Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f152b)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f152a), new b(this, recorderManager)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f036e), new a(this)).create(f9.a(getContext()));
+                cr4Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f152c)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f152b), new b(this, recorderManager)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f036e), new a(this)).create(f9.a(getContext()));
             }
             try {
                 this.S.show();
@@ -484,7 +484,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
                 SkinManager.setImageResource(this.O, R.drawable.but_posts_record_play_selector);
             }
             SkinManager.setViewTextColor(this.L, R.color.CAM_X0108, 1);
-            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1525));
+            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1526));
         }
     }
 
@@ -537,7 +537,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             SkinManager.setViewTextColor(this.P, R.color.CAM_X0106, 1);
             SkinManager.setImageResource(this.O, R.drawable.but_posts_record_stop_selector);
             this.O.setContentDescription(getContext().getString(R.string.obfuscated_res_0x7f0f0d40));
-            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1531));
+            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1532));
             B();
             return;
         }
@@ -545,7 +545,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         this.P.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
         SkinManager.setImageResource(this.O, R.drawable.but_posts_record_play_selector);
         this.O.setContentDescription(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f09ea), Integer.valueOf(voiceModel.duration)));
-        this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1525));
+        this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1526));
         if (g55.b().d()) {
             g55.b().n(false);
             g55.b().l(false);
@@ -824,7 +824,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             } else if (i == 2) {
                 this.K.setVisibility(0);
                 this.K.setText(str);
-                this.L.setText(R.string.obfuscated_res_0x7f0f1526);
+                this.L.setText(R.string.obfuscated_res_0x7f0f1527);
                 postDelayed(new d(this), 2000L);
             } else if (i == 5) {
                 this.K.setVisibility(0);
@@ -884,7 +884,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048607, this, z) == null) && z) {
             w();
-            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1527));
+            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1528));
         }
     }
 
@@ -975,7 +975,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             this.J.setVisibility(4);
             this.M.setVisibility(4);
             SkinManager.setViewTextColor(this.L, R.color.CAM_X0301, 1);
-            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1526));
+            this.L.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1527));
         }
     }
 
@@ -1029,7 +1029,7 @@ public class VoiceRecordButton extends ViewGroup implements View.OnClickListener
             SkinManager.setViewTextColor(textView, R.color.CAM_X0101, 1);
             this.L = (TextView) findViewById(R.id.obfuscated_res_0x7f092008);
             this.M = (TextView) findViewById(R.id.obfuscated_res_0x7f09200c);
-            this.N = (VoiceButton) findViewById(R.id.obfuscated_res_0x7f0923da);
+            this.N = (VoiceButton) findViewById(R.id.obfuscated_res_0x7f0923db);
             this.J = (TextView) findViewById(R.id.obfuscated_res_0x7f091a65);
             this.O = (ImageView) findViewById(R.id.obfuscated_res_0x7f091859);
             TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09185c);

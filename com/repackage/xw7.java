@@ -402,12 +402,19 @@ public class xw7 {
         this.a = pbFragment;
         this.b = dt7Var;
         this.c = onClickListener;
-        r();
+        s();
     }
 
-    public void A(bs7 bs7Var) {
+    public void A(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bs7Var) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.h.g(z);
+        }
+    }
+
+    public void B(bs7 bs7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bs7Var) == null) {
             if (bs7Var != null && bs7Var.r0()) {
                 int f = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702c8);
                 int paddingBottom = this.i.getPaddingBottom();
@@ -429,17 +436,17 @@ public class xw7 {
         }
     }
 
-    public void B(int i) {
+    public void C(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.i.setVisibility(i);
         }
     }
 
-    public void C(int i, bs7 bs7Var, PostData postData, View.OnClickListener onClickListener) {
+    public void D(int i, bs7 bs7Var, PostData postData, View.OnClickListener onClickListener) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), bs7Var, postData, onClickListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), bs7Var, postData, onClickListener}) == null) {
             if (postData != null && postData.s() != null) {
                 MetaData s = postData.s();
                 String string = s.getName_show() == null ? StringUtils.string(s.getUserName()) : StringUtils.string(s.getName_show());
@@ -461,7 +468,7 @@ public class xw7 {
                     int f = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds48);
                     this.p.h(tShowInfoNew, 3, f, f, oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
                 }
-                this.k.setText(p(s.getSealPrefix(), string));
+                this.k.setText(q(s.getSealPrefix(), string));
                 this.k.setTag(R.id.obfuscated_res_0x7f091ea4, s.getUserId());
                 this.k.setTag(R.id.obfuscated_res_0x7f091eac, s.getName_show());
                 if (ListUtils.isEmpty(tShowInfoNew) && !s.isBigV()) {
@@ -526,13 +533,17 @@ public class xw7 {
                     }
                     this.i.setSpacingRight(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds20));
                     nz4 M = postData.M();
-                    if (M != null && !TextUtils.isEmpty(M.b()) && !TextUtils.isEmpty(M.b().trim())) {
+                    String o = o(postData);
+                    if (!TextUtils.isEmpty(o)) {
+                        this.A.setVisibility(0);
+                        this.A.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14ad) + o);
+                    } else if (M != null && !TextUtils.isEmpty(M.b()) && !TextUtils.isEmpty(M.b().trim())) {
                         this.A.setVisibility(0);
                         this.A.setText(M.b());
                     } else {
                         this.A.setVisibility(8);
                     }
-                    if (M != null && !TextUtils.isEmpty(M.a())) {
+                    if (M != null && !TextUtils.isEmpty(M.a()) && TextUtils.isEmpty(o)) {
                         this.B.setText(M.a());
                         this.B.setVisibility(0);
                         this.t.post(new a(this, (int) this.B.getPaint().measureText(M.a(), 0, M.a().length())));
@@ -543,7 +554,7 @@ public class xw7 {
                 if (bs7Var.O().getAuthor() == null || bs7Var.O().getAuthor().getAlaInfo() == null || bs7Var.O().getAuthor().getAlaInfo().live_status != 1) {
                     z = false;
                 } else {
-                    D(bs7Var);
+                    E(bs7Var);
                     z = true;
                 }
                 this.n.setBigVDimenSize(R.dimen.tbds36);
@@ -586,10 +597,10 @@ public class xw7 {
         }
     }
 
-    public final void D(bs7 bs7Var) {
+    public final void E(bs7 bs7Var) {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, bs7Var) == null) || (tBLottieAnimationView = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bs7Var) == null) || (tBLottieAnimationView = this.o) == null) {
             return;
         }
         if (tBLottieAnimationView.getVisibility() != 0 && bs7Var != null && bs7Var.O() != null && bs7Var.O().getAuthor() != null) {
@@ -616,9 +627,9 @@ public class xw7 {
         this.o.post(new d(this));
     }
 
-    public void E(PostData postData, boolean z) {
+    public void F(PostData postData, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, postData, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, postData, z) == null) {
             if (this.a.isSimpleForum()) {
                 this.F = 0;
                 if (postData != null && postData.s() != null) {
@@ -626,9 +637,9 @@ public class xw7 {
                 }
                 if (this.F > 0 && !z) {
                     this.m.setVisibility(0);
-                    s(this.m);
+                    t(this.m);
                     if (postData != null && postData.s() != null) {
-                        H(postData);
+                        I(postData);
                     }
                     SkinManager.setImageResource(this.m, BitmapHelper.getGradeResourceIdInEnterForum(this.F));
                     return;
@@ -640,18 +651,18 @@ public class xw7 {
             if (postData == null || postData.s() == null) {
                 return;
             }
-            H(postData);
+            I(postData);
         }
     }
 
-    public void F(bs7 bs7Var, PostData postData, boolean z) {
+    public void G(bs7 bs7Var, PostData postData, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048581, this, bs7Var, postData, z) == null) || bs7Var == null || postData == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048582, this, bs7Var, postData, z) == null) || bs7Var == null || postData == null) {
             return;
         }
         if (3 != bs7Var.g()) {
             this.v.setVisibility(0);
-            s(this.v);
+            t(this.v);
         }
         if (z) {
             this.v.setVisibility(8);
@@ -673,9 +684,9 @@ public class xw7 {
         }
     }
 
-    public void G(bs7 bs7Var, PostData postData) {
+    public void H(bs7 bs7Var, PostData postData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, bs7Var, postData) == null) || postData == null || this.a == null || postData.m0 == null || bs7Var.O() == null || bs7Var.O().getAuthor() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, bs7Var, postData) == null) || postData == null || this.a == null || postData.m0 == null || bs7Var.O() == null || bs7Var.O().getAuthor() == null) {
             return;
         }
         MetaData author = bs7Var.O().getAuthor();
@@ -693,9 +704,9 @@ public class xw7 {
         this.w.setOnClickListener(new b(this, author));
     }
 
-    public final void H(PostData postData) {
+    public final void I(PostData postData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, postData) == null) || postData == null || postData.s() == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, postData) == null) || postData == null || postData.s() == null) {
             return;
         }
         MetaData s = postData.s();
@@ -709,13 +720,13 @@ public class xw7 {
             int f = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds40);
             this.q.g(iconInfo, 4, f, f, oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
             this.q.setAutoChangedStyle(true);
-            s(this.q);
+            t(this.q);
         }
     }
 
     public void j(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdTypeListView) == null) || bdTypeListView == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, bdTypeListView) == null) || bdTypeListView == null) {
             return;
         }
         bdTypeListView.addHeaderView(this.f);
@@ -723,7 +734,7 @@ public class xw7 {
 
     public void k(BdTypeListView bdTypeListView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048585, this, bdTypeListView, i) == null) || bdTypeListView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048586, this, bdTypeListView, i) == null) || bdTypeListView == null) {
             return;
         }
         bdTypeListView.x(this.f, i);
@@ -731,23 +742,23 @@ public class xw7 {
 
     public void l(bs7 bs7Var, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{bs7Var, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{bs7Var, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (bs7Var != null && bs7Var.j) {
                 this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f0c);
                 this.g.setVisibility(0);
-                s(this.g);
+                t(this.g);
             } else if (z && z2) {
                 this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f4e);
                 this.g.setVisibility(0);
-                s(this.g);
+                t(this.g);
             } else if (z) {
                 this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f4c);
                 this.g.setVisibility(0);
-                s(this.g);
+                t(this.g);
             } else if (z2) {
                 this.g.setImageResource(R.drawable.obfuscated_res_0x7f080f4d);
                 this.g.setVisibility(0);
-                s(this.g);
+                t(this.g);
             } else {
                 this.g.setVisibility(8);
             }
@@ -757,7 +768,7 @@ public class xw7 {
     public void m() {
         nz5 nz5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (nz5Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (nz5Var = this.e) == null) {
             return;
         }
         nz5Var.I();
@@ -766,19 +777,31 @@ public class xw7 {
     public TextView n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.h.e() : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.h.e() : (TextView) invokeV.objValue;
     }
 
-    public View o() {
+    public final String o(PostData postData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, postData)) == null) {
+            if (postData == null || postData.s() == null) {
+                return null;
+            }
+            return postData.s().getIpAddress();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public View p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    public final SpannableStringBuilder p(String str, String str2) {
+    public final SpannableStringBuilder q(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, str2)) == null) {
             ArrayList arrayList = new ArrayList();
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (str2 == null || str == null) {
@@ -790,10 +813,10 @@ public class xw7 {
         return (SpannableStringBuilder) invokeLL.objValue;
     }
 
-    public SparseArray<Object> q() {
+    public SparseArray<Object> r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             SparseArray<Object> sparseArray = (SparseArray) this.i.getTag();
             if (sparseArray == null) {
                 SparseArray<Object> sparseArray2 = new SparseArray<>();
@@ -805,9 +828,9 @@ public class xw7 {
         return (SparseArray) invokeV.objValue;
     }
 
-    public final void r() {
+    public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05fe, (ViewGroup) null);
             this.f = relativeLayout;
             ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f09172c);
@@ -850,9 +873,9 @@ public class xw7 {
         }
     }
 
-    public final void s(View view2) {
+    public final void t(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, view2) == null) {
             view2.setAlpha(0.0f);
             ValueAnimator ofInt = ValueAnimator.ofInt(0, 1);
             ofInt.setDuration(50L);
@@ -861,9 +884,9 @@ public class xw7 {
         }
     }
 
-    public void t(int i) {
+    public void u(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0205);
             ImageView imageView = this.m;
             if (imageView != null) {
@@ -908,9 +931,9 @@ public class xw7 {
         }
     }
 
-    public void u() {
+    public void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             nz5 nz5Var = this.e;
             if (nz5Var != null) {
                 nz5Var.I();
@@ -927,9 +950,9 @@ public class xw7 {
         }
     }
 
-    public void v(bs7 bs7Var, PostData postData, boolean z, boolean z2) {
+    public void w(bs7 bs7Var, PostData postData, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{bs7Var, postData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || bs7Var == null || postData == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{bs7Var, postData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || bs7Var == null || postData == null) {
             return;
         }
         String Q = bs7Var != null ? bs7Var.Q() : "";
@@ -968,25 +991,25 @@ public class xw7 {
         dw7Var2.x(i);
     }
 
-    public void w(BdTypeListView bdTypeListView) {
+    public void x(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, bdTypeListView) == null) || bdTypeListView == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048599, this, bdTypeListView) == null) || bdTypeListView == null) {
             return;
         }
         bdTypeListView.removeHeaderView(this.f);
     }
 
-    public void x(View.OnLongClickListener onLongClickListener) {
+    public void y(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, onLongClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, onLongClickListener) == null) {
             this.d = onLongClickListener;
             this.i.setOnLongClickListener(onLongClickListener);
         }
     }
 
-    public void y(PostData postData, bs7 bs7Var) {
+    public void z(PostData postData, bs7 bs7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048599, this, postData, bs7Var) == null) || postData == null || bs7Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048601, this, postData, bs7Var) == null) || postData == null || bs7Var == null) {
             return;
         }
         if (postData.Q() != null) {
@@ -996,12 +1019,5 @@ public class xw7 {
             return;
         }
         this.j.setData(null, null, null);
-    }
-
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            this.h.g(z);
-        }
     }
 }

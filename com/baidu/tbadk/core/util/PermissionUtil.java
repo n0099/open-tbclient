@@ -434,7 +434,7 @@ public class PermissionUtil {
             }
             try {
                 if (ApiUtil.shouldCheckPermission() && ContextCompat.checkPermissionDenied(providerContext, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                    oi.M(providerContext, R.string.obfuscated_res_0x7f0f1584);
+                    oi.M(providerContext, R.string.obfuscated_res_0x7f0f1585);
                     return true;
                 }
                 return false;

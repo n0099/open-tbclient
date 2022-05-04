@@ -218,7 +218,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
             }
             BdTopToast bdTopToast = new BdTopToast(this.a.getContext(), 2000);
             bdTopToast.i(false);
-            bdTopToast.h(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f15db));
+            bdTopToast.h(this.a.getContext().getString(R.string.obfuscated_res_0x7f0f15dc));
             bdTopToast.j((ViewGroup) this.a.getParent().getParent());
         }
     }
@@ -263,12 +263,12 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
             this.c = (PasswordView) findViewById(R.id.obfuscated_res_0x7f091664);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092234);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee1);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092499);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09249a);
             this.c.setOnPasswordInputComplete(this.k);
             this.f.setOnClickListener(this);
             BdTopToast bdTopToast = new BdTopToast(getContext(), 2000);
             bdTopToast.i(false);
-            bdTopToast.h(getContext().getString(R.string.obfuscated_res_0x7f0f15d1));
+            bdTopToast.h(getContext().getString(R.string.obfuscated_res_0x7f0f15d2));
             this.j = bdTopToast;
         }
     }
@@ -280,26 +280,26 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
             this.e.setVisibility(8);
             switch (i) {
                 case 1:
-                    this.b.setText(R.string.obfuscated_res_0x7f0f15d7);
-                    this.d.setText(R.string.obfuscated_res_0x7f0f15d8);
+                    this.b.setText(R.string.obfuscated_res_0x7f0f15d8);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f15d9);
                     return;
                 case 2:
-                    this.b.setText(R.string.obfuscated_res_0x7f0f15dc);
-                    this.d.setText(R.string.obfuscated_res_0x7f0f15d8);
+                    this.b.setText(R.string.obfuscated_res_0x7f0f15dd);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f15d9);
                     return;
                 case 3:
                 case 6:
-                    this.b.setText(R.string.obfuscated_res_0x7f0f15cf);
-                    this.d.setText(R.string.obfuscated_res_0x7f0f15d0);
+                    this.b.setText(R.string.obfuscated_res_0x7f0f15d0);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f15d1);
                     this.e.setVisibility(0);
                     return;
                 case 4:
-                    this.b.setText(R.string.obfuscated_res_0x7f0f15d6);
-                    this.d.setText(R.string.obfuscated_res_0x7f0f15d5);
+                    this.b.setText(R.string.obfuscated_res_0x7f0f15d7);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f15d6);
                     return;
                 case 5:
-                    this.b.setText(R.string.obfuscated_res_0x7f0f15dc);
-                    this.d.setText(R.string.obfuscated_res_0x7f0f15d5);
+                    this.b.setText(R.string.obfuscated_res_0x7f0f15dd);
+                    this.d.setText(R.string.obfuscated_res_0x7f0f15d6);
                     return;
                 default:
                     return;
@@ -332,7 +332,7 @@ public class YoungsterPasswordView extends LinearLayout implements View.OnClickL
             if (i == 3 || i == 6) {
                 String youngsterVerifyUrl = YoungsterVerifyActivityConfig.getYoungsterVerifyUrl();
                 if (!StringUtils.isNull(youngsterVerifyUrl)) {
-                    YoungsterVerifyActivityConfig youngsterVerifyActivityConfig = new YoungsterVerifyActivityConfig(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15dd), youngsterVerifyUrl, true);
+                    YoungsterVerifyActivityConfig youngsterVerifyActivityConfig = new YoungsterVerifyActivityConfig(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f15de), youngsterVerifyUrl, true);
                     youngsterVerifyActivityConfig.setKeyYoungsterPasswordFrom(this.i);
                     youngsterVerifyActivityConfig.setNoMenu(true);
                     youngsterVerifyActivityConfig.setFixTitle(true);

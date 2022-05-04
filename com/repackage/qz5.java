@@ -311,8 +311,8 @@ public class qz5 implements View.OnClickListener {
             this.c = (TextView) shadowLinearLayout.findViewById(R.id.obfuscated_res_0x7f091ef3);
             this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091ef1);
             this.e = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f091ef0);
-            this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1598));
-            this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1596));
+            this.c.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1599));
+            this.d.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1597));
             this.e.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1111));
             this.e.setConfig(new ku4());
         }

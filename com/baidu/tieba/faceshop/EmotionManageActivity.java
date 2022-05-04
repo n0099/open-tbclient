@@ -617,7 +617,7 @@ public class EmotionManageActivity extends BaseActivity<EmotionManageActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             this.mRoot = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908a0);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mTitleBar = navigationBar;
             navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f13ee);
             this.mBack = this.mTitleBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);

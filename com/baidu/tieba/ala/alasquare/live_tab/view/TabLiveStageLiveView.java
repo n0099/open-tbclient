@@ -205,7 +205,7 @@ public class TabLiveStageLiveView extends AlaRoundRelativeLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07f3, this);
             float f = l;
             setRoundLayoutRadius(new float[]{f, f, f, f, f, f, f, f});
-            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = (TabLiveStageLiveZanLottieView) findViewById(R.id.obfuscated_res_0x7f0924b8);
+            TabLiveStageLiveZanLottieView tabLiveStageLiveZanLottieView = (TabLiveStageLiveZanLottieView) findViewById(R.id.obfuscated_res_0x7f0924b9);
             this.h = tabLiveStageLiveZanLottieView;
             tabLiveStageLiveZanLottieView.setForbidAutoUpdateState(true);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09070e);

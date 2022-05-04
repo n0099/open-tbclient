@@ -198,7 +198,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             this.j = str2;
             View inflate = View.inflate(context, R.layout.obfuscated_res_0x7f0d08de, null);
             this.i = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092487);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092488);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.i.findViewById(R.id.obfuscated_res_0x7f091cac);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
             mu4 mu4Var = new mu4();

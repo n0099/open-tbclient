@@ -66,7 +66,7 @@ public class YoungsterIntroduceView extends LinearLayout implements View.OnClick
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09044d);
             this.g = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(new ku4());
-            this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f15d4));
+            this.g.setText(getContext().getString(R.string.obfuscated_res_0x7f0f15d5));
             this.g.setOnClickListener(this);
             b();
         }

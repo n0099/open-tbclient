@@ -288,8 +288,8 @@ public class MainBottomLiveTabFragment extends BaseFragment {
             View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d052e, (ViewGroup) null);
             this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e33);
             this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e3d);
-            this.d = (CustomViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f0923c1);
-            this.c = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.d = (CustomViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f0923c2);
+            this.c = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923af);
             C0();
             return inflate;
         }

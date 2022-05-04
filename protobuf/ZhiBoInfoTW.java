@@ -16,8 +16,12 @@ import java.util.List;
 public final class ZhiBoInfoTW extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CONTENT = "";
+    public static final Integer DEFAULT_COPYTHREADREMIND;
+    public static final String DEFAULT_FIELDEX = "";
     public static final Long DEFAULT_FORUMID;
     public static final String DEFAULT_FORUMNAME = "";
+    public static final Integer DEFAULT_FREQNUM;
+    public static final Integer DEFAULT_ISCOPYTWZHIBO;
     public static final Integer DEFAULT_ISHEADLINE;
     public static final Integer DEFAULT_ISHEADLINEAVAILABLE;
     public static final Integer DEFAULT_ISNEWHEADLINE;
@@ -33,10 +37,18 @@ public final class ZhiBoInfoTW extends Message {
     public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 11, type = Message.Datatype.STRING)
     public final String content;
+    @ProtoField(tag = 20, type = Message.Datatype.UINT32)
+    public final Integer copythreadRemind;
+    @ProtoField(tag = 22, type = Message.Datatype.STRING)
+    public final String fieldEx;
     @ProtoField(tag = 8, type = Message.Datatype.UINT64)
     public final Long forumId;
     @ProtoField(tag = 7, type = Message.Datatype.STRING)
     public final String forumName;
+    @ProtoField(tag = 19, type = Message.Datatype.UINT32)
+    public final Integer freqNum;
+    @ProtoField(tag = 21, type = Message.Datatype.UINT32)
+    public final Integer isCopytwzhibo;
     @ProtoField(tag = 15, type = Message.Datatype.UINT32)
     public final Integer isHeadline;
     @ProtoField(tag = 17, type = Message.Datatype.UINT32)
@@ -51,6 +63,8 @@ public final class ZhiBoInfoTW extends Message {
     public final String livecoverSrc;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String livecoverSrcBsize;
+    @ProtoField(tag = 18)
+    public final LiveCoverStatus livecoverStatus;
     @ProtoField(tag = 4, type = Message.Datatype.UINT32)
     public final Integer postNum;
     @ProtoField(tag = 14, type = Message.Datatype.UINT32)
@@ -71,8 +85,12 @@ public final class ZhiBoInfoTW extends Message {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String content;
+        public Integer copythreadRemind;
+        public String fieldEx;
         public Long forumId;
         public String forumName;
+        public Integer freqNum;
+        public Integer isCopytwzhibo;
         public Integer isHeadline;
         public Integer isHeadlineAvailable;
         public Integer isNewHeadline;
@@ -80,6 +98,7 @@ public final class ZhiBoInfoTW extends Message {
         public Long lastModifiedTime;
         public String livecoverSrc;
         public String livecoverSrcBsize;
+        public LiveCoverStatus livecoverStatus;
         public Integer postNum;
         public Integer rank;
         public Integer replyNum;
@@ -140,6 +159,11 @@ public final class ZhiBoInfoTW extends Message {
             this.isHeadline = zhiBoInfoTW.isHeadline;
             this.isNewHeadline = zhiBoInfoTW.isNewHeadline;
             this.isHeadlineAvailable = zhiBoInfoTW.isHeadlineAvailable;
+            this.livecoverStatus = zhiBoInfoTW.livecoverStatus;
+            this.freqNum = zhiBoInfoTW.freqNum;
+            this.copythreadRemind = zhiBoInfoTW.copythreadRemind;
+            this.isCopytwzhibo = zhiBoInfoTW.isCopytwzhibo;
+            this.fieldEx = zhiBoInfoTW.fieldEx;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -180,6 +204,9 @@ public final class ZhiBoInfoTW extends Message {
         DEFAULT_ISHEADLINE = 0;
         DEFAULT_ISNEWHEADLINE = 0;
         DEFAULT_ISHEADLINEAVAILABLE = 0;
+        DEFAULT_FREQNUM = 0;
+        DEFAULT_COPYTHREADREMIND = 0;
+        DEFAULT_ISCOPYTWZHIBO = 0;
     }
 
     public /* synthetic */ ZhiBoInfoTW(Builder builder, boolean z, a aVar) {
@@ -294,9 +321,34 @@ public final class ZhiBoInfoTW extends Message {
             Integer num6 = builder.isHeadlineAvailable;
             if (num6 == null) {
                 this.isHeadlineAvailable = DEFAULT_ISHEADLINEAVAILABLE;
-                return;
             } else {
                 this.isHeadlineAvailable = num6;
+            }
+            this.livecoverStatus = builder.livecoverStatus;
+            Integer num7 = builder.freqNum;
+            if (num7 == null) {
+                this.freqNum = DEFAULT_FREQNUM;
+            } else {
+                this.freqNum = num7;
+            }
+            Integer num8 = builder.copythreadRemind;
+            if (num8 == null) {
+                this.copythreadRemind = DEFAULT_COPYTHREADREMIND;
+            } else {
+                this.copythreadRemind = num8;
+            }
+            Integer num9 = builder.isCopytwzhibo;
+            if (num9 == null) {
+                this.isCopytwzhibo = DEFAULT_ISCOPYTWZHIBO;
+            } else {
+                this.isCopytwzhibo = num9;
+            }
+            String str6 = builder.fieldEx;
+            if (str6 == null) {
+                this.fieldEx = "";
+                return;
+            } else {
+                this.fieldEx = str6;
                 return;
             }
         }
@@ -317,5 +369,10 @@ public final class ZhiBoInfoTW extends Message {
         this.isHeadline = builder.isHeadline;
         this.isNewHeadline = builder.isNewHeadline;
         this.isHeadlineAvailable = builder.isHeadlineAvailable;
+        this.livecoverStatus = builder.livecoverStatus;
+        this.freqNum = builder.freqNum;
+        this.copythreadRemind = builder.copythreadRemind;
+        this.isCopytwzhibo = builder.isCopytwzhibo;
+        this.fieldEx = builder.fieldEx;
     }
 }

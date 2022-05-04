@@ -3627,7 +3627,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                oi.N(TbadkCoreApplication.getInst(), String.format(this.a.getString(R.string.obfuscated_res_0x7f0f158b), 31));
+                oi.N(TbadkCoreApplication.getInst(), String.format(this.a.getString(R.string.obfuscated_res_0x7f0f158c), 31));
             }
         }
     }
@@ -5011,12 +5011,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (this.mAdditionData != null) {
                 this.mAdditionContainer.setVisibility(0);
                 TextView textView = this.mAdditionCreateTime;
-                textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f157e) + StringHelper.getFormatTime(this.mAdditionData.getCreateTime() * 1000));
+                textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f157f) + StringHelper.getFormatTime(this.mAdditionData.getCreateTime() * 1000));
                 if (this.mAdditionData.getAlreadyCount() == 0) {
                     this.mAdditionLastTime.setVisibility(8);
                 } else {
                     TextView textView2 = this.mAdditionLastTime;
-                    textView2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f1580) + StringHelper.getFormatTime(this.mAdditionData.getLastAdditionTime() * 1000));
+                    textView2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f1581) + StringHelper.getFormatTime(this.mAdditionData.getLastAdditionTime() * 1000));
                 }
                 String lastAdditionContent = this.mAdditionData.getLastAdditionContent();
                 if (!TextUtils.isEmpty(lastAdditionContent)) {
@@ -5024,8 +5024,8 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 } else {
                     this.mAdditionLastContent.setVisibility(8);
                 }
-                getRealContentEdittextInstance().setHint(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f157f), Integer.valueOf(this.mAdditionData.getAlreadyCount()), Integer.valueOf(this.mAdditionData.getTotalCount())));
-                this.mName.setText(R.string.obfuscated_res_0x7f0f1582);
+                getRealContentEdittextInstance().setHint(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f1580), Integer.valueOf(this.mAdditionData.getAlreadyCount()), Integer.valueOf(this.mAdditionData.getTotalCount())));
+                this.mName.setText(R.string.obfuscated_res_0x7f0f1583);
                 return;
             }
             this.mAdditionContainer.setVisibility(8);
@@ -5320,7 +5320,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             }
             PostPrefixData postPrefixData = this.mPrefixData;
             if (postPrefixData != null && postPrefixData.getPrefixs().size() > 0) {
-                this.mPrefixData.getPrefixs().add(getPageContext().getString(R.string.obfuscated_res_0x7f0f158a));
+                this.mPrefixData.getPrefixs().add(getPageContext().getString(R.string.obfuscated_res_0x7f0f158b));
             }
             this.mData.setLocalChannelDynamic(this.isLocalChannelDynamic);
             this.mData.setLocalChannelTopic(this.localChannelTopic);
@@ -5535,7 +5535,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     private void initLocalChannelTopicSelectView() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65752, this) == null) && this.isLocalChannelDynamic) {
-            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) findViewById(R.id.obfuscated_res_0x7f09247e);
+            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) findViewById(R.id.obfuscated_res_0x7f09247f);
             this.mLocalChannelTopicSelectView = localChannelTopicSelectView;
             localChannelTopicSelectView.setVisibility(0);
             this.mLocalChannelTopicSelectView.setLocalChannelTopic(this.localChannelTopic);
@@ -5600,7 +5600,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (postPrefixData != null && postPrefixData.getPrefixs().size() > 1) {
                 this.post_prefix_layout.setVisibility(0);
                 this.prefix_divider.setVisibility(0);
-                this.mPiefixTipController.n0(getString(R.string.obfuscated_res_0x7f0f159b), WRITE_TITLE_PREFIX_TIP_KEY, true);
+                this.mPiefixTipController.n0(getString(R.string.obfuscated_res_0x7f0f159c), WRITE_TITLE_PREFIX_TIP_KEY, true);
                 ArrayList<String> prefixs = this.mPrefixData.getPrefixs();
                 int size = prefixs.size();
                 this.mCurrPrefixPos = 0;
@@ -5692,7 +5692,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (!(interceptable == null || interceptable.invokeV(65759, this) == null) || this.mName == null || (writeData = this.mData) == null || writeData.getProZone() != 1) {
             return;
         }
-        this.mName.setText(R.string.obfuscated_res_0x7f0f15aa);
+        this.mName.setText(R.string.obfuscated_res_0x7f0f15ab);
     }
 
     private void initPublishProductGuide() {
@@ -5838,7 +5838,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (postPrefixData != null && !ListUtils.isEmpty(postPrefixData.getPrefixs())) {
             PostPrefixData postPrefixData2 = this.mSelectForumData.postPrefix;
             this.mPrefixData = postPrefixData2;
-            postPrefixData2.getPrefixs().add(getPageContext().getString(R.string.obfuscated_res_0x7f0f158a));
+            postPrefixData2.getPrefixs().add(getPageContext().getString(R.string.obfuscated_res_0x7f0f158b));
         }
         initPrefixData();
     }
@@ -5847,11 +5847,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65764, this) == null) {
             if ("main_tab".equals(this.mFrom) && !this.fromErrorDialog) {
-                ForumSelectedView forumSelectedView = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092483);
+                ForumSelectedView forumSelectedView = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092484);
                 this.mForumSelectedView = forumSelectedView;
                 forumSelectedView.setVisibility(0);
             } else if (this.richModeEnable) {
-                ForumSelectedView forumSelectedView2 = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092483);
+                ForumSelectedView forumSelectedView2 = (ForumSelectedView) findViewById(R.id.obfuscated_res_0x7f092484);
                 this.mForumSelectedView = forumSelectedView2;
                 forumSelectedView2.setVisibility(0);
                 this.mForumSelectedView.setSelectedForum(this.mData.getForumName());
@@ -5894,7 +5894,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d08d9, (ViewGroup) null);
             this.mRootView = inflate;
             setContentView(inflate);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             navigationBar.showBottomLine();
             this.mBack = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -5922,7 +5922,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             layoutParams3.rightMargin = oi.f(getPageContext().getPageActivity(), R.dimen.tbds2);
             this.mPost.setLayoutParams(layoutParams3);
             this.mPost.setOnFocusChangeListener(this.mFocusChangeListener);
-            ScrollView scrollView = (ScrollView) findViewById(R.id.obfuscated_res_0x7f092482);
+            ScrollView scrollView = (ScrollView) findViewById(R.id.obfuscated_res_0x7f092483);
             this.write_scrollview = scrollView;
             scrollView.setOnTouchListener(new x(this));
             addGlobalLayoutListener();
@@ -5934,7 +5934,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.mToolView = linearLayout;
             linearLayout.setContentDescription(IStringUtil.TOP_PATH);
             this.mTitleView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092045);
-            this.imageGridView = (WriteImageGridView) findViewById(R.id.obfuscated_res_0x7f09247c);
+            this.imageGridView = (WriteImageGridView) findViewById(R.id.obfuscated_res_0x7f09247d);
             this.mTitleViewDivider = findViewById(R.id.obfuscated_res_0x7f092046);
             this.mInterval = findViewById(R.id.obfuscated_res_0x7f090f36);
             this.mHotTopicEdt = (TextView) findViewById(R.id.obfuscated_res_0x7f090df8);
@@ -6012,7 +6012,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     private void initVoteView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65768, this) == null) {
-            this.mVoteLayoutRoot = (RelativeLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092400);
+            this.mVoteLayoutRoot = (RelativeLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092401);
             this.mVoteViewController = new p19(getPageContext(), this.mVoteLayoutRoot);
             showVoteView();
         }
@@ -6052,7 +6052,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65770, this) == null) && this.isEvaluate) {
             this.mPostContentCounter = (TextView) findViewById(R.id.obfuscated_res_0x7f0918a3);
-            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) findViewById(R.id.obfuscated_res_0x7f09247b);
+            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) findViewById(R.id.obfuscated_res_0x7f09247c);
             this.mWriteEvaluationeHeaderView = writeEvaluationHeaderView;
             writeEvaluationHeaderView.setStarChangeListener(new i0(this));
             this.mWriteEvaluationeHeaderView.setItemCloseListener(new j0(this));
@@ -6283,7 +6283,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65784, this) == null) {
             if (!this.mData.canAddItem()) {
-                oi.M(getActivity(), R.string.obfuscated_res_0x7f0f15a7);
+                oi.M(getActivity(), R.string.obfuscated_res_0x7f0f15a8);
                 return;
             }
             RelevanceItemSearchActivityConfig relevanceItemSearchActivityConfig = new RelevanceItemSearchActivityConfig(getActivity(), 0);
@@ -6375,7 +6375,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     this.saveDraftDialog = lr4Var;
                     lr4Var.setContentView(this.saveDraftDialogView);
                 }
-                this.saveDraftDialogView.setText(getString(R.string.obfuscated_res_0x7f0f158f), null, getString(R.string.obfuscated_res_0x7f0f1064));
+                this.saveDraftDialogView.setText(getString(R.string.obfuscated_res_0x7f0f1590), null, getString(R.string.obfuscated_res_0x7f0f1064));
                 this.saveDraftDialog.m();
                 return;
             }
@@ -6489,7 +6489,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 this.mData.setServerRichContent(this.mRichPostContent.getPostServerContentData());
             }
             if (!this.mWriteModel.e()) {
-                showToast(R.string.obfuscated_res_0x7f0f1586);
+                showToast(R.string.obfuscated_res_0x7f0f1587);
             } else if (!mi.z()) {
                 showToast(R.string.obfuscated_res_0x7f0f0c17);
             } else {
@@ -6928,7 +6928,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     i3 = 0;
                 }
                 if (i2 > i3) {
-                    String format = String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f1581), Integer.valueOf(i2 - i3));
+                    String format = String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f1582), Integer.valueOf(i2 - i3));
                     sb.append("\n");
                     sb.append(format);
                 }
@@ -7522,13 +7522,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 this.mIsWillShowBubble = false;
             }
             if (this.isEvaluate) {
-                SpannableString spannableString = new SpannableString(" " + ((Object) getResources().getText(R.string.obfuscated_res_0x7f0f1583)));
+                SpannableString spannableString = new SpannableString(" " + ((Object) getResources().getText(R.string.obfuscated_res_0x7f0f1584)));
                 Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080978, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL);
                 pureDrawable.setBounds(0, 0, pureDrawable.getIntrinsicWidth(), pureDrawable.getIntrinsicHeight());
                 spannableString.setSpan(new x86(pureDrawable, 1, oi.f(this, R.dimen.tbds4)), 0, 1, 17);
                 this.mPostContent.setHint(spannableString);
             } else if (this.mData.isUserFeedback()) {
-                this.mPostContent.setHint(R.string.obfuscated_res_0x7f0f1587);
+                this.mPostContent.setHint(R.string.obfuscated_res_0x7f0f1588);
             } else {
                 this.mPostContent.setHint(R.string.obfuscated_res_0x7f0f0a6e);
             }
@@ -7572,7 +7572,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 this.mPostTitle.setText(this.mData.getTitle());
                 this.mPostTitle.setSelection(this.mData.getTitle().length());
             } else if (this.isVcodeFeedBack) {
-                this.mPostTitle.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14c0));
+                this.mPostTitle.setText(getResources().getString(R.string.obfuscated_res_0x7f0f14c1));
             }
             this.mPostTitle.addTextChangedListener(this.mWriteTitleTextWatcher);
             this.mPostTitle.setFilters(new InputFilter[]{new o09.b(this.mPostTitle, 31, new w0(this))});

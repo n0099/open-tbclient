@@ -61,7 +61,7 @@ public class lu6 extends ho<gy5, ThreadCardViewHolder<gy5>> implements qi5 {
         public void a(View view2, gy5 gy5Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, gy5Var) == null) {
-                BdToast.i(this.b.k.getContext(), this.b.k.getString(R.string.obfuscated_res_0x7f0f14d7), R.drawable.obfuscated_res_0x7f0809a9, true).q();
+                BdToast.i(this.b.k.getContext(), this.b.k.getString(R.string.obfuscated_res_0x7f0f14d8), R.drawable.obfuscated_res_0x7f0809a9, true).q();
             }
         }
     }
@@ -94,7 +94,7 @@ public class lu6 extends ho<gy5, ThreadCardViewHolder<gy5>> implements qi5 {
         public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                BdToast.i(this.a.k.getContext(), this.a.k.getString(R.string.obfuscated_res_0x7f0f14d7), R.drawable.obfuscated_res_0x7f0809a9, true).q();
+                BdToast.i(this.a.k.getContext(), this.a.k.getString(R.string.obfuscated_res_0x7f0f14d8), R.drawable.obfuscated_res_0x7f0809a9, true).q();
             }
         }
     }

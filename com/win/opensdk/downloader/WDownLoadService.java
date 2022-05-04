@@ -240,7 +240,7 @@ public class WDownLoadService extends Service {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f156a), getString(R.string.obfuscated_res_0x7f0f156a), 0);
+                a(info, info != null ? info.getDl_name() : getString(R.string.obfuscated_res_0x7f0f156b), getString(R.string.obfuscated_res_0x7f0f156b), 0);
                 c(info);
             } catch (Exception e2) {
                 e2.printStackTrace();
