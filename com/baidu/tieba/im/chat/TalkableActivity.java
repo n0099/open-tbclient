@@ -910,7 +910,7 @@ public abstract class TalkableActivity<T> extends BaseActivity<T> implements Voi
             if (FileHelper.checkSD()) {
                 return true;
             }
-            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1524));
+            showToast(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1525));
             return false;
         }
         return invokeV.booleanValue;

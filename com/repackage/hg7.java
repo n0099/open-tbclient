@@ -814,7 +814,7 @@ public class hg7 implements eg7 {
             HotSearchInfoData hotSearchInfoData = this.e;
             if (hotSearchInfoData == null) {
                 BaseActivity baseActivity = this.a;
-                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1588));
+                baseActivity.showToast(baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1589));
                 return;
             }
             if (hotSearchInfoData.getType() != 0 && this.e.getType() != 2) {

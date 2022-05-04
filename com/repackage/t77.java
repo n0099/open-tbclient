@@ -87,12 +87,12 @@ public class t77 {
         }
         recommendDetailActivity.setContentView(R.layout.obfuscated_res_0x7f0d0717);
         this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091ade);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.c = navigationBar;
         navigationBar.showBottomLine();
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         e(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f46));
-        this.d = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.d = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923af);
         this.l = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906f2);
         HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092290);
         this.e = headImageView;

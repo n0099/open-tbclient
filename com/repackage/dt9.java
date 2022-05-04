@@ -48,7 +48,7 @@ public class dt9 implements DownloadListener {
         Context context = ht9Var.a;
         Info info2 = ht9Var.c;
         if (!wp9.H(context)) {
-            Toast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f1568) + info2.getDl_name(), 0).show();
+            Toast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f1569) + info2.getDl_name(), 0).show();
             yr9 a = cs9.a(context);
             a.q(new gs9(info2), 1);
             a.m();

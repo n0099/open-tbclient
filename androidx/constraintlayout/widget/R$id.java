@@ -34,7 +34,7 @@ public final class R$id {
     public static final int top = 2131304577;
 
     /* renamed from: wrap */
-    public static final int obfuscated = 2131305589;
+    public static final int obfuscated = 2131305590;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$id() {

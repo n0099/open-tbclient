@@ -68,8 +68,8 @@ public class mq8 extends z8<AvatarPendantActivity> {
         this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091ade);
         this.f = oi.f(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0702a1);
         this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f0902f5);
-        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f0923ae);
-        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f0923af);
+        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.e = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.e.setTitleText(R.string.obfuscated_res_0x7f0f02b6);

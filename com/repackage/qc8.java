@@ -422,7 +422,7 @@ public class qc8 extends pc8 {
                 } else if (this.a.d == null || rg5.h().u() || gk8.a((Activity) this.a.d)) {
                     return false;
                 } else {
-                    oi.M((Activity) this.a.d, R.string.obfuscated_res_0x7f0f1584);
+                    oi.M((Activity) this.a.d, R.string.obfuscated_res_0x7f0f1585);
                     return false;
                 }
             }

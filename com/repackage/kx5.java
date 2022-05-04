@@ -359,7 +359,7 @@ public class kx5 extends tw5<CardPersonDynamicThreadData> {
                         kx5Var2.M(kx5Var2.m.b);
                         return;
                     }
-                    BdToast.i(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f14d0), R.drawable.obfuscated_res_0x7f0809a9, true).q();
+                    BdToast.i(this.a.getContext(), this.a.getContext().getString(R.string.obfuscated_res_0x7f0f14d1), R.drawable.obfuscated_res_0x7f0809a9, true).q();
                     return;
                 }
                 TiebaStatic.log(TbadkCoreStatisticKey.MY_THREAD_SHARE_LIVE);
@@ -548,12 +548,12 @@ public class kx5 extends tw5<CardPersonDynamicThreadData> {
         View k = k();
         this.k = k;
         this.n = tbPageContext;
-        this.o = (TextView) k.findViewById(R.id.obfuscated_res_0x7f092492);
+        this.o = (TextView) k.findViewById(R.id.obfuscated_res_0x7f092493);
         this.p = (LinearLayout) this.k.findViewById(R.id.obfuscated_res_0x7f09121e);
         this.q = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f091430);
         this.r = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f090764);
         this.s = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f091d35);
-        this.M = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f092379);
+        this.M = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f09237a);
         this.t = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f0921e2);
         this.u = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f090fdc);
         this.w = (TextView) this.k.findViewById(R.id.obfuscated_res_0x7f091fb9);
@@ -963,7 +963,7 @@ public class kx5 extends tw5<CardPersonDynamicThreadData> {
                         this.B.K(this.m.y.thumbnail_url, 17, false);
                         if (this.R) {
                             this.L.setVisibility(0);
-                            this.L.setText(String.format(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14f4), new Object[0]));
+                            this.L.setText(String.format(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14f5), new Object[0]));
                         } else {
                             this.G.setVisibility(0);
                             this.H.setText(StringHelper.stringForVideoTime(this.m.y.video_duration.intValue() * 1000));

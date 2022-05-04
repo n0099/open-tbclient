@@ -55,8 +55,8 @@ public class wj7 {
         this.i = memberTaskCenterActivity;
         memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d0543);
         this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091ade);
-        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0923ae);
-        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0923af);
+        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.b = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ab2);

@@ -871,7 +871,7 @@ public class gy7 implements KeyboardEventLayout.a {
         this.Y = imageView;
         imageView.setOnClickListener(this.L);
         this.X.setOnClickListener(this.L);
-        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923af);
         W();
         V();
         this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091daf);
@@ -903,7 +903,7 @@ public class gy7 implements KeyboardEventLayout.a {
         this.e.H(TbadkCoreApplication.getInst().getSkinType());
         this.O = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f09191d);
         this.n0 = (MaskView) this.a.findViewById(R.id.obfuscated_res_0x7f0913ab);
-        this.b0 = this.a.findViewById(R.id.obfuscated_res_0x7f092394);
+        this.b0 = this.a.findViewById(R.id.obfuscated_res_0x7f092395);
         this.Z = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09169c);
         HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0916a5);
         this.a0 = headImageView;
@@ -1164,7 +1164,7 @@ public class gy7 implements KeyboardEventLayout.a {
         if (view3 != null) {
             view3.setVisibility(0);
         }
-        this.n.setText(R.string.obfuscated_res_0x7f0f150d);
+        this.n.setText(R.string.obfuscated_res_0x7f0f150e);
         if (rs7Var.i() != null) {
             int A = rs7Var.i().A();
             this.S = A;
@@ -1460,7 +1460,7 @@ public class gy7 implements KeyboardEventLayout.a {
             this.w = tbImageView;
             tbImageView.setOnClickListener(this.L);
             this.y = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09014a);
-            this.x = (PlayVoiceBntNew) this.c.findViewById(R.id.obfuscated_res_0x7f0923db);
+            this.x = (PlayVoiceBntNew) this.c.findViewById(R.id.obfuscated_res_0x7f0923dc);
             this.c.setOnTouchListener(this.o0);
             this.c.setOnClickListener(this.L);
         }
@@ -1471,7 +1471,7 @@ public class gy7 implements KeyboardEventLayout.a {
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             int f2 = oi.f(this.f.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070309);
             int f3 = oi.f(this.f.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701d4);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.k = navigationBar;
             this.m = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new g(this));
             ImageView backImageView = this.k.getBackImageView();

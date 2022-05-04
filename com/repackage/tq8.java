@@ -64,11 +64,11 @@ public class tq8 {
         this.b = inflate;
         this.a.setContentView(inflate);
         this.c = this.b.findViewById(R.id.obfuscated_res_0x7f09039d);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e37);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ab);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ac);
         this.e = memberRecommendView;
         memberRecommendView.setFromType(5);
         this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091279);

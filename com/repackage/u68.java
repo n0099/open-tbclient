@@ -1859,13 +1859,13 @@ public class u68 {
             this.v = textView2;
             textView2.setOnClickListener(this.N0);
             this.w = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f092224);
-            TbImageView tbImageView = (TbImageView) this.e.findViewById(R.id.obfuscated_res_0x7f092370);
+            TbImageView tbImageView = (TbImageView) this.e.findViewById(R.id.obfuscated_res_0x7f092371);
             this.A = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080f75);
             ImageView imageView2 = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f090eae);
             this.E = imageView2;
             imageView2.setOnClickListener(this.N0);
-            this.F = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f092372);
+            this.F = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f092373);
             View findViewById2 = this.e.findViewById(R.id.obfuscated_res_0x7f0911f2);
             this.q = findViewById2;
             findViewById2.setVisibility(8);

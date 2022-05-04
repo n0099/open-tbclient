@@ -87,8 +87,8 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d071b, this);
             View rootView = getRootView();
-            this.a = rootView.findViewById(R.id.obfuscated_res_0x7f0923ba);
-            this.b = rootView.findViewById(R.id.obfuscated_res_0x7f09238f);
+            this.a = rootView.findViewById(R.id.obfuscated_res_0x7f0923bb);
+            this.b = rootView.findViewById(R.id.obfuscated_res_0x7f092390);
             this.c = (BarImageView) rootView.findViewById(R.id.obfuscated_res_0x7f090a54);
             this.d = (TextView) rootView.findViewById(R.id.obfuscated_res_0x7f090a6a);
             this.e = (TextView) rootView.findViewById(R.id.obfuscated_res_0x7f090a24);

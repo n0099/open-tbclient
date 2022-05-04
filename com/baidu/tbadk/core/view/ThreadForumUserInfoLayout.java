@@ -202,7 +202,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) || threadData == null || StringUtils.isNull(this.f.getAuthor().getName_show())) {
             return;
         }
-        this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f14b1, e(this.f.getAuthor().getName_show())));
+        this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f14b2, e(this.f.getAuthor().getName_show())));
         this.c.setVisibility(0);
     }
 

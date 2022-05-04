@@ -586,9 +586,10 @@ public class IntentConfig extends OrmObject {
     }
 
     public void startActivityForResult(int i) {
+        Class<?> cls;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048599, this, i) == null) && checkStartActivityInterval(this.mComponentClass)) {
-            if (this.mIntent != null && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(this.mComponentClass.getName())) {
+            if (this.mIntent != null && (cls = this.mComponentClass) != null && SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(cls.getName())) {
                 this.mIntent.addFlags(603979776);
             }
             Context context = this.mContext;

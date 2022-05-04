@@ -240,7 +240,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 inflate = null;
             }
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092370);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092371);
             Intrinsics.checkNotNullExpressionValue(findViewById, "mRootView.findViewById(R.id.video_thumbnail)");
             this.c = (TbImageView) findViewById;
             View view2 = this.h;
@@ -248,7 +248,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view2 = null;
             }
-            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f092371);
+            View findViewById2 = view2.findViewById(R.id.obfuscated_res_0x7f092372);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "mRootView.findViewById(R.id.video_thumbnail_mask)");
             this.d = findViewById2;
             View view3 = this.h;

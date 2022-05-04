@@ -337,7 +337,7 @@ public class VoteView extends LinearLayout {
                         eVar.c.setLayoutParams(layoutParams);
                         eVar.b.setLayoutParams(layoutParams2);
                         this.a.E(eVar, contains, z2, z);
-                        eVar.f.setText(StringHelper.numberUniformFormatExtraWithRoundVote(num) + this.a.a.getString(R.string.obfuscated_res_0x7f0f15a1));
+                        eVar.f.setText(StringHelper.numberUniformFormatExtraWithRoundVote(num) + this.a.a.getString(R.string.obfuscated_res_0x7f0f15a2));
                         eVar.a.setOnClickListener(this.a.n);
                     }
                 }
@@ -439,12 +439,12 @@ public class VoteView extends LinearLayout {
                 }
             }
             this.g = voteView;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923fa);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0923fb);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0923fc);
-            this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923fd);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923f4);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092404);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923fb);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0923fc);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0923fd);
+            this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923fe);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923f5);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092405);
         }
     }
 
@@ -502,10 +502,10 @@ public class VoteView extends LinearLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             if (this.k.getIsMulti() == 1) {
                 context = this.a;
-                i = R.string.obfuscated_res_0x7f0f1541;
+                i = R.string.obfuscated_res_0x7f0f1542;
             } else {
                 context = this.a;
-                i = R.string.obfuscated_res_0x7f0f1542;
+                i = R.string.obfuscated_res_0x7f0f1543;
             }
             String string = context.getString(i);
             long endTime = this.k.getEndTime();
@@ -513,7 +513,7 @@ public class VoteView extends LinearLayout {
                 Date date = new Date(endTime * 1000);
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(date);
-                str = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f159d), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
+                str = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f159e), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
             } else {
                 str = "";
             }
@@ -524,7 +524,7 @@ public class VoteView extends LinearLayout {
             if (StringUtils.isNull(numberUniformFormatExtraWithRoundVote)) {
                 return string;
             }
-            return string + " · " + numberUniformFormatExtraWithRoundVote + this.a.getString(R.string.obfuscated_res_0x7f0f15a5);
+            return string + " · " + numberUniformFormatExtraWithRoundVote + this.a.getString(R.string.obfuscated_res_0x7f0f15a6);
         }
         return (String) invokeV.objValue;
     }
@@ -562,12 +562,12 @@ public class VoteView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08a3, (ViewGroup) this, true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092410);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092409);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09241b);
-            this.f = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0923fe);
-            this.g = findViewById(R.id.obfuscated_res_0x7f092402);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09241a);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092411);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09240a);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09241c);
+            this.f = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0923ff);
+            this.g = findViewById(R.id.obfuscated_res_0x7f092403);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09241b);
             this.e.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080812, WebPManager.ResourceStateType.NORMAL));
             this.h.setOnClickListener(this.w);
             this.f.setLayoutManager(new d(this, this.a, 1, false));

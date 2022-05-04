@@ -412,7 +412,7 @@ public class fd8 extends ld8 {
             return;
         }
         if (!na8.c(this.f.getPageActivity())) {
-            oi.M(this.f.getPageActivity(), R.string.obfuscated_res_0x7f0f1584);
+            oi.M(this.f.getPageActivity(), R.string.obfuscated_res_0x7f0f1585);
             return;
         }
         xc7 xc7Var = this.l;

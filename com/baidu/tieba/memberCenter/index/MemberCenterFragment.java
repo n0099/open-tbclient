@@ -262,7 +262,7 @@ public class MemberCenterFragment extends BaseFragment {
     public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.b.setTitleText(R.string.obfuscated_res_0x7f0f0aa1);
@@ -359,11 +359,11 @@ public class MemberCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03d9, (ViewGroup) null);
             this.c = inflate;
-            this.a = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ae);
-            this.b = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            this.a = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923af);
+            this.b = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ad);
             E0();
             this.d = this.c.findViewById(R.id.obfuscated_res_0x7f0913cb);
-            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f092426);
+            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f092427);
             F0();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             TiebaStatic.log("c10387");

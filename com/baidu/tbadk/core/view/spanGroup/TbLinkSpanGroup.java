@@ -117,7 +117,7 @@ public class TbLinkSpanGroup extends ev4<TbLinkSpanGroup> {
                 return;
             }
         }
-        r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f154e);
+        r = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f154f);
     }
 
     public TbLinkSpanGroup() {

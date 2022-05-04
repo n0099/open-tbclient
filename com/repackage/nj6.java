@@ -281,7 +281,7 @@ public class nj6 extends z8<ForumRulesShowActivity> implements View.OnClickListe
         if (interceptable == null || interceptable.invokeL(1048590, this, navigationBar) == null) {
             View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this);
             this.f = addSystemImageButton;
-            this.g = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244b);
+            this.g = (ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244c);
             this.e.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f069d));
             View addCustomView = navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05e8, this);
             this.h = addCustomView;

@@ -569,7 +569,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0905ed);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBackButton = addSystemImageButton;

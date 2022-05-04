@@ -143,7 +143,7 @@ public class g19 {
         this.g = "";
         this.i = new a(this);
         this.a = tbPageContext;
-        this.b = (WriteImageGridView) view2.findViewById(R.id.obfuscated_res_0x7f09247c);
+        this.b = (WriteImageGridView) view2.findViewById(R.id.obfuscated_res_0x7f09247d);
         f19 f19Var = new f19(view2.getContext(), this.e, null, this.i);
         this.d = f19Var;
         this.b.setAdapter((ListAdapter) f19Var);

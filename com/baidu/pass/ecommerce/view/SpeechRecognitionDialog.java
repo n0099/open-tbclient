@@ -144,7 +144,7 @@ public class SpeechRecognitionDialog extends Dialog {
             attributes.height = SapiUtils.dip2px(getContext(), 297.0f);
             getWindow().setAttributes(attributes);
             this.tipsTextView = (TextView) findViewById(R.id.obfuscated_res_0x7f092011);
-            this.voiceParentLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0923de);
+            this.voiceParentLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0923df);
             this.closeButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f090675);
             this.stopSpeechLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091da0);
             this.tipsAreaLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09200f);
@@ -379,7 +379,7 @@ public class SpeechRecognitionDialog extends Dialog {
                 relativeLayout.setVisibility(8);
                 this.voiceParentLayout.setVisibility(8);
             }
-            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0923dc);
+            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0923dd);
             this.viewStub = viewStub;
             View inflate = viewStub != null ? viewStub.inflate() : this.errorParentView;
             this.errorParentView = inflate;

@@ -684,7 +684,7 @@ public class l27 extends m05 {
             this.e.b0().setVoice(null);
             this.e.b0().setVoiceDuringTime(-1);
             if (!this.e.Y()) {
-                getContext().showToast((int) R.string.obfuscated_res_0x7f0f1586);
+                getContext().showToast((int) R.string.obfuscated_res_0x7f0f1587);
                 return;
             }
             j25 j25Var = this.g;

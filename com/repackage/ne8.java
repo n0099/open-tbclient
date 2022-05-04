@@ -343,7 +343,7 @@ public class ne8 extends z8<MsgRemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, msgRemindActivity) == null) {
             this.s = (LinearLayout) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091642);
-            NavigationBar navigationBar = (NavigationBar) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.t = navigationBar;
             navigationBar.setCenterTextTitle(msgRemindActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0ada));
             this.t.showBottomLine();
@@ -358,7 +358,7 @@ public class ne8 extends z8<MsgRemindActivity> {
             MsgSettingItemView msgSettingItemView2 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f091a4a);
             this.c = msgSettingItemView2;
             msgSettingItemView2.setText(R.string.obfuscated_res_0x7f0f0f8e);
-            MsgSettingItemView msgSettingItemView3 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0924aa);
+            MsgSettingItemView msgSettingItemView3 = (MsgSettingItemView) msgRemindActivity.findViewById(R.id.obfuscated_res_0x7f0924ab);
             this.d = msgSettingItemView3;
             msgSettingItemView3.setVisibility(0);
             this.d.setText(R.string.obfuscated_res_0x7f0f0087);

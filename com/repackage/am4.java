@@ -545,7 +545,7 @@ public class am4 {
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             this.a.setContentView(R.layout.obfuscated_res_0x7f0d0146);
             this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091ade);
-            this.c = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            this.c = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.y = this.a.findViewById(R.id.obfuscated_res_0x7f091577);
             this.c.showBottomLine();
             z("");
@@ -554,23 +554,23 @@ public class am4 {
                 this.b.setOnClickListener(this.a);
                 this.c.setVisibility(8);
             }
-            LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092428);
+            LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092429);
             this.k = linearLayout;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) linearLayout.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ac);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ad);
             this.k.setLayoutParams(layoutParams);
-            this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09242a);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.a.findViewById(R.id.obfuscated_res_0x7f092435);
+            this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09242b);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.a.findViewById(R.id.obfuscated_res_0x7f092436);
             this.m = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_full_screen_refresh);
             View addCustomView = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08c2, new a(this));
             this.e = addCustomView;
-            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09244b);
+            ImageView imageView = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f09244c);
             this.f = imageView;
             imageView.setContentDescription(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f02bb));
             View addCustomView2 = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08c5, new b(this));
             this.g = addCustomView2;
-            ImageView imageView2 = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f09244b);
+            ImageView imageView2 = (ImageView) addCustomView2.findViewById(R.id.obfuscated_res_0x7f09244c);
             this.h = imageView2;
             imageView2.setContentDescription(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f03e8));
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.h.getLayoutParams();
@@ -578,11 +578,11 @@ public class am4 {
             this.h.setLayoutParams(layoutParams2);
             View addCustomView3 = this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08c6, new c(this));
             this.p = addCustomView3;
-            this.i = (ImageView) addCustomView3.findViewById(R.id.obfuscated_res_0x7f09244c);
-            this.j = (ImageView) this.p.findViewById(R.id.obfuscated_res_0x7f09244d);
+            this.i = (ImageView) addCustomView3.findViewById(R.id.obfuscated_res_0x7f09244d);
+            this.j = (ImageView) this.p.findViewById(R.id.obfuscated_res_0x7f09244e);
             View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d080e, (ViewGroup) null);
             this.q = new MorePopupWindow(this.a.getPageContext().getPageActivity(), inflate, this.c, this.a.getPageContext().getResources().getDrawable(R.drawable.bg_pull_down_right_n), new d(this));
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092432);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092433);
             this.r = findViewById;
             findViewById.setOnClickListener(this.a);
             if (ry4.f(this.a.getPageContext().getPageActivity())) {
@@ -591,10 +591,10 @@ public class am4 {
                 this.r.setVisibility(8);
             }
             this.q.refresh();
-            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f092430);
+            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f092431);
             this.t = findViewById2;
             findViewById2.setOnClickListener(this.a);
-            View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f09242e);
+            View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f09242f);
             this.s = findViewById3;
             findViewById3.setOnClickListener(this.a);
             xl4 xl4Var = new xl4(this.c, this.k);
@@ -703,7 +703,7 @@ public class am4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.k.getLayoutParams();
-            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ac);
+            layoutParams.addRule(3, R.id.obfuscated_res_0x7f0923ad);
             this.k.setLayoutParams(layoutParams);
             ImageView imageView = this.f;
             if (imageView != null) {

@@ -94,8 +94,8 @@ public class TbRichText extends OrmObject {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.e = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0e40);
-            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1532);
-            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14fd);
+            this.f = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1533);
+            this.g = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14fe);
         }
     }
 

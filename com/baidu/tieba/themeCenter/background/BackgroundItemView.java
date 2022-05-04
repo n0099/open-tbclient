@@ -158,7 +158,7 @@ public class BackgroundItemView extends LinearLayout {
             this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08120b);
             this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09061f);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f16);
-            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09238e);
+            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09238f);
             this.h = skinProgressView;
             skinProgressView.setOnClickListener(this.m);
             this.c.setOnClickListener(this.m);

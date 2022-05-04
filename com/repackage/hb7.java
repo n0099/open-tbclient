@@ -167,7 +167,7 @@ public class hb7 extends m25 {
                 this.h.b0().setVoiceDuringTime(-1);
             }
             if (!this.h.Y()) {
-                this.n.showToast(R.string.obfuscated_res_0x7f0f1586);
+                this.n.showToast(R.string.obfuscated_res_0x7f0f1587);
                 return;
             }
             j25 j25Var = this.y;

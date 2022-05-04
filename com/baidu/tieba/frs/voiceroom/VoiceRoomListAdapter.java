@@ -243,10 +243,10 @@ public final class VoiceRoomListAdapter extends ListAdapter<VoiceRoomWrapper, Vi
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, root)) == null) {
                     Intrinsics.checkNotNullParameter(root, "root");
-                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0923e9);
+                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0923ea);
                     Intrinsics.checkNotNullExpressionValue(findViewById, "root.findViewById(R.id.voicing_icon)");
                     TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById;
-                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0923ea);
+                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0923eb);
                     Intrinsics.checkNotNullExpressionValue(findViewById2, "root.findViewById(R.id.voicing_text)");
                     TextView textView = (TextView) findViewById2;
                     View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f092013);

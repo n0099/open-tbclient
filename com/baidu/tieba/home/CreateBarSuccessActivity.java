@@ -74,7 +74,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
                 layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
                 relativeLayout.setLayoutParams(layoutParams);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0457));

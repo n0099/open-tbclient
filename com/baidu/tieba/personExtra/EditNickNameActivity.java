@@ -341,10 +341,10 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ad6);
-            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092426);
+            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092427);
             this.mWebView = baseWebView;
             baseWebView.setWebViewClient(new e(this, null));
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             if (this.mType == 0) {
                 navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0ac7));

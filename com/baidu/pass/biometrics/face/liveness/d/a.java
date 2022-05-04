@@ -60,7 +60,7 @@ public class a extends Dialog {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d04a1);
             setCanceledOnTouchOutside(false);
-            this.b = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f0923b7);
+            this.b = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f0923b8);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0907bf);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0907b7);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09145a);

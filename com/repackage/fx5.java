@@ -168,9 +168,9 @@ public class fx5 implements fz<hy5>, gz {
     public final void g(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0923e3);
-            this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0923e4);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e7);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0923e4);
+            this.d = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f0923e5);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e8);
             this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09059c);
             TbImageSwitch tbImageSwitch = (TbImageSwitch) view2.findViewById(R.id.obfuscated_res_0x7f09059b);
             this.g = tbImageSwitch;
@@ -196,8 +196,8 @@ public class fx5 implements fz<hy5>, gz {
             return;
         }
         this.f.setText(hy5Var.c0());
-        this.h.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1530), hy5Var.d0()));
-        this.i.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f152e), hy5Var.Z()));
+        this.h.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1531), hy5Var.d0()));
+        this.i.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f152f), hy5Var.Z()));
         if (!ListUtils.isEmpty(hy5Var.a0())) {
             if (hy5Var.a0().size() > 10) {
                 this.l = hy5Var.a0().subList(0, 10);

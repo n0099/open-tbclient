@@ -146,7 +146,7 @@ public class pe8 extends z8<SystemHelpSettingActivity> {
         new b(this, 2001303);
         this.a = systemHelpSettingActivity;
         systemHelpSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d07e8);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.p = navigationBar;
         navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f131a));
         this.p.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);

@@ -170,7 +170,7 @@ public class mf5 extends Dialog {
             this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090297);
             this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090823);
             this.k = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f090820);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f092468);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f092469);
             this.c.setPlaceHolder(2);
             this.c.setConrers(15);
             e();

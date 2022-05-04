@@ -16,6 +16,7 @@ public final class DataReq extends Message {
     public static final Integer DEFAULT_CALL_FROM;
     public static final Long DEFAULT_G_ID;
     public static final Integer DEFAULT_ISMASK;
+    public static final Integer DEFAULT_IS_MUTE_NOTIFICATIONS;
     public static final String DEFAULT_LIST = "";
     public static final Integer DEFAULT_TYPE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,6 +26,8 @@ public final class DataReq extends Message {
     public final Long g_id;
     @ProtoField(tag = 2, type = Message.Datatype.UINT32)
     public final Integer isMask;
+    @ProtoField(tag = 6, type = Message.Datatype.UINT32)
+    public final Integer is_mute_notifications;
     @ProtoField(tag = 3, type = Message.Datatype.STRING)
     public final String list;
     @ProtoField(tag = 1, type = Message.Datatype.UINT32)
@@ -37,6 +40,7 @@ public final class DataReq extends Message {
         public Integer call_from;
         public Long g_id;
         public Integer isMask;
+        public Integer is_mute_notifications;
         public String list;
         public Integer type;
 
@@ -80,6 +84,7 @@ public final class DataReq extends Message {
             this.list = dataReq.list;
             this.g_id = dataReq.g_id;
             this.call_from = dataReq.call_from;
+            this.is_mute_notifications = dataReq.is_mute_notifications;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -114,6 +119,7 @@ public final class DataReq extends Message {
         DEFAULT_ISMASK = 0;
         DEFAULT_G_ID = 0L;
         DEFAULT_CALL_FROM = 0;
+        DEFAULT_IS_MUTE_NOTIFICATIONS = 0;
     }
 
     public /* synthetic */ DataReq(Builder builder, boolean z, a aVar) {
@@ -166,9 +172,15 @@ public final class DataReq extends Message {
             Integer num3 = builder.call_from;
             if (num3 == null) {
                 this.call_from = DEFAULT_CALL_FROM;
-                return;
             } else {
                 this.call_from = num3;
+            }
+            Integer num4 = builder.is_mute_notifications;
+            if (num4 == null) {
+                this.is_mute_notifications = DEFAULT_IS_MUTE_NOTIFICATIONS;
+                return;
+            } else {
+                this.is_mute_notifications = num4;
                 return;
             }
         }
@@ -177,5 +189,6 @@ public final class DataReq extends Message {
         this.list = builder.list;
         this.g_id = builder.g_id;
         this.call_from = builder.call_from;
+        this.is_mute_notifications = builder.is_mute_notifications;
     }
 }

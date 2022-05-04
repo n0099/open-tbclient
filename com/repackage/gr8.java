@@ -63,11 +63,11 @@ public class gr8 {
         this.c = inflate;
         this.b.setContentView(inflate);
         this.i = this.c.findViewById(R.id.obfuscated_res_0x7f09039d);
-        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e38);
-        this.e = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.e = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0923af);
         MemberRecommendView memberRecommendView = (MemberRecommendView) this.c.findViewById(R.id.obfuscated_res_0x7f0905a8);
         this.f = memberRecommendView;
         memberRecommendView.setFromType(9);

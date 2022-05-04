@@ -143,8 +143,8 @@ public class CurrencySwitchTDouYBeanDialog {
             this.dialog = cr4Var2;
             cr4Var2.setCanceledOnTouchOutside(false);
             this.dialog.setMessageShowCenter(true);
-            this.dialog.setMessage(this.mPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f154b));
-            this.dialog.setPositiveButton(R.string.obfuscated_res_0x7f0f154a, new cr4.e(this) { // from class: com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog.2
+            this.dialog.setMessage(this.mPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f154c));
+            this.dialog.setPositiveButton(R.string.obfuscated_res_0x7f0f154b, new cr4.e(this) { // from class: com.baidu.tieba.wallet.CurrencySwitchTDouYBeanDialog.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ CurrencySwitchTDouYBeanDialog this$0;

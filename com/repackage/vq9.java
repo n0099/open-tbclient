@@ -34,7 +34,7 @@ public class vq9 implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Toast.makeText(this.a.b.getApplicationContext(), (int) R.string.obfuscated_res_0x7f0f1563, 0).show();
+            Toast.makeText(this.a.b.getApplicationContext(), (int) R.string.obfuscated_res_0x7f0f1564, 0).show();
         }
     }
 }

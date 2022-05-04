@@ -240,7 +240,7 @@ public class vz8 extends BaseAdapter {
                         return;
                     }
                     this.c.j.a(this.b, this.a);
-                } else if (view2.getId() != R.id.obfuscated_res_0x7f09236f || this.c.j == null || this.a == null) {
+                } else if (view2.getId() != R.id.obfuscated_res_0x7f092370 || this.c.j == null || this.a == null) {
                 } else {
                     this.c.j.a(this.b, this.a);
                 }
@@ -491,7 +491,7 @@ public class vz8 extends BaseAdapter {
                     f fVar2 = new f(this, null);
                     View inflate = this.c.inflate(R.layout.obfuscated_res_0x7f0d011e, viewGroup, false);
                     fVar2.a = inflate;
-                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09236f);
+                    TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092370);
                     fVar2.b = tbImageView;
                     tbImageView.setDefaultResource(0);
                     fVar2.b.setTagPaddingDis(8, 8);

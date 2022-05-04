@@ -165,7 +165,7 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         this.d.getHeadView().setPlaceHolder(1);
         this.d.setBigVDimenSize(R.dimen.tbds36);
         this.e = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f09229b);
-        this.f = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f0923d3);
+        this.f = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f0923d4);
         this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a3);
         this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09228f);
         this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092285);
@@ -178,7 +178,7 @@ public class VideoPbVideoInfoViewHolder extends TypeAdapter.ViewHolder {
         this.p = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f092044);
         this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092030);
         this.y = view2.findViewById(R.id.obfuscated_res_0x7f09231f);
-        this.t = view2.findViewById(R.id.obfuscated_res_0x7f092373);
+        this.t = view2.findViewById(R.id.obfuscated_res_0x7f092374);
         this.u = view2.findViewById(R.id.obfuscated_res_0x7f09231e);
         this.p.setLayoutStrategy(new nu7(this.p.getLayoutStrategy()));
         this.p.setTextSize(TbConfig.getContentSize());

@@ -164,14 +164,14 @@ public class l96 {
         this.a = tbPageContext;
         tbPageContext.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d0290);
         this.b = (LinearLayout) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090960);
-        NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.c = navigationBar;
         navigationBar.setTitleText(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f05e6));
         this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0a77));
         this.d = addTextButton;
         SkinManager.setViewTextColor(addTextButton, R.color.CAM_X0106, 1);
-        this.g = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.g = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923af);
         this.e = (BdListView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090961);
         this.h = new du4(tbPageContext);
         this.f = new k96(tbPageContext.getOrignalPage());

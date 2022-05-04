@@ -196,7 +196,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d075f);
             this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ade);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBackView = addSystemImageButton;
@@ -207,7 +207,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             }
             this.mTitleView = this.mNavigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0546));
             this.mBackView.setOnClickListener(this.mOnClickListener);
-            this.mDivider = findViewById(R.id.obfuscated_res_0x7f092399);
+            this.mDivider = findViewById(R.id.obfuscated_res_0x7f09239a);
             TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09212d);
             this.mTransmitConfirmButton = textView;
             textView.setOnClickListener(this.mOnClickListener);

@@ -700,15 +700,15 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (interceptable == null || interceptable.invokeL(1048598, this, view2) == null) {
             super.onClick(view2);
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f092432) {
+            if (id == R.id.obfuscated_res_0x7f092433) {
                 this.mView.e();
                 loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
                 pg.a().post(this.mShareRunnable);
                 this.mShareResultToFe = true;
-            } else if (id == R.id.obfuscated_res_0x7f092430) {
+            } else if (id == R.id.obfuscated_res_0x7f092431) {
                 this.mView.e();
                 bj5.f(getPageContext().getPageActivity(), this.mUrl);
-            } else if (id == R.id.obfuscated_res_0x7f09242e) {
+            } else if (id == R.id.obfuscated_res_0x7f09242f) {
                 this.mView.e();
                 di.a(this.mUrl);
                 oi.N(view2.getContext(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f043f));

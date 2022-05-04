@@ -1019,7 +1019,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             this.mParent = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091642);
-            this.mNavigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            this.mNavigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mInfo = (TextView) findViewById(R.id.obfuscated_res_0x7f090ef0);
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.onBackListener);
             TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f10df), this.onPostListener);

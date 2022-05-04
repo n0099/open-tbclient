@@ -1164,7 +1164,7 @@ public class NavigationBar extends RelativeLayout {
                 LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09150d);
                 if (linearLayout == null) {
                     LinearLayout linearLayout2 = (LinearLayout) getViewFromLayoutFile(R.layout.obfuscated_res_0x7f0d08c2);
-                    ImageView imageView = (ImageView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f09244b);
+                    ImageView imageView = (ImageView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f09244c);
                     this.mBackImageView = imageView;
                     imageView.setContentDescription("返回");
                     onBackBtnOnChangeSkin();

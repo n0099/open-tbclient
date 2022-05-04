@@ -1096,7 +1096,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         if (interceptable == null || interceptable.invokeL(1048633, this, view2) == null) {
             super.s(view2);
             this.d = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091adf);
-            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092428);
+            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092429);
         }
     }
 

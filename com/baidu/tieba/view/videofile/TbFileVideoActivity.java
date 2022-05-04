@@ -324,7 +324,7 @@ public class TbFileVideoActivity extends BaseActivity<TbFileVideoActivity> {
             this.mNavigationBar = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0601)).setTextColor(getResources().getColor(R.color.CAM_X0101));
             View addSystemImageButton = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244b)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809c8));
+            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244c)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809c8));
             addSystemImageButton.setOnClickListener(new c(this));
             NavigationBar navigationBar2 = this.mNavigationBar;
             NavigationBar.ControlAlign controlAlign = NavigationBar.ControlAlign.HORIZONTAL_RIGHT;

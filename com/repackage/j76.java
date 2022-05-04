@@ -106,7 +106,7 @@ public class j76 {
         this.b = tbPageContext;
         View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01c2, (ViewGroup) null);
         this.c = inflate;
-        this.d = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092396);
+        this.d = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092397);
         this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090e0c);
         this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090e0d);
         this.g = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0919a5);

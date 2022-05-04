@@ -507,7 +507,7 @@ public class cr4 {
             boolean z2 = true;
             this.mDialogCreated = true;
             LinearLayout linearLayout = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0907a6);
-            this.yesButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092493);
+            this.yesButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092494);
             this.noButton = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091579);
             this.dividerWithButton = this.mRootView.findViewById(R.id.obfuscated_res_0x7f090816);
             this.bdDialog_divider_line = this.mRootView.findViewById(R.id.obfuscated_res_0x7f090342);

@@ -140,7 +140,7 @@ public class z67 extends z8<UpdatesActivity> {
             View inflate = View.inflate(this.c.getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d0855, null);
             this.a = inflate;
             this.c.setContentView(inflate);
-            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.j = navigationBar;
             this.b = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.j.setTitleText(this.c.getPageContext().getString(R.string.obfuscated_res_0x7f0f1494));

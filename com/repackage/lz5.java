@@ -54,7 +54,7 @@ public class lz5 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f0918f5 || id == R.id.obfuscated_res_0x7f092494) {
+                if (id == R.id.obfuscated_res_0x7f0918f5 || id == R.id.obfuscated_res_0x7f092495) {
                     if (this.a.b != null && this.a.b.isShowing()) {
                         this.a.b.dismiss();
                         SmartLaunchStats.onConfirmPrivacy();

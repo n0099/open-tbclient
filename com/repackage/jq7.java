@@ -71,9 +71,9 @@ public abstract class jq7 {
         layoutParams2.topMargin = (oi.i(tbPageContext.getPageActivity()) / 2) + oi.f(tbPageContext.getPageActivity(), R.dimen.tbds239);
         this.g.setLayoutParams(layoutParams2);
         this.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091982);
-        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092439);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09243c);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924a9);
+        this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09243a);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09243d);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0924aa);
         this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091444);
     }
 

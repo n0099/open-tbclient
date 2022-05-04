@@ -309,7 +309,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             TbImageView tbImageView = new TbImageView(getPageContext().getPageActivity());
             this.mImage = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText("");

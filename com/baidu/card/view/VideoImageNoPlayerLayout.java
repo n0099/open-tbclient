@@ -154,8 +154,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements fz<pn4> 
             this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091606);
             this.k = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0922fd);
             new WeakReference(TbadkCoreApplication.getInst());
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092370);
-            this.d = findViewById(R.id.obfuscated_res_0x7f092371);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092371);
+            this.d = findViewById(R.id.obfuscated_res_0x7f092372);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09233f);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f092334);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092341);

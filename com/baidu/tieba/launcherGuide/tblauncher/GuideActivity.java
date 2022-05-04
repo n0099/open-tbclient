@@ -423,7 +423,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                 RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0391, (ViewGroup) null, false);
                 ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090d09);
                 imageView.setVisibility(0);
-                ((GifView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0923a3)).setVisibility(8);
+                ((GifView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0923a4)).setVisibility(8);
                 imageView.setBackgroundResource(this.GUIDE_PIC_LIST[i]);
                 Bitmap imageView2 = setImageView(imageView, this.GUIDE_PIC_LIST[i]);
                 if (imageView2 == null) {

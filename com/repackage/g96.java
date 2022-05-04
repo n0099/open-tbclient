@@ -177,11 +177,11 @@ public class g96 {
         this.a = tbPageContext;
         tbPageContext.getOrignalPage().setContentView(R.layout.obfuscated_res_0x7f0d028c);
         this.b = tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090953);
-        NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.c = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.g = this.c.setTitleText("");
-        this.d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0923af);
         this.o = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090955);
         TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920b7);
         this.p = textView;

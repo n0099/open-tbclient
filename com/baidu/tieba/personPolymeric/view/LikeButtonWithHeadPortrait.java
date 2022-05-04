@@ -166,7 +166,7 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements mv4 {
             this.b = headPendantView;
             headPendantView.getHeadView().setIsRound(true);
             this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090425);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09238b);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09238c);
             this.d = findViewById(R.id.obfuscated_res_0x7f091a9c);
         }
     }

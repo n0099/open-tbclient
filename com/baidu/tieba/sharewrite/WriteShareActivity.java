@@ -508,7 +508,7 @@ public class WriteShareActivity extends BaseActivity<WriteShareActivity> {
                     if (this.a.mPrefixData == null || this.a.mPrefixData.getPrefixs().size() <= 0) {
                         return;
                     }
-                    this.a.mPrefixData.getPrefixs().add(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f158a));
+                    this.a.mPrefixData.getPrefixs().add(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f158b));
                     if (this.a.mView != null) {
                         this.a.mView.F(this.a.mPrefixData);
                         return;

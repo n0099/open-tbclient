@@ -1607,7 +1607,7 @@ public class TbEditVideoActivity extends BaseActivity<TbEditVideoActivity> imple
             this.mTitle.setVisibility(8);
             View addSystemImageButton = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mLeft = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244b)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809c8));
+            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09244c)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809c8));
             TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f1064));
             this.mRight = addTextButton;
             addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));

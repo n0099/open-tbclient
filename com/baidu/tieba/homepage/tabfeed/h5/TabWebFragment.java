@@ -594,7 +594,7 @@ public class TabWebFragment extends BaseWebViewFragment implements oe6 {
             if (this.h == null) {
                 View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07fc, (ViewGroup) null);
                 this.h = inflate;
-                this.i = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f092426);
+                this.i = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f092427);
                 this.j = (FrameLayout) this.h.findViewById(R.id.obfuscated_res_0x7f0912fd);
                 this.k = (ViewGroup) this.h.findViewById(R.id.obfuscated_res_0x7f091ee0);
                 e1();

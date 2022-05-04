@@ -267,7 +267,7 @@ public class fa7 extends z8 implements NoNetworkView.b {
         k();
         i();
         h();
-        NoNetworkView noNetworkView = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        NoNetworkView noNetworkView = (NoNetworkView) this.f.findViewById(R.id.obfuscated_res_0x7f0923af);
         this.j = noNetworkView;
         noNetworkView.a(this);
     }

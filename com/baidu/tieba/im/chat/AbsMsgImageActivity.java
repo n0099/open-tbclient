@@ -687,7 +687,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.mBack = this.mTitle.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.mOnClickListener);
             SkinManager.setImageResource(this.mTitle.getBackImageView(), R.drawable.icon_return_bg);
             this.mTextView = this.mTitle.setTitleText("");
-            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0923c1);
+            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0923c2);
             this.mMultiImageView = multiImageView;
             multiImageView.setPageMargin(oi.d(getPageContext().getContext(), 8.0f));
             this.mMultiImageView.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());

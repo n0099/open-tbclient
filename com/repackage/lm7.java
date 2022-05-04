@@ -114,7 +114,7 @@ public class lm7 {
         fragmentTabHost.setup(this.g.getSupportFragmentManager());
         this.b.setOnPageChangeListener(this.j);
         this.e = (NavigationBar) this.g.findViewById(R.id.obfuscated_res_0x7f091515);
-        this.f = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.f = (NoNetworkView) this.g.findViewById(R.id.obfuscated_res_0x7f0923af);
         this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.e.setCenterTextTitle(this.g.getPageContext().getString(R.string.obfuscated_res_0x7f0f0b31));
         TextView textView = (TextView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d05e6, this.g).findViewById(R.id.obfuscated_res_0x7f091aa9);

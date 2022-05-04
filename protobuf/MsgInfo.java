@@ -19,10 +19,12 @@ public final class MsgInfo extends Message {
     public static final Integer DEFAULT_FOLLOWSTATUS;
     public static final Long DEFAULT_GROUPID;
     public static final Integer DEFAULT_ISFRIEND;
+    public static final Integer DEFAULT_ISRENDERSTLOG;
     public static final String DEFAULT_LINK = "";
     public static final Long DEFAULT_MSGID;
     public static final Integer DEFAULT_MSGTYPE;
     public static final Long DEFAULT_RECORDID;
+    public static final Integer DEFAULT_RELATION;
     public static final Long DEFAULT_SERVICEID;
     public static final Long DEFAULT_SID;
     public static final String DEFAULT_STAT = "";
@@ -40,10 +42,14 @@ public final class MsgInfo extends Message {
     public final Integer duration;
     @ProtoField(tag = 18, type = Message.Datatype.INT32)
     public final Integer followStatus;
+    @ProtoField(tag = 21)
+    public final ForumInfo forumInfo;
     @ProtoField(tag = 2, type = Message.Datatype.INT64)
     public final Long groupId;
     @ProtoField(tag = 16, type = Message.Datatype.INT32)
     public final Integer isFriend;
+    @ProtoField(tag = 25, type = Message.Datatype.INT32)
+    public final Integer isRenderStlog;
     @ProtoField(tag = 13, type = Message.Datatype.STRING)
     public final String link;
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
@@ -52,6 +58,8 @@ public final class MsgInfo extends Message {
     public final Integer msgType;
     @ProtoField(tag = 9, type = Message.Datatype.INT64)
     public final Long recordId;
+    @ProtoField(tag = 23, type = Message.Datatype.INT32)
+    public final Integer relation;
     @ProtoField(tag = 19, type = Message.Datatype.INT64)
     public final Long serviceId;
     @ProtoField(tag = 17, type = Message.Datatype.INT64)
@@ -64,6 +72,8 @@ public final class MsgInfo extends Message {
     public final Integer status;
     @ProtoField(tag = 15, type = Message.Datatype.INT64)
     public final Long taskId;
+    @ProtoField(tag = 24)
+    public final ImShareThreadInfo threadInfo;
     @ProtoField(tag = 11, type = Message.Datatype.INT64)
     public final Long toUid;
     @ProtoField(tag = 12)
@@ -81,18 +91,22 @@ public final class MsgInfo extends Message {
         public Integer createTime;
         public Integer duration;
         public Integer followStatus;
+        public ForumInfo forumInfo;
         public Long groupId;
         public Integer isFriend;
+        public Integer isRenderStlog;
         public String link;
         public Long msgId;
         public Integer msgType;
         public Long recordId;
+        public Integer relation;
         public Long serviceId;
         public Long sid;
         public String stExt;
         public String stat;
         public Integer status;
         public Long taskId;
+        public ImShareThreadInfo threadInfo;
         public Long toUid;
         public UserInfo toUserInfo;
         public Long userId;
@@ -153,6 +167,10 @@ public final class MsgInfo extends Message {
             this.followStatus = msgInfo.followStatus;
             this.serviceId = msgInfo.serviceId;
             this.stExt = msgInfo.stExt;
+            this.forumInfo = msgInfo.forumInfo;
+            this.relation = msgInfo.relation;
+            this.threadInfo = msgInfo.threadInfo;
+            this.isRenderStlog = msgInfo.isRenderStlog;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -197,6 +215,8 @@ public final class MsgInfo extends Message {
         DEFAULT_SID = 0L;
         DEFAULT_FOLLOWSTATUS = 0;
         DEFAULT_SERVICEID = 0L;
+        DEFAULT_RELATION = 0;
+        DEFAULT_ISRENDERSTLOG = 0;
     }
 
     public /* synthetic */ MsgInfo(Builder builder, boolean z, a aVar) {
@@ -329,9 +349,23 @@ public final class MsgInfo extends Message {
             String str4 = builder.stExt;
             if (str4 == null) {
                 this.stExt = "";
-                return;
             } else {
                 this.stExt = str4;
+            }
+            this.forumInfo = builder.forumInfo;
+            Integer num7 = builder.relation;
+            if (num7 == null) {
+                this.relation = DEFAULT_RELATION;
+            } else {
+                this.relation = num7;
+            }
+            this.threadInfo = builder.threadInfo;
+            Integer num8 = builder.isRenderStlog;
+            if (num8 == null) {
+                this.isRenderStlog = DEFAULT_ISRENDERSTLOG;
+                return;
+            } else {
+                this.isRenderStlog = num8;
                 return;
             }
         }
@@ -355,5 +389,9 @@ public final class MsgInfo extends Message {
         this.followStatus = builder.followStatus;
         this.serviceId = builder.serviceId;
         this.stExt = builder.stExt;
+        this.forumInfo = builder.forumInfo;
+        this.relation = builder.relation;
+        this.threadInfo = builder.threadInfo;
+        this.isRenderStlog = builder.isRenderStlog;
     }
 }

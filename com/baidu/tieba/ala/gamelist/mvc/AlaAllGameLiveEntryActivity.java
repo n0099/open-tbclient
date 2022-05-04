@@ -154,7 +154,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00eb, null);
             this.mRootView = linearLayout;
-            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01f6));

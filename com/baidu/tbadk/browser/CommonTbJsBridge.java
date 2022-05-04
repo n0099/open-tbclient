@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.SparseArray;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
@@ -131,6 +132,7 @@ import com.repackage.vt4;
 import com.repackage.zl4;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -1495,7 +1497,12 @@ public class CommonTbJsBridge implements rl8 {
                 for (int i = 0; i < list.size(); i++) {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("msgId", list.get(i).getMsgId());
-                    jSONObject2.put("reportContent", list.get(i).getContent());
+                    String content = list.get(i).getContent();
+                    if (!TextUtils.isEmpty(content)) {
+                        jSONObject2.put("reportContent", new String(Base64.encode(content.getBytes(StandardCharsets.UTF_8), 2), StandardCharsets.UTF_8));
+                    } else {
+                        jSONObject2.put("reportContent", "");
+                    }
                     jSONObject2.put(FileMetaUtil.CREATE_TIME, list.get(i).getTime());
                     jSONArray.put(jSONObject2);
                 }
@@ -2162,7 +2169,11 @@ public class CommonTbJsBridge implements rl8 {
             if (!ListUtils.isEmpty(arrayList)) {
                 for (int i = 0; i < arrayList.size(); i++) {
                     JSONObject jSONObject = arrayList.get(i);
-                    arrayList2.add(new ReportPrivateMsgData(jSONObject.optString("msgId"), jSONObject.optString("reportContent"), jSONObject.optString(FileMetaUtil.CREATE_TIME)));
+                    String optString = jSONObject.optString("reportContent");
+                    if (!TextUtils.isEmpty(optString)) {
+                        optString = new String(Base64.decode(optString, 2), StandardCharsets.UTF_8);
+                    }
+                    arrayList2.add(new ReportPrivateMsgData(jSONObject.optString("msgId"), optString, jSONObject.optString(FileMetaUtil.CREATE_TIME)));
                 }
             }
             dd5.c(new c(this, str), new d(this, str, arrayList2));

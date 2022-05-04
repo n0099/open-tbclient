@@ -361,7 +361,7 @@ public class VideoPasterOverlayView extends FrameLayout {
         } else {
             str = "" + i;
         }
-        this.b.setText(str + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14e8));
+        this.b.setText(str + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14e9));
     }
 
     public void setOverlayViewCallback(b bVar) {

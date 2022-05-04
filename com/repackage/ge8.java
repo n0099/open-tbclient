@@ -173,7 +173,7 @@ public class ge8 extends z8<SecretSettingActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, secretSettingActivity) == null) {
             this.b = (LinearLayout) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f091642);
-            NavigationBar navigationBar = (NavigationBar) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) secretSettingActivity.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.a = navigationBar;
             this.c = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.a.setTitleText(secretSettingActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f10ab));

@@ -291,9 +291,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     }
                     return;
                 }
-                TiebaStatic.voiceError(1, this.a.context.getString(R.string.obfuscated_res_0x7f0f1513), str2);
+                TiebaStatic.voiceError(1, this.a.context.getString(R.string.obfuscated_res_0x7f0f1514), str2);
                 if (i2 <= 0 || StringUtils.isNull(str4) || (i2 != 2 && i2 != 4 && i2 != 3 && i2 != 7)) {
-                    this.a.sPlayView.onShowErr(5, gj.a(R.string.obfuscated_res_0x7f0f151d));
+                    this.a.sPlayView.onShowErr(5, gj.a(R.string.obfuscated_res_0x7f0f151e));
                 } else {
                     this.a.sPlayView.onShowErr(5, str4);
                 }
@@ -501,9 +501,9 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     i playView4 = this.this$0.getPlayView();
                     if (playView4 != null) {
                         if (intExtra2 == 2) {
-                            a = gj.a(R.string.obfuscated_res_0x7f0f151c);
+                            a = gj.a(R.string.obfuscated_res_0x7f0f151d);
                         } else {
-                            a = gj.a(R.string.obfuscated_res_0x7f0f1521);
+                            a = gj.a(R.string.obfuscated_res_0x7f0f1522);
                         }
                         playView4.onShowErr(5, a);
                     }
@@ -1099,7 +1099,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     if (this.mPlayCall == null) {
                         this.mPlayCall = new k(this, null);
                     }
-                    this.mPlayCall.error(5, gj.a(R.string.obfuscated_res_0x7f0f151f));
+                    this.mPlayCall.error(5, gj.a(R.string.obfuscated_res_0x7f0f1520));
                     FieldBuilder fieldBuilder = new FieldBuilder();
                     if (voiceModel != null) {
                         fieldBuilder.append("id", voiceModel.getId());
@@ -1170,7 +1170,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                     this.mPlayCall = new k(this, null);
                 }
                 if (!new File(str).exists()) {
-                    this.mPlayCall.error(5, gj.a(R.string.obfuscated_res_0x7f0f151f));
+                    this.mPlayCall.error(5, gj.a(R.string.obfuscated_res_0x7f0f1520));
                     return;
                 }
                 registSensor();

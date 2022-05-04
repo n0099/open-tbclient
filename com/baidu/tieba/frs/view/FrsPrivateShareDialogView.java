@@ -204,7 +204,7 @@ public class FrsPrivateShareDialogView extends LinearLayout {
             TextView textView2 = this.k;
             textView2.setText(frsViewData.getForum().getMember_num() + getResources().getString(R.string.obfuscated_res_0x7f0f02d1));
         } else {
-            this.k.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1548));
+            this.k.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1549));
         }
         ArrayList arrayList = new ArrayList();
         if (frsViewData.userList != null) {

@@ -143,7 +143,7 @@ public class rv7 extends z8 {
                 P(this.o, R.drawable.obfuscated_res_0x7f080936);
                 return;
             }
-            this.o.setText(R.string.obfuscated_res_0x7f0f1505);
+            this.o.setText(R.string.obfuscated_res_0x7f0f1506);
             P(this.o, R.drawable.obfuscated_res_0x7f080946);
         }
     }
@@ -241,7 +241,7 @@ public class rv7 extends z8 {
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.k.setVisibility(z ? 0 : 8);
             if (z2) {
-                this.k.setText(R.string.obfuscated_res_0x7f0f150c);
+                this.k.setText(R.string.obfuscated_res_0x7f0f150d);
             } else {
                 this.k.setText(R.string.obfuscated_res_0x7f0f0485);
             }

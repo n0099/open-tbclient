@@ -313,11 +313,11 @@ public class ft6 extends z8<MyGiftListActivity> {
             View inflate2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0592, (ViewGroup) null, false);
             this.g = inflate2;
             inflate2.setVisibility(8);
-            this.r = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0923a7);
+            this.r = (LinearLayout) this.g.findViewById(R.id.obfuscated_res_0x7f0923a8);
             this.m = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091f59);
             this.n = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091f5f);
             this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f091f60);
-            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0923a2);
+            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0923a3);
             if (CurrencySwitchUtil.isYyIsConvert()) {
                 this.p.setText(R.string.obfuscated_res_0x7f0f0b3a);
                 this.o.setText(R.string.obfuscated_res_0x7f0f0794);

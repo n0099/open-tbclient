@@ -114,7 +114,7 @@ public class FloatMyRecordCard extends LinearLayout {
             }
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09229d);
             this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ce8);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f8);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f9);
             this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f091495);
         }
     }

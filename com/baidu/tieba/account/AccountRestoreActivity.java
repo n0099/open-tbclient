@@ -165,12 +165,12 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
             this.jsBridge = ql8Var;
             ql8Var.a(this.jsPromptInterface);
             this.mPageType = getIntent().getStringExtra("page_type");
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f027c));
             ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0920b7)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092427);
+            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092428);
             this.mWebView = baseWebView;
             baseWebView.setOnJsPromptCallback(this.jsCallback);
             BaseWebView baseWebView2 = this.mWebView;

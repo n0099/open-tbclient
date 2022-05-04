@@ -646,15 +646,15 @@ public abstract class dq3 {
             this.b = u();
             this.b.setLayoutParams(new RelativeLayout.LayoutParams(this.n, this.o));
             this.a = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091a78);
-            RewardVideoView rewardVideoView = (RewardVideoView) this.b.findViewById(R.id.obfuscated_res_0x7f09237b);
+            RewardVideoView rewardVideoView = (RewardVideoView) this.b.findViewById(R.id.obfuscated_res_0x7f09237c);
             this.c = rewardVideoView;
             rewardVideoView.setVolumeChangeListener(o());
             if (this.y) {
                 this.c.setOnClickListener(this.F);
             }
             this.f = (ProgressBar) this.b.findViewById(R.id.obfuscated_res_0x7f091e08);
-            this.g = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0923eb);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ec);
+            this.g = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0923ec);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ed);
             if (this.c.d()) {
                 this.h.setImageResource(R.drawable.obfuscated_res_0x7f080e3c);
             }

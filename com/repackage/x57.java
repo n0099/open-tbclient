@@ -143,7 +143,7 @@ public class x57 {
                 if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(str3)) {
                     return "";
                 }
-                return str3 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f14ba) + optString2;
+                return str3 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f14bb) + optString2;
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return "";

@@ -524,7 +524,7 @@ public class p25 extends m05 {
                 this.h.b0().setVoiceDuringTime(-1);
             }
             if (!this.h.Y()) {
-                getContext().showToast((int) R.string.obfuscated_res_0x7f0f1586);
+                getContext().showToast((int) R.string.obfuscated_res_0x7f0f1587);
                 return;
             }
             j25 j25Var = this.m;

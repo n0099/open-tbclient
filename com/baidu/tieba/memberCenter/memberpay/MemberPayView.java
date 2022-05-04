@@ -250,7 +250,7 @@ public class MemberPayView extends LinearLayout {
             this.b = navigationBar;
             navigationBar.setTitleText("");
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.c = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923af);
             this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0906d2);
             RadioGroup radioGroup = (RadioGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09044e);
             this.e = radioGroup;
@@ -511,7 +511,7 @@ public class MemberPayView extends LinearLayout {
                 LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0546, (ViewGroup) null);
                 this.i = linearLayout;
                 this.j = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0921b5);
-                this.k = this.i.findViewById(R.id.obfuscated_res_0x7f092388);
+                this.k = this.i.findViewById(R.id.obfuscated_res_0x7f092389);
                 this.l = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09216e);
                 this.j.setOnClickListener(this.a);
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {

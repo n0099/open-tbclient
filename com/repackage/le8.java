@@ -271,7 +271,7 @@ public class le8 extends z8<MoreActivity> {
             this.v = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091642);
             this.w = this.a.findViewById(R.id.obfuscated_res_0x7f091bf6);
             this.a.findViewById(R.id.obfuscated_res_0x7f090d35).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.c = navigationBar;
             this.x = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f110a));

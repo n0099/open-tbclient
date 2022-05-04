@@ -869,7 +869,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             this.mContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090051);
             this.mDeleteListener = new b(this);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0078));

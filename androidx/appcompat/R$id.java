@@ -200,7 +200,7 @@ public final class R$id {
 
     /* renamed from: up */
     public static final int obfuscated = 2131305063;
-    public static final int wrap_content = 2131305590;
+    public static final int wrap_content = 2131305591;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$id() {

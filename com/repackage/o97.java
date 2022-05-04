@@ -61,7 +61,7 @@ public class o97 {
         personalTalkSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d064f);
         View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0917f9);
         this.c = findViewById;
-        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.b = navigationBar;
         navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1345));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);

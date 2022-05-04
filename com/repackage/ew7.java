@@ -93,7 +93,7 @@ public class ew7 {
                 return null;
             }
             if (threadData.getBJHContentTag() == 1) {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15e0);
+                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f15e1);
             } else {
                 string = threadData.getBJHContentTag() == 2 ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f115e) : "";
             }

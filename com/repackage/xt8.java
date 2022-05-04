@@ -676,11 +676,11 @@ public class xt8 extends z8 {
             this.i = z;
             if (z) {
                 this.g.setSelected(false);
-                this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1502));
+                this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1503));
                 return;
             }
             this.g.setSelected(true);
-            this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1501));
+            this.h.setText(this.c.getString(R.string.obfuscated_res_0x7f0f1502));
         }
     }
 
@@ -775,9 +775,9 @@ public class xt8 extends z8 {
     public void x(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, view2) == null) {
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09237d);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09237c);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09237e);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09237e);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09237d);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09237f);
             this.f.setVisibility(8);
             this.f.setOnClickListener(new h(this));
             M(this.i);

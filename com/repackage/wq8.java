@@ -121,7 +121,7 @@ public class wq8 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.c = (BdExpandImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090939);
             this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092286);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d2);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0923d3);
             this.e = tbImageView;
             tbImageView.setAutoChangeStyle(false);
             this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09229d);

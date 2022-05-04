@@ -316,7 +316,7 @@ public class yw7 {
             this.c.d(bs7Var, str);
             bdTypeListView.removeHeaderView(this.c.b());
             bdTypeListView.x(this.c.b(), 1);
-            xw7Var.w(bdTypeListView);
+            xw7Var.x(bdTypeListView);
             xw7Var.k(bdTypeListView, 2);
             if (this.b != null) {
                 dy7Var.G(false);

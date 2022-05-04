@@ -67,7 +67,7 @@ public class n57 extends z8<OfficialBarHistoryActivity> {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b = View.inflate(this.a.getPageContext().getContext(), R.layout.obfuscated_res_0x7f0d0636, null);
             this.a.getPageContext().getPageActivity().setContentView(this.b);
-            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.d = navigationBar;
             navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0cae);
             this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);

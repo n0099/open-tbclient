@@ -103,7 +103,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
             this.mRoundCornerLayout = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(oi.f(this, R.dimen.tbds32));
             this.mTropicGreetings = (TextView) findViewById(R.id.obfuscated_res_0x7f09213a);
-            this.mVipPic = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923d4);
+            this.mVipPic = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0923d5);
             this.mLineTropicLeft = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09125c);
             this.mLineTropicRight = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09125d);
             this.mSevenDayVip = (TextView) findViewById(R.id.obfuscated_res_0x7f091c99);

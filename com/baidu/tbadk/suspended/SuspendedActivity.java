@@ -149,7 +149,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     private void initNavigationBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             navigationBar.mCenterText.setTextSize(0, oi.f(getPageContext().getPageActivity(), R.dimen.tbds44));
             TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.obfuscated_res_0x7f0f04d8), new b(this));
@@ -166,7 +166,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     private void initNoNetView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923ae);
+            NoNetworkView noNetworkView = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923af);
             this.mNoNetView = noNetworkView;
             noNetworkView.a(this.mNetListener);
         }

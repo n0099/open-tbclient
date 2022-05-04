@@ -372,7 +372,7 @@ public class jr5 extends er5 {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.f = LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d078a, (ViewGroup) null);
             this.f.setLayoutParams(new FrameLayout.LayoutParams(this.a, this.b));
-            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.f.findViewById(R.id.obfuscated_res_0x7f09237b);
+            TbVideoViewContainer tbVideoViewContainer = (TbVideoViewContainer) this.f.findViewById(R.id.obfuscated_res_0x7f09237c);
             this.g = tbVideoViewContainer;
             tbVideoViewContainer.getControl().setOperableVideoContainer(this.p);
             this.g.getControl().setStageType(null);
@@ -381,7 +381,7 @@ public class jr5 extends er5 {
             this.i = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             this.i.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092372);
+            this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092373);
             this.f.setOnClickListener(new b(this));
             i(TbadkCoreApplication.getInst().getSkinType());
         }

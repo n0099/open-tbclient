@@ -64,7 +64,7 @@ public class mo4 implements Comparable<mo4> {
                 return mo4Var;
             }
             if (TextUtils.isEmpty(ht6Var.f())) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f154e);
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f154f);
             } else {
                 str = ht6Var.f() + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0407);
             }

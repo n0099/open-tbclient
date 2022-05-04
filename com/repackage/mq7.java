@@ -44,14 +44,14 @@ public class mq7 extends jq7 {
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0923cc);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0923cd);
         this.o = viewStub;
         viewStub.inflate();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
         layoutParams.topMargin = ((oi.i(tbPageContext.getPageActivity()) / 2) + oi.f(tbPageContext.getPageActivity(), R.dimen.tbds239)) - oi.f(tbPageContext.getPageActivity(), R.dimen.tbds140);
         this.o.setLayoutParams(layoutParams);
         this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922a4);
-        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0923c9);
+        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f0923ca);
         this.p = viewStub2;
         viewStub2.inflate();
         this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff2);

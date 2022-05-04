@@ -57,7 +57,7 @@ public class oh6 extends kd6<qq4, ThreadCardViewHolder<ThreadData>> implements r
         public void b(View view2, uo uoVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, uoVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                BdToast.i(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f14d7), R.drawable.obfuscated_res_0x7f0809a9, true).q();
+                BdToast.i(this.a.a, this.a.a.getString(R.string.obfuscated_res_0x7f0f14d8), R.drawable.obfuscated_res_0x7f0809a9, true).q();
             }
         }
     }

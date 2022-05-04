@@ -248,8 +248,8 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d0289);
             ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0920b7)).getLayoutParams()).height = UtilHelper.getLightStatusBarHeight() + oi.f(getActivity(), R.dimen.obfuscated_res_0x7f070282);
-            this.mWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092426);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            this.mWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f092427);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationView = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
             this.mNavigationView.setTitleText("");

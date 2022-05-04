@@ -159,7 +159,7 @@ public class jj4 {
         TiebaStatic.log(statisticItem);
         Activity pageActivity = c.getPageActivity();
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0204, (ViewGroup) null, false);
-        TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092443);
+        TextView textView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092444);
         textView.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13c1), lVar.a()));
         textView.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
         View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f091212);

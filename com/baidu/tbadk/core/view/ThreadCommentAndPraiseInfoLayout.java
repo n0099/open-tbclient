@@ -789,9 +789,9 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             if (!this.B.isUgcThreadType() && this.B.getAuthor() != null) {
                 format = (TextUtils.isEmpty(this.B.getTitle()) || TextUtils.isEmpty(str9)) ? MessageFormat.format(string2, this.B.getAuthor().getName_show(), getResources().getString(R.string.obfuscated_res_0x7f0f0482)) : str9;
             } else if (!z) {
-                StringBuilder sb = new StringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f152c));
+                StringBuilder sb = new StringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f152d));
                 if (this.B.getForumData() != null && !StringUtils.isNull(this.B.getForumData().b)) {
-                    sb.insert(0, String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f152d), this.B.getForumData().b));
+                    sb.insert(0, String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f152e), this.B.getForumData().b));
                 }
                 format = sb.toString();
             } else {

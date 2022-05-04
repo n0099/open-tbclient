@@ -92,7 +92,7 @@ public class wq7 extends z8<PayVcodeActivity> {
             SkinManager.setBackgroundResource(textView, R.drawable.s_navbar_button_bg);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0101, 1);
             this.f = (BaseWebView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0922d2);
-            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09242d);
+            this.g = (TextView) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09242e);
             this.c = payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09167a);
             this.d = (ViewGroup) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09167b);
             this.h = (ProgressBar) payVcodeActivity.findViewById(R.id.obfuscated_res_0x7f09167d);

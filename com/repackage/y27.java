@@ -309,7 +309,7 @@ public class y27 {
                     this.a.b.P(this.a.i);
                 }
                 if (StringUtils.isNull(str)) {
-                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f14fb);
+                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f14fc);
                 } else {
                     this.a.c.showToast(str);
                 }
@@ -408,9 +408,9 @@ public class y27 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (i <= 0) {
-                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14fc);
+                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14fd);
             } else {
-                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14fa, Integer.valueOf(i));
+                string = this.c.getResources().getString(R.string.obfuscated_res_0x7f0f14fb, Integer.valueOf(i));
             }
             return new cu4.i(string, 1000);
         }

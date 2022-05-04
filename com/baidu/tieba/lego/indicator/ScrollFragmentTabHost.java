@@ -191,7 +191,7 @@ public class ScrollFragmentTabHost extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.a = context;
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04f1, (ViewGroup) this, true);
-            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0923af);
             ee7 ee7Var = new ee7(context, findViewById(R.id.obfuscated_res_0x7f091e26));
             this.c = ee7Var;
             ee7Var.h(this.j);

@@ -78,7 +78,7 @@ public class ix5 implements View.OnClickListener {
             this.c = findViewById;
             findViewById.setOnClickListener(this);
             this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090ed7);
-            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0923b2);
+            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f0923b3);
             this.f = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092024);
             ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09066c);
             this.g = imageView;

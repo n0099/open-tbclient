@@ -40,19 +40,19 @@ public class uv4 {
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
             switch (i) {
                 case 1:
-                    return gj.a(R.string.obfuscated_res_0x7f0f1513);
+                    return gj.a(R.string.obfuscated_res_0x7f0f1514);
                 case 2:
-                    return gj.a(R.string.obfuscated_res_0x7f0f1518);
+                    return gj.a(R.string.obfuscated_res_0x7f0f1519);
                 case 3:
                     return gj.a(R.string.obfuscated_res_0x7f0f0c17);
                 case 4:
-                    return gj.a(R.string.obfuscated_res_0x7f0f1516);
-                case 5:
-                    return gj.a(R.string.obfuscated_res_0x7f0f1514);
-                case 6:
                     return gj.a(R.string.obfuscated_res_0x7f0f1517);
-                case 7:
+                case 5:
                     return gj.a(R.string.obfuscated_res_0x7f0f1515);
+                case 6:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1518);
+                case 7:
+                    return gj.a(R.string.obfuscated_res_0x7f0f1516);
                 default:
                     return "";
             }

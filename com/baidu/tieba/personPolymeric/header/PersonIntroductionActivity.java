@@ -105,7 +105,7 @@ public class PersonIntroductionActivity extends BaseActivity {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d06c5);
             this.mRootView = findViewById(R.id.obfuscated_res_0x7f0917ea);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e1d));
             ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d089e, (View.OnClickListener) null);

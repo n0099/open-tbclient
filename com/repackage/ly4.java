@@ -125,7 +125,7 @@ public class ly4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, context)) == null) {
             if (i == 3 || i == 2) {
-                return String.format(context.getString(R.string.obfuscated_res_0x7f0f03fb), context.getString(R.string.obfuscated_res_0x7f0f1553));
+                return String.format(context.getString(R.string.obfuscated_res_0x7f0f03fb), context.getString(R.string.obfuscated_res_0x7f0f1554));
             }
             if (i == 8 || i == 4) {
                 return String.format(context.getString(R.string.obfuscated_res_0x7f0f03fb), context.getString(R.string.obfuscated_res_0x7f0f0f14));

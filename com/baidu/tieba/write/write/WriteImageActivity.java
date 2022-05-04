@@ -735,7 +735,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            this.mParent = findViewById(R.id.obfuscated_res_0x7f09247d);
+            this.mParent = findViewById(R.id.obfuscated_res_0x7f09247e);
             ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09191d);
             this.mProgress = progressBar;
             progressBar.setVisibility(8);
@@ -747,7 +747,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                 this.mImage.setImageBitmap(bitmap);
             }
             this.mBeautifyView = (HorizontalScrollView) findViewById(R.id.obfuscated_res_0x7f0909a0);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             this.mTitleLeftBtn = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
             View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03d0, (View.OnClickListener) null);

@@ -991,7 +991,7 @@ public class au7 {
                 linearLayout.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X008), 0, 0);
                 linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 TextView textView = new TextView(this.a.a);
-                textView.setText(R.string.obfuscated_res_0x7f0f150e);
+                textView.setText(R.string.obfuscated_res_0x7f0f150f);
                 textView.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X07));
                 textView.setTextColor(SkinManager.getColor(R.color.CAM_X0304));
                 textView.setOnClickListener(new b(this));
@@ -1054,7 +1054,7 @@ public class au7 {
         this.v = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f0909f8);
         this.w = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0909fb);
         this.x = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f0909fa);
-        this.c = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.c = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f0923af);
         G();
         this.n = (RelativeLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0909f5);
         this.o = (BdTypeListView) this.e.findViewById(R.id.obfuscated_res_0x7f0909fc);
@@ -1073,7 +1073,7 @@ public class au7 {
         this.o.setNextPage(this.p);
         this.q = (ProgressBar) this.e.findViewById(R.id.obfuscated_res_0x7f09191d);
         this.u = (MaskView) this.e.findViewById(R.id.obfuscated_res_0x7f0913ab);
-        this.B = this.e.findViewById(R.id.obfuscated_res_0x7f092394);
+        this.B = this.e.findViewById(R.id.obfuscated_res_0x7f092395);
         LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f0909f6);
         this.z = linearLayout;
         linearLayout.setOnClickListener(new o(this));
@@ -1183,7 +1183,7 @@ public class au7 {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             int f2 = oi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070309);
             int f3 = oi.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701d4);
-            NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) this.e.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.g = navigationBar;
             navigationBar.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f062a));
             this.i = this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new s(this));

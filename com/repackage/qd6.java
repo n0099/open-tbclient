@@ -1351,7 +1351,7 @@ public class qd6 {
         if (interceptable == null || interceptable.invokeL(1048596, this, yq4Var) == null) {
             if (this.m == null) {
                 View H2 = this.a.H2();
-                ViewStub viewStub = (ViewStub) H2.findViewById(R.id.obfuscated_res_0x7f0924a0);
+                ViewStub viewStub = (ViewStub) H2.findViewById(R.id.obfuscated_res_0x7f0924a1);
                 this.m = viewStub;
                 viewStub.setVisibility(0);
                 this.n = (FrameLayout) H2.findViewById(R.id.obfuscated_res_0x7f090c41);

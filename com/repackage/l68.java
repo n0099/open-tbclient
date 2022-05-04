@@ -130,7 +130,7 @@ public class l68 extends tw5<k58> {
         if (interceptable == null || interceptable.invokeL(1048581, this, k58Var) == null) {
             if (k58Var != null && !ListUtils.isEmpty(k58Var.b)) {
                 this.i = k58Var.a;
-                this.k.setText(R.string.obfuscated_res_0x7f0f14fe);
+                this.k.setText(R.string.obfuscated_res_0x7f0f14ff);
                 this.l.setData(v(k58Var.b));
                 this.m.b(this.n);
                 return;

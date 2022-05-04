@@ -96,7 +96,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             if (this.a) {
                 setTheme(R.style.obfuscated_res_0x7f100177);
             }
-            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092426);
+            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092427);
             this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092013);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09201f);
             this.mLeftBtnIv = imageView;

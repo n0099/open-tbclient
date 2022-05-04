@@ -95,7 +95,7 @@ public class x28 extends tw5<r28> {
         this.i = 3;
         this.l = new a(this);
         View k = k();
-        this.j = (LinearLayout) k.findViewById(R.id.obfuscated_res_0x7f0923c1);
+        this.j = (LinearLayout) k.findViewById(R.id.obfuscated_res_0x7f0923c2);
         AutoBannerView autoBannerView = (AutoBannerView) k.findViewById(R.id.obfuscated_res_0x7f09177a);
         this.k = autoBannerView;
         autoBannerView.setMarqueenTime(3000L);

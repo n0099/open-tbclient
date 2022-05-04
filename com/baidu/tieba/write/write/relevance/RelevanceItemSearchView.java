@@ -397,7 +397,7 @@ public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListe
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923c1);
+            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923c2);
             this.f = customViewPager;
             customViewPager.addOnPageChangeListener(this);
             FragmentAdapter fragmentAdapter = new FragmentAdapter(this.d.getSupportFragmentManager());

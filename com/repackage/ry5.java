@@ -471,7 +471,7 @@ public class ry5 extends z8<ChosenPostActivity> {
             navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0f4f);
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d = (BdListView) m().findViewById(R.id.obfuscated_res_0x7f090652);
-            this.i = (NoNetworkView) m().findViewById(R.id.obfuscated_res_0x7f0923ae);
+            this.i = (NoNetworkView) m().findViewById(R.id.obfuscated_res_0x7f0923af);
             qy5 qy5Var = new qy5(this.a.getPageContext(), new Class[]{uy5.class, ty5.class, sy5.class}, new int[]{R.layout.obfuscated_res_0x7f0d01e7, R.layout.obfuscated_res_0x7f0d01de, R.layout.obfuscated_res_0x7f0d01dd}, this.a.getEventCenter());
             this.e = qy5Var;
             this.d.setAdapter((ListAdapter) qy5Var);

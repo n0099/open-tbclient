@@ -162,9 +162,9 @@ public class jo6 extends fo6 {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 c cVar = new c();
                 cVar.a = view2;
-                cVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09244f);
-                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092446);
-                cVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092444);
+                cVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092450);
+                cVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092447);
+                cVar.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092445);
                 return cVar;
             }
             return (c) invokeL.objValue;
@@ -398,7 +398,7 @@ public class jo6 extends fo6 {
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            c a2 = c.a(this.c.findViewById(R.id.obfuscated_res_0x7f092449));
+            c a2 = c.a(this.c.findViewById(R.id.obfuscated_res_0x7f09244a));
             this.h = a2;
             a2.a.setVisibility(8);
         }

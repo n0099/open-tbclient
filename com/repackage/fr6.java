@@ -273,7 +273,7 @@ public class fr6 {
                 }
                 this.b.X(sn4Var, (ViewGroup) this.a.getActivity().getWindow().getDecorView());
                 this.b.setAdvancedAdStyle(true);
-                this.b.setNavigationBar((NavigationBar) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0923ac));
+                this.b.setNavigationBar((NavigationBar) this.a.getActivity().findViewById(R.id.obfuscated_res_0x7f0923ad));
                 return;
             }
             this.b.setAdvancedAdStyle(false);

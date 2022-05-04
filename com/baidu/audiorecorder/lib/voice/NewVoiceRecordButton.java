@@ -317,7 +317,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, v05 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.h = null;
-            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1526));
+            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1527));
             this.d.setText("");
             this.d.setVisibility(4);
         }
@@ -329,7 +329,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, v05 {
             if (this.j == null) {
                 cr4 cr4Var = new cr4(f9.a(getContext()).getPageActivity());
                 this.j = cr4Var;
-                cr4Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f152b)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f152a), new c(this)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f036e), new b(this)).create(f9.a(getContext()));
+                cr4Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f152c)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f152b), new c(this)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f036e), new b(this)).create(f9.a(getContext()));
             }
             this.j.show();
         }
@@ -369,7 +369,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, v05 {
             this.b.setVisibility(0);
             this.c.g();
             this.c.setVisibility(4);
-            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1526));
+            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1527));
             this.d.setVisibility(4);
             um8 recorderManager = getRecorderManager();
             if (this.i && recorderManager != null) {
@@ -396,7 +396,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, v05 {
             Object obj = i05Var.c;
             if (obj instanceof VoiceData.VoiceModel) {
                 this.h = (VoiceData.VoiceModel) obj;
-                this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f152a));
+                this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f152b));
                 return;
             }
             k();
@@ -433,7 +433,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, v05 {
         voiceModel.isLocal = true;
         voiceModel.voiceId = str;
         voiceModel.voice_status = 1;
-        this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f152a));
+        this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f152b));
         d(new i05(10, -1, this.h));
     }
 
@@ -469,7 +469,7 @@ public class NewVoiceRecordButton extends LinearLayout implements ej, v05 {
             this.b.setVisibility(4);
             this.c.setVisibility(0);
             this.c.h();
-            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1527));
+            this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1528));
         }
     }
 

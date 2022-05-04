@@ -110,7 +110,7 @@ public class rj7 {
             }
             if (!ni.isEmpty(str4)) {
                 TextView textView = this.i;
-                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1511) + str4);
+                textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f1512) + str4);
                 return;
             }
             this.i.setText(str5);

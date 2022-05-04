@@ -87,7 +87,7 @@ public class m07 implements r78 {
         if (textView2 != null) {
             vr4.d(textView2).y(R.array.S_O_X001);
         }
-        TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092370);
+        TbImageView tbImageView = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092371);
         this.d = tbImageView;
         if (tbImageView != null) {
             tbImageView.t();

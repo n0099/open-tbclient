@@ -295,7 +295,7 @@ public class VideoChannelDelegateStatic extends m45 {
             n45Var.a = videoChannelFragment;
             videoChannelFragment.setArguments(bundle);
             n45Var.e = 22;
-            n45Var.b = R.string.obfuscated_res_0x7f0f14cf;
+            n45Var.b = R.string.obfuscated_res_0x7f0f14d0;
             n45Var.i = n45.m;
             n45Var.f = R.raw.lottie_tab_video_channel;
             n45Var.h = t45.d().c("channel");

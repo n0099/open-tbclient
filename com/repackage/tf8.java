@@ -723,7 +723,7 @@ public class tf8 {
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.u.findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) this.u.findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.a = navigationBar;
             this.b = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.a.setTitleText(this.u.getPageContext().getString(R.string.obfuscated_res_0x7f0f1123));

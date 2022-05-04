@@ -462,7 +462,7 @@ public class tt8 extends z8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f091515);
-            MaskVideoView maskVideoView = (MaskVideoView) this.a.findViewById(R.id.obfuscated_res_0x7f09237b);
+            MaskVideoView maskVideoView = (MaskVideoView) this.a.findViewById(R.id.obfuscated_res_0x7f09237c);
             this.c = maskVideoView;
             maskVideoView.setPreserveEGLContextOnPause(true);
             this.c.setZOrderMediaOverlay(true);

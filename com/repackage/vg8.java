@@ -107,7 +107,7 @@ public class vg8 extends z8<SignAllForumActivity> {
         this.a = signAllForumActivity;
         signAllForumActivity.setContentView(R.layout.obfuscated_res_0x7f0d0777);
         this.c = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091ced);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.b = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f116d));
         this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));

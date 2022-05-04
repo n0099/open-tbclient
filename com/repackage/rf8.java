@@ -188,7 +188,7 @@ public class rf8 {
             LinearLayout linearLayout = (LinearLayout) this.r.findViewById(R.id.obfuscated_res_0x7f0906e0);
             ImageView imageView = (ImageView) this.r.findViewById(R.id.obfuscated_res_0x7f09034d);
             TextView textView2 = (TextView) this.r.findViewById(R.id.obfuscated_res_0x7f0913f5);
-            Button button = (Button) this.r.findViewById(R.id.obfuscated_res_0x7f092493);
+            Button button = (Button) this.r.findViewById(R.id.obfuscated_res_0x7f092494);
             SkinManager.setBackgroundResource(button, this.e);
             SkinManager.setViewTextColor(button, this.f, 3);
             Button button2 = (Button) this.r.findViewById(R.id.obfuscated_res_0x7f091579);

@@ -283,11 +283,11 @@ public class kr8 {
         View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0246, (ViewGroup) null);
         this.b = inflate;
         this.a.setContentView(inflate);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.d = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.d.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f050b));
-        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923af);
         this.c = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f090845);
         this.f = (CoverFlowView) this.b.findViewById(R.id.obfuscated_res_0x7f090846);
         j();

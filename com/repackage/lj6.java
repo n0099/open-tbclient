@@ -692,7 +692,7 @@ public class lj6 implements View.OnClickListener {
             this.y.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0688));
             EMTextView eMTextView = new EMTextView(this.a.getPageActivity());
             this.z = eMTextView;
-            eMTextView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f14ef));
+            eMTextView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f14f0));
             this.z.setGravity(16);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             layoutParams.gravity = 17;

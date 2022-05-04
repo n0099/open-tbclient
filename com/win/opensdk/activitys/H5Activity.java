@@ -216,8 +216,8 @@ public class H5Activity extends Activity implements tp9 {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d08ce);
             this.a = getApplicationContext();
-            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092460);
-            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f092457);
+            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092461);
+            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f092458);
             this.h = 0L;
             this.i = new ht9(this);
             vp9.b("hcl", this);

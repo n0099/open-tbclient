@@ -209,9 +209,9 @@ public class fk7 extends BaseAdapter {
                 bVar.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913dc);
                 bVar.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913e1);
                 bVar.f = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0913e0);
-                bVar.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923cd);
+                bVar.j = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ce);
                 bVar.k = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0915a8);
-                bVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923d6);
+                bVar.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923d7);
                 bVar.m = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915aa);
                 bVar.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0908db);
                 bVar.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091211);
@@ -246,7 +246,7 @@ public class fk7 extends BaseAdapter {
                     if (1 == this.b) {
                         string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a9c);
                     } else {
-                        string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1510);
+                        string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1511);
                     }
                     i2 = 1;
                     bVar.g.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f055e, string, ni.getDateStringDay(new Date(j2 * 1000))));

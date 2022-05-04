@@ -354,7 +354,7 @@ public class sv5 {
                 cr4 cr4Var = new cr4(this.a.b);
                 View inflate = LayoutInflater.from(this.a.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0142, (ViewGroup) null);
                 TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09034c);
-                textView.setText(this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f1544) + "\n" + this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f1545));
+                textView.setText(this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f1545) + "\n" + this.a.b.getResources().getString(R.string.obfuscated_res_0x7f0f1546));
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
                 cr4Var.setContentView(inflate);
                 cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0984, new a(this));
@@ -434,7 +434,7 @@ public class sv5 {
         View findViewById = this.j.findViewById(R.id.obfuscated_res_0x7f0914f1);
         this.q = findViewById;
         findViewById.setAlpha(0.0f);
-        NavigationBar navigationBar = (NavigationBar) this.j.findViewById(R.id.obfuscated_res_0x7f092403);
+        NavigationBar navigationBar = (NavigationBar) this.j.findViewById(R.id.obfuscated_res_0x7f092404);
         this.p = navigationBar;
         navigationBar.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02d7));
         if (this.p.getBarBgView() != null) {
@@ -446,7 +446,7 @@ public class sv5 {
         this.r = textView;
         textView.setText(R.string.obfuscated_res_0x7f0f02ce);
         this.r.setOnClickListener(this.b);
-        this.s = (BdRecyclerView) this.j.findViewById(R.id.obfuscated_res_0x7f092401);
+        this.s = (BdRecyclerView) this.j.findViewById(R.id.obfuscated_res_0x7f092402);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.b);
         this.i = linearLayoutManager;
         this.s.setLayoutManager(linearLayoutManager);
@@ -466,24 +466,24 @@ public class sv5 {
         view2.setLayoutParams(new AbsListView.LayoutParams(-1, this.F));
         this.n.setVisibility(4);
         this.s.r(this.n);
-        this.t = (VoteStatusCard) this.l.findViewById(R.id.obfuscated_res_0x7f092407);
-        View findViewById2 = this.l.findViewById(R.id.obfuscated_res_0x7f092413);
+        this.t = (VoteStatusCard) this.l.findViewById(R.id.obfuscated_res_0x7f092408);
+        View findViewById2 = this.l.findViewById(R.id.obfuscated_res_0x7f092414);
         this.u = findViewById2;
         findViewById2.setOnClickListener(new e(this));
-        this.v = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092415);
-        this.w = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092414);
+        this.v = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092416);
+        this.w = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092415);
         this.t.setOnRefreshListener(this.O);
         this.y = this.l.findViewById(R.id.obfuscated_res_0x7f09032a);
         this.z = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f09032e);
         SelectRuleView selectRuleView = (SelectRuleView) this.l.findViewById(R.id.obfuscated_res_0x7f09032b);
         this.A = selectRuleView;
         selectRuleView.setType(1);
-        this.x = (VoteCandidateCard) this.l.findViewById(R.id.obfuscated_res_0x7f0923f7);
-        SearchView searchView = (SearchView) this.l.findViewById(R.id.obfuscated_res_0x7f092405);
+        this.x = (VoteCandidateCard) this.l.findViewById(R.id.obfuscated_res_0x7f0923f8);
+        SearchView searchView = (SearchView) this.l.findViewById(R.id.obfuscated_res_0x7f092406);
         this.B = searchView;
         searchView.a(new f(this));
         this.D = (FloatMyRecordCard) this.j.findViewById(R.id.obfuscated_res_0x7f0909d9);
-        this.E = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f09240f);
+        this.E = (TextView) this.l.findViewById(R.id.obfuscated_res_0x7f092410);
         PbListView pbListView = new PbListView(this.b);
         this.G = pbListView;
         pbListView.b();
@@ -594,7 +594,7 @@ public class sv5 {
             if (e2 != null && !TextUtils.isEmpty(e2.public_notice)) {
                 G(e2.public_notice + "占");
             } else {
-                G(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1543) + "占");
+                G(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1544) + "占");
             }
         }
         this.t.setData(yv5Var);

@@ -406,7 +406,7 @@ public class ReportThemeActivity extends BaseFragmentActivity {
     private void initNavigationBar() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0faa));
             this.mConfirm = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getString(R.string.obfuscated_res_0x7f0f0421));

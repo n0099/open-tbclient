@@ -127,7 +127,7 @@ public final class SelectTagView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0898, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092472);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092473);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_tag_sign)");
             setMTagTitleRightSign((ImageView) findViewById);
             View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091645);

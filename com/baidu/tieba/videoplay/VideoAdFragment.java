@@ -774,7 +774,7 @@ public class VideoAdFragment extends BaseFragment implements ng5.b, nw8 {
         imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080837, WebPManager.ResourceStateType.NORMAL_DISABLE));
         EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090697);
         this.x = eMTextView;
-        eMTextView.setText(R.string.obfuscated_res_0x7f0f14c6);
+        eMTextView.setText(R.string.obfuscated_res_0x7f0f14c7);
         vr4 d3 = vr4.d(this.x);
         d3.z(R.dimen.T_X09);
         d3.A(R.string.F_X01);
@@ -788,7 +788,7 @@ public class VideoAdFragment extends BaseFragment implements ng5.b, nw8 {
         imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080836, WebPManager.ResourceStateType.NORMAL));
         EMTextView eMTextView2 = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f091447);
         this.A = eMTextView2;
-        eMTextView2.setText(R.string.obfuscated_res_0x7f0f14c8);
+        eMTextView2.setText(R.string.obfuscated_res_0x7f0f14c9);
         vr4 d4 = vr4.d(this.A);
         d4.z(R.dimen.T_X09);
         d4.A(R.string.F_X01);
@@ -825,7 +825,7 @@ public class VideoAdFragment extends BaseFragment implements ng5.b, nw8 {
         this.G = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0900ab);
         TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0900ac);
         this.H = textView2;
-        textView2.setText(R.string.obfuscated_res_0x7f0f14c5);
+        textView2.setText(R.string.obfuscated_res_0x7f0f14c6);
         vr4 d7 = vr4.d(this.H);
         d7.z(R.dimen.T_X09);
         d7.v(R.color.CAM_X0621);
@@ -858,7 +858,7 @@ public class VideoAdFragment extends BaseFragment implements ng5.b, nw8 {
         }
         this.D.setText(e2);
         if (ni.isEmpty(zs8Var.d())) {
-            this.E.setData(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14c7), false, null);
+            this.E.setData(TbadkCoreApplication.getInst().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f14c8), false, null);
         } else {
             this.E.setData(zs8Var.d(), false, null);
         }

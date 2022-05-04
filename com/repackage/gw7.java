@@ -2357,7 +2357,7 @@ public class gw7 {
         this.e = this.d.findViewById(R.id.obfuscated_res_0x7f091d93);
         this.J1 = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091aa3);
         this.B = (ObservedChangeRelativeLayout) this.d.findViewById(R.id.obfuscated_res_0x7f092047);
-        this.m = (NoNetworkView) this.d.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.m = (NoNetworkView) this.d.findViewById(R.id.obfuscated_res_0x7f0923af);
         this.l = (PbLandscapeListView) this.d.findViewById(R.id.obfuscated_res_0x7f09154d);
         this.P0 = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091ad2);
         this.Q0 = new TextView(this.c.getActivity());
@@ -2389,7 +2389,7 @@ public class gw7 {
         }
         this.Q0.setLayoutParams(layoutParams);
         this.h.p().setOnTouchListener(new bt7(new p0(this)));
-        this.q0 = this.d.findViewById(R.id.obfuscated_res_0x7f092394);
+        this.q0 = this.d.findViewById(R.id.obfuscated_res_0x7f092395);
         this.r0 = this.d.findViewById(R.id.obfuscated_res_0x7f0916a1);
         oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds120);
         this.F0 = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070287);
@@ -2492,7 +2492,7 @@ public class gw7 {
         this.I.z();
         this.I.o(R.drawable.pb_foot_more_trans_selector);
         this.I.p(R.drawable.pb_foot_more_trans_selector);
-        this.M = this.d.findViewById(R.id.obfuscated_res_0x7f0923ca);
+        this.M = this.d.findViewById(R.id.obfuscated_res_0x7f0923cb);
         this.c.registerListener(this.Q1);
         this.d1 = new PbFakeFloorModel(this.c.getPageContext());
         PbModel w2 = this.c.w();
@@ -2579,7 +2579,7 @@ public class gw7 {
         }
         this.x.d(pbLandscapeListView);
         this.t.d(this.l);
-        this.u.w(this.l);
+        this.u.x(this.l);
         this.v.d(this.l);
         this.s.f(this.l);
     }
@@ -3019,7 +3019,7 @@ public class gw7 {
         }
         I3(bs7Var, z2, i3, TbadkCoreApplication.getInst().getSkinType());
         x3(bs7Var);
-        this.u.G(bs7Var, this.J0);
+        this.u.H(bs7Var, this.J0);
         if (this.u1 == null) {
             this.u1 = new tv7(this.c.getPageContext(), this.v1);
         }
@@ -3062,7 +3062,7 @@ public class gw7 {
         this.C.j0(z3 && this.S1 && i3 != 2);
         this.C.g0(bs7Var, false);
         this.C.Z();
-        this.u.E(C0(bs7Var, z2), bs7Var.g0());
+        this.u.F(C0(bs7Var, z2), bs7Var.g0());
         if (bs7Var.O() != null && bs7Var.O().getPraise() != null && this.b != -1) {
             bs7Var.O().getPraise().setIsLike(this.b);
         }
@@ -3269,7 +3269,7 @@ public class gw7 {
         }
         PostData C0 = C0(bs7Var, z2);
         f3(C0, bs7Var);
-        this.u.B(8);
+        this.u.C(8);
         if (bs7Var.r0()) {
             this.i1 = true;
             this.h.A(true);
@@ -3295,16 +3295,16 @@ public class gw7 {
             return;
         }
         this.J0 = C0;
-        this.u.B(0);
-        SparseArray<Object> q2 = this.u.q();
-        q2.put(R.id.obfuscated_res_0x7f091e56, C0);
-        q2.put(R.id.obfuscated_res_0x7f091e6f, Boolean.FALSE);
+        this.u.C(0);
+        SparseArray<Object> r2 = this.u.r();
+        r2.put(R.id.obfuscated_res_0x7f091e56, C0);
+        r2.put(R.id.obfuscated_res_0x7f091e6f, Boolean.FALSE);
         this.v.e(bs7Var, this.l);
         this.x.e(bs7Var, this.C1, new b0(this));
         this.t.f(bs7Var);
         this.s.h(bs7Var, this.H0);
         this.s.g(bs7Var);
-        this.u.C(this.L0, this.I0, C0, this.T1);
+        this.u.D(this.L0, this.I0, C0, this.T1);
         if (this.U0 != null) {
             if (bs7Var.g0()) {
                 this.U0.b().setVisibility(8);
@@ -4073,7 +4073,7 @@ public class gw7 {
         }
         xw7 xw7Var = this.u;
         if (xw7Var != null) {
-            xw7Var.t(i3);
+            xw7Var.u(i3);
         }
         ww7 ww7Var = this.w;
         if (ww7Var != null) {
@@ -4406,7 +4406,7 @@ public class gw7 {
             }
             xw7 xw7Var = this.u;
             if (xw7Var != null) {
-                xw7Var.u();
+                xw7Var.v();
             }
             PbLandscapeListView pbLandscapeListView = this.l;
             if (pbLandscapeListView != null) {
@@ -4821,7 +4821,7 @@ public class gw7 {
     public void e3(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048708, this, onLongClickListener) == null) {
-            this.u.x(onLongClickListener);
+            this.u.y(onLongClickListener);
             this.C.u0(onLongClickListener);
             bu7 bu7Var = this.r1;
             if (bu7Var != null) {
@@ -4846,18 +4846,18 @@ public class gw7 {
                         O.setPbTitle("2");
                     }
                     if (bs7Var.O().isBJHArticleThreadType()) {
-                        this.u.w(this.l);
+                        this.u.x(this.l);
                         this.t.d(this.l);
                         this.t.a(this.l);
                         this.u.j(this.l);
-                        this.u.A(this.I0);
+                        this.u.B(this.I0);
                         if (C1(bs7Var)) {
                             this.t.d(this.l);
                         } else {
                             this.t.e(bs7Var);
                         }
                     } else {
-                        this.u.A(this.I0);
+                        this.u.B(this.I0);
                         if (C1(bs7Var)) {
                             this.t.d(this.l);
                         } else {
@@ -4867,11 +4867,11 @@ public class gw7 {
                 } else if (bs7Var.O().getIsNoTitle() == 1) {
                     if (bs7Var.O() != null) {
                         this.t.d(this.l);
-                        this.u.A(this.I0);
+                        this.u.B(this.I0);
                     }
                 } else {
                     this.t.d(this.l);
-                    this.u.A(this.I0);
+                    this.u.B(this.I0);
                 }
             }
             U3(bs7Var);
@@ -4923,7 +4923,7 @@ public class gw7 {
             }
             dy7 dy7Var = this.h;
             if (dy7Var != null && (xw7Var = this.u) != null) {
-                dy7Var.w(xw7Var.o());
+                dy7Var.w(xw7Var.p());
             }
             s0 s0Var = this.Y0;
             s0Var.a = i3;
@@ -4949,7 +4949,7 @@ public class gw7 {
     public final void f3(PostData postData, bs7 bs7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048713, this, postData, bs7Var) == null) {
-            this.u.y(postData, bs7Var);
+            this.u.z(postData, bs7Var);
         }
     }
 
@@ -4984,7 +4984,7 @@ public class gw7 {
             SparseArray sparseArray = new SparseArray();
             sparseArray.put(e2, Integer.valueOf(h2));
             cr4Var.setYesButtonTag(sparseArray);
-            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1503, this.c);
+            cr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1504, this.c);
             cr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f036e, new k0(this));
             cr4Var.create(this.c.getPageContext()).show();
         }
@@ -5382,7 +5382,7 @@ public class gw7 {
     public void k3(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048735, this, z2) == null) {
-            this.u.z(z2);
+            this.u.A(z2);
         }
     }
 
@@ -5845,7 +5845,7 @@ public class gw7 {
     public final void r2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048762, this) == null) {
-            this.u.v(this.I0, this.J0, this.j1, this.i1);
+            this.u.w(this.I0, this.J0, this.j1, this.i1);
         }
     }
 
@@ -6189,7 +6189,7 @@ public class gw7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048782, this, new Object[]{bs7Var, Boolean.valueOf(z2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             I3(bs7Var, z2, i3, i4);
-            this.u.t(i4);
+            this.u.u(i4);
         }
     }
 
@@ -6264,7 +6264,7 @@ public class gw7 {
             this.h.K(bs7Var, bs7Var.l().getName(), bs7Var.l().getId(), bs7Var.l().getImage_url(), bs7Var.l().isLike() == 1);
         }
         if (this.j1) {
-            this.u.F(bs7Var, this.J0, this.f0);
+            this.u.G(bs7Var, this.J0, this.f0);
             View view2 = this.T0;
             if (view2 != null) {
                 view2.setVisibility(8);
@@ -6279,7 +6279,7 @@ public class gw7 {
         if (view3 != null) {
             view3.setVisibility(0);
         }
-        this.u.F(bs7Var, this.J0, this.f0);
+        this.u.G(bs7Var, this.J0, this.f0);
         this.s1 = null;
         this.l.setListViewDragListener(null);
     }

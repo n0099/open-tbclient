@@ -57,11 +57,11 @@ public class YoungsterFrsDialogView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d08df, this);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09249b);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09249c);
             this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee3);
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09222e);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09222d);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09249a);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09249b);
             this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09044b);
             mu4 mu4Var = new mu4();
             mu4Var.r(R.color.CAM_X0105);

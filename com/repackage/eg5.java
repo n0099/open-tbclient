@@ -422,7 +422,7 @@ public class eg5 {
     public final void B(int i, int i2, int i3, boolean z, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            WheelView wheelView = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f092491);
+            WheelView wheelView = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f092492);
             this.b = wheelView;
             wheelView.setAdapter(new of5(yf5.e(this.j, this.k)));
             this.b.setLabel("");
@@ -610,7 +610,7 @@ public class eg5 {
             List asList = Arrays.asList("1", "3", "5", "7", "8", "10", "12");
             List asList2 = Arrays.asList("4", "6", "9", "11");
             this.p = i;
-            WheelView wheelView = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f092491);
+            WheelView wheelView = (WheelView) this.a.findViewById(R.id.obfuscated_res_0x7f092492);
             this.b = wheelView;
             wheelView.setAdapter(new pf5(this.j, this.k));
             this.b.setCurrentItem(i - this.j);

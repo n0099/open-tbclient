@@ -1358,7 +1358,7 @@ public class RecordVideoActivity extends BaseActivity implements VideoEffectButt
                 if (this.mAlertDialog == null) {
                     cr4 cr4Var = new cr4(getPageContext().getPageActivity());
                     this.mAlertDialog = cr4Var;
-                    cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f14f0);
+                    cr4Var.setMessageId(R.string.obfuscated_res_0x7f0f14f1);
                     this.mAlertDialog.setPositiveButton(R.string.obfuscated_res_0x7f0f04dd, new l(this));
                     this.mAlertDialog.setNegativeButton(R.string.obfuscated_res_0x7f0f04d8, new m(this));
                     this.mAlertDialog.setCancelable(true);

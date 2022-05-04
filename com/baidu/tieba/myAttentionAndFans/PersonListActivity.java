@@ -1169,7 +1169,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (this.mForbiddenTipContainer == null) {
                 View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d02a8, (ViewGroup) null);
                 this.mForbiddenTipContainer = inflate;
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09239f);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923a0);
                 this.mForbiddenTipView = textView;
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0109);
                 SkinManager.setBackgroundColor(this.mForbiddenTipContainer, R.color.CAM_X0201);
@@ -1214,7 +1214,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65573, this) == null) {
             this.mParent = (NoPressedRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091642);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ac);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ad);
             this.mNavigationBar = navigationBar;
             this.mTitleText = navigationBar.setCenterTextTitle("");
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -1377,7 +1377,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 z = !ListUtils.isEmpty(wp4Var.a());
                 if (!z) {
                     textView.setVisibility(0);
-                    textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f154d));
+                    textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f154e));
                     return;
                 }
                 textView.setText(string + StringHelper.numberUniformFormat(wp4Var.e) + string2);

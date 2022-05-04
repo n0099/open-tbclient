@@ -122,7 +122,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090d2a);
                 headImageView.setIsRound(true);
                 headImageView.K(ss6Var.b(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09243b)).K(ss6Var.b(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09243c)).K(ss6Var.b(), 10, false);
             } else {
                 roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d037b, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);

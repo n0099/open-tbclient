@@ -81,12 +81,12 @@ public class vb6 {
         this.a = baseActivity;
         baseActivity.setContentView(R.layout.obfuscated_res_0x7f0d02c0);
         this.b = this.a.findViewById(R.id.obfuscated_res_0x7f090077);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ac);
+        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f0923ad);
         this.d = navigationBar;
         navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f06b1)).setOnClickListener(new a(this));
         this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.a.setNetRefreshViewTopMargin(BdListViewHelper.a);
-        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923ae);
+        this.g = (NoNetworkView) this.a.findViewById(R.id.obfuscated_res_0x7f0923af);
         this.e = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f090a68);
         du4 du4Var = new du4(this.a.getPageContext());
         this.f = du4Var;

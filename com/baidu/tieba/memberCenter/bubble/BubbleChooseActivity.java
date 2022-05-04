@@ -414,7 +414,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             super.onClick(view2);
             if (view2 == this.mBubbleChooseView.f()) {
                 Activity pageActivity = getPageContext().getPageActivity();
-                String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f154f);
+                String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f1550);
                 ul4.q(pageActivity, string, TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/tbeanrights?type=1&_client_version=" + TbConfig.getVersion(), true, true, true);
             }
         }

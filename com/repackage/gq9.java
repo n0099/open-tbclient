@@ -182,7 +182,7 @@ public class gq9 {
                 if (((ur9Var2 == null || !ur9Var2.e()) ? "" : ur9Var2.c.getLoad_type()).equals("video")) {
                     View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08d1, (ViewGroup) null);
                     this.i = inflate;
-                    VideoView videoView = (VideoView) inflate.findViewById(R.id.obfuscated_res_0x7f092450);
+                    VideoView videoView = (VideoView) inflate.findViewById(R.id.obfuscated_res_0x7f092451);
                     this.h = videoView;
                     videoView.setVisibility(0);
                     this.h.setOnErrorListener(new it9(this));
@@ -191,15 +191,15 @@ public class gq9 {
                     arrayList.clear();
                     View view2 = this.i;
                     if (view2 != null) {
-                        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09245f);
+                        View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f092460);
                         this.j = findViewById;
                         arrayList.add(findViewById);
                     }
                     if (this.i != null && (es9Var = this.b) != null && (b = es9Var.b()) != null) {
-                        ((TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092454)).setText(b.getTitle());
-                        ((TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092452)).setText(b.getDesc());
-                        ((TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092456)).setText(b.getBtndesc());
-                        ImageView imageView = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f092453);
+                        ((TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092455)).setText(b.getTitle());
+                        ((TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092453)).setText(b.getDesc());
+                        ((TextView) this.i.findViewById(R.id.obfuscated_res_0x7f092457)).setText(b.getBtndesc());
+                        ImageView imageView = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f092454);
                         String icon = b.getIcon();
                         if (!TextUtils.isEmpty(icon)) {
                             new ft9(new yt9(this, imageView)).a(icon, false);

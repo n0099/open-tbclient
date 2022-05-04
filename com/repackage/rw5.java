@@ -178,7 +178,7 @@ public class rw5 {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CALL_FANS);
             httpMessage.addParam("thread_id", this.b);
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.a.showToast(R.string.obfuscated_res_0x7f0f15de);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f15df);
             TbSingleton.getInstance().mCallFansTid = this.b;
             TbSingleton.getInstance().mCanCallFans = false;
         }

@@ -214,16 +214,16 @@ public class kz8 {
         if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{b9Var, str, str2, str3, str4, Integer.valueOf(i), bool, str5, str6, str7}) == null) || b9Var == null || b9Var.getPageActivity() == null) {
             return;
         }
-        String string = b9Var.getString(R.string.obfuscated_res_0x7f0f1572);
+        String string = b9Var.getString(R.string.obfuscated_res_0x7f0f1573);
         lr4 lr4Var = new lr4(b9Var);
         nr4 nr4Var = new nr4(b9Var.getPageActivity());
         nr4Var.q(string);
         ArrayList arrayList = new ArrayList();
-        jr4 jr4Var = new jr4(0, b9Var.getString(R.string.obfuscated_res_0x7f0f1571), nr4Var);
+        jr4 jr4Var = new jr4(0, b9Var.getString(R.string.obfuscated_res_0x7f0f1572), nr4Var);
         jr4Var.q(R.color.CAM_X0105);
         jr4Var.o(R.color.CAM_X0204);
         arrayList.add(jr4Var);
-        jr4 jr4Var2 = new jr4(1, b9Var.getString(R.string.obfuscated_res_0x7f0f1570), nr4Var);
+        jr4 jr4Var2 = new jr4(1, b9Var.getString(R.string.obfuscated_res_0x7f0f1571), nr4Var);
         jr4Var2.q(R.color.CAM_X0105);
         jr4Var2.o(R.color.CAM_X0204);
         arrayList.add(jr4Var2);

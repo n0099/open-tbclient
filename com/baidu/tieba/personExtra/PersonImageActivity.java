@@ -323,7 +323,7 @@ public class PersonImageActivity extends BaseActivity<PersonImageActivity> {
             this.mDialogClickListener = new c(this);
             this.mOnscOnScrollOutListener = new d(this);
             this.mProgress = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09191d);
-            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0923c1);
+            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0923c2);
             this.mMultiImageView = multiImageView;
             multiImageView.setPageMargin(oi.d(getPageContext().getPageActivity(), 8.0f));
             this.mMultiImageView.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
